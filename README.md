@@ -4,12 +4,20 @@
 
 ---
 
+## 预览
+
+| RAX（77 页） | BCG（8 页） |
+|---|---|
+| <img src="site/rax/preview.png" width="480" alt="RAX bilingual reader"> | <img src="site/bcg/preview.png" width="480" alt="BCG bilingual reader"> |
+
+左列英文原文、右列中文译文；页首可切换「对照 / 仅中文 / 仅英文」，点击图片可放大，左侧目录随滚动高亮。
+
 ## 已收录
 
-| 论文 | 方向 | 规模 | 阅读 |
+| 论文 | 方向 | 规模 | 位置 |
 |---|---|---|---|
-| **Scaling Online Exploration for Robot Agents**（RAX） | 软件 · 智能体 / 机器人学习 · VLA · 操作 | 77 页 · 34 图 · 21 表 · 261 段对照 | [阅读](site/rax/index.html) |
-| **Bundled Contact Gradients: Stabilizing Differentiable Simulation for Deployable Dynamic Tasks**（BCG） | 硬件 · 可微分仿真 · 接触 · 足式/人形 | 8 页 · 5 图 · 2 表 · 1 算法 · 公式 (1)–(5) | [阅读](site/bcg/index.html) |
+| **Scaling Online Exploration for Robot Agents**（RAX） | 软件 · 智能体 / 机器人学习 · VLA · 操作 | 77 页 · 34 图 · 21 表 · 261 段对照 | [`site/rax/`](site/rax/) |
+| **Bundled Contact Gradients: Stabilizing Differentiable Simulation for Deployable Dynamic Tasks**（BCG） | 硬件 · 可微分仿真 · 接触 · 足式/人形 | 8 页 · 5 图 · 2 表 · 1 算法 · 公式 (1)–(5) | [`site/bcg/`](site/bcg/) |
 
 **RAX** 让一个通用编程智能体通过在线探索自行编写机器人控制程序，跨五种本体（单臂 / 双臂 / 灵巧手 / 移动 / 人形）在仿真与真机上完成精密插入、铰接物体、可变形物体与长时序移动操作。
 **BCG** 在刚性接触处对邻近扰动分支做局部随机平滑以稳定一阶策略梯度，把可微分仿真训练的人形动态动作零样本部署到真实 Unitree G1。
