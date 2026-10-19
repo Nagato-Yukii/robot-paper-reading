@@ -28,6 +28,8 @@ header.top{position:sticky;top:0;z-index:50;background:rgba(250,248,243,.92);
 .brand{font-weight:700;letter-spacing:.02em;font-size:15px;white-space:nowrap}
 .brand small{font-weight:400;color:var(--faint);margin-left:8px;font-size:12px}
 .spacer{flex:1}
+.translation-credit{max-width:var(--w);margin:0 auto;padding:4px 22px 6px;text-align:right;font:12px/1.5 var(--sans);color:var(--accent)}
+.translation-credit:empty{display:none}
 .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
 .seg button{border:0;background:#fff;padding:5px 11px;font:inherit;font-size:12.5px;
   color:var(--soft);cursor:pointer}
@@ -169,6 +171,45 @@ html[data-mode="en"] h2,html[data-mode="en"] h3{font-family:var(--en)}
   figure.float{page-break-inside:avoid}
   a{color:inherit}
 }
+
+/* Imported PDF library: preserve the exact source math and cross references. */
+.brand{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.pair>.en,.pair>.zh{min-width:0;overflow-wrap:anywhere}
+h2 .en-h{font-family:var(--en);font-size:.7em;font-weight:400;color:var(--faint);margin-left:12px}
+.translation-notice{margin:20px 0;padding:14px 18px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;background:var(--accent-soft);font:13px/1.8 var(--sans);color:var(--soft)}
+.imported-heading{font-weight:700;background:var(--accent-soft);padding:15px 12px;margin-top:20px;border-radius:6px}
+.equation-index{padding:14px 18px;border:1px solid var(--line);border-radius:8px;font:13px/1.8 var(--sans);margin:18px 0;scroll-margin-top:90px}
+.equation-index summary{cursor:pointer}
+.equation-index>div{display:flex;gap:8px 16px;flex-wrap:wrap;padding-top:12px}
+.eq[id]{scroll-margin-top:90px}
+.eq-anchor{display:block;scroll-margin-top:100px}
+.eq-ref{font-weight:600;text-decoration:underline;text-underline-offset:3px;border-radius:3px}
+.eq-backlinks{display:flex;gap:8px 16px;flex-wrap:wrap;margin-top:10px;font:12px/1.8 var(--sans)}
+.eq-backref{padding:2px 8px;border:1px solid var(--line);border-radius:12px}
+.imported-formula img{width:auto;max-width:100%;max-height:none}
+.source-check,.source-page{font:12px/1.7 var(--sans);color:var(--faint);margin:12px 0}
+.source-check summary,.source-page summary{cursor:pointer}
+.source-check img,.source-page img{display:block;width:100%;height:auto;margin:12px 0;background:white;border:1px solid var(--line)}
+.source-page img{max-width:900px;margin-inline:auto}
+.bibliography-pair{font-size:12px}
+[id^="ref-"],.pair[id],figure[id]{scroll-margin-top:90px}
+:target{outline:2px solid var(--accent);outline-offset:5px}
+.eq-anchor:target{outline:0}
+figure:has(.eq-anchor:target){outline:2px solid var(--accent);outline-offset:8px}
+@media print{.source-check,.source-page,.eq-backlinks{display:none!important}.brand{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.pair>.en,.pair>.zh{min-width:0;overflow-wrap:anywhere}
+h2 .en-h{font-family:var(--en);font-size:.7em;font-weight:400;color:var(--faint);margin-left:12px}
+.translation-notice{font-size:10px}.imported-heading{break-after:avoid}}
+
+@media(max-width:720px){
+  .top-in{flex-wrap:wrap;gap:8px;padding:8px 12px}
+  .brand{flex:1 0 100%}
+  .brand small,.spacer{display:none}
+  .seg{flex-shrink:0}
+  .seg button{font-size:12px;padding:5px 8px;white-space:nowrap}
+  .tools{margin-left:auto;gap:6px}
+  .tools button{padding:5px 6px;white-space:nowrap}
+}
 </style>
 {{MATH_CSS}}
 </head>
@@ -189,6 +230,7 @@ html[data-mode="en"] h2,html[data-mode="en"] h3{font-family:var(--en)}
       <button id="totop" title="回到顶部">↑ 顶部</button>
     </div>
   </div>
+  <div class="translation-credit">{{TRANSLATION_CREDIT}}</div>
 </header>
 
 <div class="wrap">
@@ -216,12 +258,17 @@ html[data-mode="en"] h2,html[data-mode="en"] h3{font-family:var(--en)}
   try{var m=localStorage.getItem('rax-mode'); if(m) setMode(m);}catch(e){}
 
   var fs=100;
-  function applyFs(){document.querySelectorAll('.pair').forEach(function(p){
-    p.style.fontSize='';});
-    document.body.style.zoom='';}
-  var base=15.6;
-  document.getElementById('fs-up').onclick=function(){fs=Math.min(150,fs+6);document.querySelectorAll('.pair > .zh').forEach(function(e){e.style.fontSize=(base*fs/100)+'px')};document.querySelectorAll('.pair > .en').forEach(function(e){e.style.fontSize=(14.4*fs/100)+'px')}};
-  document.getElementById('fs-down').onclick=function(){fs=Math.max(80,fs-6);document.querySelectorAll('.pair > .zh').forEach(function(e){e.style.fontSize=(base*fs/100)+'px')};document.querySelectorAll('.pair > .en').forEach(function(e){e.style.fontSize=(14.4*fs/100)+'px')}};
+  function changeFontSize(step){
+    fs=Math.max(80,Math.min(150,fs+step));
+    document.querySelectorAll('.pair > .zh').forEach(function(e){
+      e.style.fontSize=(15.6*fs/100)+'px';
+    });
+    document.querySelectorAll('.pair > .en').forEach(function(e){
+      e.style.fontSize=(14.4*fs/100)+'px';
+    });
+  }
+  document.getElementById('fs-up').onclick=function(){changeFontSize(6)};
+  document.getElementById('fs-down').onclick=function(){changeFontSize(-6)};
 
   document.getElementById('totop').onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
 

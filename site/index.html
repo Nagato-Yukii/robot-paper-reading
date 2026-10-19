@@ -31,12 +31,13 @@ h2.sec:after{content:"";flex:1;height:1px;background:var(--line)}
 .card h3{font-size:19.5px;margin:0 0 6px;line-height:1.35}
 .card .ent{font-family:var(--en);font-style:italic;color:var(--soft);font-size:13.6px;margin:0 0 12px;line-height:1.5}
 .card p{font-size:13px;color:#6b7178;line-height:1.72;margin:0 0 14px}
-.card .meta{font-size:12px;color:var(--faint);border-top:1px dashed var(--line);padding-top:10px;
-  display:flex;gap:14px;flex-wrap:wrap}
-.soon{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
-.soon div{background:#fffdf8;border:1px dashed var(--line);border-radius:10px;padding:11px 14px;
-  font-size:12.6px;color:#7a8088;line-height:1.6}
-.soon b{display:block;color:#4b5158;font-size:12.4px;margin-bottom:2px}
+.card .ratings{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid var(--line);padding-top:14px;margin:0}
+.card .ratings div{min-width:0}
+.card .ratings dt{font-size:11px;color:var(--soft);margin-bottom:5px}
+.card .ratings dd{font-size:18px;font-weight:700;color:#3f51b5;margin:0}
+.card .ratings dd small{font-size:11px;font-weight:400;color:var(--faint)}
+.rating-note{font-size:12px;line-height:1.7;color:var(--faint);margin:0 0 16px}
+@media(max-width:420px){.grid{grid-template-columns:minmax(0,1fr)}.card{padding:18px}.wrap{padding-left:16px;padding-right:16px}}
 footer{margin-top:52px;border-top:1px solid var(--line);padding-top:18px;font-size:12.4px;color:var(--faint);line-height:1.85}
 code{font-family:var(--mono);font-size:.9em;background:#f1efe9;border-radius:4px;padding:1px 5px}
 a{color:#3f51b5}
@@ -54,35 +55,141 @@ a{color:#3f51b5}
   </h1>
   <p class="sub">面向机器人领域的论文精读：覆盖学习与控制算法（软件），以及仿真、接触、硬件迁移（硬件）。
      每篇论文做成<b>逐段中英对照</b>页面——左英文原文、右中文译文，插图与表格从原 PDF 高清裁出，
-     公式以 KaTeX 本地渲染；可切换「对照 / 仅中文 / 仅英文」，也可直接打印成双语 PDF。</p>
+     公式保留原始编号和版式，引用支持跳转与返回；可切换「对照 / 仅中文 / 仅英文」，也可直接打印成双语 PDF。</p>
 
-  <h2 class="sec">已收录 · Papers</h2>
+  <h2 class="sec">已收录 · Papers <span>26 份阅读材料</span></h2>
+  <p class="rating-note">阅读初评 · 5 分制；影响力按方向价值与带动潜力评估，非引用量排名；实验看验证覆盖，方法看借鉴价值。</p>
   <div class="grid">
     <a class="card" href="rax/index.html">
-      <span class="tag" style="background:#eceffb;color:#3f51b5">软件 · 智能体 / 机器人学习</span>
-      <span class="tag" style="background:#f3f0ea;color:#6b7178">VLA · 操作</span>
-      <h3>面向机器人智能体的在线探索规模化</h3>
-      <p class="ent">Scaling Online Exploration for Robot Agents</p>
-      <p>RAX：让一个通用编程智能体通过在线探索自己写出机器人控制程序，跨五种本体（单臂 / 双臂 / 灵巧手 / 移动 / 人形）在仿真与真机上掌握精密插入、铰接物体、可变形物体与长时序移动操作。</p>
-      <div class="meta"><span>77 页</span><span>34 图 · 21 表</span><span>261 段对照</span><span>arXiv 2026</span></div>
+      <h3>RAX：面向机器人智能体的在线探索规模化</h3>
+      <p class="review">把在线探索用于自动编写机器人控制程序，适合参考跨本体任务组织与评测设计。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>4<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>5<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>4<small> / 5</small></dd></div></dl>
     </a>
-
     <a class="card" href="bcg/index.html">
-      <span class="tag" style="background:#e6f4f1;color:#0f766e">硬件 · 仿真 / 接触</span>
-      <span class="tag" style="background:#f3f0ea;color:#6b7178">足式 · 人形</span>
-      <h3>捆绑接触梯度：让可微分仿真稳定支撑可部署的动态任务</h3>
-      <p class="ent">Bundled Contact Gradients: Stabilizing Differentiable Simulation for Deployable Dynamic Tasks</p>
-      <p>BCG：在刚性接触处对邻近扰动分支做局部随机平滑，稳定一阶策略梯度；把可微分仿真训练出的人形动态动作（跑、跳、格斗、舞）零样本部署到真实 Unitree G1。</p>
-      <div class="meta"><span>8 页</span><span>5 图 · 2 表 · 1 算法</span><span>公式 (1)–(5)</span><span>arXiv 2026</span></div>
+      <h3>BCG：捆绑接触梯度——让可微分仿真稳定用于可部署的动态任务</h3>
+      <p class="review">用局部平滑缓解接触梯度不稳定，为可微分仿真到真机提供了值得借鉴的路径。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>4<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>5<small> / 5</small></dd></div></dl>
     </a>
-  </div>
-
-  <h2 class="sec">计划中 · Roadmap</h2>
-  <div class="soon">
-    <div><b>学习与控制</b>足式运动、MPC 与 WBC、强化学习 sim-to-real</div>
-    <div><b>操作</b>灵巧手、触觉、接触丰富的装配</div>
-    <div><b>仿真与硬件</b>可微分物理、接触建模、执行器与传动</div>
-    <div><b>感知与系统</b>VLA、SLAM、实时系统与部署</div>
+    <a class="card" href="vla-transfer/index.html">
+      <h3>RT-2：将网络知识迁移到机器人控制的视觉语言动作模型</h3>
+      <p class="review">将动作统一为文本 token，把视觉语言预训练接入机器人控制，值得作为 VLA 入门主线。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>5<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>5<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>4<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="lswm/index.html">
+      <h3>LSWM：用于双足强化学习运动控制的长短历史世界模型</h3>
+      <p class="review">结合长短历史重建与未来预测，适合参考双足运动中的状态表征设计。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>3<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>4<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="rl-pd-control/index.html">
+      <h3>机器人强化学习与关节 PD 控制</h3>
+      <p class="review">把强化学习动作与关节 PD 控制的关系讲清楚，适合补齐控制接口的基础概念。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>2<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>不适用</dd></div><div><dt>方法可参考性</dt><dd>4<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="gvhmr/index.html">
+      <h3>GVHMR：通过重力视角坐标恢复世界坐标系下的人体运动</h3>
+      <p class="review">借助重力视角坐标恢复世界系人体运动，适合作为视频动作数据处理的参考。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>4<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>5<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="wham/index.html">
+      <h3>WHAM：世界坐标下的准确人体运动重建</h3>
+      <p class="review">融合视觉、运动上下文与接触约束恢复全局人体轨迹，适合参考动作重建流程。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>4<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>4<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="exbody/index.html">
+      <h3>ExBody：富有表现力的人形全身控制</h3>
+      <p class="review">拆分上身动作模仿与下身移动控制，适合参考实用的人形全身控制结构。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>4<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>5<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="kungfubot2/index.html">
+      <h3>KungfuBot2：学习多样化的人形全身运动技能</h3>
+      <p class="review">通过混合跟踪目标与专家结构整合多种动作，适合参考单策略多技能学习。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>3<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>4<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="kungfubot/index.html">
+      <h3>KungfuBot：面向高动态技能学习的物理人形全身控制</h3>
+      <p class="review">把动作处理和自适应跟踪课程串起来，适合参考高动态技能的训练细节。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>4<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>5<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="asap/index.html">
+      <h3>ASAP：对齐仿真与现实物理以实现敏捷人形技能</h3>
+      <p class="review">用真实轨迹学习仿真修正模型，适合研究高动态动作中的仿真到现实差距。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>5<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>5<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="robust-walking/index.html">
+      <h3>通过深度强化学习在柔顺与不平坦地形上实现鲁棒人形行走</h3>
+      <p class="review">以随机地形训练和自适应步频提升真机行走鲁棒性，适合参考简洁的训练课程。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>3<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>4<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="bridging-gap/index.html">
+      <h3>弥合差距：面向多种足式机器人的系统化仿真到现实迁移</h3>
+      <p class="review">从执行器到整机逐层校准动力学，适合参考跨平台迁移与能效验证的工程方法。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>4<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>5<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>5<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="beyondmimic/index.html">
+      <h3>BeyondMimic：通过引导扩散实现从运动跟踪到通用人形控制</h3>
+      <p class="review">将高质量动作跟踪与引导扩散连接起来，适合参考从模仿到通用控制的完整流程。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>5<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>5<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="almi/index.html">
+      <h3>ALMI：用于人形策略学习的对抗运动控制与动作模仿</h3>
+      <p class="review">让上下身策略在相互扰动中学习协调，适合参考移动稳定性与动作保真的权衡。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>3<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>4<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="learning-failures/index.html">
+      <h3>从失败中学习：结合情景记忆的高效强化学习控制</h3>
+      <p class="review">显式记忆失败状态以减少重复试错，适合参考可接入现有强化学习流程的改进。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>3<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>4<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="hiking/index.html">
+      <h3>野外徒步：可扩展的人形机器人感知跑酷框架</h3>
+      <p class="review">以深度感知和落脚安全机制支持复杂地形通行，适合参考端到端感知运动控制。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>4<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>5<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="ase/index.html">
+      <h3>ASE：物理仿真角色的大规模可复用对抗技能嵌入</h3>
+      <p class="review">把动作库压缩为可复用的技能嵌入，适合建立分层控制与运动先验的基础认识。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>5<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>5<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="zest/index.html">
+      <h3>ZEST：面向运动型机器人控制的零样本具身技能迁移</h3>
+      <p class="review">用精简模仿流程跨数据源和机器人部署动态技能，适合参考执行器建模与训练课程。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>4<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>5<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>5<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="h-infinity/index.html">
+      <h3>学习 H∞ 运动控制</h3>
+      <p class="review">将鲁棒控制思想接入对抗强化学习，适合参考扰动强度与控制性能的显式约束。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>3<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>4<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="rt1/index.html">
+      <h3>RT-1：面向规模化真实机器人控制的 Robotics Transformer</h3>
+      <p class="review">系统研究机器人数据规模与模型泛化，适合参考大规模多任务策略的设计和评测。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>5<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>5<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>4<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="dagger/index.html">
+      <h3>将模仿学习与结构化预测归约到无遗憾在线学习</h3>
+      <p class="review">用交互式数据聚合缓解模仿学习的分布偏移，理论清楚且容易迁移到新任务。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>5<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>3<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>5<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="visualmimic/index.html">
+      <h3>VisualMimic：通过运动跟踪与生成实现视觉人形移动操作</h3>
+      <p class="review">将视觉高层策略连接到通用动作跟踪器，适合参考人形移动操作的分层接口。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>3<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>4<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="him/index.html">
+      <h3>HIM：通过仿真机器人响应学习敏捷足式运动的混合内部模型</h3>
+      <p class="review">用显式速度与隐式稳定性表征学习机器人响应，适合参考轻量的本体感知控制。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>4<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>5<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="dreamwaq/index.html">
+      <h3>DreamWaQ：通过隐式地形想象与深度强化学习实现鲁棒四足运动</h3>
+      <p class="review">通过隐式地形表征支持无视觉四足运动，适合参考状态估计与策略学习的联合设计。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>4<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>5<small> / 5</small></dd></div></dl>
+    </a>
+    <a class="card" href="any2track/index.html">
+      <h3>Any2Track：在任意扰动下跟踪任意运动</h3>
+      <p class="review">将动力学适应作为额外能力训练，适合参考多种扰动下的鲁棒动作跟踪。</p>
+      <dl class="ratings"><div><dt>影响力</dt><dd>3<small> / 5</small></dd></div><div><dt>实验完整性</dt><dd>4<small> / 5</small></dd></div><div><dt>方法可参考性</dt><dd>4<small> / 5</small></dd></div></dl>
+    </a>
   </div>
 
   <footer>

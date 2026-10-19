@@ -1,0 +1,154 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 204,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "zest-001",
+      "conversation_id": "20aeedc3-4387-48de-9d8c-ac989e23e2ce",
+      "receipt_sha256": "f550a8de13fbbe592d3f1460da61c84a2b1741d2360401bc8a7e4b5d3a794cbe",
+      "usage": {
+        "input_tokens": 36932,
+        "output_tokens": 6117,
+        "thinking_tokens": 4060,
+        "cache_read_tokens": 0,
+        "total_tokens": 43049
+      },
+      "elapsed_seconds": 54.8
+    },
+    {
+      "job_id": "zest-001b",
+      "conversation_id": "d86f1765-87a3-4cbc-b4ac-636425eb6d3b",
+      "receipt_sha256": "5dce3a93f8f8d4c8d519299036fc6c7dab80ef4a309d748ae526482570609e71",
+      "usage": {
+        "input_tokens": 29818,
+        "output_tokens": 13657,
+        "thinking_tokens": 8498,
+        "cache_read_tokens": 19633,
+        "total_tokens": 43475
+      },
+      "elapsed_seconds": 106.38
+    },
+    {
+      "job_id": "zest-002",
+      "conversation_id": "736df5fd-0f8e-41bd-b8dc-ffcf2569ac13",
+      "receipt_sha256": "2a43c5869fdd80fdc21b1a5c0b24d836303c4aad80be6ddd28b0d0471871151f",
+      "usage": {
+        "input_tokens": 23919,
+        "output_tokens": 8716,
+        "thinking_tokens": 5382,
+        "cache_read_tokens": 17588,
+        "total_tokens": 32635
+      },
+      "elapsed_seconds": 450.09
+    },
+    {
+      "job_id": "zest-002b",
+      "conversation_id": "cc6fe595-419d-4182-af8b-b76f3dbd5e37",
+      "receipt_sha256": "ffb4c9ef29d3986ba5b24532b8e079a69e60a889a6a50879ae25b112fb0b188a",
+      "usage": {
+        "input_tokens": 24153,
+        "output_tokens": 9210,
+        "thinking_tokens": 5190,
+        "cache_read_tokens": 17843,
+        "total_tokens": 33363
+      },
+      "elapsed_seconds": 78.04
+    },
+    {
+      "job_id": "zest-003",
+      "conversation_id": "46df54fe-603e-4700-bbe5-4a6f34a6a52a",
+      "receipt_sha256": "2a02c2a78ef2ee834a955fc2888078b657b25cd36910968c696843fea42329f3",
+      "usage": {
+        "input_tokens": 23958,
+        "output_tokens": 8967,
+        "thinking_tokens": 5051,
+        "cache_read_tokens": 17646,
+        "total_tokens": 32925
+      },
+      "elapsed_seconds": 77.56
+    },
+    {
+      "job_id": "zest-003b",
+      "conversation_id": "efdaba04-a82e-40b6-bc97-9f05c447c43e",
+      "receipt_sha256": "8822dc8f7dac4afa3050824e1aba27f3ad70aa38e067c3c1f3b11cc1ccd71e9e",
+      "usage": {
+        "input_tokens": 24366,
+        "output_tokens": 9070,
+        "thinking_tokens": 5447,
+        "cache_read_tokens": 17855,
+        "total_tokens": 33436
+      },
+      "elapsed_seconds": 72.99
+    },
+    {
+      "job_id": "zest-004",
+      "conversation_id": "6f70f2d3-3a5f-42eb-a8ea-aa82fc5ce3b9",
+      "receipt_sha256": "55c83a2f7ddbdf22f88eaa26a493823f224b657fef8be701104bda17afb356fd",
+      "usage": {
+        "input_tokens": 32073,
+        "output_tokens": 15126,
+        "thinking_tokens": 10673,
+        "cache_read_tokens": 20026,
+        "total_tokens": 47199
+      },
+      "elapsed_seconds": 111.81
+    },
+    {
+      "job_id": "zest-004b",
+      "conversation_id": "13ff2078-016e-45cd-bccc-1143efaf9fb7",
+      "receipt_sha256": "619881578a5068e721f3cfb3e62103aec5044260f835e58956570303ac5c12bd",
+      "usage": {
+        "input_tokens": 42117,
+        "output_tokens": 9644,
+        "thinking_tokens": 6856,
+        "cache_read_tokens": 0,
+        "total_tokens": 51761
+      },
+      "elapsed_seconds": 450.11
+    },
+    {
+      "job_id": "zest-005",
+      "conversation_id": "21f54e64-c55d-417b-af29-2280dad496aa",
+      "receipt_sha256": "f2cdf663fba6aa6da44214d3c756318eb9e1d8a4f61f6a6b912bb072b2cb16ac",
+      "usage": {
+        "input_tokens": 34176,
+        "output_tokens": 15841,
+        "thinking_tokens": 9281,
+        "cache_read_tokens": 22969,
+        "total_tokens": 50017
+      },
+      "elapsed_seconds": 115.37
+    },
+    {
+      "job_id": "zest-006",
+      "conversation_id": "6f800cf4-89fa-407e-b44a-9aad186a9f82",
+      "receipt_sha256": "2461ffacd376b9b8fb20e047dbbd3e2cb883dd099d861b5372d7a0dcbd692014",
+      "usage": {
+        "input_tokens": 30331,
+        "output_tokens": 13373,
+        "thinking_tokens": 6990,
+        "cache_read_tokens": 21001,
+        "total_tokens": 43704
+      },
+      "elapsed_seconds": 107.19
+    },
+    {
+      "job_id": "zest-007",
+      "conversation_id": "925e14ab-c988-4264-86c1-5e54826a935b",
+      "receipt_sha256": "0dec57425b14600b745bb38d1202f8087aabe823d39f3e43bc6977713b5f525d",
+      "usage": {
+        "input_tokens": 28228,
+        "output_tokens": 7308,
+        "thinking_tokens": 4856,
+        "cache_read_tokens": 10500,
+        "total_tokens": 35536
+      },
+      "elapsed_seconds": 60.76
+    }
+  ]
+}

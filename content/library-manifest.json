@@ -1,0 +1,594 @@
+[
+  {
+    "id": "almi",
+    "title": "Adversarial Locomotion and Motion Imitation for Humanoid Policy Learning",
+    "pages": 24,
+    "sha256": "c292a42bf233def4f4332584dcd9ca2f4086a4bccab07c5db5dbddd95975f861",
+    "source_aliases": [
+      "papers/humanoid-whole-body/ALMI.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p3-b5",
+      "2": "p3-b6-eq-2",
+      "3": "p3-b7",
+      "4": "p3-b10",
+      "5": "p5-b1",
+      "6": "p5-b3",
+      "7": "p5-b5",
+      "8": "p14-b2",
+      "9": "p14-b4",
+      "10": "p14-b6",
+      "11": "p14-b8",
+      "12": "p14-b10",
+      "13": "p14-b12",
+      "14": "p14-b17",
+      "15": "p15-b1",
+      "16": "p15-b3",
+      "17": "p15-b4",
+      "18": "p15-b4",
+      "19": "p15-b4",
+      "20": "p15-b4",
+      "21": "p15-b6",
+      "22": "p15-b8",
+      "23": "p15-b8",
+      "24": "p16-b1",
+      "25": "p16-b3",
+      "26": "p16-b14",
+      "27": "p16-b15",
+      "28": "p18-b2",
+      "29": "p18-b2",
+      "30": "p18-b11",
+      "31": "p18-b13",
+      "32": "p18-b13",
+      "33": "p18-b13",
+      "34": "p21-b5",
+      "35": "p21-b6"
+    },
+    "equation_references": 16,
+    "paragraphs": 243
+  },
+  {
+    "id": "any2track",
+    "title": "Track Any Motions under Any Disturbances",
+    "pages": 9,
+    "sha256": "e6fcc76740489c9621c55afa0fe8ce82f3fd0f44833f33ba41a30a869a5753ac",
+    "source_aliases": [
+      "papers/human-pose-vision/Any2Track.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p4-b8",
+      "2": "p5-b6",
+      "3": "p5-b9",
+      "4": "p5-b12"
+    },
+    "equation_references": 0,
+    "paragraphs": 154
+  },
+  {
+    "id": "asap",
+    "title": "ASAP: Aligning Simulation and Real-World Physics for Learning Agile Humanoid Whole-Body Skills",
+    "pages": 18,
+    "sha256": "8ca60229d7e560769ceece6cb5571d8e6f528c6c485f631b7fd5162d503b7db0",
+    "source_aliases": [
+      "papers/humanoid-locomotion/ASAP.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p18-b10",
+      "2": "p18-b11",
+      "3": "p18-b14",
+      "4": "p18-b23"
+    },
+    "equation_references": 4,
+    "paragraphs": 280
+  },
+  {
+    "id": "ase",
+    "title": "ASE: Large-Scale Reusable Adversarial Skill Embeddings for Physically Simulated Characters",
+    "pages": 18,
+    "sha256": "e4151dfddd0f79ef496092b58c10ef67b519e9a5be3b4d5b2067c575124050c7",
+    "source_aliases": [
+      "new_papers/ASE.pdf",
+      "papers/imitation-learning/ase.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p3-b7",
+      "2": "p4-b7",
+      "3": "p4-b11",
+      "4": "p5-b6",
+      "5": "p5-b9",
+      "6": "p5-b10",
+      "7": "p5-b12",
+      "8": "p5-b12",
+      "9": "p5-b14",
+      "10": "p5-b16",
+      "11": "p6-b2",
+      "12": "p6-b6",
+      "13": "p6-b8",
+      "14": "p6-b12",
+      "15": "p6-b19",
+      "16": "p8-b8",
+      "17": "p9-b9",
+      "18": "p9-b13",
+      "19": "p9-b16",
+      "20": "p9-b19",
+      "21": "p9-b22",
+      "22": "p12-b9"
+    },
+    "equation_references": 22,
+    "paragraphs": 271
+  },
+  {
+    "id": "beyondmimic",
+    "title": "BeyondMimic: From Motion Tracking to Versatile Humanoid Control via Guided Diffusion",
+    "pages": 9,
+    "sha256": "54830839bbb3f8945b4ba053aad96e94ffe1cd186b4033e5ee5903f27a941a28",
+    "source_aliases": [
+      "papers/imitation-learning/BeyondMimic.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p4-b3",
+      "2": "p4-b5",
+      "3": "p4-b16",
+      "4": "p4-b24",
+      "5": "p5-b1",
+      "6": "p5-b5",
+      "7": "p5-b10",
+      "8": "p5-b13",
+      "9": "p5-b17",
+      "10": "p5-b19"
+    },
+    "equation_references": 0,
+    "paragraphs": 192
+  },
+  {
+    "id": "bridging-gap",
+    "title": "Towards bridging the gap: Systematic sim-to-real transfer for diverse legged robots",
+    "pages": 26,
+    "sha256": "ac21fdbbc11676536730e63ed4f8349accc5c5a3dde002a9242227dfbd1dcc24",
+    "source_aliases": [
+      "new_papers/Towards bridging the gap.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p4-b23",
+      "2": "p4-b27",
+      "3": "p5-b5",
+      "4": "p5-b9",
+      "5": "p5-b10",
+      "6": "p6-b3",
+      "7": "p6-b6",
+      "8": "p6-b13",
+      "9": "p6-b16",
+      "10": "p6-b20",
+      "11": "p6-b22",
+      "12": "p6-b24",
+      "13": "p6-b24",
+      "14": "p6-b25",
+      "15": "p6-b28",
+      "16": "p6-b30",
+      "17": "p7-b4",
+      "18": "p7-b5",
+      "19": "p7-b7",
+      "20": "p7-b9",
+      "21": "p7-b12",
+      "22": "p7-b13",
+      "23": "p8-b25",
+      "24": "p10-b13",
+      "25": "p10-b15",
+      "26": "p10-b15",
+      "27": "p10-b17",
+      "28": "p10-b19",
+      "29": "p10-b21",
+      "30": "p20-b14",
+      "31": "p20-b16",
+      "32": "p21-b5",
+      "33": "p21-b8",
+      "34": "p21-b15",
+      "35": "p21-b16",
+      "36": "p21-b18",
+      "37": "p21-b19",
+      "38": "p21-b19",
+      "39": "p21-b19",
+      "40": "p21-b19",
+      "41": "p21-b21",
+      "42": "p21-b21",
+      "43": "p21-b24",
+      "44": "p21-b25",
+      "45": "p22-b13",
+      "46": "p22-b13",
+      "47": "p23-b11",
+      "48": "p23-b13",
+      "49": "p23-b15",
+      "50": "p23-b17",
+      "51": "p23-b20",
+      "52": "p23-b24",
+      "53": "p23-b26"
+    },
+    "equation_references": 13,
+    "paragraphs": 351
+  },
+  {
+    "id": "dagger",
+    "title": "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning",
+    "pages": 9,
+    "sha256": "17bdd6e049e64f09010b322f9e2d4fb5c744c33ff7ac99b4c4561e39bd9082a7",
+    "source_aliases": [
+      "papers/imitation-learning/A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning.pdf",
+      "papers/imitation-learning/DAgger.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p2-b8",
+      "2": "p2-b12",
+      "3": "p5-b2"
+    },
+    "equation_references": 0,
+    "paragraphs": 125
+  },
+  {
+    "id": "dreamwaq",
+    "title": "DreamWaQ: Learning Robust Quadrupedal Locomotion With Implicit Terrain Imagination via Deep Reinforcement Learning",
+    "pages": 7,
+    "sha256": "fb02d20879c38b2ca7d0b52ff58174f2119451dea23e946c3eecfccdfcce1cfd",
+    "source_aliases": [
+      "papers/humanoid-locomotion/DreamWaQ.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p2-b14",
+      "2": "p2-b17",
+      "3": "p2-b20",
+      "4": "p3-b3",
+      "5": "p3-b14",
+      "6": "p3-b16",
+      "7": "p3-b18-eq-7",
+      "8": "p4-b1"
+    },
+    "equation_references": 0,
+    "paragraphs": 132
+  },
+  {
+    "id": "exbody",
+    "title": "Expressive Whole-Body Control for Humanoid Robots",
+    "pages": 13,
+    "sha256": "3529a700d69a37c2b1307b05762a9a7cde49368a76707c72d37c8ae118eb5780",
+    "source_aliases": [
+      "papers/humanoid-whole-body/exbody.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {},
+    "equation_references": 0,
+    "paragraphs": 162
+  },
+  {
+    "id": "gvhmr",
+    "title": "World-Grounded Human Motion Recovery via Gravity-View Coordinates",
+    "pages": 11,
+    "sha256": "3aaf2bb42fc13ba23b944db10519c77bf5b60e4d9b95655346a76c5e465026c5",
+    "source_aliases": [
+      "papers/human-pose-vision/GVHMR.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p4-b9",
+      "2": "p4-b14",
+      "3": "p5-b6",
+      "4": "p5-b6",
+      "5": "p5-b8",
+      "6": "p5-b11",
+      "7": "p5-b11"
+    },
+    "equation_references": 2,
+    "paragraphs": 134
+  },
+  {
+    "id": "h-infinity",
+    "title": "Learning H-Infinity Locomotion Control",
+    "pages": 14,
+    "sha256": "c0a77f5a54728cf98cbc39d75bbbcb86c0fc0a6265c7b3a02f63896e27123a48",
+    "source_aliases": [
+      "papers/control-theory/H-infinity Control.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p3-b3",
+      "2": "p3-b6",
+      "3": "p3-b8",
+      "4": "p3-b10",
+      "5": "p3-b15",
+      "6": "p4-b3",
+      "7": "p4-b5",
+      "8": "p4-b7",
+      "9": "p4-b11",
+      "10": "p5-b1",
+      "11": "p5-b3",
+      "12": "p5-b6",
+      "13": "p12-b3"
+    },
+    "equation_references": 0,
+    "paragraphs": 123
+  },
+  {
+    "id": "hiking",
+    "title": "Hiking in the Wild: A Scalable Perceptive Parkour Framework for Humanoids",
+    "pages": 11,
+    "sha256": "3e1d48773741952e5e20fb704ecf53d2e56ca44dfc96e62ea7fad1b4341902f4",
+    "source_aliases": [
+      "hiking_in_the_wild.pdf",
+      "papers/humanoid-locomotion/hiking_in_the_wild.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p3-b10",
+      "2": "p3-b13",
+      "3": "p5-b20",
+      "4": "p6-b14",
+      "5": "p6-b15",
+      "6": "p6-b26",
+      "7": "p6-b28",
+      "8": "p7-b1"
+    },
+    "equation_references": 0,
+    "paragraphs": 200
+  },
+  {
+    "id": "him",
+    "title": "Hybrid Internal Model: Learning Agile Legged Locomotion with Simulated Robot Response",
+    "pages": 17,
+    "sha256": "966785d9bc92f577cc743a5d13fd253c10dbb5e0f3dbb0adbc77fd1f7df2952b",
+    "source_aliases": [
+      "papers/humanoid-whole-body/HIM.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p5-b7",
+      "2": "p5-b10"
+    },
+    "equation_references": 0,
+    "paragraphs": 168
+  },
+  {
+    "id": "kungfubot",
+    "title": "KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills",
+    "pages": 21,
+    "sha256": "cc60e43854818ded7135be53899240f3ad6c233ae955341cbe9bad73c40abecb",
+    "source_aliases": [
+      "papers/humanoid-whole-body/PBHC.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p3-b6",
+      "2": "p3-b9",
+      "3": "p4-b2",
+      "4": "p4-b10",
+      "5": "p4-b17",
+      "6": "p5-b1",
+      "7": "p5-b3-eq-7",
+      "8": "p5-b11",
+      "9a": "p14-b2",
+      "9b": "p14-b3",
+      "10": "p14-b5",
+      "11": "p14-b7",
+      "12": "p14-b9",
+      "13": "p14-b9",
+      "14": "p14-b11",
+      "15a": "p14-b13",
+      "15b": "p14-b13",
+      "16a": "p14-b15",
+      "16b": "p14-b15",
+      "16c": "p14-b16",
+      "16d": "p14-b16",
+      "17": "p14-b18",
+      "18a": "p16-b3",
+      "18b": "p16-b3",
+      "18c": "p16-b3",
+      "18d": "p16-b3",
+      "19": "p17-b7",
+      "20": "p17-b10",
+      "21": "p18-b6",
+      "22": "p18-b8",
+      "23": "p18-b10",
+      "24": "p18-b10",
+      "25": "p18-b14",
+      "26": "p18-b17",
+      "27": "p20-b8"
+    },
+    "equation_references": 25,
+    "paragraphs": 227
+  },
+  {
+    "id": "kungfubot2",
+    "title": "KungfuBot2: Learning Versatile Motion Skills for Humanoid Whole-Body Control",
+    "pages": 9,
+    "sha256": "564abc6e58ed9b7b35a6952c85b6e561569c9a38aa23b4c734320d1b57168cd3",
+    "source_aliases": [
+      "papers/humanoid-whole-body/KungFuBot2.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p4-b2",
+      "2": "p4-b3",
+      "4": "p4-b6",
+      "5": "p4-b11",
+      "6": "p4-b13",
+      "7": "p4-b15",
+      "8": "p4-b18",
+      "9": "p5-b2",
+      "10": "p5-b4"
+    },
+    "equation_references": 0,
+    "paragraphs": 148
+  },
+  {
+    "id": "learning-failures",
+    "title": "Learning From Failures: Efficient Reinforcement Learning Control with Episodic Memory",
+    "pages": 9,
+    "sha256": "6d8264959b2e37a16c8df311511a76162cfb9d8733b80096d956decbee00418e",
+    "source_aliases": [
+      "papers/reinforcement-learning/Learning_from_Failures.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p3-b7",
+      "2": "p3-b10",
+      "3": "p3-b14",
+      "4": "p3-b17",
+      "5": "p3-b22",
+      "6": "p3-b25",
+      "7": "p4-b6"
+    },
+    "equation_references": 0,
+    "paragraphs": 118
+  },
+  {
+    "id": "lswm",
+    "title": "LSWM: A Long–Short History World Model for Bipedal Locomotion via Reinforcement Learning",
+    "pages": 20,
+    "sha256": "e281ac919da6a78b733bb7c5b3ec79e26093083848e682fa599957b78e843a44",
+    "source_aliases": [
+      "new_papers/LSWM.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p4-b9",
+      "2": "p5-b4",
+      "3": "p5-b8",
+      "4": "p5-b10",
+      "5": "p5-b13",
+      "6": "p6-b7",
+      "7": "p7-b2",
+      "8": "p7-b4",
+      "9": "p7-b7"
+    },
+    "equation_references": 0,
+    "paragraphs": 148
+  },
+  {
+    "id": "rl-pd-control",
+    "title": "机器人强化学习与关节PD控制 - 知乎",
+    "pages": 6,
+    "sha256": "b753d08fb1c4ab178d471280ac47f3bbbfafc86c40ec9ad00eb9d4f5b4772046",
+    "source_aliases": [
+      "new_papers/zhihu_机器人强化学习与关节PD控制.pdf",
+      "papers/zhihu-rl-joint-pd-control.pdf"
+    ],
+    "translation_review": "original-chinese",
+    "equations": {},
+    "equation_references": 0,
+    "paragraphs": 61
+  },
+  {
+    "id": "robust-walking",
+    "title": "Robust Humanoid Walking on Compliant and Uneven Terrain with Deep Reinforcement Learning",
+    "pages": 8,
+    "sha256": "13c01d097d6c4bcd4a88506bc1767d6b81281e0851acb3d364e142b406305d75",
+    "source_aliases": [
+      "papers/humanoid-locomotion/robust_humanoid_walking.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p2-b22",
+      "2": "p3-b1",
+      "3": "p5-b8"
+    },
+    "equation_references": 0,
+    "paragraphs": 157
+  },
+  {
+    "id": "rt1",
+    "title": "RT-1: Robotics Transformer for Real-World Control at Scale",
+    "pages": 31,
+    "sha256": "81efe669c8fa50ffc7097886dc78a442fa7a8f7f2451684b93069cb9fbeda767",
+    "source_aliases": [
+      "new_papers/Robotics-Transformer1.pdf",
+      "papers/robotics-transformer1.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {},
+    "equation_references": 0,
+    "paragraphs": 265
+  },
+  {
+    "id": "visualmimic",
+    "title": "VisualMimic: Visual Humanoid Loco-Manipulation via Motion Tracking and Generation",
+    "pages": 10,
+    "sha256": "18dc57557a843d9a220317aee9b391b204f77549a1eb6af4cdd6cd903493adcf",
+    "source_aliases": [
+      "papers/imitation-learning/VisualMimic.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p5-b4",
+      "2": "p5-b6",
+      "3": "p5-b8",
+      "4": "p5-b17",
+      "5": "p6-b1",
+      "6": "p6-b4",
+      "7": "p6-b7",
+      "8": "p6-b11",
+      "9": "p6-b14"
+    },
+    "equation_references": 0,
+    "paragraphs": 137
+  },
+  {
+    "id": "vla-transfer",
+    "title": "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control",
+    "pages": 26,
+    "sha256": "0a62dc36bbbfdea232ad45a0ab75c82e9cf535b55333ff22c02d5da1897ccac3",
+    "source_aliases": [
+      "new_papers/Vision-Language-Action Models Transfer.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {},
+    "equation_references": 0,
+    "paragraphs": 220
+  },
+  {
+    "id": "wham",
+    "title": "WHAM: World-grounded Humans with Accurate Motion",
+    "pages": 15,
+    "sha256": "1eced982c6ad272be181f95f3b37e7568687f254e051bc3d42f1fc29ab02b659",
+    "source_aliases": [
+      "new_papers/WHAM.pdf",
+      "papers/human-pose-vision/wham.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {},
+    "equation_references": 0,
+    "paragraphs": 190
+  },
+  {
+    "id": "zest",
+    "title": "ZEST: Zero-shot Embodied Skill Transfer for Athletic Robot Control",
+    "pages": 29,
+    "sha256": "398f5b6601c6273f9a2cf397607f292d7c47a7d16af4ae4a434580cea4b5b371",
+    "source_aliases": [
+      "papers/sim-to-real/ZEST.pdf"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p11-b3",
+      "2": "p11-b5",
+      "3": "p17-b8",
+      "4": "p17-b8",
+      "5": "p17-b8",
+      "6": "p17-b14",
+      "7": "p17-b16",
+      "8": "p18-b2",
+      "9": "p18-b6",
+      "10": "p18-b11",
+      "11": "p18-b12",
+      "12": "p18-b17",
+      "13a": "p21-b6",
+      "13b": "p21-b7"
+    },
+    "equation_references": 4,
+    "paragraphs": 278
+  }
+]

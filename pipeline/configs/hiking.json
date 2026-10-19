@@ -1,0 +1,39 @@
+{
+  "id": "hiking",
+  "sha256": "3e1d48773741952e5e20fb704ecf53d2e56ca44dfc96e62ea7fad1b4341902f4",
+  "brand": "Hiking in the Wild",
+  "zh_title": "野外徒步：可扩展的人形机器人感知跑酷框架",
+  "category": "感知 · 人形运动",
+  "pdf": "sources/hiking.pdf",
+  "title": "野外徒步：可扩展的人形机器人感知跑酷框架 · 中英对照",
+  "brand_sub": "Hiking in the Wild: A Scalable Perceptive Parkour Framework for Humanoids",
+  "out": "site/hiking",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "hiking_in_the_wild.pdf",
+    "papers/humanoid-locomotion/hiking_in_the_wild.pdf"
+  ],
+  "validation": {
+    "equations": {
+      "1": "p3-b10",
+      "2": "p3-b13",
+      "3": "p5-b20",
+      "4": "p6-b14",
+      "5": "p6-b15",
+      "6": "p6-b26",
+      "7": "p6-b28",
+      "8": "p7-b1"
+    },
+    "equation_references": 0,
+    "paragraphs": 200
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 144,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

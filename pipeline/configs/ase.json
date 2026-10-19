@@ -1,0 +1,53 @@
+{
+  "id": "ase",
+  "sha256": "e4151dfddd0f79ef496092b58c10ef67b519e9a5be3b4d5b2067c575124050c7",
+  "brand": "ASE",
+  "zh_title": "ASE：物理仿真角色的大规模可复用对抗技能嵌入",
+  "category": "技能学习 · 角色控制",
+  "pdf": "sources/ase.pdf",
+  "title": "ASE：物理仿真角色的大规模可复用对抗技能嵌入 · 中英对照",
+  "brand_sub": "ASE: Large-Scale Reusable Adversarial Skill Embeddings for Physically Simulated Characters",
+  "out": "site/ase",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "new_papers/ASE.pdf",
+    "papers/imitation-learning/ase.pdf"
+  ],
+  "validation": {
+    "equations": {
+      "1": "p3-b7",
+      "2": "p4-b7",
+      "3": "p4-b11",
+      "4": "p5-b6",
+      "5": "p5-b9",
+      "6": "p5-b10",
+      "7": "p5-b12",
+      "8": "p5-b12",
+      "9": "p5-b14",
+      "10": "p5-b16",
+      "11": "p6-b2",
+      "12": "p6-b6",
+      "13": "p6-b8",
+      "14": "p6-b12",
+      "15": "p6-b19",
+      "16": "p8-b8",
+      "17": "p9-b9",
+      "18": "p9-b13",
+      "19": "p9-b16",
+      "20": "p9-b19",
+      "21": "p9-b22",
+      "22": "p12-b9"
+    },
+    "equation_references": 22,
+    "paragraphs": 271
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 167,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

@@ -1,0 +1,102 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 204,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "rt1-001",
+      "conversation_id": "85723d9b-86ad-48b0-935f-65ad7694a9f2",
+      "receipt_sha256": "c3e09cb7fc742286a01eb2f56f96947655e3f3fade5a3a1faff2635f616362cf",
+      "usage": {
+        "input_tokens": 34710,
+        "output_tokens": 17182,
+        "thinking_tokens": 9666,
+        "cache_read_tokens": 22202,
+        "total_tokens": 51892
+      },
+      "elapsed_seconds": 124.98
+    },
+    {
+      "job_id": "rt1-002",
+      "conversation_id": "06f856bc-e2ac-4c25-b7b1-c0e8bf3a1a3f",
+      "receipt_sha256": "726b342be442c4004abaa439a8f77bd3bfa522659c89257a2fe2a8300f892d33",
+      "usage": {
+        "input_tokens": 35752,
+        "output_tokens": 17980,
+        "thinking_tokens": 10610,
+        "cache_read_tokens": 22073,
+        "total_tokens": 53732
+      },
+      "elapsed_seconds": 135.18
+    },
+    {
+      "job_id": "rt1-003",
+      "conversation_id": "8b94912d-d4e9-4624-afc1-7111f215cd33",
+      "receipt_sha256": "d07521a99d909bc1530acff647805b4dc191a2bdf52b7d33140df10d74c4e2b0",
+      "usage": {
+        "input_tokens": 20403,
+        "output_tokens": 37038,
+        "thinking_tokens": 33349,
+        "cache_read_tokens": 0,
+        "total_tokens": 57441
+      },
+      "elapsed_seconds": 450.04
+    },
+    {
+      "job_id": "rt1-004",
+      "conversation_id": "9dcf4f26-372c-4a36-bccb-7c22f5dbeb66",
+      "receipt_sha256": "2180dbd694c76fb778f916ad028ca6ee8047649142f93fbf063b09ebf9f5a9cb",
+      "usage": {
+        "input_tokens": 30892,
+        "output_tokens": 13443,
+        "thinking_tokens": 7229,
+        "cache_read_tokens": 21620,
+        "total_tokens": 44335
+      },
+      "elapsed_seconds": 94.29
+    },
+    {
+      "job_id": "rt1-005",
+      "conversation_id": "2075e5df-f92a-4da2-adc8-7b2b5d411d56",
+      "receipt_sha256": "4c6ab7ccec41061abdaa85cc9f36e6062adf77c83826e4142e36e97a90fba1d4",
+      "usage": {
+        "input_tokens": 31001,
+        "output_tokens": 14615,
+        "thinking_tokens": 8407,
+        "cache_read_tokens": 20287,
+        "total_tokens": 45616
+      },
+      "elapsed_seconds": 105.14
+    },
+    {
+      "job_id": "rt1-006",
+      "conversation_id": "3f4f4fc3-60af-4aa4-8eac-d1e058f187a8",
+      "receipt_sha256": "4d2654c2391be813be8d2deeeeaff8cccb67302594f800b6cc5476616b051b28",
+      "usage": {
+        "input_tokens": 19901,
+        "output_tokens": 33611,
+        "thinking_tokens": 30185,
+        "cache_read_tokens": 0,
+        "total_tokens": 53512
+      },
+      "elapsed_seconds": 236.05
+    },
+    {
+      "job_id": "rt1-007",
+      "conversation_id": "51a9f275-c020-4f5d-8708-52be97473610",
+      "receipt_sha256": "2a133d3e1f74f3225d2801c1a411c88854255d08cd742b791fa160e1ad0fe03b",
+      "usage": {
+        "input_tokens": 39761,
+        "output_tokens": 7872,
+        "thinking_tokens": 4884,
+        "cache_read_tokens": 0,
+        "total_tokens": 47633
+      },
+      "elapsed_seconds": 71.18
+    }
+  ]
+}

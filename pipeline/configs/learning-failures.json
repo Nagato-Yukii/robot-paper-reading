@@ -1,0 +1,37 @@
+{
+  "id": "learning-failures",
+  "sha256": "6d8264959b2e37a16c8df311511a76162cfb9d8733b80096d956decbee00418e",
+  "brand": "Learning from Failures",
+  "zh_title": "从失败中学习：结合情景记忆的高效强化学习控制",
+  "category": "强化学习 · 情景记忆",
+  "pdf": "sources/learning-failures.pdf",
+  "title": "从失败中学习：结合情景记忆的高效强化学习控制 · 中英对照",
+  "brand_sub": "Learning From Failures: Efficient Reinforcement Learning Control with Episodic Memory",
+  "out": "site/learning-failures",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "papers/reinforcement-learning/Learning_from_Failures.pdf"
+  ],
+  "validation": {
+    "equations": {
+      "1": "p3-b7",
+      "2": "p3-b10",
+      "3": "p3-b14",
+      "4": "p3-b17",
+      "5": "p3-b22",
+      "6": "p3-b25",
+      "7": "p4-b6"
+    },
+    "equation_references": 0,
+    "paragraphs": 118
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 85,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

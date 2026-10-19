@@ -1,0 +1,32 @@
+{
+  "id": "him",
+  "sha256": "966785d9bc92f577cc743a5d13fd253c10dbb5e0f3dbb0adbc77fd1f7df2952b",
+  "brand": "HIM",
+  "zh_title": "HIM：通过仿真机器人响应学习敏捷足式运动的混合内部模型",
+  "category": "足式运动 · 内部模型",
+  "pdf": "sources/him.pdf",
+  "title": "HIM：通过仿真机器人响应学习敏捷足式运动的混合内部模型 · 中英对照",
+  "brand_sub": "Hybrid Internal Model: Learning Agile Legged Locomotion with Simulated Robot Response",
+  "out": "site/him",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "papers/humanoid-whole-body/HIM.pdf"
+  ],
+  "validation": {
+    "equations": {
+      "1": "p5-b7",
+      "2": "p5-b10"
+    },
+    "equation_references": 0,
+    "paragraphs": 168
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 120,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

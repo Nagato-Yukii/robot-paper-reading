@@ -1,0 +1,40 @@
+{
+  "id": "beyondmimic",
+  "sha256": "54830839bbb3f8945b4ba053aad96e94ffe1cd186b4033e5ee5903f27a941a28",
+  "brand": "BeyondMimic",
+  "zh_title": "BeyondMimic：通过引导扩散实现从运动跟踪到通用人形控制",
+  "category": "动作模仿 · 扩散策略",
+  "pdf": "sources/beyondmimic.pdf",
+  "title": "BeyondMimic：通过引导扩散实现从运动跟踪到通用人形控制 · 中英对照",
+  "brand_sub": "BeyondMimic: From Motion Tracking to Versatile Humanoid Control via Guided Diffusion",
+  "out": "site/beyondmimic",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "papers/imitation-learning/BeyondMimic.pdf"
+  ],
+  "validation": {
+    "equations": {
+      "1": "p4-b3",
+      "2": "p4-b5",
+      "3": "p4-b16",
+      "4": "p4-b24",
+      "5": "p5-b1",
+      "6": "p5-b5",
+      "7": "p5-b10",
+      "8": "p5-b13",
+      "9": "p5-b17",
+      "10": "p5-b19"
+    },
+    "equation_references": 0,
+    "paragraphs": 192
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 143,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

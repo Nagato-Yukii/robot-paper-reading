@@ -1,0 +1,63 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 117,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "lswm-001",
+      "conversation_id": "1c571fe0-f496-4faf-b238-30f1461d4508",
+      "receipt_sha256": "30b03dacf4f5a391a667fd1c3c31bc2b8939ccce1fbf6aba91c9af2fbbbb68ee",
+      "usage": {
+        "input_tokens": 19749,
+        "output_tokens": 22311,
+        "thinking_tokens": 19131,
+        "cache_read_tokens": 0,
+        "total_tokens": 42060
+      },
+      "elapsed_seconds": 161.73
+    },
+    {
+      "job_id": "lswm-002",
+      "conversation_id": "e24eafe2-9943-429e-8fa6-e267a552a26e",
+      "receipt_sha256": "6cff9612c91c751397af8405af87b102ed2e693020ff525b23252d149a1176ba",
+      "usage": {
+        "input_tokens": 30583,
+        "output_tokens": 13744,
+        "thinking_tokens": 7991,
+        "cache_read_tokens": 20598,
+        "total_tokens": 44327
+      },
+      "elapsed_seconds": 155.96
+    },
+    {
+      "job_id": "lswm-003",
+      "conversation_id": "3a2df9a8-b6c5-4d11-8885-e65ffa408bae",
+      "receipt_sha256": "4b098fb1a6638ad0ee3b2b3ef70204ef37a2601c0f54973e3016b486ef9fbd54",
+      "usage": {
+        "input_tokens": 32090,
+        "output_tokens": 14942,
+        "thinking_tokens": 8010,
+        "cache_read_tokens": 21325,
+        "total_tokens": 47032
+      },
+      "elapsed_seconds": 109.64
+    },
+    {
+      "job_id": "lswm-004",
+      "conversation_id": "eea33591-682e-442e-8744-b6e4e8120177",
+      "receipt_sha256": "f9ca3b45a748deba621afa398e93432108afb388a0a564b2c575377527d6ef85",
+      "usage": {
+        "input_tokens": 14106,
+        "output_tokens": 5992,
+        "thinking_tokens": 5621,
+        "cache_read_tokens": 0,
+        "total_tokens": 20098
+      },
+      "elapsed_seconds": 56.66
+    }
+  ]
+}

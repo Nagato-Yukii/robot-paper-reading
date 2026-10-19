@@ -1,0 +1,39 @@
+{
+  "id": "lswm",
+  "sha256": "e281ac919da6a78b733bb7c5b3ec79e26093083848e682fa599957b78e843a44",
+  "brand": "LSWM",
+  "zh_title": "LSWM：用于双足强化学习运动控制的长短历史世界模型",
+  "category": "世界模型 · 双足运动",
+  "pdf": "sources/lswm.pdf",
+  "title": "LSWM：用于双足强化学习运动控制的长短历史世界模型 · 中英对照",
+  "brand_sub": "LSWM: A Long–Short History World Model for Bipedal Locomotion via Reinforcement Learning",
+  "out": "site/lswm",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "new_papers/LSWM.pdf"
+  ],
+  "validation": {
+    "equations": {
+      "1": "p4-b9",
+      "2": "p5-b4",
+      "3": "p5-b8",
+      "4": "p5-b10",
+      "5": "p5-b13",
+      "6": "p6-b7",
+      "7": "p7-b2",
+      "8": "p7-b4",
+      "9": "p7-b7"
+    },
+    "equation_references": 0,
+    "paragraphs": 148
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 117,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

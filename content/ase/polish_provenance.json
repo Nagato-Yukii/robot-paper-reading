@@ -1,0 +1,89 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 167,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "ase-001",
+      "conversation_id": "d7896752-8037-4bec-8f17-fab40586790d",
+      "receipt_sha256": "7fba406320b0d992820c7a78de25c5668df7328ad04eeb31ca5cbf6a3ccdeb4a",
+      "usage": {
+        "input_tokens": 30598,
+        "output_tokens": 13125,
+        "thinking_tokens": 7315,
+        "cache_read_tokens": 20973,
+        "total_tokens": 43723
+      },
+      "elapsed_seconds": 89.13
+    },
+    {
+      "job_id": "ase-002",
+      "conversation_id": "bcf37ca7-130b-4c35-9215-4c5fc1434eb2",
+      "receipt_sha256": "329eca9e38f170324f02b62fcc275cb2a5af7eb9488f6fe5bdd497bc67c67831",
+      "usage": {
+        "input_tokens": 34210,
+        "output_tokens": 16322,
+        "thinking_tokens": 9364,
+        "cache_read_tokens": 21920,
+        "total_tokens": 50532
+      },
+      "elapsed_seconds": 111.12
+    },
+    {
+      "job_id": "ase-003",
+      "conversation_id": "7e033ed1-1d8f-4c37-850e-0e82bc6eeff4",
+      "receipt_sha256": "2fef19c3015cce7a03fc5ee29bc53d10a43e106e039ed175c75f0e63dc8173f7",
+      "usage": {
+        "input_tokens": 34299,
+        "output_tokens": 16674,
+        "thinking_tokens": 9404,
+        "cache_read_tokens": 21900,
+        "total_tokens": 50973
+      },
+      "elapsed_seconds": 108.57
+    },
+    {
+      "job_id": "ase-004",
+      "conversation_id": "69039acb-070a-48b5-b05d-3636f980f684",
+      "receipt_sha256": "eb7d17f9c56c098ed9cb9577a2d9370197e30469b3370acc9b1fcff7eaf761ee",
+      "usage": {
+        "input_tokens": 36156,
+        "output_tokens": 18342,
+        "thinking_tokens": 12456,
+        "cache_read_tokens": 21395,
+        "total_tokens": 54498
+      },
+      "elapsed_seconds": 112.68
+    },
+    {
+      "job_id": "ase-005",
+      "conversation_id": "71ed4c1c-ddb8-4a71-969d-d43a991bd837",
+      "receipt_sha256": "5e37222470e80e1551abe087c1b3fab5b6bf24c37ec336fbd1d5507e0cb62279",
+      "usage": {
+        "input_tokens": 32453,
+        "output_tokens": 15238,
+        "thinking_tokens": 8577,
+        "cache_read_tokens": 21388,
+        "total_tokens": 47691
+      },
+      "elapsed_seconds": 118.74
+    },
+    {
+      "job_id": "ase-006",
+      "conversation_id": "cb243f2d-5514-4994-a390-1323aefbe111",
+      "receipt_sha256": "db9201610cede66ad4fa68c9611fee1c3350331858da15f46c237a0cbc6ba36e",
+      "usage": {
+        "input_tokens": 38774,
+        "output_tokens": 7958,
+        "thinking_tokens": 6057,
+        "cache_read_tokens": 0,
+        "total_tokens": 46732
+      },
+      "elapsed_seconds": 57.58
+    }
+  ]
+}

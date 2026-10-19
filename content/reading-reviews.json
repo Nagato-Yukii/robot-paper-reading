@@ -1,0 +1,214 @@
+{
+  "scale": 5,
+  "basis": "基于正文的主观阅读初评；影响力综合方向价值与带动潜力，非引用量排名。实验完整性考察对比、消融和验证范围；方法可参考性考察思路清晰度与迁移价值。",
+  "papers": {
+    "rax": {
+      "comment": "把在线探索用于自动编写机器人控制程序，适合参考跨本体任务组织与评测设计。",
+      "scores": {
+        "influence": 4,
+        "experiments": 5,
+        "reference": 4
+      }
+    },
+    "bcg": {
+      "comment": "用局部平滑缓解接触梯度不稳定，为可微分仿真到真机提供了值得借鉴的路径。",
+      "scores": {
+        "influence": 4,
+        "experiments": 4,
+        "reference": 5
+      }
+    },
+    "vla-transfer": {
+      "comment": "将动作统一为文本 token，把视觉语言预训练接入机器人控制，值得作为 VLA 入门主线。",
+      "scores": {
+        "influence": 5,
+        "experiments": 5,
+        "reference": 4
+      }
+    },
+    "lswm": {
+      "comment": "结合长短历史重建与未来预测，适合参考双足运动中的状态表征设计。",
+      "scores": {
+        "influence": 3,
+        "experiments": 4,
+        "reference": 4
+      }
+    },
+    "rl-pd-control": {
+      "comment": "把强化学习动作与关节 PD 控制的关系讲清楚，适合补齐控制接口的基础概念。",
+      "scores": {
+        "influence": 2,
+        "experiments": null,
+        "reference": 4
+      }
+    },
+    "gvhmr": {
+      "comment": "借助重力视角坐标恢复世界系人体运动，适合作为视频动作数据处理的参考。",
+      "scores": {
+        "influence": 4,
+        "experiments": 4,
+        "reference": 5
+      }
+    },
+    "wham": {
+      "comment": "融合视觉、运动上下文与接触约束恢复全局人体轨迹，适合参考动作重建流程。",
+      "scores": {
+        "influence": 4,
+        "experiments": 4,
+        "reference": 4
+      }
+    },
+    "exbody": {
+      "comment": "拆分上身动作模仿与下身移动控制，适合参考实用的人形全身控制结构。",
+      "scores": {
+        "influence": 4,
+        "experiments": 4,
+        "reference": 5
+      }
+    },
+    "kungfubot2": {
+      "comment": "通过混合跟踪目标与专家结构整合多种动作，适合参考单策略多技能学习。",
+      "scores": {
+        "influence": 3,
+        "experiments": 4,
+        "reference": 4
+      }
+    },
+    "kungfubot": {
+      "comment": "把动作处理和自适应跟踪课程串起来，适合参考高动态技能的训练细节。",
+      "scores": {
+        "influence": 4,
+        "experiments": 4,
+        "reference": 5
+      }
+    },
+    "asap": {
+      "comment": "用真实轨迹学习仿真修正模型，适合研究高动态动作中的仿真到现实差距。",
+      "scores": {
+        "influence": 5,
+        "experiments": 4,
+        "reference": 5
+      }
+    },
+    "robust-walking": {
+      "comment": "以随机地形训练和自适应步频提升真机行走鲁棒性，适合参考简洁的训练课程。",
+      "scores": {
+        "influence": 3,
+        "experiments": 4,
+        "reference": 4
+      }
+    },
+    "bridging-gap": {
+      "comment": "从执行器到整机逐层校准动力学，适合参考跨平台迁移与能效验证的工程方法。",
+      "scores": {
+        "influence": 4,
+        "experiments": 5,
+        "reference": 5
+      }
+    },
+    "beyondmimic": {
+      "comment": "将高质量动作跟踪与引导扩散连接起来，适合参考从模仿到通用控制的完整流程。",
+      "scores": {
+        "influence": 5,
+        "experiments": 4,
+        "reference": 5
+      }
+    },
+    "almi": {
+      "comment": "让上下身策略在相互扰动中学习协调，适合参考移动稳定性与动作保真的权衡。",
+      "scores": {
+        "influence": 3,
+        "experiments": 4,
+        "reference": 4
+      }
+    },
+    "learning-failures": {
+      "comment": "显式记忆失败状态以减少重复试错，适合参考可接入现有强化学习流程的改进。",
+      "scores": {
+        "influence": 3,
+        "experiments": 4,
+        "reference": 4
+      }
+    },
+    "hiking": {
+      "comment": "以深度感知和落脚安全机制支持复杂地形通行，适合参考端到端感知运动控制。",
+      "scores": {
+        "influence": 4,
+        "experiments": 4,
+        "reference": 5
+      }
+    },
+    "ase": {
+      "comment": "把动作库压缩为可复用的技能嵌入，适合建立分层控制与运动先验的基础认识。",
+      "scores": {
+        "influence": 5,
+        "experiments": 4,
+        "reference": 5
+      }
+    },
+    "zest": {
+      "comment": "用精简模仿流程跨数据源和机器人部署动态技能，适合参考执行器建模与训练课程。",
+      "scores": {
+        "influence": 4,
+        "experiments": 5,
+        "reference": 5
+      }
+    },
+    "h-infinity": {
+      "comment": "将鲁棒控制思想接入对抗强化学习，适合参考扰动强度与控制性能的显式约束。",
+      "scores": {
+        "influence": 3,
+        "experiments": 4,
+        "reference": 4
+      }
+    },
+    "rt1": {
+      "comment": "系统研究机器人数据规模与模型泛化，适合参考大规模多任务策略的设计和评测。",
+      "scores": {
+        "influence": 5,
+        "experiments": 5,
+        "reference": 4
+      }
+    },
+    "dagger": {
+      "comment": "用交互式数据聚合缓解模仿学习的分布偏移，理论清楚且容易迁移到新任务。",
+      "scores": {
+        "influence": 5,
+        "experiments": 3,
+        "reference": 5
+      }
+    },
+    "visualmimic": {
+      "comment": "将视觉高层策略连接到通用动作跟踪器，适合参考人形移动操作的分层接口。",
+      "scores": {
+        "influence": 3,
+        "experiments": 4,
+        "reference": 4
+      }
+    },
+    "him": {
+      "comment": "用显式速度与隐式稳定性表征学习机器人响应，适合参考轻量的本体感知控制。",
+      "scores": {
+        "influence": 4,
+        "experiments": 4,
+        "reference": 5
+      }
+    },
+    "dreamwaq": {
+      "comment": "通过隐式地形表征支持无视觉四足运动，适合参考状态估计与策略学习的联合设计。",
+      "scores": {
+        "influence": 4,
+        "experiments": 4,
+        "reference": 5
+      }
+    },
+    "any2track": {
+      "comment": "将动力学适应作为额外能力训练，适合参考多种扰动下的鲁棒动作跟踪。",
+      "scores": {
+        "influence": 3,
+        "experiments": 4,
+        "reference": 4
+      }
+    }
+  }
+}

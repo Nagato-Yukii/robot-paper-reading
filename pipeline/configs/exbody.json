@@ -1,0 +1,29 @@
+{
+  "id": "exbody",
+  "sha256": "3529a700d69a37c2b1307b05762a9a7cde49368a76707c72d37c8ae118eb5780",
+  "brand": "ExBody",
+  "zh_title": "ExBody：富有表现力的人形全身控制",
+  "category": "人形机器人 · 全身控制",
+  "pdf": "sources/exbody.pdf",
+  "title": "ExBody：富有表现力的人形全身控制 · 中英对照",
+  "brand_sub": "Expressive Whole-Body Control for Humanoid Robots",
+  "out": "site/exbody",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "papers/humanoid-whole-body/exbody.pdf"
+  ],
+  "validation": {
+    "equations": {},
+    "equation_references": 0,
+    "paragraphs": 162
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 162,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

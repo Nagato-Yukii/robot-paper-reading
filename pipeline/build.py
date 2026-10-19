@@ -6,6 +6,7 @@ Config keys:
   id, content, out, pdf, brand, brand_sub, title, kicker, accent, accent_soft
 """
 import os, re, glob, json, html, sys, shutil
+from equation_links import link_numbered_math
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -26,6 +27,7 @@ def build(cfg_path):
         sys.exit(f"no parts in {content_dir}")
     body = "\n".join(open(p, encoding="utf-8").read() for p in parts)
     body = body.replace("{{PDF}}", pdf_rel)
+    body = link_numbered_math(body)
 
     toc = []
 
@@ -75,6 +77,9 @@ def build(cfg_path):
         "{{TITLE}}": cfg.get("title", cid),
         "{{BRAND}}": cfg.get("brand", cid),
         "{{BRAND_SUB}}": cfg.get("brand_sub", ""),
+        "{{TRANSLATION_CREDIT}}": html.escape(cfg.get("translation_credit",
+            "译文润色：Gemini3.8 medium"
+            if cfg.get("translation_model") == "gemini-3.8-flash-medium" else "")),
         "{{KICKER}}": cfg.get("kicker", ""),
         "{{ACCENT}}": cfg.get("accent", "#3f51b5"),
         "{{ACCENT_SOFT}}": cfg.get("accent_soft", "#eceffb"),

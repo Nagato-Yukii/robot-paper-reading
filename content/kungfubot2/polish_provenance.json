@@ -1,0 +1,50 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 98,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "kungfubot2-001",
+      "conversation_id": "5514a212-3cb8-48ac-a886-411490576803",
+      "receipt_sha256": "d3604f4aa723f850951b1d9b0f8d8b01852b0b7818eb40d113f12981623822e7",
+      "usage": {
+        "input_tokens": 35906,
+        "output_tokens": 18367,
+        "thinking_tokens": 11775,
+        "cache_read_tokens": 21747,
+        "total_tokens": 54273
+      },
+      "elapsed_seconds": 136.41
+    },
+    {
+      "job_id": "kungfubot2-002",
+      "conversation_id": "473755d0-d576-404d-ac1b-2064ccd4d3a8",
+      "receipt_sha256": "a89b8cf0aba8ebd1ff7ea267b63485f8410ab8ee74a7adf9be04f2db1b3ef127",
+      "usage": {
+        "input_tokens": 27565,
+        "output_tokens": 11279,
+        "thinking_tokens": 5948,
+        "cache_read_tokens": 19592,
+        "total_tokens": 38844
+      },
+      "elapsed_seconds": 86.74
+    },
+    {
+      "job_id": "kungfubot2-003",
+      "conversation_id": "90a6d7df-f0a7-40fa-b87f-0576d52b332a",
+      "receipt_sha256": "33fe673e0c882d9b3c2e3dd5c4099a46fc5eab232901fa469018307d2b466667",
+      "usage": {
+        "input_tokens": 15893,
+        "output_tokens": 14492,
+        "thinking_tokens": 13134,
+        "cache_read_tokens": 0,
+        "total_tokens": 30385
+      },
+      "elapsed_seconds": 113.09
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 87,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "h-infinity-001",
+      "conversation_id": "d2440a6b-139a-48f2-a05f-5a427455061a",
+      "receipt_sha256": "f613b9cc39fec15af0d3a4eca31fb0f47c16c53516df0f505d582df5ca8a3970",
+      "usage": {
+        "input_tokens": 52965,
+        "output_tokens": 31636,
+        "thinking_tokens": 24501,
+        "cache_read_tokens": 24063,
+        "total_tokens": 84601
+      },
+      "elapsed_seconds": 225.39
+    },
+    {
+      "job_id": "h-infinity-002",
+      "conversation_id": "ccdd3ade-6f7f-448c-be46-02d03e0f8e6d",
+      "receipt_sha256": "a2f2f2aae862058f4c3a215796a5e952803c10d72afa5a9365177cebaa3d9f5e",
+      "usage": {
+        "input_tokens": 38268,
+        "output_tokens": 20818,
+        "thinking_tokens": 15350,
+        "cache_read_tokens": 20429,
+        "total_tokens": 59086
+      },
+      "elapsed_seconds": 153.45
+    },
+    {
+      "job_id": "h-infinity-003",
+      "conversation_id": "61f19789-351a-4c93-8c6b-d70d63eed63e",
+      "receipt_sha256": "7f21907513799b78306544244e534aad5e65064a49f238811fbba8bb1fd662d1",
+      "usage": {
+        "input_tokens": 43443,
+        "output_tokens": 12491,
+        "thinking_tokens": 11573,
+        "cache_read_tokens": 0,
+        "total_tokens": 55934
+      },
+      "elapsed_seconds": 89.79
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 132,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "vla-transfer-001",
+      "conversation_id": "2754fba8-a6d4-49d0-ac00-8e0513bbd581",
+      "receipt_sha256": "89c266e4ebdb7cb183a56e042cfe2216b9a0f76c4abdc1019749eca90cd786b4",
+      "usage": {
+        "input_tokens": 21052,
+        "output_tokens": 28284,
+        "thinking_tokens": 24464,
+        "cache_read_tokens": 0,
+        "total_tokens": 49336
+      },
+      "elapsed_seconds": 196.48
+    },
+    {
+      "job_id": "vla-transfer-002",
+      "conversation_id": "f2f099be-11d5-4d3e-8d42-40c10057a406",
+      "receipt_sha256": "8f75894ab2c285bf9040b9e78ddb3ec0ab6866bd1806882458c6d4a11deb01b5",
+      "usage": {
+        "input_tokens": 49304,
+        "output_tokens": 29574,
+        "thinking_tokens": 22040,
+        "cache_read_tokens": 23161,
+        "total_tokens": 78878
+      },
+      "elapsed_seconds": 209.36
+    },
+    {
+      "job_id": "vla-transfer-003",
+      "conversation_id": "d9ee8c2c-bc80-4c58-93b8-ee659fa2e4bb",
+      "receipt_sha256": "f5ca7d1eddd4c9a26d7a43598def67d28cdb670f3721c791e604a0f7e7e16802",
+      "usage": {
+        "input_tokens": 21072,
+        "output_tokens": 27301,
+        "thinking_tokens": 23343,
+        "cache_read_tokens": 0,
+        "total_tokens": 48373
+      },
+      "elapsed_seconds": 196.99
+    },
+    {
+      "job_id": "vla-transfer-004",
+      "conversation_id": "84de55d8-45c3-4547-a770-93bb141918c9",
+      "receipt_sha256": "0dace6e2bc7edb896f4ca12f455a988a562a23188339db3bcc63e03ddb216430",
+      "usage": {
+        "input_tokens": 30303,
+        "output_tokens": 13703,
+        "thinking_tokens": 7673,
+        "cache_read_tokens": 20355,
+        "total_tokens": 44006
+      },
+      "elapsed_seconds": 102.41
+    },
+    {
+      "job_id": "vla-transfer-005",
+      "conversation_id": "d1438ea9-a283-40da-865a-c1883f4db27b",
+      "receipt_sha256": "d526b435c7efb891e00f891a339595f6866759fe99a900dbc41324b5f405c90c",
+      "usage": {
+        "input_tokens": 32836,
+        "output_tokens": 4259,
+        "thinking_tokens": 3507,
+        "cache_read_tokens": 0,
+        "total_tokens": 37095
+      },
+      "elapsed_seconds": 40.91
+    }
+  ]
+}

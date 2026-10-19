@@ -1,0 +1,34 @@
+{
+  "id": "asap",
+  "sha256": "8ca60229d7e560769ceece6cb5571d8e6f528c6c485f631b7fd5162d503b7db0",
+  "brand": "ASAP",
+  "zh_title": "ASAP：对齐仿真与现实物理以实现敏捷人形技能",
+  "category": "人形运动 · 仿真到现实",
+  "pdf": "sources/asap.pdf",
+  "title": "ASAP：对齐仿真与现实物理以实现敏捷人形技能 · 中英对照",
+  "brand_sub": "ASAP: Aligning Simulation and Real-World Physics for Learning Agile Humanoid Whole-Body Skills",
+  "out": "site/asap",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "papers/humanoid-locomotion/ASAP.pdf"
+  ],
+  "validation": {
+    "equations": {
+      "1": "p18-b10",
+      "2": "p18-b11",
+      "3": "p18-b14",
+      "4": "p18-b23"
+    },
+    "equation_references": 4,
+    "paragraphs": 280
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 280,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

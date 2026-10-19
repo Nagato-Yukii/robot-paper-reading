@@ -1,0 +1,19 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "papers": 23,
+  "paragraphs": 3349,
+  "batches": 111,
+  "usage": {
+    "input_tokens": 3680062,
+    "output_tokens": 1910702,
+    "thinking_tokens": 1386743,
+    "cache_read_tokens": 1467060,
+    "total_tokens": 5590764
+  },
+  "prepared_at": "2026-10-19T14:17:11.267530+00:00",
+  "processed_paragraphs": 3349,
+  "changed_paragraphs": 3252,
+  "source_content_preserved": true,
+  "formulas_images_and_numbers_preserved": true
+}

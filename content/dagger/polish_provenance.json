@@ -1,0 +1,50 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 103,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "dagger-001",
+      "conversation_id": "c4d3910a-0658-4c45-b402-b2a8c3b0b2ce",
+      "receipt_sha256": "8ad465e8e4eff5fdc3da3ce8a4109c868fa74908acbd6405f050bc2c700d61ef",
+      "usage": {
+        "input_tokens": 21355,
+        "output_tokens": 33146,
+        "thinking_tokens": 29112,
+        "cache_read_tokens": 0,
+        "total_tokens": 54501
+      },
+      "elapsed_seconds": 204.65
+    },
+    {
+      "job_id": "dagger-002",
+      "conversation_id": "146fc4d0-4f4c-456f-b445-6162b4d64b22",
+      "receipt_sha256": "bd026bd705cb97b4cc21ba8c87c8beb625c40499097cca2ffb715ea10623c307",
+      "usage": {
+        "input_tokens": 40048,
+        "output_tokens": 21115,
+        "thinking_tokens": 13108,
+        "cache_read_tokens": 23589,
+        "total_tokens": 61163
+      },
+      "elapsed_seconds": 149.28
+    },
+    {
+      "job_id": "dagger-003",
+      "conversation_id": "87c6269e-2a04-4d1c-aa69-99478a53255c",
+      "receipt_sha256": "465b520dcfb62071d55467e4c0452423c1c5b879b38c4c5b8883d405017f96e9",
+      "usage": {
+        "input_tokens": 39383,
+        "output_tokens": 21057,
+        "thinking_tokens": 15364,
+        "cache_read_tokens": 21425,
+        "total_tokens": 60440
+      },
+      "elapsed_seconds": 130.4
+    }
+  ]
+}

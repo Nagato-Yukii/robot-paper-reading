@@ -1,0 +1,50 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 85,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "learning-failures-001",
+      "conversation_id": "dd93bb73-330c-4eec-b92b-5d3085b2a02a",
+      "receipt_sha256": "681fd6e63c274253a87df5b4b23c87fe26cb7cb785c085b8428276a548f5ca9c",
+      "usage": {
+        "input_tokens": 34030,
+        "output_tokens": 16309,
+        "thinking_tokens": 9211,
+        "cache_read_tokens": 22215,
+        "total_tokens": 50339
+      },
+      "elapsed_seconds": 119.8
+    },
+    {
+      "job_id": "learning-failures-002",
+      "conversation_id": "45ff6f3a-ac99-42fb-9c95-e8499f883368",
+      "receipt_sha256": "5d2a355a78efcbfb9f0584fdfdf182944095bba4ace97f85221c8fe7405b19e7",
+      "usage": {
+        "input_tokens": 34781,
+        "output_tokens": 17270,
+        "thinking_tokens": 11215,
+        "cache_read_tokens": 21455,
+        "total_tokens": 52051
+      },
+      "elapsed_seconds": 121.54
+    },
+    {
+      "job_id": "learning-failures-003",
+      "conversation_id": "43d8fefe-1e7f-429d-bc7f-ed29b8277c76",
+      "receipt_sha256": "1b38146e7ead67fe91298d3ef18669bf03f16380a2d58c763aa5bb76df0c0d1a",
+      "usage": {
+        "input_tokens": 32191,
+        "output_tokens": 3509,
+        "thinking_tokens": 2795,
+        "cache_read_tokens": 0,
+        "total_tokens": 35700
+      },
+      "elapsed_seconds": 39.21
+    }
+  ]
+}
