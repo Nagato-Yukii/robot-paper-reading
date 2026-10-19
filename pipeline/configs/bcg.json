@@ -7,5 +7,5 @@
   "accent": "#0f766e",
   "accent_soft": "#e6f4f1",
   "math": true,
-  "out": "docs/bcg"
+  "out": "site/bcg"
 }

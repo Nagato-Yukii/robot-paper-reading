@@ -2,16 +2,14 @@
 
 把机器人领域的论文（**软件算法** + **硬件系统**）做成 **逐段中英对照** 的可浏览页面：左英文原文、右中文译文，插图与表格从原 PDF 高清裁出，公式用 KaTeX 本地渲染。支持「对照 / 仅中文 / 仅英文」切换、字号调整、点击放大图片，以及一键打印成双语 PDF。
 
-> **在线站点**：<https://nagato-yukii.github.io/robot-paper-reading/>
-
 ---
 
 ## 已收录
 
 | 论文 | 方向 | 规模 | 阅读 |
 |---|---|---|---|
-| **Scaling Online Exploration for Robot Agents**（RAX） | 软件 · 智能体 / 机器人学习 · VLA · 操作 | 77 页 · 34 图 · 21 表 · 261 段对照 | [阅读](https://nagato-yukii.github.io/robot-paper-reading/rax/) |
-| **Bundled Contact Gradients: Stabilizing Differentiable Simulation for Deployable Dynamic Tasks**（BCG） | 硬件 · 可微分仿真 · 接触 · 足式/人形 | 8 页 · 5 图 · 2 表 · 1 算法 · 公式 (1)–(5) | [阅读](https://nagato-yukii.github.io/robot-paper-reading/bcg/) |
+| **Scaling Online Exploration for Robot Agents**（RAX） | 软件 · 智能体 / 机器人学习 · VLA · 操作 | 77 页 · 34 图 · 21 表 · 261 段对照 | [阅读](site/rax/index.html) |
+| **Bundled Contact Gradients: Stabilizing Differentiable Simulation for Deployable Dynamic Tasks**（BCG） | 硬件 · 可微分仿真 · 接触 · 足式/人形 | 8 页 · 5 图 · 2 表 · 1 算法 · 公式 (1)–(5) | [阅读](site/bcg/index.html) |
 
 **RAX** 让一个通用编程智能体通过在线探索自行编写机器人控制程序，跨五种本体（单臂 / 双臂 / 灵巧手 / 移动 / 人形）在仿真与真机上完成精密插入、铰接物体、可变形物体与长时序移动操作。
 **BCG** 在刚性接触处对邻近扰动分支做局部随机平滑以稳定一阶策略梯度，把可微分仿真训练的人形动态动作零样本部署到真实 Unitree G1。
@@ -22,30 +20,34 @@
 .
 ├── sources/                 # 原始 PDF（仅作学习/评注用途）
 ├── pipeline/                # 可复用工具链
-│   ├── build.py             # 配置驱动：content/<id> + template → docs/<id>
+│   ├── build.py             # 配置驱动：content/<id> + template → site/<id>
 │   ├── template.html        # 阅读器模板（CSS/JS，{{...}} 占位符）
 │   ├── crop.py              # 按 JSON 框位从 PDF 裁图（图/表/算法框）
 │   ├── extract_floats.py    # 单栏论文的图表自动检测
 │   ├── vendor/katex/        # 本地 KaTeX（离线公式渲染，含 woff2 字体）
 │   └── configs/{rax,bcg}.json
 ├── content/<id>/            # 分节译文源文件（HTML 片段，按文件名排序拼接）
-├── docs/                    # GitHub Pages 站点（构建产物，可直接浏览）
+├── site/                    # 成品站点（纯静态，可直接双击打开）
 │   ├── index.html           # 入口页
 │   ├── rax/{index.html, figs/}
 │   └── bcg/{index.html, figs/, vendor/katex/}
 └── README.md
 ```
 
-## 本地阅读
+## 下载与阅读
+
+**方式一（最简单）**：在 GitHub 页面点 **Code → Download ZIP**，解压后双击 `site/index.html`。
+全站是纯静态文件，图片与 KaTeX 都在本地，**无需联网、无需服务器**。
+
+**方式二**：`git clone` 后同样双击 `site/index.html`；若想用本地服务器：
 
 ```bash
-git clone https://github.com/Nagato-Yukii/robot-paper-reading.git
 cd robot-paper-reading
 python3 -m http.server 8000
-# 浏览器打开 http://localhost:8000/docs/
+# 浏览器打开 http://localhost:8000/site/
 ```
 
-直接双击 `docs/index.html` 也可以（纯静态、无网络依赖）。
+> 仓库体积约 41 MB，主要来自 `sources/` 里的两份原始 PDF（供页面内「跳转到原文页码」使用）。只想看译文的话，下载后删掉 `sources/` 也不影响阅读，只是页码链接会失效。
 
 ## 重新构建
 
@@ -54,7 +56,7 @@ python3 pipeline/build.py pipeline/configs/rax.json
 python3 pipeline/build.py pipeline/configs/bcg.json
 ```
 
-产物写入 `docs/<id>/`。每个 `docs/<id>/` 目录自带 `figs/` 与 `vendor/katex/`，可单独拷走。
+产物写入 `site/<id>/`。每个 `site/<id>/` 目录自带 `figs/` 与 `vendor/katex/`，可单独拷走。
 
 ## 新增一篇论文
 
@@ -81,7 +83,7 @@ python3 pipeline/build.py pipeline/configs/bcg.json
    pdftotext -f 1 -l N sources/xxx.pdf -        # 逐页文本（双栏按阅读顺序）
    pdftotext -bbox sources/xxx.pdf bbox.html    # 需要坐标时
    python3 pipeline/crop.py --pdf sources/xxx.pdf \
-       --spec floats.json --out docs/xxx/figs --dpi 200
+       --spec floats.json --out site/xxx/figs --dpi 200
    ```
    `floats.json` 里每项为 `{"name","page","x0","y0","x1","y1"}`（单位 pt，原点在页面左上角）。
 
