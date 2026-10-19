@@ -1,0 +1,39 @@
+<div class="title-block">
+  <div class="kicker">arXiv 预印本 · 可微分仿真 / 人形控制</div>
+  <h1>捆绑接触梯度：让可微分仿真稳定支撑可部署的动态任务</h1>
+  <p class="en-title">Bundled Contact Gradients: Stabilizing Differentiable Simulation for Deployable Dynamic Tasks</p>
+  <p class="authors">Dyuman Aditya<sup>1</sup>, Jin Cheng<sup>2</sup>, Clemens Schwarke<sup>2,3</sup>, Quan Nguyen<sup>1</sup>, Gaurav Sukhatme<sup>1</sup>, Stelian Coros<sup>2</sup>, Gabriele Fadini<sup>4</sup></p>
+  <p class="affil">1 南加州大学（USC）· 2 苏黎世联邦理工学院（ETH Zurich）· 3 NVIDIA · 4 苏黎世应用科技大学（ZHAW）　｜　通讯作者：Dyuman Aditya（agdyuman@usc.edu）</p>
+  <div class="links">
+    <a href="https://bundledcontactgradients.github.io" target="_blank" rel="noopener">项目主页 bundledcontactgradients.github.io ↗</a>
+    <a href="{{PDF}}#page=1" target="_blank" rel="noopener">原始 PDF ↗</a>
+    <span style="color:var(--faint)">arXiv:2609.30951v1 [cs.RO] 25 Sep 2026</span>
+  </div>
+</div>
+
+<div class="abstract">
+<h2 data-num="摘要">摘要 <span class="en-h" style="font-weight:400;color:var(--faint)">Abstract</span><a class="pg" href="{{PDF}}#page=1" target="_blank">p.1</a></h2>
+
+<div class="pair">
+<p class="en">Differentiable simulation provides analytic gradients of robot dynamics, enabling fast and sample-efficient first-order policy optimization. However, obtaining smooth and informative gradients through rigid-body contact typically requires softened contact models, often at the expense of physical fidelity and thereby limiting learned policies largely to simulation. This trade-off becomes particularly consequential for dynamic humanoid motions, where accurate contact dynamics are critical for transferring policies to the real world.</p>
+<p class="zh">可微分仿真能够给出机器人动力学的解析梯度，从而支持快速且样本高效的一阶策略优化。然而，要在刚体接触中获得平滑且富有信息的梯度，通常必须采用软化的接触模型——这往往以牺牲物理保真度为代价，进而使学到的策略基本只能停留在仿真之中。对于动态的人形运动，这一权衡尤为关键：准确的接触动力学正是把策略迁移到真实世界的前提。</p>
+</div>
+
+<div class="pair">
+<p class="en">Increasing contact stiffness in rigid-body simulation improves the fidelity of interactions, but also makes the dynamics increasingly sensitive to small state perturbations, producing high-variance gradients that can destabilize first-order policy learning. To address this, we propose Bundled Contact Gradients (BCG), a contact-local randomized smoothing framework for differentiable policy learning.</p>
+<p class="zh">在刚体仿真中提高接触刚度可以改善交互的保真度，但也会让动力学对小幅度状态扰动越来越敏感，产生高方差梯度，从而破坏一阶策略学习的稳定性。为此，我们提出 <b>Bundled Contact Gradients（BCG，捆绑接触梯度）</b>：一个面向可微分策略学习的、接触局部化（contact-local）的随机平滑框架。</p>
+</div>
+
+<div class="pair">
+<p class="en">When stiff contact is detected, our method evaluates a local bundle of randomized perturbation rollouts around the stiff contact configuration and aggregates their gradient signal thereby reducing gradient variance. We demonstrate the effectiveness of our method by successfully training and transferring dynamic motions zero-shot onto a real-world Unitree G1 humanoid platform. Videos and supplementary information can be found at bundledcontactgradients.github.io</p>
+<p class="zh">当检测到刚性接触时，我们的方法会在该刚性接触构型周围评估一小束（bundle）随机扰动 rollout，并聚合它们的梯度信号，从而降低梯度方差。我们成功训练出动态动作、并将其<b>零样本</b>迁移到真实的 Unitree G1 人形机器人平台，以此验证方法的有效性。视频与补充材料见 bundledcontactgradients.github.io。</p>
+</div>
+</div>
+
+<figure class="float narrow">
+  <img src="figs/fig1.jpg" alt="Fig. 1">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 1</span>捆绑接触梯度（BCG）。(a) 在具有刚性、可部署接触的可微分仿真中学到的、动态且接触丰富的 Unitree G1 动作。(b) 在刚性接触处（时刻 <i>t</i>），从半径 <i>σ</i> 的局部球体内采样接触脚的 <i>B</i> 组位置与速度扰动，并行仿真 <i>H</i> 个可微分步，再聚合为捆绑状态（蓝色）。在自右向左的反向传播中，逐步的样本梯度在非接触时彼此一致，而在刚性接触处急剧发散（红色）；捆绑把它们汇聚到一个共同方向（蓝色），从而在可部署的接触刚度下稳定一阶策略优化。(c) 把所学策略零样本迁移到硬件。</span>
+    <span class="enm"><b>Fig. 1 |</b> Bundled Contact Gradients. (a) Dynamic, contact-rich Unitree G1 motions learned in differentiable simulation with stiff, deployable contact. (b) At stiff contact (time t), B perturbations of the contacting foot’s position and velocity are sampled from a local sphere of radius σ and simulated in parallel for H differentiable steps, then aggregated into the bundled state (blue). In the right-to-left backward pass, per-step sample gradients agree out of contact but diverge sharply at stiff contact (red). Bundling concentrates them around a common direction (blue), stabilizing first-order policy optimization at deployable contact stiffness. (c) Zero-shot transfer of the learned policies to hardware.</span>
+  </figcaption>
+</figure>

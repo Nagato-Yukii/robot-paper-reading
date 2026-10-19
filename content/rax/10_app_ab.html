@@ -1,0 +1,55 @@
+<h2 data-num="附录">附录<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Appendix</span><a class="pg" href="{{PDF}}#page=36" target="_blank">p.36</a></h2>
+
+<h2 data-num="A">A&nbsp;&nbsp;接口契约<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Interface Contracts</span><a class="pg" href="{{PDF}}#page=36" target="_blank">p.36</a></h2>
+
+<div class="pair">
+<p class="en">On the real robots the agent acts only through tools that wrap each vendor’s control SDK, and its own programs call the same tools. Every command is checked before the robot moves; workspace, joint limit, or IK violations are refused, and motion works only while the operator has armed the robot. Table 11 summarizes the tools; both robots also offer <code>status</code> and <code>request_operator</code>.</p>
+<p class="zh">在真实机器人上，智能体只通过封装各厂商控制 SDK 的工具来行动，而它自己的程序调用的也是同一批工具。每条指令在机器人移动之前都会被校验：工作空间、关节限位或 IK 违反会被拒绝；并且只有在操作员对机器人上使能期间，运动才被允许。表 11 汇总了这些工具；两台机器人还都提供 <code>status</code> 与 <code>request_operator</code>。</p>
+</div>
+
+<table class="data bilingual">
+<caption><b>表 11</b>｜真实机器人上的工具（Table 11 | Tools on the real robots）</caption>
+<thead><tr><th style="width:13%">类别 Category</th><th style="width:43%">Franka FR3</th><th style="width:44%">Rainbow RB-Y1</th></tr></thead>
+<tbody>
+<tr><td>感知<br><span class="enm2">Perception</span></td><td>来自两个外部相机与一个腕部相机的 RGB-D 图像；像素到三维点。<br><span class="enm2">RGB-D images from two exterior and one wrist camera; pixel to 3D point</span></td><td>头部 RGB-D 图像与注视控制；像素到三维点；一个视觉语言模型。<br><span class="enm2">Head RGB-D images and gaze control; pixel to 3D point; a vision-language model</span></td></tr>
+<tr><td>运动<br><span class="enm2">Motion</span></td><td>末端执行器直线运动；带路径校验的关节运动。<br><span class="enm2">Straight-line end-effector moves; joint moves with path checks</span></td><td>关节、末端执行器与躯干目标；跨躯干与双臂的 IK；底盘驱动。<br><span class="enm2">Joint, end-effector, and torso targets; IK over torso and both arms; base drive</span></td></tr>
+<tr><td>夹爪<br><span class="enm2">Gripper</span></td><td>以设定力闭合到指定宽度。<br><span class="enm2">Grasp to a width with a set force</span></td><td>限流闭合，或设定开口宽度。<br><span class="enm2">Close with a current limit, or set an opening</span></td></tr>
+<tr><td>模型<br><span class="enm2">Model</span></td><td>无（智能体自己编写运动学）。<br><span class="enm2">None (the agent writes its own kinematics)</span></td><td>正运动学；针对碰撞、关节负载与质心的空跑试算。<br><span class="enm2">Forward kinematics; dry runs for collision, joint load, and center of mass</span></td></tr>
+</tbody>
+</table>
+
+<h2 data-num="B">B&nbsp;&nbsp;智能体指令与技能<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Agent Instructions and Skills</span><a class="pg" href="{{PDF}}#page=36" target="_blank">p.36</a></h2>
+
+<div class="pair">
+<p class="en">Every session starts from the same workspace template: one instruction file and a folder of skills, written once and shared by all platforms (<code>auto_research_agent/</code> and <code>agent_skills/</code> in our code). Robot-specific facts, such as tool names, cameras, and control rates, are filled in when the workspace is built, so the agent reads the same instructions on every robot.</p>
+<p class="zh">每次会话都从同一个工作区模板开始：一个指令文件加一个技能文件夹，写一次即可被所有平台共享（代码中对应 <code>auto_research_agent/</code> 与 <code>agent_skills/</code>）。机器人相关的事实（工具名、相机、控制频率等）在工作区构建时填入，因此智能体在每台机器人上读到的都是同一套指令。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Instructions.</b> The instruction file fixes the order of work rather than how to solve any task. The agent first reads the task text and its own notes from earlier sessions, then (1) solves the task by controlling the robot directly through tools until it confirms success, (2) turns what it did into a program whose steps check their preconditions, verify their results, and report states they were not built for, (3) runs that program on every further exploration episode, stepping in where it falls short and fixing the code, and (4) keeps its notes, code, and a hand-off note current, since only those carry over to later sessions. In benchmark sessions it then freezes the program, rehearses it once end to end without help, and submits it.</p>
+<p class="zh"><b>指令。</b>指令文件规定的是“工作的顺序”，而不是“如何解决某个任务”。智能体先读任务文本与它自己此前会话的笔记，然后：(1) 通过工具直接控制机器人来解题，直到确认成功；(2) 把自己做过的事转化为一个程序，程序中每一步都要检查前置条件、验证结果，并在遇到“并非为其设计的状况”时报出状态；(3) 在之后每个探索回合中运行该程序，在它力所不及时介入并修复代码；(4) 保持笔记、代码与一份交接说明是最新的——因为只有这些东西会带到后续会话。在基准会话中，它随后会冻结该程序，在无人帮助的情况下端到端排练一次，然后提交。</p>
+</div>
+
+<div class="pair">
+<p class="en">The file also states the budget rules: new layouts in every episode, so scene geometry is measured again rather than assumed, and a blocker is reported rather than bypassed.</p>
+<p class="zh">该文件还规定了预算规则：每个回合都必须是新的布局，因此场景几何要被重新测量而不是被假设；遇到阻塞要如实上报，而不是绕过。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Skills.</b> Skills are short documents that the agent opens when it reaches the step they cover. They are grouped by axis, task strategy, coordination, perception, and robot control, and a session receives only the layers that match its robot and observation mode. The task and coordination skills are robot-agnostic (Table 12); the perception and control layers give each robot’s interface under the same names, so a task skill can point to, for example, the robot’s interface or its free-space motion without knowing which robot it runs on.</p>
+<p class="zh"><b>技能。</b>技能是一些简短文档，智能体在走到它们所覆盖的那一步时才会打开。技能按主线分组：任务策略、协同、感知与机器人控制；一次会话只会拿到与其机器人及观测模式相匹配的那些层。任务类与协同类技能是与机器人无关的（表 12）；感知层与控制层则以相同的命名给出每台机器人的接口，因此一个任务技能可以指向“该机器人的接口”或“其自由空间运动”，而无需知道自己在哪台机器人上运行。</p>
+</div>
+
+<table class="data bilingual">
+<caption><b>表 12</b>｜每次会话都会获得的、与机器人无关的技能（Table 12 | Robot-agnostic skills given to every session）</caption>
+<thead><tr><th style="width:22%">技能 Skill</th><th>它对智能体的要求 What it asks of the agent</th></tr></thead>
+<tbody>
+<tr><td>手动控制机器人<br><span class="enm2">Manual robot control</span></td><td>先观察，再用小幅动作探索；每一动作都依据当前观测选择；在交接之前确认任务的每一个条件。<br><span class="enm2">Look first, explore with small moves, choose each action from the current observation, and confirm every condition of the task before handing off.</span></td></tr>
+<tr><td>上下文内动作学习<br><span class="enm2">In-context action learning</span></td><td>当提供任务完成图像时，从中推断目标与有用策略，并把它适配到当前布局，而不是照抄动作。<br><span class="enm2">When images of a completed task are supplied, infer the goal and useful strategy from them and adapt it to the current layout, without copying actions.</span></td></tr>
+<tr><td>经验记忆<br><span class="enm2">Experience memory</span></td><td>立即记录哪些做法有效，以及其可观测的适用条件；在类似情形下检索它，并随证据积累把它提炼成经验。<br><span class="enm2">Record what worked right away, with the observable conditions under which it worked; retrieve it for similar situations and distill it as evidence grows.</span></td></tr>
+<tr><td>自主控制<br><span class="enm2">Autonomous control</span></td><td>从一次已确认的手动成功出发，把它变成由观测驱动的代码——可被监督、可被恢复——并在多种布局上测试。<br><span class="enm2">Start from a confirmed manual success, turn it into observation-driven code that can be supervised and resumed, and test it across layouts.</span></td></tr>
+<tr><td>迁移交接<br><span class="enm2">Transfer hand-off</span></td><td>在探索结束之前，写下每个子任务与每个物体是如何处理的，供后续会话在新布局上使用。<br><span class="enm2">Before exploration ends, write how each subtask and each object is handled, for a later session on new layouts.</span></td></tr>
+<tr><td>多环境探索<br><span class="enm2">Multi-environment exploration</span></td><td>运行并行环境，分别跟踪各自的场景，并共享同一份回合预算。<br><span class="enm2">Run parallel environments, track their scenes separately, and share one episode budget.</span></td></tr>
+<tr><td>多智能体探索<br><span class="enm2">Multi-agent exploration</span></td><td>决定是否要委派；给每个子智能体分配独立环境与互补目标，并汇总它们的发现与代码。<br><span class="enm2">Decide whether to delegate; give each subagent its own environment and a complementary goal, and combine their findings and code.</span></td></tr>
+</tbody>
+</table>

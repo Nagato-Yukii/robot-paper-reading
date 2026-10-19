@@ -1,0 +1,11 @@
+{
+  "id": "bcg",
+  "pdf": "sources/Bundled Contact Gradients.pdf",
+  "title": "BCG：捆绑接触梯度——让可微分仿真稳定用于可部署的动态任务 · 中英对照",
+  "brand": "BCG 双语精读",
+  "brand_sub": "Bundled Contact Gradients",
+  "accent": "#0f766e",
+  "accent_soft": "#e6f4f1",
+  "math": true,
+  "out": "docs/bcg"
+}

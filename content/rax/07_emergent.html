@@ -1,0 +1,76 @@
+<h3 data-num="5.4">5.4&nbsp;&nbsp;探索规模化下涌现的有趣智能体行为<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Intriguing Emerging Agentic Behaviors with Scaling Exploration</span><a class="pg" href="{{PDF}}#page=25" target="_blank">p.25</a></h3>
+
+<div class="pair">
+<p class="en">In this section, we analyze agentic behaviors that emerge as exploration scales, in simulation and on real robots; each task is detailed in Sections D and G.</p>
+<p class="zh">本节分析在仿真与真实机器人上、随探索规模扩大而涌现出的智能体行为；各任务的细节见 D 节与 G 节。</p>
+</div>
+
+<h3 data-num="5.4.1">5.4.1&nbsp;&nbsp;主动感知<a class="pg" href="{{PDF}}#page=25" target="_blank">p.25</a></h3>
+
+<div class="pair">
+<p class="en">Active perception (Xiong et al., 2025) emerges naturally as the agent does not treat perception as a single look at the scene (Figure 8). It moves its cameras and its hand to obtain the measurements that a step needs, measures again before it acts, and checks the outcome of each action with a new measurement.</p>
+<p class="zh">主动感知（Xiong et al., 2025）自然而然地涌现出来——智能体并不把感知当作“对场景看一眼”（图 8）。它会移动相机与手，以获取某一步所需的测量；在行动之前再次测量；并用一次新的测量去核对每个动作的结果。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure08_p26.jpg" alt="Figure 8">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 8</span>主动感知。仿真，DexJoCo 双臂汉诺塔（D.2 节）：(1) 在第一个回合里，智能体逐个转动 Allegro 手的关节，在腕部相机中找到白色指尖帽；(2) 由这些指尖帽的点拟合出指尖相对法兰的偏移——在没有任何手部模型的情况下，其拇指指尖与官方模型仅差 1.1 mm；(3) 每次放置之后，程序都会重新测量圆盘，在 150 个评测回合中平均比它预测的高度低 0.66 mm。真实机器人，ManipulationNet 销孔插入（G.4 节）：智能体以并拢的手指做探测，测量透明板的高度与桌面的倾斜。</span>
+    <span class="enm"><b>Figure 8 |</b> Active perception. Simulation, DexJoCo bimanual Tower of Hanoi (Section D.2): (1) in its first episode, the agent moves single joints of the Allegro hand and finds the white fingertip caps in the wrist camera; (2) from the caps’ points it fits the fingertip offsets relative to the flange, and, without a model of the hand, its thumb tip lies 1.1 mm from the official model; (3) after each placement, the program measures the disk again, on average 0.66 mm below the height it predicted over 150 evaluation episodes. Real robot, ManipulationNet peg-in-hole (Section G.4): the agent probes with closed fingers to measure the height of the transparent board and the tilt of the table.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>Simulation.</b> On the bimanual Tower of Hanoi of DexJoCo (Section D.2), the agent received no model of its Allegro hands. It spent its first episode on its own hand: it moved single joints, lifted the wrist cameras’ depth into points to see what each joint moves, segmented the white fingertip caps, and fitted the fingertip offsets on which every grasp of its program is built; its thumb offset lies within 1.1 mm of the official model it never saw.</p>
+<p class="zh"><b>仿真。</b>在 DexJoCo 的双臂汉诺塔任务上（D.2 节），智能体没有获得任何 Allegro 手的模型。它把第一个回合花在了自己的手上：逐个转动单个关节，把腕部相机的深度提升为点云以观察每个关节带动什么，分割出白色指尖帽，并拟合出指尖偏移——它程序的每一次抓取都建立在这些偏移之上；而它从未见过的官方模型中，拇指偏移与它拟合的结果相差不到 1.1 mm。</p>
+</div>
+
+<div class="pair">
+<p class="en">On the LIBERO-Long task of putting two cans into a basket (Section D.1), the program perceives the scene anew in every round; before each grasp, it hovers 7 cm above the can, refits the lid from the wrist camera, and rejects a top that is not can-shaped. Because the agent-view camera cannot see the floor of the basket, the program maps the basket from the wrist camera while it holds the first can, and maps it again after the first release.</p>
+<p class="zh">在 LIBERO-Long 的“把两个罐子放进篮子”任务上（D.1 节），程序在每一轮都会重新感知场景；每次抓取之前，它先悬停在罐子上方 7 cm 处，用腕部相机重新拟合罐盖，并拒收任何形状不像罐顶的顶面。由于智能体视角的相机看不到篮底，程序会在夹住第一个罐子时用腕部相机对篮子建图，并在第一次释放之后再建一次。</p>
+</div>
+
+<div class="pair">
+<p class="en">On the bimanual Tower of Hanoi of DexJoCo (Section D.2), the program verifies every lift by measuring the held disk from three cameras and pinches again when the disk rose less than half of the lift; after placing the red disk, it measures the disk’s top again and finds it on average 0.66 mm below the height it predicted. On the humanoid that carries a hammer over a bar (Section D.3), the program perceives anew at every stage and before every step at the bar, and it confirms a grasp by measuring the height of the handle again. Without depth, the RGB-only agent recovers metric relations by moving the robot by known amounts and servoing on the wrist camera (Section 5.3.2).</p>
+<p class="zh">在 DexJoCo 的双臂汉诺塔上（D.2 节），程序通过三个相机测量被夹住的圆盘来核验每一次抬升；若圆盘上升幅度不足抬升量的一半，就重新夹取。放下红色圆盘后，它会再测一次圆盘顶面，发现平均比它预测的高度低 0.66 mm。在“把锤子举过横杆”的人形机器人任务上（D.3 节），程序在每个阶段、以及横杆前的每一步之前都重新感知，并通过再次测量手柄高度来确认抓取。在没有深度的情况下，纯 RGB 智能体则靠让机器人移动已知距离、并在腕部相机上做伺服来恢复度量关系（5.3.2 节）。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Real robot.</b> On the ManipulationNet peg-in-hole challenge (Chen et al., 2026b) (Section G.4), the board is transparent acrylic, and the task text warned that the wrist camera’s depth is inaccurate at close range. The agent turned this warning into a measurement procedure that uses the arm itself as a probe: it closes the gripper, descends in 1.5 mm steps, and records the height at which the vertical force drops by 3 to 4 N. Touching the table at three points, it found that the table rises by about 3.4 mm per 10 cm along the robot’s x axis and that the top of the board lies 24.7 mm above the table, against 25 mm in the board’s CAD model, and it models the height of the board’s top as a plane that rises along x.</p>
+<p class="zh"><b>真实机器人。</b>在 ManipulationNet 的销孔插入挑战上（Chen et al., 2026b；G.4 节），板子是透明亚克力，而任务说明中明确警告：腕部相机在近距离下深度不准。智能体把这条警告转化成了一套“以机械臂本身为探针”的测量流程：它并拢夹爪，以 1.5 mm 为步长下降，记录竖直力下降 3–4 N 时的高度。通过在三个点上触碰桌面，它发现桌面沿机器人 x 轴每 10 cm 约升高 3.4 mm，且板顶位于桌面上方 24.7 mm——而板子的 CAD 模型给出的是 25 mm；随后它把板顶高度建模为一个沿 x 方向上升的平面。</p>
+</div>
+
+<div class="pair">
+<p class="en">Before each insertion into the row with 0.1 mm clearance, it touches the board next to the hole with the held peg, and these reference heights agree within 0.5 mm. Probing also calibrates the camera: from a hole whose centre it had located by touch, the agent found that the wrist camera’s absolute positions were offset by 6.4 and −0.8 mm, corrected every hole by this offset, and the next peg dropped into its hole on the first probe.</p>
+<p class="zh">在插入那一排 0.1 mm 间隙的孔之前，它会用夹着的销钉去触碰孔旁的板面，这些参考高度彼此一致到 0.5 mm 以内。探测还顺便标定了相机：从一个用触觉定位了中心的孔出发，智能体发现腕部相机的绝对位置存在 6.4 mm 与 −0.8 mm 的偏移；它用该偏移校正了每一个孔之后，下一根销钉在第一次探测时就落入了孔中。</p>
+</div>
+
+<h3 data-num="5.4.2">5.4.2&nbsp;&nbsp;错误恢复与安全<a class="pg" href="{{PDF}}#page=27" target="_blank">p.27</a></h3>
+
+<figure class="float">
+  <img src="figs/figure09_p27.jpg" alt="Figure 9">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 9</span>真实机器人上的错误恢复与安全。每一行给出一次事故以及智能体由此推导出的规则。RB-Y1：一次手工规划的转身把柜子推走了，此后每一次底盘移动都要按底盘扫过的区域做检查；蹲着提桶导致手腕过载，先站直即可解决。Franka：一个不寻常的手臂姿态撞上了相机，此后智能体只规划能让手臂远离相机的自然姿态。</span>
+    <span class="enm"><b>Figure 9 |</b> Error recovery and safety on real robots. Each incident and the rule the agent derived from it. RB-Y1: a turn planned by hand pushes a cabinet, after which every base move is checked against the area the base sweeps; squatting to lift a bucket overloads a wrist, and standing up first resolves it. Franka: an unusual arm posture hits a camera, after which the agent plans only natural postures that keep the arm away from the cameras.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en">On real robots, the agent’s mistakes have physical consequences, and it turns each one into a rule that its later programs follow (Figure 9). On the RB-Y1, an in-place turn that the agent planned by hand swung the rear of the base into a cabinet; from then on, the agent checked every base move against the area the base sweeps. Lifting a bucket while squatting overloaded a wrist and stopped the robot; standing up before the lift, a correction from the operator, resolved it, and the agent kept it as a rule in its skill. On the Franka, an unusual arm posture drove the elbow into a camera; the agent then restricted itself to natural arm postures, kept the arm away from the cameras, and recalibrated the bumped camera itself (Section G.2.1). In simulation, the humanoid crosses a bar only from foot placements that its own falls showed to be safe (Section D.3).</p>
+<p class="zh">在真实机器人上，智能体的错误会产生物理后果，而它会从每一次错误中提炼出一条规则，供后续程序遵循（图 9）。在 RB-Y1 上，一次由智能体手工规划的原地转身把底盘后部甩到了柜子上；从那以后，智能体每次移动底盘前都会按底盘扫过的区域做检查。蹲着提桶导致手腕过载、机器人停机；先站直再提（这来自操作员的纠正）解决了问题，智能体便把它作为一条规则写进了技能中。在 Franka 上，一个不寻常的手臂姿态让肘部撞上了相机；此后智能体只采用自然的手臂姿态、让手臂远离相机，并自行重新标定了被撞的相机（G.2.1 节）。在仿真中，人形机器人只会从“它自己摔过之后证明安全”的落脚点跨过横杆（D.3 节）。</p>
+</div>
+
+<h3 data-num="5.4.3">5.4.3&nbsp;&nbsp;人机交互<a class="pg" href="{{PDF}}#page=27" target="_blank">p.27</a></h3>
+
+<figure class="float">
+  <img src="figs/figure10_p27.jpg" alt="Figure 10">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 10</span>人—机器人交互。智能体发给操作员的请求（附前后场景）摘要。右：智能体在第 6 至第 10 次运行中请求的炸锅位姿，依据的是它自己对炸锅轴线与把手方向的测量。</span>
+    <span class="enm"><b>Figure 10 |</b> Human–robot interaction. Requests that the agent sent to the operator, summarized, with the scene before and after. Right: the fryer poses that the agent requested across runs 6 to 10, from its own measurements of the fryer’s axis and handle direction.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en">The agent reaches the operator through a request tool and uses it with purpose (Figure 10). On the ManipulationNet board, after the board shifted during its attempts at tight fits, it asked the operator to tape the board to the table. On the air fryer (Section G.2), it refused to pick a banana placed in front of the camera it had hit earlier, because its forearm would pass within about 1 cm of the camera, and asked for the banana to be moved. After unattended successes, it asked the operator to move and rotate the fryer, in effect designing its own tests of generalization: across runs 6 to 10, the fryer moved by up to 7 cm and its handle turned by up to 18°, and the program succeeded unattended in every new placement but one, where it needed help and which exposed two errors in its program that the agent then fixed.</p>
+<p class="zh">智能体通过一个“请求”工具与操作员取得联系，并且是有目的地使用它（图 10）。在 ManipulationNet 板上，当它尝试紧配合时板子发生了位移，于是它请操作员用胶带把板子固定到桌上。在空气炸锅任务中（G.2 节），它拒绝去抓一根放在“此前被撞过的相机”前方的香蕉，因为它的前臂会从距相机约 1 cm 以内经过，于是请求把香蕉移开。在若干次无人值守成功之后，它请操作员移动并旋转炸锅——实际上是在自行设计泛化测试：在第 6 至第 10 次运行中，炸锅移动最多 7 cm、把手转动最多 18°，程序在每一个新摆放位置上都能无人值守成功，只有一次需要帮助——而那次恰好暴露了它程序中的两处错误，随后被智能体自己修复。</p>
+</div>

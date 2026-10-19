@@ -1,0 +1,13 @@
+# scratch / build workspace
+_work/
+_build/
+tmp/
+*.tmp
+
+# python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db

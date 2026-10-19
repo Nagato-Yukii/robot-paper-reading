@@ -1,0 +1,56 @@
+<h2 data-num="I">I&nbsp;&nbsp;引言<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Introduction</span><a class="pg" href="{{PDF}}#page=1" target="_blank">p.1</a></h2>
+
+<div class="pair">
+<p class="en">Learning dynamic, contact-rich behaviors, such as agile locomotion and whole-body motions is predominantly achieved by model-free reinforcement learning (RL) [1], [2]. By optimizing policies without differentiating through the underlying dynamics, model-free RL can be applied directly to simulators with non-smooth contact models and has made it the workhorse behind recent sim-to-real successes in legged-robot control [3]. However, its reliance on zero-order gradient estimation makes policy optimization sample inefficient, particularly for long-horizon, high-dimensional control problems [4]. As a result, training often requires billions of environment interactions and substantial wall-clock time [5].</p>
+<p class="zh">学习动态的、接触丰富的行为——例如敏捷运动与全身动作——目前主要依靠无模型强化学习（RL）[1], [2]。无模型 RL 无需对底层动力学求导即可优化策略，因此能直接作用于采用非光滑接触模型的仿真器，也正是它支撑了足式机器人控制领域近来的诸多 sim-to-real 成功 [3]。然而，它依赖零阶梯度估计，导致策略优化的样本效率低下，在长时序、高维控制问题上尤其如此 [4]。结果是，训练往往需要数十亿次环境交互与大量的墙上时间 [5]。</p>
+</div>
+
+<div class="pair">
+<p class="en">Differentiable simulation offers a more efficient alternative. By exposing analytic derivatives of the dynamics, it enables first-order policy optimization, by backpropagating gradients through the simulated dynamics to the policy. When the dynamics are smooth, the resulting gradients have far lower variance than their zero-order counterparts, and methods such as SHAC [4] report large gains in sample and wall-clock efficiency over zero-order RL. The promise of first-order learning, however, has largely been confined to simulation due to highly softened contact models that are employed.</p>
+<p class="zh">可微分仿真提供了一条更高效的路径。它把动力学的解析导数暴露出来，使梯度可以穿过被仿真的动力学回传到策略，从而实现一阶策略优化。当动力学足够平滑时，由此得到的梯度方差远低于零阶方法；SHAC [4] 等方法报告了相对零阶 RL 在样本效率与墙上时间上的大幅收益。然而，由于普遍采用高度软化的接触模型，一阶学习的这种潜力在很大程度上被限制在仿真之中。</p>
+</div>
+
+<div class="pair">
+<p class="en">Modeling stiff ground contacts in rigid-body differentiable simulation for legged control introduces a fundamental trade-off between physical fidelity and gradient quality. Compliant, low-stiffness contact yields smooth gradients but permits soft, penetrating interactions that do not transfer to hardware. Raising the stiffness toward physically faithful, deployable values restores realism but makes the analytic gradient high-variance and biased across contact events [6], [7], which destabilizes first-order optimization. Existing first-order methods largely sidestep this tension: they either soften contact or shorten the differentiable horizon around contact events [8], discarding gradient information where contact-rich behavior must be learned.</p>
+<p class="zh">在面向足式控制的刚体可微分仿真中刻画刚性地面接触，会引出一个根本性权衡：物理保真度与梯度质量不可兼得。柔顺的低刚度接触能给出平滑梯度，却允许“软而穿透”的交互，这类交互无法迁移到硬件上。把刚度提高到物理上可信、可部署的数值，可以恢复真实感，但会使解析梯度在接触事件附近变成高方差且有偏的 [6], [7]，从而破坏一阶优化的稳定性。既有的一阶方法大体上都在回避这一矛盾：它们要么软化接触，要么在接触事件附近缩短可微分的时域 [8]——而恰恰是在最需要学习接触丰富行为的地方，梯度信息被丢弃了。</p>
+</div>
+
+<div class="pair">
+<p class="en">Our approach is to retain stiff contact dynamics while stabilizing the gradients used for policy learning. At a stiff contact event, the gradient from a single contact configuration can be highly sensitive to small perturbations; averaging gradients over nearby configurations can provide a more stable learning signal. Building on randomized smoothing and bundle gradients [9], [10], we apply this principle within first-order policy learning. But rather than applying smoothing globally, as in prior trajectory-optimization settings where evaluating bundles over entire trajectories can be computationally expensive, we apply it locally, only at stiff contact events.</p>
+<p class="zh">我们的思路是：<b>保留刚性接触动力学，同时稳定用于策略学习的梯度</b>。在刚性接触事件处，来自单一接触构型的梯度可能对小扰动极度敏感；而对邻近构型上的梯度取平均，往往能给出更稳定的学习信号。我们在随机平滑与捆绑梯度 [9], [10] 的基础上，把这一原则引入一阶策略学习。但与先前轨迹优化中“全局平滑”的做法（在整条轨迹上评估 bundle 计算代价很高）不同，我们只在刚性接触事件处、局部地施加平滑。</p>
+</div>
+
+<div class="pair">
+<p class="en">We propose Bundled Contact Gradients (BCG) (Fig. 1): when stiff contact is detected, the simulator evaluates a small bundle of perturbations sampled in Cartesian space, and simulated over a horizon in parallel. Aggregating the branches yields a locally smoothed transition, so the forward rollout retains stiff, deployable contact while the backward pass with automatic differentiation [11] receives a lower-variance, averaged contact gradient. Because bundling is triggered only at stiff contact and executed in parallel on the GPU, the overhead is limited and incurred only where the first-order gradient is most fragile.</p>
+<p class="zh">我们提出 <b>捆绑接触梯度（BCG）</b>（图 1）：一旦检测到刚性接触，仿真器就在笛卡尔空间中采样一小束扰动，并在一个时域上并行仿真这些分支。对各分支的聚合得到一个局部平滑的转移——于是前向 rollout 仍保持刚性、可部署的接触，而反向传播（自动微分 [11]）得到的则是方差更低、经过平均的接触梯度。由于捆绑只在刚性接触处触发、且在 GPU 上并行执行，额外开销有限，并且只发生在“一阶梯度最脆弱”的地方。</p>
+</div>
+
+<div class="pair">
+<p class="en">We integrate BCG into Warp [11] and use it within a SHAC-style actor-critic framework for first-order policy optimization. To learn dynamic humanoid behaviors, we apply this framework to motion imitation, where the policy tracks reference motions using rewards from Adversarial Differential Discriminators (ADD) [12].</p>
+<p class="zh">我们把 BCG 集成进 Warp [11]，并将其用于一个 SHAC 风格的 actor–critic 框架中做一阶策略优化。为学习动态的人形行为，我们把该框架用于动作模仿：策略借助对抗微分判别器（Adversarial Differential Discriminators, ADD）[12] 给出的奖励来跟踪参考动作。</p>
+</div>
+
+<div class="pair">
+<p class="en">In summary, our main contributions are:</p>
+<p class="zh">总结来说，我们的主要贡献是：</p>
+</div>
+
+<div class="pair">
+<p class="en">• We introduce Bundled Contact Gradients (BCG), a contact-local randomized-smoothing scheme that stabilizes first-order policy gradients under stiff contact without softening the forward dynamics.</p>
+<p class="zh">• 我们提出 <b>BCG</b>：一种接触局部化的随机平滑方案，能在<b>不软化前向动力学</b>的前提下，稳定刚性接触下的一阶策略梯度。</p>
+</div>
+
+<div class="pair">
+<p class="en">• We show that BCG learns deployable humanoid motion-tracking policies with fewer samples and less training time than PPO, while achieving lower tracking error after sim-to-sim transfer.</p>
+<p class="zh">• 我们证明 BCG 学到的可部署人形动作跟踪策略，在样本数与训练时间上都少于 PPO，同时在 sim-to-sim 迁移之后达到更低的跟踪误差。</p>
+</div>
+
+<div class="pair">
+<p class="en">• We demonstrate zero-shot sim-to-real transfer of dynamic motions learned through differentiable simulation to real humanoid hardware.</p>
+<p class="zh">• 我们展示了：通过可微分仿真学到的动态动作，可以零样本迁移到真实人形硬件上。</p>
+</div>
+
+<div class="pair">
+<p class="en">To the best of our knowledge, this work represents the first successful zero-shot transfer of a policy trained in differentiable simulation onto a real humanoid platform, as well as the first pairing of ADD with first-order differentiable-simulation policy learning.</p>
+<p class="zh">据我们所知，这是首个把可微分仿真中训练的策略成功零样本迁移到真实人形平台的工作，也是首次把 ADD 与一阶可微分仿真策略学习结合在一起。</p>
+</div>

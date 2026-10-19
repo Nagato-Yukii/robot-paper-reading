@@ -1,0 +1,80 @@
+<h2 data-num="C">C&nbsp;&nbsp;基准与任务<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Benchmarks and Tasks</span><a class="pg" href="{{PDF}}#page=38" target="_blank">p.38</a></h2>
+
+<div class="pair">
+<p class="en">This section gives the protocol that all simulation experiments share and then the setting of each benchmark and its tasks. The real-robot tasks are described in Section G.</p>
+<p class="zh">本节先给出所有仿真实验共用的协议，然后说明每个基准及其任务的设置。真实机器人任务在 G 节描述。</p>
+</div>
+
+<h3 data-num="C.1">C.1&nbsp;&nbsp;会话<a class="pg" href="{{PDF}}#page=38" target="_blank">p.38</a></h3>
+
+<div class="pair">
+<p class="en"><b>Agents.</b> Every experiment is a session of one coding agent in its own command-line harness: Claude Code with Claude Opus 5.5 or, on four RoboDojo tasks and one BEHAVIOR-1K task, Codex with a GPT-6 model, at the xhigh reasoning effort unless stated otherwise. A session provides one or more simulated environments; with more than one, the agent may start subagents of the same model, which share its workspace and its budget. The weights of the model are never updated.</p>
+<p class="zh"><b>智能体。</b>每个实验都是一个编程智能体在它自己的命令行测试框架（harness）中的一次会话：使用 Claude Code + Claude Opus 5.5；在四个 RoboDojo 任务与一个 BEHAVIOR-1K 任务上则使用 Codex + GPT-6 模型；除特别说明外均采用 xhigh 推理强度。一次会话提供一个或多个仿真环境；当环境多于一个时，智能体可以启动同一模型的子智能体，它们共享其工作区与预算。模型的权重从不更新。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Workspace.</b> The agent starts from an empty workspace. Its folders for code, notes, and outputs are empty, and it holds only the instructions of the harness, the task description, the contract of the tool interface, and the skills of the platform, composed for the embodiment and the observation mode of the session (Section B); the agent keeps no memory from earlier sessions. It runs in a container without network access, with 16 GB of memory and four CPUs, and reaches the simulator only through its tools. Every program it registers runs in a fresh container with 8 GB of memory, four CPUs, and no network access.</p>
+<p class="zh"><b>工作区。</b>智能体从空工作区开始：它的代码、笔记与输出文件夹都是空的，手中只有测试框架的指令、任务描述、工具接口契约，以及按本次会话的本体与观测模式组合出的平台技能（B 节）；智能体不保留任何来自先前会话的记忆。它运行在一个无网络访问的容器中，内存 16 GB、四个 CPU，并且只能通过工具访问仿真器。它注册的每个程序都在一个全新容器中运行，内存 8 GB、四个 CPU、无网络访问。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Task information.</b> The task description is generated from the public definition of the task; its content differs between benchmarks and is given below. Images of the completed task are frames of successful official demonstrations, either the final frame of each or a sequence of keyframes along each. They contain no actions and no states, and only the exploring agent sees them, never its programs. During an interactive episode, the agent may ask the benchmark’s evaluator whether the task is complete.</p>
+<p class="zh"><b>任务信息。</b>任务描述由任务的公开定义生成；其内容因基准而异，具体见下文。“任务完成图像”是官方成功演示中的帧：或取每条演示的最后一帧，或取沿每条演示的一系列关键帧。它们不含动作、不含状态，且只有探索阶段的智能体能看到，它的程序永远看不到。在交互式回合中，智能体可以向基准的评测器询问任务是否已完成。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Budget and scenes.</b> The exploration budget counts exploration episodes. A single ledger charges every episode start and every rehearsal, across all environments and subagents, and the agent sees how many episodes remain. The budget is an upper bound, since submission ends exploration. Exploration scenes come in a fixed order, which the agent cannot choose, from the training distribution of the benchmark, and evaluation scenes from its official evaluation set, which exploration never uses.</p>
+<p class="zh"><b>预算与场景。</b>探索预算以探索回合数计。一个统一的账本对所有环境与子智能体的每一次回合开始与每一次排练扣费，智能体能看到还剩多少回合。预算只是上界——因为提交即终止探索。探索场景按固定顺序给出（智能体不能挑选），取自该基准的训练分布；评测场景则取自其官方评测集，探索过程永不使用。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Limits.</b> Each episode has the native step limit of the benchmark and a wall-clock limit, which during an interactive episode also bounds the agent’s own deliberation. The agent and its programs may call a vision-language model, Gemini 3.8 Flash, with a budget of $10 per session that exploration and evaluation share.</p>
+<p class="zh"><b>限制。</b>每个回合都受该基准原生的步数上限约束，还有一个墙上时间上限——在交互式回合中，这个上限同时也约束智能体自身的推理时间。智能体及其程序可以调用视觉语言模型 Gemini 3.8 Flash，每次会话预算 10 美元，由探索与评测共享。</p>
+</div>
+
+<h3 data-num="C.2">C.2&nbsp;&nbsp;排练与评测<a class="pg" href="{{PDF}}#page=38" target="_blank">p.38</a></h3>
+
+<div class="pair">
+<p class="en"><b>Rehearsal.</b> When the agent considers its program ready, it freezes a copy of its code with a registered entry point into a bundle and requests a rehearsal. The bundle is executed alone in a fresh isolated environment on a new exploration scene while the agent is paused, and the rehearsal consumes one exploration episode, like an episode in which the agent acts itself. Afterwards, the agent reads the outcome and the logs of the rehearsal and may revise the bundle and rehearse again. Only a bundle that has completed a rehearsal without error can be submitted, and submission ends exploration.</p>
+<p class="zh"><b>排练。</b>当智能体认为自己的程序已经就绪，它会将带有注册入口点的代码副本冻结为一个 bundle，并请求一次排练。该 bundle 会在智能体暂停的情况下，在一个全新的隔离环境中、于一个新的探索场景上单独执行；排练消耗一个探索回合，和智能体亲自行动的回合一样。之后，智能体读取排练结果与日志，可以修改 bundle 并再次排练。只有完成过一次无错误排练的 bundle 才能被提交，而提交即终止探索。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Fully automated program.</b> Evaluation executes the submitted bundle on each unseen scene in a fresh isolated environment, without the agent and without edits or retries. The results are never revealed to the agent. Because the bundle calls the same tools that the agent called during exploration, the program that is evaluated is the program that was rehearsed.</p>
+<p class="zh"><b>全自动程序。</b>评测会在全新的隔离环境中，对每个未见场景执行提交的 bundle——没有智能体参与，不允许编辑或重试。结果从不向智能体透露。由于 bundle 调用的正是智能体在探索期间调用的那些工具，因此被评测的程序就是被排练过的那个程序。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Agent-in-the-loop program.</b> At the end of exploration, the workspace is frozen, including the code, the notes, the handoff, and a compressed version of the conversation. For each evaluation scene, a fresh copy of the agent starts from this frozen workspace and attempts the scene, running its code, observing, and acting through the same tools as during exploration.</p>
+<p class="zh"><b>智能体在环程序。</b>探索结束时，工作区被冻结，包括代码、笔记、交接说明以及对话的压缩版本。对每个评测场景，都会有一个全新的智能体副本从该冻结工作区出发尝试该场景：运行它的代码、观察，并像探索时一样通过同一批工具行动。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Scoring.</b> Both forms are scored by the benchmark’s native evaluator, with partial credit wherever the benchmark defines it. An error, a timeout, or an early exit of the program counts as a failure, and scores are averaged over all scheduled evaluation episodes.</p>
+<p class="zh"><b>计分。</b>两种形式都由基准的原生评测器计分，凡基准定义了部分得分的都按部分得分计。程序出错、超时或提前退出都算作失败；分数在所有预定的评测回合上取平均。</p>
+</div>
+
+<h3 data-num="C.3">C.3&nbsp;&nbsp;RoboDojo<a class="pg" href="{{PDF}}#page=39" target="_blank">p.39</a></h3>
+
+<div class="pair">
+<p class="en"><b>Tasks and interface.</b> We use seven tasks of RoboDojo-Sim (Chen et al., 2026a) with the dual-arm ARX X5 (Table 13). The agent commands absolute joint targets at 25 Hz, six arm joints and a gripper opening for each arm, with between 1 and 50 rows per call. It may also command bounded end-effector steps, plan collision-free motions of one arm against the robot and the table, lift pixels to 3D points, and preview a motion on the robot alone. It observes the scene through a high camera and a camera on each wrist at 640×480; the benchmark renders RGB, and the harness adds metric depth, the intrinsics, and the pose of every camera.</p>
+<p class="zh"><b>任务与接口。</b>我们使用 RoboDojo-Sim 的七个任务（Chen et al., 2026a），平台为双臂 ARX X5（表 13）。智能体以 25 Hz 下达绝对关节目标——每条手臂六个关节加一个夹爪开度——每次调用 1–50 行。它还可以下达有界的末端执行器步进、针对机器人与桌面规划单臂的无碰撞运动、把像素提升为三维点、以及在纯机器人模型上预演一个动作。它通过一个高位相机与每个腕部的相机观察场景，分辨率 640×480；基准渲染 RGB，测试框架额外提供公制深度、内参以及每个相机的位姿。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Task information.</b> The task description is the public scoring rubric of the task, which for the randomized variants is that of the base task, with its score table. For make kong, pour by language, and swap blocks it adds a short clarification of the conditions, and for plug in charger and pour by language a summary of the official task code without its numeric thresholds. The agent also receives one image of the completed task, the last frame of the official video of the task.</p>
+<p class="zh"><b>任务信息。</b>任务描述就是该任务的公开评分细则；对随机化变体而言，则是其基础任务的细则加上评分表。<i>make kong</i>、<i>pour by language</i> 与 <i>swap blocks</i> 还额外附有对任务条件的简短说明；<i>plug in charger</i> 与 <i>pour by language</i> 还附有官方任务代码的摘要（但不含其数值阈值）。智能体还会收到一张任务完成图像——该任务官方视频的最后一帧。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Exploration and evaluation.</b> A single agent explores a single environment; on plug in charger and pour by language it may start one subagent. Exploration scenes are the layouts of one official collection in order, which repeat once the collection is exhausted, and the program is evaluated on the first layouts of another collection (Table 13); on hang mugs random, both come from a pooled collection, with evaluation on layouts 0 to 49 and exploration on layouts 50 to 89. An episode is limited to 6 s of wall-clock time per allowed step. A score is 100 on native success and the native partial score otherwise. The parallel experiment (Table 7) uses make toast with a description that includes the numeric thresholds, keyframes of a completed run, and 32 evaluation layouts from a third collection; the RGB-only sessions of Table 8 receive no depth, calibration, or pixel lifting.</p>
+<p class="zh"><b>探索与评测。</b>单个智能体探索单个环境；在 <i>plug in charger</i> 与 <i>pour by language</i> 上它可以启动一个子智能体。探索场景是某个官方集合中的布局，按顺序使用，集合用尽后循环；程序则在另一个集合的前若干布局上评测（表 13）。在 <i>hang mugs random</i> 上，两者来自同一个合并集合：评测用布局 0–49，探索用布局 50–89。每个回合的墙上时间限制为每个允许步 6 s。原生成功记 100 分，否则记原生部分得分。并行实验（表 7）使用 <i>make toast</i>，其描述包含数值阈值、一次成功运行的关键帧，以及来自第三个集合的 32 个评测布局；表 8 的纯 RGB 会话则不提供深度、标定或像素提升。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table13_p39.jpg" alt="Table 13">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 13</span>RoboDojo 任务。步数上限（25 Hz 下）；部分得分：原生分数档位；评测：官方布局数量。</span>
+    <span class="enm"><b>Table 13 |</b> RoboDojo tasks. Step limit at 25 Hz; partial credit: native score tiers; evaluation: number of official layouts.</span>
+  </figcaption>
+</figure>

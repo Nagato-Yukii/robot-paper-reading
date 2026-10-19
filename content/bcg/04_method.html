@@ -1,0 +1,112 @@
+<h2 data-num="IV">IV&nbsp;&nbsp;捆绑接触梯度<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Bundled Contact Gradients</span><a class="pg" href="{{PDF}}#page=4" target="_blank">p.4</a></h2>
+
+<div class="pair">
+<p class="en">We propose Bundled Contact Gradients (BCG) to stabilize first-order policy learning through stiff contact. At a stiff contact event, BCG creates nearby contact configurations, advances them in parallel, and aggregates their states. Differentiating through this local bundle combines sensitivities from several contact realizations, reducing reliance on any single derivative. Each branch retains the large but finite contact stiffness κ of Section III-C. Figure 2 summarizes how BCG connects the simulator, policy, and imitation objective.</p>
+<p class="zh">我们提出<b>捆绑接触梯度（BCG）</b>，用以稳定穿过刚性接触的一阶策略学习。在刚性接触事件处，BCG 构造若干邻近的接触构型，让它们并行推进，再聚合它们的状态；对这个局部 bundle 求导，就把多个接触实现（contact realization）的敏感性组合起来，从而降低对任何单一导数的依赖。每个分支都保留 III-C 节所述“很大但有限”的接触刚度 κ。图 2 概览了 BCG 如何把仿真器、策略与模仿目标串联起来。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/fig2.jpg" alt="Fig. 2">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 2</span>BCG 在 SHAC 风格框架中与 ADD 结合的策略学习。策略驱动并行的 rollout。在刚性接触处，<i>B</i> 个扰动分支在共享策略动作下推进 <i>H</i> 步，然后被平均以继续 rollout。ADD 比较仿真动作特征与参考动作特征以给出模仿奖励，其梯度穿过动力学回传以更新策略。</span>
+    <span class="enm"><b>Fig. 2 |</b> Policy learning with BCG in a SHAC-style framework and ADD. The policy drives parallel rollouts. At stiff contact, B perturbed branches advance for H steps under shared policy actions and are averaged to continue the rollout. ADD compares simulated and reference motion features to provide imitation rewards, whose gradients propagate through the dynamics to update the policy.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en">Let x<sub>t</sub> be the simulator state at control step t, a<sub>t</sub> the action, and f<sub>κ</sub> the differentiable transition between consecutive control steps. We describe a bundle beginning at control step k, with B branches indexed by i ∈ {1, . . . , B} and duration H ≥ 1 control steps. Outside a bundle rollout, the simulator follows an ordinary single branch transition.</p>
+<p class="zh">记 x<sub>t</sub> 为控制步 t 时的仿真器状态，a<sub>t</sub> 为动作，f<sub>κ</sub> 为相邻控制步之间的可微分转移。我们描述一个从控制步 k 开始的 bundle：它有 B 个分支，以 i ∈ {1, …, B} 索引，持续时长 H ≥ 1 个控制步。在 bundle rollout 之外，仿真器沿用普通的单分支转移。</p>
+</div>
+
+<div class="pair">
+<p class="en">BCG proceeds in three phases: contact-local perturbation, multi-step bundled rollout, and gradient propagation. We describe these phases below, followed by their integration into policy learning for motion imitation.</p>
+<p class="zh">BCG 分三个阶段进行：接触局部扰动、多步捆绑 rollout 与梯度传播。下文依次描述这三个阶段，然后说明它们如何被整合进面向动作模仿的策略学习。</p>
+</div>
+
+<h3 data-num="IV.A">IV.A&nbsp;&nbsp;接触局部扰动<a class="pg" href="{{PDF}}#page=4" target="_blank">p.4</a></h3>
+
+<div class="pair">
+<p class="en">A bundle step is triggered when the set \(\mathcal{C}_k\) of contacts whose normal impulse exceeds a detection threshold τ is nonempty. We perturb the contacting kinematic chain in Cartesian space so that the perturbation scale has a direct physical interpretation. Let q<sub>k</sub> denote the joint positions of the contacting kinematic chains and \(p_{\mathcal{C}_k}(q_k)\) the current Cartesian positions of their final links. For each branch i we sample position and velocity offsets and map them to joint-space increments:</p>
+<p class="zh">当“法向冲量超过检测阈值 τ”的接触集合 \(\mathcal{C}_k\) 非空时，就触发一次 bundle 步。我们在笛卡尔空间中扰动发生接触的运动链，使扰动的尺度具有直接的物理含义。记 q<sub>k</sub> 为接触运动链的关节位置，\(p_{\mathcal{C}_k}(q_k)\) 为它们末端连杆当前的笛卡尔位置。对每个分支 i，我们采样位置与速度偏移，并映射为关节空间增量：</p>
+</div>
+
+<div class="eq">\[ J_k=\frac{\partial p_{\mathcal{C}_k}}{\partial q}(q_k),\qquad \Delta p^{(i)}\sim\mathcal{N}(0,\sigma_p^2 I),\quad \Delta q^{(i)}=J_k^{\dagger}\Delta p^{(i)},\qquad \Delta v^{(i)}\sim\mathcal{N}(0,\sigma_v^2 I),\quad \Delta\dot{q}^{(i)}=J_k^{\dagger}\Delta v^{(i)} \]</div>
+
+<div class="pair">
+<p class="en">Here, \(\mathcal{N}\) is a Gaussian distribution, I is the identity matrix of the Cartesian perturbation dimension, and σ<sub>p</sub> and σ<sub>v</sub> are the position and velocity standard deviations. J<sub>k</sub><sup>†</sup> denotes the damped pseudoinverse of the Jacobian J<sub>k</sub>. Embedding the increments Δq<sup>(i)</sup> and Δq̇<sup>(i)</sup> into the simulator state gives an offset δx<sub>k</sub><sup>(i)</sup> and initial branch state x<sub>k</sub><sup>(i)</sup> = x<sub>k</sub> + δx<sub>k</sub><sup>(i)</sup>; all other state components are unchanged.</p>
+<p class="zh">这里 \(\mathcal{N}\) 是高斯分布，I 是笛卡尔扰动维度上的单位矩阵，σ<sub>p</sub> 与 σ<sub>v</sub> 分别是位置与速度的标准差；J<sub>k</sub><sup>†</sup> 表示 Jacobian J<sub>k</sub> 的阻尼伪逆。把增量 Δq<sup>(i)</sup> 与 Δq̇<sup>(i)</sup> 嵌入仿真器状态，即得到偏移 δx<sub>k</sub><sup>(i)</sup> 与分支的初始状态 x<sub>k</sub><sup>(i)</sup> = x<sub>k</sub> + δx<sub>k</sub><sup>(i)</sup>；其余状态分量保持不变。</p>
+</div>
+
+<div class="pair">
+<p class="en">During backpropagation, each offset δx<sub>k</sub><sup>(i)</sup> is treated as a constant. Gradients therefore pass unchanged through the additive update to x<sub>k</sub>, without differentiating through perturbation sampling or its Jacobian-based mapping.</p>
+<p class="zh">在反向传播中，每个偏移 δx<sub>k</sub><sup>(i)</sup> 都被当作常数处理。因此梯度会原样穿过对 x<sub>k</sub> 的加法更新，而不会去对扰动采样过程或其基于 Jacobian 的映射求导。</p>
+</div>
+
+<h3 data-num="IV.B">IV.B&nbsp;&nbsp;多步捆绑 rollout<a class="pg" href="{{PDF}}#page=5" target="_blank">p.5</a></h3>
+
+<div class="pair">
+<p class="en">Starting from the perturbed states x<sub>k</sub><sup>(i)</sup>, the branches evolve for H control steps under shared actions, initially using the current action a<sub>k</sub> from the nominal rollout. Each transition f<sub>κ</sub> integrates S simulation substeps with the action held constant, after which the branch states are averaged. Thus, even H = 1 allows S substeps of branch evolution before the average supplies rewards and the next action. Their propagation and aggregation are</p>
+<p class="zh">从被扰动的状态 x<sub>k</sub><sup>(i)</sup> 出发，各分支在<b>共享动作</b>下演化 H 个控制步，起初使用来自名义 rollout 的当前动作 a<sub>k</sub>。每次转移 f<sub>κ</sub> 在动作保持不变的情况下积分 S 个仿真子步，之后对分支状态取平均。因此即使 H = 1，也允许分支先演化 S 个子步，再由平均值提供奖励与下一个动作。它们的前向传播与聚合为</p>
+</div>
+
+<div class="eq">\[ x_{t+1}^{(i)}=f_\kappa\left(x_t^{(i)},a_t\right),\qquad \bar{x}_{t+1}=\mathcal{A}\left(x_{t+1}^{(1)},\dots,x_{t+1}^{(B)}\right),\qquad k\le t \lt k+H \tag{1} \]</div>
+
+<div class="pair">
+<p class="en">where \(\mathcal{A}\) aggregates the branch states into a representative state x̄<sub>t+1</sub>, using arithmetic means for positions and velocities. At subsequent control boundaries (t &gt; k), the policy with parameters θ computes a<sub>t</sub> = π<sub>θ</sub>(x̄<sub>t</sub>), and the same action is applied to every branch. The averaged state also supplies the observation and reward at that boundary. The nominal rollout then resumes from x<sub>k+H</sub> = x̄<sub>k+H</sub>.</p>
+<p class="zh">其中 \(\mathcal{A}\) 把分支状态聚合为一个代表状态 x̄<sub>t+1</sub>，位置与速度均采用算术平均。在后续的控制边界（t &gt; k）上，参数为 θ 的策略以 a<sub>t</sub> = π<sub>θ</sub>(x̄<sub>t</sub>) 计算动作，且同一动作施加到每个分支。平均后的状态同时提供该边界处的观测与奖励。随后名义 rollout 从 x<sub>k+H</sub> = x̄<sub>k+H</sub> 继续。</p>
+</div>
+
+<div class="pair">
+<p class="en">Algorithm 1 summarizes this procedure for one environment. However, in our implementation branch transitions over all bundling environments run in parallel on the GPU to reduce overhead.</p>
+<p class="zh">算法 1 针对单个环境总结了这一过程。不过在实现中，所有捆绑环境上的分支转移都在 GPU 上并行执行，以降低开销。</p>
+</div>
+
+<figure class="float narrow">
+  <img src="figs/alg1.jpg" alt="Algorithm 1">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">算法 1</span>持续 H 个控制步的 BCG rollout 片段。图中代码与论文原文一致（保留英文标识符）；第 3 行 <code>return f_κ(x_k, a_k)</code> 表示无刚性接触时退化为普通单步转移，第 20 行返回聚合后的状态 x̄<sub>k+H</sub>。</span>
+    <span class="enm"><b>Algorithm 1 |</b> BCG rollout segment with duration H control steps.</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="IV.C">IV.C&nbsp;&nbsp;梯度传播<a class="pg" href="{{PDF}}#page=5" target="_blank">p.5</a></h3>
+
+<div class="pair">
+<p class="en">Let Z<sub>t</sub> = dx<sub>t</sub>/dθ and U<sub>t</sub> = da<sub>t</sub>/dθ denote the total sensitivities of the state and action to the policy parameters. Write F<sub>x,t</sub> = ∂f<sub>κ</sub>/∂x and F<sub>a,t</sub> = ∂f<sub>κ</sub>/∂a for the transition Jacobians, evaluated at (x<sub>t</sub>, a<sub>t</sub>). Without bundling, gradients propagate along a single trajectory:</p>
+<p class="zh">记 Z<sub>t</sub> = dx<sub>t</sub>/dθ、U<sub>t</sub> = da<sub>t</sub>/dθ，分别表示状态与动作对策略参数的总体敏感性；并记 F<sub>x,t</sub> = ∂f<sub>κ</sub>/∂x、F<sub>a,t</sub> = ∂f<sub>κ</sub>/∂a 为在 (x<sub>t</sub>, a<sub>t</sub>) 处求值的转移 Jacobian。不做捆绑时，梯度沿单一轨迹传播：</p>
+</div>
+
+<div class="eq">\[ Z_{t+1}=F_{x,t}Z_t+F_{a,t}U_t \tag{2} \]</div>
+
+<div class="pair">
+<p class="en">BCG instead propagates a sensitivity Z<sub>t</sub><sup>(i)</sup> = dx<sub>t</sub><sup>(i)</sup>/dθ along each perturbed branch, with Jacobians evaluated at (x<sub>t</sub><sup>(i)</sup>, a<sub>t</sub>). Since the perturbations are treated as constants, Z<sub>k</sub><sup>(i)</sup> = Z<sub>k</sub>. For k ≤ t &lt; k + H,</p>
+<p class="zh">BCG 则沿每个被扰动的分支传播一份敏感性 Z<sub>t</sub><sup>(i)</sup> = dx<sub>t</sub><sup>(i)</sup>/dθ，其中的 Jacobian 在 (x<sub>t</sub><sup>(i)</sup>, a<sub>t</sub>) 处求值。由于扰动被视为常数，故 Z<sub>k</sub><sup>(i)</sup> = Z<sub>k</sub>。对 k ≤ t &lt; k + H，有</p>
+</div>
+
+<div class="eq">\[ Z_{t+1}^{(i)}=F_{x,t}^{(i)}Z_t^{(i)}+F_{a,t}^{(i)}U_t,\qquad \bar{Z}_{t+1}=\sum_{i=1}^{B}\frac{\partial\mathcal{A}}{\partial x_{t+1}^{(i)}}Z_{t+1}^{(i)} \tag{3} \]</div>
+
+<div class="pair">
+<p class="en">where Z̄<sub>t+1</sub> = dx̄<sub>t+1</sub>/dθ. For state components aggregated arithmetically, the corresponding rows of this expression become</p>
+<p class="zh">其中 Z̄<sub>t+1</sub> = dx̄<sub>t+1</sub>/dθ。对按算术平均聚合的状态分量，该表达式的对应行变为</p>
+</div>
+
+<div class="eq">\[ \bar{Z}_{t+1}=\frac{1}{B}\sum_{i=1}^{B}\underbrace{\left(F_{x,t}^{(i)}Z_t^{(i)}+F_{a,t}^{(i)}U_t\right)}_{\text{averaging sensitivities across perturbed branches}} \tag{4} \]</div>
+
+<div class="pair">
+<p class="en">This average is the local smoothing mechanism: it can attenuate sharp, contact-dependent variations by combining sensitivities from nearby trajectories. The shared action sensitivity U<sub>t</sub> includes the policy's dependence on x̄<sub>t</sub> for t &gt; k, so the recurrence retains feedback through all H − S simulation substeps. These state and action sensitivities enter the imitation-objective gradient through the chain rule, as described next.</p>
+<p class="zh">这个平均就是局部平滑机制：它把邻近轨迹上的敏感性组合起来，从而削弱那些随接触而剧烈变化的成分。共享的动作敏感性 U<sub>t</sub> 中包含了 t &gt; k 时策略对 x̄<sub>t</sub> 的依赖，因此该递推保留了贯穿全部 H − S 个仿真子步的反馈。这些状态与动作敏感性通过链式法则进入模仿目标的梯度——如下文所述。</p>
+</div>
+
+<h3 data-num="IV.D">IV.D&nbsp;&nbsp;策略学习与模仿目标<a class="pg" href="{{PDF}}#page=5" target="_blank">p.5</a></h3>
+
+<div class="pair">
+<p class="en">We use this bundled rollout inside SHAC [4], minimizing ℒ<sub>FO</sub> from Section III-D with rewards and critic inputs evaluated on the averaged states during a bundle. To learn dynamic humanoid behaviors, we apply this framework to motion imitation using ADD [12]. We choose ADD because its differentiable reward allows backpropagation through both the objective and simulated rollouts, while its learned aggregation avoids the manual tuning of individual tracking-reward weights used in other motion-imitation frameworks. The imitation reward is</p>
+<p class="zh">我们在 SHAC [4] 中使用这种捆绑 rollout：最小化 III-D 节的 ℒ<sub>FO</sub>，其中奖励与 critic 输入都在 bundle 期间的<b>平均状态</b>上求值。为学习动态的人形行为，我们把该框架用于基于 ADD [12] 的动作模仿。选择 ADD 的原因是：其可微奖励允许梯度同时穿过目标函数与被仿真的 rollout；而其学习得到的聚合方式，避免了其他动作模仿框架中需要对各项跟踪奖励权重做手工调参。模仿奖励为</p>
+</div>
+
+<div class="eq">\[ r_t^{\mathrm{ADD}}=-\log\left(1-D_\psi(\Delta_t)\right),\qquad \Delta_t=f_{\mathrm{ref},t}-f_t \tag{5} \]</div>
+
+<div class="pair">
+<p class="en">where f<sub>t</sub> and f<sub>ref,t</sub> are simulated and phase-matched reference motion features. The discriminator D<sub>ψ</sub> is trained to distinguish the ideal zero residual from policy-generated residuals, providing an adaptive tracking objective. We use this reward in ℒ<sub>FO</sub> and backpropagate through the discriminator's input and the bundled simulator rollout to update the policy. ADD thus supplies the imitation objective, while BCG stabilizes its propagation through stiff contact.</p>
+<p class="zh">其中 f<sub>t</sub> 与 f<sub>ref,t</sub> 分别是仿真动作特征与经过相位对齐的参考动作特征。判别器 D<sub>ψ</sub> 被训练来区分“理想的零残差”与“策略产生的残差”，从而提供一个自适应的跟踪目标。我们把该奖励用于 ℒ<sub>FO</sub>，并对判别器的输入与捆绑后的仿真 rollout 做反向传播以更新策略。于是：ADD 提供模仿目标，BCG 则稳定其穿过刚性接触的传播。</p>
+</div>

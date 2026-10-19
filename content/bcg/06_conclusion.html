@@ -1,0 +1,65 @@
+<h2 data-num="VI">VI&nbsp;&nbsp;结论<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Conclusion</span><a class="pg" href="{{PDF}}#page=7" target="_blank">p.7</a></h2>
+
+<div class="pair">
+<p class="en">We presented Bundled Contact Gradients (BCG), a contact-local randomized smoothing method for stabilizing first-order policy learning under stiff, deployable contact dynamics. BCG aggregates sensitivities across nearby contact configurations, providing a more consistent learning signal while retaining the contact fidelity required for transfer. Integrated with SHAC and ADD, BCG enables dynamic humanoid motion learning with over an order of magnitude fewer environment samples than PPO, improves tracking accuracy after transfer to MuJoCo compared to PPO, and enables zero-shot deployment of the learned motions on a real Unitree G1. These results demonstrate that the analytic gradients provided by differentiable simulation can remain useful even in the stiff contact regime required for real-world dynamic control.</p>
+<p class="zh">我们提出了<b>捆绑接触梯度（BCG）</b>——一种接触局部化的随机平滑方法，用于在刚性、可部署的接触动力学下稳定一阶策略学习。BCG 在邻近接触构型之间聚合敏感性，既提供了更一致的学习信号，又保留了迁移所需的接触保真度。与 SHAC 和 ADD 结合后，BCG 所需的<em>环境样本比 PPO 少一个数量级以上</em>即可学会动态人形动作；迁移到 MuJoCo 后跟踪精度优于 PPO；并实现了所学动作在真实 Unitree G1 上的零样本部署。这些结果表明：即使进入真实世界动态控制所需的刚性接触区间，可微分仿真提供的解析梯度依然有用。</p>
+</div>
+
+<div class="pair">
+<p class="en">BCG introduces additional computation and memory from simulating and differentiating through multiple contact branches. While contact-local activation limits this cost, tasks with sustained stiff contact may incur greater overhead than PPO. The perturbation scales and number of bundle samples also require tuning to balance smoothing, bias, and computational cost. Future work could adapt these parameters automatically based on local contact sensitivity and extend BCG to higher-dimensional, contact-rich problems such as humanoid loco-manipulation and dexterous manipulation.</p>
+<p class="zh">BCG 因为要仿真并对多个接触分支求导，带来了额外的计算与内存开销。虽然“接触局部触发”限制了这部分成本，但在持续存在刚性接触的任务上，其开销可能高于 PPO。扰动尺度与 bundle 样本数也需要调参，以在平滑程度、偏差与计算成本之间取得平衡。未来工作可以依据局部接触敏感性自动调整这些参数，并把 BCG 推广到更高维、接触更丰富的问题，例如人形机器人的“移动+操作”与灵巧操作。</p>
+</div>
+
+<div class="pair">
+<p class="en">More broadly, we view BCG as a step toward making differentiable simulation a practical tool for learning increasingly complex, deployable robotic behaviors efficiently.</p>
+<p class="zh">更宏观地看，我们把 BCG 视为一次尝试：让可微分仿真成为高效学习日益复杂、可直接部署的机器人行为的实用工具。</p>
+</div>
+
+<h2 data-num="参考文献">参考文献<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">References</span><a class="pg" href="{{PDF}}#page=7" target="_blank">p.7</a></h2>
+<p class="note">参考文献保留英文原貌（不作翻译），以便按原文检索。共 44 条。</p>
+<ol class="refs">
+<li id="ref1">J. Hwangbo, J. Lee, A. Dosovitskiy, D. Bellicoso, V. Tsounis, V. Koltun, and M. Hutter, “Learning agile and dynamic motor skills for legged robots,” Science Robotics, vol. 4, no. 26, 2019.</li>
+<li id="ref2">X. B. Peng, P. Abbeel, S. Levine, and M. van de Panne, “DeepMimic: Example-guided deep reinforcement learning of physics-based character skills,” ACM Transactions on Graphics, vol. 37, no. 4, pp. 143:1– 143:14, 2018.</li>
+<li id="ref3">J. Lee, J. Hwangbo, L. Wellhausen, V. Koltun, and M. Hutter, “Learning quadrupedal locomotion over challenging terrain,” Science Robotics, vol. 5, no. 47, 2020.</li>
+<li id="ref4">J. Xu, V. Makoviychuk, Y. Narang, F. Ramos, W. Matusik, A. Garg, and M. Macklin, “Accelerated policy learning with parallel differentiable simulation,” in International Conference on Learning Representations, 2022.</li>
+<li id="ref5">C. Sferrazza, D.-M. Huang, X. Lin, Y. Lee, and P. Abbeel, “HumanoidBench: Simulated humanoid benchmark for whole-body locomotion and manipulation,” in Robotics: Science and Systems, 2024.</li>
+<li id="ref6">H. J. T. Suh, M. Simchowitz, K. Zhang, and R. Tedrake, “Do differentiable simulators give better policy gradients?” in International Conference on Machine Learning, 2022.</li>
+<li id="ref7">L. Metz, C. D. Freeman, S. S. Schoenholz, and T. Kachman, “Gradients are not all you need,” arXiv:2111.05803, 2021.</li>
+<li id="ref8">I. Georgiev, K. Srinivasan, J. Xu, E. Heiden, and A. Garg, “Adaptive horizon actor-critic for policy learning in contact-rich differentiable simulation,” in International Conference on Machine Learning, 2024.</li>
+<li id="ref9">H. J. T. Suh, T. Pang, and R. Tedrake, “Bundled gradients through contact via randomized smoothing,” CoRR, vol. abs/2109.05143, 2021.</li>
+<li id="ref10">Q. Le Lidec, F. Schramm, L. Montaut, C. Schmid, I. Laptev, and J. Carpentier, “Leveraging randomized smoothing for optimal control of nonsmooth dynamical systems,” Nonlinear Analysis: Hybrid Systems, vol. 52, p. 101468, 2024.</li>
+<li id="ref11">M. Macklin, “Warp: A high-performance python framework for gpu simulation and graphics,” NVIDIA GPU Technology Conference (GTC), 2022, https://github.com/NVIDIA/warp.</li>
+<li id="ref12">Z. Zhang, S. Bashkirov, D. Yang, Y. Shi, M. Taylor, and X. B. Peng, “Physics-based motion imitation with adversarial differential discriminators,” in SIGGRAPH Asia 2025 Conference Papers, 2025.</li>
+<li id="ref13">J. Schulman, F. Wolski, P. Dhariwal, A. Radford, and O. Klimov, “Proximal policy optimization algorithms,” arXiv:1707.06347, 2017.</li>
+<li id="ref14">A. Handa, A. Allshire, V. Makoviychuk, A. Petrenko, R. Singh, J. Liu, D. Makoviichuk, K. Van Wyk, A. Zhurkevich, B. Sundaralingam, and Y. Narang, “Dextreme: Transfer of agile in-hand manipulation from simulation to reality,” in IEEE International Conference on Robotics and Automation, 2023, pp. 5977–5984.</li>
+<li id="ref15">N. Rudin, D. Hoeller, P. Reist, and M. Hutter, “Learning to walk in minutes using massively parallel deep reinforcement learning,” in Conference on Robot Learning. PMLR, 2022, pp. 91–100.</li>
+<li id="ref16">X. Cheng, K. Shi, A. Agarwal, and D. Pathak, “Extreme parkour with legged robots,” in IEEE International Conference on Robotics and Automation, 2024.</li>
+<li id="ref17">I. Radosavovic, T. Xiao, B. Zhang, T. Darrell, J. Malik, and K. Sreenath, “Real-world humanoid locomotion with reinforcement learning,” Science Robotics, vol. 9, no. 89, p. eadi9579, 2024.</li>
+<li id="ref18">J. Degrave, M. Hermans, J. Dambre, and F. wyffels, “A differentiable physics engine for deep learning in robotics,” Frontiers in Neurorobotics, vol. 13, p. 6, 2019.</li>
+<li id="ref19">F. de Avila Belbute-Peres, K. Smith, K. Allen, J. Tenenbaum, and J. Z. Kolter, “End-to-end differentiable physics for learning and control,” in Advances in Neural Information Processing Systems, 2018.</li>
+<li id="ref20">Y. Hu, L. Anderson, T.-M. Li, Q. Sun, N. Carr, J. Ragan-Kelley, and F. Durand, “Difftaichi: Differentiable programming for physical simulation,” in International Conference on Learning Representations, 2020.</li>
+<li id="ref21">C. D. Freeman, E. Frey, A. Raichuk, S. Girgin, I. Mordatch, and O. Bachem, “Brax – a differentiable physics engine for large scale rigid body simulation,” arXiv:2106.13281, 2021.</li>
+<li id="ref22">M. Geilinger, D. Hahn, J. Zehnder, M. Bächer, B. Thomaszewski, and S. Coros, “ADD: Analytically differentiable dynamics for multi-body systems with frictional contact,” in ACM Transactions on Graphics (SIGGRAPH Asia), 2020.</li>
+<li id="ref23">Y.-L. Qiao, J. Liang, V. Koltun, and M. C. Lin, “Efficient differentiable simulation of articulated bodies,” in International Conference on Machine Learning, 2021.</li>
+<li id="ref24">M. A. Z. Mora, M. Peychev, S. Ha, M. Vechev, and S. Coros, “PODS: Policy optimization via differentiable simulation,” in International Conference on Machine Learning, 2021, pp. 7805–7817.</li>
+<li id="ref25">S. Gillen and K. Byl, “Leveraging reward gradients for reinforcement learning in differentiable physics simulations,” arXiv:2203.02857, 2022.</li>
+<li id="ref26">N. Wiedemann, V. Wüest, A. Loquercio, M. Müller, D. Floreano, and D. Scaramuzza, “Training efficient controllers via analytic policy gradient,” IEEE International Conference on Robotics and Automation, 2023.</li>
+<li id="ref27">C. Schwarke, V. Klemm, J. Bagajo, J.-P. Sleiman, I. Georgiev, J. Tordesillas, and M. Hutter, “Learning deployable locomotion control via differentiable simulation,” in Conference on Robot Learning, 2025.</li>
+<li id="ref28">Y. Song, S. Kim, and D. Scaramuzza, “Learning quadruped locomotion using differentiable simulation,” arXiv:2403.14864, 2024.</li>
+<li id="ref29">Y. Zhang, Y. Hu, Y. Song, D. Zou, and W. Lin, “Learning vision-based agile flight via differentiable physics,” Nature Machine Intelligence, pp. 1–13, 2025.</li>
+<li id="ref30">E. Xing, V. Luk, and J. Oh, “Stabilizing reinforcement learning in differentiable multiphysics simulation,” International Conference on Learning Representations, 2025.</li>
+<li id="ref31">J. Amigo, R. Khorrambakht, E. Chane-Sane, N. Mansard, and L. Righetti, “First order model-based rl through decoupled backpropagation,” arXiv:2509.00215, 2025.</li>
+<li id="ref32">J. Y. Luo, Y. Song, V. Klemm, F. Shi, D. Scaramuzza, and M. Hutter, “Residual policy learning for perceptive quadruped control using differentiable simulation,” arXiv:2410.03076, 2024.</li>
+<li id="ref33">A. Paulus, A. R. Geist, P. Schumacher, V. Musil, S. Rappenecker, and G. Martius, “Differentiable simulation of hard contacts with soft gradients for learning and control,” in International Conference on Learning Representations, 2026.</li>
+<li id="ref34">K. Werling, D. Omens, J. Lee, I. Exarchos, and C. K. Liu, “Fast and feature-complete differentiable physics engine for articulated rigid bodies with contact constraints,” in Robotics: Science and Systems, 2021.</li>
+<li id="ref35">T. A. Howell, S. Le Cleac’h, J. Z. Kolter, M. Schwager, and Z. Manchester, “Dojo: A differentiable simulator for robotics,” arXiv:2203.00806, 2022.</li>
+<li id="ref36">T. Pang, H. J. T. Suh, L. Yang, and R. Tedrake, “Global planning for contact-rich manipulation via local smoothing of quasi-dynamic contact models,” IEEE Transactions on Robotics, vol. 39, no. 6, pp. 4691–4711, 2023.</li>
+<li id="ref37">T. Pang and R. Tedrake, “A convex quasistatic time-stepping scheme for rigid multibody systems with contact and friction,” in IEEE International Conference on Robotics and Automation, 2021, pp. 6614–6620.</li>
+<li id="ref38">M. Posa, C. Cantu, and R. Tedrake, “A direct method for trajectory optimization of rigid bodies through contact,” The International Journal of Robotics Research, vol. 33, no. 1, pp. 69–81, 2014.</li>
+<li id="ref39">R. Budhiraja, J. Carpentier, C. Mastalli, and N. Mansard, “Differential dynamic programming for multi-phase rigid contact dynamics,” in IEEE-RAS International Conference on Humanoid Robots, 2018, pp. 1–9.</li>
+<li id="ref40">Q. Le Lidec, L. Montaut, C. Schmid, I. Laptev, and J. Carpentier, “Augmenting differentiable physics with randomized smoothing,” arXiv:2206.11884, 2022.</li>
+<li id="ref41">M. Scheffler, W. Jallet, C. Schmid, and J. Carpentier, “Unbiased First-Order Randomized Smoothing for Differentiable Simulators,” 2026, preprint. [Online]. Available: https://hal.science/hal-05629540</li>
+<li id="ref42">J. Schulman, P. Moritz, S. Levine, M. Jordan, and P. Abbeel, “Highdimensional continuous control using generalized advantage estimation,” in International Conference on Learning Representations, 2016.</li>
+<li id="ref43">J. J. Moreau, Unilateral Contact and Dry Friction in Finite Freedom Dynamics. Springer Vienna, 1988, pp. 1–82.</li>
+<li id="ref44">F. G. Harvey, M. Yurick, D. Nowrouzezahrai, and C. Pal, “Robust motion in-betweening,” ACM Transactions on Graphics, vol. 39, no. 4, 2020.</li>
+</ol>

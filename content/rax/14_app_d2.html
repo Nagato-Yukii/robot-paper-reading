@@ -1,0 +1,102 @@
+<h3 data-num="D.2">D.2&nbsp;&nbsp;自标定与抓取设计：两只灵巧手的汉诺塔<a class="pg" href="{{PDF}}#page=47" target="_blank">p.47</a></h3>
+
+<div class="pair">
+<p class="en">The bimanual Tower of Hanoi task of DexJoCo asks for the final two moves of a three-level tower: the medium red disk goes from the middle peg onto the large blue disk on the right peg, and the small yellow disk from the left peg on top of it. Two Franka arms carry 16-degree-of-freedom Allegro hands, and the disks slide over pegs that stand 13 cm above them, so a grasp has to hold a disk level as it travels along its peg without touching the peg.</p>
+<p class="zh">DexJoCo 的双臂汉诺塔任务要求完成三层塔的最后两步：把中号红色圆盘从中间立柱移到右立柱上大号蓝色圆盘之上，再把小号黄色圆盘从左立柱叠到它上面。两条 Franka 机械臂各装一只 16 自由度 Allegro 手；圆盘要沿高出盘面 13 cm 的立柱滑过，因此抓取必须在沿立柱移动的过程中保持圆盘水平，且不能碰到立柱。</p>
+</div>
+
+<div class="pair">
+<p class="en">The agent received no grasp and no model of the hand, only the joint semantics and a few generic postures in its skills. It wrote a program that completed all 150 formal episodes on unseen layouts, in which the board shifts by up to 4.9 cm and the table height varies by as much.</p>
+<p class="zh">智能体既没有拿到抓取方式，也没有拿到手的模型，只拿到关节语义和技能中的几个通用姿态。它写出的程序在未见布局上完成了全部 150 个正式回合——这些布局中，底板最多平移 4.9 cm，桌面高度也有同等幅度的变化。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Measuring its own fingertips.</b> The agent spent its first episode on its own hand, without touching a disk. It moved single joints of the right hand and lifted the wrist cameras’ depth into world points to see what each joint moves, finding that the first thumb joint turns the thumb from pointing sideways to pointing straight down and that the last two flex its tip forward. It then held the posture it meant to grasp with, the index finger and the thumb both pointing down, segmented the white fingertip caps in the right wrist camera, lifted them to 3D, and split them into two clusters (Figure 15).</p>
+<p class="zh"><b>测量自己的指尖。</b>智能体把第一个回合花在了自己的手上，完全没碰圆盘。它逐个转动右手的关节，把腕部相机的深度提升为世界点，以观察每个关节带动什么；由此发现第一个拇指关节会把拇指从“朝侧”转到“竖直向下”，而最后两个关节让指尖向前弯曲。随后它摆出打算用来抓取的姿态（食指与拇指都朝下），在右腕相机中分割出白色的指尖帽，提升到三维，并聚成两簇（图 15）。</p>
+</div>
+
+<div class="pair">
+<p class="en">Relative to the measured flange, the thumb cluster lies at (−3.3, 4.1, −15.7) cm and the index cluster at (7.3, 3.1, −12.9) cm; the agent adopted tip offsets of (−2.4, 3.8, −16.3) and (8.3, 3.6, −13.3) cm, about 1 cm toward the centre of each tip, and every grasp of its program is built on them, as the first listing at the end of this section shows.</p>
+<p class="zh">相对于实测法兰坐标系，拇指簇位于 (−3.3, 4.1, −15.7) cm、食指簇位于 (7.3, 3.1, −12.9) cm；智能体采纳的指尖偏移为 (−2.4, 3.8, −16.3) 与 (8.3, 3.6, −13.3) cm——大致朝各自指尖中心内移约 1 cm——程序中所有抓取都建立在这两个偏移上，本节末尾的第一段代码清单即为佐证。</p>
+</div>
+
+<div class="pair">
+<p class="en">The agent never saw a model of the hand, yet its thumb offset lies within 1.1 mm of the fingertip of the official model. Its index offset lies 27 mm from the model’s, because the camera sees only the upper part of that cap, but the error shifts the planned pinch line by only about 8 mm across a 7.7 cm disk. The same measurements placed the wrist camera at (−14.0, −3.0, 4.1) cm from the flange, exactly where the official model puts it.</p>
+<p class="zh">智能体从未见过手的模型，但它的拇指偏移与官方模型的指尖相差仅 1.1 mm。食指偏移与模型相差 27 mm——因为相机只能看到那个指尖帽的上半部分——但这一误差只会让规划出的夹持线在 7.7 cm 的圆盘上偏移约 8 mm。同样的测量还把腕部相机定位在距法兰 (−14.0, −3.0, 4.1) cm 处，与官方模型给出的位置完全一致。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure15_p47.jpg" alt="Figure 15">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 15</span>在智能体的第一个回合中，用腕部相机测量指尖（在其存储的帧上重跑）。(a) 右手腕相机中处于抓取姿态的手；智能体分割出白色指尖帽并将其分成两簇。(b) 实测法兰坐标系下的手部点云，含两簇与智能体采纳的指尖偏移（星号）。(c) 各簇、其质心与采纳偏移的侧视图，并附上智能体从未见过的官方手模型的指尖作为对照。</span>
+    <span class="enm"><b>Figure 15 |</b> Measuring the fingertips with the wrist camera, in the agent’s first episode, re-run on its stored frames. (a) The right wrist camera with the hand in its grasp posture; the agent segments the white fingertip caps and splits them into two clusters. (b) The hand’s point cloud in the frame of the measured flange, with the two clusters and the tip offsets the agent adopted (stars). (c) A side view of the clusters, their centroids and the adopted offsets, with the fingertips of the official hand model, which the agent never saw, for comparison.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>Designing the grasp.</b> The agent then designed its grasp by trying candidates on the red and yellow disks (Figure 16). A palm-down hook pressed the palm onto the disk, and flexing the thumb turned the disk by 45° about its peg. A palm-down pinch at the wall of the disk lifted it, but the disk swung by about 40° about the pinch line, which the agent measured to pass 2.8 cm from the disk’s centre of mass, and a firmer squeeze dropped it.</p>
+<p class="zh"><b>设计抓取。</b>随后，智能体通过在红、黄圆盘上尝试各种候选来设计抓取（图 16）。掌心朝下的“钩抓”把掌心压到圆盘上，一弯拇指就把圆盘绕其立柱转了 45°。掌心朝下捏住圆盘侧壁可以把它提起，但圆盘会绕夹持线摆约 40°——智能体测得该夹持线距圆盘质心 2.8 cm——而夹得更紧一些就会把它掉下去。</p>
+</div>
+
+<div class="pair">
+<p class="en">A side pinch lifted the yellow disk by 10 cm before it slipped back onto its peg, and a cage grasp left only 4 mm between the hand’s fixed thumb–index gap of 8.1 cm and the 7.7 cm red disk, so that only the thumb touched it. From these failures, the agent derived that rolling the hand by an angle θ moves the index edge of the palm 0.10 sin θ − 0.013 cos θ m away from the thumb–index line, so that a roll of about 25° clears the peg and lets the pinch line pass through the centre of the disk. The resulting rolled vertical pinch, with a roll of 0.44 rad, held both disks through a 22 cm lift and a 40 cm carry in the fourth episode.</p>
+<p class="zh">侧向捏取把黄色圆盘提起 10 cm 之后又滑回了立柱；而“笼式”抓取时，手固定的拇指—食指间距 8.1 cm 与 7.7 cm 的红盘之间只剩 4 mm，结果只有拇指碰到它。由这些失败，智能体推导出：把手滚转角度 <i>θ</i> 会使手掌的食指侧边缘离开拇指—食指连线 0.10 sin <i>θ</i> − 0.013 cos <i>θ</i> 米，因此滚转约 25° 既能避开立柱，又能让夹持线穿过圆盘中心。由此得到的“滚转竖直捏取”采用 0.44 rad 的滚转角，在第四个回合中让两个圆盘都经受住了 22 cm 的抬升与 40 cm 的搬运。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure16_p48.jpg" alt="Figure 16">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 16</span>智能体在其探索回合中尝试过的抓取，均由抓取手的腕部相机拍摄；其中第 3、4 幅已旋转，使立柱竖直朝上。前四种都因下方所述原因失败；滚转竖直捏取成功搬运了两个圆盘，并成为程序的抓取方式。</span>
+    <span class="enm"><b>Figure 16 |</b> The grasps the agent tried, seen by the wrist camera of the grasping hand in its exploration episodes, with panels 3 and 4 rotated so that the peg stands upright. The first four failed for the reasons given below them; the rolled vertical pinch carried both disks and became the grasp of the program.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>The program.</b> On every layout, the program measures the disks and pegs from the egocentric depth image, pinches both disks at once, and moves the red disk first while the left hand waits. It verifies every lift by measuring the held disk from three cameras, and it opens, backs off, and pinches again when the disk rose less than half of the lift.</p>
+<p class="zh"><b>程序。</b>在每一种布局上，程序都从以自我为中心的深度图像中测量圆盘与立柱，同时捏住两个圆盘，先移动红色圆盘，而左手等待。它通过三个相机测量被夹住的圆盘来核验每一次抬升；若圆盘上升不足抬升量的一半，就张开、后退、重新捏取。</p>
+</div>
+
+<div class="pair">
+<p class="en">Because each arm keeps converging to its command after a move, the agent measured the tracking lag, which decays by a factor of 0.78 every five steps, and the program aligns the disk with the peg on its predicted final position rather than on its current one. Before submitting, the agent injected alignment errors of 8 and 15 mm and a missed pinch into its own runs, and the program recovered from all of them; its five versions completed all of their autonomous runs.</p>
+<p class="zh">由于每条手臂在动作结束后仍在继续收敛到其指令，智能体测量了跟踪滞后——它每五步衰减为原来的 0.78 倍——于是程序按“预测的最终位置”而非当前位置来让圆盘与立柱对齐。提交之前，智能体向自己的运行中注入了 8 mm 与 15 mm 的对齐误差，以及一次“夹空”，程序从所有这些情况中都恢复了；它的五个版本都完成了各自的全部自主运行。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Precision on unseen layouts.</b> The program’s estimate of the target peg follows the hidden pose of the board across all 150 formal layouts, with residual standard deviations of 0.24, 0.05, and 0.18 mm in x, y, and height (Figure 17). After placing the red disk, the program measures its top again and finds it on average 0.66 mm, and at most 1.0 mm, below the height it predicted from the blue disk, the counterpart of the 6.5 mm check on the air fryer (Section G.2.1).</p>
+<p class="zh"><b>未见布局上的精度。</b>在全部 150 个正式布局上，程序对目标立柱的估计都能跟上底板隐藏位姿的变化，在 x、y 与高度上的残差标准差分别为 0.24、0.05 与 0.18 mm（图 17）。放下红色圆盘后，程序再次测量其顶面，发现它平均比由蓝色圆盘预测的高度低 0.66 mm、最多低 1.0 mm——这与空气炸锅上 6.5 mm 的校验（G.2.1 节）遥相呼应。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure17_p49.jpg" alt="Figure 17">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 17</span>在未见布局上的感知，以及在 150 个正式回合上的精度（用智能体代码重跑）。(a) 以自我为中心的点云（按高度着色），画出了测得的圆盘、立柱轴线、目标立柱、两次捏取的拇指与食指目标，以及红色圆盘的预测落座位置。(b) 放置后测得的红色圆盘高度减去程序预测的高度。(c) 程序对目标立柱的估计相对底板隐藏位姿的关系，两者都相对其在 150 个布局上的均值。</span>
+    <span class="enm"><b>Figure 17 |</b> Perception on an unseen layout and precision over the 150 formal episodes, re-run with the agent’s code. (a) The egocentric point cloud, coloured by height, with the measured disks, the peg axes, the target peg, the thumb and index targets of both pinches, and the predicted seat of the red disk. (b) The height of the red disk measured after placement, minus the height the program predicted. (c) The program’s estimate of the target peg against the hidden pose of the board, both relative to their means over the 150 layouts.</span>
+  </figcaption>
+</figure>
+
+<div class="listing">
+<div class="listing-title"><code>task.py</code> · 指尖偏移与滚转竖直捏取（tip offsets and the rolled vertical pinch）</div>
+<pre class="code"><code>TH_TIP = np.array([-0.024, 0.038, -0.163])   # default-frame right-hand thumb tip (th0=1.396, straight)
+IX_TIP = np.array([0.083, 0.036, -0.133])    # index tip, x1=1.57 straight
+R_T = 0.012
+ROLL = 0.44
+DISK_H = 0.05
+PEG_ABOVE_TOP = 0.135                        # peg top above top of a disk resting on the board
+PRESHAPE = dict(ff=(0, 1.3, 0, 0), th=(1.396, 0, 0, 0))
+SQUEEZE  = dict(ff=(0, 1.75, 0.5, 0.3), th=(1.396, 0, 0.7, 0.4))
+RELEASE  = dict(ff=(0, 1.2, 0, 0), th=(1.396, 0, 0, 0))
+PARK = {"right": np.array([-0.45, -0.40, 1.42]), "left": np.array([-0.45, 0.40, 1.42])}
+
+def pinch_pose(side, c, half, yaw, mid, gap_t=0.006, dz=-0.010):
+    """Flange pose so thumb tip is gap_t outside the near face and the thumb-index line crosses the centre."""
+    c = np.asarray(c, float)
+    th_off = world_offset(side, TH_TIP, ROLL, yaw)
+    ix_off = world_offset(side, IX_TIP, ROLL, yaw)
+    u = np.array([np.cos(yaw), np.sin(yaw)]); v = np.array([-np.sin(yaw), np.cos(yaw)])
+    lat_t = (th_off[:2] @ v - ix_off[:2] @ v) / 2
+    t_xy = c + (-half - R_T - gap_t) * u + lat_t * v
+    t = np.array([t_xy[0], t_xy[1], mid + dz])
+    flange = t - th_off
+    rv = rotvec_near(hand_rot(side, ROLL, yaw), np.array([-np.pi, 0, 0]))
+    return flange, rv</code></pre>
+</div>

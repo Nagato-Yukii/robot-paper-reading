@@ -1,0 +1,180 @@
+<h3 data-num="G.3">G.3&nbsp;&nbsp;擦拭污渍<a class="pg" href="{{PDF}}#page=69" target="_blank">p.69</a></h3>
+
+<div class="pair">
+<p class="en"><b>Task.</b> The robot must grasp a wet towel and wipe a soy-sauce stain off the table. The task text was: <i>“You are given a wet towel, and I will ask you to wipe the soy sauce stain on the table using it. First get familiar with the robot and environment. When you are ready, please call for operator to pour the soy sauce on the table for you to wipe. Also, if you need help such as adding some soap to the towel also ask for operator help.”</i> The towel is deformable and has no fixed shape on the table. The agent did not use force sensing: it pressed the towel onto the table by commanding a height 12 mm below the contact height it had measured.</p>
+<p class="zh"><b>任务。</b>机器人必须抓起一块湿毛巾，把桌上的酱油污渍擦掉。任务文本为：<i>“给你一块湿毛巾，我会让你用它擦掉桌上的酱油污渍。先熟悉一下机器人和环境。准备好之后，请叫操作员把酱油倒在桌上供你擦拭。另外，如果你需要帮助，比如给毛巾加一点洗洁精，也请向操作员求助。”</i> 毛巾是可变形物体，在桌上没有固定形状。智能体没有使用力觉：它通过命令一个比实测接触高度低 12 mm 的高度，把毛巾压到桌面上。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Operator.</b> The operator poured soy sauce when the agent asked, washed the towel and added soap to it between trials, and returned it to the table as a loose heap. The stains differed from trial to trial in size (the agent measured 10 to 311 cm<sup>2</sup>), shape, and position, including one next to the left camera at the edge of the reachable workspace.</p>
+<p class="zh"><b>操作员。</b>操作员在智能体请求时倒酱油，在两次试验之间清洗毛巾并加洗洁精，然后把毛巾以松散的一团放回桌上。各次试验中的污渍在大小（智能体测得 10–311 cm<sup>2</sup>）、形状与位置上都不相同，其中一次就位于左相机旁、可达工作空间的边缘。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Trials and outcome.</b> The session lasted from 09:21 to 12:46. The agent first wiped a stain by direct tool calls (two passes; the first left a smeared film, and the second, after the operator added soap, cleaned it), then wrote a program that locates the towel heap, grasps a wad of it, locates the stain against a clean reference image, scrubs it in a back-and-forth pattern, parks the towel, and checks for residue. It ran the program in 13 recorded trials and resumes (trials 1 to 7b).</p>
+<p class="zh"><b>试验与结果。</b>会话从 09:21 持续到 12:46。智能体先用直接工具调用擦掉了一块污渍（两遍：第一遍留下了一层涂抹的薄膜，第二遍在操作员加了洗洁精之后擦干净了）；随后它写出程序：定位毛巾堆、抓住一团毛巾、对照一张干净参考图定位污渍、以往返的图案反复擦洗、把毛巾停放到一边，并检查残留。它把该程序跑出了 13 次有记录的试验与续跑（试验 1 至 7b）。</p>
+</div>
+
+<div class="pair">
+<p class="en">Failures were a refused far reach, an operator reply the program did not expect, one false “clean” verdict on thin streaks (the operator asked for a second wipe; the agent then added a check with the wrist camera at 1 mm resolution), stains next to the left camera that required fitting the wiping region to the reachable area, and a refused approach move. The last two trials, 6 and 7b, cleaned the stain in one pass without intervention; trial 7b reused the scene of trial 7 after the agent fixed the approach move (Figure 28).</p>
+<p class="zh">失败包括：一次过远的伸展被拒绝、一次程序没有预料到的操作员回复、一次对细条纹的“已干净”误判（操作员要求再擦一遍，智能体随后加入了一项 1 mm 分辨率的腕部相机检查）、左相机旁需要把擦拭区域裁剪到可达范围内的污渍，以及一次被拒绝的接近动作。最后两次试验（6 与 7b）都在无干预的情况下用一遍擦净了污渍；7b 复用了试验 7 的场景，只是智能体已修好了那次接近动作（图 28）。</p>
+</div>
+
+<div class="pair">
+<p class="en">Figure 30 shows how its program finds, wipes, and checks the stain. Success was judged by the agent’s residue measurement against the clean reference in the exterior and wrist cameras (0 cm<sup>2</sup> in both for trials 6 and 7b) and by eye in the three camera views.</p>
+<p class="zh">图 30 展示了它的程序如何找到、擦拭并检查污渍。成功与否由智能体在外部相机与腕部相机上、相对干净参考图的残留测量来判定（试验 6 与 7b 在两处均为 0 cm<sup>2</sup>），并辅以在三个相机视角下的人工目视确认。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure28_p69.jpg" alt="Figure 28">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 28</span>擦拭污渍，试验 7b，左外部相机。(a) 倒出的污渍与毛巾堆；(b) 抓起的毛巾团压在污渍上；(c) 反复擦洗；(d) 毛巾被带走；(e) 一遍之后桌面。时间自首帧起算。</span>
+    <span class="enm"><b>Figure 28 |</b> Wiping a stain, trial 7b, from the left exterior camera. (a) The poured stain and the towel heap; (b) the grasped wad pressed on the stain; (c) scrubbing; (d) the towel is carried back; (e) the table after one pass. Time is from the first frame.</span>
+  </figcaption>
+</figure>
+
+<figure class="float">
+  <img src="figs/figure29_p69.jpg" alt="Figure 29">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 29</span>用纸巾擦拭，第二次“湿擦”运行，左外部相机。(a) 倒出的污渍、纸巾盒与它后面的垃圾桶；(b) 从盒中抽出一张纸；(c) 六张纸叠在污渍上；(d) 把纸堆压住并抓成一团；(e) 擦拭，使用毛巾程序的蛇形路径；(f) 纸团在垃圾桶上方释放；(g) 一张残留的纸被清扫动作捡起；(h) 之后桌面，仍留有一小片被清扫遗漏的湿纸屑。时间自首帧起算。</span>
+    <span class="enm"><b>Figure 29 |</b> Wiping with paper towels, second wet run, from the left exterior camera. (a) The poured stain, the tissue box, and the bin behind it; (b) a sheet pulled from the box; (c) six sheets piled on the stain; (d) the pile pressed and grasped as a wad; (e) wiping, with the towel program’s zig-zag; (f) the wad released over the bin; (g) a leftover sheet picked up by the sweep; (h) the table afterwards, with a flat wet scrap the sweep missed. Time is from the first frame.</span>
+  </figcaption>
+</figure>
+
+<figure class="float">
+  <img src="figs/figure30_p70.jpg" alt="Figure 30">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 30</span>擦拭程序。它通过把两个外部相机与一张干净参考图作比较来找到污渍，并在深度图中找到毛巾堆；把毛巾堆抓成一团，并沿拟合到可达区域的蛇形路径擦拭。腕部相机能捕捉外部相机漏掉的细条纹，因此桌面在两个尺度上都被检查。</span>
+    <span class="enm"><b>Figure 30 |</b> The wiping program. It finds the stain by comparing both exterior cameras with a clean reference and the towel heap in depth, grasps the heap as a wad, and wipes a zig-zag fitted to the reachable area. The wrist camera catches thin streaks that the exterior cameras miss, so the table is checked at both scales.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>Adaptation to paper towels.</b> Afterwards the operator asked for a variant: <i>“pull paper towels out of the box, wipe table, and then throw them into the waste bin.”</i> The agent wrote a new program that imports the towel program unchanged and calls its parts: locating the stain against the clean reference, fitting the wiping region to the reachable area, the press-then-grasp of a wad, the zig-zag wipe 12 mm below the measured contact, and the residue check.</p>
+<p class="zh"><b>适配到纸巾。</b>之后操作员要求一个变体：<i>“把纸巾从盒子里抽出来，擦桌子，然后把它们扔进垃圾桶。”</i> 智能体写了一个新程序，把毛巾程序原样导入并调用其各部件：相对干净参考图定位污渍、把擦拭区域裁剪到可达范围、把纸堆“先压后抓”成一团、在实测接触以下 12 mm 做蛇形擦拭、以及残留检查。</p>
+</div>
+
+<div class="pair">
+<p class="en">The new code handles the paper: it finds the box and the bin, pinches the top of a protruding sheet and pulls it out, piles six sheets on the stain, releases the wad over the bin and scrapes paper stuck to the fingers, and sweeps up sheets left on the table. After three dry runs, the stain was removed in both wet runs (Figure 29), but leftover sheets, and in the second run a flat wet scrap that the sweep missed, were cleaned up with supervised scripts.</p>
+<p class="zh">新增的代码负责处理纸张：找到纸盒与垃圾桶、捏住露出的纸巾顶端把它抽出、在污渍上叠六张纸、在垃圾桶上方释放纸团并刮掉粘在手指上的纸、以及清扫留在桌上的纸。三次干跑之后，两次“湿擦”运行都清除了污渍（图 29），但残留的纸张——以及第二次运行中被清扫遗漏的一小片扁平湿纸屑——仍需用有人监督的脚本清理。</p>
+</div>
+
+<h3 data-num="G.4">G.4&nbsp;&nbsp;销孔插入：ManipulationNet 挑战<a class="pg" href="{{PDF}}#page=72" target="_blank">p.72</a></h3>
+
+<div class="pair">
+<p class="en"><b>Task.</b> This is the peg-in-hole challenge of ManipulationNet (Chen et al., 2026b). Its board is a transparent acrylic plate of 320 × 250 × 25 mm with blind holes 21.8 mm deep for five peg shapes, each at four clearance levels, rows L1 to L4 with 3, 1, 0.1, and 0.02 mm clearance. Neither the steel pegs, 50 mm long, nor the holes are chamfered. We used three pegs, the rectangle, the triangle, and the hexagon.</p>
+<p class="zh"><b>任务。</b>这是 ManipulationNet 的销孔插入挑战（Chen et al., 2026b）。它的板子是 320 × 250 × 25 mm 的透明亚克力板，上面有 21.8 mm 深的盲孔，对应五种销子形状，每种形状有四个间隙等级：L1 到 L4 排分别为 3、1、0.1 与 0.02 mm 间隙。50 mm 长的钢销与孔口都没有倒角。我们使用了三种销子：矩形、三角形与六边形。</p>
+</div>
+
+<div class="pair">
+<p class="en">The task text was: <i>“There is a white transparent board in front and below you. There are openings on top that match the shape of the silver metal pegs (3 of them. rectangle. triangle and hexagon). You need to grasp them up and insert into the holes upright. Reminder: the depth of the wrist is not accurate at close distance, so you can locate approximately and probe the position and yaw based on force feedback, to succeed in the fine insertion. If you need help or if the position is of bad IK you can ask for operator to move it.”</i> The agent converted the public CAD files of the board and the pegs into a model of the hole positions, which it registered to the wrist camera’s image. During the session the user asked it to work toward the tighter rows, from L2 to L3. L4 was not attempted.</p>
+<p class="zh">任务文本为：<i>“你前方偏下有一块白色透明板。上面有与银色金属销形状相匹配的开口（共 3 个：矩形、三角形与六边形）。你需要把它们抓起来并竖直插入孔中。提醒：腕部相机在近距离下深度不准，所以你可以大致定位，并基于力反馈去探测位置与偏航，以便完成精细插入。如果需要帮助，或某些位置的 IK 不好，可以请操作员移动它。”</i> 智能体把板子与销子的公开 CAD 文件转换为孔位模型，并将其配准到腕部相机的图像上。会话中，用户要求它向更紧的排推进，从 L2 到 L3；L4 没有尝试。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Operator.</b> The board rests on the table unfixed. After the agent dragged it while lifting a jammed peg with a closed gripper, the operator taped the board to the table (at 01:30). The operator re-seated a hexagon peg that had toppled in L2 after a failed L3 attempt. The L3 fits are tight enough that the robot could not pull a seated peg out (15 N with rocking); before the final run the operator pulled the three pegs out of L3 and stood them upright on the table. The user also gave advice in the chat, for example to lower the peg further before turning it upright.</p>
+<p class="zh"><b>操作员。</b>板子原本只是放在桌上、并未固定。在智能体用闭合夹爪拔出一根卡住的销子时把板子拖动之后，操作员把板子用胶带固定到了桌上（01:30）。在 L3 尝试失败后，操作员把一根在 L2 中倒下的六边形销子重新就位。L3 的配合很紧，机器人无法拔出已就位的销子（15 N 加晃动也不行）；最后一次运行之前，操作员把三根销子从 L3 中取出、竖立在桌上。用户还在聊天中给出建议，例如“在转正之前把销子再降低一些”。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Exploration and outcome.</b> The agent worked by direct tool calls and its own scripts, supervised by the user; it never ran an unattended program in this task. Between 23:13 and 01:46 it inserted each peg into L1, L2, and L3 in turn (the triangle and the hexagon each failed once in L3 before succeeding).</p>
+<p class="zh"><b>探索与结果。</b>在本任务中，智能体依靠直接工具调用与自己的脚本工作，并由用户监督；它从未运行无人值守的程序。23:13 到 01:46 之间，它依次把每根销子插入 L1、L2 与 L3（三角形与六边形在 L3 中各失败一次后成功）。</p>
+</div>
+
+<div class="pair">
+<p class="en">The user then asked for a full run, and between 02:28 and 03:22 the agent took each peg from the table and inserted it into L1, then L2, then L3, showing it upright in each row (Figure 31). Figure 32 shows how it registers the board, finds the holes by touch, and tilts the peg in. L3 needed a tilted entry with a corner of the peg first, followed by small rocking pushes while the peg was turned upright.</p>
+<p class="zh">随后用户要求做一次完整运行；在 02:28 到 03:22 之间，智能体从桌上逐根取销，依次插入 L1、L2、L3，并在每一排都保持竖直（图 31）。图 32 展示了它如何配准板子、通过触觉找到孔、并把销子倾斜送入。L3 需要“先以一个角倾斜进入”，再在把销子转正的过程中施加小幅晃动推压。</p>
+</div>
+
+<div class="pair">
+<p class="en">All three pegs were seated in L3 at the end, at depths of 20.8 mm (hexagon), 19.7 mm (triangle), and 21.0 mm (rectangle), out of 21.8 mm. The full run took about 55 minutes including the operator’s extraction of the pegs from the earlier L3 attempts. Success was judged by the insertion depth the agent measured with the arm and by images of the upright pegs.</p>
+<p class="zh">最终三根销子都就位于 L3，深度分别为 20.8 mm（六边形）、19.7 mm（三角形）与 21.0 mm（矩形），而孔深为 21.8 mm。整次运行约 55 分钟——其中包含操作员把销子从先前 L3 尝试中取出的时间。成功与否由智能体用机械臂测得的插入深度、以及销子竖立的图像来判定。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure31_p72.jpg" alt="Figure 31">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 31</span>ManipulationNet 销孔插入挑战的最后一次运行（左外部相机裁剪）。(a) 一根销子插入 L1（3 mm 间隙）；(b)–(d) 矩形销以一个角先进入 L3（0.1 mm 间隙）、被转正并就位；(e) 三根销子都就位于 L3。时间自首帧起算。</span>
+    <span class="enm"><b>Figure 31 |</b> The ManipulationNet peg-in-hole challenge, final run, from a crop of the left exterior camera. (a) A peg inserted into L1 (3 mm clearance); (b)–(d) the rectangle peg entering L3 (0.1 mm clearance) corner first, turned upright, and seated; (e) the three pegs seated in L3. Time is from the first frame.</span>
+  </figcaption>
+</figure>
+
+<figure class="float">
+  <img src="figs/figure32_p73.jpg" alt="Figure 32">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 32</span>销孔插入流程。智能体把板子的 CAD 模型与每根销子的顶面轮廓拟合到腕部相机的图像边缘。它先把销子放入 3 mm 那一排，再用触觉探测 1 mm 的孔，然后以一个角倾斜进入 0.1 mm 的孔，最后把销子转正并压下。</span>
+    <span class="enm"><b>Figure 32 |</b> The peg-insertion procedure. The agent fits the board’s CAD model and each peg’s top outline to the wrist camera’s image edges. It drops the peg into the 3 mm row, probes by touch for the 1 mm hole, and tilts a corner into the 0.1 mm hole before turning the peg upright and pushing it down.</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="G.5">G.5&nbsp;&nbsp;Bandu 塔<a class="pg" href="{{PDF}}#page=74" target="_blank">p.74</a></h3>
+
+<div class="pair">
+<p class="en"><b>Task.</b> Bandu is a stacking game with irregular wooden pieces. The task text was a single sentence: <i>“Stack the bandu blocks as the demonstrated tower.”</i> The “demonstration” was a tower standing on the table when the session began; the agent was not shown how it was built. The tower stands on a base of four rectangular blocks laid in a 2 × 2 pattern and consists of seven pieces: a ring with a dowel standing in it, a barrel, a goblet with an urn seated in its cup and a knob seated in the urn, and an oblique cylinder that the user added at 13:42, asking for it on top of the barrel.</p>
+<p class="zh"><b>任务。</b>Bandu 是一种由不规则木块堆叠而成的游戏。任务文本只有一句话：<i>“按照示范的塔把 bandu 木块堆起来。”</i> 所谓“示范”，就是会话开始时立在桌上的那座塔；智能体并未看到它是如何搭起来的。塔的底座由四块长方形木块按 2 × 2 摆放，其上共有七件构件：一个中间插着木销的圆环、一个圆桶、一个高脚杯（其杯口内坐着一个小瓮、瓮上又坐着一个小圆钮），以及用户在 13:42 加入、要求放在圆桶顶上的一个斜圆柱。</p>
+</div>
+
+<div class="pair">
+<p class="en">Several of these placements leave little play, and the knob’s opening clearance was about 1 mm by the agent’s estimate. The user told the agent to take the tower apart and rebuild it, and to repair its own disturbances rather than rely on human resets.</p>
+<p class="zh">其中若干处放置几乎没有余量；据智能体估计，圆钮的开口间隙约为 1 mm。用户要求智能体把塔拆开再重建，并且要自行修复它所造成的扰动，而不是依赖人来重置。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Operator.</b> The operator reset the pieces once after the robot’s hand swept the tower (at 15:06, during a sideways pick the user had asked for), restarted or re-homed the gripper twice, and moved one piece the arm could not reach. The user asked for visual alignment instead of a contact search for the knob (“align with at most 1 mm opening error”).</p>
+<p class="zh"><b>操作员。</b>在机器人的手扫倒塔之后（15:06，发生在用户要求的一次侧向抓取过程中），操作员重置了一次木块；两次重启或回零夹爪；并挪动了一件机械臂够不到的构件。用户要求对圆钮改用视觉对齐而不是接触搜索（“以不超过 1 mm 的开口误差对齐”）。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Exploration and outcome.</b> The session lasted from 11:13 to 17:20. The agent first took the tower apart and rebuilt it by direct tool calls, then wrote a program with a disassembly and an assembly mode and alternated them over runs 1 to 15, fixing a failure after each stop. In the final exploration cycle the program disassembled the tower (7/7 pieces, 459 s) and then rebuilt it fully automatically, without intervention: 7/7 pieces in 663 s, the knob placed by visual alignment from both exterior cameras to an offset of 0.19 mm before insertion (Figure 33).</p>
+<p class="zh"><b>探索与结果。</b>会话从 11:13 持续到 17:20。智能体先用直接工具调用把塔拆开再重建，随后写出一个同时具备“拆卸模式”与“组装模式”的程序，在第 1 至第 15 次运行中交替使用，每停一次就修一个故障。在最后一个探索周期中，程序先拆卸了塔（7/7 件，459 s），然后<b>全自动、无干预</b>地重建：7/7 件，663 s；圆钮在插入之前由两个外部相机做视觉对齐，偏差 0.19 mm（图 33）。</p>
+</div>
+
+<div class="pair">
+<p class="en">Figure 34 shows how its program perceives, places, and checks each piece. Each placement was checked by the measured seat height and, for the urn, an uprightness check in both cameras; the final tower was compared with the demonstrated one in both exterior views.</p>
+<p class="zh">图 34 展示了程序如何感知、放置并检查每一件构件。每次放置都由实测落座高度来校验；对小瓮，还要在两个相机中做竖直性检查。最终的塔在两个外部视角下与示范塔做了比对。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure33_p74.jpg" alt="Figure 33">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 33</span>Bandu 塔，最后一次全自动组装（左外部相机）。(a) 拆解后的构件；(b)–(c) 构件被放到基座上；(d) 圆钮被悬在小瓮上方做视觉对齐；(e) 完成的塔。时间自首帧起算。</span>
+    <span class="enm"><b>Figure 33 |</b> Bandu tower, final fully automatic assembly, from the left exterior camera. (a) The pieces after disassembly; (b)–(c) pieces are placed on the base; (d) the knob is held over the urn for visual alignment; (e) the completed tower. Time is from the first frame.</span>
+  </figcaption>
+</figure>
+
+<figure class="float">
+  <img src="figs/figure34_p75.jpg" alt="Figure 34">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 34</span>Bandu 组装程序，全自动运行。它用两个外部相机与 Gemini 找到各构件，维护一个“示范塔”的槽位模型，并通过三种方式放置每一件：带保护的放置、为落座而做的触觉搜索（对小瓮还加做倾斜检查），以及把小圆钮对齐到小瓮开口的相机对齐。</span>
+    <span class="enm"><b>Figure 34 |</b> The Bandu assembly program, running fully automatically. It finds the pieces with both exterior cameras and Gemini, keeps a slot model of the demonstrated tower, and places each piece by a guarded place, a tactile search for the seat (with a tilt check for the urn), or a camera alignment of the knob over the urn’s opening.</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="G.6">G.6&nbsp;&nbsp;RB-Y1 上的长时序整理<a class="pg" href="{{PDF}}#page=76" target="_blank">p.76</a></h3>
+
+<div class="pair">
+<p class="en"><b>Task.</b> The RB-Y1 must tidy a lab corner in six chained subtasks given in one instruction: <i>“I want you to complete a series of tasks and you should reuse the skills while still monitor and control the process. First, you should move the chair in front of you out and park it to the left of the yellow table in front of you to clear it out of the way. then you should stack the two silver cups together and carry the stacked cups and banana over to the orange basket to your right and place them in, and pick up the orange basket on to the cabinet with dark top. Then you should move the chair back and tuck it to the table again. Finally you should pick up the box on your right and put it also on the cabinet. Be agile and reactive.”</i> The robot perceives the scene only through its head camera and must move between the table, the basket, and the cabinet with its base.</p>
+<p class="zh"><b>任务。</b>RB-Y1 必须用一条指令完成六个串联子任务，整理实验室的一个角落：<i>“我要你完成一系列任务，并且应当复用技能，同时持续监控与控制整个过程。首先，把你面前的椅子挪出去，停到你面前黄色桌子的左侧，好把它清出通道。然后，把两个银色杯子叠在一起，把叠好的杯子和香蕉搬到你右边的橙色篮子那里放进去，再把橙色篮子拿起来放到深色台面的柜子上。接着，把椅子挪回来、重新推到桌子下面。最后，把你右边的箱子拿起来，也放到柜子上。要灵活、反应快。”</i> 该机器人只通过头部相机感知场景，并且必须靠底盘在桌子、篮子与柜子之间移动。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Skills from earlier sessions.</b> The agent started from a shared skill library written in five earlier RB-Y1 sessions: carrying a box between the floor and a table (<code>bimanual-box-pnp</code>, from three sessions), lifting the basket onto the cabinet by its rim with both grippers (<code>bimanual-bucket-rim-pnp</code>), and moving and tucking an office chair (<code>office-chair-tuck</code>) and nesting two cups (<code>stack-cups</code>), both from one chair session. Carrying the cups and the banana into the basket had no skill. During the session the agent added a skill for reaching hand moves (<code>oc-hand-reach</code>) and a composition skill for the whole task, and updated the library after each trial.</p>
+<p class="zh"><b>来自先前会话的技能。</b>智能体从一个共享技能库出发——它是在更早的五次 RB-Y1 会话中写成的：在地面与桌面之间搬运箱子（<code>bimanual-box-pnp</code>，来自三次会话）；用两个夹爪抓着篮沿把篮子抬到柜子上（<code>bimanual-bucket-rim-pnp</code>）；以及移动并收纳办公椅（<code>office-chair-tuck</code>）与把两个杯子套叠（<code>stack-cups</code>）——后两者来自同一次椅子会话。而“把杯子和香蕉搬进篮子”没有对应技能。会话期间，智能体新增了一个“手部到达”技能（<code>oc-hand-reach</code>）和一个面向整个任务的组合技能，并在每次试验之后更新技能库。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Operator.</b> The operator reset the scene before each trial, stayed in the loop throughout, and gave advice in the chat, such as “straighten the arms”, “lift first”, and “check the torso and height against previous skills”. In trial 1 the robot’s base hit the cabinet during a hand-planned turn, after which the agent checked the base’s swept footprint before every base move. In trial 3 the operator re-armed the robot after controller faults while the cups were being nested.</p>
+<p class="zh"><b>操作员。</b>操作员在每次试验前重置场景，全程保持在环，并在聊天中给出建议，例如“把手臂伸直”“先抬起来”“对照先前的技能检查躯干与高度”。在第 1 次试验中，机器人底盘在一次手工规划的转身中撞上了柜子；此后智能体在每次底盘移动前都检查底盘扫过的范围。第 3 次试验中，在套杯过程中控制器出现故障，操作员重新对机器人上使能。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Trials and outcome.</b> The agent ran the whole sequence three times; all six subtasks were completed in each trial (trials 1 and 2 overnight on the first day, trial 3 on the next evening). Trial 3, shown in Figure 5, ran from 19:31 to 21:09 (98 minutes), with the agent at every checkpoint of the skills. Success of each subtask was judged by the agent from head-camera images (for example, two rims visible for nested cups, both objects inside the basket, the basket and the box on the cabinet).</p>
+<p class="zh"><b>试验与结果。</b>智能体把整个流程跑了三次，每次试验都完成了全部六个子任务（第 1、2 次试验在第一天夜里，第 3 次在第二晚）。第 3 次试验（即图 5）从 19:31 运行到 21:09（98 分钟），智能体参与了技能的每一个检查点。各子任务的成功由智能体依据头部相机图像判定（例如：套叠的杯子能看到两个杯沿、两件物体都在篮子里、篮子与箱子都在柜子上）。</p>
+</div>
+
+<h2 data-num="H">H&nbsp;&nbsp;算力与成本<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Compute and Cost</span><a class="pg" href="{{PDF}}#page=77" target="_blank">p.77</a></h2>
+
+<div class="pair">
+<p class="en">Across all experiments in this paper, simulated and real, the agents’ model calls consumed over 100k US dollars of API credits.</p>
+<p class="zh">本文的全部实验（无论仿真还是真实）中，智能体的模型调用共消耗了超过 <b>10 万美元</b>的 API 额度。</p>
+</div>

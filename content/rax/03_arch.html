@@ -1,0 +1,92 @@
+<h2 data-num="3">3&nbsp;&nbsp;RAX 认知架构<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">The RAX Cognitive Architecture</span><a class="pg" href="{{PDF}}#page=9" target="_blank">p.9</a></h2>
+
+<div class="pair">
+<p class="en">Inspired by Sutton’s OaK architecture (Sutton et al., 2022), RAX acquires all task-specific knowledge at runtime from the agent’s own experience. Building on task-agnostic robot control interfaces and low-level controllers, the agent autonomously develops task-specific perception, manipulation strategies, and executable skills through exploration. The following modules surround the language-model core: <b>perception and control</b>, <b>autonomous robot program</b>, and <b>memory for continual learning</b> (Figure 2).</p>
+<p class="zh">受 Sutton 的 OaK 架构启发（Sutton et al., 2022），RAX 在运行时从智能体自身的经验中获取全部任务相关知识。在任务无关的机器人控制接口与底层控制器之上，智能体通过探索自主发展出针对具体任务的感知、操作策略与可执行技能。围绕语言模型这一核心，架构由以下模块构成：<b>感知与控制</b>、<b>自主机器人程序</b>，以及<b>用于持续学习的记忆</b>（图 2）。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure02_p09.jpg" alt="Figure 2">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 2</span>RAX 的系统架构与自我改进闭环。由冻结的 LLM 驱动的编程智能体，通过多模态感知与控制 SDK 接口，跨越隔离边界与物理硬件交互。通过反思执行结果，智能体持续更新一个持久化记忆系统，其中包含工作上下文、任务笔记，以及一个带版本管理的已验证技能仓库。在探索过程中，智能体把它的感知与规划逻辑编译成独立的 Python 控制程序，直接在机器人上执行高频循环。当因环境变化出现感知或规划失败时，程序会抛出异常（<code>raise Unsure()</code>），从而把控制权交还智能体，由后者做出调整并改进代码库。</span>
+    <span class="enm"><b>Figure 2 |</b> System architecture and self-improving loop of RAX. The coding agent, powered by a frozen LLM, interacts with physical hardware across an isolation boundary using multimodal perception and control SDK interfaces. By reflecting on execution outcomes, the agent continually updates a persistent memory system containing working context, task notes, and a versioned repository of verified skills. During exploration, the agent compiles its perception and planning logic into standalone Python control programs that execute high-frequency loops directly on the robot. When encountering perception or planning failures due to environment variations, the program raises an exception (raise Unsure()), delegating control back to the agent to make adjustments and refine the codebase.</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="3.1">3.1&nbsp;&nbsp;多模态感知<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Multimodal Perception</span><a class="pg" href="{{PDF}}#page=9" target="_blank">p.9</a></h3>
+
+<div class="pair">
+<p class="en">To build a physically accurate model of the world, we equip the agent with multimodal sensory inputs, including RGB images, depth maps, camera parameters, and force signals. The agent can thus construct 3D world models using depth data while regulating contact via force feedback. Notably, the 3D perception and object model fitting behaviors completely emerges from the agent exploration process, while we provide no skills, instructions or examples regarding specific usage of these multimodal sensing signals.</p>
+<p class="zh">为了构建物理上准确的世界模型，我们为智能体配备了多模态感官输入，包括 RGB 图像、深度图、相机参数与力信号。这样一来，智能体既可以用深度数据构建三维世界模型，又能通过力反馈来调节接触。值得注意的是，三维感知与物体模型拟合这些行为完全是从智能体的探索过程中自发涌现出来的——我们并没有就这些多模态感知信号的具体用法提供任何技能、指令或示例。</p>
+</div>
+
+<div class="pair">
+<p class="en">A real-robot task illustrates this process: opening an air fryer’s drawer, placing a banana in its basket, and closing the drawer (Figure 3). The agent lifts RGB-D observations into a point cloud in the robot’s base frame and constructs a geometric model of the fryer from its own measurements, localizing it in each new scene layout by fitting the fryer’s axis and handle direction with robust estimators. Because the drawer moves, the model is articulated, consisting of a fixed body and a drawer that slides along a prismatic joint. The agent plans every action, including grasping, pulling, and releasing, on this model and checks each motion for collisions. Section G.2.1 details the model, the estimators, and how the program uses them. On a humanoid, the same process yields a gravity-aligned frame from the floor plane, landmarks for self-localization, and tracking updates after every gait cycle.</p>
+<p class="zh">一个真实机器人任务可以说明这一过程：打开空气炸锅的抽屉，把一根香蕉放进它的炸篮，再关上抽屉（图 3）。智能体把 RGB-D 观测提升为机器人基座坐标系下的点云，并依据自身测量构建炸锅的几何模型；在每一个新的场景布局中，它用鲁棒估计器拟合炸锅的轴线与把手方向，从而完成定位。由于抽屉会移动，该模型是铰接式的：由一个固定机身和一个沿移动副滑动的抽屉组成。在此模型之上，智能体规划每一个动作——包括抓握、拉出与释放——并对每个动作做碰撞检查。G.2.1 节详细介绍了该模型、各个估计器以及程序如何使用它们。在人形机器人上，同样的过程可以得到由地面平面导出的重力对齐坐标系、用于自定位的地标，以及在每个步态周期之后更新的跟踪。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure03_p10.jpg" alt="Figure 3">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 3</span>真实机器人上的智能体式三维感知与运动规划。(a) 智能体由点云测量以编程方式构建、并拟合到 RGB-D 观测上的铰接式空气炸锅模型，它由一个固定机身与一个抽屉组成，抽屉相对于中心轴 <i>c</i> 沿拉动方向 <i>d</i> 通过移动副铰接。(b) 在抽屉已打开 13.1 cm 的实例化模型上规划出的动作轨迹。末端执行器位姿以金字塔表示：底面朝向接近向量，粗边表示手指闭合轴。底层几何估计器保持了很高的保真度——预测的炸篮边缘与开箱后的实际测量之间仅相差 6.5 mm。图 27 展示了物理机器人上对应的执行序列。</span>
+    <span class="enm"><b>Figure 3 |</b> Agentic 3D perception and motion planning on a real robot. (a) The articulated air fryer model constructed programmatically by the agent from point-cloud measurements and fit to RGB-D observations, consisting of a fixed chassis and a drawer articulated via a prismatic joint along pull direction d relative to central axis c. (b) Action trajectories planned on the instantiated model with the drawer opened by 13.1 cm. End-effector poses are visualized as pyramids whose bases face the approach vector and whose thick edges indicate the finger closure axis. The underlying geometric estimator maintains high fidelity, yielding only a 6.5 mm displacement between the predicted basket rim and the post-opening physical measurement. Figure 27 illustrates the corresponding execution sequence on the physical robot.</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="3.2">3.2&nbsp;&nbsp;规划与控制<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Planning and Control</span><a class="pg" href="{{PDF}}#page=10" target="_blank">p.10</a></h3>
+
+<div class="pair">
+<p class="en">Given the accurate world model, the agent then directly plans the robot actions in 3D world using robot control SDK and kinematic solvers. As the interface between the agent and the physical robot, we expose the robot’s control SDK as MCP tools, together with helpers such as an inverse kinematics (IK) solver and the robot’s URDF model. With these tools, the agent plans each motion and searches for feasible trajectories, accounting for the robot’s posture, collisions, and joint limits.</p>
+<p class="zh">有了准确的世界模型，智能体便可借助机器人控制 SDK 与运动学求解器，直接在三维世界中规划机器人动作。作为智能体与物理机器人之间的接口，我们把机器人的控制 SDK 封装为 MCP 工具暴露出来，并附带逆运动学（IK）求解器、机器人的 URDF 模型等辅助工具。借助这些工具，智能体会考虑机器人位姿、碰撞与关节限位，为每个动作做规划并搜索可行轨迹。</p>
+</div>
+
+<div class="pair">
+<p class="en">In the air fryer task (Section G.2), the drawer’s handle has a short horizontal arm on top and a grip hanging down from its end. Grasping the grip from the front, as a person would, leaves the arm almost no joint margin near its base for the pull, so the agent grasps the short arm from above and pulls the drawer open in 3 cm steps (actions 1 and 2 in Figure 3(b)). The 18 cm banana barely fits the 19 cm basket: released from a level hand, it touched the top of the fryer, and the opening fingers would hit the fryer’s body. The agent therefore tilts the hand by 60° about the banana’s axis, with the banana’s concave side toward the fryer, and releases it with its middle just beyond the basket’s center (action 3). The agent found these motions itself, by searching through the control tools during exploration, without human advice or demonstrations; Figure 27 shows them on the real robot.</p>
+<p class="zh">在空气炸锅任务中（G.2 节），抽屉把手由顶部一段短横臂和从横臂末端垂下的一段握柄构成。若像人那样从正面捏住握柄，横臂根部在拉动方向上几乎不留关节余量；因此智能体改为从上方抓取这段短横臂，并以 3 cm 为步长把抽屉拉开（图 3(b) 中的动作 1 与 2）。18 cm 长的香蕉与 19 cm 的炸篮勉强相配：若以水平手姿释放，香蕉会碰到炸锅顶部，而张开的手指也会撞到锅体。于是智能体让手绕香蕉轴线倾斜 60°，使香蕉的凹面朝向炸锅，并让香蕉中段刚好越过炸篮中心后再释放（动作 3）。这些动作全部由智能体自己在探索过程中通过操控工具搜索得到，没有任何人类建议或演示；图 27 展示了它们在真实机器人上的执行情况。</p>
+</div>
+
+<h3 data-num="3.3">3.3&nbsp;&nbsp;从探索到自主机器人程序<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">From Exploration to Autonomous Robot Program</span><a class="pg" href="{{PDF}}#page=11" target="_blank">p.11</a></h3>
+
+<div class="pair">
+<p class="en">Generating each action with LLM-reasoning is expensive and slow. To enable high-frequency close-loop planning, the agent automates the decision process into a autonomous robot program with code that can directly execute to complete the task. Unlike prior work on coding agents for robotics (Lu et al., 2026; Xiao et al., 2026), we do not rely on hand-designed primitive skills or train policies by imitating human demonstrations, which inherently restricts scaling beyond human capability (Sutton, 2019). Instead, RAX agents directly control the robot without pre-trained policies or hand-coded primitives, progressively transferring control from high-level deliberation to autonomous code programs, resulting in autonomous decision-making through agent-native coding.</p>
+<p class="zh">用 LLM 推理逐条生成动作既昂贵又缓慢。为了实现高频闭环规划，智能体把决策过程自动化成一个自主机器人程序——其中的代码可以直接执行以完成任务。与以往面向机器人的编程智能体工作不同（Lu et al., 2026; Xiao et al., 2026），我们不依赖手工设计的原语技能，也不通过模仿人类演示来训练策略——因为后者本身就会把能力上限锁在人类水平之下（Sutton, 2019）。相反，RAX 智能体在没有任何预训练策略、也没有手写原语的情况下直接控制机器人，把控制权从高层思考逐步转移到自主代码程序，最终通过「智能体原生编程」实现自主决策。</p>
+</div>
+
+<div class="pair">
+<p class="en">Initially, the agent controls the robot through tool calls while perceiving the scene via the core LLM. Upon achieving task success, it compiles these decisions into code programs that run independently of main-agent deliberation. For example, after identifying object shapes and geometries, the agent generates a 3D object model and automatically estimates its position and pose using depth-derived point clouds when encountering new layouts. This eliminates the need for the main agent to repeatedly perceive and process raw images, which is slow and costly.</p>
+<p class="zh">起初，智能体通过工具调用来控制机器人，同时借助核心 LLM 感知场景。一旦任务成功，它就把这些决策编译成代码程序，使其脱离主智能体的推理而独立运行。例如，在识别出物体的形状与几何之后，智能体会生成一个三维物体模型；当遇到新的布局时，它能利用深度导出的点云自动估计该物体的位置与姿态。这就免去了主智能体反复感知、处理原始图像的需要——那既慢又贵。</p>
+</div>
+
+<div class="pair">
+<p class="en">The agent decomposes tasks into stages and implements modular skills with programs that check preconditions, execute motions, and verify outcomes, operating much like a software development process through testing, debugging, and code versioning. Empirical measurements from exploration, such as gait-cycle distance or reliable grasp orientation, become program parameters. The agent tests successive code versions during exploration and uses stage-level failures to identify which specific skill requires revision. The hammer-delivery program on the HumanoidArena DoubleDesk task (Section D.3), for instance, decouples approach, grasp, transit, obstacle crossing, and placement so that every failure traces directly to a specific stage (Figure 20).</p>
+<p class="zh">智能体把任务分解为多个阶段，并用「检查前置条件—执行动作—验证结果」的程序来实现模块化技能，其运作方式很像软件开发流程：测试、调试、代码版本管理。探索中得到的经验测量值——例如步态周期距离、可靠的抓取姿态——会成为程序参数。智能体在探索过程中不断测试后续版本的代码，并利用阶段级失败来定位究竟是哪个具体技能需要修改。例如，HumanoidArena 的 DoubleDesk 任务上的“搬运锤子”程序（D.3 节）把接近、抓取、转运、跨越障碍与放置解耦，使得每一次失败都能直接追溯到某个具体阶段（图 20）。</p>
+</div>
+
+<div class="pair">
+<p class="en">Once reliable, the program is tested unattended in a new scene with exception handling and agent monitoring the generated logs in case of emergency situations. If perception or planning fails due to significant open-world variations, the program throws an exception, enabling the agent to step in, perceive the environment, and make necessary adjustments. Through scaled program testing and debugging during exploration, the result is a fully automated program that perceives, decides, and acts in unseen scenes with minimal or no agent intervention. Automated perception and planning allow it to adapt to new layouts in ways that replayed trajectories cannot. Deployment thus spans a continuum from the agent acting alone to a fully automated program, along which the agent advances as it accumulates experience.</p>
+<p class="zh">一旦程序足够可靠，它就会在新场景中“无人值守”地接受测试：程序自带异常处理，而智能体则监视其产生的日志，以应对突发情况。如果因开放世界中较大的变化导致感知或规划失败，程序会抛出异常，使智能体得以介入、重新感知环境并做出必要调整。通过在探索期间规模化地测试与调试程序，最终得到的是一个在未见场景中也能感知、决策与行动的<b>全自动程序</b>，且几乎或完全不需要智能体介入。自动化的感知与规划使它能以“重放轨迹”无法做到的方式适应新布局。因此，部署实际上是一段连续谱：一端是智能体亲自操作，另一端是全自动程序；随着经验积累，智能体在这条谱上不断向右推进。</p>
+</div>
+
+<h3 data-num="3.4">3.4&nbsp;&nbsp;带记忆的持续学习<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Continual Learning with Memory</span><a class="pg" href="{{PDF}}#page=11" target="_blank">p.11</a></h3>
+
+<div class="pair">
+<p class="en">As online experience scales and decision-making becomes automated, RAX continually expands its capabilities by constructing persistent memory systems for reuse across episodes and tasks. Persistent memory carries experience at multiple timescales (Figure 2, top). Within a session, notes retain the current strategy, confirmed results, failed approaches, and useful parameters through context compression, which lives in the agent scratch pad in workspace. Across sessions and tasks, a skill repository stores each skill with its code, the conditions under which it applies, and evidence of its execution. It is continually contributed and merged by agents across different sessions and tasks, evolving with more experience.</p>
+<p class="zh">随着在线经验不断积累、决策过程不断自动化，RAX 通过构建持久化记忆系统来持续扩展自身能力，使经验可跨回合、跨任务复用。持久化记忆在多个时间尺度上承载经验（图 2 上部）。在单次会话内，“笔记”通过上下文压缩保留当前策略、已确认的结果、失败的尝试以及有用的参数，它们存放在智能体工作区的草稿本中。跨会话、跨任务，一个“技能仓库”保存每项技能的代码、适用条件及其执行证据；不同会话与任务中的智能体会不断向其贡献内容并合并，使它随经验增长而演化。</p>
+</div>
+
+<div class="pair">
+<p class="en">A skill enters the repository only after it executes successfully without supervision, together with the evidence of that execution. Later sessions retrieve and compose skills that are known to work instead of rediscovering the same behavior. The benefit is largest on real robots, where every episode costs operator time: a grasp or a drawer-opening skill becomes a building block for longer tasks, and each session leaves the library more capable than it found it.</p>
+<p class="zh">一项技能只有在无人监督下成功执行之后，才会连同其执行证据一起进入仓库。后续会话可以直接检索并组合这些“已知可用”的技能，而不必把同样的行为再重新发现一遍。这种收益在真实机器人上最大——在那里每个回合都要消耗操作员的时间：一项抓取或开抽屉的技能会成为更长任务的基本积木，而每一次会话结束时，这个技能库都比开始时更有能力。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Learning via Practice.</b> Much like humans, who repeatedly practice individual skills to gain proficiency before rehearsing complex, long-horizon tasks end-to-end, robot agents follow a similar cognitive progression. Here we depart from the conventional per-task training and evaluation protocol in robotics and frame robot learning as a continual process, where it generates and refines skills through practice and gradually moves on to more complex tasks by reusing the skills in the repository. Taking household tasks as an example, we let the agent practice individual subtasks, such as picking and placing (PnP) boxes and buckets or sorting tabletop items; each practice session is an exploration session on a single sub-task. During this process, the agent develops autonomous programs, rehearses them end-to-end to improve robustness, and eventually commits them to a multi-task skill library. During deployment on long-horizon compositional tasks, the agent reuses these subtask skills directly while verifying execution evidence and preconditions to handle environmental variations beyond those encountered during practice. Such skill acquisition and practice can also occur in parallel across multiple robots and tasks, enabling collective learning across multi-robot systems.</p>
+<p class="zh"><b>在练习中学习。</b>人类会反复练习单项技能，熟练之后再端到端地排练复杂的长时序任务；机器人智能体遵循着相似的认知进阶路径。在这里，我们背离机器人学中“按任务训练、按任务评测”的惯例，把机器人学习重新表述为一个持续的过程：通过练习生成并打磨技能，再借助仓库中的技能逐步走向更复杂的任务。以家务任务为例，我们让智能体练习各个子任务，例如拾放（PnP）箱子与水桶，或整理桌面物品；每一次练习会话都是针对单个子任务的一个探索会话。在此过程中，智能体开发自主程序，端到端地排练以提高鲁棒性，最终把它们提交到一个多任务技能库中。在长时序组合任务上部署时，智能体直接复用这些子任务技能，同时核验执行证据与前置条件，以应对超出练习期间所遇范围的环境变化。这样的技能获取与练习也可以在多台机器人、多个任务上并行进行，从而实现多机器人系统之间的集体学习。</p>
+</div>
+
+<h3 data-num="3.5">3.5&nbsp;&nbsp;并行多智能体与多环境探索<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Parallel Multi-Agent and Multi-Environment Exploration</span><a class="pg" href="{{PDF}}#page=12" target="_blank">p.12</a></h3>
+
+<div class="pair">
+<p class="en">Online exploration can be time-consuming due to the latency of agent reasoning and environment execution. To accelerate this process, we parallelize exploration across multiple agents and environments, enabling agents to evaluate distinct strategies concurrently rather than sequentially within a single environment. In our simulation experiments, leveraging parallel environments and agents reduces the wall-clock time required to reach target performance by more than 2×, highlighting the scalability of parallelized exploration for robotic systems. Section 5.3.1 measures how parallel exploration changes the time to consume the exploration budget and the score of the resulting program.</p>
+<p class="zh">由于智能体推理与环境执行都存在时延，在线探索可能相当耗时。为加速这一过程，我们把探索并行化到多个智能体与多个环境上，使智能体能够同时评估不同的策略，而不必在单一环境中串行进行。在我们的仿真实验中，利用并行环境与并行智能体，把达到目标性能所需的墙上时间（wall-clock time）缩短了一半以上（加速超过 <b>2×</b>），凸显了并行化探索对机器人系统的可扩展性。5.3.1 节测量了并行探索如何改变“消耗完探索预算”所需的时间，以及所得程序的得分。</p>
+</div>

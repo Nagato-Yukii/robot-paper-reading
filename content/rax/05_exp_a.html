@@ -1,0 +1,98 @@
+<h2 data-num="5">5&nbsp;&nbsp;实验<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Experiments</span><a class="pg" href="{{PDF}}#page=16" target="_blank">p.16</a></h2>
+
+<div class="pair">
+<p class="en">In this section we report our simulation benchmark results as well as case studies on both simulation and real robot experiments.</p>
+<p class="zh">本节汇报我们在仿真基准上的结果，以及仿真与真实机器人实验的案例研究。</p>
+</div>
+
+<h3 data-num="5.1">5.1&nbsp;&nbsp;实验设置<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Setup</span><a class="pg" href="{{PDF}}#page=16" target="_blank">p.16</a></h3>
+
+<div class="pair">
+<p class="en">We comprehensively evaluate RAX in both simulated environments and on real-world robotic hardware. In simulation, the evaluation spans six benchmarks covering single-arm, bimanual, dexterous, mobile, and humanoid embodiments: RoboDojo, BEHAVIOR-1K, HumanoidArena, DexJoCo, LIBERO, and LIBERO-Pro. In each session, a coding agent starts in a localized workspace containing only the platform’s baseline skills. Guided by a task description and RGB-D observations, the agent explores training scenes within a strictly defined episode budget. The submitted code is then executed as a fully automated program under each benchmark’s official evaluation protocol (Section C).</p>
+<p class="zh">我们在仿真环境与真实机器人硬件上对 RAX 进行了全面评估。在仿真中，评测覆盖六个基准，涵盖单臂、双臂、灵巧手、移动与人形本体：RoboDojo、BEHAVIOR-1K、HumanoidArena、DexJoCo、LIBERO 与 LIBERO-Pro。每次会话开始时，编程智能体置身于一个本地化的工作区，其中只有该平台的基线技能。在任务描述与 RGB-D 观测的引导下，智能体在严格规定的回合预算内探索训练场景。随后，提交的代码作为全自动程序，在各基准的官方评测协议下运行（C 节）。</p>
+</div>
+
+<div class="pair">
+<p class="en">On physical robots, RAX is deployed on a Franka FR3 manipulator to master five distinct tabletop tasks: (1) <i>memory</i>, tracking and finding a hidden cube randomly shuffled under four cups (Section G.1); (2) <i>articulated objects</i>, opening an air fryer drawer, inserting a banana, and closing it (Section G.2); (3) <i>deformable objects</i>, wiping a stain off a table using a wet towel (Section G.3); (4) <i>precision</i>, inserting pegs into a ManipulationNet board with a stringent 0.1 mm clearance (Section G.4); and (5) <i>precision and long horizon</i>, dismantling and rebuilding a Bandu tower of irregular pieces (Section G.5).</p>
+<p class="zh">在真实机器人上，RAX 部署在 Franka FR3 机械臂上，掌握五项不同的桌面任务：(1) <i>记忆</i>——跟踪并找出在四个杯子下被随机反复打乱的隐藏方块（G.1 节）；(2) <i>铰接物体</i>——打开空气炸锅抽屉、放入香蕉、再关上（G.2 节）；(3) <i>可变形物体</i>——用湿毛巾擦掉桌面上的一块污渍（G.3 节）；(4) <i>精密操作</i>——以严苛的 0.1 mm 间隙把销钉插入 ManipulationNet 板（G.4 节）；(5) <i>精度与长时序</i>——拆解并重建由不规则木块搭成的 Bandu 塔（G.5 节）。</p>
+</div>
+
+<div class="pair">
+<p class="en">Additionally, we evaluate RAX on a Rainbow RB-Y1 mobile manipulator to solve a long-horizon logistical task. This involves pulling out a chair, stacking cups, picking up a banana, loading the items into a basket, carrying the basket to a cabinet, tucking the chair back, and subsequently transferring a box to the cabinet (Section G.6). Crucially, the agent receives only natural-language instructions and zero teleoperated demonstrations. It is designed to autonomously evaluate its own success criteria, only prompting a human operator to reset the physical scene between trials.</p>
+<p class="zh">此外，我们还在 Rainbow RB-Y1 移动操作平台上评估 RAX 完成一项长时序物流任务：拉出椅子、叠起杯子、拿起香蕉、把物品装进篮子、把篮子搬到柜子旁、把椅子推回桌下，随后再把一个箱子转移到柜子上（G.6 节）。关键在于，智能体只接收自然语言指令，且没有任何遥操作演示。它被设计为自主评估自己的成功判据，仅在两次试验之间提示人类操作员重置物理场景。</p>
+</div>
+
+<h3 data-num="5.2">5.2&nbsp;&nbsp;仿真结果<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Simulation Results</span><a class="pg" href="{{PDF}}#page=16" target="_blank">p.16</a></h3>
+
+<div class="pair">
+<p class="en">Here we report the simulation benchmark results across RoboDojo, BEHAVIOR-1K, HumanoidArena, DexJoCo, LIBERO, and LIBERO-Pro.</p>
+<p class="zh">这里汇报在 RoboDojo、BEHAVIOR-1K、HumanoidArena、DexJoCo、LIBERO 与 LIBERO-Pro 上的仿真基准结果。</p>
+</div>
+
+<h3 data-num="5.2.1">5.2.1&nbsp;&nbsp;RoboDojo<a class="pg" href="{{PDF}}#page=16" target="_blank">p.16</a></h3>
+
+<div class="pair">
+<p class="en"><b>Setup.</b> We measure exploration scaling on seven RoboDojo tasks with the dual-arm ARX X5 (Section C.3), spanning domain-randomized variants (make toast random, hang mugs random, sweep blocks random), as well as precision (plug in charger), memory (swap blocks), long-horizon (make kong), and open-instruction (pour by language) tasks. For each task, a single agent explores a single environment from an empty workspace, given the task’s public scoring rubric with a short clarification of its conditions, RGB-D observations, and one image of the task’s completed state.</p>
+<p class="zh"><b>设置。</b>我们用双臂 ARX X5（C.3 节）在七个 RoboDojo 任务上测量探索规模化效果，涵盖域随机化变体（<i>make toast random</i>、<i>hang mugs random</i>、<i>sweep blocks random</i>），以及精度任务（<i>plug in charger</i>）、记忆任务（<i>swap blocks</i>）、长时序任务（<i>make kong</i>）与开放式指令任务（<i>pour by language</i>）。对每个任务，单个智能体从空工作区出发探索单一环境；它获得该任务的公开评分细则（含对其条件的简短说明）、RGB-D 观测，以及一张任务完成状态的图像。</p>
+</div>
+
+<div class="pair">
+<p class="en">Sessions differ only in the exploration budget N (i.e., the number of exploration episodes), with each episode conducted in a new exploration scene. At the end of exploration, the agent submits its rehearsed bundle. The resulting fully automated program is then evaluated without the agent on 30 to 50 unseen scenes, scored by the native evaluator with partial credit.</p>
+<p class="zh">各会话之间仅在探索预算 <i>N</i>（即探索回合数）上不同，且每个回合都在一个新的探索场景中进行。探索结束时，智能体提交其排练好的程序包。随后，所得的全自动程序在<b>没有智能体参与</b>的情况下，在 30–50 个未见场景上接受评测，由原生评测器按部分得分（partial credit）计分。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Baselines.</b> We compare our approach with the five strongest learned policies on the RoboDojo-Sim leaderboard (Chen et al., 2026a), which are trained on demonstrations, and with PhysicalRSI, an agent-based system listed separately on the same leaderboard (Table 2).</p>
+<p class="zh"><b>基线。</b>我们与 RoboDojo-Sim 排行榜上最强的五个学习型策略进行比较（Chen et al., 2026a），它们均在演示数据上训练；此外还与 PhysicalRSI 比较——后者是同一排行榜上单独列出的基于智能体的系统（表 2）。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Results.</b> With its largest budget on each task, RAX exceeds every baseline on all seven tasks, averaging 78.3% compared to 24.9% for VPP2, the strongest policy on the leaderboard (Table 2). The margins are largest where learned policies make little progress: on sweep blocks random, RAX reaches 71.7% where the best baseline achieves only 8.0%; and on pour by language, which every learned policy fails, it reaches 100.0%.</p>
+<p class="zh"><b>结果。</b>在每个任务上取最大预算时，RAX 在全部七个任务上都超过了所有基线：平均 <b>78.3%</b>，而排行榜上最强的策略 VPP2 为 24.9%（表 2）。差距最大的地方，恰恰是学习型策略几乎毫无进展之处：在 <i>sweep blocks random</i> 上，RAX 达到 71.7%，而最好的基线只有 8.0%；在 <i>pour by language</i> 上，所有学习型策略全部失败，而 RAX 达到 100.0%。</p>
+</div>
+
+<div class="pair">
+<p class="en">Performance consistently grows with the exploration budget. Plug in charger rises from 26.0% with 4 exploration episodes to 94.0% with 8; swap blocks improves from 34.0% to 100.0% with 16; and make kong—for which the agent submitted no program within 8 episodes—increases from 64.0% with 16 episodes to 96.0% with 32. The domain-randomized tasks require the largest budgets: make toast random rises from 2.5% with 16 episodes to 31.7% with 32 and 47.2% with 64, and sweep blocks random improves from 53.3% to 71.7%, while hang mugs random stays between 33.3% and 39.2% across all budgets.</p>
+<p class="zh">性能随探索预算持续增长。<i>plug in charger</i> 从 4 个探索回合时的 26.0% 提升到 8 个回合时的 94.0%；<i>swap blocks</i> 在 16 个回合时从 34.0% 提升到 100.0%；<i>make kong</i> 在 8 个回合内智能体并未提交任何程序，而得分从 16 回合的 64.0% 提升到 32 回合的 96.0%。域随机化任务需要最大的预算：<i>make toast random</i> 从 16 回合的 2.5% 升到 32 回合的 31.7%、再到 64 回合的 47.2%；<i>sweep blocks random</i> 从 53.3% 提升到 71.7%；而 <i>hang mugs random</i> 在所有预算下都停留在 33.3%–39.2% 之间。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table02_p17.jpg" alt="Table 2">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 2</span>RoboDojo 上的探索规模化。未见布局上的得分（%）；基线取自 RoboDojo-Sim 排行榜前五名的策略（Chen et al., 2026a）。多次运行的结果取均值。–：未运行。† 未提交程序。‡ 智能体 + VLA；列于“智能体”类中，不参与排行榜排名。</span>
+    <span class="enm"><b>Table 2 |</b> Scaling exploration on RoboDojo. Score (%) on unseen layouts; baselines from the top five policies of the RoboDojo-Sim leaderboard (Chen et al., 2026a). Cells with more than one run report the mean. –: not run. † No program submitted. ‡ Agent + VLA; listed among agents and unranked on the leaderboard.</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="5.2.2">5.2.2&nbsp;&nbsp;BEHAVIOR-1K<a class="pg" href="{{PDF}}#page=17" target="_blank">p.17</a></h3>
+
+<div class="pair">
+<p class="en"><b>Setup.</b> We evaluate RAX on six long-horizon household tasks from the 2025 BEHAVIOR Challenge (Li et al., 2023), where previous challenge entries have struggled to make progress. For each task, cooperating agents explore parallel environments using the Galaxea R1Pro for 128 exploration episodes, given the task description, RGB-D observations, and an image sequence of a successful completion (keyframes of official demonstrations, without actions or states). We evaluate the agent-in-the-loop program: a fresh copy of the agent starts from the frozen workspace and attempts each of the ten public test instances of the challenge—the same instances used to report public results.</p>
+<p class="zh"><b>设置。</b>我们在 2025 BEHAVIOR 挑战赛的六个长时序家务任务上评估 RAX（Li et al., 2023）——此前的参赛方案在这些任务上一直难以取得进展。对每个任务，多个协作智能体使用 Galaxea R1Pro 在并行环境中探索 128 个回合；它们获得任务描述、RGB-D 观测，以及一段成功完成的图像序列（官方演示的关键帧，不含动作或状态）。我们评测的是“含智能体在环”的程序：一个全新的智能体副本从冻结的工作区出发，尝试该挑战的全部十个公开测试实例——即用于报告公开结果的同一批实例。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Review reports.</b> Throughout exploration, after each run of the agent’s code, a separate review model provides detailed feedback to the agent regarding the outcome. This report outlines any missed goal conditions and their likely causes, suggests the most valuable code changes, and includes the run’s partial score alongside key camera frames (Section C.4).</p>
+<p class="zh"><b>评审报告。</b>在整个探索过程中，智能体的代码每运行一次之后，都会有一个独立的“评审模型”就其运行结果向智能体提供详细反馈。该报告列出未达成的目标条件及其可能原因，建议最有价值的代码修改，并附上本次运行的部分得分与关键相机帧（C.4 节）。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Scoring and baselines.</b> Episodes are evaluated using the challenge’s Q-score, which measures the fraction of satisfied goal conditions and awards full credit for a complete success. We compare our approach against the five highest-ranked entries from the challenge (Table 3). Figure 6 illustrates the program RAX generates for the boxing books task.</p>
+<p class="zh"><b>计分与基线。</b>回合使用挑战赛的 Q-score 评测，它衡量已满足目标条件的比例，并对完整成功给予满分。我们与挑战赛排名最高的五个参赛方案比较（表 3）。图 6 展示了 RAX 为 <i>boxing books</i> 任务生成的程序。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table03_p18.jpg" alt="Table 3">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 3</span>BEHAVIOR-1K。十个公开测试实例上的 Q-score（%）；基线取自 2025 BEHAVIOR 挑战赛排名最高的五个参赛方案（Li et al., 2023）。† 全自动程序。‡ 使用了特权信息（privileged track）。</span>
+    <span class="enm"><b>Table 3 |</b> BEHAVIOR-1K. Q-score (%) on the ten public test instances; baselines from the five highest-ranked entries of the 2025 BEHAVIOR Challenge (Li et al., 2023). † Fully automated program. ‡ Privileged track.</span>
+  </figcaption>
+</figure>
+
+<figure class="float">
+  <img src="figs/figure06_p19.jpg" alt="Figure 6">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 6</span>RAX 为 BEHAVIOR-1K 上的 <i>boxing books</i> 任务写出的程序（表 3）。它在头部相机中检测书本、书架与箱子，通过视觉里程计跟踪机器人的运动，对场景建图，并用 A* 规划路径；策略流程图给出了每一步的相机视角。</span>
+    <span class="enm"><b>Figure 6 |</b> The program RAX writes for boxing books on BEHAVIOR-1K (Table 3). It detects the books, shelves and box in the head camera, tracks the robot’s motion by visual odometry, maps the scene, and plans paths with A*; the policy flow shows the camera view at each step.</span>
+  </figcaption>
+</figure>

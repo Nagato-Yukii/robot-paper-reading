@@ -1,0 +1,120 @@
+<h2 data-num="V">V&nbsp;&nbsp;实验<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Experiments</span><a class="pg" href="{{PDF}}#page=6" target="_blank">p.6</a></h2>
+
+<div class="pair">
+<p class="en">Our experiments are designed to test whether Bundled Contact Gradients (BCG) enable first-order policy optimization under stiff, deployable contact, and if the resulting policies transfer to another simulator and hardware. We organize the evaluation around five questions: 1) Is stiff contact necessary for dynamic humanoid motions? (Sec. V-B.1) 2) How does BCG reduce gradient variance under stiff contact and stabilize gradient propagation? (Sec. V-B.2, 3) 3) How do SHAC+BCG, vanilla SHAC, and PPO compare in sample efficiency, training time, and convergence? (Sec. V-B.3) 4) How does SHAC+BCG's tracking accuracy compare with PPO after sim-to-sim transfer? (Sec. V-B.4) 5) Do the learned policies transfer zero-shot to real humanoid hardware? (Sec. V-B.5)</p>
+<p class="zh">我们的实验旨在检验：BCG 能否在刚性、可部署的接触下实现一阶策略优化，以及由此得到的策略能否迁移到另一个仿真器乃至硬件。评估围绕五个问题展开：1) 对动态人形动作而言，刚性接触是否必要？（V-B.1 节）2) BCG 如何在刚性接触下降低梯度方差、稳定梯度传播？（V-B.2、V-B.3 节）3) SHAC+BCG、原版 SHAC 与 PPO 在样本效率、训练时间与收敛性上相比如何？（V-B.3 节）4) 在 sim-to-sim 迁移之后，SHAC+BCG 的跟踪精度与 PPO 相比如何？（V-B.4 节）5) 学到的策略能否零样本迁移到真实人形硬件？（V-B.5 节）</p>
+</div>
+
+<h3 data-num="V.A">V.A&nbsp;&nbsp;实验设置<a class="pg" href="{{PDF}}#page=6" target="_blank">p.6</a></h3>
+
+<div class="pair">
+<p class="en">We evaluate our framework on the Unitree G1 humanoid by training policies to imitate four dynamic, contact-rich motions from the LAFAN1 dataset [44]: Run, Jump, Fight, and Dance, each lasting 15 s. Policies are trained in the differentiable rigid-body simulator of [27], which implements an analytically smoothed contact model in NVIDIA Warp [11]. We assess sim-to-sim transfer by evaluating the trained policies in MuJoCo. All experiments are run on an NVIDIA RTX 2080 Ti GPU.</p>
+<p class="zh">我们在 Unitree G1 人形机器人上评估该框架：训练策略模仿 LAFAN1 数据集 [44] 中的四段动态、接触丰富的动作——Run（跑）、Jump（跳）、Fight（格斗）与 Dance（舞），每段时长 15 s。策略在 [27] 的可微分刚体仿真器中训练，该仿真器在 NVIDIA Warp [11] 中实现了上述解析平滑接触模型。我们通过在 MuJoCo 中评估训练后的策略来考察 sim-to-sim 迁移。全部实验运行在一块 NVIDIA RTX 2080 Ti GPU 上。</p>
+</div>
+
+<div class="pair">
+<p class="en">All SHAC+BCG experiments use a differentiable rollout horizon of N = 32 control steps, bundle size B = 10, bundle duration H = 2, and Cartesian perturbation scales σ<sub>p</sub> = 1 cm and σ<sub>v</sub> = 2 cm/s. We define stiff contact as a normal contact force exceeding τ = 400 N (which is greater than the robot's body weight), that triggers bundling. Other training parameters are listed on the website.</p>
+<p class="zh">所有 SHAC+BCG 实验采用：可微分 rollout 时域 N = 32 个控制步、bundle 大小 B = 10、bundle 时长 H = 2、笛卡尔扰动尺度 σ<sub>p</sub> = 1 cm 与 σ<sub>v</sub> = 2 cm/s。我们把“刚性接触”定义为法向接触力超过 τ = 400 N（大于机器人自身体重）的接触——这正是触发捆绑的条件。其余训练参数见项目网站。</p>
+</div>
+
+<h3 data-num="V.B">V.B&nbsp;&nbsp;结果<a class="pg" href="{{PDF}}#page=6" target="_blank">p.6</a></h3>
+
+<div class="pair">
+<p class="en"><b>1) Q1: Effect of Contact Stiffness on Transfer.</b> We vary the training contact stiffness κ while using the same SHAC+BCG training procedure at every stiffness level, including the soft contact settings. Table I reports falls after transfer to MuJoCo and the difference in foot penetration between the training simulator and MuJoCo. As stiffness κ is raised, the number of falls goes down showing how contact fidelity in differentiable simulation affects transfer reliability.</p>
+<p class="zh"><b>1) Q1：接触刚度对迁移的影响。</b>我们改变训练时的接触刚度 κ，但在每个刚度档位（包括软接触设置）上都使用相同的 SHAC+BCG 训练流程。表 I 报告了迁移到 MuJoCo 之后的摔倒次数，以及训练仿真器与 MuJoCo 之间足部穿透深度的差异。随着刚度 κ 提高，摔倒次数下降——这说明可微分仿真中的接触保真度会直接影响迁移的可靠性。</p>
+</div>
+
+<figure class="float table narrow">
+  <img src="figs/tab1.jpg" alt="Table I">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 I</span>基于 BCG 的接触刚度消融（Q1）。所有策略都以标注的刚度 κ 用 SHAC+BCG 训练，并在迁移到 MuJoCo 后评测 5 次。Falls：根部高度低于 0.3 m 的运行次数，按 n/5 报告。Δd：训练仿真器与 MuJoCo 之间平均足部穿透深度的差 [mm]；正值表示训练时穿透更深。</span>
+    <span class="enm"><b>Table I |</b> Contact-stiffness ablation with BCG (Q1). All policies are trained with SHAC+BCG at the indicated stiffness κ and evaluated over 5 runs after transfer to MuJoCo. Falls: number of runs in which root height drops below 0.3 m, reported as n/5. Δd: difference in mean foot penetration depth [mm] between the training simulator and MuJoCo; positive values indicate deeper penetration during training.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>2) Q2: Gradient Variance and Contact Sensitivities.</b> Retaining stiff contact requires gradients that remain stable enough during training. We therefore examine gradient variability during training with and without BCG as well as understand how BCG works to reduce gradient variance at a low level. For the Jump motion, we compare policy-gradient variance across all training environments at saved checkpoints. We compute variance by summing the sample variances of all policy-gradient components across environments.</p>
+<p class="zh"><b>2) Q2：梯度方差与接触敏感性。</b>保留刚性接触，要求梯度在训练过程中保持足够稳定。因此我们考察了使用与不使用 BCG 时训练中的梯度波动，并从更底层的角度理解 BCG 如何降低梯度方差。对 Jump 动作，我们在保存的检查点上比较所有训练环境之间的策略梯度方差：把各环境的策略梯度各分量样本方差求和，得到总方差。</p>
+</div>
+
+<div class="pair">
+<p class="en">Figure 3 shows lower variance with BCG, indicating greater agreement among the environment-wise gradients combined in each policy update. In other words, fewer environments produce conflicting parameter-update directions, resulting in a more consistent learning signal.</p>
+<p class="zh">图 3 显示 BCG 下的方差更低，说明每次策略更新所汇总的各环境梯度之间一致性更高。换言之，产生“相互冲突的参数更新方向”的环境更少，学习信号因而更一致。</p>
+</div>
+
+<figure class="float narrow">
+  <img src="figs/fig3.jpg" alt="Fig. 3">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 3</span>训练期间的策略梯度方差（Q2）。阴影表示一个标准差，统计自 128 个训练环境中的 4,000 个样本。</span>
+    <span class="enm"><b>Fig. 3 |</b> Policy-gradient variance during training (Q2). Shading shows ± one standard deviation across 4,000 samples of the 128 training environments.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en">To examine the underlying mechanism in BCG, we roll out N = 32 steps of the differentiable simulator with a single environment (κ = 300) and measure how small changes in the state affect the G1's pelvis' vertical velocity within a bundle window. Figure 4a plots one element of the state-gradient vector: ∂v<sub>T,t</sub>/∂p<sub>T,t</sub>, which measures the sensitivity of future pelvis vertical velocity to the current pelvis height over the bundle window. We choose this component because vertical pelvis motion in the Jump task is strongly coupled to foot-ground contact, making it an intuitive measure of contact-induced gradient sensitivity.</p>
+<p class="zh">为考察 BCG 的内在机制，我们在单个环境（κ = 300）上用可微分仿真器展开 N = 32 步，测量状态的小幅变化如何在 bundle 窗口内影响 G1 骨盆的竖直速度。图 4a 画出状态梯度向量的一个分量：∂v<sub>T,t</sub>/∂p<sub>T,t</sub>，它衡量在 bundle 窗口内“未来骨盆竖直速度”对“当前骨盆高度”的敏感性。选择该分量是因为：在 Jump 任务中骨盆的竖直运动与足—地接触强耦合，因此它能直观地反映接触引起的梯度敏感性。</p>
+</div>
+
+<div class="pair">
+<p class="en">At stiff contact, individual perturbed branches exhibit markedly different sensitivities, while their bundled average attenuates the extreme responses. This illustrates how BCG reduces dependence on a single contact realization that would otherwise cause varied gradients, while retaining stiff dynamics.</p>
+<p class="zh">在刚性接触处，各个被扰动的分支表现出明显不同的敏感性，而它们的捆绑平均值会削弱那些极端响应。这正说明 BCG 如何减少对“单一接触实现”的依赖——否则正是这种依赖造成了梯度的剧烈变化——同时仍保留刚性动力学。</p>
+</div>
+
+<figure class="float narrow">
+  <img src="figs/fig4.jpg" alt="Fig. 4">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 4</span>接触局部梯度平均（Q2）。(a) 在 H = 2（4 个物理子步/控制步）下，一次接触 bundle 内、10 个样本上的状态梯度 ∂v<sub>T,t</sub>/∂p<sub>T,t</sub>；灰色曲线来自各个被扰动样本，蓝色曲线是 BCG 平均后的梯度。(b) 对状态梯度向量的散布做 PCA 可视化：橙色点为各扰动样本，蓝色点为 BCG 平均后的梯度。每个椭圆都包含高斯拟合的 95% 质量；左下角小图只投影了“到接触距离”这一个分量。</span>
+    <span class="enm"><b>Fig. 4 |</b> Contact-local gradient averaging (Q2). (a) One contact bundle with 10 samples during stiff contact over a window of H = 2 (4 physics substeps per control step); (b) Ellipses summarize the spread of the gradient point clouds, where orange points are gradients from individual perturbed contact samples and blue points are the corresponding BCG-averaged gradients. Each ellipse encloses 95% of the mass of a fitted Gaussian distribution.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en">Figure 4b examines the sensitivity of the same pelvis vertical velocity to all input-state components over the bundle window. We collect these sensitivities into vectors and use Principal Component Analysis (PCA) to display them in a shared two-dimensional view. Each orange point represents one perturbed branch, and each blue diamond represents the bundled gradient from one sampling draw. Nearby points have similar sensitivity patterns in this projection.</p>
+<p class="zh">图 4b 考察同一骨盆竖直速度在 bundle 窗口内对<b>全部</b>输入状态分量的敏感性。我们把这些敏感性收集为向量，并用主成分分析（PCA）把它们展示在同一个二维视图中。每个橙色点代表一个被扰动的分支，每个蓝色菱形代表一次采样所得到的捆绑梯度。在此投影中，彼此靠近的点意味着敏感性模式相似。</p>
+</div>
+
+<div class="pair">
+<p class="en">The orange points are widely spread, whereas the blue points cluster closely together. The smaller blue ellipse summarizes this reduction in variation across bundle draws, showing that the averaging effect extends beyond pelvis height to the joint variation of the full state-gradient vector.</p>
+<p class="zh">橙色点分布得很散，而蓝色点紧密聚集；更小的蓝色椭圆概括了“跨多次 bundle 采样”的变异缩减，说明这种平均效应不止作用于骨盆高度，而是作用于完整状态梯度向量的联合变化。</p>
+</div>
+
+<div class="pair">
+<p class="en">Together, these results show how contact-local averaging reduces variability in simulator sensitivities and provides a more consistent learning signal under stiff contact. By moderating contact-induced gradient fluctuations, BCG helps keep gradients stable over longer rollout horizons compared to previous work [27].</p>
+<p class="zh">综合来看，这些结果说明：接触局部平均降低了仿真器敏感性的波动，在刚性接触下提供了更一致的学习信号。通过抑制接触引起的梯度起伏，BCG 相比先前工作 [27] 能在更长的 rollout 时域上保持梯度稳定。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>3) Q3: Learning Efficiency and Convergence.</b> Figure 5 shows SHAC+BCG reaching comparable reward levels with over an order of magnitude fewer samples than PPO, while vanilla SHAC stalls at low reward. BCG reaches higher final rewards compared to PPO in a few motions as well.</p>
+<p class="zh"><b>3) Q3：学习效率与收敛性。</b>图 5 显示，SHAC+BCG 用比 PPO 少一个数量级以上的样本就达到相当的奖励水平，而原版 SHAC 则停滞在较低的奖励上。在若干动作上，BCG 的最终奖励也高于 PPO。</p>
+</div>
+
+<figure class="float narrow">
+  <img src="figs/fig5.jpg" alt="Fig. 5">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 5</span>四个参考动作（各行）的学习曲线，分别以三种预算（训练迭代次数、环境样本数、墙上时间）为横轴。纵轴为对数刻度。</span>
+    <span class="enm"><b>Fig. 5 |</b> Learning curves on the four reference motions (Rows) plotted against three budgets: training iterations (left), environment samples (middle), and wall-clock time (right). The sample axis is logarithmic.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en">SHAC+BCG and vanilla SHAC consume comparable sample budgets at a given iteration count. BCG's more informative gradients allow training with 64 environments instead of 128, offsetting the additional branch samples used for bundling at stiff contacts. BCG therefore learns substantially more from a similar simulation budget. BCG does however have a slightly higher computational overhead compared with Vanilla SHAC due to a larger computational graph for backpropagation.</p>
+<p class="zh">在相同迭代次数下，SHAC+BCG 与原版 SHAC 消耗的样本预算相当。BCG 更具信息量的梯度允许只用 64 个环境（而非 128 个）来训练，这恰好抵消了刚性接触处捆绑分支所需的额外样本。因此，在相近的仿真预算下，BCG 学到的东西明显更多。不过，由于反向传播的计算图更大，BCG 相对原版 SHAC 有略高的计算开销。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>4) Q4: Tracking Performance across Methods.</b> After transfer to MuJoCo, we compare SHAC+BCG and PPO using global mean per-body position error (Table II). SHAC+BCG achieves lower mean error on three of the four motions. PPO has slightly lower error on Jump, but its policy keeps both feet on the ground instead of reproducing the jumping motion, as shown in the accompanying videos. These results highlight the potential of first-order learning with informative gradients, which can guide the policy toward more faithful motion tracking.</p>
+<p class="zh"><b>4) Q4：各方法的跟踪性能。</b>迁移到 MuJoCo 之后，我们用全局逐体平均位置误差比较 SHAC+BCG 与 PPO（表 II）。SHAC+BCG 在四个动作中的三个上取得了更低的平均误差。PPO 在 Jump 上误差略低，但其策略让双脚始终留在地面上、并没有复现跳跃动作（见随附视频）。这些结果凸显了“带信息梯度的一阶学习”的潜力：它能引导策略实现更忠实的动作跟踪。</p>
+</div>
+
+<figure class="float table narrow">
+  <img src="figs/tab2.jpg" alt="Table II">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 II</span>sim-to-sim 迁移后的跟踪精度（Q4）。全局逐体平均位置误差 E<sub>track</sub> [cm]，以 5 次运行的均值 ± 标准差报告。</span>
+    <span class="enm"><b>Table II |</b> Tracking accuracy after sim-to-sim transfer (Q4). Global mean per-body position error E<sub>track</sub> [cm], reported as mean ± std over 5 runs.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>5) Q5: Sim-to-Real Transfer.</b> Finally, we deploy the learned SHAC+BCG policies zero-shot on the real Unitree G1 without any hardware fine-tuning. The robot successfully executes the learned dynamic motions, providing qualitative evidence that the stiff-contact policies transfer beyond simulation; videos of the hardware results are available on the project website.</p>
+<p class="zh"><b>5) Q5：sim-to-real 迁移。</b>最后，我们把学到的 SHAC+BCG 策略零样本部署到真实的 Unitree G1 上，不做任何硬件微调。机器人成功执行了所学的动态动作，这为“刚性接触策略能够跨越仿真边界”提供了定性证据；硬件结果的视频见项目网站。</p>
+</div>

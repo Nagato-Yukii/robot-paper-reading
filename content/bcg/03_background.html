@@ -1,0 +1,76 @@
+<h2 data-num="III">III&nbsp;&nbsp;背景<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Background</span><a class="pg" href="{{PDF}}#page=3" target="_blank">p.3</a></h2>
+
+<h3 data-num="III.A">III.A&nbsp;&nbsp;强化学习<a class="pg" href="{{PDF}}#page=3" target="_blank">p.3</a></h3>
+
+<div class="pair">
+<p class="en">Policy learning is formalized as a Markov decision process (\(\mathcal{X}\), \(\mathcal{A}\), p, r, γ) with state x<sub>t</sub> ∈ \(\mathcal{X}\), action a<sub>t</sub> ∈ \(\mathcal{A}\), transition density p(x<sub>t+1</sub> | x<sub>t</sub>, a<sub>t</sub>), reward r(x<sub>t</sub>, a<sub>t</sub>), and discount factor γ ∈ [0, 1). A stochastic policy π<sub>θ</sub>(a<sub>t</sub> | x<sub>t</sub>) with parameters θ induces a trajectory distribution. The objective is to maximize the expected discounted return</p>
+<p class="zh">策略学习被形式化为马尔可夫决策过程 (\(\mathcal{X}\), \(\mathcal{A}\), p, r, γ)：状态 x<sub>t</sub> ∈ \(\mathcal{X}\)、动作 a<sub>t</sub> ∈ \(\mathcal{A}\)、转移密度 p(x<sub>t+1</sub> | x<sub>t</sub>, a<sub>t</sub>)、奖励 r(x<sub>t</sub>, a<sub>t</sub>)、折扣因子 γ ∈ [0, 1)。参数为 θ 的随机策略 π<sub>θ</sub>(a<sub>t</sub> | x<sub>t</sub>) 诱导出一个轨迹分布。目标是最大化期望折扣回报</p>
+</div>
+
+<div class="eq">\[ J(\theta)=\mathbb{E}_{\pi_\theta}\left[\sum_{t=0}^{N-1}\gamma^{t}\,r(x_t,a_t)\right] \]</div>
+
+<div class="pair">
+<p class="en">Model-free methods estimate ∇<sub>θ</sub>J using the likelihood-ratio (score-function) identity</p>
+<p class="zh">无模型方法用似然比（得分函数）恒等式来估计 ∇<sub>θ</sub>J：</p>
+</div>
+
+<div class="eq">\[ \nabla_\theta J=\mathbb{E}_{\pi_\theta}\left[\sum_{t=0}^{N-1}\nabla_\theta\log\pi_\theta(a_t\mid x_t)\,\hat{A}_t\right] \]</div>
+
+<div class="pair">
+<p class="en">where Â<sub>t</sub> is an advantage estimate [42]. This estimator differentiates only the policy and treats the dynamics as a black box; it is therefore a zero-order gradient that requires no derivatives of the physics and is robust to non-smooth contact, at the cost of variance that grows with the horizon and action dimension. PPO [13] is a widely used instance.</p>
+<p class="zh">其中 Â<sub>t</sub> 是优势估计 [42]。该估计器只对策略求导、把动力学当作黑箱；因此它是一个零阶梯度——不需要物理的任何导数，对非光滑接触具有鲁棒性，代价则是方差会随时域长度与动作维度增长。PPO [13] 是其中最常用的一个实例。</p>
+</div>
+
+<h3 data-num="III.B">III.B&nbsp;&nbsp;可微分仿真<a class="pg" href="{{PDF}}#page=3" target="_blank">p.3</a></h3>
+
+<div class="pair">
+<p class="en">A differentiable simulator replaces the black-box transition of Section III-A with a smooth, differentiable map</p>
+<p class="zh">可微分仿真器用一个光滑、可微的映射，替换掉 III-A 节中的黑箱转移：</p>
+</div>
+
+<div class="eq">\[ x_{t+1}=f_\kappa(x_t,a_t) \]</div>
+
+<div class="pair">
+<p class="en">where κ parameterizes the stiffness of the contact model, and it exposes the transition Jacobians ∂f<sub>κ</sub>/∂x and ∂f<sub>κ</sub>/∂a. The contact formulation used in this work is described in Section III-C. Rolling out a deterministic policy a<sub>t</sub> = π<sub>θ</sub>(x<sub>t</sub>) over a horizon N produces a differentiable return J(θ) = ∑<sub>t</sub> γ<sup>t</sup>r(x<sub>t</sub>, a<sub>t</sub>), whose gradient is obtained by backpropagating through the unrolled computation graph, with the state sensitivity propagated recursively through time,</p>
+<p class="zh">其中 κ 参数化了接触模型的刚度；同时它把转移 Jacobian ∂f<sub>κ</sub>/∂x 与 ∂f<sub>κ</sub>/∂a 暴露出来。本文所用的接触表述见 III-C 节。把确定性策略 a<sub>t</sub> = π<sub>θ</sub>(x<sub>t</sub>) 在时域 N 上展开，得到可微回报 J(θ) = ∑<sub>t</sub> γ<sup>t</sup>r(x<sub>t</sub>, a<sub>t</sub>)；其梯度通过在被展开的计算图上反向传播获得，其中状态敏感性随时间递归传播：</p>
+</div>
+
+<div class="eq">\[ \frac{\partial x_{t+1}}{\partial\theta}=\frac{\partial f_\kappa}{\partial x_t}\frac{\partial x_t}{\partial\theta}+\frac{\partial f_\kappa}{\partial a_t}\frac{\partial \pi_\theta}{\partial\theta} \]</div>
+
+<div class="pair">
+<p class="en">This first-order gradient is typically far lower in variance than the score-function estimator, which is the source of the improved sample and wall-clock efficiency of differentiable-simulation methods. The advantage holds only while f<sub>κ</sub> is smooth: as κ is increased toward physically faithful, deployable contact, the Jacobians become stiff and the gradient develops large variance across contact events. Overcoming this failure mode is the subject of Section IV.</p>
+<p class="zh">这个一阶梯度通常比得分函数估计器的方差低得多，这正是可微分仿真方法在样本效率与墙上时间上占优的来源。但这一优势只有在 f<sub>κ</sub> 光滑时才成立：当 κ 朝物理上可信、可部署的接触增大时，Jacobian 变得刚硬，梯度会在接触事件处出现很大方差。克服这一失效模式，正是第 IV 节的主题。</p>
+</div>
+
+<h3 data-num="III.C">III.C&nbsp;&nbsp;解析平滑的接触模型<a class="pg" href="{{PDF}}#page=3" target="_blank">p.3</a></h3>
+
+<div class="pair">
+<p class="en">We use the contact model of Schwarke et al. [27], which replaces discontinuous hard-contact activation with a continuous, analytically smoothed response, enabling gradient computation through contact. Within Moreau's time-stepping scheme [43], contact impulses are computed using a modified Gauss–Seidel solver and scaled according to the penetration depth d by</p>
+<p class="zh">我们采用 Schwarke et al. [27] 的接触模型：它以连续的、解析平滑的响应取代不连续的硬接触激活，使得梯度能够穿过接触进行计算。在 Moreau 的时间步进格式 [43] 内，接触冲量由改进的 Gauss–Seidel 求解器计算，并按照穿透深度 d 进行缩放：</p>
+</div>
+
+<div class="eq">\[ s_\kappa(d)=\frac{1}{1+\exp(-\kappa d)} \]</div>
+
+<div class="pair">
+<p class="en">where d &gt; 0 denotes penetration and d &lt; 0 denotes separation. This scaling replaces abrupt contact activation with a smooth transition and permits forces at small separations, providing gradient information before contact occurs.</p>
+<p class="zh">其中 d &gt; 0 表示穿透，d &lt; 0 表示分离。这一缩放把突变的接触激活替换成平滑过渡，并允许在小的分离间隙上产生力——从而在真正接触发生之前就提供梯度信息。</p>
+</div>
+
+<div class="pair">
+<p class="en">The parameter κ controls the extent of smoothing (i.e. the contact stiffness): smaller values provide a wider, softer transition, whereas larger values reduce smoothing and approach the original hard-contact response, increasing physical fidelity in the rigid-contact regime. For finite κ, contact activation remains continuous, although its derivatives become increasingly sensitive as κ grows. Throughout this paper, <i>stiff contact</i> therefore means a large but finite κ, rather than the discontinuous hard-contact limit.</p>
+<p class="zh">参数 κ 控制平滑的程度（即接触刚度）：取值越小，过渡越宽、越软；取值越大，平滑越弱、越接近原本的硬接触响应，从而在刚性接触区间内提高物理保真度。对有限的 κ，接触激活始终是连续的，只是随 κ 增大，其导数会变得越来越敏感。因此在本文全文中，<i>刚性接触（stiff contact）</i>指的是“很大但有限”的 κ，而不是不连续的硬接触极限。</p>
+</div>
+
+<h3 data-num="III.D">III.D&nbsp;&nbsp;基于 SHAC 的一阶策略优化<a class="pg" href="{{PDF}}#page=4" target="_blank">p.4</a></h3>
+
+<div class="pair">
+<p class="en">First-order policy optimization updates the policy using analytic gradients obtained by backpropagating through the differentiable rollout. While this can provide lower-variance updates than zero-order RL, differentiating through long horizons can cause vanishing or exploding gradients due to repeated Jacobian products [4], [8]. In this work we use Short Horizon Actor Critic (SHAC) [4], which collects short N-step differentiable rollouts from E simulated environments in parallel and bootstraps the remaining return with a learned critic V<sub>ψ</sub>. Its actor objective is</p>
+<p class="zh">一阶策略优化利用“穿过可微分 rollout 反向传播”所得的解析梯度来更新策略。相比零阶 RL，这能带来更低方差的更新；但穿越长时域求导会因反复的 Jacobian 乘积而导致梯度消失或爆炸 [4], [8]。本文使用短时域 actor–critic（SHAC）[4]：它从 E 个并行仿真环境中采集短的 N 步可微分 rollout，并用学习得到的 critic V<sub>ψ</sub> 对剩余回报做自举。其 actor 目标为</p>
+</div>
+
+<div class="eq">\[ \mathcal{L}_{\mathrm{FO}}(\theta)=-\sum_{t=t_0}^{t_0+N-1}\gamma^{\,t-t_0}r(x_t,a_t)-\gamma^{N}V_\psi(x_{t_0+N}) \]</div>
+
+<div class="pair">
+<p class="en">with the critic trained by value regression. The short horizon limits unstable gradient propagation while retaining direct dynamics gradients over each rollout. SHAC nonetheless inherits the contact sensitivity of the underlying gradient: at the high stiffness required for deployable behavior, its truncated gradients can vary sharply with individual contact events, the gap addressed in next Section IV.</p>
+<p class="zh">其中 critic 通过价值回归训练。短时域限制了不稳定的梯度传播，同时在每个 rollout 内保留了直接的动力学梯度。尽管如此，SHAC 仍继承了底层梯度对接触的敏感性：在可部署行为所需的高刚度下，其被截断的梯度会随个别接触事件剧烈变化——这正是下一节（第 IV 节）要弥合的缺口。</p>
+</div>

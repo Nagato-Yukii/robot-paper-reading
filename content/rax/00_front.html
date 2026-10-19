@@ -1,0 +1,50 @@
+<div class="title-block">
+  <div class="kicker">arXiv 预印本 · 机器人学习 / 智能体</div>
+  <h1>面向机器人智能体的在线探索规模化</h1>
+  <p class="en-title">Scaling Online Exploration for Robot Agents</p>
+  <p class="authors">Runhan Huang<sup>1,*</sup>, Xiangcheng Zhang<sup>1,*,†</sup>, Haoyu Chen<sup>1,‡</sup>, Yitong Li<sup>2,‡</sup>, Yen-Jen Wang<sup>3,‡</sup>, Bohan Lyu<sup>3,‡</sup>, Haotian Ye<sup>5</sup>, Chuye Hong<sup>3</sup>, Yixuan Wang<sup>2</sup>, Chloe Su<sup>1</sup>, Haoyu Xiong<sup>4</sup>, Yangzhen Wu<sup>3</sup>, Enze Xie<sup>2</sup>, Travis Manderson<sup>4</sup>, Stefano Ermon<sup>5</sup>, Pieter Abbeel<sup>3</sup>, Antonio Torralba<sup>4</sup>, Dawn Song<sup>3</sup>, Weirui Ye<sup>4</sup>, Yilun Du<sup>1</sup></p>
+  <p class="affil">1 哈佛大学 · 2 NVIDIA · 3 加州大学伯克利分校 · 4 麻省理工学院 · 5 斯坦福大学　｜　* 同等贡献　† 项目负责人　‡ 核心贡献者</p>
+  <div class="links">
+    <a href="https://robot-agent-exploration.com" target="_blank" rel="noopener">项目主页 robot-agent-exploration.com ↗</a>
+    <a href="{{PDF}}#page=1" target="_blank" rel="noopener">原始 PDF ↗</a>
+  </div>
+</div>
+
+<figure class="float">
+  <img src="figs/figure01_p01.jpg" alt="Figure 1">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 1</span>RAX 总览。通过规模化在线探索，一个编程智能体在完全没有任何动作演示的情况下，跨多种本体掌握机器人任务——从精密插入、铰接物体操作、可变形物体操作与需要记忆的任务，到长时序移动操作——并在未见场景上超越现有最优方法。</span>
+    <span class="enm"><b>Figure 1 |</b> Overview of RAX. By scaling online exploration, a coding agent masters robot tasks across embodiments without any action demonstrations, from precise insertion and articulated, deformable, and memory tasks to long-horizon mobile manipulation, and surpasses the state of the art on unseen scenes.</span>
+  </figcaption>
+</figure>
+
+<div class="abstract">
+<h2 data-num="摘要">摘要 <span class="en-h" style="font-weight:400;color:var(--faint)">Abstract</span><a class="pg" href="{{PDF}}#page=1" target="_blank">p.1</a></h2>
+
+<div class="pair">
+<p class="en">Robot learning has advanced significantly by scaling demonstration datasets and model capacity; however, deploying a new robot embodiment or task typically necessitates a dedicated teleoperation corpus. Furthermore, resulting policies remain bounded by their imitation distributions, limiting generalization and continual self-improvement. We introduce RAX (Robot Agent eXploration), an open-source framework for robot agents centered on scaling exploration: enabling agents to improve by acquiring online experience and synthesizing executable programs.</p>
+<p class="zh">机器人学习通过规模化演示数据集与模型容量取得了显著进展；然而，部署一个新的机器人本体或新任务，通常仍需要专门采集一套遥操作数据。更进一步，由此得到的策略始终受限于其模仿分布，从而限制了泛化能力与持续的自我改进。我们提出 <b>RAX（Robot Agent eXploration）</b>——一个以「探索规模化」为核心的开源机器人智能体框架：让智能体通过获取在线经验、并综合出可执行程序来实现自我提升。</p>
+</div>
+
+<div class="pair">
+<p class="en">In RAX, a general-purpose coding agent generates robot control code directly, operating without action demonstration data, hand-engineered action primitives, or value-function guidance. Through online exploration, the agent identifies decision sequences that achieve task goals and compiles them into modular programs encapsulating the full perception-planning-control loop for fast inference.</p>
+<p class="zh">在 RAX 中，一个通用编程智能体直接生成机器人控制代码，运行过程不需要动作演示数据、不需要手工设计的动作原语，也不需要价值函数引导。通过在线探索，智能体找出能够达成任务目标的决策序列，并将其编译为模块化程序，把「感知—规划—控制」的完整闭环封装其中，以实现快速推理。</p>
+</div>
+
+<div class="pair">
+<p class="en">Using RAX, we present a systematic multi-embodiment study on scaling online exploration across fine-grained precision and long-horizon manipulation tasks using single-arm, bimanual, dexterous, mobile, and humanoid systems in simulation and on real robots. Generalization performance on unseen environments improves consistently as exploration scales.</p>
+<p class="zh">借助 RAX，我们开展了一项系统性的多本体研究：在仿真与真实机器人上，使用单臂、双臂、灵巧手、移动平台与人形系统，考察在线探索规模在细粒度精密任务与长时序操作任务上的作用。随着探索规模扩大，模型在未见环境上的泛化性能持续提升。</p>
+</div>
+
+<div class="pair">
+<p class="en">In simulation, RAX outperforms top baseline models by +37.4% on average. On real robots, RAX autonomously learns memory-dependent, articulated, high-precision, deformable, and long-horizon mobile manipulation tasks without human demonstrations, continually improving performance by composing verified skills from prior exploration sessions.</p>
+<p class="zh">在仿真中，RAX 平均高出最强基线模型 <b>+37.4%</b>。在真实机器人上，RAX 无需任何人类演示，即可自主学习依赖记忆的、铰接物体操作的、高精度的、可变形物体操作的以及长时序移动操作的任务，并通过组合先前探索会话中已验证的技能来持续提升性能。</p>
+</div>
+
+<div class="pair">
+<p class="en">As exploration scales, we observe emergent system capabilities including active perception, error recovery, safety guardrails, and human-robot agent collaboration. We open-source RAX as a generalist robot-agent platform that allows new robot embodiments to be integrated solely via API interfaces, bypassing teleoperated data collection and policy training entirely. More details are available on our project page at robot-agent-exploration.com.</p>
+<p class="zh">随着探索规模扩大，我们观察到若干涌现出的系统能力，包括主动感知、错误恢复、安全护栏以及人—机器人智能体协作。我们将 RAX 作为通用机器人智能体平台开源：新的机器人本体只需通过 API 接口即可接入，从而完全绕过遥操作数据采集与策略训练。更多细节见项目主页 robot-agent-exploration.com。</p>
+</div>
+</div>
+
+<p class="note">本页为全文逐段中英对照（左英文原文，右中文译文）。标题右侧的 <span class="term">p.5</span> 等标签可跳转到原始 PDF 对应页；文中插图与表格均从原文高清裁出，点击可放大。全部符号（如 <span class="term">RAX</span>、<span class="term">VLA</span>）保留原文写法以便检索。</p>

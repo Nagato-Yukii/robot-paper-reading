@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-mode="dual">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BCG：捆绑接触梯度——让可微分仿真稳定用于可部署的动态任务 · 中英对照</title>
+<style>
+:root{
+  --bg:#f7f5f0; --paper:#fffefb; --ink:#1c2024; --soft:#5d636b; --faint:#8b9099;
+  --line:#e2ddd3; --accent:#0f766e; --accent-soft:#e6f4f1; --fig-bg:#fbfbfa;
+  --zh:"Noto Serif CJK SC","Source Han Serif SC","Songti SC",STSong,serif;
+  --en:Georgia,"Times New Roman","Noto Serif","Source Serif Pro",serif;
+  --sans:"Noto Sans CJK SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"JetBrains Mono","SF Mono",Menlo,Consolas,monospace;
+  --w:1560px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--zh);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ---------- top bar ---------- */
+header.top{position:sticky;top:0;z-index:50;background:rgba(250,248,243,.92);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:var(--w);margin:0 auto;display:flex;align-items:center;gap:14px;
+  padding:9px 22px;font-family:var(--sans)}
+.brand{font-weight:700;letter-spacing:.02em;font-size:15px;white-space:nowrap}
+.brand small{font-weight:400;color:var(--faint);margin-left:8px;font-size:12px}
+.spacer{flex:1}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+.seg button{border:0;background:#fff;padding:5px 11px;font:inherit;font-size:12.5px;
+  color:var(--soft);cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button.on{background:var(--accent);color:#fff}
+.tools{display:flex;gap:8px;align-items:center}
+.tools button{border:1px solid var(--line);background:#fff;border-radius:8px;
+  padding:5px 9px;font:inherit;font-size:12.5px;color:var(--soft);cursor:pointer}
+.tools button:hover{border-color:#c9c2b4}
+#bar{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:60}
+
+/* ---------- layout ---------- */
+.wrap{max-width:var(--w);margin:0 auto;display:grid;grid-template-columns:236px minmax(0,1fr);
+  gap:34px;padding:0 22px 120px}
+nav.toc{position:sticky;top:56px;align-self:start;max-height:calc(100vh - 70px);overflow:auto;
+  padding:22px 0 40px;font-family:var(--sans);font-size:12.6px;line-height:1.5}
+nav.toc a{display:block;padding:4px 8px 4px 10px;color:var(--soft);border-left:2px solid transparent;
+  border-radius:0 6px 6px 0}
+nav.toc a:hover{background:#efece6;text-decoration:none}
+nav.toc a.cur{color:var(--accent);border-left-color:var(--accent);background:var(--accent-soft);font-weight:600}
+nav.toc .n{display:inline-block;min-width:24px;color:var(--faint);font-variant-numeric:tabular-nums}
+nav.toc a.cur .n{color:var(--accent)}
+main{min-width:0;padding-top:18px}
+
+/* ---------- title block ---------- */
+.title-block{padding:26px 0 6px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.title-block .kicker{font-family:var(--sans);font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);font-weight:700}
+.title-block h1{font-family:var(--sans);font-size:31px;line-height:1.28;margin:10px 0 2px;letter-spacing:-.01em}
+.title-block .en-title{font-family:var(--en);font-size:19px;color:var(--soft);margin:0 0 14px;font-style:italic}
+.authors{font-family:var(--sans);font-size:12.6px;color:var(--soft);line-height:1.7;margin:0 0 4px}
+.affil{font-family:var(--sans);font-size:12.2px;color:var(--faint);margin:0 0 10px}
+.links{font-family:var(--sans);font-size:12.4px;display:flex;gap:14px;flex-wrap:wrap;padding-bottom:14px}
+
+/* ---------- sections ---------- */
+h2{font-family:var(--sans);font-size:23px;line-height:1.35;margin:52px 0 6px;letter-spacing:-.01em;
+  scroll-margin-top:70px;padding-top:6px}
+h2 .num{color:var(--accent);font-variant-numeric:tabular-nums;margin-right:.45em}
+h3{font-family:var(--sans);font-size:17.5px;margin:34px 0 4px;scroll-margin-top:70px;color:#2b3036}
+h3 .num{color:var(--faint);font-variant-numeric:tabular-nums;margin-right:.45em;font-weight:600}
+h2 .pg,h3 .pg{font-family:var(--sans);font-size:11px;font-weight:400;color:var(--faint);
+  border:1px solid var(--line);border-radius:20px;padding:1px 8px;margin-left:10px;vertical-align:2px}
+h2 .pg:hover,h3 .pg:hover{text-decoration:none;background:#fff}
+
+/* ---------- bilingual pairs ---------- */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;padding:13px 0;
+  border-bottom:1px solid #eeeae2}
+.pair:last-child{border-bottom:0}
+.pair>.en{font-family:var(--en);font-size:14.4px;line-height:1.68;color:#666c74;text-align:justify;
+  hyphens:auto;-webkit-hyphens:auto}
+.pair>.zh{font-size:15.6px;line-height:1.92;text-align:justify;padding-left:26px;
+  border-left:1px solid #e8e3da}
+.pair>.zh p,.pair>.en p{margin:0 0 .55em}
+.pair>.zh p:last-child,.pair>.en p:last-child{margin-bottom:0}
+.zh b,.zh strong{font-weight:700;color:#111}
+.en b,.en strong{font-weight:700;color:#3a3f46}
+.term{font-family:var(--sans);font-size:.92em;color:#3b4a8f;background:#eef1fb;
+  border-radius:4px;padding:0 3px;white-space:nowrap}
+code{font-family:var(--mono);font-size:.86em;background:#f1efe9;border-radius:4px;padding:1px 4px}
+.pair>.zh ul,.pair>.en ul{margin:.2em 0 .6em;padding-left:1.25em}
+.pair>.zh li,.pair>.en li{margin:.18em 0}
+.note{font-family:var(--sans);font-size:12.4px;color:var(--faint);border-left:3px solid var(--line);
+  padding:6px 0 6px 12px;margin:10px 0}
+
+/* ---------- figures & tables ---------- */
+figure.float{margin:20px 0 22px;background:var(--fig-bg);border:1px solid var(--line);border-radius:10px;
+  padding:14px 14px 8px;box-shadow:0 1px 2px rgba(30,25,15,.04)}
+figure.float img{display:block;width:100%;height:auto;border-radius:4px;cursor:zoom-in}
+figure.table img{background:#fff}
+figure.float.narrow{max-width:720px;margin-left:auto;margin-right:auto}
+figure.float.narrow img{max-width:100%}
+figure.float figcaption{font-family:var(--sans);font-size:12.8px;line-height:1.62;color:#4b5158;
+  padding:10px 4px 4px;border-top:1px dashed var(--line);margin-top:10px}
+figure.float figcaption .zhm{color:#20242a}
+figure.float figcaption .enm{display:block;margin-top:5px;color:#8b9099;font-family:var(--en);
+  font-size:12px;line-height:1.55}
+figure.float figcaption .figlabel{font-weight:700;color:var(--accent);margin-right:6px;font-family:var(--sans)}
+.zoom{position:fixed;inset:0;background:rgba(20,18,14,.9);display:none;z-index:100;
+  align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+.zoom.on{display:flex}
+.zoom img{max-width:100%;max-height:100%;object-fit:contain;background:#fff;border-radius:4px}
+
+/* ---------- misc blocks ---------- */
+.abstract{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:6px 22px 16px;
+  margin:18px 0 8px;box-shadow:0 1px 3px rgba(30,25,15,.05)}
+.abstract h2{margin-top:22px;font-size:19px}
+.takeaways{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:18px 0 6px}
+.takeaways div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+  font-family:var(--sans);font-size:13px;line-height:1.55}
+.takeaways b{display:block;color:var(--accent);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:6px}
+table.data{border-collapse:collapse;width:100%;margin:16px 0;font-family:var(--sans);font-size:12.6px}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left}
+table.data th{background:#f3f0ea;font-weight:600}
+.eq{margin:12px 0 14px;padding:6px 10px;overflow-x:auto;overflow-y:hidden;background:#fbfaf7;
+  border-left:3px solid var(--line);border-radius:0 6px 6px 0}
+.eq .katex-display{margin:0}
+.listing{margin:16px 0;border:1px solid var(--line);border-radius:10px;background:#fbfaf7;overflow:hidden}
+.listing-title{font-family:var(--sans);font-size:12.4px;color:#4b5158;padding:8px 12px;background:#f2efe8;
+  border-bottom:1px solid var(--line);line-height:1.5}
+.listing-title span{color:#9aa0a6;margin-left:6px}
+pre.code{margin:0;padding:12px 14px;overflow:auto;font-family:var(--mono);font-size:11.6px;
+  line-height:1.55;color:#2f353b;tab-size:4}
+@media print{pre.code{white-space:pre-wrap}}
+table.data.bilingual td{vertical-align:top;line-height:1.5}
+table.data.bilingual caption{caption-side:top;text-align:left;font-family:var(--sans);font-size:12.8px;
+  color:#4b5158;padding:0 0 8px}
+.enm2{display:block;font-family:var(--en);font-size:11.4px;color:#93999f;margin-top:3px;line-height:1.45}
+html[data-mode="zh"] .enm2{display:none}
+.refs{columns:2;column-gap:36px;font-family:var(--en);font-size:11.8px;line-height:1.55;
+  color:#4a5057;padding-left:1.6em;margin:14px 0}
+.refs li{margin-bottom:.55em;break-inside:avoid;text-align:left}
+
+
+/* ---------- modes ---------- */
+html[data-mode="zh"] .pair>.en,html[data-mode="zh"] figcaption .enm{display:none}
+html[data-mode="zh"] .pair{grid-template-columns:1fr}
+html[data-mode="zh"] .pair>.zh{border-left:0;padding-left:0}
+html[data-mode="en"] .pair>.zh,html[data-mode="en"] figcaption .zhm{display:none}
+html[data-mode="en"] .pair{grid-template-columns:1fr}
+html[data-mode="en"] .pair>.en{font-size:15.6px;color:#3c4249}
+html[data-mode="en"] .title-block h1{font-family:var(--en)}
+html[data-mode="en"] h2,html[data-mode="en"] h3{font-family:var(--en)}
+
+@media (max-width:1100px){
+  .wrap{grid-template-columns:1fr;gap:0}
+  nav.toc{display:none}
+  .pair{grid-template-columns:1fr;gap:2px}
+  .pair>.zh{border-left:0;padding-left:0}
+  .pair>.en{font-size:13.6px;color:#8b9099}
+}
+
+@media print{
+  header.top,nav.toc,#bar,.zoom{display:none}
+  body{background:#fff}
+  .wrap{display:block;padding:0}
+  .pair{page-break-inside:avoid;grid-template-columns:1fr 1fr}
+  h2,h3{page-break-after:avoid}
+  figure.float{page-break-inside:avoid}
+  a{color:inherit}
+}
+</style>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+</head>
+<body>
+<div id="bar"></div>
+<header class="top">
+  <div class="top-in">
+    <div class="brand">BCG 双语精读<small>Bundled Contact Gradients</small></div>
+    <div class="spacer"></div>
+    <div class="seg" role="group" aria-label="显示模式">
+      <button data-mode="dual" class="on">对照</button>
+      <button data-mode="zh">仅中文</button>
+      <button data-mode="en">仅英文</button>
+    </div>
+    <div class="tools">
+      <button id="fs-down" title="缩小字号">A−</button>
+      <button id="fs-up" title="放大字号">A+</button>
+      <button id="totop" title="回到顶部">↑ 顶部</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="toc" aria-label="目录">
+    <a href="#sec-01"><span class="n">摘要</span></a>
+<a href="#sec-02"><span class="n"></span>I 引言</a>
+<a href="#sec-03"><span class="n"></span>II 相关工作</a>
+<a href="#sec-04"><span class="n"></span>III 背景</a>
+<a href="#sec-05"><span class="n"></span>IV 捆绑接触梯度</a>
+<a href="#sec-06"><span class="n"></span>V 实验</a>
+<a href="#sec-07"><span class="n"></span>VI 结论</a>
+<a href="#sec-08"><span class="n">参考文献</span></a>
+  </nav>
+  <main>
+    <div class="title-block">
+  <div class="kicker">arXiv 预印本 · 可微分仿真 / 人形控制</div>
+  <h1>捆绑接触梯度：让可微分仿真稳定支撑可部署的动态任务</h1>
+  <p class="en-title">Bundled Contact Gradients: Stabilizing Differentiable Simulation for Deployable Dynamic Tasks</p>
+  <p class="authors">Dyuman Aditya<sup>1</sup>, Jin Cheng<sup>2</sup>, Clemens Schwarke<sup>2,3</sup>, Quan Nguyen<sup>1</sup>, Gaurav Sukhatme<sup>1</sup>, Stelian Coros<sup>2</sup>, Gabriele Fadini<sup>4</sup></p>
+  <p class="affil">1 南加州大学（USC）· 2 苏黎世联邦理工学院（ETH Zurich）· 3 NVIDIA · 4 苏黎世应用科技大学（ZHAW）　｜　通讯作者：Dyuman Aditya（agdyuman@usc.edu）</p>
+  <div class="links">
+    <a href="https://bundledcontactgradients.github.io" target="_blank" rel="noopener">项目主页 bundledcontactgradients.github.io ↗</a>
+    <a href="../../sources/Bundled Contact Gradients.pdf#page=1" target="_blank" rel="noopener">原始 PDF ↗</a>
+    <span style="color:var(--faint)">arXiv:2609.30951v1 [cs.RO] 25 Sep 2026</span>
+  </div>
+</div>
+
+<div class="abstract">
+<h2 id="sec-01" data-num="摘要">摘要 <span class="en-h" style="font-weight:400;color:var(--faint)">Abstract</span><a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=1" target="_blank">p.1</a></h2>
+
+<div class="pair">
+<p class="en">Differentiable simulation provides analytic gradients of robot dynamics, enabling fast and sample-efficient first-order policy optimization. However, obtaining smooth and informative gradients through rigid-body contact typically requires softened contact models, often at the expense of physical fidelity and thereby limiting learned policies largely to simulation. This trade-off becomes particularly consequential for dynamic humanoid motions, where accurate contact dynamics are critical for transferring policies to the real world.</p>
+<p class="zh">可微分仿真能够给出机器人动力学的解析梯度，从而支持快速且样本高效的一阶策略优化。然而，要在刚体接触中获得平滑且富有信息的梯度，通常必须采用软化的接触模型——这往往以牺牲物理保真度为代价，进而使学到的策略基本只能停留在仿真之中。对于动态的人形运动，这一权衡尤为关键：准确的接触动力学正是把策略迁移到真实世界的前提。</p>
+</div>
+
+<div class="pair">
+<p class="en">Increasing contact stiffness in rigid-body simulation improves the fidelity of interactions, but also makes the dynamics increasingly sensitive to small state perturbations, producing high-variance gradients that can destabilize first-order policy learning. To address this, we propose Bundled Contact Gradients (BCG), a contact-local randomized smoothing framework for differentiable policy learning.</p>
+<p class="zh">在刚体仿真中提高接触刚度可以改善交互的保真度，但也会让动力学对小幅度状态扰动越来越敏感，产生高方差梯度，从而破坏一阶策略学习的稳定性。为此，我们提出 <b>Bundled Contact Gradients（BCG，捆绑接触梯度）</b>：一个面向可微分策略学习的、接触局部化（contact-local）的随机平滑框架。</p>
+</div>
+
+<div class="pair">
+<p class="en">When stiff contact is detected, our method evaluates a local bundle of randomized perturbation rollouts around the stiff contact configuration and aggregates their gradient signal thereby reducing gradient variance. We demonstrate the effectiveness of our method by successfully training and transferring dynamic motions zero-shot onto a real-world Unitree G1 humanoid platform. Videos and supplementary information can be found at bundledcontactgradients.github.io</p>
+<p class="zh">当检测到刚性接触时，我们的方法会在该刚性接触构型周围评估一小束（bundle）随机扰动 rollout，并聚合它们的梯度信号，从而降低梯度方差。我们成功训练出动态动作、并将其<b>零样本</b>迁移到真实的 Unitree G1 人形机器人平台，以此验证方法的有效性。视频与补充材料见 bundledcontactgradients.github.io。</p>
+</div>
+</div>
+
+<figure class="float narrow">
+  <img src="figs/fig1.jpg" alt="Fig. 1">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 1</span>捆绑接触梯度（BCG）。(a) 在具有刚性、可部署接触的可微分仿真中学到的、动态且接触丰富的 Unitree G1 动作。(b) 在刚性接触处（时刻 <i>t</i>），从半径 <i>σ</i> 的局部球体内采样接触脚的 <i>B</i> 组位置与速度扰动，并行仿真 <i>H</i> 个可微分步，再聚合为捆绑状态（蓝色）。在自右向左的反向传播中，逐步的样本梯度在非接触时彼此一致，而在刚性接触处急剧发散（红色）；捆绑把它们汇聚到一个共同方向（蓝色），从而在可部署的接触刚度下稳定一阶策略优化。(c) 把所学策略零样本迁移到硬件。</span>
+    <span class="enm"><b>Fig. 1 |</b> Bundled Contact Gradients. (a) Dynamic, contact-rich Unitree G1 motions learned in differentiable simulation with stiff, deployable contact. (b) At stiff contact (time t), B perturbations of the contacting foot’s position and velocity are sampled from a local sphere of radius σ and simulated in parallel for H differentiable steps, then aggregated into the bundled state (blue). In the right-to-left backward pass, per-step sample gradients agree out of contact but diverge sharply at stiff contact (red). Bundling concentrates them around a common direction (blue), stabilizing first-order policy optimization at deployable contact stiffness. (c) Zero-shot transfer of the learned policies to hardware.</span>
+  </figcaption>
+</figure>
+
+<h2 id="sec-02" data-num="I">I&nbsp;&nbsp;引言<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Introduction</span><a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=1" target="_blank">p.1</a></h2>
+
+<div class="pair">
+<p class="en">Learning dynamic, contact-rich behaviors, such as agile locomotion and whole-body motions is predominantly achieved by model-free reinforcement learning (RL) [1], [2]. By optimizing policies without differentiating through the underlying dynamics, model-free RL can be applied directly to simulators with non-smooth contact models and has made it the workhorse behind recent sim-to-real successes in legged-robot control [3]. However, its reliance on zero-order gradient estimation makes policy optimization sample inefficient, particularly for long-horizon, high-dimensional control problems [4]. As a result, training often requires billions of environment interactions and substantial wall-clock time [5].</p>
+<p class="zh">学习动态的、接触丰富的行为——例如敏捷运动与全身动作——目前主要依靠无模型强化学习（RL）[1], [2]。无模型 RL 无需对底层动力学求导即可优化策略，因此能直接作用于采用非光滑接触模型的仿真器，也正是它支撑了足式机器人控制领域近来的诸多 sim-to-real 成功 [3]。然而，它依赖零阶梯度估计，导致策略优化的样本效率低下，在长时序、高维控制问题上尤其如此 [4]。结果是，训练往往需要数十亿次环境交互与大量的墙上时间 [5]。</p>
+</div>
+
+<div class="pair">
+<p class="en">Differentiable simulation offers a more efficient alternative. By exposing analytic derivatives of the dynamics, it enables first-order policy optimization, by backpropagating gradients through the simulated dynamics to the policy. When the dynamics are smooth, the resulting gradients have far lower variance than their zero-order counterparts, and methods such as SHAC [4] report large gains in sample and wall-clock efficiency over zero-order RL. The promise of first-order learning, however, has largely been confined to simulation due to highly softened contact models that are employed.</p>
+<p class="zh">可微分仿真提供了一条更高效的路径。它把动力学的解析导数暴露出来，使梯度可以穿过被仿真的动力学回传到策略，从而实现一阶策略优化。当动力学足够平滑时，由此得到的梯度方差远低于零阶方法；SHAC [4] 等方法报告了相对零阶 RL 在样本效率与墙上时间上的大幅收益。然而，由于普遍采用高度软化的接触模型，一阶学习的这种潜力在很大程度上被限制在仿真之中。</p>
+</div>
+
+<div class="pair">
+<p class="en">Modeling stiff ground contacts in rigid-body differentiable simulation for legged control introduces a fundamental trade-off between physical fidelity and gradient quality. Compliant, low-stiffness contact yields smooth gradients but permits soft, penetrating interactions that do not transfer to hardware. Raising the stiffness toward physically faithful, deployable values restores realism but makes the analytic gradient high-variance and biased across contact events [6], [7], which destabilizes first-order optimization. Existing first-order methods largely sidestep this tension: they either soften contact or shorten the differentiable horizon around contact events [8], discarding gradient information where contact-rich behavior must be learned.</p>
+<p class="zh">在面向足式控制的刚体可微分仿真中刻画刚性地面接触，会引出一个根本性权衡：物理保真度与梯度质量不可兼得。柔顺的低刚度接触能给出平滑梯度，却允许“软而穿透”的交互，这类交互无法迁移到硬件上。把刚度提高到物理上可信、可部署的数值，可以恢复真实感，但会使解析梯度在接触事件附近变成高方差且有偏的 [6], [7]，从而破坏一阶优化的稳定性。既有的一阶方法大体上都在回避这一矛盾：它们要么软化接触，要么在接触事件附近缩短可微分的时域 [8]——而恰恰是在最需要学习接触丰富行为的地方，梯度信息被丢弃了。</p>
+</div>
+
+<div class="pair">
+<p class="en">Our approach is to retain stiff contact dynamics while stabilizing the gradients used for policy learning. At a stiff contact event, the gradient from a single contact configuration can be highly sensitive to small perturbations; averaging gradients over nearby configurations can provide a more stable learning signal. Building on randomized smoothing and bundle gradients [9], [10], we apply this principle within first-order policy learning. But rather than applying smoothing globally, as in prior trajectory-optimization settings where evaluating bundles over entire trajectories can be computationally expensive, we apply it locally, only at stiff contact events.</p>
+<p class="zh">我们的思路是：<b>保留刚性接触动力学，同时稳定用于策略学习的梯度</b>。在刚性接触事件处，来自单一接触构型的梯度可能对小扰动极度敏感；而对邻近构型上的梯度取平均，往往能给出更稳定的学习信号。我们在随机平滑与捆绑梯度 [9], [10] 的基础上，把这一原则引入一阶策略学习。但与先前轨迹优化中“全局平滑”的做法（在整条轨迹上评估 bundle 计算代价很高）不同，我们只在刚性接触事件处、局部地施加平滑。</p>
+</div>
+
+<div class="pair">
+<p class="en">We propose Bundled Contact Gradients (BCG) (Fig. 1): when stiff contact is detected, the simulator evaluates a small bundle of perturbations sampled in Cartesian space, and simulated over a horizon in parallel. Aggregating the branches yields a locally smoothed transition, so the forward rollout retains stiff, deployable contact while the backward pass with automatic differentiation [11] receives a lower-variance, averaged contact gradient. Because bundling is triggered only at stiff contact and executed in parallel on the GPU, the overhead is limited and incurred only where the first-order gradient is most fragile.</p>
+<p class="zh">我们提出 <b>捆绑接触梯度（BCG）</b>（图 1）：一旦检测到刚性接触，仿真器就在笛卡尔空间中采样一小束扰动，并在一个时域上并行仿真这些分支。对各分支的聚合得到一个局部平滑的转移——于是前向 rollout 仍保持刚性、可部署的接触，而反向传播（自动微分 [11]）得到的则是方差更低、经过平均的接触梯度。由于捆绑只在刚性接触处触发、且在 GPU 上并行执行，额外开销有限，并且只发生在“一阶梯度最脆弱”的地方。</p>
+</div>
+
+<div class="pair">
+<p class="en">We integrate BCG into Warp [11] and use it within a SHAC-style actor-critic framework for first-order policy optimization. To learn dynamic humanoid behaviors, we apply this framework to motion imitation, where the policy tracks reference motions using rewards from Adversarial Differential Discriminators (ADD) [12].</p>
+<p class="zh">我们把 BCG 集成进 Warp [11]，并将其用于一个 SHAC 风格的 actor–critic 框架中做一阶策略优化。为学习动态的人形行为，我们把该框架用于动作模仿：策略借助对抗微分判别器（Adversarial Differential Discriminators, ADD）[12] 给出的奖励来跟踪参考动作。</p>
+</div>
+
+<div class="pair">
+<p class="en">In summary, our main contributions are:</p>
+<p class="zh">总结来说，我们的主要贡献是：</p>
+</div>
+
+<div class="pair">
+<p class="en">• We introduce Bundled Contact Gradients (BCG), a contact-local randomized-smoothing scheme that stabilizes first-order policy gradients under stiff contact without softening the forward dynamics.</p>
+<p class="zh">• 我们提出 <b>BCG</b>：一种接触局部化的随机平滑方案，能在<b>不软化前向动力学</b>的前提下，稳定刚性接触下的一阶策略梯度。</p>
+</div>
+
+<div class="pair">
+<p class="en">• We show that BCG learns deployable humanoid motion-tracking policies with fewer samples and less training time than PPO, while achieving lower tracking error after sim-to-sim transfer.</p>
+<p class="zh">• 我们证明 BCG 学到的可部署人形动作跟踪策略，在样本数与训练时间上都少于 PPO，同时在 sim-to-sim 迁移之后达到更低的跟踪误差。</p>
+</div>
+
+<div class="pair">
+<p class="en">• We demonstrate zero-shot sim-to-real transfer of dynamic motions learned through differentiable simulation to real humanoid hardware.</p>
+<p class="zh">• 我们展示了：通过可微分仿真学到的动态动作，可以零样本迁移到真实人形硬件上。</p>
+</div>
+
+<div class="pair">
+<p class="en">To the best of our knowledge, this work represents the first successful zero-shot transfer of a policy trained in differentiable simulation onto a real humanoid platform, as well as the first pairing of ADD with first-order differentiable-simulation policy learning.</p>
+<p class="zh">据我们所知，这是首个把可微分仿真中训练的策略成功零样本迁移到真实人形平台的工作，也是首次把 ADD 与一阶可微分仿真策略学习结合在一起。</p>
+</div>
+
+<h2 id="sec-03" data-num="II">II&nbsp;&nbsp;相关工作<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Related Work</span><a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=2" target="_blank">p.2</a></h2>
+
+<h3 data-num="II.A">II.A&nbsp;&nbsp;用于动态机器人控制的强化学习<a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=2" target="_blank">p.2</a></h3>
+
+<div class="pair">
+<p class="en">Model-free RL, and PPO [13] in particular, is the dominant paradigm for learning dynamic and contact-rich robot skills [14], [15]. Because it optimizes through sampled returns rather than dynamics derivatives, it is robust to the discontinuous physics of contact and underlies many sim-to-real results in legged locomotion [16], [17]. However, this robustness comes at the price of high-variance policy gradients and correspondingly poor sample efficiency, especially with higher dimensional systems like humanoids.</p>
+<p class="zh">无模型 RL（尤其是 PPO [13]）是学习动态、接触丰富机器人技能的主流范式 [14], [15]。它通过采样回报而非动力学导数来优化，因此对接触的不连续物理具有鲁棒性，也是足式运动众多 sim-to-real 成果的基础 [16], [17]。但这种鲁棒性的代价是策略梯度方差高、样本效率相应变差——在像人形机器人这样的高维系统上尤其如此。</p>
+</div>
+
+<h3 data-num="II.B">II.B&nbsp;&nbsp;可微分仿真与一阶策略优化<a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=2" target="_blank">p.2</a></h3>
+
+<div class="pair">
+<p class="en">Differentiable simulation has progressed from early engines [18], [19] to GPU-accelerated frameworks [20], [21], [11], [22], [23], enabling first-order policy optimization by backpropagating through simulated rollouts [24], [25], [26]. SHAC [4] combines short differentiable windows with a learned critic, and subsequent work extends first-order learning to deployable locomotion [27], [28], agile flight [29], [26], and multiphysics settings [30], [31].</p>
+<p class="zh">可微分仿真从早期的引擎 [18], [19] 发展到 GPU 加速框架 [20], [21], [11], [22], [23]，使得通过“穿过被仿真 rollout 的反向传播”来做一阶策略优化成为可能 [24], [25], [26]。SHAC [4] 把短可微分窗口与学习得到的 critic 结合；后续工作又把一阶学习扩展到可部署的足式运动 [27], [28]、敏捷飞行 [29], [26] 以及多物理场设置 [30], [31]。</p>
+</div>
+
+<div class="pair">
+<p class="en">For quadruped locomotion, Song et al. [28] combine forward simulation in a non-differentiable simulator with gradients from a single rigid-body surrogate, while Luo et al. [32] guide SHAC with a frozen trotting policy and learned residual actions. Schwarke et al. [27] demonstrate zero-shot transfer of quadruped locomotion using an analytically smoothed contact model, described in Section III-C. We build on this contact formulation to learn dynamic humanoid motions, where smaller stability margins place greater demands on accurate and robust foot–ground interactions.</p>
+<p class="zh">在四足运动方面，Song et al. [28] 把非可微分仿真器中的前向仿真与“单刚体代理模型”提供的梯度结合起来；Luo et al. [32] 则用一个冻结的小跑策略加学习得到的残差动作来引导 SHAC。Schwarke et al. [27] 借助解析平滑的接触模型（见 III-C 节）实现了四足运动的零样本迁移。我们正是在这一接触表述的基础上学习动态人形动作——人形的稳定性裕度更小，因此对足—地交互的准确性与鲁棒性提出了更高要求。</p>
+</div>
+
+<h3 data-num="II.C">II.C&nbsp;&nbsp;穿过刚性接触的梯度<a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=3" target="_blank">p.3</a></h3>
+
+<div class="pair">
+<p class="en">The contact formulation in a differentiable simulator is important for both physical fidelity and gradient quality. Soft penalty-based contact models ease differentiation by regularizing contact forces [21], [22], but excessive compliance can distort the foot–ground interactions needed for hardware transfer. Increasing the stiffness of these models improves physical fidelity, but makes the dynamics more difficult to resolve accurately with finite simulation timesteps, leading to inaccurate autodiff gradients [33].</p>
+<p class="zh">可微分仿真器中的接触表述，同时关系到物理保真度与梯度质量。基于软惩罚的接触模型通过对接触力做正则化而便于求导 [21], [22]，但过度的柔顺会扭曲硬件迁移所需的足—地交互。提高这类模型的刚度可以改善物理保真度，却让动力学更难在有限仿真步长下被准确求解，从而产生不准确的自微分梯度 [33]。</p>
+</div>
+
+<div class="pair">
+<p class="en">To address this issue, Paulus et al. [33] introduce adaptive time integration to more accurately resolve stiff contact events and improve gradient fidelity. However, the resulting increase in simulation steps raises computational cost and lengthens the differentiable rollout which can lead to vanishing or exploding gradients.</p>
+<p class="zh">为解决该问题，Paulus et al. [33] 引入自适应时间积分，以更准确地求解刚性接触事件、提升梯度保真度。然而由此增加的仿真步数抬高了计算成本、拉长了可微分 rollout，进而可能引发梯度消失或爆炸。</p>
+</div>
+
+<div class="pair">
+<p class="en">Hard-contact models instead express non-penetration and friction through complementarity constraints, providing higher physical fidelity but less informative gradients around contact transitions. Werling et al. [34] analytically differentiate a Linear Complementarity Problem (LCP). Dojo [35] uses a Nonlinear Complementarity Problem (NCP) and implicit differentiation of its interior-point solver. It obtains smooth contact gradients by implicitly differentiating a relaxed complementarity problem. However, neither report implementation targets massively parallel GPU rollouts, and both can leave gradient-based optimization trapped in poor local solutions.</p>
+<p class="zh">硬接触模型则通过互补约束来表达非穿透与摩擦，物理保真度更高，但在接触切换附近的梯度信息更少。Werling et al. [34] 对线性互补问题（LCP）做解析求导；Dojo [35] 使用非线性互补问题（NCP）并对其内点求解器做隐式微分，通过对松弛后的互补问题隐式求导获得平滑的接触梯度。但这两项工作报告的实现都不是面向大规模并行 GPU rollout 的，而且都可能让基于梯度的优化陷入较差的局部解。</p>
+</div>
+
+<div class="pair">
+<p class="en">Gradient propagation over long rollouts presents a further difficulty: repeated Jacobian products can cause vanishing or exploding gradients [7]. AHAC [8] adapts the differentiable horizon using a contact-stiffness constraint and bootstraps the remaining return with a critic. This limits exposure to unstable derivatives, but truncating at stiff contacts discards direct gradient information about how actions influence subsequent motion through these events, potentially removing sensitivities important for learning contact-rich behavior.</p>
+<p class="zh">长 rollout 上的梯度传播还有另一重困难：反复的 Jacobian 乘积会导致梯度消失或爆炸 [7]。AHAC [8] 依据接触刚度约束自适应地调整可微分时域，并用 critic 对剩余回报做自举。这限制了与不稳定导数的接触，但在刚性接触处截断，会丢弃“动作如何经由这些接触事件影响后续运动”的直接梯度信息，从而可能抹掉对学习接触丰富行为至关重要的敏感性。</p>
+</div>
+
+<div class="pair">
+<p class="en">To combine informative gradients with physically faithful contact, we build on the analytically smoothed compliant contact model of Schwarke et al. [27], described in Section III-C, and increase its stiffness while stabilizing its gradients through local randomized smoothing.</p>
+<p class="zh">为了兼顾有信息的梯度与物理上可信的接触，我们建立在 Schwarke et al. [27] 的解析平滑柔顺接触模型之上（见 III-C 节），提高其刚度的同时，通过局部随机平滑来稳定它的梯度。</p>
+</div>
+
+<h3 data-num="II.D">II.D&nbsp;&nbsp;用于接触的随机平滑与捆绑梯度<a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=3" target="_blank">p.3</a></h3>
+
+<div class="pair">
+<p class="en">Randomized smoothing offers a way to obtain smoother contact responses by averaging over nearby, randomly perturbed configurations. Bundled gradients replace the exact contact derivative with a randomized-smoothing estimate and improve convergence of trajectory optimization through contact [9], an approach that connects the sampling behavior of RL to analytic smoothing and enables global planning over quasi-dynamic contact models [36], [37], complementing classical contact-implicit trajectory optimization [38], [39].</p>
+<p class="zh">随机平滑通过对邻近的、被随机扰动的构型取平均，提供了一条获得更平滑接触响应的途径。捆绑梯度（bundled gradients）用随机平滑估计替代精确的接触导数，改善了穿过接触的轨迹优化收敛性 [9]；这一思路把 RL 的采样行为与解析平滑联系起来，并使得在准动态接触模型上做全局规划成为可能 [36], [37]，与经典的接触隐式轨迹优化 [38], [39] 形成互补。</p>
+</div>
+
+<div class="pair">
+<p class="en">Randomized smoothing has likewise been used to augment differentiable physics and to control nonsmooth systems [40], [10], with recent work addressing the bias such smoothing introduces [41]. These methods operate largely in trajectory optimization or quasi-static manipulation and smooth the contact model globally. In contrast, we adapt randomized smoothing to first-order RL policy learning and apply it locally, only at stiff contacts, so that dynamic, deployable motion-tracking can be trained under stiff contact.</p>
+<p class="zh">随机平滑同样被用于增强可微分物理、以及控制非光滑系统 [40], [10]；近期工作还处理了这种平滑所引入的偏差 [41]。这些方法大体上作用于轨迹优化或准静态操作，并且是对接触模型做<b>全局</b>平滑。与之相反，我们把随机平滑改造用于一阶 RL 策略学习，并只在刚性接触处<b>局部地</b>施加，从而能够在刚性接触下训练动态的、可部署的动作跟踪。</p>
+</div>
+
+<h2 id="sec-04" data-num="III">III&nbsp;&nbsp;背景<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Background</span><a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=3" target="_blank">p.3</a></h2>
+
+<h3 data-num="III.A">III.A&nbsp;&nbsp;强化学习<a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=3" target="_blank">p.3</a></h3>
+
+<div class="pair">
+<p class="en">Policy learning is formalized as a Markov decision process (\(\mathcal{X}\), \(\mathcal{A}\), p, r, γ) with state x<sub>t</sub> ∈ \(\mathcal{X}\), action a<sub>t</sub> ∈ \(\mathcal{A}\), transition density p(x<sub>t+1</sub> | x<sub>t</sub>, a<sub>t</sub>), reward r(x<sub>t</sub>, a<sub>t</sub>), and discount factor γ ∈ [0, 1). A stochastic policy π<sub>θ</sub>(a<sub>t</sub> | x<sub>t</sub>) with parameters θ induces a trajectory distribution. The objective is to maximize the expected discounted return</p>
+<p class="zh">策略学习被形式化为马尔可夫决策过程 (\(\mathcal{X}\), \(\mathcal{A}\), p, r, γ)：状态 x<sub>t</sub> ∈ \(\mathcal{X}\)、动作 a<sub>t</sub> ∈ \(\mathcal{A}\)、转移密度 p(x<sub>t+1</sub> | x<sub>t</sub>, a<sub>t</sub>)、奖励 r(x<sub>t</sub>, a<sub>t</sub>)、折扣因子 γ ∈ [0, 1)。参数为 θ 的随机策略 π<sub>θ</sub>(a<sub>t</sub> | x<sub>t</sub>) 诱导出一个轨迹分布。目标是最大化期望折扣回报</p>
+</div>
+
+<div class="eq">\[ J(\theta)=\mathbb{E}_{\pi_\theta}\left[\sum_{t=0}^{N-1}\gamma^{t}\,r(x_t,a_t)\right] \]</div>
+
+<div class="pair">
+<p class="en">Model-free methods estimate ∇<sub>θ</sub>J using the likelihood-ratio (score-function) identity</p>
+<p class="zh">无模型方法用似然比（得分函数）恒等式来估计 ∇<sub>θ</sub>J：</p>
+</div>
+
+<div class="eq">\[ \nabla_\theta J=\mathbb{E}_{\pi_\theta}\left[\sum_{t=0}^{N-1}\nabla_\theta\log\pi_\theta(a_t\mid x_t)\,\hat{A}_t\right] \]</div>
+
+<div class="pair">
+<p class="en">where Â<sub>t</sub> is an advantage estimate [42]. This estimator differentiates only the policy and treats the dynamics as a black box; it is therefore a zero-order gradient that requires no derivatives of the physics and is robust to non-smooth contact, at the cost of variance that grows with the horizon and action dimension. PPO [13] is a widely used instance.</p>
+<p class="zh">其中 Â<sub>t</sub> 是优势估计 [42]。该估计器只对策略求导、把动力学当作黑箱；因此它是一个零阶梯度——不需要物理的任何导数，对非光滑接触具有鲁棒性，代价则是方差会随时域长度与动作维度增长。PPO [13] 是其中最常用的一个实例。</p>
+</div>
+
+<h3 data-num="III.B">III.B&nbsp;&nbsp;可微分仿真<a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=3" target="_blank">p.3</a></h3>
+
+<div class="pair">
+<p class="en">A differentiable simulator replaces the black-box transition of Section III-A with a smooth, differentiable map</p>
+<p class="zh">可微分仿真器用一个光滑、可微的映射，替换掉 III-A 节中的黑箱转移：</p>
+</div>
+
+<div class="eq">\[ x_{t+1}=f_\kappa(x_t,a_t) \]</div>
+
+<div class="pair">
+<p class="en">where κ parameterizes the stiffness of the contact model, and it exposes the transition Jacobians ∂f<sub>κ</sub>/∂x and ∂f<sub>κ</sub>/∂a. The contact formulation used in this work is described in Section III-C. Rolling out a deterministic policy a<sub>t</sub> = π<sub>θ</sub>(x<sub>t</sub>) over a horizon N produces a differentiable return J(θ) = ∑<sub>t</sub> γ<sup>t</sup>r(x<sub>t</sub>, a<sub>t</sub>), whose gradient is obtained by backpropagating through the unrolled computation graph, with the state sensitivity propagated recursively through time,</p>
+<p class="zh">其中 κ 参数化了接触模型的刚度；同时它把转移 Jacobian ∂f<sub>κ</sub>/∂x 与 ∂f<sub>κ</sub>/∂a 暴露出来。本文所用的接触表述见 III-C 节。把确定性策略 a<sub>t</sub> = π<sub>θ</sub>(x<sub>t</sub>) 在时域 N 上展开，得到可微回报 J(θ) = ∑<sub>t</sub> γ<sup>t</sup>r(x<sub>t</sub>, a<sub>t</sub>)；其梯度通过在被展开的计算图上反向传播获得，其中状态敏感性随时间递归传播：</p>
+</div>
+
+<div class="eq">\[ \frac{\partial x_{t+1}}{\partial\theta}=\frac{\partial f_\kappa}{\partial x_t}\frac{\partial x_t}{\partial\theta}+\frac{\partial f_\kappa}{\partial a_t}\frac{\partial \pi_\theta}{\partial\theta} \]</div>
+
+<div class="pair">
+<p class="en">This first-order gradient is typically far lower in variance than the score-function estimator, which is the source of the improved sample and wall-clock efficiency of differentiable-simulation methods. The advantage holds only while f<sub>κ</sub> is smooth: as κ is increased toward physically faithful, deployable contact, the Jacobians become stiff and the gradient develops large variance across contact events. Overcoming this failure mode is the subject of Section IV.</p>
+<p class="zh">这个一阶梯度通常比得分函数估计器的方差低得多，这正是可微分仿真方法在样本效率与墙上时间上占优的来源。但这一优势只有在 f<sub>κ</sub> 光滑时才成立：当 κ 朝物理上可信、可部署的接触增大时，Jacobian 变得刚硬，梯度会在接触事件处出现很大方差。克服这一失效模式，正是第 IV 节的主题。</p>
+</div>
+
+<h3 data-num="III.C">III.C&nbsp;&nbsp;解析平滑的接触模型<a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=3" target="_blank">p.3</a></h3>
+
+<div class="pair">
+<p class="en">We use the contact model of Schwarke et al. [27], which replaces discontinuous hard-contact activation with a continuous, analytically smoothed response, enabling gradient computation through contact. Within Moreau's time-stepping scheme [43], contact impulses are computed using a modified Gauss–Seidel solver and scaled according to the penetration depth d by</p>
+<p class="zh">我们采用 Schwarke et al. [27] 的接触模型：它以连续的、解析平滑的响应取代不连续的硬接触激活，使得梯度能够穿过接触进行计算。在 Moreau 的时间步进格式 [43] 内，接触冲量由改进的 Gauss–Seidel 求解器计算，并按照穿透深度 d 进行缩放：</p>
+</div>
+
+<div class="eq">\[ s_\kappa(d)=\frac{1}{1+\exp(-\kappa d)} \]</div>
+
+<div class="pair">
+<p class="en">where d &gt; 0 denotes penetration and d &lt; 0 denotes separation. This scaling replaces abrupt contact activation with a smooth transition and permits forces at small separations, providing gradient information before contact occurs.</p>
+<p class="zh">其中 d &gt; 0 表示穿透，d &lt; 0 表示分离。这一缩放把突变的接触激活替换成平滑过渡，并允许在小的分离间隙上产生力——从而在真正接触发生之前就提供梯度信息。</p>
+</div>
+
+<div class="pair">
+<p class="en">The parameter κ controls the extent of smoothing (i.e. the contact stiffness): smaller values provide a wider, softer transition, whereas larger values reduce smoothing and approach the original hard-contact response, increasing physical fidelity in the rigid-contact regime. For finite κ, contact activation remains continuous, although its derivatives become increasingly sensitive as κ grows. Throughout this paper, <i>stiff contact</i> therefore means a large but finite κ, rather than the discontinuous hard-contact limit.</p>
+<p class="zh">参数 κ 控制平滑的程度（即接触刚度）：取值越小，过渡越宽、越软；取值越大，平滑越弱、越接近原本的硬接触响应，从而在刚性接触区间内提高物理保真度。对有限的 κ，接触激活始终是连续的，只是随 κ 增大，其导数会变得越来越敏感。因此在本文全文中，<i>刚性接触（stiff contact）</i>指的是“很大但有限”的 κ，而不是不连续的硬接触极限。</p>
+</div>
+
+<h3 data-num="III.D">III.D&nbsp;&nbsp;基于 SHAC 的一阶策略优化<a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=4" target="_blank">p.4</a></h3>
+
+<div class="pair">
+<p class="en">First-order policy optimization updates the policy using analytic gradients obtained by backpropagating through the differentiable rollout. While this can provide lower-variance updates than zero-order RL, differentiating through long horizons can cause vanishing or exploding gradients due to repeated Jacobian products [4], [8]. In this work we use Short Horizon Actor Critic (SHAC) [4], which collects short N-step differentiable rollouts from E simulated environments in parallel and bootstraps the remaining return with a learned critic V<sub>ψ</sub>. Its actor objective is</p>
+<p class="zh">一阶策略优化利用“穿过可微分 rollout 反向传播”所得的解析梯度来更新策略。相比零阶 RL，这能带来更低方差的更新；但穿越长时域求导会因反复的 Jacobian 乘积而导致梯度消失或爆炸 [4], [8]。本文使用短时域 actor–critic（SHAC）[4]：它从 E 个并行仿真环境中采集短的 N 步可微分 rollout，并用学习得到的 critic V<sub>ψ</sub> 对剩余回报做自举。其 actor 目标为</p>
+</div>
+
+<div class="eq">\[ \mathcal{L}_{\mathrm{FO}}(\theta)=-\sum_{t=t_0}^{t_0+N-1}\gamma^{\,t-t_0}r(x_t,a_t)-\gamma^{N}V_\psi(x_{t_0+N}) \]</div>
+
+<div class="pair">
+<p class="en">with the critic trained by value regression. The short horizon limits unstable gradient propagation while retaining direct dynamics gradients over each rollout. SHAC nonetheless inherits the contact sensitivity of the underlying gradient: at the high stiffness required for deployable behavior, its truncated gradients can vary sharply with individual contact events, the gap addressed in next Section IV.</p>
+<p class="zh">其中 critic 通过价值回归训练。短时域限制了不稳定的梯度传播，同时在每个 rollout 内保留了直接的动力学梯度。尽管如此，SHAC 仍继承了底层梯度对接触的敏感性：在可部署行为所需的高刚度下，其被截断的梯度会随个别接触事件剧烈变化——这正是下一节（第 IV 节）要弥合的缺口。</p>
+</div>
+
+<h2 id="sec-05" data-num="IV">IV&nbsp;&nbsp;捆绑接触梯度<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Bundled Contact Gradients</span><a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=4" target="_blank">p.4</a></h2>
+
+<div class="pair">
+<p class="en">We propose Bundled Contact Gradients (BCG) to stabilize first-order policy learning through stiff contact. At a stiff contact event, BCG creates nearby contact configurations, advances them in parallel, and aggregates their states. Differentiating through this local bundle combines sensitivities from several contact realizations, reducing reliance on any single derivative. Each branch retains the large but finite contact stiffness κ of Section III-C. Figure 2 summarizes how BCG connects the simulator, policy, and imitation objective.</p>
+<p class="zh">我们提出<b>捆绑接触梯度（BCG）</b>，用以稳定穿过刚性接触的一阶策略学习。在刚性接触事件处，BCG 构造若干邻近的接触构型，让它们并行推进，再聚合它们的状态；对这个局部 bundle 求导，就把多个接触实现（contact realization）的敏感性组合起来，从而降低对任何单一导数的依赖。每个分支都保留 III-C 节所述“很大但有限”的接触刚度 κ。图 2 概览了 BCG 如何把仿真器、策略与模仿目标串联起来。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/fig2.jpg" alt="Fig. 2">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 2</span>BCG 在 SHAC 风格框架中与 ADD 结合的策略学习。策略驱动并行的 rollout。在刚性接触处，<i>B</i> 个扰动分支在共享策略动作下推进 <i>H</i> 步，然后被平均以继续 rollout。ADD 比较仿真动作特征与参考动作特征以给出模仿奖励，其梯度穿过动力学回传以更新策略。</span>
+    <span class="enm"><b>Fig. 2 |</b> Policy learning with BCG in a SHAC-style framework and ADD. The policy drives parallel rollouts. At stiff contact, B perturbed branches advance for H steps under shared policy actions and are averaged to continue the rollout. ADD compares simulated and reference motion features to provide imitation rewards, whose gradients propagate through the dynamics to update the policy.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en">Let x<sub>t</sub> be the simulator state at control step t, a<sub>t</sub> the action, and f<sub>κ</sub> the differentiable transition between consecutive control steps. We describe a bundle beginning at control step k, with B branches indexed by i ∈ {1, . . . , B} and duration H ≥ 1 control steps. Outside a bundle rollout, the simulator follows an ordinary single branch transition.</p>
+<p class="zh">记 x<sub>t</sub> 为控制步 t 时的仿真器状态，a<sub>t</sub> 为动作，f<sub>κ</sub> 为相邻控制步之间的可微分转移。我们描述一个从控制步 k 开始的 bundle：它有 B 个分支，以 i ∈ {1, …, B} 索引，持续时长 H ≥ 1 个控制步。在 bundle rollout 之外，仿真器沿用普通的单分支转移。</p>
+</div>
+
+<div class="pair">
+<p class="en">BCG proceeds in three phases: contact-local perturbation, multi-step bundled rollout, and gradient propagation. We describe these phases below, followed by their integration into policy learning for motion imitation.</p>
+<p class="zh">BCG 分三个阶段进行：接触局部扰动、多步捆绑 rollout 与梯度传播。下文依次描述这三个阶段，然后说明它们如何被整合进面向动作模仿的策略学习。</p>
+</div>
+
+<h3 data-num="IV.A">IV.A&nbsp;&nbsp;接触局部扰动<a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=4" target="_blank">p.4</a></h3>
+
+<div class="pair">
+<p class="en">A bundle step is triggered when the set \(\mathcal{C}_k\) of contacts whose normal impulse exceeds a detection threshold τ is nonempty. We perturb the contacting kinematic chain in Cartesian space so that the perturbation scale has a direct physical interpretation. Let q<sub>k</sub> denote the joint positions of the contacting kinematic chains and \(p_{\mathcal{C}_k}(q_k)\) the current Cartesian positions of their final links. For each branch i we sample position and velocity offsets and map them to joint-space increments:</p>
+<p class="zh">当“法向冲量超过检测阈值 τ”的接触集合 \(\mathcal{C}_k\) 非空时，就触发一次 bundle 步。我们在笛卡尔空间中扰动发生接触的运动链，使扰动的尺度具有直接的物理含义。记 q<sub>k</sub> 为接触运动链的关节位置，\(p_{\mathcal{C}_k}(q_k)\) 为它们末端连杆当前的笛卡尔位置。对每个分支 i，我们采样位置与速度偏移，并映射为关节空间增量：</p>
+</div>
+
+<div class="eq">\[ J_k=\frac{\partial p_{\mathcal{C}_k}}{\partial q}(q_k),\qquad \Delta p^{(i)}\sim\mathcal{N}(0,\sigma_p^2 I),\quad \Delta q^{(i)}=J_k^{\dagger}\Delta p^{(i)},\qquad \Delta v^{(i)}\sim\mathcal{N}(0,\sigma_v^2 I),\quad \Delta\dot{q}^{(i)}=J_k^{\dagger}\Delta v^{(i)} \]</div>
+
+<div class="pair">
+<p class="en">Here, \(\mathcal{N}\) is a Gaussian distribution, I is the identity matrix of the Cartesian perturbation dimension, and σ<sub>p</sub> and σ<sub>v</sub> are the position and velocity standard deviations. J<sub>k</sub><sup>†</sup> denotes the damped pseudoinverse of the Jacobian J<sub>k</sub>. Embedding the increments Δq<sup>(i)</sup> and Δq̇<sup>(i)</sup> into the simulator state gives an offset δx<sub>k</sub><sup>(i)</sup> and initial branch state x<sub>k</sub><sup>(i)</sup> = x<sub>k</sub> + δx<sub>k</sub><sup>(i)</sup>; all other state components are unchanged.</p>
+<p class="zh">这里 \(\mathcal{N}\) 是高斯分布，I 是笛卡尔扰动维度上的单位矩阵，σ<sub>p</sub> 与 σ<sub>v</sub> 分别是位置与速度的标准差；J<sub>k</sub><sup>†</sup> 表示 Jacobian J<sub>k</sub> 的阻尼伪逆。把增量 Δq<sup>(i)</sup> 与 Δq̇<sup>(i)</sup> 嵌入仿真器状态，即得到偏移 δx<sub>k</sub><sup>(i)</sup> 与分支的初始状态 x<sub>k</sub><sup>(i)</sup> = x<sub>k</sub> + δx<sub>k</sub><sup>(i)</sup>；其余状态分量保持不变。</p>
+</div>
+
+<div class="pair">
+<p class="en">During backpropagation, each offset δx<sub>k</sub><sup>(i)</sup> is treated as a constant. Gradients therefore pass unchanged through the additive update to x<sub>k</sub>, without differentiating through perturbation sampling or its Jacobian-based mapping.</p>
+<p class="zh">在反向传播中，每个偏移 δx<sub>k</sub><sup>(i)</sup> 都被当作常数处理。因此梯度会原样穿过对 x<sub>k</sub> 的加法更新，而不会去对扰动采样过程或其基于 Jacobian 的映射求导。</p>
+</div>
+
+<h3 data-num="IV.B">IV.B&nbsp;&nbsp;多步捆绑 rollout<a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=5" target="_blank">p.5</a></h3>
+
+<div class="pair">
+<p class="en">Starting from the perturbed states x<sub>k</sub><sup>(i)</sup>, the branches evolve for H control steps under shared actions, initially using the current action a<sub>k</sub> from the nominal rollout. Each transition f<sub>κ</sub> integrates S simulation substeps with the action held constant, after which the branch states are averaged. Thus, even H = 1 allows S substeps of branch evolution before the average supplies rewards and the next action. Their propagation and aggregation are</p>
+<p class="zh">从被扰动的状态 x<sub>k</sub><sup>(i)</sup> 出发，各分支在<b>共享动作</b>下演化 H 个控制步，起初使用来自名义 rollout 的当前动作 a<sub>k</sub>。每次转移 f<sub>κ</sub> 在动作保持不变的情况下积分 S 个仿真子步，之后对分支状态取平均。因此即使 H = 1，也允许分支先演化 S 个子步，再由平均值提供奖励与下一个动作。它们的前向传播与聚合为</p>
+</div>
+
+<div class="eq">\[ x_{t+1}^{(i)}=f_\kappa\left(x_t^{(i)},a_t\right),\qquad \bar{x}_{t+1}=\mathcal{A}\left(x_{t+1}^{(1)},\dots,x_{t+1}^{(B)}\right),\qquad k\le t \lt k+H \tag{1} \]</div>
+
+<div class="pair">
+<p class="en">where \(\mathcal{A}\) aggregates the branch states into a representative state x̄<sub>t+1</sub>, using arithmetic means for positions and velocities. At subsequent control boundaries (t &gt; k), the policy with parameters θ computes a<sub>t</sub> = π<sub>θ</sub>(x̄<sub>t</sub>), and the same action is applied to every branch. The averaged state also supplies the observation and reward at that boundary. The nominal rollout then resumes from x<sub>k+H</sub> = x̄<sub>k+H</sub>.</p>
+<p class="zh">其中 \(\mathcal{A}\) 把分支状态聚合为一个代表状态 x̄<sub>t+1</sub>，位置与速度均采用算术平均。在后续的控制边界（t &gt; k）上，参数为 θ 的策略以 a<sub>t</sub> = π<sub>θ</sub>(x̄<sub>t</sub>) 计算动作，且同一动作施加到每个分支。平均后的状态同时提供该边界处的观测与奖励。随后名义 rollout 从 x<sub>k+H</sub> = x̄<sub>k+H</sub> 继续。</p>
+</div>
+
+<div class="pair">
+<p class="en">Algorithm 1 summarizes this procedure for one environment. However, in our implementation branch transitions over all bundling environments run in parallel on the GPU to reduce overhead.</p>
+<p class="zh">算法 1 针对单个环境总结了这一过程。不过在实现中，所有捆绑环境上的分支转移都在 GPU 上并行执行，以降低开销。</p>
+</div>
+
+<figure class="float narrow">
+  <img src="figs/alg1.jpg" alt="Algorithm 1">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">算法 1</span>持续 H 个控制步的 BCG rollout 片段。图中代码与论文原文一致（保留英文标识符）；第 3 行 <code>return f_κ(x_k, a_k)</code> 表示无刚性接触时退化为普通单步转移，第 20 行返回聚合后的状态 x̄<sub>k+H</sub>。</span>
+    <span class="enm"><b>Algorithm 1 |</b> BCG rollout segment with duration H control steps.</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="IV.C">IV.C&nbsp;&nbsp;梯度传播<a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=5" target="_blank">p.5</a></h3>
+
+<div class="pair">
+<p class="en">Let Z<sub>t</sub> = dx<sub>t</sub>/dθ and U<sub>t</sub> = da<sub>t</sub>/dθ denote the total sensitivities of the state and action to the policy parameters. Write F<sub>x,t</sub> = ∂f<sub>κ</sub>/∂x and F<sub>a,t</sub> = ∂f<sub>κ</sub>/∂a for the transition Jacobians, evaluated at (x<sub>t</sub>, a<sub>t</sub>). Without bundling, gradients propagate along a single trajectory:</p>
+<p class="zh">记 Z<sub>t</sub> = dx<sub>t</sub>/dθ、U<sub>t</sub> = da<sub>t</sub>/dθ，分别表示状态与动作对策略参数的总体敏感性；并记 F<sub>x,t</sub> = ∂f<sub>κ</sub>/∂x、F<sub>a,t</sub> = ∂f<sub>κ</sub>/∂a 为在 (x<sub>t</sub>, a<sub>t</sub>) 处求值的转移 Jacobian。不做捆绑时，梯度沿单一轨迹传播：</p>
+</div>
+
+<div class="eq">\[ Z_{t+1}=F_{x,t}Z_t+F_{a,t}U_t \tag{2} \]</div>
+
+<div class="pair">
+<p class="en">BCG instead propagates a sensitivity Z<sub>t</sub><sup>(i)</sup> = dx<sub>t</sub><sup>(i)</sup>/dθ along each perturbed branch, with Jacobians evaluated at (x<sub>t</sub><sup>(i)</sup>, a<sub>t</sub>). Since the perturbations are treated as constants, Z<sub>k</sub><sup>(i)</sup> = Z<sub>k</sub>. For k ≤ t &lt; k + H,</p>
+<p class="zh">BCG 则沿每个被扰动的分支传播一份敏感性 Z<sub>t</sub><sup>(i)</sup> = dx<sub>t</sub><sup>(i)</sup>/dθ，其中的 Jacobian 在 (x<sub>t</sub><sup>(i)</sup>, a<sub>t</sub>) 处求值。由于扰动被视为常数，故 Z<sub>k</sub><sup>(i)</sup> = Z<sub>k</sub>。对 k ≤ t &lt; k + H，有</p>
+</div>
+
+<div class="eq">\[ Z_{t+1}^{(i)}=F_{x,t}^{(i)}Z_t^{(i)}+F_{a,t}^{(i)}U_t,\qquad \bar{Z}_{t+1}=\sum_{i=1}^{B}\frac{\partial\mathcal{A}}{\partial x_{t+1}^{(i)}}Z_{t+1}^{(i)} \tag{3} \]</div>
+
+<div class="pair">
+<p class="en">where Z̄<sub>t+1</sub> = dx̄<sub>t+1</sub>/dθ. For state components aggregated arithmetically, the corresponding rows of this expression become</p>
+<p class="zh">其中 Z̄<sub>t+1</sub> = dx̄<sub>t+1</sub>/dθ。对按算术平均聚合的状态分量，该表达式的对应行变为</p>
+</div>
+
+<div class="eq">\[ \bar{Z}_{t+1}=\frac{1}{B}\sum_{i=1}^{B}\underbrace{\left(F_{x,t}^{(i)}Z_t^{(i)}+F_{a,t}^{(i)}U_t\right)}_{\text{averaging sensitivities across perturbed branches}} \tag{4} \]</div>
+
+<div class="pair">
+<p class="en">This average is the local smoothing mechanism: it can attenuate sharp, contact-dependent variations by combining sensitivities from nearby trajectories. The shared action sensitivity U<sub>t</sub> includes the policy's dependence on x̄<sub>t</sub> for t &gt; k, so the recurrence retains feedback through all H − S simulation substeps. These state and action sensitivities enter the imitation-objective gradient through the chain rule, as described next.</p>
+<p class="zh">这个平均就是局部平滑机制：它把邻近轨迹上的敏感性组合起来，从而削弱那些随接触而剧烈变化的成分。共享的动作敏感性 U<sub>t</sub> 中包含了 t &gt; k 时策略对 x̄<sub>t</sub> 的依赖，因此该递推保留了贯穿全部 H − S 个仿真子步的反馈。这些状态与动作敏感性通过链式法则进入模仿目标的梯度——如下文所述。</p>
+</div>
+
+<h3 data-num="IV.D">IV.D&nbsp;&nbsp;策略学习与模仿目标<a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=5" target="_blank">p.5</a></h3>
+
+<div class="pair">
+<p class="en">We use this bundled rollout inside SHAC [4], minimizing ℒ<sub>FO</sub> from Section III-D with rewards and critic inputs evaluated on the averaged states during a bundle. To learn dynamic humanoid behaviors, we apply this framework to motion imitation using ADD [12]. We choose ADD because its differentiable reward allows backpropagation through both the objective and simulated rollouts, while its learned aggregation avoids the manual tuning of individual tracking-reward weights used in other motion-imitation frameworks. The imitation reward is</p>
+<p class="zh">我们在 SHAC [4] 中使用这种捆绑 rollout：最小化 III-D 节的 ℒ<sub>FO</sub>，其中奖励与 critic 输入都在 bundle 期间的<b>平均状态</b>上求值。为学习动态的人形行为，我们把该框架用于基于 ADD [12] 的动作模仿。选择 ADD 的原因是：其可微奖励允许梯度同时穿过目标函数与被仿真的 rollout；而其学习得到的聚合方式，避免了其他动作模仿框架中需要对各项跟踪奖励权重做手工调参。模仿奖励为</p>
+</div>
+
+<div class="eq">\[ r_t^{\mathrm{ADD}}=-\log\left(1-D_\psi(\Delta_t)\right),\qquad \Delta_t=f_{\mathrm{ref},t}-f_t \tag{5} \]</div>
+
+<div class="pair">
+<p class="en">where f<sub>t</sub> and f<sub>ref,t</sub> are simulated and phase-matched reference motion features. The discriminator D<sub>ψ</sub> is trained to distinguish the ideal zero residual from policy-generated residuals, providing an adaptive tracking objective. We use this reward in ℒ<sub>FO</sub> and backpropagate through the discriminator's input and the bundled simulator rollout to update the policy. ADD thus supplies the imitation objective, while BCG stabilizes its propagation through stiff contact.</p>
+<p class="zh">其中 f<sub>t</sub> 与 f<sub>ref,t</sub> 分别是仿真动作特征与经过相位对齐的参考动作特征。判别器 D<sub>ψ</sub> 被训练来区分“理想的零残差”与“策略产生的残差”，从而提供一个自适应的跟踪目标。我们把该奖励用于 ℒ<sub>FO</sub>，并对判别器的输入与捆绑后的仿真 rollout 做反向传播以更新策略。于是：ADD 提供模仿目标，BCG 则稳定其穿过刚性接触的传播。</p>
+</div>
+
+<h2 id="sec-06" data-num="V">V&nbsp;&nbsp;实验<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Experiments</span><a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=6" target="_blank">p.6</a></h2>
+
+<div class="pair">
+<p class="en">Our experiments are designed to test whether Bundled Contact Gradients (BCG) enable first-order policy optimization under stiff, deployable contact, and if the resulting policies transfer to another simulator and hardware. We organize the evaluation around five questions: 1) Is stiff contact necessary for dynamic humanoid motions? (Sec. V-B.1) 2) How does BCG reduce gradient variance under stiff contact and stabilize gradient propagation? (Sec. V-B.2, 3) 3) How do SHAC+BCG, vanilla SHAC, and PPO compare in sample efficiency, training time, and convergence? (Sec. V-B.3) 4) How does SHAC+BCG's tracking accuracy compare with PPO after sim-to-sim transfer? (Sec. V-B.4) 5) Do the learned policies transfer zero-shot to real humanoid hardware? (Sec. V-B.5)</p>
+<p class="zh">我们的实验旨在检验：BCG 能否在刚性、可部署的接触下实现一阶策略优化，以及由此得到的策略能否迁移到另一个仿真器乃至硬件。评估围绕五个问题展开：1) 对动态人形动作而言，刚性接触是否必要？（V-B.1 节）2) BCG 如何在刚性接触下降低梯度方差、稳定梯度传播？（V-B.2、V-B.3 节）3) SHAC+BCG、原版 SHAC 与 PPO 在样本效率、训练时间与收敛性上相比如何？（V-B.3 节）4) 在 sim-to-sim 迁移之后，SHAC+BCG 的跟踪精度与 PPO 相比如何？（V-B.4 节）5) 学到的策略能否零样本迁移到真实人形硬件？（V-B.5 节）</p>
+</div>
+
+<h3 data-num="V.A">V.A&nbsp;&nbsp;实验设置<a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=6" target="_blank">p.6</a></h3>
+
+<div class="pair">
+<p class="en">We evaluate our framework on the Unitree G1 humanoid by training policies to imitate four dynamic, contact-rich motions from the LAFAN1 dataset [44]: Run, Jump, Fight, and Dance, each lasting 15 s. Policies are trained in the differentiable rigid-body simulator of [27], which implements an analytically smoothed contact model in NVIDIA Warp [11]. We assess sim-to-sim transfer by evaluating the trained policies in MuJoCo. All experiments are run on an NVIDIA RTX 2080 Ti GPU.</p>
+<p class="zh">我们在 Unitree G1 人形机器人上评估该框架：训练策略模仿 LAFAN1 数据集 [44] 中的四段动态、接触丰富的动作——Run（跑）、Jump（跳）、Fight（格斗）与 Dance（舞），每段时长 15 s。策略在 [27] 的可微分刚体仿真器中训练，该仿真器在 NVIDIA Warp [11] 中实现了上述解析平滑接触模型。我们通过在 MuJoCo 中评估训练后的策略来考察 sim-to-sim 迁移。全部实验运行在一块 NVIDIA RTX 2080 Ti GPU 上。</p>
+</div>
+
+<div class="pair">
+<p class="en">All SHAC+BCG experiments use a differentiable rollout horizon of N = 32 control steps, bundle size B = 10, bundle duration H = 2, and Cartesian perturbation scales σ<sub>p</sub> = 1 cm and σ<sub>v</sub> = 2 cm/s. We define stiff contact as a normal contact force exceeding τ = 400 N (which is greater than the robot's body weight), that triggers bundling. Other training parameters are listed on the website.</p>
+<p class="zh">所有 SHAC+BCG 实验采用：可微分 rollout 时域 N = 32 个控制步、bundle 大小 B = 10、bundle 时长 H = 2、笛卡尔扰动尺度 σ<sub>p</sub> = 1 cm 与 σ<sub>v</sub> = 2 cm/s。我们把“刚性接触”定义为法向接触力超过 τ = 400 N（大于机器人自身体重）的接触——这正是触发捆绑的条件。其余训练参数见项目网站。</p>
+</div>
+
+<h3 data-num="V.B">V.B&nbsp;&nbsp;结果<a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=6" target="_blank">p.6</a></h3>
+
+<div class="pair">
+<p class="en"><b>1) Q1: Effect of Contact Stiffness on Transfer.</b> We vary the training contact stiffness κ while using the same SHAC+BCG training procedure at every stiffness level, including the soft contact settings. Table I reports falls after transfer to MuJoCo and the difference in foot penetration between the training simulator and MuJoCo. As stiffness κ is raised, the number of falls goes down showing how contact fidelity in differentiable simulation affects transfer reliability.</p>
+<p class="zh"><b>1) Q1：接触刚度对迁移的影响。</b>我们改变训练时的接触刚度 κ，但在每个刚度档位（包括软接触设置）上都使用相同的 SHAC+BCG 训练流程。表 I 报告了迁移到 MuJoCo 之后的摔倒次数，以及训练仿真器与 MuJoCo 之间足部穿透深度的差异。随着刚度 κ 提高，摔倒次数下降——这说明可微分仿真中的接触保真度会直接影响迁移的可靠性。</p>
+</div>
+
+<figure class="float table narrow">
+  <img src="figs/tab1.jpg" alt="Table I">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 I</span>基于 BCG 的接触刚度消融（Q1）。所有策略都以标注的刚度 κ 用 SHAC+BCG 训练，并在迁移到 MuJoCo 后评测 5 次。Falls：根部高度低于 0.3 m 的运行次数，按 n/5 报告。Δd：训练仿真器与 MuJoCo 之间平均足部穿透深度的差 [mm]；正值表示训练时穿透更深。</span>
+    <span class="enm"><b>Table I |</b> Contact-stiffness ablation with BCG (Q1). All policies are trained with SHAC+BCG at the indicated stiffness κ and evaluated over 5 runs after transfer to MuJoCo. Falls: number of runs in which root height drops below 0.3 m, reported as n/5. Δd: difference in mean foot penetration depth [mm] between the training simulator and MuJoCo; positive values indicate deeper penetration during training.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>2) Q2: Gradient Variance and Contact Sensitivities.</b> Retaining stiff contact requires gradients that remain stable enough during training. We therefore examine gradient variability during training with and without BCG as well as understand how BCG works to reduce gradient variance at a low level. For the Jump motion, we compare policy-gradient variance across all training environments at saved checkpoints. We compute variance by summing the sample variances of all policy-gradient components across environments.</p>
+<p class="zh"><b>2) Q2：梯度方差与接触敏感性。</b>保留刚性接触，要求梯度在训练过程中保持足够稳定。因此我们考察了使用与不使用 BCG 时训练中的梯度波动，并从更底层的角度理解 BCG 如何降低梯度方差。对 Jump 动作，我们在保存的检查点上比较所有训练环境之间的策略梯度方差：把各环境的策略梯度各分量样本方差求和，得到总方差。</p>
+</div>
+
+<div class="pair">
+<p class="en">Figure 3 shows lower variance with BCG, indicating greater agreement among the environment-wise gradients combined in each policy update. In other words, fewer environments produce conflicting parameter-update directions, resulting in a more consistent learning signal.</p>
+<p class="zh">图 3 显示 BCG 下的方差更低，说明每次策略更新所汇总的各环境梯度之间一致性更高。换言之，产生“相互冲突的参数更新方向”的环境更少，学习信号因而更一致。</p>
+</div>
+
+<figure class="float narrow">
+  <img src="figs/fig3.jpg" alt="Fig. 3">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 3</span>训练期间的策略梯度方差（Q2）。阴影表示一个标准差，统计自 128 个训练环境中的 4,000 个样本。</span>
+    <span class="enm"><b>Fig. 3 |</b> Policy-gradient variance during training (Q2). Shading shows ± one standard deviation across 4,000 samples of the 128 training environments.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en">To examine the underlying mechanism in BCG, we roll out N = 32 steps of the differentiable simulator with a single environment (κ = 300) and measure how small changes in the state affect the G1's pelvis' vertical velocity within a bundle window. Figure 4a plots one element of the state-gradient vector: ∂v<sub>T,t</sub>/∂p<sub>T,t</sub>, which measures the sensitivity of future pelvis vertical velocity to the current pelvis height over the bundle window. We choose this component because vertical pelvis motion in the Jump task is strongly coupled to foot-ground contact, making it an intuitive measure of contact-induced gradient sensitivity.</p>
+<p class="zh">为考察 BCG 的内在机制，我们在单个环境（κ = 300）上用可微分仿真器展开 N = 32 步，测量状态的小幅变化如何在 bundle 窗口内影响 G1 骨盆的竖直速度。图 4a 画出状态梯度向量的一个分量：∂v<sub>T,t</sub>/∂p<sub>T,t</sub>，它衡量在 bundle 窗口内“未来骨盆竖直速度”对“当前骨盆高度”的敏感性。选择该分量是因为：在 Jump 任务中骨盆的竖直运动与足—地接触强耦合，因此它能直观地反映接触引起的梯度敏感性。</p>
+</div>
+
+<div class="pair">
+<p class="en">At stiff contact, individual perturbed branches exhibit markedly different sensitivities, while their bundled average attenuates the extreme responses. This illustrates how BCG reduces dependence on a single contact realization that would otherwise cause varied gradients, while retaining stiff dynamics.</p>
+<p class="zh">在刚性接触处，各个被扰动的分支表现出明显不同的敏感性，而它们的捆绑平均值会削弱那些极端响应。这正说明 BCG 如何减少对“单一接触实现”的依赖——否则正是这种依赖造成了梯度的剧烈变化——同时仍保留刚性动力学。</p>
+</div>
+
+<figure class="float narrow">
+  <img src="figs/fig4.jpg" alt="Fig. 4">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 4</span>接触局部梯度平均（Q2）。(a) 在 H = 2（4 个物理子步/控制步）下，一次接触 bundle 内、10 个样本上的状态梯度 ∂v<sub>T,t</sub>/∂p<sub>T,t</sub>；灰色曲线来自各个被扰动样本，蓝色曲线是 BCG 平均后的梯度。(b) 对状态梯度向量的散布做 PCA 可视化：橙色点为各扰动样本，蓝色点为 BCG 平均后的梯度。每个椭圆都包含高斯拟合的 95% 质量；左下角小图只投影了“到接触距离”这一个分量。</span>
+    <span class="enm"><b>Fig. 4 |</b> Contact-local gradient averaging (Q2). (a) One contact bundle with 10 samples during stiff contact over a window of H = 2 (4 physics substeps per control step); (b) Ellipses summarize the spread of the gradient point clouds, where orange points are gradients from individual perturbed contact samples and blue points are the corresponding BCG-averaged gradients. Each ellipse encloses 95% of the mass of a fitted Gaussian distribution.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en">Figure 4b examines the sensitivity of the same pelvis vertical velocity to all input-state components over the bundle window. We collect these sensitivities into vectors and use Principal Component Analysis (PCA) to display them in a shared two-dimensional view. Each orange point represents one perturbed branch, and each blue diamond represents the bundled gradient from one sampling draw. Nearby points have similar sensitivity patterns in this projection.</p>
+<p class="zh">图 4b 考察同一骨盆竖直速度在 bundle 窗口内对<b>全部</b>输入状态分量的敏感性。我们把这些敏感性收集为向量，并用主成分分析（PCA）把它们展示在同一个二维视图中。每个橙色点代表一个被扰动的分支，每个蓝色菱形代表一次采样所得到的捆绑梯度。在此投影中，彼此靠近的点意味着敏感性模式相似。</p>
+</div>
+
+<div class="pair">
+<p class="en">The orange points are widely spread, whereas the blue points cluster closely together. The smaller blue ellipse summarizes this reduction in variation across bundle draws, showing that the averaging effect extends beyond pelvis height to the joint variation of the full state-gradient vector.</p>
+<p class="zh">橙色点分布得很散，而蓝色点紧密聚集；更小的蓝色椭圆概括了“跨多次 bundle 采样”的变异缩减，说明这种平均效应不止作用于骨盆高度，而是作用于完整状态梯度向量的联合变化。</p>
+</div>
+
+<div class="pair">
+<p class="en">Together, these results show how contact-local averaging reduces variability in simulator sensitivities and provides a more consistent learning signal under stiff contact. By moderating contact-induced gradient fluctuations, BCG helps keep gradients stable over longer rollout horizons compared to previous work [27].</p>
+<p class="zh">综合来看，这些结果说明：接触局部平均降低了仿真器敏感性的波动，在刚性接触下提供了更一致的学习信号。通过抑制接触引起的梯度起伏，BCG 相比先前工作 [27] 能在更长的 rollout 时域上保持梯度稳定。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>3) Q3: Learning Efficiency and Convergence.</b> Figure 5 shows SHAC+BCG reaching comparable reward levels with over an order of magnitude fewer samples than PPO, while vanilla SHAC stalls at low reward. BCG reaches higher final rewards compared to PPO in a few motions as well.</p>
+<p class="zh"><b>3) Q3：学习效率与收敛性。</b>图 5 显示，SHAC+BCG 用比 PPO 少一个数量级以上的样本就达到相当的奖励水平，而原版 SHAC 则停滞在较低的奖励上。在若干动作上，BCG 的最终奖励也高于 PPO。</p>
+</div>
+
+<figure class="float narrow">
+  <img src="figs/fig5.jpg" alt="Fig. 5">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 5</span>四个参考动作（各行）的学习曲线，分别以三种预算（训练迭代次数、环境样本数、墙上时间）为横轴。纵轴为对数刻度。</span>
+    <span class="enm"><b>Fig. 5 |</b> Learning curves on the four reference motions (Rows) plotted against three budgets: training iterations (left), environment samples (middle), and wall-clock time (right). The sample axis is logarithmic.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en">SHAC+BCG and vanilla SHAC consume comparable sample budgets at a given iteration count. BCG's more informative gradients allow training with 64 environments instead of 128, offsetting the additional branch samples used for bundling at stiff contacts. BCG therefore learns substantially more from a similar simulation budget. BCG does however have a slightly higher computational overhead compared with Vanilla SHAC due to a larger computational graph for backpropagation.</p>
+<p class="zh">在相同迭代次数下，SHAC+BCG 与原版 SHAC 消耗的样本预算相当。BCG 更具信息量的梯度允许只用 64 个环境（而非 128 个）来训练，这恰好抵消了刚性接触处捆绑分支所需的额外样本。因此，在相近的仿真预算下，BCG 学到的东西明显更多。不过，由于反向传播的计算图更大，BCG 相对原版 SHAC 有略高的计算开销。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>4) Q4: Tracking Performance across Methods.</b> After transfer to MuJoCo, we compare SHAC+BCG and PPO using global mean per-body position error (Table II). SHAC+BCG achieves lower mean error on three of the four motions. PPO has slightly lower error on Jump, but its policy keeps both feet on the ground instead of reproducing the jumping motion, as shown in the accompanying videos. These results highlight the potential of first-order learning with informative gradients, which can guide the policy toward more faithful motion tracking.</p>
+<p class="zh"><b>4) Q4：各方法的跟踪性能。</b>迁移到 MuJoCo 之后，我们用全局逐体平均位置误差比较 SHAC+BCG 与 PPO（表 II）。SHAC+BCG 在四个动作中的三个上取得了更低的平均误差。PPO 在 Jump 上误差略低，但其策略让双脚始终留在地面上、并没有复现跳跃动作（见随附视频）。这些结果凸显了“带信息梯度的一阶学习”的潜力：它能引导策略实现更忠实的动作跟踪。</p>
+</div>
+
+<figure class="float table narrow">
+  <img src="figs/tab2.jpg" alt="Table II">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 II</span>sim-to-sim 迁移后的跟踪精度（Q4）。全局逐体平均位置误差 E<sub>track</sub> [cm]，以 5 次运行的均值 ± 标准差报告。</span>
+    <span class="enm"><b>Table II |</b> Tracking accuracy after sim-to-sim transfer (Q4). Global mean per-body position error E<sub>track</sub> [cm], reported as mean ± std over 5 runs.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>5) Q5: Sim-to-Real Transfer.</b> Finally, we deploy the learned SHAC+BCG policies zero-shot on the real Unitree G1 without any hardware fine-tuning. The robot successfully executes the learned dynamic motions, providing qualitative evidence that the stiff-contact policies transfer beyond simulation; videos of the hardware results are available on the project website.</p>
+<p class="zh"><b>5) Q5：sim-to-real 迁移。</b>最后，我们把学到的 SHAC+BCG 策略零样本部署到真实的 Unitree G1 上，不做任何硬件微调。机器人成功执行了所学的动态动作，这为“刚性接触策略能够跨越仿真边界”提供了定性证据；硬件结果的视频见项目网站。</p>
+</div>
+
+<h2 id="sec-07" data-num="VI">VI&nbsp;&nbsp;结论<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Conclusion</span><a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=7" target="_blank">p.7</a></h2>
+
+<div class="pair">
+<p class="en">We presented Bundled Contact Gradients (BCG), a contact-local randomized smoothing method for stabilizing first-order policy learning under stiff, deployable contact dynamics. BCG aggregates sensitivities across nearby contact configurations, providing a more consistent learning signal while retaining the contact fidelity required for transfer. Integrated with SHAC and ADD, BCG enables dynamic humanoid motion learning with over an order of magnitude fewer environment samples than PPO, improves tracking accuracy after transfer to MuJoCo compared to PPO, and enables zero-shot deployment of the learned motions on a real Unitree G1. These results demonstrate that the analytic gradients provided by differentiable simulation can remain useful even in the stiff contact regime required for real-world dynamic control.</p>
+<p class="zh">我们提出了<b>捆绑接触梯度（BCG）</b>——一种接触局部化的随机平滑方法，用于在刚性、可部署的接触动力学下稳定一阶策略学习。BCG 在邻近接触构型之间聚合敏感性，既提供了更一致的学习信号，又保留了迁移所需的接触保真度。与 SHAC 和 ADD 结合后，BCG 所需的<em>环境样本比 PPO 少一个数量级以上</em>即可学会动态人形动作；迁移到 MuJoCo 后跟踪精度优于 PPO；并实现了所学动作在真实 Unitree G1 上的零样本部署。这些结果表明：即使进入真实世界动态控制所需的刚性接触区间，可微分仿真提供的解析梯度依然有用。</p>
+</div>
+
+<div class="pair">
+<p class="en">BCG introduces additional computation and memory from simulating and differentiating through multiple contact branches. While contact-local activation limits this cost, tasks with sustained stiff contact may incur greater overhead than PPO. The perturbation scales and number of bundle samples also require tuning to balance smoothing, bias, and computational cost. Future work could adapt these parameters automatically based on local contact sensitivity and extend BCG to higher-dimensional, contact-rich problems such as humanoid loco-manipulation and dexterous manipulation.</p>
+<p class="zh">BCG 因为要仿真并对多个接触分支求导，带来了额外的计算与内存开销。虽然“接触局部触发”限制了这部分成本，但在持续存在刚性接触的任务上，其开销可能高于 PPO。扰动尺度与 bundle 样本数也需要调参，以在平滑程度、偏差与计算成本之间取得平衡。未来工作可以依据局部接触敏感性自动调整这些参数，并把 BCG 推广到更高维、接触更丰富的问题，例如人形机器人的“移动+操作”与灵巧操作。</p>
+</div>
+
+<div class="pair">
+<p class="en">More broadly, we view BCG as a step toward making differentiable simulation a practical tool for learning increasingly complex, deployable robotic behaviors efficiently.</p>
+<p class="zh">更宏观地看，我们把 BCG 视为一次尝试：让可微分仿真成为高效学习日益复杂、可直接部署的机器人行为的实用工具。</p>
+</div>
+
+<h2 id="sec-08" data-num="参考文献">参考文献<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">References</span><a class="pg" href="../../sources/Bundled Contact Gradients.pdf#page=7" target="_blank">p.7</a></h2>
+<p class="note">参考文献保留英文原貌（不作翻译），以便按原文检索。共 44 条。</p>
+<ol class="refs">
+<li id="ref1">J. Hwangbo, J. Lee, A. Dosovitskiy, D. Bellicoso, V. Tsounis, V. Koltun, and M. Hutter, “Learning agile and dynamic motor skills for legged robots,” Science Robotics, vol. 4, no. 26, 2019.</li>
+<li id="ref2">X. B. Peng, P. Abbeel, S. Levine, and M. van de Panne, “DeepMimic: Example-guided deep reinforcement learning of physics-based character skills,” ACM Transactions on Graphics, vol. 37, no. 4, pp. 143:1– 143:14, 2018.</li>
+<li id="ref3">J. Lee, J. Hwangbo, L. Wellhausen, V. Koltun, and M. Hutter, “Learning quadrupedal locomotion over challenging terrain,” Science Robotics, vol. 5, no. 47, 2020.</li>
+<li id="ref4">J. Xu, V. Makoviychuk, Y. Narang, F. Ramos, W. Matusik, A. Garg, and M. Macklin, “Accelerated policy learning with parallel differentiable simulation,” in International Conference on Learning Representations, 2022.</li>
+<li id="ref5">C. Sferrazza, D.-M. Huang, X. Lin, Y. Lee, and P. Abbeel, “HumanoidBench: Simulated humanoid benchmark for whole-body locomotion and manipulation,” in Robotics: Science and Systems, 2024.</li>
+<li id="ref6">H. J. T. Suh, M. Simchowitz, K. Zhang, and R. Tedrake, “Do differentiable simulators give better policy gradients?” in International Conference on Machine Learning, 2022.</li>
+<li id="ref7">L. Metz, C. D. Freeman, S. S. Schoenholz, and T. Kachman, “Gradients are not all you need,” arXiv:2111.05803, 2021.</li>
+<li id="ref8">I. Georgiev, K. Srinivasan, J. Xu, E. Heiden, and A. Garg, “Adaptive horizon actor-critic for policy learning in contact-rich differentiable simulation,” in International Conference on Machine Learning, 2024.</li>
+<li id="ref9">H. J. T. Suh, T. Pang, and R. Tedrake, “Bundled gradients through contact via randomized smoothing,” CoRR, vol. abs/2109.05143, 2021.</li>
+<li id="ref10">Q. Le Lidec, F. Schramm, L. Montaut, C. Schmid, I. Laptev, and J. Carpentier, “Leveraging randomized smoothing for optimal control of nonsmooth dynamical systems,” Nonlinear Analysis: Hybrid Systems, vol. 52, p. 101468, 2024.</li>
+<li id="ref11">M. Macklin, “Warp: A high-performance python framework for gpu simulation and graphics,” NVIDIA GPU Technology Conference (GTC), 2022, https://github.com/NVIDIA/warp.</li>
+<li id="ref12">Z. Zhang, S. Bashkirov, D. Yang, Y. Shi, M. Taylor, and X. B. Peng, “Physics-based motion imitation with adversarial differential discriminators,” in SIGGRAPH Asia 2025 Conference Papers, 2025.</li>
+<li id="ref13">J. Schulman, F. Wolski, P. Dhariwal, A. Radford, and O. Klimov, “Proximal policy optimization algorithms,” arXiv:1707.06347, 2017.</li>
+<li id="ref14">A. Handa, A. Allshire, V. Makoviychuk, A. Petrenko, R. Singh, J. Liu, D. Makoviichuk, K. Van Wyk, A. Zhurkevich, B. Sundaralingam, and Y. Narang, “Dextreme: Transfer of agile in-hand manipulation from simulation to reality,” in IEEE International Conference on Robotics and Automation, 2023, pp. 5977–5984.</li>
+<li id="ref15">N. Rudin, D. Hoeller, P. Reist, and M. Hutter, “Learning to walk in minutes using massively parallel deep reinforcement learning,” in Conference on Robot Learning. PMLR, 2022, pp. 91–100.</li>
+<li id="ref16">X. Cheng, K. Shi, A. Agarwal, and D. Pathak, “Extreme parkour with legged robots,” in IEEE International Conference on Robotics and Automation, 2024.</li>
+<li id="ref17">I. Radosavovic, T. Xiao, B. Zhang, T. Darrell, J. Malik, and K. Sreenath, “Real-world humanoid locomotion with reinforcement learning,” Science Robotics, vol. 9, no. 89, p. eadi9579, 2024.</li>
+<li id="ref18">J. Degrave, M. Hermans, J. Dambre, and F. wyffels, “A differentiable physics engine for deep learning in robotics,” Frontiers in Neurorobotics, vol. 13, p. 6, 2019.</li>
+<li id="ref19">F. de Avila Belbute-Peres, K. Smith, K. Allen, J. Tenenbaum, and J. Z. Kolter, “End-to-end differentiable physics for learning and control,” in Advances in Neural Information Processing Systems, 2018.</li>
+<li id="ref20">Y. Hu, L. Anderson, T.-M. Li, Q. Sun, N. Carr, J. Ragan-Kelley, and F. Durand, “Difftaichi: Differentiable programming for physical simulation,” in International Conference on Learning Representations, 2020.</li>
+<li id="ref21">C. D. Freeman, E. Frey, A. Raichuk, S. Girgin, I. Mordatch, and O. Bachem, “Brax – a differentiable physics engine for large scale rigid body simulation,” arXiv:2106.13281, 2021.</li>
+<li id="ref22">M. Geilinger, D. Hahn, J. Zehnder, M. Bächer, B. Thomaszewski, and S. Coros, “ADD: Analytically differentiable dynamics for multi-body systems with frictional contact,” in ACM Transactions on Graphics (SIGGRAPH Asia), 2020.</li>
+<li id="ref23">Y.-L. Qiao, J. Liang, V. Koltun, and M. C. Lin, “Efficient differentiable simulation of articulated bodies,” in International Conference on Machine Learning, 2021.</li>
+<li id="ref24">M. A. Z. Mora, M. Peychev, S. Ha, M. Vechev, and S. Coros, “PODS: Policy optimization via differentiable simulation,” in International Conference on Machine Learning, 2021, pp. 7805–7817.</li>
+<li id="ref25">S. Gillen and K. Byl, “Leveraging reward gradients for reinforcement learning in differentiable physics simulations,” arXiv:2203.02857, 2022.</li>
+<li id="ref26">N. Wiedemann, V. Wüest, A. Loquercio, M. Müller, D. Floreano, and D. Scaramuzza, “Training efficient controllers via analytic policy gradient,” IEEE International Conference on Robotics and Automation, 2023.</li>
+<li id="ref27">C. Schwarke, V. Klemm, J. Bagajo, J.-P. Sleiman, I. Georgiev, J. Tordesillas, and M. Hutter, “Learning deployable locomotion control via differentiable simulation,” in Conference on Robot Learning, 2025.</li>
+<li id="ref28">Y. Song, S. Kim, and D. Scaramuzza, “Learning quadruped locomotion using differentiable simulation,” arXiv:2403.14864, 2024.</li>
+<li id="ref29">Y. Zhang, Y. Hu, Y. Song, D. Zou, and W. Lin, “Learning vision-based agile flight via differentiable physics,” Nature Machine Intelligence, pp. 1–13, 2025.</li>
+<li id="ref30">E. Xing, V. Luk, and J. Oh, “Stabilizing reinforcement learning in differentiable multiphysics simulation,” International Conference on Learning Representations, 2025.</li>
+<li id="ref31">J. Amigo, R. Khorrambakht, E. Chane-Sane, N. Mansard, and L. Righetti, “First order model-based rl through decoupled backpropagation,” arXiv:2509.00215, 2025.</li>
+<li id="ref32">J. Y. Luo, Y. Song, V. Klemm, F. Shi, D. Scaramuzza, and M. Hutter, “Residual policy learning for perceptive quadruped control using differentiable simulation,” arXiv:2410.03076, 2024.</li>
+<li id="ref33">A. Paulus, A. R. Geist, P. Schumacher, V. Musil, S. Rappenecker, and G. Martius, “Differentiable simulation of hard contacts with soft gradients for learning and control,” in International Conference on Learning Representations, 2026.</li>
+<li id="ref34">K. Werling, D. Omens, J. Lee, I. Exarchos, and C. K. Liu, “Fast and feature-complete differentiable physics engine for articulated rigid bodies with contact constraints,” in Robotics: Science and Systems, 2021.</li>
+<li id="ref35">T. A. Howell, S. Le Cleac’h, J. Z. Kolter, M. Schwager, and Z. Manchester, “Dojo: A differentiable simulator for robotics,” arXiv:2203.00806, 2022.</li>
+<li id="ref36">T. Pang, H. J. T. Suh, L. Yang, and R. Tedrake, “Global planning for contact-rich manipulation via local smoothing of quasi-dynamic contact models,” IEEE Transactions on Robotics, vol. 39, no. 6, pp. 4691–4711, 2023.</li>
+<li id="ref37">T. Pang and R. Tedrake, “A convex quasistatic time-stepping scheme for rigid multibody systems with contact and friction,” in IEEE International Conference on Robotics and Automation, 2021, pp. 6614–6620.</li>
+<li id="ref38">M. Posa, C. Cantu, and R. Tedrake, “A direct method for trajectory optimization of rigid bodies through contact,” The International Journal of Robotics Research, vol. 33, no. 1, pp. 69–81, 2014.</li>
+<li id="ref39">R. Budhiraja, J. Carpentier, C. Mastalli, and N. Mansard, “Differential dynamic programming for multi-phase rigid contact dynamics,” in IEEE-RAS International Conference on Humanoid Robots, 2018, pp. 1–9.</li>
+<li id="ref40">Q. Le Lidec, L. Montaut, C. Schmid, I. Laptev, and J. Carpentier, “Augmenting differentiable physics with randomized smoothing,” arXiv:2206.11884, 2022.</li>
+<li id="ref41">M. Scheffler, W. Jallet, C. Schmid, and J. Carpentier, “Unbiased First-Order Randomized Smoothing for Differentiable Simulators,” 2026, preprint. [Online]. Available: https://hal.science/hal-05629540</li>
+<li id="ref42">J. Schulman, P. Moritz, S. Levine, M. Jordan, and P. Abbeel, “Highdimensional continuous control using generalized advantage estimation,” in International Conference on Learning Representations, 2016.</li>
+<li id="ref43">J. J. Moreau, Unilateral Contact and Dry Friction in Finite Freedom Dynamics. Springer Vienna, 1988, pp. 1–82.</li>
+<li id="ref44">F. G. Harvey, M. Yurick, D. Nowrouzezahrai, and C. Pal, “Robust motion in-betweening,” ACM Transactions on Graphics, vol. 39, no. 4, 2020.</li>
+</ol>
+<div class="colophon" style="margin-top:56px;border-top:1px solid var(--line);padding-top:22px;font-family:var(--sans);font-size:12.6px;line-height:1.75;color:#6b7178">
+  <p style="margin:0 0 8px"><b style="color:#3a3f46">关于这份译本</b></p>
+  <p style="margin:0 0 8px">原文：<i>Bundled Contact Gradients: Stabilizing Differentiable Simulation for Deployable Dynamic Tasks</i>（BCG），8 页 IEEE 双栏格式，含 5 幅插图、2 张表、1 个算法框与 44 条参考文献。本页为逐段中英对照：左列英文原文，右列中文译文；插图与表格从原始 PDF 以 200 dpi 裁出，点击可放大。</p>
+  <p style="margin:0 0 8px">公式使用 KaTeX 本地渲染（无网络依赖），可直接选中与搜索；公式按原文编号 (1)–(5)，未编号的显示公式保持原样位置。代码、算法与变量名保留英文（如 <span class="term">f_κ</span>、<span class="term">𝒜</span> 以数学体呈现）。</p>
+  <p style="margin:0">操作提示：顶部可切换「对照 / 仅中文 / 仅英文」并调整字号；左侧目录随滚动高亮；按 <span class="term">Esc</span> 关闭放大的图片；<span class="term">Ctrl/⌘ + P</span> 可直接打印为双语 PDF。</p>
+</div>
+
+  </main>
+</div>
+
+<div class="zoom" id="zoom"><img alt=""></div>
+<script defer src="vendor/katex/katex.js"></script>
+<script defer src="vendor/katex/auto-render.js"></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false});});</script>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var segBtns=[].slice.call(document.querySelectorAll('.seg button'));
+  function setMode(m){
+    root.setAttribute('data-mode',m);
+    segBtns.forEach(function(b){b.classList.toggle('on',b.dataset.mode===m)});
+    try{localStorage.setItem('rax-mode',m)}catch(e){}
+  }
+  segBtns.forEach(function(b){b.addEventListener('click',function(){setMode(b.dataset.mode)})});
+  try{var m=localStorage.getItem('rax-mode'); if(m) setMode(m);}catch(e){}
+
+  var fs=100;
+  function applyFs(){document.querySelectorAll('.pair').forEach(function(p){
+    p.style.fontSize='';});
+    document.body.style.zoom='';}
+  var base=15.6;
+  document.getElementById('fs-up').onclick=function(){fs=Math.min(150,fs+6);document.querySelectorAll('.pair > .zh').forEach(function(e){e.style.fontSize=(base*fs/100)+'px')};document.querySelectorAll('.pair > .en').forEach(function(e){e.style.fontSize=(14.4*fs/100)+'px')}};
+  document.getElementById('fs-down').onclick=function(){fs=Math.max(80,fs-6);document.querySelectorAll('.pair > .zh').forEach(function(e){e.style.fontSize=(base*fs/100)+'px')};document.querySelectorAll('.pair > .en').forEach(function(e){e.style.fontSize=(14.4*fs/100)+'px')}};
+
+  document.getElementById('totop').onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
+
+  var bar=document.getElementById('bar');
+  var links=[].slice.call(document.querySelectorAll('nav.toc a'));
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))});
+  function onScroll(){
+    var h=document.documentElement;
+    var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);
+    bar.style.width=(p*100)+'%';
+    var y=h.scrollTop+120, cur=0;
+    for(var i=0;i<secs.length;i++){ if(secs[i] && secs[i].offsetTop<=y) cur=i; }
+    links.forEach(function(a,i){a.classList.toggle('cur',i===cur)});
+  }
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  var zoom=document.getElementById('zoom'), zi=zoom.querySelector('img');
+  document.querySelectorAll('figure.float img').forEach(function(img){
+    img.addEventListener('click',function(){zi.src=img.src;zoom.classList.add('on')});
+  });
+  zoom.addEventListener('click',function(){zoom.classList.remove('on');zi.src=''});
+  addEventListener('keydown',function(e){if(e.key==='Escape')zoom.classList.remove('on')});
+})();
+</script>
+</body>
+</html>

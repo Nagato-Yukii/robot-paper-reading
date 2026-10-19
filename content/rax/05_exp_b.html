@@ -1,0 +1,104 @@
+<h3 data-num="5.2.3">5.2.3&nbsp;&nbsp;HumanoidArena<a class="pg" href="{{PDF}}#page=18" target="_blank">p.18</a></h3>
+
+<div class="pair">
+<p class="en"><b>Setup.</b> We evaluate RAX on all seven tasks of HumanoidArena (Wang et al., 2026c) that have official test episodes: three human–object interaction tasks (Football, DoubleDesk, and P&amp;PBox) and four human–scene interaction tasks (OpenDoor, SitSofa, Boxing, and VisNavi), on a Unitree G1 with Dex3 hands (Section C.5). The agent commands whole-body reference poses, which the SONIC motion tracker (Luo et al., 2026) turns into balanced whole-body motion. The agent perceives the scene through the egocentric RGB-D camera and receives the task description together with three teleoperated demonstrations, which are available only to the exploring agent.</p>
+<p class="zh"><b>设置。</b>我们在 HumanoidArena 中全部七个具有官方测试回合的任务上评估 RAX（Wang et al., 2026c）：三个“人—物体交互”任务（Football、DoubleDesk、P&amp;PBox）与四个“人—场景交互”任务（OpenDoor、SitSofa、Boxing、VisNavi），平台为配备 Dex3 手的 Unitree G1（C.5 节）。智能体下达全身参考位姿，由 SONIC 运动跟踪器（Luo et al., 2026）将其转换为平衡的全身运动。智能体通过以自我为中心的 RGB-D 相机感知场景，并获得任务描述以及三条遥操作演示——这些演示只提供给探索阶段的智能体。</p>
+</div>
+
+<div class="pair">
+<p class="en">It explores with a budget of up to 128 episodes on DoubleDesk and P&amp;PBox and up to 32 episodes on each of the other tasks, on scenes drawn from the training distribution and never on a test episode, and the resulting fully automated program is evaluated alone, without the agent, on unseen scenes, the 60 official test episodes of each task.</p>
+<p class="zh">它在 DoubleDesk 与 P&amp;PBox 上的探索预算至多 128 个回合，其余任务各至多 32 个回合；探索场景取自训练分布，绝不在测试回合上进行。随后，所得的全自动程序在没有智能体参与的情况下，在未见场景上单独评测——即每个任务 60 个官方测试回合。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Baselines.</b> We compare with the baselines of the benchmark, ACT (Zhao et al., 2023), Diffusion Policy (Chi et al., 2025), a flow-matching policy (Boston Dynamics and Toyota Research Institute, 2025), and the VLA π<sub>0.5</sub> (Intelligence et al., 2025), each trained on 100 teleoperated demonstrations per task, and with WB-WAM (Qin et al., 2026), a world action model pretrained on 1,880 hours of video and motion data and fine-tuned on the same 100 demonstrations per task, all with the same tracker (Table 4).</p>
+<p class="zh"><b>基线。</b>我们与该基准自带的基线比较：ACT（Zhao et al., 2023）、Diffusion Policy（Chi et al., 2025）、一个流匹配策略（Boston Dynamics and Toyota Research Institute, 2025），以及 VLA π<sub>0.5</sub>（Intelligence et al., 2025）——它们每个任务都用 100 条遥操作演示训练；另外还与 WB-WAM 比较（Qin et al., 2026），后者是在 1,880 小时视频与运动数据上预训练、并用同样每任务 100 条演示微调的世界动作模型。所有方法都使用同一个跟踪器（表 4）。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Results.</b> RAX reaches an average success rate of 89.8% (Table 4), 7.9 points above WB-WAM and 29.8 points above the strongest baseline of the benchmark, from three demonstrations instead of one hundred. It succeeds in every test episode of OpenDoor and Boxing, and on Football and VisNavi it improves on WB-WAM by 28.3 and 16.6 points.</p>
+<p class="zh"><b>结果。</b>RAX 取得 <b>89.8%</b> 的平均成功率（表 4），高出 WB-WAM 7.9 分、高出该基准最强基线 29.8 分——而它只用了 3 条演示，而非 100 条。它在 OpenDoor 与 Boxing 的每个测试回合中都成功；在 Football 与 VisNavi 上，它分别比 WB-WAM 高出 28.3 与 16.6 分。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table04_p20.jpg" alt="Table 4">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 4</span>HumanoidArena。每个任务 60 个官方测试回合上的成功率（%），所有方法均使用 SONIC 跟踪器。基线取自 Wang et al. (2026c) 与 Qin et al. (2026)。Max：各任务取其最大预算。⋆ 三条不含动作的演示。–：未运行。</span>
+    <span class="enm"><b>Table 4 |</b> HumanoidArena. Success rate (%) on the 60 official test episodes of each task, all methods with the SONIC tracker. Baselines from Wang et al. (2026c) and Qin et al. (2026). Max: each task at its largest budget. ⋆ Three demonstrations without actions. –: not run.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en">Performance grows with the exploration budget: averaged over the seven tasks, the success rate rises from 52.1% with 2 exploration episodes to 80.7% with 32. Tasks governed by whole-body posture and locomotion, such as OpenDoor and SitSofa, are solved within a few episodes, Football and VisNavi rise from 40.0% and 71.7% to 98.3% and 93.3%, and the two whole-body loco-manipulation tasks keep improving with further exploration, P&amp;PBox from 0.0% to 83.3% and DoubleDesk from 0.0% to 56.7% at 128 episodes. We also test RAX with the three demonstrations without their actions (RAX ⋆ , Section 5.3.4): without any action data, it still matches the 81.9% average of WB-WAM, which is fine-tuned on 100 action demonstrations per task.</p>
+<p class="zh">性能随探索预算增长：在七个任务上取平均，成功率从 2 个探索回合时的 52.1% 上升到 32 个回合时的 80.7%。由全身姿态与运动控制主导的任务（如 OpenDoor 与 SitSofa）在几个回合内即被解决；Football 与 VisNavi 分别从 40.0%、71.7% 提升到 98.3%、93.3%；两个全身“移动+操作”任务则随探索继续提升——P&amp;PBox 从 0.0% 升到 83.3%，DoubleDesk 在 128 回合时从 0.0% 升到 56.7%。我们还测试了只给三条演示、但不给其动作的 RAX（RAX ⋆，5.3.4 节）：在完全没有动作数据的情况下，它仍然追平了 WB-WAM 81.9% 的平均值——而后者是用每任务 100 条带动作演示微调过的。</p>
+</div>
+
+<h3 data-num="5.2.4">5.2.4&nbsp;&nbsp;DexJoCo<a class="pg" href="{{PDF}}#page=19" target="_blank">p.19</a></h3>
+
+<div class="pair">
+<p class="en"><b>Setup.</b> DexJoCo (Wang et al., 2026a) evaluates task-oriented dexterous manipulation with Franka arms that carry 16-degree-of-freedom Allegro hands, on six single-arm and five bimanual tasks. The agent commands the end-effector pose of each arm and the joint positions of each hand. It perceives the scene through RGB-D observations and receives the task description and three completion images of expert episodes as a goal reference, but no action demonstrations or expert videos.</p>
+<p class="zh"><b>设置。</b>DexJoCo（Wang et al., 2026a）用搭载 16 自由度 Allegro 手的 Franka 机械臂评测面向任务的灵巧操作，包含六个单臂任务与五个双臂任务。智能体命令每条手臂的末端位姿以及每只手的各关节位置。它通过 RGB-D 观测感知场景，并获得任务描述与专家回合的三张完成图像作为目标参考——但不提供任何动作演示或专家视频。</p>
+</div>
+
+<div class="pair">
+<p class="en">For each task, a single agent explores a single environment from an empty workspace, with the exploration episodes drawn from the training distribution of the rand-obj setting and never on an evaluation layout. Sessions differ only in the exploration budget, from 2 to 32 exploration episodes, and the resulting fully automated program is evaluated alone, without the agent, on unseen scenes, the 150 official evaluation episodes of each task (Section C.6).</p>
+<p class="zh">对每个任务，单个智能体从空工作区出发探索单一环境，探索回合取自 rand-obj 设置的训练分布，绝不在评测布局上进行。各会话之间只有探索预算不同（2 到 32 个探索回合）。所得的全自动程序在无智能体参与的情况下单独评测——即每个任务 150 个官方评测回合（C.6 节）。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Baselines.</b> We compare with the baselines of the benchmark, Diffusion Policy with transformer and CNN backbones (Chi et al., 2025), ACT (Zhao et al., 2023), and the VLAs π<sub>0.5</sub> (Intelligence et al., 2025) and GR00T N1.5 (Bjorck et al., 2025), each trained on 100 teleoperated demonstrations per task, and with subsequent results on the same benchmark: GR00T N1.6, the world action models Fast-WAM (Yuan et al., 2026), PointWAM (Park et al., 2026), which pretrains on 1.15 million human videos, and ME-Dex (Zhang et al., 2026), and the diffusion transformer DECO (Li et al., 2026) (Table 5).</p>
+<p class="zh"><b>基线。</b>我们与该基准自带基线比较：以 Transformer 与 CNN 为骨干的 Diffusion Policy（Chi et al., 2025）、ACT（Zhao et al., 2023），以及 VLA π<sub>0.5</sub>（Intelligence et al., 2025）与 GR00T N1.5（Bjorck et al., 2025），它们均在每任务 100 条遥操作演示上训练；此外还与同一基准上的后续结果比较：GR00T N1.6、世界动作模型 Fast-WAM（Yuan et al., 2026）、在 115 万人类视频上预训练的 PointWAM（Park et al., 2026）与 ME-Dex（Zhang et al., 2026），以及扩散 Transformer 模型 DECO（Li et al., 2026）（表 5）。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Results.</b> Performance grows rapidly with exploration (Table 5): averaged over the eleven tasks, the success rate rises from 31.9% with 2 exploration episodes to 86.9% with 8 and 96.7% with 32, and with 32 exploration episodes RAX exceeds the best published result on every task. Hammer, Mouse, and iPad are solved from two exploration episodes, most other tasks within four to eight, and the bimanual Assembly within sixteen.</p>
+<p class="zh"><b>结果。</b>性能随探索快速提升（表 5）：在十一个任务上取平均，成功率从 2 个探索回合时的 31.9% 上升到 8 个回合时的 86.9%、32 个回合时的 96.7%；而在 32 个探索回合时，RAX 在每一个任务上都超过了已发表的最好结果。Hammer、Mouse 与 iPad 仅用两个探索回合即被解决，其余多任务在四到八个回合内解决，双臂 Assembly 在十六个回合内解决。</p>
+</div>
+
+<div class="pair">
+<p class="en">Taking the best session of each task, RAX succeeds in every evaluation episode of eight of the eleven tasks and reaches an average success rate of 99.5%, 45.4 points above the strongest baseline of the benchmark and 34.2 points above the best published average, without a single action demonstration. The margins are largest on the bimanual tasks that existing methods rarely complete: RAX solves Hanoi (Section D.2) and iPad in every episode, where the best published results are 42.0 and 52.0, and reaches 96.0 on Assembly, where the best published result is 28.0.</p>
+<p class="zh">取每个任务的最佳会话，RAX 在十一个任务中的八个上于每个评测回合都成功，平均成功率达到 <b>99.5%</b>——高出该基准最强基线 45.4 分、高出已发表最佳平均值 34.2 分，且没有使用任何动作演示。差距在现有方法鲜能完成的双臂任务上最大：RAX 在每一个回合中都解决了 Hanoi（D.2 节）与 iPad——而已发表的最好结果分别是 42.0 与 52.0；在 Assembly 上它达到 96.0，而已发表最好结果为 28.0。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table05_p21.jpg" alt="Table 5">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 5</span>DexJoCo，rand-obj 设置。各任务 150 个官方评测回合上的成功率（%）。基线取自 Wang et al. (2026a)、Park et al. (2026)（GR00T N1.6、Fast-WAM、PointWAM）、Zhang et al. (2026) 与 Li et al. (2026)。DP-T 与 DP-C：以 Transformer 与 CNN 为骨干的 Diffusion Policy。† 所有任务共用一个策略。‡ 除 iPad 外十个任务的平均。§ 带仿真触觉输入。–：未报告。</span>
+    <span class="enm"><b>Table 5 |</b> DexJoCo, rand-obj setting. Success rate (%) on the 150 official evaluation episodes of each task. Baselines from Wang et al. (2026a), Park et al. (2026) (GR00T N1.6, Fast-WAM, PointWAM), Zhang et al. (2026), and Li et al. (2026). DP-T and DP-C: Diffusion Policy with transformer and CNN backbones. † One policy for all tasks. ‡ Mean over the ten tasks other than iPad. § With simulated tactile input. –: not reported.</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="5.2.5">5.2.5&nbsp;&nbsp;LIBERO 与 LIBERO-Pro<a class="pg" href="{{PDF}}#page=20" target="_blank">p.20</a></h3>
+
+<div class="pair">
+<p class="en"><b>Setup.</b> LIBERO (Liu et al., 2023) evaluates a single Franka Panda arm with a parallel-jaw gripper on four ten-task suites, Spatial, Object, Goal, and Long (Section C.7), and LIBERO-Pro (Zhou et al., 2025) perturbs the layouts of the same tasks. The agent commands delta end-effector poses and the gripper. It perceives the scene through the agent-view and wrist RGB-D cameras and receives the task description and three images of the completed task, but no action demonstrations.</p>
+<p class="zh"><b>设置。</b>LIBERO（Liu et al., 2023）用带平行夹爪的单条 Franka Panda 机械臂，在四个各含十个任务的套件上评测——Spatial、Object、Goal 与 Long（C.7 节）；LIBERO-Pro（Zhou et al., 2025）则对这些相同任务的布局施加扰动。智能体命令末端位姿增量与夹爪动作。它通过智能体视角相机与腕部 RGB-D 相机感知场景，并获得任务描述与任务完成后的三张图像，但不给任何动作演示。</p>
+</div>
+
+<div class="pair">
+<p class="en">It explores with a budget of up to 20 episodes on fresh layouts drawn from the official placement distribution and may continue with up to 5 episodes of adaptation on layouts drawn from the position-perturbed distribution of LIBERO-Pro, in which objects exchange their initial regions (Section D.4), never on an evaluation state. The resulting fully automated program is evaluated alone, without the agent, on unseen scenes, the 50 official initial states of each task and the 50 position-perturbed states of LIBERO-Pro.</p>
+<p class="zh">它在取自官方摆放分布的新布局上以至多 20 个回合进行探索，并可在取自 LIBERO-Pro“位置扰动”分布的布局上继续做至多 5 个回合的适应（在该分布中物体会互换其初始区域，D.4 节）——但绝不在评测状态上进行。所得的全自动程序在无智能体参与的情况下单独评测：各任务 50 个官方初始状态，以及 LIBERO-Pro 的 50 个位置扰动状态。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Baselines.</b> We compare with the VLAs OpenVLA (Kim et al., 2024), OpenVLA-OFT (Kim et al., 2025), π<sub>0</sub> (Black et al., 2024), π<sub>0.5</sub> (Intelligence et al., 2025), and X-VLA (Zheng et al., 2026), and with the world action models Cosmos Policy (Kim et al., 2026), Fast-WAM (Yuan et al., 2026), PatchWAM (Wang et al., 2026b), and VPP2 (Guo et al., 2026), all of which fine-tune on the benchmark’s demonstrations (Table 6).</p>
+<p class="zh"><b>基线。</b>我们与这些 VLA 比较：OpenVLA（Kim et al., 2024）、OpenVLA-OFT（Kim et al., 2025）、π<sub>0</sub>（Black et al., 2024）、π<sub>0.5</sub>（Intelligence et al., 2025）与 X-VLA（Zheng et al., 2026）；并与这些世界动作模型比较：Cosmos Policy（Kim et al., 2026）、Fast-WAM（Yuan et al., 2026）、PatchWAM（Wang et al., 2026b）与 VPP2（Guo et al., 2026）。它们都在该基准的演示数据上做了微调（表 6）。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Results.</b> Without a single action demonstration, RAX achieves one of the highest average success rates among these models on the original suites, 98.5% (Table 6). Under position perturbation the learned policies collapse: OpenVLA, π<sub>0</sub> , and X-VLA succeed in at most 2% of the episodes of any suite, π<sub>0.5</sub> in at most 38%, and the world action models PatchWAM and VPP2 in 8.8% and 42.3% on average.</p>
+<p class="zh"><b>结果。</b>在没有任何动作演示的情况下，RAX 在原始套件上取得了这些模型中最高的平均成功率之一——<b>98.5%</b>（表 6）。而在位置扰动下，学习型策略全面崩溃：OpenVLA、π<sub>0</sub> 与 X-VLA 在任何套件上的成功率都不超过 2%，π<sub>0.5</sub> 不超过 38%，世界动作模型 PatchWAM 与 VPP2 的平均值分别为 8.8% 与 42.3%。</p>
+</div>
+
+<div class="pair">
+<p class="en">Without a single episode on perturbed layouts, the programs of RAX, which locate every object anew in each episode, already retain 76.0% on average and exceed every learned policy on every suite, 33.7 points above VPP2; they also exceed by 12.8 points the coding agent ASPIRE (Lu et al., 2026), which develops a program for each task and perturbation with up to 75 rollouts and evolutionary search on instances from the evaluation distribution (Section E). With at most 5 episodes of adaptation on perturbed layouts, RAX raises its average by a further 8.4 points to 84.4%, from 71.4% on Long to 100.0% on Object, and exceeds ASPIRE on every suite. Exploration thus yields programs that transfer to new layouts, and a few further episodes of exploration repair those that do not.</p>
+<p class="zh">即便在扰动布局上<b>一个回合都没跑过</b>，RAX 的程序（它们在每个回合中都会重新定位每一个物体）平均仍保有 76.0%，在每个套件上都超过所有学习型策略，比 VPP2 高 33.7 分；它们也比编程智能体 ASPIRE（Lu et al., 2026）高出 12.8 分——后者针对每个任务与每种扰动分别开发程序，在来自评测分布的实例上最多用 75 次 rollout 加进化搜索（E 节）。而在扰动布局上做至多 5 个回合的适应后，RAX 的平均值再提升 8.4 分，达到 <b>84.4%</b>（从 Long 的 71.4% 到 Object 的 100.0%），并在每个套件上超过 ASPIRE。可见，探索得到的程序能够迁移到新布局；而那些迁移不佳的，只需再补几个探索回合即可修复。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table06_p22.jpg" alt="Table 6">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 6</span>LIBERO 与 LIBERO-Pro。各任务 50 个官方初始状态、以及 LIBERO-Pro 中 50 个位置扰动状态上的成功率（%）。</span>
+    <span class="enm"><b>Table 6 |</b> LIBERO and LIBERO-Pro. Success rate (%) on the 50 official initial states of each task and the 50 position-perturbed states in LIBERO-Pro.</span>
+  </figcaption>
+</figure>

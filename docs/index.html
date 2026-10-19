@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robotics Paper Reading · 机器人论文双语精读</title>
+<meta name="description" content="Robotics papers in bilingual (English/Chinese) side-by-side reading form: agentic robot learning, differentiable simulation, control and hardware.">
+<style>
+:root{--bg:#f7f5f0;--paper:#fffefb;--ink:#1c2024;--soft:#5d636b;--faint:#8b9099;--line:#e2ddd3;
+  --sans:"Noto Sans CJK SC","Source Han Sans SC","PingFang SC",system-ui,sans-serif;
+  --en:Georgia,"Times New Roman",serif;--mono:"JetBrains Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans)}
+.wrap{max-width:1060px;margin:0 auto;padding:56px 24px 90px}
+.top{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#3f51b5;font-weight:700}
+.repo{margin-left:auto;font-size:12.6px;color:var(--soft)}
+.repo a{color:inherit}
+h1{font-size:31px;margin:14px 0 4px;letter-spacing:-.01em}
+h1 .en{font-family:var(--en);font-style:italic;font-size:17px;color:var(--soft);font-weight:400;display:block;margin-top:8px;letter-spacing:0}
+.sub{color:var(--soft);font-size:14.6px;margin:16px 0 0;line-height:1.8;max-width:52em}
+h2.sec{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);
+  margin:46px 0 14px;font-weight:700;display:flex;align-items:center;gap:12px}
+h2.sec:after{content:"";flex:1;height:1px;background:var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:20px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 22px 16px;
+  text-decoration:none;color:inherit;display:block;transition:.15s;box-shadow:0 1px 3px rgba(30,25,15,.05)}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,25,15,.10);border-color:#cfc8ba}
+.card .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.07em;
+  padding:3px 9px;border-radius:20px;margin:0 6px 14px 0}
+.card h3{font-size:19.5px;margin:0 0 6px;line-height:1.35}
+.card .ent{font-family:var(--en);font-style:italic;color:var(--soft);font-size:13.6px;margin:0 0 12px;line-height:1.5}
+.card p{font-size:13px;color:#6b7178;line-height:1.72;margin:0 0 14px}
+.card .meta{font-size:12px;color:var(--faint);border-top:1px dashed var(--line);padding-top:10px;
+  display:flex;gap:14px;flex-wrap:wrap}
+.soon{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.soon div{background:#fffdf8;border:1px dashed var(--line);border-radius:10px;padding:11px 14px;
+  font-size:12.6px;color:#7a8088;line-height:1.6}
+.soon b{display:block;color:#4b5158;font-size:12.4px;margin-bottom:2px}
+footer{margin-top:52px;border-top:1px solid var(--line);padding-top:18px;font-size:12.4px;color:var(--faint);line-height:1.85}
+code{font-family:var(--mono);font-size:.9em;background:#f1efe9;border-radius:4px;padding:1px 5px}
+a{color:#3f51b5}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="kicker">Robotics · Papers · Bilingual</div>
+    <div class="repo"><a href="https://github.com/Nagato-Yukii/robot-paper-reading">GitHub ↗</a></div>
+  </div>
+
+  <h1>机器人论文双语精读
+    <span class="en">Robotics Paper Reading — software &amp; hardware, side by side</span>
+  </h1>
+  <p class="sub">面向机器人领域的论文精读：覆盖学习与控制算法（软件），以及仿真、接触、硬件迁移（硬件）。
+     每篇论文做成<b>逐段中英对照</b>页面——左英文原文、右中文译文，插图与表格从原 PDF 高清裁出，
+     公式以 KaTeX 本地渲染；可切换「对照 / 仅中文 / 仅英文」，也可直接打印成双语 PDF。</p>
+
+  <h2 class="sec">已收录 · Papers</h2>
+  <div class="grid">
+    <a class="card" href="rax/index.html">
+      <span class="tag" style="background:#eceffb;color:#3f51b5">软件 · 智能体 / 机器人学习</span>
+      <span class="tag" style="background:#f3f0ea;color:#6b7178">VLA · 操作</span>
+      <h3>面向机器人智能体的在线探索规模化</h3>
+      <p class="ent">Scaling Online Exploration for Robot Agents</p>
+      <p>RAX：让一个通用编程智能体通过在线探索自己写出机器人控制程序，跨五种本体（单臂 / 双臂 / 灵巧手 / 移动 / 人形）在仿真与真机上掌握精密插入、铰接物体、可变形物体与长时序移动操作。</p>
+      <div class="meta"><span>77 页</span><span>34 图 · 21 表</span><span>261 段对照</span><span>arXiv 2026</span></div>
+    </a>
+
+    <a class="card" href="bcg/index.html">
+      <span class="tag" style="background:#e6f4f1;color:#0f766e">硬件 · 仿真 / 接触</span>
+      <span class="tag" style="background:#f3f0ea;color:#6b7178">足式 · 人形</span>
+      <h3>捆绑接触梯度：让可微分仿真稳定支撑可部署的动态任务</h3>
+      <p class="ent">Bundled Contact Gradients: Stabilizing Differentiable Simulation for Deployable Dynamic Tasks</p>
+      <p>BCG：在刚性接触处对邻近扰动分支做局部随机平滑，稳定一阶策略梯度；把可微分仿真训练出的人形动态动作（跑、跳、格斗、舞）零样本部署到真实 Unitree G1。</p>
+      <div class="meta"><span>8 页</span><span>5 图 · 2 表 · 1 算法</span><span>公式 (1)–(5)</span><span>arXiv 2026</span></div>
+    </a>
+  </div>
+
+  <h2 class="sec">计划中 · Roadmap</h2>
+  <div class="soon">
+    <div><b>学习与控制</b>足式运动、MPC 与 WBC、强化学习 sim-to-real</div>
+    <div><b>操作</b>灵巧手、触觉、接触丰富的装配</div>
+    <div><b>仿真与硬件</b>可微分物理、接触建模、执行器与传动</div>
+    <div><b>感知与系统</b>VLA、SLAM、实时系统与部署</div>
+  </div>
+
+  <footer>
+    内容结构：<code>sources/</code> 原始 PDF · <code>content/</code> 分节译文 · <code>pipeline/</code> 构建与裁图工具 · <code>docs/</code> 可直接浏览的站点。
+    新增一篇论文只需把 PDF 放进 <code>sources/</code>、按模板写 <code>content/&lt;id&gt;/</code>，再 <code>python3 pipeline/build.py pipeline/configs/&lt;id&gt;.json</code>，
+    详见 <a href="https://github.com/Nagato-Yukii/robot-paper-reading#readme">README</a>。<br>
+    论文原文、插图与表格的版权归原作者所有，本仓库仅作学习与评注用途；如作者要求可随时移除。
+  </footer>
+</div>
+</body>
+</html>

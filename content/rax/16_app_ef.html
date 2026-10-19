@@ -1,0 +1,70 @@
+<h2 data-num="E">E&nbsp;&nbsp;ASPIRE 在 LIBERO-Pro 上的探索预算<a class="pg" href="{{PDF}}#page=57" target="_blank">p.57</a></h2>
+
+<div class="pair">
+<p class="en">ASPIRE (Lu et al., 2026) writes robot programs in CaP-X (Fu et al., 2026) with Claude Code and Claude Opus 4.6. Its programs call the CaP-X interfaces for perception, including text-prompted segmentation and vision-language pointing, for grasp planning, including a top-down grasp selector, for inverse kinematics, and for joint-space motion, and they may not read the simulator’s ground-truth state.</p>
+<p class="zh">ASPIRE（Lu et al., 2026）使用 Claude Code + Claude Opus 4.6，在 CaP-X（Fu et al., 2026）中编写机器人程序。它的程序调用 CaP-X 的各类接口：感知（包括文本提示的分割与视觉语言指点）、抓取规划（包括一个俯视抓取选择器）、逆运动学以及关节空间运动；这些程序不得读取仿真器的真值状态。</p>
+</div>
+
+<div class="pair">
+<p class="en">On LIBERO-Pro, the unit of development is a task under one perturbation: each of the 30 tasks of the Spatial, Object, and Goal suites is developed separately for the position and the task perturbation, giving 60 programs, each written for its own perturbed suite.</p>
+<p class="zh">在 LIBERO-Pro 上，其“开发单元”是“某一扰动下的某个任务”：Spatial、Object 与 Goal 三个套件的 30 个任务，各自分别针对“位置扰动”和“任务扰动”开发，共得到 60 个程序，每个程序都是为它自己那套扰动专门写的。</p>
+</div>
+
+<div class="pair">
+<p class="en">For each task and perturbation, ASPIRE executes an initial program on a debugging split of 15 environment seeds (51–65), where a seed fixes one instance of the task, including object poses, distractors, and the initial state of the robot. After each execution, the coding agent reads a trace of every primitive call, with its inputs, outputs, and return status, the camera frames before and after the call, grasp candidates, object poses, and motion-planning results. It diagnoses the failure, patches the program, and replays the debugging seeds, with at most three replays per seed.</p>
+<p class="zh">对每个任务与每种扰动，ASPIRE 先在一个由 15 个环境种子（51–65）构成的“调试划分”上执行初始程序——一个种子固定了任务的一个实例，包括物体位姿、干扰物与机器人初始状态。每次执行之后，编程智能体读取每个原语调用的轨迹（含输入、输出与返回状态）、调用前后的相机帧、抓取候选、物体位姿与运动规划结果；它诊断失败、修补程序，并重放这些调试种子，每个种子至多重放三次。</p>
+</div>
+
+<div class="pair">
+<p class="en">On some tasks, an evolutionary search additionally proposes K candidate programs per iteration, conditioned on the three best programs and their failure traces, and executes each candidate on the debugging split; the reported searches run for up to four iterations, and K is not reported. The final program is executed once on a validation split of 15 further seeds (66–80) and then evaluated on seeds 1–50. A coordinator promotes validated repairs into a shared library of skills, each stored with its failure signature, its condition of use, its repair strategy, and a code sketch, which later sessions read as in-context guidance. With the same loop on Claude Opus 5, Kang et al. (2026) report a median of 0.99 hours and 91 thousand output tokens per task and perturbation.</p>
+<p class="zh">在某些任务上，还会额外做进化搜索：每轮以最好的三个程序及其失败轨迹为条件，提出 <i>K</i> 个候选程序，并在调试划分上分别执行；论文报告的搜索最多迭代四轮，但未说明 <i>K</i> 的取值。最终程序先在另外 15 个种子（66–80）组成的“验证划分”上执行一次，然后在种子 1–50 上评测。一个协调者会把通过验证的修补提升进共享技能库，每项技能记录其失败特征、使用条件、修补策略与代码骨架，供后续会话作为上下文内指导阅读。Kang et al. (2026) 报告，在 Claude Opus 5 上使用同样的闭环，每个任务与每种扰动中位耗时 0.99 小时、消耗 9.1 万输出 token。</p>
+</div>
+
+<div class="pair">
+<p class="en">The debugging and validation seeds index instances of the same perturbed suite as the evaluation seeds, so every rollout before the final evaluation is drawn from the distribution on which the program is evaluated. This is also required by the task perturbation, which changes the goal of the task: a program developed on the original task would pursue the original goal. ASPIRE’s result on the Long suite comes from a separate setting, in which a skill library built on the 90 tasks of LIBERO-90 is applied to the Long tasks without any debugging on them.</p>
+<p class="zh">调试与验证种子所索引的，是与评测种子<b>同一个扰动套件</b>中的实例——因此最终评测之前的每一次 rollout 都取自程序将被评测的那个分布。任务扰动本身也要求如此：它会改变任务目标，而在原任务上开发的程序会去追求原目标。ASPIRE 在 Long 套件上的结果来自另一种设置：把在 LIBERO-90 的 90 个任务上构建的技能库直接应用到 Long 任务上，不在这些任务上做任何调试。</p>
+</div>
+
+<div class="pair">
+<p class="en">ASPIRE does not report the total number of rollouts per task; Table 20 gives the budget that its protocol implies, alongside that of RAX. With at most 5 rollouts from the evaluation distribution on the five tasks that adapted to the perturbation (Section D.4), and none on the other 35, RAX exceeds ASPIRE on every suite under position perturbation, by 28.2 points on Spatial, 2.0 on Object, 6.0 on Goal, and 48.8 on Long (Table 6).</p>
+<p class="zh">ASPIRE 没有报告每个任务的总 rollout 数；表 20 给出了其协议所隐含的预算，并与 RAX 并列。RAX 只在 5 个做过扰动适配的任务上（D.4 节）使用了至多 5 次来自评测分布的 rollout，其余 35 个任务上为 0 次；即便如此，它在位置扰动下的每个套件上都超过 ASPIRE：Spatial +28.2、Object +2.0、Goal +6.0、Long +48.8（表 6）。</p>
+</div>
+
+<table class="data bilingual">
+<caption><b>表 20</b>｜位置扰动下评测前的探索（Table 20 | Exploration before evaluation under position perturbation）。ASPIRE 的计数是其在单个任务与单个扰动上的调试与验证划分；进化搜索会为每个调试实例、每轮额外增加 <i>K</i> 次 rollout。</caption>
+<thead><tr><th style="width:46%"></th><th style="width:27%">ASPIRE</th><th style="width:27%">RAX</th></tr></thead>
+<tbody>
+<tr><td>每个任务的程序数<br><span class="enm2">Programs per task</span></td><td>每种扰动一个<br><span class="enm2">one per perturbation</span></td><td>一个，在 40 个任务中的 5 个上做过适配<br><span class="enm2">one, adapted on 5 of 40 tasks</span></td></tr>
+<tr><td>来自评测分布的实例数<br><span class="enm2">Instances from the evaluation distribution</span></td><td>30</td><td>0，或在适配时最多 5 个<br><span class="enm2">0, or up to 5 when adapted</span></td></tr>
+<tr><td>这些实例上的 rollout 数<br><span class="enm2">Rollouts on these instances</span></td><td>最多 75，另加进化搜索<br><span class="enm2">up to 75, plus evolutionary search</span></td><td>0，或在适配时最多 5 个<br><span class="enm2">0, or up to 5 when adapted</span></td></tr>
+<tr><td>在未扰动布局上的探索<br><span class="enm2">Exploration on unperturbed layouts</span></td><td>—</td><td>至多 20 个回合<br><span class="enm2">up to 20 episodes</span></td></tr>
+<tr><td>扰动下的评测<br><span class="enm2">Evaluation under perturbation</span></td><td>在其上开发之后<br><span class="enm2">after development on it</span></td><td>零样本，或适配之后<br><span class="enm2">zero-shot, or after adaptation</span></td></tr>
+</tbody>
+</table>
+
+<h2 data-num="F">F&nbsp;&nbsp;图 1 的汇总结果<a class="pg" href="{{PDF}}#page=58" target="_blank">p.58</a></h2>
+
+<div class="pair">
+<p class="en">The two simulation charts of Figure 1 summarize RoboDojo, BEHAVIOR-1K, HumanoidArena, DexJoCo, and LIBERO-Pro, and compare RAX with the strongest prior model, that is, with learned policies such as VLAs and world action models rather than with other agents. For each benchmark, the right chart pairs the average success rate of RAX, with each task at its largest budget, with the average of the strongest prior model on the same tasks: VPP2 on RoboDojo, the highest-ranked challenge entry on BEHAVIOR-1K, WB-WAM on HumanoidArena, ME-Dex on DexJoCo, and VPP2 on LIBERO-Pro.</p>
+<p class="zh">图 1 的两幅仿真图汇总了 RoboDojo、BEHAVIOR-1K、HumanoidArena、DexJoCo 与 LIBERO-Pro，并把 RAX 与最强的“先前模型”比较——即 VLA、世界动作模型这类学习型策略，而不是其他智能体。对每个基准，右图把 RAX（每个任务取其最大预算）的平均成功率，与最强先前模型在相同任务上的平均作对比：RoboDojo 上是 VPP2，BEHAVIOR-1K 上是排名最高的参赛方案，HumanoidArena 上是 WB-WAM，DexJoCo 上是 ME-Dex，LIBERO-Pro 上是 VPP2。</p>
+</div>
+
+<div class="pair">
+<p class="en">On LIBERO-Pro, the chart therefore compares with VPP2 (42.3%), the strongest model under position perturbation, and not with the coding agent ASPIRE (63.2%), which we compare with in Section 5.2.5. On DexJoCo, the chart includes only the five bimanual tasks, iPad, Hanoi, Assembly, Microwave, and Photo. The six single-arm tasks are too easy to show the effect of scaling, since RAX solves each of them within a few exploration episodes, and the bimanual tasks are the harder part of the benchmark: with 32 exploration episodes, RAX averages 94.3% on them, against 48.8% for ME-Dex.</p>
+<p class="zh">因此在 LIBERO-Pro 上，该图比较的对象是位置扰动下最强的模型 VPP2（42.3%），而不是编程智能体 ASPIRE（63.2%）——与后者的比较放在 5.2.5 节。在 DexJoCo 上，该图只包含五个双臂任务：iPad、Hanoi、Assembly、Microwave 与 Photo。六个单臂任务太简单、看不出规模化的效果（RAX 在几个探索回合内就解决了每一个），而双臂任务才是该基准中更难的部分：在 32 个探索回合下，RAX 在它们上平均达到 94.3%，ME-Dex 为 48.8%。</p>
+</div>
+
+<div class="pair">
+<p class="en">The average margin of 37.4 points stated in the abstract and the introduction is the mean of the five margins of this chart, 53.4 on RoboDojo, 38.3 on BEHAVIOR-1K, 7.9 on HumanoidArena, 45.5 on the bimanual tasks of DexJoCo, and 42.1 on LIBERO-Pro.</p>
+<p class="zh">摘要与引言中给出的 37.4 分平均优势，正是这幅图中五个差距的平均值：RoboDojo 53.4、BEHAVIOR-1K 38.3、HumanoidArena 7.9、DexJoCo 双臂任务 45.5、LIBERO-Pro 42.1。</p>
+</div>
+
+<div class="pair">
+<p class="en">The per-benchmark margins listed in the introduction instead compare with the strongest prior result of any kind on all tasks of each benchmark. On DexJoCo, this is the average of all eleven tasks at 32 exploration episodes, 96.7%, against ME-Dex at 65.3% (+31.4), and on LIBERO-Pro it is ASPIRE (+21.2). Section 5.2.4 further reports the best session of each task across budgets, which averages 99.5%.</p>
+<p class="zh">而引言中列出的分基准优势，比较的是“每个基准全部任务上、任一类型的最强先前结果”。在 DexJoCo 上，这是全部十一个任务在 32 个探索回合下的平均 96.7%，对 ME-Dex 的 65.3%（+31.4）；在 LIBERO-Pro 上则是 ASPIRE（+21.2）。5.2.4 节还报告了各任务跨预算的最佳会话，平均为 99.5%。</p>
+</div>
+
+<div class="pair">
+<p class="en">The left chart averages, at each budget, the success rates of the tasks within each benchmark and then the five benchmarks with equal weight. A task without a result at a budget shown counts with its result at the largest smaller budget. On LIBERO-Pro, 37 of the 40 tasks have a budget of 15 exploration episodes and use 11 to 15, Goal 1, 5, and 9 have a budget of 20 and use 18, 20, and 19, and the 40 tasks use 14.2 on average (13.5 on Spatial, 14.0 on Object, 15.1 on Goal, and 14.0 on Long), so their results are included at 16. The dashed line, 41.2%, is the mean of the strongest prior models of the right chart.</p>
+<p class="zh">左图在每个预算点上，先对每个基准内部各任务的成功率取平均，再对五个基准等权平均。某个任务在所示预算上没有结果时，就用它在“小于该预算的最大预算”上的结果计入。在 LIBERO-Pro 上，40 个任务中有 37 个的预算是 15 个探索回合、实际用了 11–15；Goal 1、5、9 的预算是 20、实际用了 18、20、19；40 个任务平均用了 14.2（Spatial 13.5、Object 14.0、Goal 15.1、Long 14.0），因此它们的结果被计入 16 这一档。虚线 41.2% 是右图中各最强先前模型的平均值。</p>
+</div>

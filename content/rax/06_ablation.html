@@ -1,0 +1,134 @@
+<h3 data-num="5.3">5.3&nbsp;&nbsp;消融实验<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Ablations</span><a class="pg" href="{{PDF}}#page=22" target="_blank">p.22</a></h3>
+
+<div class="pair">
+<p class="en">In this section we ablate the key design choices of our system, including parallel exploration with multi-agent and multiple environments, the effect of depth sensing over RGB-only observations, and the evolve of inference tokens and inference time over exploration.</p>
+<p class="zh">本节对系统的若干关键设计选择做消融分析，包括多智能体/多环境的并行探索、深度感知相对于纯 RGB 观测的作用，以及推理 token 与推理时间随探索的演化。</p>
+</div>
+
+<h3 data-num="5.3.1">5.3.1&nbsp;&nbsp;并行化<a class="pg" href="{{PDF}}#page=22" target="_blank">p.22</a></h3>
+
+<div class="pair">
+<p class="en">Exploration can also be parallelized (Section 3.5): the same budget of exploration episodes is distributed across K parallel environments, explored by a team of cooperating agents that share a common workspace. In the same way that multiple agents scale test-time compute in parallel rather than purely serially, trading some efficiency for wall-clock time, parallel environments let a team of agents consume an exploration budget concurrently.</p>
+<p class="zh">探索还可以并行化（3.5 节）：把同一份探索回合预算分配到 <i>K</i> 个并行环境中，由一支共享同一工作区的协作智能体团队分头探索。正如多个智能体可以把测试时计算并行化而非纯串行——以一定的效率换取墙上时间——并行环境也让一支智能体团队能够同时消耗探索预算。</p>
+</div>
+
+<div class="pair">
+<p class="en">We parallelize exploration on make toast. All sessions use RGB-D observations, an image sequence of one successful completion, and instructions that summarize the official task code, including its numeric success thresholds; the fully automated program is evaluated on the same 32 unseen scenes. Parallelization reduces the time needed to consume the exploration budget for both agents (Table 7). With four agents in four environments, Claude Code reaches a score of 92.2 in 4.9 hours, against 63.3 in 13.7 hours for a single agent with a larger budget; with two agents in two environments, Codex matches its single-agent score in 9.2 hours instead of 14.2.</p>
+<p class="zh">我们在 <i>make toast</i> 上做了并行探索。所有会话都使用 RGB-D 观测、一段成功完成的图像序列，以及概括官方任务代码（含其数值成功阈值）的指令；全自动程序在同样的 32 个未见场景上评测。并行化缩短了两个智能体消耗完探索预算所需的时间（表 7）。当 4 个智能体分布在 4 个环境中时，Claude Code 在 4.9 小时内达到 92.2 分，而单智能体即便预算更大，也要用 13.7 小时才达到 63.3 分；当 2 个智能体分布在 2 个环境中时，Codex 用 9.2 小时便追平了它单智能体 14.2 小时的成绩。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table07_p22.jpg" alt="Table 7">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 7</span><i>make toast</i> 上的并行探索。智能体从开始到提交所需的智能体时间，以及全自动程序在 32 个未见场景上的成功率与得分（%）。</span>
+    <span class="enm"><b>Table 7 |</b> Parallel exploration on make toast. Agent time until submission, and success rate and score (%) of the fully automated program on 32 unseen scenes.</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="5.3.2">5.3.2&nbsp;&nbsp;深度感知 vs. 纯 RGB 感知<a class="pg" href="{{PDF}}#page=23" target="_blank">p.23</a></h3>
+
+<div class="pair">
+<p class="en">To measure the contribution of depth, we compare RGB-D and RGB-only sessions on the three domain-randomized RoboDojo tasks. In the RGB-only profile, depth and the geometric primitives built on it are removed, and the agent must perceive through motion, relating image coordinates to robot motion by moving the robot by known amounts. Each pair shares the task, the agent, and the exploration budget N, and its fully automated program is evaluated on the same unseen scenes as in Section 5.2.1. With depth, the agent outperforms the RGB-only agent in every pair, by 17.3 points on average (Table 8).</p>
+<p class="zh">为了衡量深度的贡献，我们在三个域随机化的 RoboDojo 任务上比较 RGB-D 会话与纯 RGB 会话。在纯 RGB 配置中，深度以及建立在其上的几何原语都被移除，智能体必须“通过运动来感知”——即让机器人移动已知距离，从而把图像坐标与机器人运动关联起来。每一对会话共享相同的任务、相同的智能体与相同的探索预算 <i>N</i>，其全自动程序在与 5.2.1 节相同的未见场景上评测。有深度时，智能体在每一对比较中都优于纯 RGB 智能体，平均高出 <b>17.3</b> 分（表 8）。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table08_p23.jpg" alt="Table 8">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 8</span>深度感知 vs. 纯 RGB 感知。在相同探索预算下，未见布局上的得分（%）。多次运行取均值。</span>
+    <span class="enm"><b>Table 8 |</b> Depth versus RGB-only perception. Score (%) on unseen layouts at matched exploration budgets. Cells with more than one run report the mean.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>Case study: perception with and without depth.</b> To understand where this gap comes from, we inspect the fully automated programs submitted by the RGB-D and RGB-only agents on make toast random with a budget of 32 episodes. Both agents use the vision-language model in the same role, to point at semantic image locations such as the toaster slots, the top crust of a bread slice, and the lever. They differ in how they turn these image points into motion.</p>
+<p class="zh"><b>案例研究：有深度与无深度的感知。</b>为理解这一差距从何而来，我们检查了 RGB-D 智能体与纯 RGB 智能体在 <i>make toast random</i>、预算 32 个回合下提交的全自动程序。两个智能体让视觉语言模型扮演同样的角色——指出语义图像位置，例如烤面包机插槽、面包片顶部表皮、以及压杆。它们的差别在于如何把这些图像点转化为运动。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>With depth.</b> The RGB-D agent lifts every image point into a metric 3D point and builds the task’s geometry from these points. It first refines each slot opening by fitting a line to its visible contour, then measures both rim endpoints of each slot in 3D, from which it derives the slot centers and their common heading. On the bread, it measures two points along the top crust and one on the near side, and recovers the slice’s full 3D orientation from the plane through these points. After the grasp, it measures the slice again in the wrist camera to obtain its pose in the hand, and repeats this measurement above the slot to correct any slip before release. The agent also uses metric geometry to verify its perception: a measurement is rejected when a rim point does not lie within a narrow band at the toaster’s roof height, when the two rim endpoints are not 9 to 20 cm apart, or when the two slots are not 2.6 to 7.5 cm apart, and a press of the lever counts only when the lever is measured to have travelled 2.5 to 13 cm downward.</p>
+<p class="zh"><b>有深度时。</b>RGB-D 智能体把每个图像点提升为公制三维点，并由这些点构建任务的几何。它先对每个插槽的可见轮廓拟合直线以细化槽口，然后在三维中测量每个槽的两个边缘端点，由此导出槽心及其共同朝向。对面包片，它沿顶部表皮测两个点、在近侧再测一个点，并通过这三点确定的平面恢复面包片的完整三维朝向。抓取之后，它会在腕部相机中再次测量面包片，以获得其在手中的位姿；在释放之前，它还会在插槽上方重复这一测量，以修正任何滑移。智能体还用公制几何来校验自己的感知：当某边缘点不落在烤面包机顶部高度附近的窄带内、当两个边缘端点间距不在 9–20 cm 之间、或当两个插槽间距不在 2.6–7.5 cm 之间时，该测量即被拒收；而压杆动作只有在测得压杆下行 2.5–13 cm 时才被计入成功。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Without depth.</b> The RGB-only agent does not give up on 3D reasoning; it reconstructs a coarse camera model of its own. It maps overhead-camera pixels to table coordinates through a linear calibration at an assumed height, about 1.8 mm per pixel across the image and 1.4 mm per pixel along it, and then refines every target by visual servoing in the wrist camera: it moves the gripper until the target is centered, with hand-tuned gains of 0.4 to 0.8 mm per pixel, and rotates it until the slot or the bread is aligned in the image.</p>
+<p class="zh"><b>无深度时。</b>纯 RGB 智能体并没有放弃三维推理，而是自行重建了一个粗糙的相机模型。它在一个假设的高度上通过线性标定把俯视相机的像素映射到桌面坐标——横向约 1.8 mm/像素、纵向约 1.4 mm/像素——然后靠腕部相机的视觉伺服来细化每一个目标：它移动夹爪直到目标居中（手工调定的增益为 0.4–0.8 mm/像素），并旋转夹爪直到插槽或面包在图像中对齐。</p>
+</div>
+
+<div class="pair">
+<p class="en">The quantities that depth would provide are replaced by constants, including the grasp and release heights, the 3.8 cm spacing between the slots, and the height to which the lever is pressed, and success is judged by asking the vision-language model whether a slice is held or seated. These approximations hold only where the scene matches the agent’s assumptions. In evaluation, 36 of its 45 episodes ended in the lever stage without success, the step at which a fixed press height replaces a measured one, against 8 successes for the RGB-D agent.</p>
+<p class="zh">原本可由深度提供的量被换成了常数，包括抓取与释放高度、插槽之间 3.8 cm 的间距、以及压杆下压的高度；成功与否则靠询问视觉语言模型“面包片是否被夹住/是否落位”来判定。这些近似只在场景符合智能体假设时才成立。在评测中，它的 45 个回合里有 36 个在“压杆”阶段无果而终——恰恰是固定下压高度取代实测高度的那一步；相比之下 RGB-D 智能体取得了 8 次成功。</p>
+</div>
+
+<h3 data-num="5.3.3">5.3.3&nbsp;&nbsp;推理时间与 token<a class="pg" href="{{PDF}}#page=24" target="_blank">p.24</a></h3>
+
+<div class="pair">
+<p class="en">Here we demonstrate the decrease of inference wall time and output tokens with exploration as more and more decisions are being automated with programs.</p>
+<p class="zh">这里我们展示：随着越来越多的决策被程序自动化，推理的墙上时间与输出 token 如何随探索而下降。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Simulation.</b> As the agent compiles its experience into autonomous code programs, the computational overhead of action generation decreases substantially. We evaluate this efficiency gain across two benchmark tasks: loading the car in BEHAVIOR-1K (128 exploration episodes across two parallel environments) and make toast random in RoboDojo (64 exploration episodes).</p>
+<p class="zh"><b>仿真。</b>随着智能体把经验编译为自主代码程序，动作生成的计算开销大幅下降。我们在两个基准任务上评估这一效率增益：BEHAVIOR-1K 的 <i>loading the car</i>（在两个并行环境中进行 128 个探索回合）与 RoboDojo 的 <i>make toast random</i>（64 个探索回合）。</p>
+</div>
+
+<div class="pair">
+<p class="en">We define episode inference time as the cumulative wall-clock latency dedicated to action generation—excluding simulator and hardware step times—regardless of whether actions stem from direct LLM deliberation, code program execution, or a hybrid mode. Figure 7 tracks inference latency and output token consumption across all successful exploration episodes.</p>
+<p class="zh">我们把“回合推理时间”定义为专门用于动作生成的累计墙上时延（不含仿真器与硬件的步进时间），无论动作来自 LLM 直接推理、代码程序执行还是混合模式。图 7 追踪了所有成功的探索回合中的推理时延与输出 token 消耗。</p>
+</div>
+
+<div class="pair">
+<p class="en">On loading the car, the initial successful episode required 123 minutes of inference time and 254k output tokens. By the final exploration episode, inference overhead dropped to 4 minutes and 4k tokens, while environment execution time remained over 1 hour per episode. Similarly, on make toast random, initial task completion required 17 minutes of inference latency. Once execution transitioned to the compiled program, inference latency for the final agent-monitored successes fell to 6 seconds per episode—matching the 3–7 seconds observed during standalone program rehearsals (which accounted for 7 of the 15 total successes).</p>
+<p class="zh">在 <i>loading the car</i> 上，最初的成功回合需要 123 分钟推理时间与 254k 输出 token；到最后一个探索回合，推理开销已降至 4 分钟与 4k token，而环境执行时间仍保持在每回合 1 小时以上。类似地，在 <i>make toast random</i> 上，最初完成任务需要 17 分钟推理时延；一旦执行转向编译后的程序，最后那些“智能体在环监控”的成功回合，推理时延降到每回合 6 秒——与程序单独排练时观测到的 3–7 秒相当（这类排练占 15 次总成功中的 7 次）。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure07_p24.jpg" alt="Figure 7">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 7</span>从探索到代码。每个成功探索回合的推理时间（左）与输出 token（右），纵轴以 2 为底的对数；对排练而言，推理时间是由测试框架测得的程序计算时间，不含独立运行的开销。token 轴在 1000 以下为线性，以便显示零值。实心点表示智能体参与（单独或与其程序一起）的回合；空心圆圈表示程序单独运行的排练。在 <i>loading the car</i> 上，原始数据点以浅色显示，折线是五次成功上的滑动中位数；并行回合的输出 token 归到某个智能体被分配的环境，或在该时刻活跃的多个回合之间均分。</span>
+    <span class="enm"><b>Figure 7 |</b> From exploration to code. Inference time (left) and output tokens (right) of each successful exploration episode, on base-2 logarithmic vertical axes; for rehearsals, inference time is the program’s computation time as measured by the harness, without the overhead of running in isolation. The token axis is linear below one thousand tokens so that zero can be shown. Filled dots mark episodes in which the agent takes part, alone or together with its program; hollow circles mark rehearsals, in which the program runs alone. On loading the car, raw points are faint and the line is a running median over five successes; output tokens of parallel episodes are attributed to the environment an agent was assigned, or split evenly across the episodes active at that moment.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>Real robots.</b> Similar efficiency trends hold on real robots using the Franka manipulator (Table 9). We evaluate air fryer manipulation (Section G.2) and Bandu tower assembly (Section G.5), comparing an initial trial in which the agent generates each action via active deliberation against a subsequent execution of the compiled autonomous program. In both paradigms, the system actuates the robot through identical tool interfaces, with robot time defined as the duration spent executing arm, gripper, and visual perception calls.</p>
+<p class="zh"><b>真实机器人。</b>在 Franka 机械臂上，真实机器人也呈现类似的效率趋势（表 9）。我们评估了空气炸锅操作（G.2 节）与 Bandu 塔组装（G.5 节），把“智能体通过主动推理逐条生成动作”的初次试验，与随后执行编译后的自主程序作对比。两种范式下，系统都通过完全相同的工具接口驱动机器人；“机器人时间”定义为执行机械臂、夹爪与视觉感知调用所花的时间。</p>
+</div>
+
+<div class="pair">
+<p class="en">For the air fryer task, initial task completion (including online exploration) required 72 minutes of inference latency and 262k output tokens, against 3 minutes of robot time. Upon compilation, the initial autonomous run required only 18 seconds of inference latency (attributable entirely to local programmatic execution), with four subsequent unattended trials consistently yielding latencies between 18 and 23 seconds.</p>
+<p class="zh">对空气炸锅任务，初次完成任务（含在线探索）需要 72 分钟推理时延与 262k 输出 token，而机器人时间只有 3 分钟。编译之后，首次自主运行只需 18 秒推理时延（完全归因于本地程序化执行），随后四次无人值守试验的时延稳定在 18–23 秒之间。</p>
+</div>
+
+<div class="pair">
+<p class="en">Similarly, on the Bandu tower, step-by-step LLM deliberation to assemble six blocks required 17 minutes of inference latency; once compiled, autonomous assembly of seven blocks completed with 10 seconds of program overhead alongside 11 minutes of continuous robot execution. During these autonomous runs, control proceeded without human intervention or online LLM action synthesis, while background monitoring generated at most 2.2k tokens per run in parallel without imposing latency on robot execution.</p>
+<p class="zh">类似地，在 Bandu 塔上，用 LLM 逐步推理组装六块积木需要 17 分钟推理时延；编译之后，自主组装七块积木只带来 10 秒的程序开销，同时伴随 11 分钟的连续机器人执行。在这些自主运行过程中，控制流程无需人工干预，也不需要在线 LLM 动作合成；后台监控每次运行最多并行产生 2.2k token，且不会给机器人执行带来额外时延。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table09_p25.jpg" alt="Table 9">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 9</span>在真实 Franka 上从“智能体的动作”到“全自动程序”。首次成功由智能体生成动作，之后是其程序的一次无人值守成功。推理时间：机器人调用之外的墙上时间。智能体重建 Bandu 时放置六块，程序放置七块。</span>
+    <span class="enm"><b>Table 9 |</b> From the agent’s actions to a fully automated program on the real Franka. The first success with actions generated by the agent and a later unattended success of its program. Inference time: wall-clock time outside robot calls. The agent’s Bandu rebuild places six pieces, the program seven.</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="5.3.4">5.3.4&nbsp;&nbsp;不含动作的演示<a class="pg" href="{{PDF}}#page=25" target="_blank">p.25</a></h3>
+
+<div class="pair">
+<p class="en">On HumanoidArena, the exploring agent reads three teleoperated demonstrations of each task, and its programs may reuse motion segments cut from them, such as a gait cycle (Section D.3). We remove the actions from these demonstrations and keep everything else unchanged except the budget (RAX ⋆ ), which is 256 exploration episodes on DoubleDesk, 128 on P&amp;PBox, and 64 on each of the other five tasks, and evaluate the program on the same 60 official test episodes.</p>
+<p class="zh">在 HumanoidArena 上，探索中的智能体会读取每个任务的三条遥操作演示，其程序可以复用从演示中裁出的运动片段，例如一个步态周期（D.3 节）。我们把这些演示中的动作去掉，除预算之外其余一切不变（记作 RAX ⋆）：DoubleDesk 上 256 个探索回合，P&amp;PBox 上 128 个，其余五个任务各 64 个；然后在同样的 60 个官方测试回合上评测程序。</p>
+</div>
+
+<div class="pair">
+<p class="en">Without any action data, RAX ⋆ reaches 81.9% on average and matches WB-WAM, which is fine-tuned on 100 action demonstrations per task (Table 10). On Football, OpenDoor, and SitSofa, it stays within 5 points of RAX with action demonstrations. The more dynamic and contact-rich whole-body tasks, which require sustained locomotion or whole-body contact, VisNavi, Boxing, P&amp;PBox, and DoubleDesk, remain 10.0 to 16.6 points lower despite larger budgets. When the agent has to discover a suitable gait and whole-body control on its own, whole-body loco-manipulation requires more exploration.</p>
+<p class="zh">在完全没有动作数据的情况下，RAX ⋆ 平均达到 <b>81.9%</b>，追平了用每任务 100 条带动作演示微调的 WB-WAM（表 10）。在 Football、OpenDoor 与 SitSofa 上，它与带动作演示的 RAX 相差不超过 5 分。而那些更动态、接触更丰富的全身任务——需要持续运动或全身接触的 VisNavi、Boxing、P&amp;PBox 与 DoubleDesk——尽管预算更大，仍低 10.0–16.6 分。当智能体必须自行发现合适的步态与全身控制方式时，全身“移动+操作”需要更多的探索。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table10_p25.jpg" alt="Table 10">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 10</span>不含动作演示的 HumanoidArena。各任务 60 个官方测试回合上的成功率（%）。RAX：表 4 中的最大预算。⋆ 三条不含动作的演示。</span>
+    <span class="enm"><b>Table 10 |</b> HumanoidArena without action demonstrations. Success rate (%) on the 60 official test episodes of each task. RAX: largest budgets of Table 4. ⋆ Three demonstrations without actions.</span>
+  </figcaption>
+</figure>

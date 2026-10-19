@@ -1,0 +1,144 @@
+<h3 data-num="C.4">C.4&nbsp;&nbsp;BEHAVIOR-1K<a class="pg" href="{{PDF}}#page=40" target="_blank">p.40</a></h3>
+
+<div class="pair">
+<p class="en"><b>Tasks and interface.</b> We use six tasks of the 2025 BEHAVIOR Challenge (Li et al., 2023) with the Galaxea R1Pro, in the official evaluation environment of BEHAVIOR-1K (Table 14). The agent commands the native action at 30 Hz, base velocity together with absolute joint targets of the four trunk joints and the two seven-joint arms and a command for each gripper, with between 1 and 150 rows per call. It may also move the base in closed loop, step an end effector through inverse kinematics, plan collision-free arm motions, lift pixels to 3D points, and preview a motion on the robot alone.</p>
+<p class="zh"><b>任务与接口。</b>我们使用 2025 BEHAVIOR 挑战赛的六个任务（Li et al., 2023），平台为 Galaxea R1Pro，在 BEHAVIOR-1K 的官方评测环境中进行（表 14）。智能体以 30 Hz 下达原生动作：底盘速度，加上四个躯干关节与两条七关节手臂的绝对关节目标，以及每个夹爪的指令；每次调用 1–150 行。它还可以闭环移动底盘、用逆运动学步进末端执行器、规划无碰撞的手臂运动、把像素提升为三维点、以及在纯机器人模型上预演动作。</p>
+</div>
+
+<div class="pair">
+<p class="en">It observes the scene through the head camera at 720×720 and a camera on each wrist at 480×480, all RGB-D with intrinsics and poses relative to the base, together with the official proprioception and an odometry estimate integrated from the base velocity. The step limit of an episode is 1.5 times the mean length of the human demonstrations of the task, as in the 2026 evaluation, whereas the 2025 challenge allowed twice the mean.</p>
+<p class="zh">它通过 720×720 的头部相机与每个腕部 480×480 的相机观察场景，全部为 RGB-D，并带有内参与相对基座的位姿；此外还有官方本体感知，以及由底盘速度积分得到的里程计估计。每个回合的步数上限为该任务人类演示平均长度的 1.5 倍（与 2026 年评测一致），而 2025 年的挑战赛允许 2 倍。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Task information.</b> The task description contains the official instruction, the goal and initial conditions of the task’s BDDL definition, the scene and its rooms, and the limits of an episode. Except on boxing books, the agent also receives keyframes of successful official demonstrations from the head camera: the first frame, the end of each annotated skill, the final frame, and enough frames in between that no gap exceeds 10 s.</p>
+<p class="zh"><b>任务信息。</b>任务描述包含官方指令、该任务 BDDL 定义中的目标与初始条件、场景及其房间、以及回合一上的各项限制。除 <i>boxing books</i> 外，智能体还会收到头部相机拍摄的官方成功演示关键帧：第一帧、每个标注技能的结束帧、最后一帧，以及中间补足到“任意相邻两帧间隔不超过 10 s”的帧。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Exploration and evaluation.</b> Exploration scenes are the 300 training instances of each task, and evaluation uses the test instances 301 to 310 (Table 14). An episode is limited to 900 s plus 0.5 s per allowed step. Boxing books is evaluated as a fully automated program and the other five tasks as agent-in-the-loop programs, with one fresh copy of the agent per test instance.</p>
+<p class="zh"><b>探索与评测。</b>探索场景是每个任务的 300 个训练实例，评测使用测试实例 301–310（表 14）。每个回合限制为 900 s，再加每个允许步 0.5 s。<i>boxing books</i> 以全自动程序形式评测，其余五个任务以智能体在环程序形式评测，每个测试实例配一个全新的智能体副本。</p>
+</div>
+
+<div class="pair">
+<p class="en">On sorting items, clearing food, and clean up desk, each copy also receives the reports that a review model, Gemini 3.8 Flash, wrote on the fully automated program’s runs on the other nine test instances, built from the final status of each goal condition, the partial score, the program’s log, and camera frames, and referring to objects only by their task names. Episodes are scored by the Q-score of the challenge: 1 on success and otherwise the fraction of goal conditions that become satisfied during the episode, maximized over the alternative groundings of the goal and averaged over the ten instances.</p>
+<p class="zh">在 <i>sorting items</i>、<i>clearing food</i> 与 <i>clean up desk</i> 上，每个副本还会收到评审模型 Gemini 3.8 Flash 对其他九个测试实例上全自动程序运行情况所写的报告——报告依据每个目标条件的最终状态、部分得分、程序日志与相机帧撰写，并且只用任务名称来指代物体。回合按挑战赛的 Q-score 计分：成功记 1，否则记该回合中得以满足的目标条件比例；对目标的多种可能 grounding 取最大，再对十个实例取平均。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table14_p40.jpg" alt="Table 14">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 14</span>BEHAVIOR-1K 的任务与会话。步数上限（30 Hz 下）；预算：允许的探索回合数；envs：并行环境数；program：在表 3 中评测的程序形式。∗ 最高推理强度。† 不使用演示关键帧与视觉语言模型；实际用了 32 个回合。</span>
+    <span class="enm"><b>Table 14 |</b> BEHAVIOR-1K tasks and sessions. Step limit at 30 Hz; budget: exploration episodes allowed; envs: parallel environments; program: the program evaluated in Table 3. ∗ Maximum reasoning effort. † Without demonstration keyframes or the vision-language model; 32 episodes used.</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="C.5">C.5&nbsp;&nbsp;HumanoidArena<a class="pg" href="{{PDF}}#page=40" target="_blank">p.40</a></h3>
+
+<div class="pair">
+<p class="en"><b>Tasks and interface.</b> We use the seven tasks of HumanoidArena (Wang et al., 2026c) that have official test episodes, with a Unitree G1 that has 29 body joints and Dex3 hands (Table 15). The agent commands the official 40-dimensional whole-body reference at 50 Hz, with between 1 and 100 frames per call: the root translation and height, which the SONIC tracker (Luo et al., 2026) does not follow, since the robot translates only by stepping, the root orientation relative to the initial heading, 29 joint targets, and an open or close command for each hand.</p>
+<p class="zh"><b>任务与接口。</b>我们使用 HumanoidArena 中全部七个具有官方测试回合的任务（Wang et al., 2026c），平台为具有 29 个身体关节与 Dex3 手的 Unitree G1（表 15）。智能体以 50 Hz 下达官方的 40 维全身参考量，每次调用 1–100 帧，包括：根节点的平移与高度（SONIC 跟踪器（Luo et al., 2026）并不跟随这两项，因为机器人只能靠迈步平移）、相对于初始朝向的根朝向、29 个关节目标，以及每只手的张开/闭合指令。</p>
+</div>
+
+<div class="pair">
+<p class="en">It may also plan collision-free motions of the arms, optionally with the waist, and lift pixels to 3D points in the pelvis frame and in a gravity-aligned frame. It observes the scene through the head camera at 640×480 in RGB-D, with the intrinsics and the camera pose in the pelvis frame, together with the root orientation, the joint positions and velocities, and the state of the hands. An episode ends when the robot falls, by the rule of the benchmark.</p>
+<p class="zh">它还可以规划手臂（可选含腰部）的无碰撞运动，并把像素提升为骨盆坐标系与重力对齐坐标系下的三维点。它通过 640×480 的头部 RGB-D 相机观察场景，并获得内参以及相机在骨盆系中的位姿；此外还有根朝向、关节位置与速度、以及手部状态。按基准规则，机器人一旦摔倒，该回合即结束。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Task information.</b> The agent can read three teleoperated demonstrations of the task from the official raw dataset. Each is a complete episode with the 40-dimensional references, joint states, root poses, and the head camera’s RGB video and depth. The demonstrations are mounted read-only for the exploring agent only; its programs may contain motion segments that the agent cut from them (Section D.3).</p>
+<p class="zh"><b>任务信息。</b>智能体可以读取官方原始数据集中该任务的三条遥操作演示。每条都是一个完整回合，包含 40 维参考量、关节状态、根位姿，以及头部相机的 RGB 视频与深度。这些演示仅以只读方式挂载给探索阶段的智能体；其程序可以包含智能体从演示中裁出的运动片段（D.3 节）。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Exploration and evaluation.</b> We use Claude Opus 5.5 as our agent. Exploration scenes use seeds derived from a hash that excludes every official seed. Sessions with a budget above 32 explore two environments and may start two subagents. An episode is limited to 600 s plus 1 s per allowed step. The program is evaluated on the 60 official test episodes of each task, seeds 0, 1, and 2 with 20 episodes each, derived as in the official evaluation; every episode runs in a fresh simulator and container, four in parallel, and the simulator advances only when the program sends actions. Success is binary, and a fall or an error counts as a failure.</p>
+<p class="zh"><b>探索与评测。</b>我们使用 Claude Opus 5.5 作为智能体。探索场景使用由哈希推导出的种子，该哈希排除了所有官方种子。预算大于 32 的会话会探索两个环境，并可启动两个子智能体。每个回合限制为 600 s，再加每个允许步 1 s。程序在每个任务的 60 个官方测试回合上评测——种子 0、1、2 各 20 个回合，推导方式与官方评测一致；每个回合都在全新的仿真器与容器中运行，四个并行，且只有在程序发出动作时仿真器才推进。成功与否是二值的；摔倒或出错均记为失败。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table15_p41.jpg" alt="Table 15">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 15</span>HumanoidArena 任务。步数上限（50 Hz 下）；预算：表 4 中使用的最大探索预算。HOI 与 HSI：人—物体交互与人—场景交互。</span>
+    <span class="enm"><b>Table 15 |</b> HumanoidArena tasks. Step limit at 50 Hz; budget: largest exploration budget in Table 4. HOI and HSI: human–object and human–scene interaction.</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="C.6">C.6&nbsp;&nbsp;DexJoCo<a class="pg" href="{{PDF}}#page=41" target="_blank">p.41</a></h3>
+
+<div class="pair">
+<p class="en"><b>Tasks and interface.</b> We use the eleven tasks of DexJoCo (Wang et al., 2026a) in its rand-obj setting, in which the placement of the objects and the height of the table are randomized at every reset (Table 16). Single-arm tasks use one Franka Panda arm with a 16-degree-of-freedom Allegro hand, and bimanual tasks use two. The agent commands the official policy action of the benchmark: for each arm, an absolute target for the flange position and orientation in the world frame, the orientation as a rotation vector, together with sixteen hand joint targets, which gives a 22-dimensional row for one arm and a 44-dimensional row for two.</p>
+<p class="zh"><b>任务与接口。</b>我们使用 DexJoCo 的十一个任务（Wang et al., 2026a），采用其 rand-obj 设置——每次重置时物体的摆放位置与桌面高度都会被随机化（表 16）。单臂任务使用一条 Franka Panda 机械臂配 16 自由度 Allegro 手，双臂任务使用两条。智能体下达该基准的官方策略动作：对每条手臂，给出法兰在世界坐标系中位置与姿态的绝对目标（姿态用旋转向量表示），再加上十六个手部关节目标，因此单臂为 22 维一行、双臂为 44 维一行。</p>
+</div>
+
+<div class="pair">
+<p class="en">The official operational-space controller pulls the flange toward its target and position actuators drive the hand joints, without a motion planner. Each row advances the simulation by 20 ms, and one call to the interface executes between 1 and 150 rows. Observations are 640×640 RGB-D images from the official cameras of each task, with depth in millimeters and the intrinsics and world pose of every camera, together with the official proprioceptive state, the flange pose of each arm and the joint positions of each hand.</p>
+<p class="zh">官方的操作空间控制器把法兰拉向目标，位置作动器驱动手部关节，没有运动规划器。每一行使仿真推进 20 ms，一次接口调用执行 1–150 行。观测是各任务官方相机的 640×640 RGB-D 图像，深度以毫米为单位，并带有每个相机的内参与世界位姿；此外还有官方本体感知状态、每条手臂的法兰位姿与每只手的关节位置。</p>
+</div>
+
+<div class="pair">
+<p class="en">No force, torque, contact, or tactile signal is exposed, and the object poses and table height in the simulator’s state never reach the agent. The interface also offers a dry run of a motion on the robot alone, without the table and objects, that does not advance the episode, and helpers for rotation arithmetic and for lifting a pixel with its depth to a world position.</p>
+<p class="zh">接口不暴露任何力、力矩、接触或触觉信号，仿真器状态中的物体位姿与桌面高度也从不传给智能体。接口还提供一种“空跑”：仅在机器人模型上执行动作（不含桌面与物体），不推进回合；另有旋转运算的辅助函数，以及把带深度的像素提升到世界坐标的辅助函数。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table16_p42.jpg" alt="Table 16">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 16</span>DexJoCo 任务（rand-obj 设置）。所有相机均为 RGB-D。∗ 含控制权移交前的 30 步。</span>
+    <span class="enm"><b>Table 16 |</b> DexJoCo tasks, rand-obj setting. All cameras are RGB-D. ∗ Including 30 steps before control is handed over.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>Task information.</b> The agent receives a task description generated from the task definition: the official instruction, the robot and its cameras, the step limit and wall-clock limit of an episode, the fact that object placement and table height change between episodes, and the binary success criterion without partial credit. It contains no detail of the success check. The agent also receives three images of the completed task, the final frames of three successful human demonstrations from the official dataset, each in a different layout, taken from the task’s overview camera. They contain no actions and no states. The three demonstrations are the first that replay successfully in the official environment from initial layouts that differ from all 150 evaluation layouts.</p>
+<p class="zh"><b>任务信息。</b>智能体收到的任务描述由任务定义生成，包含：官方指令、机器人及其相机、回合的步数上限与墙上时间上限、“物体摆放与桌面高度会在回合之间变化”这一事实，以及不带部分得分的二值成功判据——但不包含成功检查的任何细节。智能体还会收到三张任务完成图像，即官方数据集中三条成功人类演示的最后一帧，各来自不同布局，由任务的概览相机拍摄。它们不含动作与状态。这三条演示是在“与全部 150 个评测布局都不同”的初始布局上、能够在官方环境中成功回放的最初三 条。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Exploration.</b> A session gives one agent, Claude Code with Claude Opus 5.5 at the xhigh effort setting and without subagents, one simulated environment, and a budget of N ∈ {2, 4, 8, 16, 32} exploration episodes. The agent starts from an empty workspace (Section C.1). A exploration episode is either interactive, in which the agent drives the robot itself through the interface or through its own scripts, or a rehearsal, in which its registered program runs alone in a fresh container on a fresh episode while the agent is paused; both consume the budget.</p>
+<p class="zh"><b>探索。</b>一次会话给一个智能体（Claude Code + Claude Opus 5.5，xhigh 强度，不使用子智能体）提供一个仿真环境，以及 <i>N</i> ∈ {2, 4, 8, 16, 32} 个探索回合的预算。智能体从空工作区开始（C.1 节）。一个探索回合要么是交互式的——智能体自己通过接口或自己的脚本驱动机器人；要么是一次排练——在智能体暂停时，由它注册的程序在一个全新容器中、于一个新回合上单独运行。两者都消耗预算。</p>
+</div>
+
+<div class="pair">
+<p class="en">The agent ends exploration by submitting a program that has completed a rehearsal without error, so the budget is an upper bound, and over the 55 sessions the agents used 592 of the 682 budgeted episodes (Table 17). Exploration layout i is the first reset of the official rand-obj environment with seed 1000 + i, the same randomization as in evaluation, whose layouts come from seeds 0 to 2. An episode is limited to the official number of steps and to 600 s plus 5 s per allowed step of wall-clock time, a limit that no episode reached. The agent and its programs may call a vision-language model, Gemini 3.8 Flash, with a budget of $10 per session.</p>
+<p class="zh">智能体以“提交一个已完成无错排练的程序”来结束探索，因此预算只是上界：在 55 次会话中，智能体实际使用了 682 个预算回合中的 592 个（表 17）。探索布局 <i>i</i> 是官方 rand-obj 环境在种子 1000 + <i>i</i> 下的第一次重置，与评测采用同样的随机化（评测布局来自种子 0–2）。每回合受官方步数上限约束，墙上时间限制为 600 s 加每个允许步 5 s——没有任何回合触及该上限。智能体及其程序可以调用视觉语言模型 Gemini 3.8 Flash，每次会话预算 10 美元。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Evaluation.</b> Once the agent has exited, its workspace is frozen, and the submitted program is evaluated alone on 150 episodes that reproduce the official evaluation of DexJoCo layout for layout: seeds 0, 1, and 2, with 50 consecutive resets each. Every episode runs in a fresh simulator process and a fresh container for the program, four episodes in parallel, under the official step limit and success check, and an error or an early exit of the program counts as a failure. The simulator advances only when the program sends actions, so evaluation is synchronous and free of inference latency, whereas the official client of the benchmark is asynchronous.</p>
+<p class="zh"><b>评测。</b>智能体退出后，其工作区被冻结；提交的程序在 150 个回合上单独评测，这些回合逐布局复现 DexJoCo 的官方评测：种子 0、1、2 各 50 次连续重置。每个回合都在全新的仿真器进程与全新的程序容器中运行，四个并行，遵循官方步数上限与成功检查；程序出错或提前退出记为失败。由于只有在程序发出动作时仿真器才推进，评测是同步的、不含推理时延——而该基准的官方客户端是异步的。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table17_p43.jpg" alt="Table 17">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 17</span>按探索预算划分的 DexJoCo 会话。每个任务一次会话。回合数在十一次会话上求和；智能体时间从智能体启动到评测，取十一次会话的中位数，括号内为范围。</span>
+    <span class="enm"><b>Table 17 |</b> DexJoCo sessions by exploration budget. One session per task. Episodes are summed over the eleven sessions; agent time runs from the start of the agent to evaluation and is the median over the eleven sessions, with the range in parentheses.</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="C.7">C.7&nbsp;&nbsp;LIBERO 与 LIBERO-Pro<a class="pg" href="{{PDF}}#page=42" target="_blank">p.42</a></h3>
+
+<div class="pair">
+<p class="en"><b>Tasks and interface.</b> We use the 40 tasks of the Spatial, Object, Goal, and Long suites of LIBERO (Liu et al., 2023) in the official environment, numbered from 0 in the official order, and the position-perturbed variants of LIBERO-Pro (Zhou et al., 2025), in which objects exchange their initial regions. The agent commands the official action at 20 Hz, increments of the end-effector position and rotation, scaled so that 1 corresponds to 5 cm or 0.5 rad, and a gripper command, with between 1 and 100 rows per call and no motion planner.</p>
+<p class="zh"><b>任务与接口。</b>我们使用 LIBERO（Liu et al., 2023）中 Spatial、Object、Goal 与 Long 四个套件共 40 个任务的官方环境，按官方顺序从 0 编号；以及 LIBERO-Pro（Zhou et al., 2025）的位置扰动变体——其中物体会互换其初始区域。智能体以 20 Hz 下达官方动作：末端执行器位置与旋转的增量（缩放为 1 对应 5 cm 或 0.5 rad），以及一条夹爪指令；每次调用 1–100 行，且没有运动规划器。</p>
+</div>
+
+<div class="pair">
+<p class="en">It observes the scene through the agent-view and wrist cameras at 256×256 in RGB-D, with the intrinsics and the pose of each camera, together with the end-effector pose and the finger positions, and it may lift pixels to 3D points. The step limit of an episode is 220 on Spatial, 280 on Object, 300 on Goal, and 520 on Long, after ten initial steps without motion.</p>
+<p class="zh">它通过 256×256 的智能体视角相机与腕部相机观察场景（RGB-D），并获得每个相机的内参与位姿，以及末端执行器位姿与手指位置；它可以把像素提升为三维点。每回合的步数上限为：Spatial 220、Object 280、Goal 300、Long 520——均在此前有十步的初始化（不做运动）之后计算。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Task information.</b> The task description contains the official instruction, the robot and its cameras, the limits of an episode, and the binary success criterion without the detail of its check. The agent also receives three images of the completed task, the final agent-view frames of three official human demonstrations that replay successfully.</p>
+<p class="zh"><b>任务信息。</b>任务描述包含官方指令、机器人及其相机、回合的各项限制，以及不带检查细节的二值成功判据。智能体还会收到三张任务完成图像——三条能成功回放的官方人类演示在智能体视角下的最后一帧。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Exploration and evaluation.</b> We use Claude Opus 5.5 as our agent in two environments. The budget is up to 20 exploration episodes on the official placement distribution, followed by at most 5 optional episodes of adaptation on the perturbed distribution, which the agent may use when it judges that its program will not transfer (Section D.4). Exploration layout i is a fresh reset of the official environment with seed 1000 + i, a sample of the official placement distribution and never a stored initial state.</p>
+<p class="zh"><b>探索与评测。</b>我们使用 Claude Opus 5.5 作为智能体，运行在两个环境中。预算为：在官方摆放分布上至多 20 个探索回合，随后可在扰动分布上至多做 5 个“可选”的适应回合——当智能体判断其程序无法迁移时才会使用（D.4 节）。探索布局 <i>i</i> 是官方环境在种子 1000 + <i>i</i> 下的全新重置，属于官方摆放分布的一个采样，绝不是某个存储的初始状态。</p>
+</div>
+
+<div class="pair">
+<p class="en">An episode is limited to 600 s plus 5 s per allowed step. The program is evaluated on the 50 official initial states of each task and on the 50 position-perturbed states of LIBERO-Pro, each episode in a fresh container, synchronously, and with binary success. Adaptation episodes are fresh resets of the perturbed task with seeds from 2000.</p>
+<p class="zh">每回合限制为 600 s 加每个允许步 5 s。程序在每个任务的 50 个官方初始状态、以及 LIBERO-Pro 的 50 个位置扰动状态上评测；每个回合都在全新容器中同步运行，成功与否为二值。适应回合是扰动任务的全新重置，种子从 2000 起。</p>
+</div>

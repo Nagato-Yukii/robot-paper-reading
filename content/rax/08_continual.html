@@ -1,0 +1,95 @@
+<h3 data-num="5.5">5.5&nbsp;&nbsp;持续学习<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Continual Learning</span><a class="pg" href="{{PDF}}#page=28" target="_blank">p.28</a></h3>
+
+<div class="pair">
+<p class="en">In this section, we demonstrate how RAX achieves continual learning with robot programs: by reusing skills learned in earlier exploration sessions, and by rapidly adapting its programs when the environment or the task changes.</p>
+<p class="zh">本节展示 RAX 如何借助机器人程序实现持续学习：一方面复用先前探索会话中学到的技能，另一方面在环境或任务变化时快速调整其程序。</p>
+</div>
+
+<h3 data-num="5.5.1">5.5.1&nbsp;&nbsp;技能复用<a class="pg" href="{{PDF}}#page=28" target="_blank">p.28</a></h3>
+
+<div class="pair">
+<p class="en">On the RB-Y1 mobile manipulator, RAX acquires skills through isolated exploration sessions and reuses them to solve long-horizon compositional tasks (Figure 11). In initial sessions, the agent independently learned to park and tuck an office chair, stack nested cups, transport a bucket by its rim onto a cabinet, and pick and place a box. Each skill was committed to the repository only after achieving successful end-to-end execution, stored as a versioned program bound to explicit precondition checks.</p>
+<p class="zh">在 RB-Y1 移动操作平台上，RAX 通过彼此隔离的探索会话获得技能，再用它们解决长时序组合任务（图 11）。在最初的若干会话中，智能体分别学会了：把办公椅推到一边并收进桌下、叠放可嵌套的杯子、抓着桶沿把一个桶搬到柜子上、以及拾放一个箱子。每项技能只有在端到端成功执行之后才会被提交到仓库，并以带版本的程序形式保存，绑定了明确的前置条件检查。</p>
+</div>
+
+<div class="pair">
+<p class="en">The multi-stage tidy-up task (Figure 5) evaluates the composition of these skills under a single high-level goal: park the chair, stack the cups, place the cups and a banana inside the bucket, transport the bucket onto the cabinet, tuck the chair back under the desk, and finally pick the box onto the other empty cabinet.</p>
+<p class="zh">多阶段整理任务（图 5）在一个高层目标下检验这些技能的组合能力：把椅子挪开、叠好杯子、把杯子和香蕉放进桶里、把桶搬到柜子上、把椅子收回桌下，最后把箱子放到另一个空柜子上。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure11_p28.jpg" alt="Figure 11">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 11</span>真实 RB-Y1 移动操作平台上的持续学习。上：在先前探索会话中获得并存入技能仓库的模块化技能，附有各自技能文件中的描述。中：一个复杂整理任务的最终执行——单条高层指令在六个连续阶段中被完成，标注了完成时间戳与所调用的技能。下：智能体为每个阶段生成的代码（由执行日志压缩而成，保留传入参数）。调用预存技能的代码按技能着色（椅子、杯子、桶、箱子分别对应各技能的 <code>run.py</code>），而智能体直接编写的临时控制逻辑以黑色显示。</span>
+    <span class="enm"><b>Figure 11 |</b> Continual learning on the real-world RB-Y1 mobile manipulator. Top: Modular skills acquired during prior exploration sessions and stored in the skill repository, complete with descriptions from their respective skill files. Middle: The final execution of a complex tidy-up task—a single high-level instruction carried out across six sequential stages, annotated with completion timestamps and invoked skills. Bottom: The agent’s generated code for each stage (condensed from execution logs with passed arguments). Code invoking pre-stored skills is color-coded by skill (chair, cups, bucket, and box correspond to each skill’s run.py), while ad-hoc control logic written directly by the agent is shown in black.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>Skills are called, not relearned.</b> In the final execution of the tidy-up task, every stage is resolved by composing stored skills from the repository (Figure 11). The agent executes the chair skill sequentially: it estimates the chair geometry, plans a collision-free motion path, grasps the backrest, navigates along the path, and releases the target. It invokes the cup-stacking skill using semantic visual grounding from the current scene, applying fine-grained closed-loop offsets prior to insertion. For the bucket and box skills, the agent parameterizes execution using real-time perception data, such as the estimated cabinet boundary derived from depth sensing. To bridge gaps between stored skills, the agent dynamically synthesizes ad-hoc code—such as extending the grasp planner to handle a banana, commanding torso elevation prior to transit, and re-estimating desk pose before final chair insertion.</p>
+<p class="zh"><b>技能是被“调用”，而不是被重新学习。</b>在整理任务的最终执行中，每个阶段都是通过组合仓库中已存储的技能来解决的（图 11）。智能体顺序执行椅子技能：估计椅子几何、规划无碰撞运动路径、抓取靠背、沿路径导航、释放目标。它借助对当前场景的语义视觉 grounding 调用叠杯技能，并在插入之前施加细粒度的闭环偏移。对桶与箱子的技能，智能体用实时感知数据（例如由深度感知估计出的柜子边界）来参数化执行。为弥合已存技能之间的空隙，智能体会动态合成临时代码——例如扩展抓取规划器以处理香蕉、在转运前命令躯干抬升、以及在最后把椅子推入之前重新估计桌子位姿。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Skills are refined in use.</b> Across three iterations of the tidy-up task, the agent iteratively updated program versions rather than rewriting entire control loops. The bucket and box skills required minor programmatic adjustments (~25 out of more than 1200 lines) to integrate dynamic cabinet-edge measurements from onboard depth perception. Skills encountering greater environmental domain shift underwent larger revisions: following two failed grasp attempts, the agent updated the chair skill to grasp 4 cm deeper, while extending the cup-stacking skill to support picking additional object classes.</p>
+<p class="zh"><b>技能在使用中被细化。</b>在整理任务的三次迭代中，智能体是迭代地更新程序版本，而不是重写整个控制循环。桶与箱子的技能只需少量程序调整（1200 多行中约 25 行），以接入来自本体深度感知的动态柜沿测量。遭遇更大环境域偏移的技能则经历了更大的修改：在两次抓取失败之后，智能体把椅子技能改为更深地抓取 4 cm，同时扩展叠杯技能以支持抓取更多类别的物体。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Repository expansion.</b> Intermediary control code synthesized by the agent to bridge task stages is modularized and saved as new skills. For instance, a synthesized hand-reach primitive was automatically abstracted, committed to the repository, and subsequently reused across both the chair-manipulation and cup-stacking routines.</p>
+<p class="zh"><b>仓库扩展。</b>智能体为衔接任务各阶段而合成的中间控制代码，会被模块化并保存为新技能。例如，一个被合成出来的“手部到达”原语被自动抽象、提交到仓库，随后在椅子操作与叠杯两套例程中都被复用。</p>
+</div>
+
+<h3 data-num="5.5.2">5.5.2&nbsp;&nbsp;程序的快速适应<a class="pg" href="{{PDF}}#page=30" target="_blank">p.30</a></h3>
+
+<div class="pair">
+<p class="en">When task conditions vary post-deployment, RAX preserves valid program subroutines and selectively updates only the modules invalidated by environmental shifts (Figure 12). On the Franka manipulator, two end-to-end autonomous programs were adapted to novel task variants within the same session.</p>
+<p class="zh">当部署之后任务条件发生变化时，RAX 会保留仍然有效的程序子例程，只选择性地更新那些因环境变化而失效的模块（图 12）。在 Franka 机械臂上，两个端到端的自主程序在同一会话内就适应了新的任务变体。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure12_p29.jpg" alt="Figure 12">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 12</span>在真实 Franka 上调整技能与程序。每一行是一个原本已能工作的程序，左侧是它学会的任务（图像），以及操作员所做的变更（绿色）。右侧是变更后程序的入口，压缩自智能体的代码：新增行绿色，修改行蓝色，复用行黑色。上：找方块——图像叠加了左相机相隔四分之一秒的帧，越早的越淡，以显示物体是如何被藏起来的；方块先被放进杯子，随后被红色楔块替换。下：用从纸盒里抽出的纸巾擦拭；S 与 P 是毛巾程序的模块，被原样导入。</span>
+    <span class="enm"><b>Figure 12 |</b> Adapting skills and programs on the real Franka. Each row is one program that already worked, with the task it learned (left image) and the operator’s change (green). Right: the program’s entry point after the change, condensed from the agent’s code, with new lines in green, modified lines in blue, and reused lines in black. Top: find the cube, where each image overlays frames from the left camera a quarter of a second apart, earlier ones fainter, to show how the object is hidden; the cube is first dropped into a cup and then replaced by a red wedge. Bottom: wiping with paper towels from a box; S and P are the towel program’s modules, imported unchanged.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>Find the cube.</b> In a hidden-object task, the physical occlusion sequence was modified: rather than directly inverting a cup over the target cube, the cube was placed inside an upright cup prior to inversion. The original program detected no covering cup and safely halted execution via exception handling without initiating ungrounded motion. The agent extended its perception pipeline with a detector for cubes contained within upright cups, validated the new logic against current and historical sensor logs, and resumed execution to complete the task (Figure 22).</p>
+<p class="zh"><b>找方块。</b>在一个藏物任务中，物理遮挡的顺序被改变了：操作员没有直接把杯子倒扣在目标方块上，而是先把方块放进一个正立的杯子里，再翻转杯子。原程序没有检测到“遮盖杯”，于是通过异常处理安全地中止执行，没有做出任何缺乏依据的动作。智能体在感知流水线中增加了一个“正立杯内方块”检测器，用当前与历史传感器日志验证了新逻辑，然后恢复执行并完成任务（图 22）。</p>
+</div>
+
+<div class="pair">
+<p class="en">Crucially, the cup-tracking, execution-monitoring, and removal routines were reused without modification. When substituting the cube with a red wedge, the agent generalized its geometric object representation from a fixed cube primitive to an object parameterized by estimated dimensions, color, and height, adjusting grasp synthesis accordingly while preserving 20 of the original 41 program functions (including the tracking pipeline; Figure 23).</p>
+<p class="zh">关键在于，杯子跟踪、执行监控与移杯这几套例程被原样复用。当方块被替换成红色楔块时，智能体把它的几何物体表示从“固定立方体原语”泛化为“由估计出的尺寸、颜色与高度参数化的物体”，并相应调整抓取合成，同时保留了原程序 41 个函数中的 20 个（包括跟踪流水线；图 23）。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Wiping with paper towels.</b> Following the acquisition of a reliable surface-wiping skill using a wet cloth, the task was extended to require pulling disposable paper towels from a dispenser box, executing the wiping motion, and discarding used towels into a receptacle. The agent synthesized a composite program that imported the original wiping module as a dependency.</p>
+<p class="zh"><b>用纸巾擦拭。</b>在掌握了用湿布可靠擦拭表面的技能之后，任务被扩展为：从抽取式纸盒中抽出一次性纸巾、执行擦拭动作，并把用过的纸巾丢进垃圾桶。智能体合成了一个复合程序，把原来的擦拭模块作为依赖导入。</p>
+</div>
+
+<div class="pair">
+<p class="en">The new program reused existing subroutines for stain segmentation against the table background, reachable workspace estimation, pressing by position control (12 mm below the measured surface contact, along a serpentine trajectory), and post-wipe residue verification. Only paper-handling subroutines were added: locating the dispenser box and disposal bin, extracting individual sheets onto the stain, discarding the crumpled towel, and clearing loose paper from the workspace. The stain was removed in both wet runs, although leftover sheets still had to be cleared with supervised scripts (Section G.3, Figure 29).</p>
+<p class="zh">新程序复用了既有的子例程：相对桌面背景的污渍分割、可达工作空间估计、基于位置控制的按压（沿蛇形轨迹、压到实测表面接触以下 12 mm）、以及擦拭后的残留核验。只新增了与纸巾处理有关的子例程：定位纸盒与垃圾桶、把单张纸巾抽取到污渍上、丢弃揉成团的纸巾、以及清理工作空间中散落的纸张。两次“湿擦”运行都清除了污渍，只是散落的纸巾仍须用有人监督的脚本清理（G.3 节，图 29）。</p>
+</div>
+
+<h2 data-num="6">6&nbsp;&nbsp;讨论<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Discussion</span><a class="pg" href="{{PDF}}#page=30" target="_blank">p.30</a></h2>
+
+<div class="pair">
+<p class="en">Progress in robot learning has largely been driven by collecting more demonstrations and training larger models. Our results show that a capable agent, when allowed to explore, continues to improve with the experience it accumulates, without teleoperation and without updates to its parameters. Because this form of learning relies on general-purpose agents whose capabilities are advancing rapidly in other domains, every improvement in those agents translates directly into improved robot learning.</p>
+<p class="zh">机器人学习的进展，在很大程度上由“采集更多演示、训练更大模型”所驱动。我们的结果表明：一个足够有能力的智能体，只要被允许探索，就能凭借自身积累的经验持续变强——既不需要遥操作，也不需要更新它的参数。由于这种学习形式依赖于那些在其它领域能力飞速提升的通用智能体，这些智能体的每一次进步，都会直接转化为机器人学习的进步。</p>
+</div>
+
+<div class="pair">
+<p class="en">The knowledge acquired by RAX agents takes the form of perception and control programs, skills, and notes. In this form, knowledge executes at the rate of the robot, can be inspected and verified, composes into longer behaviors, and transfers across tasks, and we expect code to play the same role for learning from experience that network parameters play for learning from data. Since the instructions, skills, and memory structures of RAX are themselves code and text, a natural next step is to let agents improve the architecture itself from experience, and to share verified skills across fleets of robots, so that a skill learned by one robot becomes available to all.</p>
+<p class="zh">RAX 智能体所获得的知识，以感知与控制程序、技能以及笔记的形式存在。以这种形式，知识能够以机器人的节奏执行、可以被检视与验证、可以组合成更长的行为、也可以跨任务迁移。我们预期，代码在“从经验中学习”中所扮演的角色，将如同网络参数在“从数据中学习”中所扮演的角色。由于 RAX 的指令、技能与记忆结构本身就是代码与文本，一个自然的下一步是：让智能体从经验中改进架构本身，并在机器人机群之间共享已验证的技能，使一台机器人学到的技能能够为所有机器人所用。</p>
+</div>
+
+<h2 data-num="7">7&nbsp;&nbsp;致谢<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Acknowledgements</span><a class="pg" href="{{PDF}}#page=31" target="_blank">p.31</a></h2>
+
+<div class="pair">
+<p class="en">We thank Qianqian Wang for the valuable discussions and help in mobile manipulation robot experiments.</p>
+<p class="zh">感谢 Qianqian Wang 在移动操作机器人实验中给予的宝贵讨论与帮助。</p>
+</div>

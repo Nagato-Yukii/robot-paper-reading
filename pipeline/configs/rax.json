@@ -1,0 +1,10 @@
+{
+  "id": "rax",
+  "pdf": "sources/rax.pdf",
+  "title": "RAX：面向机器人智能体的在线探索规模化 · 中英对照",
+  "brand": "RAX 双语精读",
+  "brand_sub": "Scaling Online Exploration for Robot Agents",
+  "accent": "#3f51b5",
+  "accent_soft": "#eceffb",
+  "out": "docs/rax"
+}

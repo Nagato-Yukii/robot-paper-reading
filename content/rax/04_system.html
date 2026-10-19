@@ -1,0 +1,89 @@
+<h2 data-num="4">4&nbsp;&nbsp;RAX 系统<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">The RAX System</span><a class="pg" href="{{PDF}}#page=12" target="_blank">p.12</a></h2>
+
+<div class="pair">
+<p class="en">RAX supports a wide range of embodiments in simulation and in the real world, including single-arm and bimanual manipulators, dexterous hands, mobile manipulators, and humanoids, with one agent architecture. To do so, it adopts a separation familiar from software engineering, in which a frontend is kept apart from the backend that serves it. In RAX, the backend is the robot’s physical stack: the hardware drivers or the simulator, the low-level controllers, the sensor pipelines, and the safeguards around them. The frontend is the agent’s workspace, where the agent observes, decides, and acts, and where it writes the programs that encode its decision logic.</p>
+<p class="zh">RAX 用同一套智能体架构，支持仿真与真实世界中多种多样的本体：单臂与双臂操作臂、灵巧手、移动操作平台以及人形机器人。为此，它采用了软件工程中常见的分离设计：把「前端」与为其服务的「后端」隔离开来。在 RAX 中，后端是机器人的物理栈——硬件驱动或仿真器、底层控制器、传感器流水线，以及围绕它们的安全保护机制。前端则是智能体的工作区：它在其中观察、决策与行动，也在其中写下编码其决策逻辑的程序。</p>
+</div>
+
+<div class="pair">
+<p class="en">The two meet only at a tool interface (Figure 4), and the same frontend connects to the backend of every platform, from the real Franka and Rainbow RB-Y1 robots to each simulated benchmark. The agent never touches the backend: it cannot modify controllers, drivers, or robot infrastructure. Because the agent acts only through these tools, its programs contain the decision logic of a task, namely perception, planning, and the checks between stages, while low-level control, from joint-level PD control to whole-body motion tracking on humanoids, and the enforcement of safety limits remain in the backend.</p>
+<p class="zh">两者只在一个「工具接口」处相遇（图 4），而同一个前端可以连接到每一个平台的后端——从真实的 Franka 与 Rainbow RB-Y1 机器人，到各个仿真基准。智能体从不直接触碰后端：它既不能修改控制器、驱动，也不能改动机器人基础设施。正因为智能体只通过这些工具行动，它的程序所包含的是任务的决策逻辑，即感知、规划以及各阶段之间的检查；而底层控制——从关节级 PD 控制到人形机器人的全身运动跟踪——以及安全限位的强制执行，始终留在后端。</p>
+</div>
+
+<div class="pair">
+<p class="en">The remainder of this section describes the separation and what each side provides (Section 4.1), and the control interface through which one frontend drives arms, dexterous hands, mobile manipulators, and humanoids (Section 4.2).</p>
+<p class="zh">本节余下部分将介绍这种分离以及两侧各自提供什么（4.1 节），以及同一个前端如何驱动机械臂、灵巧手、移动操作平台与人形机器人的控制接口（4.2 节）。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure04_p13.jpg" alt="Figure 4">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 4</span>前端—后端分离。智能体与其程序只通过工具接口行动；后端在每个平台上负责控制、感知与安全保护。</span>
+    <span class="enm"><b>Figure 4 |</b> Frontend–backend separation. The agent and its programs act only through the tool interface; the backend owns control, sensing, and safeguards on every platform.</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="4.1">4.1&nbsp;&nbsp;前端—后端分离<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Frontend–Backend Separation</span><a class="pg" href="{{PDF}}#page=13" target="_blank">p.13</a></h3>
+
+<div class="pair">
+<p class="en">On a real robot, the backend owns everything that keeps the hardware calibrated and safe. It runs the vendor’s drivers and real-time controllers, serves calibrated RGB-D images together with the intrinsics and poses of their cameras, and records the robot’s sensors and state continuously, so that the agent can review the outcome of an action after the fact. It also enforces the safeguards. Motion is enabled only while an operator has armed the robot, and disarming halts it immediately; every motion command is validated before execution against workspace bounds, joint limits, and self-collision, and on the RB-Y1 mobile manipulator also against joint load. A command that violates a limit is refused before the robot moves, together with the limit it violated, so that the agent can change its approach.</p>
+<p class="zh">在真实机器人上，后端负责一切让硬件保持校准与安全的事务。它运行厂商提供的驱动与实时控制器，提供经过标定的 RGB-D 图像及其相机内参与位姿，并持续记录机器人的传感器与状态，使智能体能够在事后回看某个动作的结果。它同时负责执行安全保护：只有在操作员对机器人「上使能」期间运动才被允许，一旦撤除使能便立即停止；每一条运动指令在执行前都要针对工作空间边界、关节限位与自碰撞进行校验，在 RB-Y1 移动操作平台上还要校验关节负载。违反限位的指令会在机器人移动之前被拒绝，并回报它所违反的具体限位，以便智能体改变做法。</p>
+</div>
+
+<div class="pair">
+<p class="en">The frontend receives exactly two things from the system, tools and skills. The tools expose as much of the backend as possible: observation, raw control, and model-based helpers in the form of forward and inverse kinematics, motion planning where the platform offers it, and a preview that executes a candidate motion on the robot model alone, without the scene. They also provide the geometric primitives on which perception is built, namely the back-projection of pixels to metric 3D points, the poses of the cameras in the robot’s frame, and the kinematic chain from each camera to the end-effectors.</p>
+<p class="zh">前端从系统中获得的恰好只有两样东西：工具与技能。工具尽可能多地暴露后端的全部能力：观测、原始控制，以及基于模型的辅助功能——正/逆运动学、平台所能提供的运动规划，还有一个“仅在机器人模型上、不含场景”地执行候选动作的预演。工具还提供感知所依赖的几何原语，即像素到公制三维点的反投影、相机在机器人坐标系中的位姿，以及从每个相机到末端执行器的运动链。</p>
+</div>
+
+<div class="pair">
+<p class="en">The skills are documents that describe how to work with these tools: the robot’s frames, action spaces, rates, limits, and failure modes, the conventions of perception, and the workflow of exploration and memory. They are organized along four axes, namely task strategy, coordination, perception, and robot-specific control, and are composed into a single workspace for each session according to its embodiment and observation mode. Everything that solves a task, from object models and perception pipelines to grasps and control code, is written by the agent, which works in an isolated container with a persistent workspace and standard programming tools.</p>
+<p class="zh">技能则是一份份文档，描述如何与这些工具协作：机器人的坐标系、动作空间、控制频率、限位与失效模式，感知的约定，以及探索与记忆的工作流程。它们按四条主线组织——任务策略、协同、感知、机器人专属控制——并依据每次会话的本体与观测模式，组合进该会话的单一工作区。所有用来解题的东西，从物体模型、感知流水线到抓取与控制代码，全部由智能体自己编写；智能体在一个隔离容器中工作，拥有持久化工作区与标准编程工具。</p>
+</div>
+
+<div class="pair">
+<p class="en">This division has three consequences. First, programs written by the agent call exactly the tools that the agent itself calls, so code developed interactively runs unchanged as a fully automated program. Second, the interface returns compact results, consisting of structured state and the final image of each motion, while the complete images and actions of every motion are stored as episodic evidence that the agent retrieves on demand, which keeps the agent’s context small over sessions that last many hours. Third, on real robots, the skills that agents verify are kept in a versioned repository for each robot, in which every session works on its own branch, and a contribution is merged only after its structure, its entry point, and the evidence of its unattended success have been validated.</p>
+<p class="zh">这种分工带来三个结果。第一，智能体写出的程序所调用的，正是它自己交互时调用的那些工具，因此在交互中开发出来的代码无需改动即可作为全自动程序运行。第二，接口只返回紧凑的结果——结构化状态加上每个动作的最后一帧图像——而每个动作的完整图像与动作序列则作为「回合证据」存档，由智能体按需检索；这让智能体在长达数小时的会话中仍能保持较小的上下文。第三，在真实机器人上，智能体验证过的技能会保存在每台机器人各自的带版本仓库中：每个会话在自己的分支上工作，只有当贡献的结构、入口点以及“无人值守成功”的证据都通过校验之后，才会被合并。</p>
+</div>
+
+<div class="pair">
+<p class="en">Most importantly, the separation makes RAX multi-embodiment by construction. Bringing up a new robot requires only a backend that exposes it through the tool interface, together with documentation of its control and sensing interfaces, while the frontend, the organization of memory, and the evaluation protocol are shared across all platforms. No expert teleoperation data is collected and no policy is trained to bring a robot into RAX. The single-arm, bimanual, dexterous, mobile, and humanoid embodiments of our experiments, in simulation and in the real world, differ only in their backends and in the documentation of their interfaces, and the agent learns to control each of them through exploration.</p>
+<p class="zh">最重要的是，这种分离使 RAX 在构造上就是多本体的。接入一台新机器人，只需要一个能通过工具接口把它暴露出来的后端，以及对其控制接口与感知接口的文档说明；而前端、记忆的组织方式与评测协议，则为所有平台共享。把一台机器人接入 RAX，既不需要采集专家遥操作数据，也不需要训练策略。我们实验中的单臂、双臂、灵巧手、移动与人形本体（无论仿真还是真实世界），彼此之间的差别仅在于其后端以及接口文档，而智能体要学会控制它们中的每一个，靠的都是探索。</p>
+</div>
+
+<h3 data-num="4.2">4.2&nbsp;&nbsp;多本体控制接口<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Multi-Embodiment Control Interface</span><a class="pg" href="{{PDF}}#page=14" target="_blank">p.14</a></h3>
+
+<figure class="float">
+  <img src="figs/figure05_p14.jpg" alt="Figure 5">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 5</span>真实 RB-Y1 上的一个长时序任务。智能体用此前会话中学到的技能组合出六个子任务。它借助 Gemini 给出的边缘点与深度找到杯子，通过在头部图像中拾取点来测量桌沿，并在一个场景模型上规划底盘路线。</span>
+    <span class="enm"><b>Figure 5 |</b> A long-horizon task on the real RB-Y1. The agent composes six sub-tasks from skills learned in earlier sessions. It finds the cups from Gemini’s rim points and depth, measures the desk edge by picking points in the head image, and plans the base routes on a model of the scene.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en">RAX adopts a layered control design. Low-level controllers, from joint position and impedance controllers to whole-body motion trackers, run in the backend and are responsible for high-rate tracking and stability, while the agent makes decisions at the level of short action chunks and motion goals. Each platform exposes raw control for full expressiveness, together with model-based helpers in the form of forward and inverse kinematics, collision-aware motion planning (Sundaralingam et al., 2023), and a robot-only preview that executes a candidate motion on the robot model without the scene. The agent thus chooses its own level of abstraction, from individual joint targets to planned free-space motions. Table 1 summarizes this construction for each platform.</p>
+<p class="zh">RAX 采用分层控制设计。从关节位置控制器、阻抗控制器到全身运动跟踪器，底层控制器运行在后端，负责高频跟踪与稳定性；而智能体则在「短动作块」与运动目标的层级上做决策。每个平台都暴露原始控制以获得最大表达力，同时提供基于模型的辅助功能：正/逆运动学、带碰撞感知的运动规划（Sundaralingam et al., 2023），以及不含场景、只在机器人模型上执行候选动作的预演。因此，智能体可以自行选择抽象层级——从单个关节目标，到规划出的自由空间运动。表 1 汇总了每个平台上的这一构造。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table01_p15.jpg" alt="Table 1">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 1</span>各平台上的底层控制。EEF：末端执行器；OSC：操作空间控制；PD：比例—微分。（表内术语：EEF pose control = 末端位姿控制；joint position control = 关节位置控制；whole-body motion tracker = 全身运动跟踪器；pixel-to-3D = 像素到三维；preview = 预演；odometry = 里程计。）</span>
+    <span class="enm"><b>Table 1 |</b> Low-level control on each platform. EEF: end effector; OSC: operational-space control; PD: proportional-derivative.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en">On the real robots, the backend wraps each vendor’s own control stack. The Franka FR3 arm runs joint impedance control, and the agent commands straight-line Cartesian moves of the tool center point, joint-space moves whose paths are checked against the workspace and the table before the arm moves, and force-controlled grasps that close the gripper to a target width with a set force. The Rainbow RB-Y1, a wheeled mobile manipulator with a torso, two arms, and a two-joint head that carries an RGB-D camera, runs joint position control on its robot controller, which also accepts Cartesian IK commands for the torso and arms.</p>
+<p class="zh">在真实机器人上，后端封装各厂商自带的控制栈。Franka FR3 机械臂运行关节阻抗控制，智能体可以命令工具中心点做直线笛卡尔运动、做路径在机械臂移动前已针对工作空间与桌面校验过的关节空间运动，以及执行力控抓取——以设定的力把夹爪闭合到目标宽度。Rainbow RB-Y1 是一台轮式移动操作平台，具有躯干、两条手臂，以及一个搭载 RGB-D 相机的两自由度头部；它的机器人控制器运行关节位置控制，同时也接受针对躯干与手臂的笛卡尔 IK 指令。</p>
+</div>
+
+<div class="pair">
+<p class="en">The agent commands end-effector poses, joint-space postures of the torso, arms, and head, coordinated motions of the torso and arms, motions of the differential-drive base, and the gaze of the head camera. It can query the vendor’s kinematic model for the collisions, joint load, and center of mass of any posture, and dry-run any motion command to learn whether it would be accepted. Neither robot offers a motion planner, so the agent composes long motions from short checked moves through clear intermediate postures.</p>
+<p class="zh">智能体可以命令末端执行器位姿、躯干/手臂/头部的关节空间姿态、躯干与手臂的协同运动、差速底盘的移动，以及头部相机的注视方向。它可以向厂商的运动学模型查询任意姿态下的碰撞、关节负载与质心，也可以对任何运动指令做“空跑”试算，以得知它是否会被接受。这两台机器人都没有提供运动规划器，因此智能体会把长动作拆成一连串经过校验的短运动，并经由明确的中间姿态把它们串起来。</p>
+</div>
+
+<div class="pair">
+<p class="en">On the HumanoidArena benchmark (Wang et al., 2026c), the agent commands the Unitree G1 through whole-body kinematic references rather than joint torques: each reference specifies a desired heading, a full joint configuration, and hand commands, and a whole-body motion tracker converts these references into balanced whole-body motion. Because the robot moves through space only by stepping, locomotion is not provided as a primitive but must be constructed by the agent from leg references, and agents do so by measuring their own gait, calibrating step length, and composing walking, turning, and stepping over obstacles from these measurements.</p>
+<p class="zh">在 HumanoidArena 基准上（Wang et al., 2026c），智能体通过全身运动学参考量而非关节力矩来指挥 Unitree G1：每个参考量指定期望朝向、完整的关节构型与手部指令，再由全身运动跟踪器把这些参考量转换成平衡的全身运动。由于该机器人只能靠迈步在空间中移动，运动（locomotion）并不是以原语的形式提供的，而必须由智能体基于腿部参考量自行构造——智能体的做法是测量自己的步态、标定步长，再用这些测量值组合出行走、转向与跨越障碍。</p>
+</div>

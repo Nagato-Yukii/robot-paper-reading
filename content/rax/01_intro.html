@@ -1,0 +1,101 @@
+<h2 data-num="1">1&nbsp;&nbsp;引言<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Introduction</span><a class="pg" href="{{PDF}}#page=5" target="_blank">p.5</a></h2>
+
+<div class="pair">
+<p class="en">“We want AI agents that can discover like we can, not which contain what we have discovered. Building in our discoveries only makes it harder to see how the discovering process can be done.” — Richard S. Sutton, <i>The Bitter Lesson</i> (2019)</p>
+<p class="zh">“我们希望 AI 智能体能够像我们一样去<em>发现</em>，而不是只把我们已经发现的东西装进去。把我们已有的发现内建进系统，只会让人更难看清楚：发现的过程本身究竟该如何实现。”——理查德·S·萨顿，《苦涩的教训》（2019）</p>
+</div>
+
+<div class="pair">
+<p class="en">Robot learning has made substantial progress by scaling demonstration data and model capacity with imitation learning, aiming to replicate the training recipe that transformed language modeling (Kaplan et al., 2020). Vision-language-action (VLA) models and World-Action models (WAMs) fine-tune pretrained VLMs and video generation models, respectively, using large teleoperation corpora (Brohan et al., 2023; Kim et al., 2024; Black et al., 2024). However, deploying a new robot or task still requires a dedicated teleoperation corpus of its own (O’Neill et al., 2024; Team et al., 2024; Black et al., 2024; Intelligence et al., 2025; Bjorck et al., 2025; Liu et al., 2026; Wang et al., 2026d; Yuan et al., 2026; Kim et al., 2026; Bi et al., 2026). Furthermore, the knowledge of such policy models is inherently bounded by the demonstrations they imitate.</p>
+<p class="zh">机器人学习通过模仿学习不断规模化演示数据与模型容量，取得了长足进步，其目标是复刻那套曾彻底改变语言建模的训练配方（Kaplan et al., 2020）。视觉—语言—动作（VLA）模型与世界—动作模型（WAM）分别微调预训练的 VLM 与视频生成模型，所依赖的正是大规模遥操作语料（Brohan et al., 2023; Kim et al., 2024; Black et al., 2024）。然而，部署一台新的机器人或一个新任务，仍然需要为其单独采集一套专属的遥操作语料（O’Neill et al., 2024; Team et al., 2024; Black et al., 2024; Intelligence et al., 2025; Bjorck et al., 2025; Liu et al., 2026; Wang et al., 2026d; Yuan et al., 2026; Kim et al., 2026; Bi et al., 2026）。更进一步，这类策略模型所掌握的知识，在本质上被它所模仿的那些演示所界定。</p>
+</div>
+
+<div class="pair">
+<p class="en">Consider a mobile robot tasked with loading a car in an unfamiliar house: while opening doors, grasping bags, and placing objects may each be familiar skills, the robot must adapt to novel scenes, visual appearances, and task compositions while discovering new approaches. This adaptation and discovery process is absent during imitation learning on static teleoperation data. Consequently, these policies struggle to generalize and self-improve, even when provided with environment interactions and test-time compute. This limitation motivates a central question: can robots self-improve and learn to discover new skills through autonomous online experience and active exploration?</p>
+<p class="zh">设想一台移动机器人被要求在一栋陌生的房子里把行李搬上车：开门、抓取袋子、放置物体也许各自都是它熟悉的技能，但它必须适应全新的场景、视觉外观与任务组合，同时还要<em>发现</em>新的解法。而这种“适应与发现”的过程，在基于静态遥操作数据的模仿学习中恰恰是缺席的。因此，即便为这些策略提供环境交互与测试时计算，它们依然难以泛化、难以自我改进。这一局限引出一个核心问题：<b>机器人能否通过自主的在线经验与主动探索，实现自我改进并学会发现新技能？</b></p>
+</div>
+
+<div class="pair">
+<p class="en">Humans learn physical skills by attempting a task, observing the outcome, diagnosing failures, and practicing until their behavior becomes reliable. LLM agents exhibit a similar pattern in software domains: they explore unfamiliar systems by executing programs, inspecting outputs, and revising their work (Yang et al., 2024). Instead of training policies exclusively on teleoperated demonstration data, we let agents program robots directly (Lozano-Perez, 1983) without hand-designed action primitives. The agent explores online to discover decisions that drive task success, then automates these decision-making principles into modular robot programs that integrate perception, planning, and control. It continuously debugs and tests these programs through online execution.</p>
+<p class="zh">人类学习一项物理技能，靠的是尝试、观察结果、诊断失败，并反复练习，直到行为变得可靠。LLM 智能体在软件领域展现出类似的模式：它们通过执行程序、检查输出、修改代码来探索陌生的系统（Yang et al., 2024）。与其完全依赖遥操作演示数据来训练策略，我们选择让智能体直接为机器人编程（Lozano-Perez, 1983），并且不使用任何手工设计的动作原语。智能体在线探索，找出那些能带来任务成功的决策，随后把这些决策原则自动化成模块化的机器人程序——将感知、规划与控制融为一体。它还会通过在线执行持续地调试与测试这些程序。</p>
+</div>
+
+<div class="pair">
+<p class="en">These programs encode the agent’s underlying principles for how to generate successful actions based on environment perception, rather than merely mimicking the actions themselves, thereby enabling more robust generalization. Furthermore, the agent can compose, modify, and update these programs when confronting increasingly complex scenes and tasks, continually improving through online experience.</p>
+<p class="zh">这些程序所编码的，是智能体关于“如何根据对环境的感知来产生成功动作”的底层原则，而不仅仅是对动作本身的模仿，因此能够带来更稳健的泛化能力。更进一步，面对日益复杂的场景与任务，智能体可以对这些程序进行组合、修改与更新，借由在线经验持续自我提升。</p>
+</div>
+
+<div class="pair">
+<p class="en">We introduce RAX (Robot Agent eXploration), a cognitive architecture for robot agents. Its core organizing principle is scaling exploration: robot agents should improve by gathering their own online experience and optimizing their programs. In RAX, a general-purpose coding agent receives a natural-language instruction, at most a few goal images or visual demonstrations, and a budget of exploration episodes. It interacts directly through the robot’s perception and control interfaces without requiring human teleoperation or value function guidance. The underlying language model parameters remain fixed and no policies are trained; instead, learning updates a persistent workspace of programs, notes, and verified skills. The agent converts successful interactions into autonomous code programs and stores reusable knowledge for subsequent episodes and tasks.</p>
+<p class="zh">我们提出 <b>RAX（Robot Agent eXploration）</b>，一个面向机器人智能体的认知架构。它的核心组织原则是<b>探索规模化（scaling exploration）</b>：机器人智能体应当通过积累自身的在线经验、并优化自己的程序来取得进步。在 RAX 中，一个通用编程智能体接收一段自然语言指令、至多几张目标图像或视觉演示，以及一个「探索回合预算」。它直接通过机器人的感知与控制接口与之交互，既不需要人类遥操作，也不需要价值函数引导。底层语言模型的参数保持固定，也不训练任何策略；所谓“学习”，更新的是一个持久化的工作区——其中包含程序、笔记与已验证技能。智能体把成功的交互转化为自主执行的代码程序，并保存可复用的知识，供后续回合与任务使用。</p>
+</div>
+
+<div class="pair">
+<p class="en">As exploration scales, we observe several emergent system capabilities: the agent constructs task-relevant 3D perception models, plans actions via pose search in 3D joint space, generates fully automated programs with closed-loop visual and force feedback, and adapts its programs when encountering novel task conditions.</p>
+<p class="zh">随着探索规模扩大，我们观察到若干涌现出的系统能力：智能体会构建与任务相关的三维感知模型，在三维关节空间中通过位姿搜索来规划动作，生成带有视觉与力觉闭环反馈的全自动程序，并在遇到新的任务条件时对程序做出适配。</p>
+</div>
+
+<div class="pair">
+<p class="en">Furthermore, we observe agentic behaviors on real robots, including active perception, error recovery, safety guardrails, and active human-robot interaction. For example, the robot executes end-effector contact probing for precise localization when depth measurements are inaccurate. In mobile manipulation experiments, following an initial collision with a cabinet, the agent automatically instantiates a safety check to verify workspace clearance before every base rotation. To test code robustness, the agent actively requests the human operator to vary object layouts, systematically testing the spatial generalization of the autonomous program.</p>
+<p class="zh">此外，我们在真实机器人上观察到了颇具“主体性”的行为，包括主动感知、错误恢复、安全护栏以及主动的人机交互。例如，当深度测量不准确时，机器人会用末端执行器进行接触式探测以获得精确定位。在移动操作实验中，经历了一次与柜子的碰撞之后，智能体自动加入了一项安全检查：每次底盘旋转之前都要确认工作空间无碰撞。为了测试代码的鲁棒性，智能体还会主动请求人类操作员改变物体布局，从而系统地检验该自主程序的空间泛化能力。</p>
+</div>
+
+<div class="pair">
+<p class="en">In RAX, we equip the agent with rich multimodal sensing by exposing metric depth and force signals through the robot interface. A unified architecture supports tabletop bimanual arms, dexterous hands, mobile household robots, and humanoids through interfaces to each robot’s sensors, controllers, and kinematic models (Section 4). Unlike standard VLAs or WAMs operating on RGB images alone, the agent autonomously leverages these rich sensing signals to construct 3D point clouds and fit object models directly from perception. It then searches for actions to manipulate these 3D models while accounting for their unique shapes and affordances. Force feedback further enables the agent to resolve spatial uncertainty through contact and enable close-loop control on force signals in insertion tasks. Such multimodal world modeling have been largely absent from generalist policy models, yet naturally align with human cognitive processes.</p>
+<p class="zh">在 RAX 中，我们通过机器人接口把度量深度与力信号暴露给智能体，从而赋予它丰富的多模态感知。一套统一的架构即可支持桌面双臂、灵巧手、家用移动机器人与足式人形机器人——通过对接各自机器人的传感器、控制器与运动学模型（第 4 节）。与仅依赖 RGB 图像工作的标准 VLA 或 WAM 不同，智能体会自主利用这些丰富的感知信号构建三维点云，并直接从感知中拟合物体模型。随后，它在这些三维模型上搜索操作动作，同时考虑物体独特的形状与可供性。力反馈则进一步让智能体能够通过接触来消解空间不确定性，并在插入类任务中实现基于力信号的闭环控制。这种多模态世界建模在通用策略模型中长期缺位，却与人类的认知过程自然契合。</p>
+</div>
+
+<div class="pair">
+<p class="en">To enable high-frequency closed-loop control, the agent compiles its decision-making process into executable Python programs that generate actions directly from sensor signals. Unlike prior approaches that rely on human-designed action primitives or policies trained on demonstrations (Lu et al., 2026; Xiao et al., 2026), our approach directly generates robot control programs that encapsulate the full perception-planning-control loop, whereas standard policies discard the underlying decision-making process essential for generalization. In practice, we observe the agent writing programs that automatically segment and identify objects in 3D using point-cloud fitting and hue-based identification, then plan actions grounded in this 3D world model, with retry loops and exception handling naturally incorporated into the code.</p>
+<p class="zh">为了实现高频闭环控制，智能体把自己的决策过程编译成可执行的 Python 程序，直接由传感器信号生成动作。与依赖人工设计动作原语、或在演示上训练策略的先前方法不同（Lu et al., 2026; Xiao et al., 2026），我们的方法直接生成机器人控制程序，把“感知—规划—控制”的完整闭环封装其中；而标准策略恰恰丢弃了那种对泛化至关重要的底层决策过程。在实践中，我们观察到智能体写出的程序会利用点云拟合与基于色相（hue）的识别，在三维空间中自动分割并识别物体，然后在这个三维世界模型之上规划动作，并且重试循环与异常处理被自然地写进代码里。</p>
+</div>
+
+<div class="pair">
+<p class="en">Because actions are planned directly on perceived 3D objects rather than learned through imitation, this approach generalizes to far more diverse object layouts and domain variations than standard VLAs or WAMs. For semantically rich perception in open-world environments, the agent can program direct API calls to LLMs (such as Gemini) within the code to assist with object identification, while incorporating checkpoints and exception handling to step in and verify progress. Over the course of exploration, both action inference latency and token counts decrease as an increasing fraction of decisions becomes automated through code.</p>
+<p class="zh">由于动作是直接在感知到的三维物体上规划出来的，而非通过模仿学习得到，这一方法相比标准 VLA 或 WAM 能泛化到远为多样的物体布局与领域变化。针对开放世界环境中语义丰富的感知需求，智能体可以在代码中直接编程调用 LLM 的 API（例如 Gemini）来辅助物体识别，同时加入检查点与异常处理，以便自己随时介入核验进度。在整个探索过程中，随着越来越多的决策被代码自动化，动作推理的时延与 token 消耗都会下降。</p>
+</div>
+
+<div class="pair">
+<p class="en">As experience scales with exploration, RAX maintains an intra-task memory file system across episodes to record failure lessons and successful strategies, allowing the agent to continually refine its programs. Across multiple tasks and sessions, we maintain a repository of modular programs as verified skills for various tasks and manipulation primitives. Each skill includes the executable code for a specific task, accompanied by execution logs from successful runs, clear preconditions, and verification checkpoints, allowing skills to be composed and reused for complex downstream tasks.</p>
+<p class="zh">随着经验随探索而积累，RAX 会在各回合之间维护一个任务内记忆文件系统，用于记录失败教训与成功策略，使智能体能够持续打磨自己的程序。跨多个任务与会话，我们维护一个模块化程序仓库，将其中的程序作为各类任务与操作原语的“已验证技能”。每项技能都包含针对特定任务的可执行代码，并附带成功运行的执行日志、明确的前置条件与验证检查点，从而使技能可以被组合、复用于复杂的下游任务。</p>
+</div>
+
+<div class="pair">
+<p class="en">In real-world mobile manipulation experiments in household settings, the agent practices individual tasks, each in its own exploration session, such as picking and placing boxes or tucking in office chairs, and commits them as verified skills. When subsequently evaluated on a composite, long-horizon task involving more than six sequential object manipulations, the agent achieves substantial automation and efficiency gains by reusing these stored skills. We envision agents practicing skills in a distributed, parallel fashion to build a rich repository of diverse capabilities, thereby enabling continual lifelong learning.</p>
+<p class="zh">在家庭场景的真实移动操作实验中，智能体会逐项练习单个任务（每项任务都是一个独立的探索会话），例如搬运箱子、把办公椅推入桌下，并将它们提交为已验证技能。随后在一个包含六步以上连续物体操作的长时序组合任务上评估时，智能体通过复用这些已存储的技能，获得了可观的自动化程度与效率提升。我们设想，智能体可以以分布式、并行的方式练习技能，从而构建一个能力多样的丰富仓库，进而实现持续的终身学习。</p>
+</div>
+
+<div class="pair">
+<p class="en">Using RAX, we conduct the first large-scale, multi-embodiment, systematic study of scaling exploration for robot agents, spanning fine-grained precision and long-horizon tasks across LIBERO, LIBERO-Pro, RoboDojo, DexJoCo, BEHAVIOR-1K, and HumanoidArena in simulation and on two real robots. We evaluate the resulting policies on unseen scenes, separating exploration from evaluation. Performance grows steadily with exploration, and on fine-grained and long-horizon tasks on which state-of-the-art methods rarely succeed, RAX achieves high success rates, surpassing the strongest prior models by +37.4 on average over five benchmarks (Figure 1, Section F).</p>
+<p class="zh">借助 RAX，我们首次对机器人智能体的探索规模化开展了大规模、多本体、系统性的研究，覆盖仿真中的 LIBERO、LIBERO-Pro、RoboDojo、DexJoCo、BEHAVIOR-1K 与 HumanoidArena，以及两台真实机器人上的细粒度精密任务与长时序任务。我们在未见场景上评估所得策略，将“探索”与“评测”严格分离。性能随探索规模稳步上升；在那些最先进方法鲜有成功的细粒度与长时序任务上，RAX 取得了很高的成功率——在五个基准上平均超出最强先前模型 <b>+37.4</b>（图 1，F 节）。</p>
+</div>
+
+<div class="pair">
+<p class="en">Without any expert action trajectories, RAX sets a new state of the art on RoboDojo (+53.4), BEHAVIOR-1K (+38.3), DexJoCo (+31.4), and LIBERO-Pro (+21.2). On HumanoidArena, it sets a new state of the art (+7.9) with three teleoperated demonstrations per task, where every baseline uses 100. On real Franka and Rainbow RB-Y1 robots, RAX masters five complex tabletop manipulation tasks and a long-horizon mobile manipulation task with zero demonstrations, and verified skills accumulated across sessions let later sessions build on earlier ones.</p>
+<p class="zh">在完全没有专家动作轨迹的情况下，RAX 在 RoboDojo（+53.4）、BEHAVIOR-1K（+38.3）、DexJoCo（+31.4）与 LIBERO-Pro（+21.2）上均创下新的最优结果。在 HumanoidArena 上，它以每个任务仅 3 条遥操作演示（而所有基线均使用 100 条）刷新了最优成绩（+7.9）。在真实的 Franka 与 Rainbow RB-Y1 机器人上，RAX 在零演示条件下掌握了五项复杂的桌面操作任务和一项长时序移动操作任务；跨会话累积的已验证技能，使后续会话能够站在此前会话的基础上继续前进。</p>
+</div>
+
+<div class="pair">
+<p class="en">We summarize our contributions below:</p>
+<p class="zh">我们的贡献总结如下：</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>1.</b> We introduce RAX and establish scaling online exploration as a foundational principle for agentic robotics. In RAX, the agent operates directly through perception and robot control interfaces without policy training, compiling successful decision sequences into executable code programs that run autonomous execution loops.</p>
+<p class="zh"><b>1.</b> 我们提出 RAX，并把「在线探索规模化」确立为智能体机器人学的一条基础性原则。在 RAX 中，智能体直接通过感知与机器人控制接口工作，无需训练策略；它把成功的决策序列编译为可执行的代码程序，由程序运行自主的执行闭环。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>2.</b> Using RAX, we conduct the first systematic, multi-embodiment study of scaling online exploration across simulation and real robot environments. RAX acquires diverse manipulation capabilities solely through autonomous exploration, outperforming state-of-the-art baselines by +37.4 points on average across five simulation benchmarks, while solving high-precision, deformable, articulated, and long-horizon manipulation tasks on real robots without human demonstrations.</p>
+<p class="zh"><b>2.</b> 借助 RAX，我们首次在仿真与真实机器人环境中，对在线探索规模化开展了系统性的多本体研究。RAX 仅通过自主探索便获得了多样的操作能力，在五个仿真基准上平均超出最先进基线 <b>+37.4</b> 分；同时在真实机器人上、在无人类演示的条件下，解决了高精度、可变形物体、铰接物体与长时序操作任务。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>3.</b> We demonstrate rapid adaptation and continual learning on real robots, showing that generated programs can be selectively updated in response to environmental and task shifts while retaining verified skills in a persistent repository for composition and reuse in complex tasks.</p>
+<p class="zh"><b>3.</b> 我们在真实机器人上展示了快速适应与持续学习：生成的程序能够针对环境与任务的变化被“有选择地”更新，同时把已验证技能保留在持久化仓库中，供复杂任务的组合与复用。</p>
+</div>
+
+<div class="pair">
+<p class="en">We release the full architecture of RAX, together with its agent instructions, skills, benchmark integrations, and evaluation protocols, as a generalist robot-agent platform, on which a new robot can be brought up through an interface alone, without data collection or policy training.</p>
+<p class="zh">我们开源了 RAX 的完整架构，连同其智能体指令、技能、基准集成与评测协议，作为一个通用机器人智能体平台：在这套平台上，一台新机器人仅凭一个接口即可完成接入，既不需要采集数据，也不需要训练策略。</p>
+</div>

@@ -1,0 +1,208 @@
+<h3 data-num="D.3">D.3&nbsp;&nbsp;从探索到代码：人形机器人把锤子举过横杆<a class="pg" href="{{PDF}}#page=51" target="_blank">p.51</a></h3>
+
+<div class="pair">
+<p class="en">In the DoubleDesk task of HumanoidArena, a Unitree G1 humanoid has to take a hammer from one desk, carry it over a bar on the floor, and drop it into a basket on a second desk. The agent commands the robot through whole-body kinematic references that a learned tracker, SONIC, executes; it was given the tracker, three teleoperated demonstrations, a forward-kinematic model of the robot, and a tool that returns the level frame of the pelvis.</p>
+<p class="zh">在 HumanoidArena 的 DoubleDesk 任务中，一台 Unitree G1 人形机器人必须从一张桌子上拿起锤子，把它搬过地板上的横杆，再放进第二张桌子上的篮子里。智能体通过全身运动学参考量来指挥机器人，由学习得到的跟踪器 SONIC 执行；它获得的资源包括：该跟踪器、三条遥操作演示、机器人的正运动学模型，以及一个返回骨盆水平坐标系的工具。</p>
+</div>
+
+<div class="pair">
+<p class="en">Over 125 exploration episodes and 10.7 hours, it wrote a program of 3,639 lines in eleven files, of which the 637-line kinematic model is the one it was given. The program completed 34 of the 60 formal episodes; before submitting it, the agent predicted “roughly half to two-thirds”.</p>
+<p class="zh">在 125 个探索回合、10.7 小时中，它写出了一个 3,639 行、分布在十一个文件中的程序——其中 637 行是它被给定的运动学模型。该程序完成了 60 个正式回合中的 <b>34 个</b>；提交之前，智能体自己预测的是“大概一半到三分之二”。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Perception.</b> Every quantity the program uses comes from the depth image of the head camera, lifted into a point cloud in the level frame of the pelvis (Figure 18). The rotation into that frame comes from the provided tool, and the agent’s own fit of the floor plane by random sample consensus agrees with it to within 0.07°. On this cloud, the agent’s code finds the floor as the mode of the point heights, the bar as the dominant line among points 5 to 11 cm above the floor, the desk tops and their near edges among upward-facing points, and the back wall, and it localizes the robot from the bar, the desks, and the wall against a map whose constants it measured itself.</p>
+<p class="zh"><b>感知。</b>程序使用的每一个量都来自头部相机的深度图，并被提升为骨盆水平坐标系下的点云（图 18）。转换到该坐标系的旋转由所给工具提供，而智能体自己用随机采样一致性（RANSAC）拟合的地面平面与之一致到 0.07° 以内。在这个点云上，智能体的代码以点高度的众数找到地面，以高出地面 5–11 cm 的点中的主导直线找到横杆，从朝上的点中找到桌面及其近侧边缘，并找到后墙；它用横杆、桌子与墙，对照一张常数由它自己测得的 Map 来定位机器人。</p>
+</div>
+
+<div class="pair">
+<p class="en">It finds the hammer by its orange handle, takes the handle’s principal axis, decides which end carries the head from the dark points beyond the handle, and measures its length, using the 0.302 to 0.310 m it found during exploration to place the centre when part of the hammer is hidden; on the unseen scene of Figure 18, the length is 0.305 m. It finds the basket as the largest cluster of points above a desk and fits a rectangle of 0.60 by 0.40 m with its rim 0.90 m above the floor, and it measures the distance of each sole from the bar by combining the fitted bar with the kinematic model. The program perceives anew at every stage and before every step at the bar, and after a grasp it confirms that the hammer is held by measuring the height of the handle again.</p>
+<p class="zh">它依据橙色手柄找到锤子，取手柄的主轴，由手柄之外的那些深色点判断哪一端是锤头，并测量其长度——当锤子有一部分被遮挡时，就用它在探索期间得到的 0.302–0.310 m 来放置中心；在图 18 的未见场景中，测得长度为 0.305 m。它把桌子上方最大的点簇认作篮子，拟合出一个 0.60×0.40 m 的矩形，篮沿高出地面 0.90 m；它把拟合出的横杆与运动学模型结合，测出每只脚底到横杆的距离。程序在每个阶段、以及横杆前的每一步之前都重新感知；抓取之后，它会再次测量手柄高度来确认锤子确实被夹住。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure18_p51.jpg" alt="Figure 18">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 18</span>在一个未见的 DoubleDesk 场景上的感知（用智能体代码在某个正式回合的存储帧上重跑）。(a) 起始时的头部相机画面，标出程序找到的锤子，并放大显示其轴线与长度。(b) 水平坐标系下的点云（按高度着色），以及拟合出的锤子与横杆。(c) 跨越前最后一个站姿，在横杆坐标系下俯视：两只脚底、程序开始跨越的窗口，以及站姿模型预测的左脚底位置。(d) 在放置站姿处找到的篮子。</span>
+    <span class="enm"><b>Figure 18 |</b> Perception on an unseen DoubleDesk scene, re-run with the agent’s code on the stored frames of one formal episode. (a) The head camera at the start, with the hammer the program finds and, enlarged, its axis and length. (b) The point cloud in the level frame, coloured by height, with the hammer and the bar fitted to it. (c) The last stance before the crossing, seen from above in the frame of the bar: the soles, the window from which the program starts a crossing, and the position of the left sole that the stance model predicted. (d) The basket found at the placing stance.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>Locomotion and the bar.</b> The agent’s skills recommended walking by replaying a cycle cut from a teleoperated recording. The agent cut a symmetric 66-step cycle from one demonstration, looped it with a ramp in heading, and measured that its amplitude does not control the length of a single step, which varied by ±10 cm; it therefore calibrated multi-step walks against its own localization and used them as a table of distances. Sidestepping moved the robot by 1 to 2 cm per cycle, so lateral placement turns and then walks.</p>
+<p class="zh"><b>运动与横杆。</b>智能体的技能建议“通过回放从遥操作录像中裁出的步态周期”来行走。智能体从一条演示中裁出一个对称的 66 步周期，让它循环并加上朝向的斜坡变化，然后测量发现：该周期的幅度并不能控制单步长度——单步长度有 ±10 cm 的波动；因此它改为用自身定位来标定多步行走，并把结果当作一张“距离表”。横移每周期只能移动 1–2 cm，所以需要侧向放置时，它宁可先转身再走。</p>
+</div>
+
+<div class="pair">
+<p class="en">The crossing replays the step over the bar from one demonstration: with the recorded pitch, the pelvis did not travel and the lead foot landed on the bar, so the agent scaled the pitch to zero; perpendicular approaches landed the lead foot on the edge of the bar, so it approaches at 64°, where the swinging foot also reaches sideways; and it adds a trailing step when the robot ends astride the bar, after learning never to turn in that position.</p>
+<p class="zh">横杆跨越回放了某条演示中“迈过横杆”的那一步：若保留录制时的俯仰，骨盆并不会前移，前脚会落在横杆上——于是智能体把俯仰缩放为零；垂直接近时前脚会落在横杆边缘——于是它改为以 64° 接近，此时摆动脚还能获得侧向分量；当机器人最终跨骑在横杆上时，它会补一个后随步——这是在学习到“绝不要在那个位置转身”之后加上的。</p>
+</div>
+
+<div class="pair">
+<p class="en">Whether a crossing succeeds depends on the stance from which it starts, and the agent built a model of how each step moves the two soles relative to the bar, from its own measurements of 102 transitions (Figure 19a). The model predicts that a left step places the left sole 14.5 cm ahead of the right one up to an amplitude of 0.35, and up to 25 cm at 0.6; a planner searches three actions ahead to bring the left sole into the window from which the program crosses.</p>
+<p class="zh">跨越能否成功取决于起始站姿；智能体依据自己对 102 次状态转移的测量，建立了一个“每一步如何改变两只脚底相对横杆位置”的模型（图 19a）。该模型预测：当幅度不超过 0.35 时，一次左步会把左脚底放到右脚底前方 14.5 cm 处；幅度 0.6 时可达 25 cm。规划器向前搜索三步，以把左脚底带进程序用于跨越的那个窗口。</p>
+</div>
+
+<div class="pair">
+<p class="en">The bounds of that window are measured too: crossings started with the left sole within 21 cm of the bar succeeded in 17 of 17 trials, which set the far edge of the window at 21.5 cm, and the trailing sole is kept within 37 cm of it, since the agent found that crossings with the trailing sole closer than 35.5 cm had succeeded 27 times out of 27, and those with it between 35.5 and 42 cm had fallen 4 times out of 13.</p>
+<p class="zh">窗口的边界同样是“测”出来的：以左脚底距横杆 21 cm 以内起始的跨越，17 次全部成功，于是窗口的远端被定在 21.5 cm；后随脚底则被限制在距横杆 37 cm 以内——因为智能体发现，后随脚底近于 35.5 cm 的跨越 27 次全部成功，而后随脚底在 35.5–42 cm 之间的 13 次中有 4 次摔倒。</p>
+</div>
+
+<div class="pair">
+<p class="en">The agent then wrote its own Monte Carlo simulators of the approach, which replay the stance model with its measured errors, and used them to choose that margin, which lowered the simulated risk of a fall from 9.3 to about 6% at a cost of 0.3 actions. Over all 137 crossings in its logs, every crossing started with the trailing sole within 35.5 cm of the bar succeeded, and in the formal evaluation the robot crossed the bar in all 59 logged episodes without a fall (Figure 19b). In the episode of Figure 18c, the model predicted that the left step would bring the left sole to 16.7 cm before the bar, and the point cloud measured it at 17.3 cm.</p>
+<p class="zh">随后智能体自己编写了接近过程的蒙特卡洛仿真器，用测得的误差回放站姿模型，并用它来选取这一余量：把仿真中的摔倒风险从 9.3% 降到约 6%，代价是 0.3 个动作。在它日志里全部 137 次跨越中，凡是后随脚底距横杆 35.5 cm 以内起始的跨越都成功了；在正式评测中，机器人在全部 59 个有记录的回合里都跨过了横杆且未摔倒（图 19b）。在图 18c 的那个回合里，模型预测左步会把左脚底带到横杆前 16.7 cm，而点云实测为 17.3 cm。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure19_p52.jpg" alt="Figure 19">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 19</span>站姿模型与跨越窗口。(a) 从方正站姿出发的左步，使左脚底超出右脚底的距离随步幅的变化：智能体的实测值，以及它写出的分段线性模型。(b) 在探索、排练与正式回合中，每次跨越开始前两只脚底相对横杆的位置，以及程序所使用的窗口。</span>
+    <span class="enm"><b>Figure 19 |</b> The stance model and the crossing window. (a) How far a left step from a squared stance places the left sole ahead of the right one, against the step amplitude: the agent’s measurements and the piecewise-linear model it wrote. (b) The positions of the two soles before the bar at every start of a crossing in exploration, rehearsal, and formal episodes, with the window that the program uses.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>The program and its versions.</b> The program runs seven stages, each with its own checks: it approaches the hammer until the handle lies at about 60° to its heading, which the agent found to give grasps that hold; it grasps with up to two attempts, treating a closure without torque as a miss; it carries the hammer to the bar while correcting its odometry from the bar and the basket; it plans its stance at the bar and crosses only from the window; it verifies after the crossing that both soles are past the bar; and it finds the basket and places the hammer inside its fitted rectangle. Each stage has a deadline in steps, measured from the durations of earlier runs.</p>
+<p class="zh"><b>程序及其版本。</b>程序分七个阶段运行，每个阶段都有自己的检查：接近锤子，直到手柄与朝向约成 60°——智能体发现这个角度下抓取才更牢；至多两次尝试完成抓取，把“闭合时没有力矩”视为夹空；把锤子搬到横杆处，同时用横杆与篮子修正里程计；在横杆处规划站姿，并且只从窗口内跨越；跨越之后核验两只脚底都已越过横杆；最后找到篮子并把锤子放进拟合出的矩形内。每个阶段都有以步数计的截止时限，取自先前运行的时长。</p>
+</div>
+
+<div class="pair">
+<p class="en">The agent kept its own table of every stage in every episode, linked each failure to the change it made, and grew the program over more than thirty versions (Table 18 and Figure 20). Its interactive and rehearsal runs completed 41 of 82 episodes, rising to 6 of 9 for the final versions, and in the formal evaluation most failures occurred at the grasp, which held in 40 of the 59 logged episodes.</p>
+<p class="zh">智能体自己维护了一张“每个回合每个阶段”的表格，把每次失败与它所做的修改关联起来，并把程序迭代到三十多个版本（表 18 与图 20）。它的交互与排练运行完成了 82 个回合中的 41 个，最后几个版本升到 9 个中的 6 个；在正式评测中，多数失败发生在抓取环节——59 个有记录的回合里有 40 个抓取成功。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table18_p53.jpg" alt="Table 18">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 18</span>DoubleDesk 程序的各个版本。数据来自智能体自己的记录。“完成”统计各组版本的交互与排练运行的完成数。</span>
+    <span class="enm"><b>Table 18 |</b> Versions of the DoubleDesk program. From the agent’s own records. Completed counts interactive and rehearsal runs of each group of versions.</span>
+  </figcaption>
+</figure>
+
+<div class="listing">
+<div class="listing-title"><code>phases.py</code> · 跨越窗口及其依据（the crossing window and its evidence）</div>
+<pre class="code"><code>BAR_GO = -0.215
+# crossings from L &gt;= -0.21 succeeded 17/17 (ep26-57); -0.232 (x1), -0.224 (x2) and -0.223
+# (ep43) crossed but -0.224 with R -0.396 fell (ep59), as did -0.256/-0.257 (ep72 -0.364,
+# R5 -0.374, ep59 -0.396, ep64 -0.418)
+BAR_MAX = -0.12
+R_GO_MIN = -0.37
+# trailing (right) sole at the go: R &gt; -0.355 crossed 27/27; R -0.42..-0.355 fell 4/13
+R_PLAN_MIN = -0.355
+# planned stances keep the right sole at least here (sim: fall risk 9% -&gt; 6%, +0.3 actions)</code></pre>
+</div>
+
+<figure class="float">
+  <img src="figs/figure20_p54.jpg" alt="Figure 20">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 20</span>每次程序运行中每个阶段的结果：左侧按版本分组的交互与排练回合；右侧为提交版本在 60 个正式回合上的结果（按结果排序）。每一列是一个回合；数字为完成的回合数。</span>
+    <span class="enm"><b>Figure 20 |</b> The outcome of every stage in every program run, in interactive and rehearsal episodes grouped by version (left), and for the submitted version on the 60 formal episodes, ordered by outcome (right). Each column is one episode; the counts give completed episodes.</span>
+  </figcaption>
+</figure>
+
+<div class="listing">
+<div class="listing-title"><code>phases.py</code> · 带验证的跨越（crossing with verification）</div>
+<pre class="code"><code>def cross_bar(r, log, f=None):
+    """Two high steps over the bar (demo01 replay, expert roll, no pitch). Returns True when both feet are
+    past."""
+    if f is None:
+        f = C.measure_feet(r)
+    lead = 'L'
+    # diagonal approach (heading = normal - 26 deg): the left foot leads
+    r.step(C.cross_frames(r.base_joints(), r.base_yaw(), r.hands, mirror=(lead == 'R'), rp=1.0, pitch=0.0))
+    r.hold(20)
+    f2 = C.measure_feet(r)
+    log(f"[bar] crossed lead {lead}: after {None if f2 is None else (round(f2['L'], 3), round(f2['R'], 3))}")
+    if f2 is not None and min(f2['L'], f2['R']) &lt; 0.0 &lt; max(f2['L'], f2['R']):
+        trail = 'L' if f2['L'] &lt; f2['R'] else 'R'
+        log(f"[bar] straddle; trail step {trail}")
+        r.step(C.cross_frames(r.base_joints(), r.base_yaw(), r.hands, 905, 965, mirror=(trail == 'L'), rp=1.0,
+                              pitch=0.0))
+        r.hold(20)
+        f2 = C.measure_feet(r)
+    return f2 is None or min(f2['L'], f2['R']) &gt; 0.0</code></pre>
+</div>
+
+<div class="listing">
+<div class="listing-title">伪代码 · <code>run()</code> 与 <code>deliver()</code>，压缩自 <code>controller.py</code></div>
+<pre class="code"><code>def run():
+    approach the hammer until the handle lies at about 60 deg
+    grasp with up to 2 attempts              # a closure without torque is a miss
+    while not held and step &lt; 1000:          # deadlines measured from earlier runs
+        re-approach if the hammer moved out of reach; grasp again   # search turns if unseen
+    deliver()
+
+def deliver():
+    carry: locate from the bar and the basket; turn; walk a calibrated distance; face 64 deg
+    repeat up to 3 times:
+        repeat up to 8 times:                # stance planning at the bar
+            measure L, R from depth and kinematics
+            action = bar_action(L, R)        # go, left step, right step, back, or walk
+            if action is go: break
+        if cross_bar(): break                # both soles past the bar
+    raise the hand; find the basket (up to 6 looks); place inside the fitted rectangle</code></pre>
+</div>
+
+<h3 data-num="D.4">D.4&nbsp;&nbsp;LIBERO-Pro 上的扰动适应<a class="pg" href="{{PDF}}#page=55" target="_blank">p.55</a></h3>
+
+<div class="pair">
+<p class="en">After its exploration on unperturbed layouts, RAX may adapt its program to the perturbed distribution of LIBERO-Pro. A subagent reads the program, the description of the perturbed task, and the first frame of a perturbed layout, and judges whether the program will transfer. When it judges that the program will not, the agent resumes from its workspace, with the notes and code of its exploration, and continues for at most 5 episodes on perturbed layouts before the program is evaluated again on its own.</p>
+<p class="zh">在未扰动布局上完成探索之后，RAX 还可以把程序适应到 LIBERO-Pro 的扰动分布。一个子智能体读取程序、扰动任务的描述以及一个扰动布局的首帧，判断程序能否迁移。当它判断不能，智能体就从自己的工作区（连同探索时的笔记与代码）继续，在扰动布局上至多再跑 5 个回合，然后程序再次单独接受评测。</p>
+</div>
+
+<div class="pair">
+<p class="en">In this mode, RAX runs as an agent-in-the-loop program across the change of distribution: the program acts alone, and the agent steps in only to revise it, so that adaptation exercises the continual learning of Section 3.4. The agent adapted its program on five of the 40 tasks, tasks 3, 8, and 9 of the Long suite and tasks 1 and 5 of the Goal suite (Table 19).</p>
+<p class="zh">在这种模式下，RAX 跨越分布变化时以“智能体在环程序”的形式运行：程序独自行动，智能体只在需要修改时介入——因此这种适应正好演练了 3.4 节的持续学习。智能体在 40 个任务中的 5 个上调整了程序：Long 套件的第 3、8、9 号任务，以及 Goal 套件的第 1、5 号任务（表 19）。</p>
+</div>
+
+<figure class="float table">
+  <img src="figs/table19_p55.jpg" alt="Table 19">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">表 19</span>为 LIBERO-Pro 做过适配的任务。50 个位置扰动状态上、适配前后的成功率（%），以及所用的探索回合数。</span>
+    <span class="enm"><b>Table 19 |</b> Tasks adapted to LIBERO-Pro. Success rate (%) on the 50 position-perturbed states before and after adaptation, with the exploration episodes it used.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>A mirrored cabinet.</b> The third task of the Long suite asks the robot to put the black bowl in the bottom drawer of the cabinet and close it. The program solved all 50 official states, but LIBERO-Pro places the cabinet on the other side of the table, facing the other way (Figure 21a,b), and the program, whose code assumed a drawer that opens toward −y, failed in all 50 perturbed states. Its checks kept it from acting blindly: in 38 of them, it found no drawer panel where it expected one and stopped at the first step.</p>
+<p class="zh"><b>镜像的柜子。</b>Long 套件的第三个任务要求机器人把黑碗放进柜子最下层的抽屉并关上。该程序解决了全部 50 个官方状态；但 LIBERO-Pro 把柜子放到了桌子的另一侧、朝向相反（图 21a,b），而程序的代码假设抽屉朝 −y 方向打开，于是在全部 50 个扰动状态上都失败。不过它的检查让它没有“盲动”：在其中 38 个状态里，它在预期位置找不到抽屉面板，于是在第一步就停了下来。</p>
+</div>
+
+<div class="pair">
+<p class="en">Resuming from its workspace, the agent identified the cause in its first episode on the perturbed layouts and, rather than rewriting the program, added a 36-line layer that mirrors the frame in which it plans: points, orientations, and action rows are reflected across the plane y = 0 whenever the cabinet stands at −y (the listing below). The program decides the side itself, from the flat top of the cabinet in the agent-view point cloud (Figure 21c). In a stress test, the agent moved the wine bottle in front of the drawer and found that its detector of the drawer panel took the bottle for the panel; it narrowed the detector’s window, and with its five episodes spent, the adapted program completed all 50 perturbed states (Figure 21d).</p>
+<p class="zh">从工作区继续之后，智能体在扰动布局上的第一个回合就找到了原因；它没有重写程序，而是新增了一个 36 行的“镜像层”，用来镜像它做规划的那个坐标系：只要柜子位于 −y 侧，点、朝向与动作行都会关于平面 y = 0 做反射（见下方清单）。程序自己依据智能体视角点云中柜子的平顶来判断在哪一侧（图 21c）。在一次压力测试中，智能体把酒瓶挪到抽屉前方，发现它的抽屉面板检测器把酒瓶当成了面板；它收窄了检测器的窗口，最终在五个回合用尽的情况下，适配后的程序完成了全部 50 个扰动状态（图 21d）。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure21_p56.jpg" alt="Figure 21">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 21</span>适应镜像的柜子。(a) Long 套件第三个任务的一个官方布局；(b) 同一布局在 LIBERO-Pro 扰动下的样子——柜子被移到桌子另一侧。(c) 适配后程序对“哪一侧”的检查：在两边分别统计智能体视角点云高度图上高于 1.08 m 的柜顶平坦网格（橙色）。(d) 适配后的程序在扰动布局上运行，碗已在抽屉中。</span>
+    <span class="enm"><b>Figure 21 |</b> Adapting to a mirrored cabinet. (a) An official layout of the third Long task and (b) the same layout under the LIBERO-Pro perturbation, which moves the cabinet to the other side of the table. (c) The adapted program’s check of the side, re-run on both first frames: level cells of the cabinet top above 1.08 m (orange) on either side of the robot, counted on the height map of the agent-view point cloud. (d) The adapted program on the perturbed layout, with the bowl in the drawer.</span>
+  </figcaption>
+</figure>
+
+<div class="listing">
+<div class="listing-title"><code>frame.py</code> · 适配期间加入的镜像层（节选）</div>
+<pre class="code"><code>"""World &lt;-&gt; planning frame. The controller plans in a frame where the cabinet stands at +y and its drawer
+opens toward -y (the layouts it was developed on). A cabinet at -y facing +y (swapped layouts) is handled by
+mirroring y: points (x, -y, z), rotation vectors (-wx, wy, -wz) (pseudovector under the reflection), action rows
+likewise. The mirror is an involution, so the same functions map both ways."""
+
+MIRROR = False
+
+def pts(P):
+    if not MIRROR:
+        return P
+    P = np.array(P, dtype=float, copy=True)
+    P[..., 1] *= -1
+    return P
+
+# state(s) mirrors the 8-D state in the same way
+
+def row(r):
+    """7-D action row [dx, dy, dz, drx, dry, drz, grip]."""
+    r = list(r)
+    if MIRROR:
+        r[1], r[3], r[5] = -r[1], -r[3], -r[5]
+    return r</code></pre>
+</div>

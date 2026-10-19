@@ -1,0 +1,59 @@
+<h2 data-num="II">II&nbsp;&nbsp;相关工作<span class="en-h" style="font-weight:400;color:var(--faint);font-size:15px;margin-left:10px">Related Work</span><a class="pg" href="{{PDF}}#page=2" target="_blank">p.2</a></h2>
+
+<h3 data-num="II.A">II.A&nbsp;&nbsp;用于动态机器人控制的强化学习<a class="pg" href="{{PDF}}#page=2" target="_blank">p.2</a></h3>
+
+<div class="pair">
+<p class="en">Model-free RL, and PPO [13] in particular, is the dominant paradigm for learning dynamic and contact-rich robot skills [14], [15]. Because it optimizes through sampled returns rather than dynamics derivatives, it is robust to the discontinuous physics of contact and underlies many sim-to-real results in legged locomotion [16], [17]. However, this robustness comes at the price of high-variance policy gradients and correspondingly poor sample efficiency, especially with higher dimensional systems like humanoids.</p>
+<p class="zh">无模型 RL（尤其是 PPO [13]）是学习动态、接触丰富机器人技能的主流范式 [14], [15]。它通过采样回报而非动力学导数来优化，因此对接触的不连续物理具有鲁棒性，也是足式运动众多 sim-to-real 成果的基础 [16], [17]。但这种鲁棒性的代价是策略梯度方差高、样本效率相应变差——在像人形机器人这样的高维系统上尤其如此。</p>
+</div>
+
+<h3 data-num="II.B">II.B&nbsp;&nbsp;可微分仿真与一阶策略优化<a class="pg" href="{{PDF}}#page=2" target="_blank">p.2</a></h3>
+
+<div class="pair">
+<p class="en">Differentiable simulation has progressed from early engines [18], [19] to GPU-accelerated frameworks [20], [21], [11], [22], [23], enabling first-order policy optimization by backpropagating through simulated rollouts [24], [25], [26]. SHAC [4] combines short differentiable windows with a learned critic, and subsequent work extends first-order learning to deployable locomotion [27], [28], agile flight [29], [26], and multiphysics settings [30], [31].</p>
+<p class="zh">可微分仿真从早期的引擎 [18], [19] 发展到 GPU 加速框架 [20], [21], [11], [22], [23]，使得通过“穿过被仿真 rollout 的反向传播”来做一阶策略优化成为可能 [24], [25], [26]。SHAC [4] 把短可微分窗口与学习得到的 critic 结合；后续工作又把一阶学习扩展到可部署的足式运动 [27], [28]、敏捷飞行 [29], [26] 以及多物理场设置 [30], [31]。</p>
+</div>
+
+<div class="pair">
+<p class="en">For quadruped locomotion, Song et al. [28] combine forward simulation in a non-differentiable simulator with gradients from a single rigid-body surrogate, while Luo et al. [32] guide SHAC with a frozen trotting policy and learned residual actions. Schwarke et al. [27] demonstrate zero-shot transfer of quadruped locomotion using an analytically smoothed contact model, described in Section III-C. We build on this contact formulation to learn dynamic humanoid motions, where smaller stability margins place greater demands on accurate and robust foot–ground interactions.</p>
+<p class="zh">在四足运动方面，Song et al. [28] 把非可微分仿真器中的前向仿真与“单刚体代理模型”提供的梯度结合起来；Luo et al. [32] 则用一个冻结的小跑策略加学习得到的残差动作来引导 SHAC。Schwarke et al. [27] 借助解析平滑的接触模型（见 III-C 节）实现了四足运动的零样本迁移。我们正是在这一接触表述的基础上学习动态人形动作——人形的稳定性裕度更小，因此对足—地交互的准确性与鲁棒性提出了更高要求。</p>
+</div>
+
+<h3 data-num="II.C">II.C&nbsp;&nbsp;穿过刚性接触的梯度<a class="pg" href="{{PDF}}#page=3" target="_blank">p.3</a></h3>
+
+<div class="pair">
+<p class="en">The contact formulation in a differentiable simulator is important for both physical fidelity and gradient quality. Soft penalty-based contact models ease differentiation by regularizing contact forces [21], [22], but excessive compliance can distort the foot–ground interactions needed for hardware transfer. Increasing the stiffness of these models improves physical fidelity, but makes the dynamics more difficult to resolve accurately with finite simulation timesteps, leading to inaccurate autodiff gradients [33].</p>
+<p class="zh">可微分仿真器中的接触表述，同时关系到物理保真度与梯度质量。基于软惩罚的接触模型通过对接触力做正则化而便于求导 [21], [22]，但过度的柔顺会扭曲硬件迁移所需的足—地交互。提高这类模型的刚度可以改善物理保真度，却让动力学更难在有限仿真步长下被准确求解，从而产生不准确的自微分梯度 [33]。</p>
+</div>
+
+<div class="pair">
+<p class="en">To address this issue, Paulus et al. [33] introduce adaptive time integration to more accurately resolve stiff contact events and improve gradient fidelity. However, the resulting increase in simulation steps raises computational cost and lengthens the differentiable rollout which can lead to vanishing or exploding gradients.</p>
+<p class="zh">为解决该问题，Paulus et al. [33] 引入自适应时间积分，以更准确地求解刚性接触事件、提升梯度保真度。然而由此增加的仿真步数抬高了计算成本、拉长了可微分 rollout，进而可能引发梯度消失或爆炸。</p>
+</div>
+
+<div class="pair">
+<p class="en">Hard-contact models instead express non-penetration and friction through complementarity constraints, providing higher physical fidelity but less informative gradients around contact transitions. Werling et al. [34] analytically differentiate a Linear Complementarity Problem (LCP). Dojo [35] uses a Nonlinear Complementarity Problem (NCP) and implicit differentiation of its interior-point solver. It obtains smooth contact gradients by implicitly differentiating a relaxed complementarity problem. However, neither report implementation targets massively parallel GPU rollouts, and both can leave gradient-based optimization trapped in poor local solutions.</p>
+<p class="zh">硬接触模型则通过互补约束来表达非穿透与摩擦，物理保真度更高，但在接触切换附近的梯度信息更少。Werling et al. [34] 对线性互补问题（LCP）做解析求导；Dojo [35] 使用非线性互补问题（NCP）并对其内点求解器做隐式微分，通过对松弛后的互补问题隐式求导获得平滑的接触梯度。但这两项工作报告的实现都不是面向大规模并行 GPU rollout 的，而且都可能让基于梯度的优化陷入较差的局部解。</p>
+</div>
+
+<div class="pair">
+<p class="en">Gradient propagation over long rollouts presents a further difficulty: repeated Jacobian products can cause vanishing or exploding gradients [7]. AHAC [8] adapts the differentiable horizon using a contact-stiffness constraint and bootstraps the remaining return with a critic. This limits exposure to unstable derivatives, but truncating at stiff contacts discards direct gradient information about how actions influence subsequent motion through these events, potentially removing sensitivities important for learning contact-rich behavior.</p>
+<p class="zh">长 rollout 上的梯度传播还有另一重困难：反复的 Jacobian 乘积会导致梯度消失或爆炸 [7]。AHAC [8] 依据接触刚度约束自适应地调整可微分时域，并用 critic 对剩余回报做自举。这限制了与不稳定导数的接触，但在刚性接触处截断，会丢弃“动作如何经由这些接触事件影响后续运动”的直接梯度信息，从而可能抹掉对学习接触丰富行为至关重要的敏感性。</p>
+</div>
+
+<div class="pair">
+<p class="en">To combine informative gradients with physically faithful contact, we build on the analytically smoothed compliant contact model of Schwarke et al. [27], described in Section III-C, and increase its stiffness while stabilizing its gradients through local randomized smoothing.</p>
+<p class="zh">为了兼顾有信息的梯度与物理上可信的接触，我们建立在 Schwarke et al. [27] 的解析平滑柔顺接触模型之上（见 III-C 节），提高其刚度的同时，通过局部随机平滑来稳定它的梯度。</p>
+</div>
+
+<h3 data-num="II.D">II.D&nbsp;&nbsp;用于接触的随机平滑与捆绑梯度<a class="pg" href="{{PDF}}#page=3" target="_blank">p.3</a></h3>
+
+<div class="pair">
+<p class="en">Randomized smoothing offers a way to obtain smoother contact responses by averaging over nearby, randomly perturbed configurations. Bundled gradients replace the exact contact derivative with a randomized-smoothing estimate and improve convergence of trajectory optimization through contact [9], an approach that connects the sampling behavior of RL to analytic smoothing and enables global planning over quasi-dynamic contact models [36], [37], complementing classical contact-implicit trajectory optimization [38], [39].</p>
+<p class="zh">随机平滑通过对邻近的、被随机扰动的构型取平均，提供了一条获得更平滑接触响应的途径。捆绑梯度（bundled gradients）用随机平滑估计替代精确的接触导数，改善了穿过接触的轨迹优化收敛性 [9]；这一思路把 RL 的采样行为与解析平滑联系起来，并使得在准动态接触模型上做全局规划成为可能 [36], [37]，与经典的接触隐式轨迹优化 [38], [39] 形成互补。</p>
+</div>
+
+<div class="pair">
+<p class="en">Randomized smoothing has likewise been used to augment differentiable physics and to control nonsmooth systems [40], [10], with recent work addressing the bias such smoothing introduces [41]. These methods operate largely in trajectory optimization or quasi-static manipulation and smooth the contact model globally. In contrast, we adapt randomized smoothing to first-order RL policy learning and apply it locally, only at stiff contacts, so that dynamic, deployable motion-tracking can be trained under stiff contact.</p>
+<p class="zh">随机平滑同样被用于增强可微分物理、以及控制非光滑系统 [40], [10]；近期工作还处理了这种平滑所引入的偏差 [41]。这些方法大体上作用于轨迹优化或准静态操作，并且是对接触模型做<b>全局</b>平滑。与之相反，我们把随机平滑改造用于一阶 RL 策略学习，并只在刚性接触处<b>局部地</b>施加，从而能够在刚性接触下训练动态的、可部署的动作跟踪。</p>
+</div>

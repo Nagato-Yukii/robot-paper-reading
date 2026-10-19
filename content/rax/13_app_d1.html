@@ -1,0 +1,111 @@
+<h2 data-num="D">D&nbsp;&nbsp;仿真案例研究<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Simulation Case Studies</span><a class="pg" href="{{PDF}}#page=44" target="_blank">p.44</a></h2>
+
+<div class="pair">
+<p class="en">This section follows single sessions on the simulation benchmarks in detail: what the agent explored, the program it wrote, and how that program behaves on unseen scenes.</p>
+<p class="zh">本节详细追踪仿真基准上的单次会话：智能体探索了什么、它写出了什么程序，以及该程序在未见场景上的表现。</p>
+</div>
+
+<h3 data-num="D.1">D.1&nbsp;&nbsp;扰动下的重感知：把两个罐子放进篮子<a class="pg" href="{{PDF}}#page=44" target="_blank">p.44</a></h3>
+
+<div class="pair">
+<p class="en">The first task of the LIBERO-Long suite asks the robot to put both the alphabet soup and the tomato sauce in the basket, on a table that also holds a ketchup bottle, a carton of orange juice, milk, butter, and cream cheese. The agent explored the task for 15 episodes in about an hour, ten of them interactive and five rehearsals of its program, and wrote a program of 1,362 lines that succeeds in all 50 official initial states and in 44 of the 50 perturbed states of LIBERO-Pro. The perturbation exchanges the soup with the ketchup and the tomato sauce with the orange juice, which moves the two cans by 15 and 32 cm (Figure 14a). This section shows what the program perceives, how it plans, and why its behavior transfers.</p>
+<p class="zh">LIBERO-Long 套件的第一个任务要求机器人把字母汤罐头和番茄酱罐头都放进篮子；桌面上还有一瓶番茄沙司（ketchup）、一盒橙汁、牛奶、黄油与奶油奶酪。智能体用了约一小时、15 个回合探索该任务（其中 10 个交互回合、5 次程序排练），写出了一个 <b>1,362 行</b>的程序：它在全部 50 个官方初始状态上成功，在 LIBERO-Pro 的 50 个扰动状态中成功了 44 个。该扰动把汤罐头与番茄沙司对调、把番茄酱罐头与橙汁对调，使两个罐子分别移动了 15 cm 与 32 cm（图 14a）。本节说明该程序感知了什么、如何规划，以及它的行为为何能够迁移。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Perception.</b> The program perceives the scene anew in every round, and it divides the work between a vision-language model and depth (Figure 13). Gemini only names the objects: it returns a pixel on each can and in the basket, together with a short description of each can’s state. Every geometric quantity comes from depth. The program lifts the agent-view depth into the world frame, takes the table as the mode of the point heights, and, starting from each Gemini pixel, segments the object by a flood fill over 3D-connected points; the top height is a high percentile of the segment, and the axis is the centroid of its top 1.2 cm.</p>
+<p class="zh"><b>感知。</b>程序在每一轮都重新感知场景，并把工作分配给视觉语言模型与深度（图 13）。Gemini 只负责“命名”物体：它在每个罐子上与篮子上各返回一个像素，并附上对每个罐子状态的简短描述。所有几何量都来自深度。程序把智能体视角的深度提升到世界坐标系，取点高度的众数作为桌面高度，然后从每个 Gemini 像素出发，在三维连通的点上做泛洪填充来分割物体；顶面高度取该分割的一个高分位数，轴线取顶面最高 1.2 cm 内点的质心。</p>
+</div>
+
+<div class="pair">
+<p class="en">A segment counts as a can only if its top is 4.5 to 8 cm wide and 5 to 30 cm above the table, bounds that the agent set after measuring every object on the table and that reject the taller and narrower ketchup bottle. A second detector, which uses depth alone, finds flat, round plateaus of the size of a lid and adds any can that Gemini missed. Before grasping, the program hovers 7 cm above the lid and refits the lid disk from the wrist camera; a top that is not can-shaped is blacklisted, and the grasp yaw is the first of four candidates whose finger zones are clear of other objects.</p>
+<p class="zh">一个分割只有在顶面宽度为 4.5–8 cm、且高于桌面 5–30 cm 时才被判定为罐子——这些界限是智能体测量了桌上每个物体之后设定的，正好能排除更高更细的番茄沙司瓶。第二个检测器只用深度，它寻找“盖子大小”的平坦圆形平台，用来补上 Gemini 漏掉的罐子。抓取之前，程序悬停在盖子上方 7 cm 处，用腕部相机重新拟合盖子圆盘；形状不像罐顶的会被列入黑名单；抓取偏航角取四个候选中第一个“手指区域不与其他物体相碰”的角度。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Placing by footprint reach.</b> The agent-view camera cannot see the floor of the basket, which its near wall hides, and the agent found during exploration that this flat floor is only about 7 by 10 cm: drop spots chosen by clearance put the second can’s footprint over the sloped walls, where the can stalled. The program therefore maps the interior from the wrist camera while it holds the first can, as a height map with 4 mm cells, and computes for every cell the highest point under the footprint of a can, its footprint reach (Figure 13c,d).</p>
+<p class="zh"><b>按“足迹可达高度”放置。</b>智能体视角的相机看不到篮底——它被篮子的近侧壁挡住了；而智能体在探索中发现，这块平底只有约 7×10 cm：按“间隙最大”选出的投放点，会让第二个罐子的足迹落在斜壁上，罐子就卡在那儿。因此，程序在夹着第一个罐子时，用腕部相机对篮内建图，得到 4 mm 网格的高度图，并为每个网格计算“罐子足迹下方最高点”，即<b>足迹可达高度</b>（图 13c,d）。</p>
+</div>
+
+<div class="pair">
+<p class="en">It chooses the pair of spots, at least 6.8 cm apart, that minimizes the larger of their two reaches, releases each can just above its reach, and remaps the basket after the first release. During exploration, the agent also arranged perturbed layouts of its own, stacking the tomato sauce on the soup, standing the soup on the cream-cheese box, placing the cans side by side, and pushing the basket by 8 cm and rotating it by 20°, and it ran its program on each of them.</p>
+<p class="zh">它在间距至少 6.8 cm 的条件下选出一对投放点，使两者可达高度中的较大者最小；随后把每个罐子放在略高于其可达高度处释放，并在第一次释放之后重新建图。在探索期间，智能体还自行布置了各种扰动布局——把番茄酱罐头叠在汤罐头上、把汤罐头立在奶油奶酪盒上、把两个罐子并排摆放、以及把篮子推移 8 cm 并旋转 20°——并在每一种布局上都运行了自己的程序。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Why the program transfers.</b> Nothing in the program refers to where the objects stood during exploration, so the perturbation changes its inputs but not its procedure. Under perturbation, its first estimate of each can’s axis lies within a median of 3.1 mm of the ground truth, against 2.9 mm on the official layouts, and the wrist refit within a median of 1.0 mm, while the cans themselves moved by 15 and 32 cm (Figure 14b); a policy that reproduced its official motions would miss each can by that displacement.</p>
+<p class="zh"><b>程序为何能迁移。</b>程序里没有任何地方引用“物体在探索时所在的位置”，因此扰动改变的是它的输入，而非它的流程。在扰动下，它首次估计的罐子轴线与真值的中位误差为 3.1 mm（官方布局上为 2.9 mm），腕部重拟合的中位误差为 1.0 mm——而罐子本身移动了 15 cm 与 32 cm（图 14b）。一个只会复现官方动作的策略，会因同样的位移而与罐子“擦肩而过”。</p>
+</div>
+
+<div class="pair">
+<p class="en">The checks also absorb labelling errors. When Gemini placed the soup’s label on the ketchup bottle, which now stands where the soup stood in the official layouts, the wrist refit measured a top 3.7 cm across, and the program rejected it as not can-shaped, blacklisted its position, and found the soup in the next round. All six failures share one cause: the soup is not visible from the agent-view camera at the start, and the program, which re-perceives only from its home pose, stops with about 300 steps left.</p>
+<p class="zh">这些检查也吸收了标注错误。有一次 Gemini 把“汤罐头”的标签贴到了番茄沙司瓶上——后者此时正站在官方布局中汤罐头所在的位置；腕部重拟合测得该顶面直径只有 3.7 cm，程序便以“形状不像罐顶”为由拒绝它、把该位置列入黑名单，并在下一轮重新找到了汤罐头。六次失败共享同一个原因：汤罐头在开始时从智能体视角的相机中不可见，而程序只在它的初始位姿处重新感知，于是停在还剩约 300 步的时候。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure13_p45.jpg" alt="Figure 13">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 13</span>在一个 LIBERO-Pro 布局上的感知与规划——用智能体的代码在该次评测回合存储的帧上重跑。(a) 带 Gemini 点（菱形）的智能体视角图像，以及程序由深度导出的几何：每个罐子的顶面与轴线、篮子边缘。(b) 智能体视角相机的点云，由腕部相机在篮子上方补全，并按高于桌面的高度着色（色标与 (c)(d) 相同），其中画出了拟合出的罐子、篮子边缘与两个规划好的放置点（编号为执行顺序）。(c) 腕部相机测得的篮子（4 mm 网格），轮廓为篮内区域。(d) 足迹可达高度——罐子足迹下方的最高点——以及使其最小的两个投放点；圆圈表示足迹。</span>
+    <span class="enm"><b>Figure 13 |</b> Perception and planning on a LIBERO-Pro layout, re-run with the agent’s code on the stored frames of one evaluation episode. (a) The agent-view image with Gemini’s points (diamonds) and the geometry that the program derives from depth: the top and axis of each can and the basket rim. (b) The point cloud of the agent-view camera, completed over the basket by the wrist camera and coloured by height above the table on the scale of (c) and (d), with the fitted cans, the basket rim, and the two planned placements, numbered in the order of execution. (c) The basket measured by the wrist camera in 4 mm cells, with the interior outlined. (d) Footprint reach, the highest point under the footprint of a can, and the two spots that minimize it; the circles show the footprint.</span>
+  </figcaption>
+</figure>
+
+<p class="note">以下代码清单保留原文英文标识符与注释，以便对照阅读（未作中译）。</p>
+
+<div class="listing">
+<div class="listing-title">伪代码 · <code>run()</code>，压缩自 <code>controller.py</code>　<span>Pseudocode · run(), condensed from controller.py</span></div>
+<pre class="code"><code>def run(robot):
+    table_z = mode of the agent-view point heights
+    repeat up to 3 rounds:                      # perceive anew in every round
+        lids  = flat, round plateaus in depth   # depth alone
+        labels = Gemini(agent view)             # one pixel per can and the basket
+        cans  = [flood_fill(p) for p in labels if is_can(top width, height)]
+        cans += lids that no label explains, minus blacklisted positions
+        for can in order(cans):                 # stacked cans: the higher first
+            hover 7 cm above the lid; refit the lid disk from wrist depth
+            if not can_shaped(disk): blacklist(can); continue
+            yaw = first of {0, 90, 45, -45} deg with clear finger zones
+            descend to top - 3 cm; close; lift
+            if not 3.5 cm &lt; finger opening &lt; 7.4 cm: continue
+            if no basket map: map the basket from the wrist, holding the can
+            spot = plan_spots(map) for the first can, else lowest_spot(remap)
+            lower to the release height above the footprint reach; open; lift
+            if task complete: return</code></pre>
+</div>
+
+<figure class="float">
+  <img src="figs/figure14_p46.jpg" alt="Figure 14">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 14</span>程序为何能迁移到 LIBERO-Pro。(a) 在 50 个官方布局与 50 个扰动布局上的物体平均位置，俯视图，机器人在上方；扰动把汤罐头与番茄沙司对调、把番茄酱罐头与橙汁对调。叉号标出程序在每个扰动回合中对每个罐子的首次估计。(b) 程序对罐子轴线的估计与仿真中较近罐子之间的距离——分别给出首次的智能体视角估计与每次抓取前的腕部重拟合——并与两个罐子的位移作对照。该任务可以任意顺序取罐；在两个扰动回合中 Gemini 把它们的标签对调了；被拒绝的重拟合对应的是番茄沙司瓶。</span>
+    <span class="enm"><b>Figure 14 |</b> Why the program transfers to LIBERO-Pro. (a) Mean object positions over the 50 official and the 50 perturbed layouts, seen from above with the robot at the top; the perturbation exchanges the soup with the ketchup and the tomato sauce with the orange juice. Crosses mark the program’s first estimate of each can in every perturbed episode. (b) The distance between the program’s estimate of a can’s axis and the nearer can in the simulator, for the first agent-view estimate and for the wrist refit before each grasp, against the displacement of the two cans. The task takes the cans in either order, and in two perturbed episodes Gemini exchanged their labels; the rejected refits are those on the ketchup bottle.</span>
+  </figcaption>
+</figure>
+
+<div class="listing">
+<div class="listing-title"><code>basket.py</code> · 足迹可达高度与投放点规划（footprint reach and drop-spot planning）</div>
+<pre class="code"><code>def footprint_max(b, r=0.036):
+    H = np.where(np.isfinite(b["H"]), b["H"], b["rim_z"])   # unobserved cells count as rim
+    res = b["grid"][2]
+    k = int(np.ceil(r / res))
+    yy, xx = np.mgrid[-k:k + 1, -k:k + 1]
+    fp = (xx ** 2 + yy ** 2) * res ** 2 &lt;= r * r             # disk of the can's footprint
+    return ndimage.maximum_filter(H, footprint=fp, mode="constant", cval=b["rim_z"])
+
+def plan_spots(b, r=0.036, min_sep=0.068):
+    F = footprint_max(b, r)
+    ii, jj = np.nonzero(b["interior"])
+    if len(ii) &lt; 2:
+        return None
+    f = F[ii, jj]
+    keep = np.argsort(f)[:400]
+    ii, jj, f = ii[keep], jj[keep], f[keep]
+    res = b["grid"][2]
+    D = np.hypot(ii[:, None] - ii[None], jj[:, None] - jj[None]) * res
+    cost = np.maximum(f[:, None], f[None]) + 0.5 * np.maximum(0.0, 0.08 - D)
+    cost[D &lt; min_sep] = np.inf
+    a, c = np.unravel_index(np.argmin(cost), cost.shape)
+    if not np.isfinite(cost[a, c]):
+        return None
+    s1, s2 = cell_xy(b["grid"], ii[a], jj[a]), cell_xy(b["grid"], ii[c], jj[c])
+    return [(s1, float(f[a])), (s2, float(f[c]))]</code></pre>
+</div>

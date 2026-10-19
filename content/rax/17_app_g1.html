@@ -1,0 +1,226 @@
+<h2 data-num="G">G&nbsp;&nbsp;真实机器人任务<span class="en-h" style="font-weight:400;color:var(--faint);font-size:13px;margin-left:8px">Real-Robot Tasks</span><a class="pg" href="{{PDF}}#page=59" target="_blank">p.59</a></h2>
+
+<div class="pair">
+<p class="en">This section describes the setup of every real-robot experiment: the task, the robot and its sensors, what the agent was given, what the operator did, how many trials the agent ran, how success was judged, and the final outcome. Five tasks use a Franka FR3 arm with a parallel gripper, two exterior RGB-D cameras (left and right of the table), and an RGB-D camera on the wrist; the sixth uses a Rainbow RB-Y1 mobile manipulator with an RGB-D camera on its head.</p>
+<p class="zh">本节描述每个真实机器人实验的设置：任务、机器人与传感器、智能体得到了什么、操作员做了什么、智能体跑了多少次试验、成功如何判定，以及最终结果。五个任务使用一条 Franka FR3 机械臂，配备平行夹爪、两个外部 RGB-D 相机（桌子左右各一）以及一个腕部 RGB-D 相机；第六个任务使用 Rainbow RB-Y1 移动操作平台，其头部装有一个 RGB-D 相机。</p>
+</div>
+
+<div class="pair">
+<p class="en">The control interfaces are those of Section 4.2. In every task the agent received only the task text quoted below, typed by the operator, and the robot’s tools; it received no demonstrations, no object models, and no trained policy. Each session ran Claude Code with maximum reasoning effort. The agent could send requests to the operator through its tools, and the operator could reply in a chat; we report every reset and intervention recorded in the agent’s notes. Times are local wall-clock times taken from the agent’s notes and the camera recordings, which are timestamped frame by frame. The key-frame figures show raw camera frames without overlays.</p>
+<p class="zh">控制接口即 4.2 节所述。在每个任务中，智能体只拿到操作员输入的、下文引用的任务文本，以及机器人的工具；它没有得到任何演示、任何物体模型、任何训练好的策略。每次会话都运行 Claude Code，并采用最大推理强度。智能体可以通过工具向操作员发请求，操作员可以在聊天中回复；我们报告智能体笔记中记录的每一次重置与干预。时间均取自智能体笔记与逐帧带时间戳的相机录像的本地墙上时间。关键帧图均为未经叠加的原始相机帧。</p>
+</div>
+
+<h3 data-num="G.1">G.1&nbsp;&nbsp;找方块（Find the Cube）<a class="pg" href="{{PDF}}#page=59" target="_blank">p.59</a></h3>
+
+<div class="pair">
+<p class="en"><b>Task.</b> The operator hides a white cube of about 3 cm under one of four inverted green cups (about 9.3 cm tall) and shuffles the cups by hand; the robot must then lift the cup that holds the cube away and grasp and lift the cube. The task text was: <i>“First wait for the operator to place a cube under a green cup and watch it permute the positions of the cups. after it finishes, you should identify the cup with the cube insides and lift the cup away, then grasp the cube and lift it in the gripper, as success.”</i> The agent had to watch the shuffle while it happened: it held the arm still at a watch pose above the cups and recorded the wrist camera’s stream, then identified the cup from that recording.</p>
+<p class="zh"><b>任务。</b>操作员把一个约 3 cm 的白色方块藏到四个倒扣的绿色杯子（约 9.3 cm 高）之一下面，并用手打乱杯子；机器人随后必须把藏着方块的杯子提走，并抓住、提起方块。任务文本为：<i>“先等操作员把方块放到一个绿色杯子下面，并观看它改变杯子的位置。结束后，你要找出里面藏着方块的那个杯子，把杯子提走，然后抓住方块并把它提在夹爪里，就算成功。”</i> 智能体必须在打乱发生的当下观看：它把手臂静止保持在杯子上方的“观看位姿”，录制腕部相机的视频流，再从这段录像中识别杯子。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Operator.</b> The operator hid the cube, shuffled the cups, and reset the scene between trials when the agent asked. During the session the operator made the game harder in three steps. At first the cube was covered by a cup and the cups were slid around. In later trials the operator also lifted the cube and moved it, or set a decoy cup on its old spot. From 21:35 the operator dropped the cube into an upright cup, not necessarily the nearest, turned that cup over, and then shuffled. From 21:50 the cube was replaced by a red wedge of about 4 cm.</p>
+<p class="zh"><b>操作员。</b>操作员负责藏方块、打乱杯子，并在智能体请求时于两次试验之间重置场景。在会话过程中，操作员分三步加大了难度。最初，方块被杯子扣住、杯子在桌面上滑动。之后的试验里，操作员还会把方块提起来挪走，或在它原来的位置放一个诱饵杯。从 21:35 起，操作员把方块丢进一个正立的杯子（不一定是最近的那个），把杯子翻转过来，然后再打乱。从 21:50 起，方块被换成一个约 4 cm 的红色楔块。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Trials and outcome.</b> The agent ran 12 trials between 20:08 and 22:35, and recorded each in its notes; trials that stopped partway were resumed from the step that failed. In the first trial the shuffle started before the arm reached the watch pose. In the next two the agent finished parts by hand-issued commands, and in the third its tracker assumed a static cube and chose the decoy.</p>
+<p class="zh"><b>试验与结果。</b>智能体在 20:08 至 22:35 之间进行了 12 次试验，并逐一记入笔记；中途停止的试验会从失败的那一步继续。第一次试验中，手臂还没到达观看位姿，打乱就开始了。接下来两次试验里，智能体用手工下达的指令完成了部分步骤；第三次试验中，它的跟踪器假设方块静止不动，因而选错了诱饵杯。</p>
+</div>
+
+<div class="pair">
+<p class="en">Trials 4, 5, and 6 were three consecutive end-to-end successes of the agent’s program without intervention, in 166, 231, and 194 s. Trial 7 missed the moment the cup covered the cube; trial 8 identified the cup correctly but pinched the cube through the cup wall and carried both, after which the agent grasped cups higher and with less force. Trial 9 introduced a new way of hiding the cube: dropped into an upright cup that was then turned over. The program recognized no hiding event it knew and stopped without moving the robot. The agent adapted on the spot: it added a detector for a cube lying inside an upright cup, checked it on the recorded stream and on all seven recordings so far, and resumed the same scene one minute later, when the robot lifted the predicted cup and grasped the cube in 98 s (Figure 22). Figure 24 shows how its program tracks the cups.</p>
+<p class="zh">第 4、5、6 次试验是智能体程序连续三次端到端、无干预的成功，分别用时 166 s、231 s 与 194 s。第 7 次试验漏掉了“杯子扣住方块”的那一刻；第 8 次试验正确识别了杯子，却隔着杯壁把方块一起夹住并搬走——此后智能体改为更高、更轻地抓取杯子。第 9 次试验引入了一种新的藏法：把方块丢进正立的杯子后再翻转过来。程序没有识别出任何它认识的“藏匿事件”，于是原地停下、没有让机器人动作。智能体当场做了适配：增加了一个“正立杯内方块”检测器，在录像流以及此前的全部七段录像上做了检验，一分钟后就从同一场景继续，机器人提起预测的杯子并在 98 s 内抓住了方块（图 22）。图 24 展示了它的程序如何跟踪杯子。</p>
+</div>
+
+<div class="pair">
+<p class="en">With the red wedge, the cup was identified correctly in trials 10 and 11; the wedge was grasped after several fixes and manual help in trial 10, and on the first attempt in the resumed trial 11 (Figure 23). For the wedge the agent kept the cup tracker and 20 of the program’s 41 functions unchanged, generalized its model of the hidden object to a measured size, color, and height, and changed the grasp to close on the wedge along two axes. Success was judged from the gripper width after the grasp and from the wrist camera’s view of the object in the gripper.</p>
+<p class="zh">换成红色楔块后，第 10、11 次试验都正确识别了杯子；楔块在第 10 次试验中经过若干修正与人工帮助才被抓住，而在继续进行的第 11 次试验里一次成功（图 23）。针对楔块，智能体保留了杯子跟踪器与原程序 41 个函数中的 20 个，把“被藏物体”的模型泛化为由实测尺寸、颜色与高度参数化的形式，并把抓取改成沿两个轴向闭合楔块。成功与否由抓取后的夹爪开度、以及腕部相机中“物体在夹爪内”的画面判定。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure22_p60.jpg" alt="Figure 22">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 22</span>找方块，第 9 次试验：适应一种新的藏匿方式。(a)–(d) 左外部相机：操作员把方块丢进一个正立的杯子，把杯子翻转，然后打乱四个杯子。(e)–(f) 右外部相机：在智能体加入针对该情形的检测器之后，机器人把识别出的杯子放到一旁并抓住方块。识别来自更新后的检测器在已录制的腕部视频流上的运行，本次运行从“定位杯子”那一步继续。时间自首帧起算。</span>
+    <span class="enm"><b>Figure 22 |</b> Find the cube, trial 9: adapting to a new way of hiding the cube. (a)–(d) Left exterior camera: the operator drops the cube into an upright cup, turns the cup over, and shuffles the four cups. (e)–(f) Right exterior camera: after the agent added a detector for this case, the robot sets the identified cup aside and grasps the cube. The identification comes from the updated detector run on the recorded wrist stream, and the run resumed from locating the cups. Time is from the first frame.</span>
+  </figcaption>
+</figure>
+
+<figure class="float">
+  <img src="figs/figure23_p61.jpg" alt="Figure 23">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 23</span>找方块，第 11 次试验：用红色楔块代替方块。(a)–(d) 操作员把楔块抛进一个正立的杯子，翻转杯子，然后打乱；(c) 是腕部相机画面——智能体的检测器正是在看这一路。(e)–(f) 在继续的运行中，机器人把预测的杯子放到一旁，并在第一次尝试时就抓住了楔块。除 (c) 外均为左外部相机；时间自首帧起算。</span>
+    <span class="enm"><b>Figure 23 |</b> Find the cube, trial 11: a red wedge instead of the cube. (a)–(d) The operator tosses the wedge into an upright cup, turns the cup over, and shuffles; (c) is the wrist camera, which the agent’s detector watches. (e)–(f) On the resumed run, the robot sets the predicted cup aside and grasps the wedge on the first attempt. Left exterior camera except (c); time is from the first frame.</span>
+  </figcaption>
+</figure>
+
+<figure class="float">
+  <img src="figs/figure24_p62.jpg" alt="Figure 24">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 24</span>找方块程序。打乱期间，它在腕部相机上跟踪每一个杯子，并记住盖住方块的那个杯子（上）；它也能捕捉到方块被移动、或被丢进杯子的情形（中）。随后它提走藏住方块的杯子并抓起方块（下）。</span>
+    <span class="enm"><b>Figure 24 |</b> The find-the-cube program. During the shuffle it follows every cup on the wrist camera and remembers the cup that covered the cube (top); it also catches a cube that is moved or dropped into a cup (middle). It then lifts the cup that hides the cube and picks the cube up (bottom).</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="G.2">G.2&nbsp;&nbsp;空气炸锅<a class="pg" href="{{PDF}}#page=63" target="_blank">p.63</a></h3>
+
+<div class="pair">
+<p class="en"><b>Task.</b> The robot must open the drawer of an air fryer by its handle, put a banana into the basket, and close the drawer. The task text was: <i>“You should open the air fry pan, put the banana inside, and close it. Reminder: the plate is really heavy and you should figure out where to grasp and the force applied. Also if the position of the air fry pan is out of range you may ask for operator reset. Be careful about the forces and maybe not pull out the plate entirely so we do not have to lift it in everytime.”</i> The agent’s perception, its articulated model of the fryer, and its verification are described in Section G.2.1.</p>
+<p class="zh"><b>任务。</b>机器人必须握住把手打开空气炸锅的抽屉，把一根香蕉放进炸篮，再关上抽屉。任务文本为：<i>“打开空气炸锅，把香蕉放进去，然后关上。提醒：托盘很重，你要想清楚该在哪里抓、用多大的力。另外，如果空气炸锅的位置超出范围，你可以请求操作员重置。注意力的大小，也许不要把托盘完全拉出来，这样我们就不必每次都把它抬起来。”</i> 智能体的感知、它对炸锅的铰接式模型以及它的校验方式，见 G.2.1 节。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Operator.</b> The operator reset the scene between runs; after the first run, for example, the operator took the banana out of the basket, which the robot cannot reach into. Between runs the fryer was moved (by about 6 cm and 4 cm in the two table directions before run 7) and rotated it (so that the handle faced the robot’s base, before run 8). Before the final run the operator moved the banana away from the left camera at the agent’s request and added an orange ball as a second object.</p>
+<p class="zh"><b>操作员。</b>操作员在两次运行之间重置场景；例如第一次运行之后，操作员把香蕉从炸篮里取了出来，因为机器人伸不进去。两次运行之间，炸锅被移动（第 7 次运行前在桌面两个方向上分别移动了约 6 cm 与 4 cm）、也被旋转（第 8 次运行前，把手转向机器人基座）。在最后一次运行之前，操作员应智能体请求把香蕉从左相机前方挪开，并加入一个橙色小球作为第二个物体。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Runs and outcome.</b> The session lasted from 09:18 to 12:05. The agent first completed the task once by direct tool calls (run 1, about 75 minutes including exploration), then wrote a program and ran it nine times (runs 2–10). Run 2 ended with a safety stop when the elbow hit the left camera; the collision moved the right camera, which the agent stopped using.</p>
+<p class="zh"><b>运行与结果。</b>会话从 09:18 持续到 12:05。智能体先用直接工具调用完成了一次任务（第 1 次运行，含探索约 75 分钟），然后写出程序并运行了九次（第 2–10 次运行）。第 2 次运行以安全停机告终——肘部撞上了左相机；这次碰撞使右相机发生位移，智能体随后停止使用右相机。</p>
+</div>
+
+<div class="pair">
+<p class="en">Runs 4, 5, and 8 needed resumes after a false-negative check, a descent timeout, and refused long moves, and run 8 also needed recovery commands issued by the agent. Runs 6, 7, 9, and 10 were clean unattended successes, including run 7 on the moved fryer and run 9 on the rotated one. In the final run the program opened the drawer by 13.1 cm, placed the banana and then the ball in the basket, and closed the drawer, in 210 s, leaving the handle 3.5 mm from its initial position; Figure 27 shows it.</p>
+<p class="zh">第 4、5、8 次运行需要“续跑”：原因分别是一次假阴性检查、一次下降超时以及长距离移动被拒；第 8 次还需要智能体下达恢复指令。第 6、7、9、10 次是干净的无人值守成功——包括在移动过的炸锅上的第 7 次、以及在旋转过的炸锅上的第 9 次。在最后一次运行中，程序把抽屉拉开 13.1 cm，依次把香蕉与小球放进炸篮，再关上抽屉，全程 210 s，把手最终距初始位置仅 3.5 mm；图 27 即为该次运行。图 25 展示了程序如何处理炸锅布局、相机被撞与释放。</p>
+</div>
+
+<div class="pair">
+<p class="en">Success was judged by the agent’s own measurements: the drawer opening, the objects’ points inside the basket rim, and the handle’s final position.</p>
+<p class="zh">成功与否由智能体自己的测量判定：抽屉的开度、物体上的点是否落在炸篮边缘之内，以及把手的最终位置。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure25_p64.jpg" alt="Figure 25">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 25</span>空气炸锅程序。在第 2 次运行中肘部撞到左相机之后，智能体重新配准了相机，并且只规划避开两个相机的姿态；它以倾斜 60° 的手释放香蕉。同一个程序可应对四种炸锅布局；最下面一行对应炸锅被旋转的那次运行。</span>
+    <span class="enm"><b>Figure 25 |</b> The air-fryer program. After its elbow hit the left camera in run 2, the agent re-registered the camera and planned only postures clear of both cameras; it releases the banana with the hand tilted 60°. One program handles four fryer layouts; the bottom row follows the run with the fryer rotated.</span>
+  </figcaption>
+</figure>
+
+<h3 data-num="G.2.1">G.2.1&nbsp;&nbsp;智能体自己写的三维感知<a class="pg" href="{{PDF}}#page=63" target="_blank">p.63</a></h3>
+
+<div class="pair">
+<p class="en">This section details the perception code behind Figure 3. The task is to open the drawer of an air fryer by its handle, put a banana into the basket, and close the drawer, on a real Franka FR3 with a left exterior and a wrist RGB-D camera. The agent wrote the perception and the program itself, in about 1,500 lines of Python; they use no learned detector and no vision-language model. All numbers below are from the agent’s final run.</p>
+<p class="zh">本节详述图 3 背后的感知代码。任务是在一台真实的 Franka FR3 上（配一个左外部相机与一个腕部 RGB-D 相机），握住把手打开空气炸锅抽屉、把香蕉放进炸篮、再关上抽屉。感知与程序全部由智能体自己编写，约 1,500 行 Python；其中不使用任何学习型检测器，也不使用视觉语言模型。以下所有数字都来自智能体的最后一次运行。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Lifting to a metric frame.</b> Every depth pixel is back-projected with the camera intrinsics and the camera-to-base pose into the robot’s base frame, and the views of the exterior and wrist cameras are fused in that frame. All later computations operate on these points; estimates are projected back into the images only to check them.</p>
+<p class="zh"><b>提升到公制坐标系。</b>每个深度像素都用相机内参与“相机到基座”的位姿反投影到机器人基座坐标系中，外部相机与腕部相机的视图在该坐标系内融合。此后所有计算都在这些点上进行；只有在需要核验时，估计值才会被投影回图像。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Segmentation and geometric primitives.</b> Each part of the scene is selected by a colour threshold combined with a height band and a workspace region: the dark lid on top of the fryer, its white body, the dark handle outside the body, the yellow banana, and an orange ball just above the table. Geometric primitives are then fitted to the selected points, each with a plausibility check on its size:</p>
+<p class="zh"><b>分割与几何原语。</b>场景的每一部分都通过“颜色阈值 + 高度带 + 工作空间区域”选出：炸锅顶部的深色盖、白色锅体、锅体外侧的深色把手、黄色香蕉，以及桌面上方不高的橙色小球。随后对选中的点拟合几何原语，每个原语都带一个尺寸合理性检查：</p>
+</div>
+
+<div class="pair">
+<p class="en">• the fryer body, by a robust circle fit to its side (radius 8 to 16 cm accepted), and the lid, seen from the wrist camera above, by a second circle (4.5 to 8 cm), whose centre gives the fryer’s vertical axis c;</p>
+<p class="zh">• 炸锅锅体：对其侧面做鲁棒圆拟合（半径接受 8–16 cm）；盖子：由上方腕部相机看到的圆做第二次圆拟合（4.5–8 cm），其圆心给出炸锅的竖直轴线 <i>c</i>；</p>
+</div>
+
+<div class="pair">
+<p class="en">• the handle, by the direction from the axis to its horizontal arm, which gives the pull direction d, the outer face of its grip in 1.5 cm height slices, the height of its arm, and its lateral offset;</p>
+<p class="zh">• 把手：由“轴线指向其横臂”的方向给出拉动方向 <i>d</i>，并在 1.5 cm 的高度切片中给出握柄的外侧面、横臂高度与侧向偏移；</p>
+</div>
+
+<div class="pair">
+<p class="en">• the banana, by its principal axis and a quadratic centre line, which give its arc middle, the normal on its convex side, its chord (13 to 21 cm accepted; 18.0 cm here), and its height;</p>
+<p class="zh">• 香蕉：由主轴与二次中心线给出其弧形中点、凸侧法向、弦长（接受 13–21 cm；此处为 18.0 cm）与高度；</p>
+</div>
+
+<div class="pair">
+<p class="en">• the basket, once the drawer is open, by a circle fitted to its rim.</p>
+<p class="zh">• 炸篮：抽屉打开之后，对其篮沿拟合一个圆。</p>
+</div>
+
+<div class="pair">
+<p class="en">The pull direction from the top view must agree with the one from the side view within 12°; the side view alone was biased by about 4°, which is why the agent added the top view.</p>
+<p class="zh">由俯视图得到的拉动方向必须与侧视图得到的结果一致到 12° 以内；单用侧视图会带来约 4° 的偏差，这正是智能体补充俯视图的原因。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Task frame and articulated model.</b> All targets are expressed in a frame anchored on the fryer: the axis c, the pull direction d, and t = z × d. The agent also wrote an articulated model of the fryer: a fixed upper cylinder and the back of the lower body, and a drawer cylinder with box models of the handle’s grip and arm, which translate together by the drawer’s opening along d. The model provides a signed distance from any point, and the program instantiates it at the drawer’s current opening to check every planned motion for clearance between the arm, hand, fingers, wrist camera, and held object, and the fryer, the table, and keep-out regions around the exterior cameras.</p>
+<p class="zh"><b>任务坐标系与铰接模型。</b>所有目标都在锚定于炸锅的坐标系中表达：轴线 <i>c</i>、拉动方向 <i>d</i>，以及 <i>t</i> = z × <i>d</i>。智能体还写出了炸锅的铰接模型：固定的上部圆柱与下部锅体后侧、一个抽屉圆柱，以及握柄与横臂的盒状模型——它们随抽屉开度沿 <i>d</i> 一起平移。该模型能对任意点给出有符号距离；程序按抽屉当前的开度实例化模型，用以检查每个规划动作中“手臂、手、手指、腕部相机与手中物体”相对“炸锅、桌面以及外部相机周围禁入区”的间隙。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>How the agent built the model.</b> No model of the fryer was provided. The agent first completed the task once by hand, controlling the robot step by step, and recorded what it measured in its notes: the fryer’s top at a height of 0.415 m and the seam between body and drawer at 0.245 m, a handle with a horizontal arm and a hanging grip, and the basket centre relative to the handle once the drawer was out. It also noted that the drawer slides freely along the pull direction and tips slightly when released. About 90 minutes into the session it turned these observations into the model above, in the first version of its program, and revised it in later versions. Table 21 separates what the agent estimates in each new scene from what it fixed from these measurements.</p>
+<p class="zh"><b>智能体是如何建出这个模型的。</b>事先没有提供炸锅模型。智能体先用手工方式、逐步控制机器人完成了一次任务，并把测到的结果记进笔记：炸锅顶部高度 0.415 m、锅体与抽屉的接缝在 0.245 m、把手由一段横臂与一段下垂握柄组成、以及抽屉拉出后炸篮中心相对把手的位置。它还记下：抽屉沿拉动方向滑动自如，释放时会轻微下倾。会话进行到约 90 分钟时，它把这些观察变成了上述模型（在程序的第一个版本中），并在后续版本中加以修正。表 21 区分了“智能体在每个新场景中估计的量”与“它由这些测量固定下来的量”。</p>
+</div>
+
+<table class="data bilingual">
+<caption><b>表 21</b>｜智能体的炸锅模型从每个场景中取用的内容（Table 21 | What the agent’s fryer model takes from each scene）</caption>
+<thead><tr><th style="width:34%">模型部件 Part of the model</th><th style="width:22%">每个场景中 In each scene</th><th>来源 Source</th></tr></thead>
+<tbody>
+<tr><td>位置与朝向（轴线 <i>c</i>、拉动方向 <i>d</i>）</td><td>估计</td><td>点云中的盖子圆与把手方向</td></tr>
+<tr><td>把手外侧面、横臂高度、侧向偏移</td><td>估计</td><td>点云中的把手点</td></tr>
+<tr><td>抽屉开度（关节状态）</td><td>实测</td><td>拉动前后把手外侧面的位移</td></tr>
+<tr><td>半径、高度、把手尺寸</td><td>固定</td><td>智能体在第一次手动运行中的测量</td></tr>
+</tbody>
+</table>
+
+<div class="pair">
+<p class="en"><b>Estimators.</b> The agent does not register the whole model to the point cloud at once. Instead, each parameter of the model comes from a small, robust estimate on the points of one part of the scene, illustrated on its final run in Figure 26:</p>
+<p class="zh"><b>估计器。</b>智能体并不是把整个模型一次性配准到点云上，而是让模型的每个参数都来自“对场景某一部分点云做的小型鲁棒估计”，图 26 以其最后一次运行作了图示：</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>1. Axis c (Figure 26a).</b> From the wrist camera above the fryer, the dark points at the height of the lid are fitted with a circle by least squares: writing the circle as x<sup>2</sup> + y<sup>2</sup> = 2ax + 2by + k turns the fit into a linear system for the centre (a, b) and k, with radius √(k + a<sup>2</sup> + b<sup>2</sup>). The fit is repeated six times, each time discarding the points that lie farthest from the current circle, so that the dark inner part of the lid and stray points do not pull the centre away. The centre is the fryer’s axis; the radius, 6.3 cm here, must lie between 4.5 and 8 cm.</p>
+<p class="zh"><b>1. 轴线 <i>c</i>（图 26a）。</b>由炸锅上方的腕部相机，对盖子高度处的深色点做最小二乘圆拟合：把圆写成 <i>x</i><sup>2</sup> + <i>y</i><sup>2</sup> = 2<i>ax</i> + 2<i>by</i> + <i>k</i>，即可把拟合转化为关于圆心 (<i>a</i>, <i>b</i>) 与 <i>k</i> 的线性方程组，半径则为 √(<i>k</i> + <i>a</i><sup>2</sup> + <i>b</i><sup>2</sup>)。该拟合重复六次，每次都剔除距当前圆最远的点，以免盖子深色内圈与杂点把圆心拉偏。圆心即炸锅轴线；半径在此处为 6.3 cm，必须落在 4.5–8 cm 之间。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>2. Pull direction d (Figure 26b).</b> Dark points at the height of the handle and just outside the lid are the handle’s arm seen from above. Points more than 0.25 rad from their median bearing around the axis are dropped, and d points from the axis to the median of the rest; a median ignores the few points of other dark objects.</p>
+<p class="zh"><b>2. 拉动方向 <i>d</i>（图 26b）。</b>把手高度处、紧贴盖子外侧的深色点，就是从上方看到的把手横臂。绕轴线统计各点方位角，偏离中位方位角超过 0.25 rad 的点被剔除，<i>d</i> 由轴线指向剩余点的中位方位；用中位数可以忽略其他深色物体的少数点。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>3. Handle face and arm height (Figure 26c).</b> In the plane through the axis along d, the handle’s points are cut into 1.5 cm height slices. In each slice, the 97th percentile of the distance along d marks the handle’s outer face, the surface the fingers and the closing push rest on, while ignoring a few noisy points beyond it; the 95th percentile of height gives the top of the arm, which sets the grasp height.</p>
+<p class="zh"><b>3. 把手外侧面与横臂高度（图 26c）。</b>在过轴线、沿 <i>d</i> 的平面内，把把手的点按 1.5 cm 切成高度切片。在每个切片中，沿 <i>d</i> 距离的 97 分位数标出把手外侧面——也就是手指与“闭合推压”所依托的那个面——同时忽略其外少量噪声点；高度的 95 分位数给出横臂顶部，用以确定抓取高度。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>4. Banana (Figure 26d).</b> The banana’s yellow points are expressed along their principal axis, found by singular value decomposition, and a quadratic curve fitted by least squares gives its centre line. The middle of that curve is the grasp point, its bulge gives the convex side that sets the hand’s orientation, and its ends give the chord, 18.0 cm here, which must lie between 13 and 21 cm.</p>
+<p class="zh"><b>4. 香蕉（图 26d）。</b>把香蕉的黄色点沿其主轴（由奇异值分解得到）表示，再用最小二乘拟合一条二次曲线作为其中心线。该曲线的中点是抓取点，曲线的凸出方向给出香蕉的凸侧、从而确定手的朝向，两端给出弦长（此处 18.0 cm），须落在 13–21 cm 之间。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>5. Basket rim (Figure 26e).</b> After opening, the dark rim points are searched for around the rim predicted by the model and fitted with a circle in the same way as the lid. The measured centre lies 6.5 mm from the prediction, and the release poses use it.</p>
+<p class="zh"><b>5. 炸篮边缘（图 26e）。</b>打开之后，在模型预测的篮沿附近搜索深色边缘点，并像盖子那样做圆拟合。实测圆心距预测值 6.5 mm，释放位姿即以它为准。</p>
+</div>
+
+<div class="pair">
+<p class="en">The drawer’s opening is the shift of the handle face between the measurements before and after the pull, and the camera pose after the bump is a rigid transform fitted by least squares to feature matches that agree with each other within 8 mm.</p>
+<p class="zh">抽屉的开度取“拉动前后两次测量中把手外侧面的位移”；而相机被撞之后的位姿，则是用最小二乘拟合出的刚体变换——其依据是彼此一致到 8 mm 以内的特征匹配。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure26_p66.jpg" alt="Figure 26">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 26</span>智能体在最后一次运行中的各个估计器（由其自己的代码计算）。(a) 来自炸锅上方腕部相机的盖子点；蓝色为保留点，灰色为被裁剪最小二乘圆拟合（红色）剔除的点，该圆心即轴线 <i>c</i>。(b) 俯视看到的把手横臂点（围绕盖子圆）；±0.25 rad 窗口（虚线）之外的点被剔除，<i>d</i> 指向其余点的中位方向。(c) 沿 <i>d</i> 的平面内的把手点：每个 1.5 cm 高度切片中的外侧面（红条）与横臂顶部（虚线）。(d) 沿主轴的香蕉点，附拟合中心线、其两端与中点（抓取点）。(e) 打开后模型预测（虚线）附近的边缘点，以及拟合出的篮沿（绿色），两者相距 6.5 mm。距离单位为厘米。</span>
+    <span class="enm"><b>Figure 26 |</b> The agent’s estimators on its final run, computed by its own code. (a) Lid points from the wrist camera above the fryer; blue points are kept and grey points discarded by the trimmed least-squares circle fit (red), whose centre is the axis c. (b) Handle-arm points seen from above, around the lid circle; points outside the ±0.25 rad window (dashed) are discarded, and d points to the median of the rest. (c) Handle points in the plane along d: the outer face in each 1.5 cm height slice (red bars) and the top of the arm (dashed). (d) Banana points along their principal axis, with the fitted centre line, its ends, and its middle (the grasp point). (e) Rim points after opening around the model’s prediction (dashed), and the fitted rim (green), 6.5 mm apart. Distances are in centimetres.</span>
+  </figcaption>
+</figure>
+
+<div class="pair">
+<p class="en"><b>Planning on the model.</b> Figure 27 shows each planned action on the real robot, numbered as in Figure 3(b). The handle grasp lies 1.2 cm inside the measured grip face along d and 9 mm below the top of the arm, with the hand tilted 5° toward the fryer. The drawer is pulled 12.5 cm along d in absolute 3 cm steps at a fixed height, since relative steps sagged under the drawer’s weight. The basket centre is predicted from the handle face and the opening, with an offset measured in the first manual run; the banana is released with its middle 1.5 cm beyond the basket centre and the hand tilted 60° about the banana’s axis, and the ball slightly further along d. The drawer is closed by pushing along −d, finishing with the fingertips on the grip face.</p>
+<p class="zh"><b>在模型上规划。</b>图 27 展示了真实机器人上的每一个规划动作，编号与图 3(b) 一致。把手抓取点位于实测握柄面沿 <i>d</i> 向内 1.2 cm、横臂顶部下方 9 mm 处，手向炸锅一侧倾斜 5°。抽屉沿 <i>d</i> 以绝对 3 cm 的步长、在固定高度上拉出 12.5 cm——因为相对步长会在抽屉重量下“下垂”。炸篮中心由把手外侧面与开度预测，偏移量取自第一次手动运行；香蕉以其中心超出炸篮中心 1.5 cm、手绕香蕉轴线倾斜 60° 的方式释放，小球则沿 <i>d</i> 再稍远一点。关抽屉靠沿 −<i>d</i> 推，最后用指尖抵住握柄面收尾。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Verification.</b> Each step is checked by a new measurement. The opening is the shift of the handle face (13.1 cm here), and the step fails if it falls more than 3 cm short of the command. The rim is searched for around the model’s prediction and found 6.5 mm from it, and the release poses use the measured rim. The banana counts as placed when its points lie inside the rim and below its height: 99.99% of them, with its top at 17.9 cm against a rim at 23.5 cm. Before closing, the handle is measured again, since the released drawer tips by about 2.5 cm and shifts sideways by about 1.5 cm; after closing, its face lies 3.5 mm from its initial position.</p>
+<p class="zh"><b>校验。</b>每一步都用一次新的测量来核对。开度由把手外侧面的位移给出（此处 13.1 cm）；若比指令少超过 3 cm，该步即判失败。篮沿在模型预测附近搜索，实测距预测 6.5 mm，释放位姿采用实测篮沿。香蕉的点有 99.99% 落在篮沿之内、且低于篮沿高度时才算放入——其顶部在 17.9 cm，篮沿在 23.5 cm。关之前会再测一次把手，因为释放后抽屉会下倾约 2.5 cm、侧移约 1.5 cm；关好之后，其外侧面距初始位置 3.5 mm。</p>
+</div>
+
+<div class="pair">
+<p class="en"><b>Sensor limits and calibration.</b> The agent recorded two limits of its sensors and coded around them: the wrist camera’s depth is unreliable closer than about 30 cm, so metric targets come from the exterior camera; and side-view pixels on the edge of the banana take the depth of the rim behind it, so heights are measured from the top-down wrist view. When the arm bumped the left camera, whose reported pose stayed unchanged, the agent re-estimated that pose by matching image features against frames captured before the bump, lifting the matches to 3D with both depth maps, and fitting a rigid transform, with a residual of 3.5 mm and fixed landmarks within 2 to 9 mm of their references. It applies the correction only to frames captured after the bump, and it stopped using the right camera, which had moved too far to correct.</p>
+<p class="zh"><b>传感器限制与标定。</b>智能体记录下其传感器的两个限制，并据此改写代码：腕部相机在近于约 30 cm 时深度不可靠，因此公制目标取自外部相机；而侧视图中香蕉边缘的像素会取到其后方篮沿的深度，因此高度改由俯视的腕部视图测量。当手臂撞到左相机时（其报告的位姿并未改变），智能体通过与撞击前所拍帧做图像特征匹配来重新估计该位姿：用两张深度图把匹配点提升到三维，再拟合刚体变换——残差 3.5 mm，固定地标的偏差在 2–9 mm 之内。该修正只应用于撞击之后采集的帧；而对于右相机，由于它移动过大、无法修正，智能体干脆停止使用。</p>
+</div>
+
+<figure class="float">
+  <img src="figs/figure27_p67.jpg" alt="Figure 27">
+  <figcaption>
+    <span class="zhm"><span class="figlabel">图 27</span>真实机器人上的空气炸锅任务。智能体最后一次运行，取自外部相机的连续录像，每帧下方标注自本次运行开始的时间。每一行是一个规划动作，编号与图 3(b) 一致：抓取把手、以 3 cm 步长把抽屉拉开 13.1 cm、搬运香蕉并在炸篮上方以手倾斜 60° 释放、释放小球、以及通过“先推到差约 2 cm 处、再用并拢手指推”的方式关闭抽屉，最终使把手落在距初始位置 3.5 mm 以内。该相机在会话早些时候因碰撞发生过位移，因此未用于感知。</span>
+    <span class="enm"><b>Figure 27 |</b> The air fryer task on the real robot. The agent’s final run, from the continuous recording of an exterior camera, with the time since the start of the run under each frame. Each row is one planned action, numbered as in Figure 3(b): grasping the handle, pulling the drawer open by 13.1 cm in 3 cm steps, carrying the banana and releasing it with the hand tilted 60° over the basket, releasing the ball, and closing the drawer by a push that stops about 2 cm short followed by a push with closed fingers, which leaves the handle within 3.5 mm of its initial position. This camera was moved by a collision earlier in the session and was not used for perception.</span>
+  </figcaption>
+</figure>
