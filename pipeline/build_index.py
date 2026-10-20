@@ -12,16 +12,18 @@ SCORE_LABELS = (('influence', '影响力'), ('experiments', '实验完整性'), 
 def render_card(ident, title, review):
     ratings = []
     for key, label in SCORE_LABELS:
-        score = review['scores'][key]
-        if score is not None and (type(score) is not int or not 1 <= score <= 5):
-            raise ValueError(f'Invalid {key} score for {ident}')
-        value = '不适用' if score is None else f'{score}<small> / 5</small>'
-        ratings.append(f'<div><dt>{label}</dt><dd>{value}</dd></div>')
-    return f'''    <a class="card" href="{html.escape(ident)}/index.html">
-      <h3>{html.escape(title)}</h3>
+        buttons = ''.join(
+            f'<button type="button" class="star" data-value="{value}" '
+            f'aria-label="{label}：{value} 星" aria-pressed="false" title="{value} 星">☆</button>'
+            for value in range(1, 6))
+        ratings.append(f'<div><dt>{label}</dt><dd class="stars" role="group" '
+                       f'aria-label="{label}" data-paper="{html.escape(ident)}" '
+                       f'data-metric="{key}">{buttons}</dd></div>')
+    return f'''    <article class="card">
+      <h3><a href="{html.escape(ident)}/index.html">{html.escape(title)}</a></h3>
       <p class="review">{html.escape(review['comment'])}</p>
       <dl class="ratings">{''.join(ratings)}</dl>
-    </a>'''
+    </article>'''
 
 
 def main():
@@ -40,8 +42,8 @@ def main():
     page, count = re.subn(r'  <div class="grid">.*?(?=  <footer>)', lambda _: grid, page, count=1, flags=re.S)
     if count != 1:
         raise ValueError('Cannot locate library card grid')
-    note = '<p class="rating-note">阅读初评 · 5 分制；影响力按方向价值与带动潜力评估，非引用量排名；实验看验证覆盖，方法看借鉴价值。</p>'
-    page = re.sub(r'\s*<p class="rating-note">.*?</p>', '', page, flags=re.S)
+    note = '<p class="rating-note">由你评分：每项 5 颗星，点几颗亮几颗；再次点击当前分数可清空。评分保存在当前浏览器。</p><p id="rating-status" role="status" aria-live="polite"></p>'
+    page = re.sub(r'\s*<p class="rating-note">.*?</p>(?:<p id="rating-status"[^>]*>.*?</p>)?', '', page, flags=re.S)
     page = re.sub(r'<h2 class="sec">已收录.*?</h2>', f'<h2 class="sec">已收录 · Papers <span>{len(cards)} 份阅读材料</span></h2>\n  {note}', page, count=1)
     path.write_text(page)
     print(f'Updated index: {len(cards)} compact review cards')
