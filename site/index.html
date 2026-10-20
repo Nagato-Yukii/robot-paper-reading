@@ -41,6 +41,7 @@ h2.sec:after{content:"";flex:1;height:1px;background:var(--line)}
 .star{border:0;background:none;padding:4px 1px;color:#9197a0;font:24px/1.25 system-ui,sans-serif;cursor:pointer}
 .star.lit{color:#b77908}
 .star:hover{color:#b77908}
+.star:disabled{cursor:wait;opacity:.55}
 .star:focus-visible{outline:2px solid #3f51b5;outline-offset:1px;border-radius:3px}
 #rating-status{font-size:12px;color:#956218}
 #rating-status:empty{display:none}
@@ -68,7 +69,7 @@ a{color:#3f51b5}
      公式保留原始编号和版式，引用支持跳转与返回；可切换「对照 / 仅中文 / 仅英文」，也可直接打印成双语 PDF。</p>
 
   <h2 class="sec">已收录 · Papers <span>26 份阅读材料</span></h2>
-  <p class="rating-note">由你评分：每项 5 颗星，点几颗亮几颗；再次点击当前分数可清空。评分保存在当前浏览器。</p><p id="rating-status" role="status" aria-live="polite"></p>
+  <p class="rating-note">由你评分：每项 5 颗星，点几颗亮几颗；再次点击当前分数可清空。评分自动保存到本机数据库。</p><p id="rating-status" role="status" aria-live="polite"></p>
   <div class="grid">
     <article class="card">
       <h3><a href="rax/index.html">RAX：面向机器人智能体的在线探索规模化</a></h3>

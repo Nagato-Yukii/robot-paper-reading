@@ -42,7 +42,7 @@ def main():
     page, count = re.subn(r'  <div class="grid">.*?(?=  <footer>)', lambda _: grid, page, count=1, flags=re.S)
     if count != 1:
         raise ValueError('Cannot locate library card grid')
-    note = '<p class="rating-note">由你评分：每项 5 颗星，点几颗亮几颗；再次点击当前分数可清空。评分保存在当前浏览器。</p><p id="rating-status" role="status" aria-live="polite"></p>'
+    note = '<p class="rating-note">由你评分：每项 5 颗星，点几颗亮几颗；再次点击当前分数可清空。评分自动保存到本机数据库。</p><p id="rating-status" role="status" aria-live="polite"></p>'
     page = re.sub(r'\s*<p class="rating-note">.*?</p>(?:<p id="rating-status"[^>]*>.*?</p>)?', '', page, flags=re.S)
     page = re.sub(r'<h2 class="sec">已收录.*?</h2>', f'<h2 class="sec">已收录 · Papers <span>{len(cards)} 份阅读材料</span></h2>\n  {note}', page, count=1)
     path.write_text(page)
