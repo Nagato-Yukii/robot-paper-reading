@@ -1,0 +1,33 @@
+{
+  "id": "robust-walking",
+  "sha256": "13c01d097d6c4bcd4a88506bc1767d6b81281e0851acb3d364e142b406305d75",
+  "brand": "Robust Humanoid Walking",
+  "zh_title": "通过深度强化学习在柔顺与不平坦地形上实现鲁棒人形行走",
+  "category": "人形运动 · 鲁棒行走",
+  "pdf": "sources/robust-walking.pdf",
+  "title": "通过深度强化学习在柔顺与不平坦地形上实现鲁棒人形行走 · 中英对照",
+  "brand_sub": "Robust Humanoid Walking on Compliant and Uneven Terrain with Deep Reinforcement Learning",
+  "out": "site/robust-walking",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "papers/humanoid-locomotion/robust_humanoid_walking.pdf"
+  ],
+  "validation": {
+    "equations": {
+      "1": "p2-b22",
+      "2": "p3-b1",
+      "3": "p5-b8"
+    },
+    "equation_references": 0,
+    "paragraphs": 157
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 124,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

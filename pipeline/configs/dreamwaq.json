@@ -1,0 +1,38 @@
+{
+  "id": "dreamwaq",
+  "sha256": "fb02d20879c38b2ca7d0b52ff58174f2119451dea23e946c3eecfccdfcce1cfd",
+  "brand": "DreamWaQ",
+  "zh_title": "DreamWaQ：通过隐式地形想象与深度强化学习实现鲁棒四足运动",
+  "category": "足式运动 · 状态估计",
+  "pdf": "sources/dreamwaq.pdf",
+  "title": "DreamWaQ：通过隐式地形想象与深度强化学习实现鲁棒四足运动 · 中英对照",
+  "brand_sub": "DreamWaQ: Learning Robust Quadrupedal Locomotion With Implicit Terrain Imagination via Deep Reinforcement Learning",
+  "out": "site/dreamwaq",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "papers/humanoid-locomotion/DreamWaQ.pdf"
+  ],
+  "validation": {
+    "equations": {
+      "1": "p2-b14",
+      "2": "p2-b17",
+      "3": "p2-b20",
+      "4": "p3-b3",
+      "5": "p3-b14",
+      "6": "p3-b16",
+      "7": "p3-b18-eq-7",
+      "8": "p4-b1"
+    },
+    "equation_references": 0,
+    "paragraphs": 132
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 132,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

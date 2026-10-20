@@ -1,0 +1,2174 @@
+{
+  "title": "Learning H-Infinity Locomotion Control",
+  "pages": [
+    {
+      "number": 1,
+      "blocks": [
+        {
+          "id": "p1-b1",
+          "kind": "section-header",
+          "bbox": [
+            156,
+            84,
+            456,
+            101
+          ],
+          "en": "Learning H-Infinity Locomotion Control",
+          "reference": false,
+          "source_image": "figs/p001-001-source.png",
+          "zh": "学习 H-Infinity 运动控制"
+        },
+        {
+          "id": "p1-b2",
+          "kind": "text",
+          "bbox": [
+            116,
+            121,
+            510,
+            156
+          ],
+          "en": "Junfeng Long1,* , Wenye Yu1,2,* , Quanyi Li1,* , Zirui Wang1,3 , Dahua Lin1,4 , Jiangmiao Pang1,† 1Shanghai AI Laboratory 2Shanghai Jiao Tong University 3Zhejiang University 4The Chinese University of Hong Kong",
+          "reference": false,
+          "source_image": "figs/p001-002-source.png",
+          "zh": "Junfeng Long1,* , Wenye Yu1,2,* , Quanyi Li1,* , Zirui Wang1,3 , Dahua Lin1,4 , Jiangmiao Pang1,† 1Shanghai AI Laboratory 2Shanghai Jiao Tong University 3Zhejiang University 4The Chinese University of Hong Kong"
+        },
+        {
+          "id": "p1-b3",
+          "kind": "picture",
+          "bbox": [
+            108,
+            190,
+            504,
+            382
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p001-003.png",
+          "labels": []
+        },
+        {
+          "id": "p1-b4",
+          "kind": "caption",
+          "bbox": [
+            108,
+            393,
+            505,
+            414
+          ],
+          "en": "Figure 1: We deploy the policy trained by our method to real robots. Whether in quadrupedal or bipedal states, the robots successfully resist disturbances under various conditions.",
+          "reference": false,
+          "source_image": "figs/p001-004-source.png",
+          "zh": "图 1：我们将通过本方法训练的策略部署到真实机器人上。无论处于四足状态还是双足状态，机器人在各种条件下均成功抵御了扰动。"
+        },
+        {
+          "id": "p1-b5",
+          "kind": "text",
+          "bbox": [
+            143,
+            435,
+            469,
+            624
+          ],
+          "en": "Abstract: Stable locomotion in precipitous environments is an essential task for quadruped robots, requiring the ability to resist various external disturbances. Recent neural policies enhance robustness against disturbances by learning to resist external forces sampled from a fixed distribution in the simulated environment. However, the force generation process doesn’t consider the robot’s current state, making it difficult to identify the most effective direction and magnitude that can push the robot to the most unstable but recoverable state. Thus, challenging cases in the buffer are insufficient to optimize robustness. In this paper, we propose to model the robust locomotion learning process as an adversarial interaction between the locomotion policy and a learnable disturbance that is conditioned on the robot state to generate appropriate external forces. To make the joint optimization stable, our novel H 8 constraint mandates the bound of the ratio between the cost and the intensity of the external forces. We verify the robustness of our approach in both simulated environments and real-world deployment, on quadrupedal locomotion tasks and a more challenging task where the quadruped performs locomotion merely on hind legs. Training and deployment code will be made public.",
+          "reference": false,
+          "source_image": "figs/p001-005-source.png",
+          "zh": "摘要：在险峻环境中实现稳定运动是四足机器人的一项核心任务，需要具备抵御各种外部扰动的能力。近期的神经网络策略通过在仿真环境中学习抵御从固定分布中采样的外力来提升抗扰动鲁棒性。然而，该力的生成过程并未考虑机器人的当前状态，导致难以确定最有效的方向与大小以将机器人推至最不稳定但仍可恢复的状态。因此，缓冲区中具有挑战性的样本不足以充分优化鲁棒性。在本文中，我们提出将鲁棒运动学习过程建模为运动策略与可学习扰动之间的对抗性交互，该扰动以机器人状态为条件来生成适当的外力。为保证联合优化的稳定性，我们新颖的 H 8 约束限定了代价与外力强度之比的有界性。我们在仿真环境和真实世界部署中，在四足运动任务以及四足机器人仅靠后腿运动的更具挑战性任务上验证了本方法的鲁棒性。训练和部署代码将予以开源。"
+        },
+        {
+          "id": "p1-b6",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            641,
+            191,
+            651
+          ],
+          "en": "1 Introduction",
+          "reference": false,
+          "source_image": "figs/p001-006-source.png",
+          "zh": "1 引言"
+        },
+        {
+          "id": "p1-b7",
+          "kind": "text",
+          "bbox": [
+            108,
+            667,
+            505,
+            725
+          ],
+          "en": "Recent end-to-end learning-based quadruped controllers exhibit various capabilities during deployment in real-world settings [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]. Moreover, the learning-based approach enables skills beyond locomotion including target tracking in a bipedal manner [17, 18], manipulation using front legs [19], jumping over obstacles [17] and parkour [20]. Successful real-world deployment requires the control policy to be able to resist various distur-",
+          "reference": false,
+          "source_image": "figs/p001-007-source.png",
+          "zh": "近期的基于端到端学习的四足控制器在真实世界环境部署中展现出了多样化的能力 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]。此外，基于学习的方法还能实现超出基础运动的技能，包括以双足方式进行目标跟踪 [17, 18]、利用前腿操作 [19]、跃过障碍 [17] 以及跑酷 [20]。要在真实世界中成功部署，需要控制策略能够抵御各种扰"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "blocks": [
+        {
+          "id": "p2-b0",
+          "kind": "text",
+          "bbox": [
+            108,
+            75,
+            505,
+            168
+          ],
+          "en": "bances like strong wind and falling debris. Previous learning-based controllers acquire this ability with domain randomization [21, 22] where environment parameters like external forces [23, 24] are randomly sampled and exerted on the robot trunk during training. However, this method is not efficient enough to generate high-quality disturbance-resisting training samples and hinders the policy from acquiring adequate robustness. To be specific, excessively severe disturbances in early training procedures could undermine the training, whereas insufficiently challenging disturbances in late training stages may hinder the robot from developing a more resilient policy. This hypothesis is empirically proved by the preliminary experiments in Appendix A.",
+          "reference": false,
+          "source_image": "figs/p002-000-source.png",
+          "zh": "动，如强风和掉落碎片。以往基于学习的控制器通过域随机化 [21, 22] 获得这种能力，在训练过程中随机采样诸如外力 [23, 24] 等环境参数并施加在机器人躯干上。然而，该方法生成高质量抗扰训练样本的效率不高，阻碍了策略获得足够的鲁棒性。具体而言，训练初期过大的扰动可能会破坏训练，而在训练后期挑战性不足的扰动又可能阻碍机器人发展出更具复原力的策略。附录 A 中的初步实验从经验上证实了这一假设。"
+        },
+        {
+          "id": "p2-b1",
+          "kind": "text",
+          "bbox": [
+            108,
+            176,
+            505,
+            329
+          ],
+          "en": "For generating more effective training samples, an ideal external force sampler is supposed to affect the policy to the extent that the agent experiences an obvious performance drop but is still able to recover from the disturbance, which guarantees not only the training feasibility but the weakness of the policy is attacked precisely. To this end, we introduce a disturber network conditioned on the current states of the robot to generate adaptive external forces. Compared to the actor that aims to maximize the cumulative discounted overall reward, the disturber is modeled as a separate learnable module to maximize the cumulative discounted error between the task reward and its oracle, i.e., “cost” in each iteration. To ensure stable optimization between the actor and the disturber, we implement an additional learning objective derived from the constraint inspired by the classical H 8 theory [25, 26, 27], which mandates the bound of the ratio between the cost and the intensity of external forces generated by the disturber. Following this constraint, we naturally derive an upper bound for the cost function with respect to a certain intensity of external forces, which is equivalent to a performance lower bound for the actor with a theoretical guarantee.",
+          "reference": false,
+          "source_image": "figs/p002-001-source.png",
+          "zh": "为了生成更有效的训练样本，理想的外力采样器应当在一定程度上影响策略，使智能体经历明显的性能下降但仍能从扰动中恢复过来，这不仅保证了训练的可行性，还能够精准攻击策略的薄弱环节。为此，我们引入了一个以机器人当前状态为条件的扰动器网络，用以生成自适应外力。与旨在最大化累计折扣总奖励的 actor 相比，扰动器被建模为一个独立的可学习模块，旨在最大化每次迭代中任务奖励与其理论最优值（oracle）之间的累计折扣误差，即“代价”（cost）。为了确保 actor 与扰动器之间的稳定优化，我们根据经典 H 8 理论 [25, 26, 27] 启发下的约束，引入了一个额外的学习目标，该约束限定了扰动器所产生外力的代价与强度之比的界限。基于这一约束，我们自然地推导出了在特定外力强度下代价函数的上限，这在理论上等价于为 actor 提供了具有理论保证的性能下界。"
+        },
+        {
+          "id": "p2-b2",
+          "kind": "text",
+          "bbox": [
+            108,
+            337,
+            505,
+            454
+          ],
+          "en": "We train our method in Isaac Gym simulator [28] and utilize dual gradient descent method [29] for joint optimization. We evaluate our locomotion policy by comparing it against baseline approaches in terms of their command-tracking ability under various types of disturbances and terrains. We also train policies with baseline methods and our method in the non-stationary bipedal walking setting and measure their abilities to resist collision. In all evaluations, our method outperforms the baseline method, suggesting the effectiveness and superiority of our method. We deploy the learned policy on Unitree Aliengo robot and Unitree A1 robot in real-world settings. As shown in Fig. 1, the robot manages to traverse planes, slopes, stairs, high platforms, and greasy surfaces whether the external force is applied to the trunk or legs. The robot can even walk with its hind legs while withstanding the impact from heavy objects.",
+          "reference": false,
+          "source_image": "figs/p002-002-source.png",
+          "zh": "我们在 Isaac Gym 仿真器 [28] 中训练我们的方法，并利用对偶梯度下降法 [29] 进行联合优化。我们通过在各种类型的扰动和地形下对比基线方法的指令跟踪能力，来评估我们的运动策略。我们还在非平稳的双足行走设置下，分别使用基线方法和我们的方法训练策略，并测试它们抵御碰撞的能力。在所有评估中，我们的方法均优于基线方法，表明了我们方法的有效性与优越性。我们将学到的策略部署在真实世界环境中的 Unitree Aliengo 机器人和 Unitree A1 机器人上。如图 1 所示，无论外力施加在躯干还是腿部，机器人都能成功通过平地、斜坡、楼梯、高台以及油滑表面。机器人甚至可以在承受重物撞击的同时仅靠后腿行走。"
+        },
+        {
+          "id": "p2-b3",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            476,
+            198,
+            485
+          ],
+          "en": "2 Related Work",
+          "reference": false,
+          "source_image": "figs/p002-003-source.png",
+          "zh": "2 相关工作"
+        },
+        {
+          "id": "p2-b4",
+          "kind": "text",
+          "bbox": [
+            108,
+            504,
+            505,
+            586
+          ],
+          "en": "Quadruped robots are expected to stabilize themselves in face of noisy observations and external forces. While large quantities of research have been carried out to resolve the former issue either by modeling observation noises explicitly during training procedure [9, 24] or introducing visual inputs by depth images to robots [3, 20], few works shed light on confronting potential physical interruptions. While some works claim to achieve robust performance during real-world deployment [7], they fail to model external forces as learnable modules and introduce extreme disruptions to either training or real-world deployment, resulting in vulnerability to harsher conditions.",
+          "reference": false,
+          "source_image": "figs/p002-004-source.png",
+          "zh": "四足机器人应当在面对带噪观测和外力时保持自身稳定。尽管已有大量研究致力于解决前一个问题——无论是在训练过程中对观测噪声进行显式建模 [9, 24]，还是通过深度图像为机器人引入视觉输入 [3, 20]，但鲜有研究关注如何应对潜在的物理干扰。虽然部分工作声称在真实世界部署中实现了鲁棒的性能 [7]，但它们未能将外力建模为可学习模块，并在训练或真实世界部署中引入了极端破坏，导致其在更恶劣的条件下容易失效。"
+        },
+        {
+          "id": "p2-b5",
+          "kind": "text",
+          "bbox": [
+            108,
+            593,
+            505,
+            723
+          ],
+          "en": "However, simply modeling external forces as a learnable module causes the problem to fall into the setting of adversarial reinforcement learning, which is a particular case of multi-agent reinforcement learning. One critical challenge in this field is training instability. In the training process, each agent’s policy changes over time, which results in the environment becoming non-stationary under the view of any individual agent. Directly applying single-agent algorithm will lead to the nonstationary problem. For example, Lowe et al. [30] found that the variance of the policy gradient grows exponentially when the number of agents increases. Hence, researchers utilize a centralized critic [30, 31] to reduce the variance of policy gradient. Although centralized critic can stabilize the training, the learned policy may be sensitive to its training partners and converge to a poor local optimal. This problem is more severe for competitive environments because if the opponents change their policies, the learned policy may perform even worse [32].",
+          "reference": false,
+          "source_image": "figs/p002-005-source.png",
+          "zh": "然而，单纯将外力建模为可学习模块会使该问题落入对抗强化学习的范畴，而这是多智能体强化学习的一种特殊情况。该领域的一个关键挑战是训练的不稳定性。在训练过程中，每个智能体的策略都会随时间发生改变，导致从任何单个智能体的视角来看环境都变得非平稳。直接应用单智能体算法将导致非平稳问题。例如，Lowe 等人 [30] 发现，当智能体数量增加时，策略梯度的方差呈指数级增长。因此，研究人员利用中心化 Critic [30, 31] 来降低策略梯度的方差。尽管中心化 Critic 能够稳定训练，但学到的策略可能对其训练伙伴十分敏感，并收敛到较差的局部最优解。对于竞争环境而言，这一问题更为严重，因为如果对手改变其策略，学到的策略表现可能会更差 [32]。"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "blocks": [
+        {
+          "id": "p3-b0",
+          "kind": "text",
+          "bbox": [
+            108,
+            75,
+            505,
+            144
+          ],
+          "en": "In light of that, we introduce a novel training framework for quadruped locomotion by modeling an external disturber explicitly, which is the first attempt to do so as far as we are concerned. Based on the classic H 8 method from control theory [25, 26, 27], we devise a brand-new training pipeline where the external disturber and the actor of the robot can be jointly optimized in an adversarial manner. With more experience of physical disturbance in training, quadruped robots acquire more robustness against external forces in real-world deployment.",
+          "reference": false,
+          "source_image": "figs/p003-000-source.png",
+          "zh": "鉴于此，我们通过显式建模外部扰动器，提出了一种新颖的四足运动训练框架，据我们所知这是首次进行此类尝试。基于控制理论中的经典 H 8 方法 [25, 26, 27]，我们设计了一套全新的训练流程，使外部扰动器与机器人的 actor 能够以对抗方式进行联合优化。通过在训练中获得更多面对物理扰动的经验，四足机器人在真实世界部署中获得了针对外力的更强鲁棒性。"
+        },
+        {
+          "id": "p3-b1",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            161,
+            195,
+            170
+          ],
+          "en": "3 Preliminaries",
+          "reference": false,
+          "source_image": "figs/p003-001-source.png",
+          "zh": "3 预备知识"
+        },
+        {
+          "id": "p3-b2",
+          "kind": "text",
+          "bbox": [
+            108,
+            186,
+            505,
+            256
+          ],
+          "en": "Classic H 8 control [33] deals with a system involved with disturbance, where we denote G as the plant, K as the controller, u as the control input, y as the measurement available to the controller, w as an unknown disturbance, and z as the error output which is expected to be minimized. In general, we wish the controller to stabilize the closed-loop system based on a model of the plant G . The goal of H 8 control is to design a controller K that minimizes the error z while minimizing the H 8 norm of the closed-loop transfer function Tzw from the disturbance w to the error z :",
+          "reference": false,
+          "source_image": "figs/p003-002-source.png",
+          "zh": "经典 H 8 控制 [33] 处理包含扰动的系统，其中我们用 G 表示被控对象，K 表示控制器，u 表示控制输入，y 表示控制器可用的测量值，w 表示未知扰动，z 表示期望被最小化的误差输出。一般来说，我们希望控制器基于被控对象 G 的模型来使闭环系统稳定。H 8 控制的目标是设计一个控制器 K，在最小化误差 z 的同时，最小化从扰动 w 到误差 z 的闭环传递函数 Tzw 的 H 8 范数："
+        },
+        {
+          "id": "p3-b3",
+          "kind": "formula",
+          "bbox": [
+            261,
+            260,
+            505,
+            285
+          ],
+          "en": "} z }2 } Tzw }8 “ sup . (1) w ‰0 } w }2",
+          "reference": false,
+          "image": "figs/p003-003.png",
+          "labels": [
+            "1"
+          ]
+        },
+        {
+          "id": "p3-b4",
+          "kind": "text",
+          "bbox": [
+            107,
+            295,
+            505,
+            356
+          ],
+          "en": "However, minimizing } Tzw }8 is usually challenging. In practical implementation, we instead wish to find an acceptable η ą 0 and a controller K satisfying } Tzw }8 ă η , which is called suboptimal H 8 control. We denote this as η -optimal in this paper. According to Morimoto and Doya [25], if } Tzw }8 ă η , it is guaranteed that the system will remain stabilized for any disturbance mapping d : z ÞÑ w with } d }8 ă η1.",
+          "reference": false,
+          "source_image": "figs/p003-004-source.png",
+          "zh": "然而，最小化 } Tzw }8 通常极具挑战性。在实际实现中，我们转而希望找到一个可接受的 η ą 0 以及满足 } Tzw }8 ă η 的控制器 K，这被称为次优 H 8 控制（suboptimal H 8 control）。在本文中，我们将其记为 η -optimal。根据 Morimoto 和 Doya [25]，如果 } Tzw }8 ă η，则可保证系统对于任意满足 } d }8 ă η1 的扰动映射 d : z ÞÑ w 均保持稳定。"
+        },
+        {
+          "id": "p3-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            361,
+            468,
+            371
+          ],
+          "en": "The H 8 control problem can be considered as finding a controller that satisfies constraint:",
+          "reference": false,
+          "source_image": "figs/p003-005-source.png",
+          "zh": "H 8 控制问题可以被视为寻找一个满足以下约束的控制器："
+        },
+        {
+          "id": "p3-b6",
+          "kind": "formula",
+          "bbox": [
+            250,
+            375,
+            505,
+            401
+          ],
+          "en": "} z }2 2 } Tzw } 2 8 “ sup ă η 2 , (2) w } w } 2 2",
+          "reference": false,
+          "image": "figs/p003-006.png",
+          "labels": [
+            "2"
+          ]
+        },
+        {
+          "id": "p3-b7",
+          "kind": "text",
+          "bbox": [
+            107,
+            405,
+            434,
+            415
+          ],
+          "en": "where z is the error output. Hence, our goal is to find a control input u satisfying:",
+          "reference": false,
+          "source_image": "figs/p003-007-source.png",
+          "zh": "其中 z 为误差输出。因此，我们的目标是寻找一个满足以下条件的控制输入 u："
+        },
+        {
+          "id": "p3-b8",
+          "kind": "formula",
+          "bbox": [
+            215,
+            420,
+            505,
+            444
+          ],
+          "en": "V “ p z T p t q z p t q ´ η 2 w T p t q w p t qq dt ă 0 , (3) ż08",
+          "reference": false,
+          "image": "figs/p003-008.png",
+          "labels": [
+            "3"
+          ]
+        },
+        {
+          "id": "p3-b9",
+          "kind": "text",
+          "bbox": [
+            107,
+            449,
+            504,
+            471
+          ],
+          "en": "where w is any possible disturbance with w p0q “ 0 . By solving the following min-max game, we can find the best control input u while the worst disturbance w is chosen to maximize V :",
+          "reference": false,
+          "source_image": "figs/p003-009-source.png",
+          "zh": "其中 w 为满足 w p0q “ 0 的任意可能扰动。通过求解以下极小极大博弈（min-max game），我们可以在选择使 V 最大化的最恶劣扰动 w 的同时，找到最优控制输入 u："
+        },
+        {
+          "id": "p3-b10",
+          "kind": "formula",
+          "bbox": [
+            194,
+            476,
+            505,
+            501
+          ],
+          "en": "V ˚ “ min p z T p t q z p t q ´ η 2 w T p t q w p t qq dt ă 0 . (4) u max w ż08",
+          "reference": false,
+          "image": "figs/p003-010.png",
+          "labels": [
+            "4"
+          ]
+        },
+        {
+          "id": "p3-b11",
+          "kind": "section-header",
+          "bbox": [
+            107,
+            514,
+            301,
+            526
+          ],
+          "en": "4 Learning H 8 Locomotion Control",
+          "reference": false,
+          "source_image": "figs/p003-011-source.png",
+          "zh": "4 学习 H 8 运动控制"
+        },
+        {
+          "id": "p3-b12",
+          "kind": "text",
+          "bbox": [
+            107,
+            540,
+            505,
+            573
+          ],
+          "en": "In this section, we will firstly give the statement of the robust locomotion problem, then give the detailed definition of the problem. After that, we will describe our method in detail and give a practical implementation.",
+          "reference": false,
+          "source_image": "figs/p003-012-source.png",
+          "zh": "在本节中，我们将首先对鲁棒运动问题进行陈述，随后给出该问题的详细定义。在此之后，我们将详细介绍我们的方法并给出具体实现。"
+        },
+        {
+          "id": "p3-b13",
+          "kind": "section-header",
+          "bbox": [
+            107,
+            587,
+            212,
+            597
+          ],
+          "en": "4.1 Problem Definition",
+          "reference": false,
+          "source_image": "figs/p003-013-source.png",
+          "zh": "4.1 问题定义"
+        },
+        {
+          "id": "p3-b14",
+          "kind": "text",
+          "bbox": [
+            107,
+            609,
+            505,
+            690
+          ],
+          "en": "As described in former sections, we wish the disturber to learn more effective disturbances. We model it as a one-step decision problem. Given a Markov Decision Process (MDP) M “ t S, A, T, R, γ u, we define the disturbance policy to be a function d : S Ñ D Ă R3 , which maps observations to forces. Let C : S ˆ A ˆ D Ñ R` be a cost function that measures the errors from commands, expected orientation and base height. Additionally, Cd πpsq”E p a,d q„p π p s q , d p s qqCps, a, dq denotes the gap between expected performance and actual performance given policy π and disturber d . With these definitions, we wish to find a policy π such that:",
+          "reference": false,
+          "source_image": "figs/p003-014-source.png",
+          "zh": "如前文所述，我们希望扰动器能够学习更有效的扰动。我们将其建模为一个单步决策问题。给定马尔可夫决策过程（MDP）M “ t S, A, T, R, γ u，我们将扰动策略定义为函数 d : S Ñ D Ă R3，该函数将观测映射为外力。设 C : S ˆ A ˆ D Ñ R` 为度量来自指令、期望朝向和机身高度误差的代价函数。此外，Cd πpsq”E p a,d q„p π p s q , d p s qqCps, a, dq 表示在给定策略 π 和扰动器 d 时期望性能与实际性能之间的差距。基于这些定义，我们希望找到一个策略 π，使得："
+        },
+        {
+          "id": "p3-b15",
+          "kind": "formula",
+          "bbox": [
+            222,
+            696,
+            504,
+            725
+          ],
+          "en": "T lim Ñ8 ÿ T E st p C π d p st q ´ η ˚} d p st q}2q ă 0 , (5) t “0",
+          "reference": false,
+          "image": "figs/p003-015.png",
+          "labels": [
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "blocks": [
+        {
+          "id": "p4-b0",
+          "kind": "picture",
+          "bbox": [
+            108,
+            72,
+            505,
+            208
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p004-000.png",
+          "labels": []
+        },
+        {
+          "id": "p4-b1",
+          "kind": "caption",
+          "bbox": [
+            108,
+            221,
+            505,
+            285
+          ],
+          "en": "Figure 2: Overview of H 8 locomotion control method. At every time step during the training process, we perform a simulation step based on the robot’s action and the external force generated by the disturber. The agent thus moves towards the rewarded direction and resists the disturbance. During the optimization process, values are calculated for batched training samples and carry out H 8 policy gradient by optimizing the PPO loss of the actor while taking into consideration the novel constraint LHinf . Value estimators (Critic) are also updated to approximate the state value.",
+          "reference": false,
+          "source_image": "figs/p004-001-source.png",
+          "zh": "图 2：H 8 运动控制方法概览。在训练过程中的每个时间步，我们根据机器人的动作以及扰动器生成的外力执行一次仿真步。智能体由此向获得奖励的方向移动并抵御扰动。在优化过程中，我们对成批训练样本计算价值，并在考虑新颖的 LHinf 约束的同时，通过优化 actor 的 PPO 损失来执行 H 8 策略梯度。价值估计器（Critic）也同步更新以近似状态价值。"
+        },
+        {
+          "id": "p4-b2",
+          "kind": "caption",
+          "bbox": [
+            108,
+            305,
+            240,
+            316
+          ],
+          "en": "where η˚ is the optimal value of:",
+          "reference": false,
+          "source_image": "figs/p004-002-source.png",
+          "zh": "其中 η˚ 为以下问题的最优值："
+        },
+        {
+          "id": "p4-b3",
+          "kind": "formula",
+          "bbox": [
+            233,
+            320,
+            505,
+            347
+          ],
+          "en": "ř8 t “0 E st C π d p st q } T p π q}8 “ sup . (6) d ‰0 ř8 t “0 E s t } d p st q}2",
+          "reference": false,
+          "image": "figs/p004-003.png",
+          "labels": [
+            "6"
+          ]
+        },
+        {
+          "id": "p4-b4",
+          "kind": "text",
+          "bbox": [
+            108,
+            352,
+            505,
+            374
+          ],
+          "en": "However, this problem is hard to solve. We alternatively solve the sub-optimal problem: for a given η ą 0, we wish to find an admissible policy π such that",
+          "reference": false,
+          "source_image": "figs/p004-004-source.png",
+          "zh": "然而，该问题难以求解。我们转而求解其次优问题：对于给定的 η ą 0，我们希望找到一个容许策略 π，使得"
+        },
+        {
+          "id": "p4-b5",
+          "kind": "formula",
+          "bbox": [
+            224,
+            379,
+            505,
+            408
+          ],
+          "en": "T lim Ñ8 ÿ T E st p C π d p st q ´ η } d p st q}2q ă 0 , (7) t “0",
+          "reference": false,
+          "image": "figs/p004-005.png",
+          "labels": [
+            "7"
+          ]
+        },
+        {
+          "id": "p4-b6",
+          "kind": "text",
+          "bbox": [
+            107,
+            414,
+            505,
+            460
+          ],
+          "en": "We define a policy π satisfying the above condition as η -optimal. More intuitively, if a policy is η -optimal, then an external force f can get a performance decay up to η } f }2. Additionally, we wish the disturbances to be effective, which means that it can maximize the cost of policy with limited intensity. Therefore, for a policy π , and a discount factor 0 ď γ 2 ă 1, the target of d is to maximize:",
+          "reference": false,
+          "source_image": "figs/p004-006-source.png",
+          "zh": "我们将满足上述条件的策略 π 定义为 η -optimal。更直观地，如果一个策略是 η -optimal 的，那么外力 f 造成的性能衰减至多为 η } f }2。此外，我们希望扰动是有效的，这意味着它能够在有限强度下最大化策略的代价。因此，对于策略 π 和折扣因子 0 ď γ 2 ă 1，d 的目标是最大化："
+        },
+        {
+          "id": "p4-b7",
+          "kind": "formula",
+          "bbox": [
+            239,
+            465,
+            505,
+            493
+          ],
+          "en": "8 E d r ÿ γ 2 t p Cd π p st q ´ η } d p st q}2qs (8) t “0",
+          "reference": false,
+          "image": "figs/p004-007.png",
+          "labels": [
+            "8"
+          ]
+        },
+        {
+          "id": "p4-b8",
+          "kind": "section-header",
+          "bbox": [
+            107,
+            512,
+            164,
+            520
+          ],
+          "en": "4.2 Method",
+          "reference": false,
+          "source_image": "figs/p004-008-source.png",
+          "zh": "4.2 方法"
+        },
+        {
+          "id": "p4-b9",
+          "kind": "text",
+          "bbox": [
+            107,
+            533,
+            505,
+            614
+          ],
+          "en": "In reinforcement learning-based locomotion control, the reward functions are usually complicated [5, 23, 1, 7]. Some of them guide the policy to complete the task, and some of them act as regularization to the policy. In our work, we divide the reward functions into two categories, the task rewards and the auxiliary rewards. The former part leads the policy to achieve command tracking, maintain good orientation and stay at desired base height, while the latter part leads the policy to satisfy the physical constraints of robot and give smoother control. We present the details of our reward functions in Table 1 and 2, which can be found in Appendix C.1.",
+          "reference": false,
+          "source_image": "figs/p004-009-source.png",
+          "zh": "在基于强化学习的运动控制中，奖励函数通常较为复杂 [5, 23, 1, 7]。其中一部分引导策略完成任务，另一部分则充当策略的正则化项。在我们的工作中，我们将奖励函数分为两类：任务奖励和辅助奖励。前者引导策略实现指令跟踪、保持良好朝向并维持在期望机身高度，而后者则引导策略满足机器人的物理约束并提供更平滑的控制。我们在表 1 和表 2 中给出了奖励函数的详细信息，具体见附录 C.1。"
+        },
+        {
+          "id": "p4-b10",
+          "kind": "text",
+          "bbox": [
+            107,
+            620,
+            505,
+            680
+          ],
+          "en": "Now we denote the rewards from each part as task rewards Rtask and auxiliary rewards Raux respectively, and the overall reward as R . Firstly, we assume that the task reward has an upper bound Rmaxtask,andthecostcanbeformulatedasC“R maxtask´Rtask.WithRandC,wecangetvalue functions for overall reward and cost, denoted as V and Vcost . We adopt PPO [34] as our basic policy optimization method. Then the goal of the actor is to solve:",
+          "reference": false,
+          "source_image": "figs/p004-010-source.png",
+          "zh": "现在我们将各部分的奖励分别记为任务奖励 Rtask 和辅助奖励 Raux，总奖励记为 R。首先，我们假设任务奖励存在上限 Rmaxtask，且代价可以表示为 C“R maxtask´Rtask。有了 R 和 C，我们便可以得到总奖励和代价的价值函数，分别记为 V 和 Vcost。我们采用 PPO [34] 作为基础策略优化方法。那么 actor 的目标就是求解："
+        },
+        {
+          "id": "p4-b11",
+          "kind": "formula",
+          "bbox": [
+            206,
+            684,
+            505,
+            725
+          ],
+          "en": "π p at | st q maximize π E t ” π old p at | st q A p st q ı (9) subject to E t rKL r π old p¨ | st q , π p¨ | st qss ď δ E t r η } d p st q}2 ´ C π p st qs ą 0 ,",
+          "reference": false,
+          "image": "figs/p004-011.png",
+          "labels": [
+            "9"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "blocks": [
+        {
+          "id": "p5-b0",
+          "kind": "text",
+          "bbox": [
+            108,
+            74,
+            493,
+            85
+          ],
+          "en": "where A is the advantage with respect to overall reward, and the goal of the disturber is to solve:",
+          "reference": false,
+          "source_image": "figs/p005-000-source.png",
+          "zh": "其中 A 为关于总奖励的优势函数，而扰动器的目标是求解："
+        },
+        {
+          "id": "p5-b1",
+          "kind": "formula",
+          "bbox": [
+            204,
+            90,
+            504,
+            120
+          ],
+          "en": "d p dt | st q maximize d E t ” d old p dt | st q p C π p st q ´ η } d p st q}2q ı (10) subject to E t rKL r d old p¨ | st q , d p¨ | st qss ď δ.",
+          "reference": false,
+          "image": "figs/p005-001.png",
+          "labels": [
+            "10"
+          ]
+        },
+        {
+          "id": "p5-b2",
+          "kind": "text",
+          "bbox": [
+            107,
+            131,
+            505,
+            153
+          ],
+          "en": "However, requiring a high-frequency controller to be strictly robust in every time step is unpractical, so we replace the constraint E t r η } d p st q}2 ´ C π p st qs ą 0 with a more flexible substitute:",
+          "reference": false,
+          "source_image": "figs/p005-002-source.png",
+          "zh": "然而，要求高频控制器在每个时间步都严格鲁棒是不切实际的，因此我们用一个更灵活的替代形式来替换约束 E t r η } d p st q}2 ´ C π p st qs ą 0："
+        },
+        {
+          "id": "p5-b3",
+          "kind": "formula",
+          "bbox": [
+            188,
+            158,
+            504,
+            171
+          ],
+          "en": "E t “ η } d p st q}2 ´ C π p st q ` V cost p st q ´ V cost p st `1q‰ ą 0 , (11)",
+          "reference": false,
+          "image": "figs/p005-003.png",
+          "labels": [
+            "11"
+          ]
+        },
+        {
+          "id": "p5-b4",
+          "kind": "text",
+          "bbox": [
+            107,
+            176,
+            505,
+            211
+          ],
+          "en": "where Vcost is the value function of the disturber. Intuitively, if the policy guides the robot to a better state, the constraint will be slackened, otherwise the constraint will be tightened. We will show that using this constraint, the actor is also guaranteed to be η -optimal.",
+          "reference": false,
+          "source_image": "figs/p005-004-source.png",
+          "zh": "其中 Vcost 为扰动器的价值函数。直观上讲，如果策略引导机器人进入更好的状态，该约束就会被放宽；反之，约束则会被收紧。我们将证明，使用这一约束，actor 同样能够保证达到 η -optimal。"
+        },
+        {
+          "id": "p5-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            218,
+            505,
+            253
+          ],
+          "en": "We follow PPO to deal with the KL divergence part and use dual gradient decent method [29] to deal with the extra constraint, denoted as LHinf p π q fi E t r η } d p st q}2 ´ C π p st q ` Vcost p st q ´ Vcost p st `1qs ą 0, then the update process of policy can be described as:",
+          "reference": false,
+          "source_image": "figs/p005-005-source.png",
+          "zh": "我们遵循 PPO 处理 KL 散度部分，并使用对偶梯度下降法 [29] 来处理额外约束，记为 LHinf p π q fi E t r η } d p st q}2 ´ C π p st q ` Vcost p st q ´ Vcost p st `1qs ą 0，则策略的更新过程可描述为："
+        },
+        {
+          "id": "p5-b6",
+          "kind": "formula",
+          "bbox": [
+            226,
+            258,
+            504,
+            313
+          ],
+          "en": "π “ argmax L P P O actor p π q ` λ ˚ LHinf p π q π d “ argmax Ldisturber p d q (12) d λ “ λ ´ α ˚ L Hinf p π q ,",
+          "reference": false,
+          "image": "figs/p005-006.png",
+          "labels": [
+            "12"
+          ]
+        },
+        {
+          "id": "p5-b7",
+          "kind": "text",
+          "bbox": [
+            107,
+            319,
+            505,
+            366
+          ],
+          "en": "where LP P O actorpπq is the PPO objective function for the actor,Ldisturberpdq is the objective function for disturber with a similar form as PPO objective function but replacing the advantage with C π p s q´ η } d p s q}2, λ is the Lagrangian multiplier of the proposed constraint, and α is the step-size of updating λ . We present an overview of our method in Fig. 2.",
+          "reference": false,
+          "source_image": "figs/p005-007-source.png",
+          "zh": "其中 LP P O actorpπq 是 actor 的 PPO 目标函数，Ldisturberpdq 是扰动器的目标函数，其形式与 PPO 目标函数类似，但将优势函数替换为 C π p s q´ η } d p s q}2，λ 是所提出约束的拉格朗日乘子，α 是更新 λ 的步长。我们在图 2 中给出了我们方法的概览。"
+        },
+        {
+          "id": "p5-b8",
+          "kind": "section-header",
+          "bbox": [
+            107,
+            380,
+            183,
+            390
+          ],
+          "en": "4.3 η -optimality",
+          "reference": false,
+          "source_image": "figs/p005-008-source.png",
+          "zh": "4.3 η -最优性"
+        },
+        {
+          "id": "p5-b9",
+          "kind": "text",
+          "bbox": [
+            107,
+            401,
+            505,
+            459
+          ],
+          "en": "We assume that 0 ď C p s, a q ď Cmax where Cmax ă 8 is a constant. We also assume that there exists a value function Vπcost such that 0 ď Vπcost p s q ď VmaxcostforanysPS,whereV maxcostă8. Besides, we denote βπtpsq “Ppst“s|s0, πq, wheres0is sampled from initial states, assuming that the limit of distribution under policy π is βπ p s q “ lim t Ñ8 βπtpsqanditexists.Thenwehavethe following theorem:",
+          "reference": false,
+          "source_image": "figs/p005-009-source.png",
+          "zh": "我们假设 0 ď C p s, a q ď Cmax，其中 Cmax ă 8 为常数。我们还假设存在一个价值函数 Vπcost，使得对于任意 s P S 均有 0 ď Vπcost p s q ď VmaxcostforanysPS,whereV maxcostă8。此外，我们用 βπtpsq “Ppst“s|s0, πq 表示状态分布，其中 s0 从初始状态中采样，并假设策略 π 下的极限分布为 βπ p s q “ lim t Ñ8 βπtpsqanditexists 且存在。由此我们得到以下定理："
+        },
+        {
+          "id": "p5-b10",
+          "kind": "text",
+          "bbox": [
+            107,
+            463,
+            504,
+            486
+          ],
+          "en": "Theorem 1. If C π p s q ´ η } d p s q}2 ă E s 1„ P p¨| π,s qp Vπcost p s q ´ Vπcost p s1 qq for s P S with βπ p s q ą 0 , the policy π is η-optimal.",
+          "reference": false,
+          "source_image": "figs/p005-010-source.png",
+          "zh": "定理 1. 若对于满足 βπ p s q ą 0 的 s P S，有 C π p s q ´ η } d p s q}2 ă E s 1„ P p¨| π,s qp Vπcost p s q ´ Vπcost p s1 qq，则策略 π 是 η-optimal 的。"
+        },
+        {
+          "id": "p5-b11",
+          "kind": "text",
+          "bbox": [
+            107,
+            497,
+            359,
+            507
+          ],
+          "en": "Detailed derivation of Theorem 1 can be found in Appendix B.",
+          "reference": false,
+          "source_image": "figs/p005-011-source.png",
+          "zh": "定理 1 的详细推导见附录 B。"
+        },
+        {
+          "id": "p5-b12",
+          "kind": "section-header",
+          "bbox": [
+            107,
+            521,
+            244,
+            531
+          ],
+          "en": "4.4 Practical Implementations",
+          "reference": false,
+          "source_image": "figs/p005-012-source.png",
+          "zh": "4.4 具体实现"
+        },
+        {
+          "id": "p5-b13",
+          "kind": "text",
+          "bbox": [
+            107,
+            542,
+            505,
+            564
+          ],
+          "en": "Simulation Setup. We use Isaac Gym [28, 35] with 4096 parallel environments and a rollout length of 100 time steps. Our training platform is RTX 3090.",
+          "reference": false,
+          "source_image": "figs/p005-013-source.png",
+          "zh": "仿真设置。我们使用包含 4096 个并行环境的 Isaac Gym [28, 35]，rollout 长度为 100 个时间步。我们的训练平台为 RTX 3090。"
+        },
+        {
+          "id": "p5-b14",
+          "kind": "text",
+          "bbox": [
+            107,
+            572,
+            505,
+            606
+          ],
+          "en": "Dynamics Randomization. We randomize ground friction, restitution coefficients, motor strength, joint-level PD gains, system delay and initial joint positions in each episode. The randomization ranges for each parameter are detailed in Table 3 in Appendix C.2.",
+          "reference": false,
+          "source_image": "figs/p005-014-source.png",
+          "zh": "动力学随机化。我们在每个回合中对地面摩擦力、恢复系数、电机强度、关节级 PD 增益、系统延迟以及初始关节位置进行随机化。各个参数的随机化范围详见附录 C.2 中的表 3。"
+        },
+        {
+          "id": "p5-b15",
+          "kind": "text",
+          "bbox": [
+            107,
+            613,
+            407,
+            623
+          ],
+          "en": "Algorithm. We summarize our algorithm in Algorithm 1 in Appendix C.3.",
+          "reference": false,
+          "source_image": "figs/p005-015-source.png",
+          "zh": "算法。我们在附录 C.3 的算法 1 中总结了我们的算法。"
+        },
+        {
+          "id": "p5-b16",
+          "kind": "section-header",
+          "bbox": [
+            107,
+            640,
+            236,
+            651
+          ],
+          "en": "5 Experimental Results",
+          "reference": false,
+          "source_image": "figs/p005-016-source.png",
+          "zh": "5 实验结果"
+        },
+        {
+          "id": "p5-b17",
+          "kind": "text",
+          "bbox": [
+            107,
+            665,
+            505,
+            723
+          ],
+          "en": "In this section, we conduct experiments to show the effectiveness of our method. We use the latest non-visual locomotion method [9] as our baseline which is trained with continuous stochastic disturbances drawn from a uniform distribution. By changing the disturbance sampling strategy to ours and its ablated versions, we can show to what extent our method exceeds the baseline and the effectiveness of specific modules of our methods. Our experiments aim to answer these questions:",
+          "reference": false,
+          "source_image": "figs/p005-017-source.png",
+          "zh": "在本节中，我们通过实验来验证我们方法的有效性。我们采用最新的非视觉运动控制方法 [9] 作为基线，该基线在训练中采用了从均匀分布中采样的连续随机扰动。通过将扰动采样策略替换为我们提出的策略及其消融版本，我们可以展示我们的方法在多大程度上超越了基线，并验证我们方法中特定模块的有效性。我们的实验旨在回答以下问题："
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "blocks": [
+        {
+          "id": "p6-b0",
+          "kind": "list-item",
+          "bbox": [
+            131,
+            75,
+            494,
+            83
+          ],
+          "en": "1. Can our method and its variants handle continuous disturbances as well as the baseline?",
+          "reference": false,
+          "source_image": "figs/p006-000-source.png",
+          "zh": "1. 我们的方法及其变体能否像基线一样很好地应对连续扰动？"
+        },
+        {
+          "id": "p6-b1",
+          "kind": "list-item",
+          "bbox": [
+            131,
+            88,
+            430,
+            98
+          ],
+          "en": "2. Can all methods handle the challenges of sudden extreme disturbances?",
+          "reference": false,
+          "source_image": "figs/p006-001-source.png",
+          "zh": "2. 所有方法是否都能应对突发极端扰动的挑战？"
+        },
+        {
+          "id": "p6-b2",
+          "kind": "list-item",
+          "bbox": [
+            131,
+            102,
+            470,
+            112
+          ],
+          "en": "3. Can all methods resist deliberate disturbances that intentionally attack the policy?",
+          "reference": false,
+          "source_image": "figs/p006-002-source.png",
+          "zh": "3. 所有方法是否都能抵御专门攻击策略的蓄意扰动？"
+        },
+        {
+          "id": "p6-b3",
+          "kind": "list-item",
+          "bbox": [
+            131,
+            116,
+            431,
+            126
+          ],
+          "en": "4. Is our method applicable to other tasks that require stronger robustness?",
+          "reference": false,
+          "source_image": "figs/p006-003-source.png",
+          "zh": "4. 我们的方法是否适用于需要更强鲁棒性的其他任务？"
+        },
+        {
+          "id": "p6-b4",
+          "kind": "list-item",
+          "bbox": [
+            131,
+            130,
+            319,
+            140
+          ],
+          "en": "5. Can our method be deployed to real robots?",
+          "reference": false,
+          "source_image": "figs/p006-004-source.png",
+          "zh": "5. 我们的方法能否部署到真实机器人上？"
+        },
+        {
+          "id": "p6-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            151,
+            505,
+            293
+          ],
+          "en": "Specifically, we design four different training settings for comparison studies. First, we train a policy in complete settings where both H-infinity loss and a disturber network are exploited, which we refer to as ours . We clip the external forces to have an intensity of no more than 100N for sake of robot capability. Next, we remove the H-infinity loss from the training pipeline and obtain another policy, which we refer to as ours without hinf loss . Then, we keep the H-infinity loss but remove the disturber network from ours and replace it with a1 disturbance curriculum whose largest intensity grows linearly from 0N to 100N with the training process and whose direction is sampled uniformly. We call this policy ours without learnable disturber . Finally, we train a vanilla policy without both H-infinity loss and disturber network, which also experiences random external forces with curriculum disturbance as described above. We refer to this policy as baseline . All four policies are trained on the same set of terrains (Stairs, Slopes, and Discrete heightfield) as is shown in Appendix C.2. The training process for all policies lasts 5000 epochs.",
+          "reference": false,
+          "source_image": "figs/p006-005-source.png",
+          "zh": "具体而言，我们设计了四种不同的训练设置用于对比研究。首先，我们在同时采用 H-无穷损失与扰动器网络的完整设置下训练策略，我们将其称为 ours。出于机器人能力的考量，我们将外力强度截断至不超过 100 N。接下来，我们从训练流程中移除 H-无穷损失，得到另一个策略，称之为 ours without hinf loss。随后，我们保留 H-无穷损失，但从 ours 中移除扰动器网络，并替换为扰动课程1；在该课程中，最大扰动强度随着训练进程从 0 N 线性增长至 100 N，且扰动方向均匀采样。我们将该策略称为 ours without learnable disturber。最后，我们训练了一个既没有 H-无穷损失也没有扰动器网络的基础策略（vanilla policy），该策略同样承受如上所述带有扰动课程的随机外力。我们称该策略为 baseline。如图附录 C.2 所示，所有四种策略均在相同的一组地形（楼梯、斜坡和离散高度场）上训练。所有策略的训练过程均持续 5000 个 epoch。"
+        },
+        {
+          "id": "p6-b6",
+          "kind": "text",
+          "bbox": [
+            107,
+            300,
+            505,
+            346
+          ],
+          "en": "After obtaining the well-trained 4 policies, we evaluate them on 3 terrains with 3 types of disturbances (continuous disturbance, sudden force, and deliberate attack) and measure their commandtracking performance. For each evaluation, we repeat the rollout 32 times with different seeds and report the average performance with a 95% confidence interval.",
+          "reference": false,
+          "source_image": "figs/p006-006-source.png",
+          "zh": "在获得训练充分的 4 种策略后，我们在 3 种地形上利用 3 种类型的扰动（连续扰动、突发外力和蓄意攻击）对它们进行评估，并测量它们的指令跟踪性能。对于每次评估，我们使用不同的随机种子重复 rollout 32 次，并报告带有 95% 置信区间的平均性能。"
+        },
+        {
+          "id": "p6-b7",
+          "kind": "picture",
+          "bbox": [
+            108,
+            356,
+            504,
+            503
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p006-007.png",
+          "labels": []
+        },
+        {
+          "id": "p6-b8",
+          "kind": "caption",
+          "bbox": [
+            132,
+            514,
+            480,
+            524
+          ],
+          "en": "Figure 3: Tracking curve of our method and baselines under continuous random forces.",
+          "reference": false,
+          "source_image": "figs/p006-008-source.png",
+          "zh": "图 3：连续随机力作用下我们的方法与基线的跟踪曲线。"
+        },
+        {
+          "id": "p6-b9",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            544,
+            505,
+            552
+          ],
+          "en": "5.1 Can our method and its variants handle continuous disturbances as well as the baseline?",
+          "reference": false,
+          "source_image": "figs/p006-009-source.png",
+          "zh": "5.1 我们的方法及其变体能否像基线一样很好地应对连续扰动？"
+        },
+        {
+          "id": "p6-b10",
+          "kind": "text",
+          "bbox": [
+            108,
+            565,
+            505,
+            694
+          ],
+          "en": "To answer question 1, we test all policies with random continuous disturbances which are drawn from a uniform distribution ranging from 0-100N with the same frequency as controllers. It is the same type of disturbance experienced by the baseline at the final training stage. We command the robot to move forward with a velocity of 1.0 m/s. The tracking curves in Fig. 3 show that our method has the same capability of dealing with continuous disturbances on rough slopes as baseline methods and it even performs better on discrete height fields, and stairs. In an overall sense, our method can achieve comparable or even better performance against the baseline method in the continuous disturbance setting, even if the baseline methods have been trained with the same type of disturbances. Also, the policy trained without H-infinity loss fails immediately regardless of the terrain, demonstrating that vanilla adversarial training doesn’t work well, highlighting the effectiveness of the novel H-infinity loss.",
+          "reference": false,
+          "source_image": "figs/p006-010-source.png",
+          "zh": "为回答问题 1，我们采用与控制器频率相同的随机连续扰动测试所有策略，扰动大小从 0–100 N 的均匀分布中采样。这与基线在最终训练阶段所经历的扰动类型相同。我们指令机器人以 1.0 m/s 的速度向前移动。图 3 中的跟踪曲线表明，在崎岖斜坡上，我们的方法具备与基线方法相当的应对连续扰动的能力，而在离散高度场和楼梯上的表现甚至更佳。总体而言，在连续扰动设定下，即使基线方法本身就使用同类扰动进行过训练，我们的方法也能达到与基线方法相当甚至更好的性能。此外，在没有 H-无穷损失的情况下训练的策略无论在何种地形上都会立即失效，这表明朴素对抗训练（vanilla adversarial training）的效果并不理想，从而凸显了新型 H-无穷损失的有效性。"
+        },
+        {
+          "id": "p6-b11",
+          "kind": "footnote",
+          "bbox": [
+            108,
+            702,
+            505,
+            722
+          ],
+          "en": "1Without the curriculum scheme, the training will collapse as large force may be sampled in the early training phase, which is also confirmed by our preliminary experiments in A.",
+          "reference": false,
+          "source_image": "figs/p006-011-source.png",
+          "zh": "1若没有课程机制，训练将会崩溃，因为在训练早期可能会采样到过大的外力，我们在附录 A 中的初步实验也证实了这一点。"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "blocks": [
+        {
+          "id": "p7-b0",
+          "kind": "picture",
+          "bbox": [
+            108,
+            72,
+            504,
+            218
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p007-000.png",
+          "labels": []
+        },
+        {
+          "id": "p7-b1",
+          "kind": "caption",
+          "bbox": [
+            145,
+            230,
+            467,
+            239
+          ],
+          "en": "Figure 4: Tracking curve of our method and baselines under sudden large forces.",
+          "reference": false,
+          "source_image": "figs/p007-001-source.png",
+          "zh": "图 4：突发大外力作用下我们的方法与基线的跟踪曲线。"
+        },
+        {
+          "id": "p7-b2",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            262,
+            435,
+            272
+          ],
+          "en": "5.2 Can all methods handle the challenges of sudden extreme disturbances?",
+          "reference": false,
+          "source_image": "figs/p007-002-source.png",
+          "zh": "5.2 所有方法是否都能应对突发极端扰动的挑战？"
+        },
+        {
+          "id": "p7-b3",
+          "kind": "text",
+          "bbox": [
+            108,
+            283,
+            505,
+            353
+          ],
+          "en": "To answer question 2, we evaluate all policies by applying sudden large external forces on the trunk of robots. We apply identical forces to all robots with an intensity of 150N and a random direction sampled uniformly. The external forces are applied every 4 seconds and last 0.5 seconds. In Fig. 4, a spike or pit appears at the moment the force is applied, indicating the robot is trying to offset the external force. Robot controlled by our policy shows better precision in tracking the command and the ability to recover from sudden force, especially on stairs and heightfields.",
+          "reference": false,
+          "source_image": "figs/p007-003-source.png",
+          "zh": "为回答问题 2，我们通过在机器人躯干上施加突发的大外力来评估所有策略。我们对所有机器人施加大小为 150 N、方向均匀随机采样的相同外力。该外力每 4 秒施加一次，持续 0.5 秒。在图 4 中，施加外力的瞬间会出现尖峰或波谷，这表明机器人正在试图抵消外力。由我们的策略控制的机器人在指令跟踪精度以及从突发外力中恢复的能力方面表现更优，尤其是在楼梯和高度场上。"
+        },
+        {
+          "id": "p7-b4",
+          "kind": "picture",
+          "bbox": [
+            108,
+            364,
+            504,
+            511
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p007-004.png",
+          "labels": []
+        },
+        {
+          "id": "p7-b5",
+          "kind": "caption",
+          "bbox": [
+            108,
+            522,
+            504,
+            532
+          ],
+          "en": "Figure 5: Tracking curve for all methods tested with disturbers trained to intentionally attack them.",
+          "reference": false,
+          "source_image": "figs/p007-005-source.png",
+          "zh": "图 5：在经专门训练用于蓄意攻击各策略的扰动器测试下，所有方法的跟踪曲线。"
+        },
+        {
+          "id": "p7-b6",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            553,
+            481,
+            563
+          ],
+          "en": "5.3 Can all methods resist deliberate disturbances that intentionally attack the policy?",
+          "reference": false,
+          "source_image": "figs/p007-006-source.png",
+          "zh": "5.3 所有方法是否都能抵御专门攻击策略的蓄意扰动？"
+        },
+        {
+          "id": "p7-b7",
+          "kind": "text",
+          "bbox": [
+            108,
+            575,
+            505,
+            692
+          ],
+          "en": "To answer question 3, we freeze the parameters of four well-trained policies and use the same disturber training process in our method to train a disturber from scratch for each policy. By doing this, each disturber is optimized to discover the weakness of the corresponding policy and try to undermine its performance as much as possible. We perform the disturber training for 500 epochs and examine the tracking performance of the four policies on different terrains with the specifically trained adversarial disturber. The disturbance are applied continuously as well. The results shown in Fig. 5 suggest disturbers can identify the weakness for other policies immediately, and these policies fail upon encountering the attach for the first time, whereas our method can withstand the deliberate disturbance many times across three challenging terrains, especially on slopes and discrete heightfields.",
+          "reference": false,
+          "source_image": "figs/p007-007-source.png",
+          "zh": "为回答问题 3，我们冻结这四种训练充分的策略参数，并利用我们方法中相同的扰动器训练流程，为每种策略从头训练一个扰动器。通过这种方式，每个扰动器都经过优化以发现对应策略的弱点，并尽可能破坏其性能。我们将扰动器训练进行 500 个 epoch，并使用这种经过专门训练的对抗扰动器检验四种策略在不同地形上的跟踪性能。扰动同样连续施加。图 5 显示的结果表明，扰动器能够立即找到其他策略的弱点，而这些策略在首次遭受攻击时便立即崩溃；相比之下，我们的方法能够在三种具有挑战性的地形上（尤其是在斜坡和离散高度场上）多次承受住这种蓄意扰动。"
+        },
+        {
+          "id": "p7-b8",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            707,
+            441,
+            717
+          ],
+          "en": "- 5.4 Is our method applicable to other tasks that require stronger robustness?",
+          "reference": false,
+          "source_image": "figs/p007-008-source.png",
+          "zh": "- 5.4 我们的方法是否适用于需要更强鲁棒性的其他任务？"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "blocks": [
+        {
+          "id": "p8-b1",
+          "kind": "picture",
+          "bbox": [
+            266,
+            65,
+            504,
+            187
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p008-001.png",
+          "labels": []
+        },
+        {
+          "id": "p8-b0",
+          "kind": "text",
+          "bbox": [
+            108,
+            75,
+            257,
+            228
+          ],
+          "en": "To answer question 5, we train the robot to walk with its two hind legs and test the policy by exerting intermittent large external forces. We carry out the training process for 10000 epochs for the sake of stronger demands of this task. Identical to the quadrupedal locomotion task, the baseline bipedal policy is trained with a normal random disturber while our method is trained with the proposed adaptive disturber. Both disturbers have the same sample space ranging",
+          "reference": false,
+          "source_image": "figs/p008-000-source.png",
+          "zh": "为回答问题 5，我们训练机器人用两条后腿行走，并通过施加间歇性大外力来测试该策略。鉴于该任务的要求更高，我们将训练过程执行了 10000 个 epoch。与四足运动任务相同，基线双足策略采用常规随机扰动器进行训练，而我们的方法则使用所提出的自适应扰动器进行训练。两种扰动器具有相同的采样空间，范围从"
+        },
+        {
+          "id": "p8-b2",
+          "kind": "caption",
+          "bbox": [
+            266,
+            193,
+            504,
+            212
+          ],
+          "en": "Figure 6: Comparison between the baseline and our method in terms of the number of falls.",
+          "reference": false,
+          "source_image": "figs/p008-002-source.png",
+          "zh": "图 6：基线与我们的方法在跌倒次数方面的对比。"
+        },
+        {
+          "id": "p8-b3",
+          "kind": "text",
+          "bbox": [
+            108,
+            230,
+            505,
+            312
+          ],
+          "en": "from 0N to 50N. To evaluate the performance of both methods, we count the total times of falls in one episode when external forces are exerted. Each evaluation episode lasts 20 seconds. Every 5 seconds, the robot receives a large external force with an intensity of 100N to 150N that lasts 0.2 seconds. We carry out two different experiments where the directions of the forces are set to x, y axes respectively. For each method, the evaluation runs 32 times repeatedly and we report the average number of falls. As shown in Fig. 6, our method outperforms the baseline policy by a large margin no matter the force comes from x or y axes.",
+          "reference": false,
+          "source_image": "figs/p008-003-source.png",
+          "zh": "0 N 到 50 N。为评估这两种方法的性能，我们统计了施加外力时一个回合内的总跌倒次数。每个评估回合持续 20 秒。每隔 5 秒，机器人会承受一次持续 0.2 秒、强度为 100 N 至 150 N 的大外力。我们进行了两项不同的实验，力的方向分别设定在 x 轴和 y 轴。对于每种方法，评估均重复进行 32 次，并报告平均跌倒次数。如图 6 所示，无论外力来自 x 轴还是 y 轴，我们的方法均大幅优于基线策略。"
+        },
+        {
+          "id": "p8-b4",
+          "kind": "section-header",
+          "bbox": [
+            107,
+            326,
+            318,
+            336
+          ],
+          "en": "5.5 Can our method be deployed to real robots?",
+          "reference": false,
+          "source_image": "figs/p008-004-source.png",
+          "zh": "5.5 我们的方法能否部署到真实机器人上？"
+        },
+        {
+          "id": "p8-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            347,
+            505,
+            441
+          ],
+          "en": "To answer question 4, we train our policy with the proposed disturber producing force no larger than 100 N and deploy trained policies on Unitree Aliengo quadrupedal robots in the wild. As shown in Fig. 1, it can traverse various terrains such as staircases, high platforms, slopes, and slippery surfaces, withstand pulling on the trunk, legs, and even arbitrary kicking, and accomplish different tasks such as sprinting. In addition, We deploy the bipedal walking policy to the Unitree A1 robot and replicate this experiment in the real world, As shown in Fig. 1, the standing policy is able to withstand collisions with heavy objects and random pushes on its body while retaining a standing posture. All real-world experiment videos can be found in the supplementary materials.",
+          "reference": false,
+          "source_image": "figs/p008-005-source.png",
+          "zh": "为回答问题 4，我们使用所提出的扰动器（产生不超过 100 N 的力）训练策略，并将训练好的策略部署到野外环境下的 Unitree Aliengo 四足机器人上。如图 1 所示，它能够穿越楼梯、高台、斜坡和湿滑表面等各种地形，承受对其躯干、腿部的拉扯甚至任意踹踢，并完成冲刺等不同任务。此外，我们将双足行走策略部署到 Unitree A1 机器人上，并在真实世界中复现了该实验。如图 1 所示，站立策略能够在承受重物碰撞和身体受到随机推搡时依然保持站立姿态。所有真实世界实验视频均可在补充材料中找到。"
+        },
+        {
+          "id": "p8-b6",
+          "kind": "section-header",
+          "bbox": [
+            107,
+            458,
+            184,
+            467
+          ],
+          "en": "6 Conclusion",
+          "reference": false,
+          "source_image": "figs/p008-006-source.png",
+          "zh": "6 结论"
+        },
+        {
+          "id": "p8-b7",
+          "kind": "text",
+          "bbox": [
+            107,
+            484,
+            505,
+            601
+          ],
+          "en": "In this work, we propose H 8 learning framework for quadruped locomotion control. Unlike previous works that simply draw the external forces from a fixed distribution, we design a novel training procedure where an actor and a disturber interact in an adversarial manner. To ensure the stability of the entire learning process, we introduce a novel H 8 constraint to policy optimization, providing a guarantee for the actor’s performance lower bound in face of external forces with a certain intensity. In this fashion, the disturber learns to adapt to the current performance of the actor, and the actor learns to accomplish its tasks against intentional physical interruptions. We demonstrate our method achieves notable improvement in robustness in both locomotion and standing tasks and can be deployed in real-world settings. We hope that our work will inspire further research on improving the robustness of quadruped robots and other robotic systems.",
+          "reference": false,
+          "source_image": "figs/p008-007-source.png",
+          "zh": "在这项工作中，我们提出了用于四足机器人运动控制的 H 8 学习框架。与以往仅从固定分布中采样外力的方法不同，我们设计了一种新颖的训练流程，使 actor 与扰动器以对抗方式相互作用。为确保整个学习过程的稳定性，我们在策略优化中引入了一种新型 H 8 约束，为面对特定强度外力时 actor 的性能下界提供了保证。通过这种方式，扰动器学会适应 actor 当前的性能，而 actor 则学会在面对蓄意物理干扰时完成任务。我们证明了我们的方法在运动和站立任务中均实现了鲁棒性的显著提升，并能部署于真实世界环境中。我们希望我们的工作能为提升四足机器人及其他机器人系统的鲁棒性启发后续研究。"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "blocks": [
+        {
+          "id": "p9-b0",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            73,
+            164,
+            83
+          ],
+          "en": "References",
+          "reference": true,
+          "source_image": "figs/p009-000-source.png",
+          "zh": "References"
+        },
+        {
+          "id": "p9-b1",
+          "kind": "list-item",
+          "bbox": [
+            112,
+            93,
+            505,
+            115
+          ],
+          "en": "- [1] J. Hwangbo, J. Lee, A. Dosovitskiy, D. Bellicoso, V. Tsounis, V. Koltun, and M. Hutter. Learning agile and dynamic motor skills for legged robots. Science Robotics , 2019.",
+          "reference": true,
+          "source_image": "figs/p009-001-source.png",
+          "zh": "- [1] J. Hwangbo, J. Lee, A. Dosovitskiy, D. Bellicoso, V. Tsounis, V. Koltun, and M. Hutter. Learning agile and dynamic motor skills for legged robots. Science Robotics , 2019."
+        },
+        {
+          "id": "p9-b2",
+          "kind": "list-item",
+          "bbox": [
+            112,
+            126,
+            505,
+            147
+          ],
+          "en": "- [2] C. Yang, K. Yuan, Q. Zhu, W. Yu, and Z. Li. Multi-expert learning of adaptive legged locomotion. Science Robotics , 2020.",
+          "reference": true,
+          "source_image": "figs/p009-002-source.png",
+          "zh": "- [2] C. Yang, K. Yuan, Q. Zhu, W. Yu, and Z. Li. Multi-expert learning of adaptive legged locomotion. Science Robotics , 2020."
+        },
+        {
+          "id": "p9-b3",
+          "kind": "list-item",
+          "bbox": [
+            112,
+            158,
+            505,
+            192
+          ],
+          "en": "- [3] W. Yu, D. Jain, A. Escontrela, A. Iscen, P. Xu, E. Coumans, S. Ha, J. Tan, and T. Zhang. Visual-locomotion: Learning to walk on complex terrains with vision. In Conference on Robot Learning (CoRL) , 2021.",
+          "reference": true,
+          "source_image": "figs/p009-003-source.png",
+          "zh": "- [3] W. Yu, D. Jain, A. Escontrela, A. Iscen, P. Xu, E. Coumans, S. Ha, J. Tan, and T. Zhang. Visual-locomotion: Learning to walk on complex terrains with vision. In Conference on Robot Learning (CoRL) , 2021."
+        },
+        {
+          "id": "p9-b4",
+          "kind": "list-item",
+          "bbox": [
+            112,
+            202,
+            505,
+            224
+          ],
+          "en": "- [4] G. B. Margolis, G. Yang, K. Paigwar, T. Chen, and P. Agrawal. Rapid locomotion via reinforcement learning. In Robotics: Science and Systems , 2022.",
+          "reference": true,
+          "source_image": "figs/p009-004-source.png",
+          "zh": "- [4] G. B. Margolis, G. Yang, K. Paigwar, T. Chen, and P. Agrawal. Rapid locomotion via reinforcement learning. In Robotics: Science and Systems , 2022."
+        },
+        {
+          "id": "p9-b5",
+          "kind": "list-item",
+          "bbox": [
+            112,
+            234,
+            505,
+            256
+          ],
+          "en": "- [5] G. B. Margolis and P. Agrawal. Walk these ways: Tuning robot control for generalization with multiplicity of behavior. In Conference on Robot Learning (CoRL) , 2023.",
+          "reference": true,
+          "source_image": "figs/p009-005-source.png",
+          "zh": "- [5] G. B. Margolis and P. Agrawal. Walk these ways: Tuning robot control for generalization with multiplicity of behavior. In Conference on Robot Learning (CoRL) , 2023."
+        },
+        {
+          "id": "p9-b6",
+          "kind": "list-item",
+          "bbox": [
+            112,
+            266,
+            505,
+            298
+          ],
+          "en": "- [6] A. Agarwal, A. Kumar, J. Malik, and D. Pathak. Legged locomotion in challenging terrains using egocentric vision. In Conference on Robot Learning (CoRL) , pages 403–415. PMLR, 2023.",
+          "reference": true,
+          "source_image": "figs/p009-006-source.png",
+          "zh": "- [6] A. Agarwal, A. Kumar, J. Malik, and D. Pathak. Legged locomotion in challenging terrains using egocentric vision. In Conference on Robot Learning (CoRL) , pages 403–415. PMLR, 2023."
+        },
+        {
+          "id": "p9-b7",
+          "kind": "list-item",
+          "bbox": [
+            112,
+            311,
+            505,
+            344
+          ],
+          "en": "- [7] I. M. A. Nahrendra, B. Yu, and H. Myung. Dreamwaq: Learning robust quadrupedal locomotion with implicit terrain imagination via deep reinforcement learning. In International Conference on Robotics and Automation (ICRA) , pages 5078–5084. IEEE, 2023.",
+          "reference": true,
+          "source_image": "figs/p009-007-source.png",
+          "zh": "- [7] I. M. A. Nahrendra, B. Yu, and H. Myung. Dreamwaq: Learning robust quadrupedal locomotion with implicit terrain imagination via deep reinforcement learning. In International Conference on Robotics and Automation (ICRA) , pages 5078–5084. IEEE, 2023."
+        },
+        {
+          "id": "p9-b8",
+          "kind": "list-item",
+          "bbox": [
+            112,
+            355,
+            505,
+            377
+          ],
+          "en": "- [8] Y. Kim, H. Oh, J. Lee, J. Choi, G. Ji, M. Jung, D. Youm, and J. Hwangbo. Not only rewards but also constraints: Applications on legged robot locomotion, 2024.",
+          "reference": true,
+          "source_image": "figs/p009-008-source.png",
+          "zh": "- [8] Y. Kim, H. Oh, J. Lee, J. Choi, G. Ji, M. Jung, D. Youm, and J. Hwangbo. Not only rewards but also constraints: Applications on legged robot locomotion, 2024."
+        },
+        {
+          "id": "p9-b9",
+          "kind": "list-item",
+          "bbox": [
+            112,
+            387,
+            505,
+            421
+          ],
+          "en": "- [9] J. Long, Z. Wang, Q. Li, J. Gao, L. Cao, and J. Pang. Hybrid internal model: Learning agile legged locomotion with simulated robot response. In International Conference on Learning Representations , 2024.",
+          "reference": true,
+          "source_image": "figs/p009-009-source.png",
+          "zh": "- [9] J. Long, Z. Wang, Q. Li, J. Gao, L. Cao, and J. Pang. Hybrid internal model: Learning agile legged locomotion with simulated robot response. In International Conference on Learning Representations , 2024."
+        },
+        {
+          "id": "p9-b10",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            431,
+            505,
+            452
+          ],
+          "en": "- [10] S. Ha, P. Xu, Z. Tan, S. Levine, and J. Tan. Learning to walk in the real world with minimal human effort, 2020.",
+          "reference": true,
+          "source_image": "figs/p009-010-source.png",
+          "zh": "- [10] S. Ha, P. Xu, Z. Tan, S. Levine, and J. Tan. Learning to walk in the real world with minimal human effort, 2020."
+        },
+        {
+          "id": "p9-b11",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            463,
+            505,
+            485
+          ],
+          "en": "- [11] T. Haarnoja, S. Ha, A. Zhou, J. Tan, G. Tucker, and S. Levine. Learning to walk via deep reinforcement learning, 2019.",
+          "reference": true,
+          "source_image": "figs/p009-011-source.png",
+          "zh": "- [11] T. Haarnoja, S. Ha, A. Zhou, J. Tan, G. Tucker, and S. Levine. Learning to walk via deep reinforcement learning, 2019."
+        },
+        {
+          "id": "p9-b12",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            496,
+            505,
+            529
+          ],
+          "en": "- [12] R. Yang, M. Zhang, N. Hansen, H. Xu, and X. Wang. Learning vision-guided quadrupedal locomotion end-to-end with cross-modal transformers. In International Conference on Learning Representations , 2022.",
+          "reference": true,
+          "source_image": "figs/p009-012-source.png",
+          "zh": "- [12] R. Yang, M. Zhang, N. Hansen, H. Xu, and X. Wang. Learning vision-guided quadrupedal locomotion end-to-end with cross-modal transformers. In International Conference on Learning Representations , 2022."
+        },
+        {
+          "id": "p9-b13",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            540,
+            505,
+            562
+          ],
+          "en": "- [13] R. Yang, G. Yang, and X. Wang. Neural volumetric memory for visual locomotion control. In Conference on Computer Vision and Pattern Recognition , 2023.",
+          "reference": true,
+          "source_image": "figs/p009-013-source.png",
+          "zh": "- [13] R. Yang, G. Yang, and X. Wang. Neural volumetric memory for visual locomotion control. In Conference on Computer Vision and Pattern Recognition , 2023."
+        },
+        {
+          "id": "p9-b14",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            572,
+            505,
+            594
+          ],
+          "en": "- [14] J. Lee, J. Hwangbo, L. Wellhausen, V. Koltun, and M. Hutter. Learning quadrupedal locomotion over challenging terrain. Science robotics , 2020.",
+          "reference": true,
+          "source_image": "figs/p009-014-source.png",
+          "zh": "- [14] J. Lee, J. Hwangbo, L. Wellhausen, V. Koltun, and M. Hutter. Learning quadrupedal locomotion over challenging terrain. Science robotics , 2020."
+        },
+        {
+          "id": "p9-b15",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            604,
+            505,
+            636
+          ],
+          "en": "- [15] F. Jenelten, J. Hwangbo, F. Tresoldi, C. D. Bellicoso, and M. Hutter. Dynamic locomotion on slippery ground. IEEE Robotics and Automation Letters , 4(4):4170–4176, 2019. doi: 10.1109/LRA.2019.2931284.",
+          "reference": true,
+          "source_image": "figs/p009-015-source.png",
+          "zh": "- [15] F. Jenelten, J. Hwangbo, F. Tresoldi, C. D. Bellicoso, and M. Hutter. Dynamic locomotion on slippery ground. IEEE Robotics and Automation Letters , 4(4):4170–4176, 2019. doi: 10.1109/LRA.2019.2931284."
+        },
+        {
+          "id": "p9-b16",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            648,
+            505,
+            669
+          ],
+          "en": "- [16] J. Reher, W.-L. Ma, and A. D. Ames. Dynamic walking with compliance on a cassie bipedal robot, 2019.",
+          "reference": true,
+          "source_image": "figs/p009-016-source.png",
+          "zh": "- [16] J. Reher, W.-L. Ma, and A. D. Ames. Dynamic walking with compliance on a cassie bipedal robot, 2019."
+        },
+        {
+          "id": "p9-b17",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            680,
+            505,
+            702
+          ],
+          "en": "- [17] L. Smith, J. C. Kew, T. Li, L. Luu, X. B. Peng, S. Ha, J. Tan, and S. Levine. Learning and adapting agile locomotion skills by transferring experience, 2023.",
+          "reference": true,
+          "source_image": "figs/p009-017-source.png",
+          "zh": "- [17] L. Smith, J. C. Kew, T. Li, L. Luu, X. B. Peng, S. Ha, J. Tan, and S. Levine. Learning and adapting agile locomotion skills by transferring experience, 2023."
+        },
+        {
+          "id": "p9-b18",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            713,
+            500,
+            723
+          ],
+          "en": "- [18] Y. Li, J. Li, W. Fu, and Y. Wu. Learning agile bipedal motions on a quadrupedal robot, 2023.",
+          "reference": true,
+          "source_image": "figs/p009-018-source.png",
+          "zh": "- [18] Y. Li, J. Li, W. Fu, and Y. Wu. Learning agile bipedal motions on a quadrupedal robot, 2023."
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "blocks": [
+        {
+          "id": "p10-b0",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            75,
+            505,
+            96
+          ],
+          "en": "- [19] X. Cheng, A. Kumar, and D. Pathak. Legs as manipulator: Pushing quadrupedal agility beyond locomotion, 2023.",
+          "reference": true,
+          "source_image": "figs/p010-000-source.png",
+          "zh": "- [19] X. Cheng, A. Kumar, and D. Pathak. Legs as manipulator: Pushing quadrupedal agility beyond locomotion, 2023."
+        },
+        {
+          "id": "p10-b1",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            107,
+            488,
+            117
+          ],
+          "en": "- [20] X. Cheng, K. Shi, A. Agarwal, and D. Pathak. Extreme parkour with legged robots, 2023.",
+          "reference": true,
+          "source_image": "figs/p010-001-source.png",
+          "zh": "- [20] X. Cheng, K. Shi, A. Agarwal, and D. Pathak. Extreme parkour with legged robots, 2023."
+        },
+        {
+          "id": "p10-b2",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            126,
+            505,
+            160
+          ],
+          "en": "- [21] X. B. Peng, M. Andrychowicz, W. Zaremba, and P. Abbeel. Sim-to-real transfer of robotic control with dynamics randomization. In International Conference on Robotics and Automation (ICRA) , pages 3803–3810. IEEE, 2018.",
+          "reference": true,
+          "source_image": "figs/p010-002-source.png",
+          "zh": "- [21] X. B. Peng, M. Andrychowicz, W. Zaremba, and P. Abbeel. Sim-to-real transfer of robotic control with dynamics randomization. In International Conference on Robotics and Automation (ICRA) , pages 3803–3810. IEEE, 2018."
+        },
+        {
+          "id": "p10-b3",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            170,
+            505,
+            204
+          ],
+          "en": "- [22] J. Tobin, R. Fong, A. Ray, J. Schneider, W. Zaremba, and P. Abbeel. Domain randomization for transferring deep neural networks from simulation to the real world. In International Conference on Intelligent Robots and Systems (IROS) , pages 23–30. IEEE, 2017.",
+          "reference": true,
+          "source_image": "figs/p010-003-source.png",
+          "zh": "- [22] J. Tobin, R. Fong, A. Ray, J. Schneider, W. Zaremba, and P. Abbeel. Domain randomization for transferring deep neural networks from simulation to the real world. In International Conference on Intelligent Robots and Systems (IROS) , pages 23–30. IEEE, 2017."
+        },
+        {
+          "id": "p10-b4",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            214,
+            505,
+            234
+          ],
+          "en": "- [23] C. Zhang, N. Rudin, D. Hoeller, and M. Hutter. Learning agile locomotion on risky terrains, 2023.",
+          "reference": true,
+          "source_image": "figs/p010-004-source.png",
+          "zh": "- [23] C. Zhang, N. Rudin, D. Hoeller, and M. Hutter. Learning agile locomotion on risky terrains, 2023."
+        },
+        {
+          "id": "p10-b5",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            246,
+            505,
+            280
+          ],
+          "en": "- [24] K. Paigwar, L. Krishna, S. Tirumala, N. Khetan, A. Sagi, A. Joglekar, S. Bhatnagar, A. Ghosal, B. Amrutur, and S. Kolathaya. Robust quadrupedal locomotion on sloped terrains: A linear policy approach, 2020.",
+          "reference": true,
+          "source_image": "figs/p010-005-source.png",
+          "zh": "- [24] K. Paigwar, L. Krishna, S. Tirumala, N. Khetan, A. Sagi, A. Joglekar, S. Bhatnagar, A. Ghosal, B. Amrutur, and S. Kolathaya. Robust quadrupedal locomotion on sloped terrains: A linear policy approach, 2020."
+        },
+        {
+          "id": "p10-b6",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            290,
+            504,
+            311
+          ],
+          "en": "- [25] J. Morimoto and K. Doya. Robust reinforcement learning. Neural Computation , 17(2):335– 359, 2005.",
+          "reference": true,
+          "source_image": "figs/p010-006-source.png",
+          "zh": "- [25] J. Morimoto and K. Doya. Robust reinforcement learning. Neural Computation , 17(2):335– 359, 2005."
+        },
+        {
+          "id": "p10-b7",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            322,
+            505,
+            356
+          ],
+          "en": "- [26] A. Aalipour and A. Khani. Data-driven h-infinity control with a real-time and efficient reinforcement learning algorithm: An application to autonomous mobility-on-demand systems. 2023. doi:10.48550/ARXIV.2309.08880. URL `https://arxiv.org/abs/2309.08880` .",
+          "reference": true,
+          "source_image": "figs/p010-007-source.png",
+          "zh": "- [26] A. Aalipour and A. Khani. Data-driven h-infinity control with a real-time and efficient reinforcement learning algorithm: An application to autonomous mobility-on-demand systems. 2023. doi:10.48550/ARXIV.2309.08880. URL `https://arxiv.org/abs/2309.08880` ."
+        },
+        {
+          "id": "p10-b8",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            366,
+            505,
+            387
+          ],
+          "en": "- [27] D. Larby and F. Forni. A passivity preserving h-infinity synthesis technique for robot control. In 2022 IEEE 61st Conference on Decision and Control (CDC) , pages 1416–1422. IEEE, 2022.",
+          "reference": true,
+          "source_image": "figs/p010-008-source.png",
+          "zh": "- [27] D. Larby and F. Forni. A passivity preserving h-infinity synthesis technique for robot control. In 2022 IEEE 61st Conference on Decision and Control (CDC) , pages 1416–1422. IEEE, 2022."
+        },
+        {
+          "id": "p10-b9",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            397,
+            505,
+            431
+          ],
+          "en": "- [28] V. Makoviychuk, L. Wawrzyniak, Y. Guo, M. Lu, K. Storey, M. Macklin, D. Hoeller, N. Rudin, A. Allshire, A. Handa, and G. State. Isaac gym: High performance gpu-based physics simulation for robot learning, 2021.",
+          "reference": true,
+          "source_image": "figs/p010-009-source.png",
+          "zh": "- [28] V. Makoviychuk, L. Wawrzyniak, Y. Guo, M. Lu, K. Storey, M. Macklin, D. Hoeller, N. Rudin, A. Allshire, A. Handa, and G. State. Isaac gym: High performance gpu-based physics simulation for robot learning, 2021."
+        },
+        {
+          "id": "p10-b10",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            441,
+            505,
+            463
+          ],
+          "en": "- [29] S. Paternain, M. Calvo-Fullana, L. F. O. Chamon, and A. Ribeiro. Safe policies for reinforcement learning via primal-dual methods, 2022.",
+          "reference": true,
+          "source_image": "figs/p010-010-source.png",
+          "zh": "- [29] S. Paternain, M. Calvo-Fullana, L. F. O. Chamon, and A. Ribeiro. Safe policies for reinforcement learning via primal-dual methods, 2022."
+        },
+        {
+          "id": "p10-b11",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            473,
+            505,
+            507
+          ],
+          "en": "- [30] R. Lowe, Y. I. Wu, A. Tamar, J. Harb, O. Pieter Abbeel, and I. Mordatch. Multi-agent actorcritic for mixed cooperative-competitive environments. Advances in neural information processing systems , 30, 2017.",
+          "reference": true,
+          "source_image": "figs/p010-011-source.png",
+          "zh": "- [30] R. Lowe, Y. I. Wu, A. Tamar, J. Harb, O. Pieter Abbeel, and I. Mordatch. Multi-agent actorcritic for mixed cooperative-competitive environments. Advances in neural information processing systems , 30, 2017."
+        },
+        {
+          "id": "p10-b12",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            517,
+            505,
+            549
+          ],
+          "en": "- [31] J. Foerster, G. Farquhar, T. Afouras, N. Nardelli, and S. Whiteson. Counterfactual multi-agent policy gradients. In Proceedings of the AAAI conference on artificial intelligence , volume 32, 2018.",
+          "reference": true,
+          "source_image": "figs/p010-012-source.png",
+          "zh": "- [31] J. Foerster, G. Farquhar, T. Afouras, N. Nardelli, and S. Whiteson. Counterfactual multi-agent policy gradients. In Proceedings of the AAAI conference on artificial intelligence , volume 32, 2018."
+        },
+        {
+          "id": "p10-b13",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            561,
+            505,
+            583
+          ],
+          "en": "- [32] A. Lazaridou, A. Peysakhovich, and M. Baroni. Multi-agent cooperation and the emergence of (natural) language. arXiv preprint arXiv:1612.07182 , 2016.",
+          "reference": true,
+          "source_image": "figs/p010-013-source.png",
+          "zh": "- [32] A. Lazaridou, A. Peysakhovich, and M. Baroni. Multi-agent cooperation and the emergence of (natural) language. arXiv preprint arXiv:1612.07182 , 2016."
+        },
+        {
+          "id": "p10-b14",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            593,
+            504,
+            614
+          ],
+          "en": "- [33] K. Zhou and J. C. Doyle. Essentials of robust control , volume 104. Prentice hall Upper Saddle River, NJ, 1998.",
+          "reference": true,
+          "source_image": "figs/p010-014-source.png",
+          "zh": "- [33] K. Zhou and J. C. Doyle. Essentials of robust control , volume 104. Prentice hall Upper Saddle River, NJ, 1998."
+        },
+        {
+          "id": "p10-b15",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            625,
+            505,
+            647
+          ],
+          "en": "- [34] J. Schulman, F. Wolski, P. Dhariwal, A. Radford, and O. Klimov. Proximal policy optimization algorithms, 2017.",
+          "reference": true,
+          "source_image": "figs/p010-015-source.png",
+          "zh": "- [34] J. Schulman, F. Wolski, P. Dhariwal, A. Radford, and O. Klimov. Proximal policy optimization algorithms, 2017."
+        },
+        {
+          "id": "p10-b16",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            656,
+            505,
+            690
+          ],
+          "en": "- [35] N. Rudin, D. Hoeller, P. Reist, and M. Hutter. Learning to walk in minutes using massively parallel deep reinforcement learning. In Conference on Robot Learning (CoRL) , pages 91–100. PMLR, 2022.",
+          "reference": true,
+          "source_image": "figs/p010-016-source.png",
+          "zh": "- [35] N. Rudin, D. Hoeller, P. Reist, and M. Hutter. Learning to walk in minutes using massively parallel deep reinforcement learning. In Conference on Robot Learning (CoRL) , pages 91–100. PMLR, 2022."
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "blocks": [
+        {
+          "id": "p11-b0",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            73,
+            158,
+            85
+          ],
+          "en": "Appendix",
+          "reference": false,
+          "source_image": "figs/p011-000-source.png",
+          "zh": "附录"
+        },
+        {
+          "id": "p11-b1",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            100,
+            259,
+            112
+          ],
+          "en": "A Preliminary Experiments",
+          "reference": false,
+          "source_image": "figs/p011-001-source.png",
+          "zh": "A 初步实验"
+        },
+        {
+          "id": "p11-b2",
+          "kind": "text",
+          "bbox": [
+            107,
+            127,
+            336,
+            340
+          ],
+          "en": "To verify the necessity of having an adaptive disturber, we conduct a preliminary experiment. The most common disturber for legged locomotion randomly samples external forces from r0 , 30s N [28]. We increase the upper bound of the uniform distribution to 100 N and get the Baseline method. As shown in Fig. 7, the training of Baseline collapses under external forces with the extremely large upper bound (100 N ). Although another method, Baseline-C , overcomes this by curriculum learning where the upper bound of the forces linearly increases throughout the training, the trained policy fails to achieve comparable final performance against our method, as the training samples generated may be not challenging enough in the late training stage in terms of not only the magnitude but the direction of the force. However, our method keeps optimizing for better adversarial performance and producing valid training samples throughout the training.",
+          "reference": false,
+          "source_image": "figs/p011-002-source.png",
+          "zh": "为了验证引入自适应扰动器的必要性，我们进行了一项初步实验。足式机器人运动中最常用的扰动器是从 r0 , 30s N [28] 中随机采样外力。我们将均匀分布的上限提高到 100 N，从而得到 Baseline 方法。如图 7 所示，在上限极高（100 N）的外力作用下，Baseline 的训练发生了崩溃。尽管另一种方法 Baseline-C 通过课程学习（外力上限在整个训练过程中线性增加）克服了这一问题，但所训练出的策略最终性能仍无法与我们的方法相媲美，因为在训练后期生成的训练样本不仅在幅值上、而且在外力方向上可能都不够具有挑战性。然而，我们的方法在整个训练过程中持续优化以追求更优的对抗性能，并不断生成有效的训练样本。"
+        },
+        {
+          "id": "p11-b5",
+          "kind": "section-header",
+          "bbox": [
+            107,
+            358,
+            228,
+            368
+          ],
+          "en": "B Proof of Theorem 1",
+          "reference": false,
+          "source_image": "figs/p011-005-source.png",
+          "zh": "B 定理 1 的证明"
+        },
+        {
+          "id": "p11-b6",
+          "kind": "text",
+          "bbox": [
+            107,
+            385,
+            133,
+            395
+          ],
+          "en": "Proof.",
+          "reference": false,
+          "source_image": "figs/p011-006-source.png",
+          "zh": "证明。"
+        },
+        {
+          "id": "p11-b3",
+          "kind": "picture",
+          "bbox": [
+            345,
+            123,
+            505,
+            296
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p011-003.png",
+          "labels": []
+        },
+        {
+          "id": "p11-b4",
+          "kind": "caption",
+          "bbox": [
+            345,
+            306,
+            505,
+            334
+          ],
+          "en": "Figure 7: Preliminary experiment comparing policies trained with fixed disturber and our method.",
+          "reference": false,
+          "source_image": "figs/p011-004-source.png",
+          "zh": "图 7：对比使用固定扰动器训练的策略与我们方法的初步实验。"
+        },
+        {
+          "id": "p11-b7",
+          "kind": "formula",
+          "bbox": [
+            182,
+            397,
+            430,
+            725
+          ],
+          "en": "1 T lim Ñ8 T ÿ T E st p C π p st q ´ η } d p st q}2q t “0 1 ă T lim Ñ8 T ÿ T E st pE st `1„ P p¨| π,st qp Vπ cost p st q ´ Vπ cost p st `1qqq t “0 1 “ T lim Ñ8 T t ÿ“ T 0 ż S βπ t p st q P p st `1| st, π qp Vπ cost p st q ´ Vπ cost p st `1qq dst `1 dst ż S 1 “ T lim Ñ8 T t ÿ“ T 0 ż S βπ t p st q V π cost p st q dst ´ βπ t p st q P p st `1| st, π q Vπ cost p st `1q dst `1 dst ż S ż S 1 “ T lim Ñ8 T ÿ T pE stVπ cost p st q t “0 ´ βπ t p st q P p st `1| st, π q dstV π cost p st `1q dst `1q ż S ż S 1 “ T lim Ñ8 T ÿ T pE stVπ cost p st q ´ E st `1 Vπ cost p st `1qq t “0 1 “ lim π p s 0q ´ E sT `1 Vπ cost p sT `1qq T Ñ8 T pE s 0 V cost 1 ď lim max ´ 0q “ 0 T Ñ8 T p V cost",
+          "reference": false,
+          "image": "figs/p011-007.png",
+          "labels": []
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "blocks": [
+        {
+          "id": "p12-b0",
+          "kind": "caption",
+          "bbox": [
+            195,
+            71,
+            417,
+            81
+          ],
+          "en": "Table 1: Reward functions for Unitree A1 standing task",
+          "reference": false,
+          "source_image": "figs/p012-000-source.png",
+          "zh": "表 1：Unitree A1 站立任务的奖励函数"
+        },
+        {
+          "id": "p12-b1",
+          "kind": "table",
+          "bbox": [
+            107,
+            94,
+            387,
+            310
+          ],
+          "en": "|Term (˚ indicatesRtask)|Calculation|Scale| |---|---|---| |linear velocity tracking˚|expp´}vxy´vcmd xy }2{σtrackqrori|1.0| |angular velocity tracking˚|expp´}ωz ´ωcmd z }2{σtrackqrori|0.5| |joint velocities|}9q}2|´2e´4| |joint accelerations|}:q}2 |´2.5e´7| |action rate|}at`1´at}2|´0.01| |joint position limits|1rq R pqmin, qmaxqs|´10.0| |joint velocity limits|1r9q R p9qmin, 9qmaxqs|´10.0| |torque limits|1rτ R pτmin, τmaxqs|´10.0| |collision|ř jPP jcontact{|P||´1.0| |extra collision|ř jPEp jcontact{|Ep||´1.0| |front feet contact|1rř fPrF L,F Rs f contact ““ 0s|1.0| |orientationrori|p0.5˚cospvf ¨ˆv˚q `0.5q2|1.0| |root height|minpeh,0.55q|1.0|",
+          "reference": false,
+          "image": "figs/p012-001.png",
+          "labels": []
+        },
+        {
+          "id": "p12-b2",
+          "kind": "text",
+          "bbox": [
+            107,
+            335,
+            505,
+            368
+          ],
+          "en": "Therefore we obtain T lim Ñ8 T 1 t ř“ T 0 E st p C π p st q ´ η } d p st q}2q ă 0, and thus, the following inequality is derived:",
+          "reference": false,
+          "source_image": "figs/p012-002-source.png",
+          "zh": "因此我们得到〔行内公式见原版〕，由此推导出如下不等式："
+        },
+        {
+          "id": "p12-b3",
+          "kind": "formula",
+          "bbox": [
+            225,
+            369,
+            504,
+            398
+          ],
+          "en": "T lim Ñ8 ÿ T E st p C π p st q ´ η } d p st q}2q ă 0 (13) t “0",
+          "reference": false,
+          "image": "figs/p012-003.png",
+          "labels": [
+            "13"
+          ]
+        },
+        {
+          "id": "p12-b4",
+          "kind": "section-header",
+          "bbox": [
+            107,
+            413,
+            210,
+            424
+          ],
+          "en": "C Training details",
+          "reference": false,
+          "source_image": "figs/p012-004-source.png",
+          "zh": "C 训练细节"
+        },
+        {
+          "id": "p12-b5",
+          "kind": "section-header",
+          "bbox": [
+            107,
+            437,
+            493,
+            456
+          ],
+          "en": "C.1 Reward function scales for Unitree Aliengo locomotion task and Unitree A1 standing task",
+          "reference": false,
+          "source_image": "figs/p012-005-source.png",
+          "zh": "C.1 Unitree Aliengo 运动任务与 Unitree A1 站立任务的奖励函数尺度"
+        },
+        {
+          "id": "p12-b6",
+          "kind": "text",
+          "bbox": [
+            107,
+            469,
+            505,
+            602
+          ],
+          "en": "Detailed reward functions are shown in Table 1 and Table 2. To clarify the meaning of some symbols used in the reward functions, P denotes the set of all joints whose collisions with the ground are penalized, and Ep denotes the set of joints with stronger penalization. fcontact stands for whether foot f has contact with the ground. Moreover, g denotes the projection of gravity onto the local frame of the robot, and h denotes the base height of the robot. In the standing task particularly, we define an ideal orientation v˚ for the robot base, which we assign the value v˚ “ p0 . 2 , 0 . 0 , 1 . 0q, and accordingly define the unit ideal orientation v ˆ˚ “ } vv˚˚ }.Weexpectthelocalx´axisofthe robot, which we denote as vf , to be aligned to v ˆ˚ , and thus adopt cosine similarity as a metric for the orientation reward. Besides, we scale the tracking rewards by the orientation reward rori in the standing task because we expect the robot to stabilize itself in a standing pose before going on to follow tracking commands.",
+          "reference": false,
+          "source_image": "figs/p012-006-source.png",
+          "zh": "详细的奖励函数见表 1 和表 2。为了明确奖励函数中使用的部分符号的含义，P 表示与地面发生碰撞会受到惩罚的所有关节的集合，Ep 表示受到更强惩罚的关节集合。fcontact 表示足部 f 是否与地面接触。此外，g 表示重力在机器人局部坐标系下的投影，h 表示机器人的机身高度。特别是在站立任务中，我们为机器人机身定义了一个理想朝向 v˚，我们为其赋值为〔行内公式见原版〕，并相应地定义单位理想朝向〔行内公式见原版〕。我们期望机器人的局部 x 轴（记为 vf）与 v ˆ˚ 对齐，因此采用余弦相似度作为朝向奖励的度量指标。此外，在站立任务中，我们利用朝向奖励 rori 对跟踪奖励进行缩放，因为我们期望机器人在继续执行跟踪指令之前，先将自身稳定在站立姿态中。"
+        },
+        {
+          "id": "p12-b7",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            616,
+            318,
+            624
+          ],
+          "en": "C.2 Terrains and domain randomization details",
+          "reference": false,
+          "source_image": "figs/p012-007-source.png",
+          "zh": "C.2 地形与域随机化细节"
+        },
+        {
+          "id": "p12-b8",
+          "kind": "text",
+          "bbox": [
+            108,
+            637,
+            505,
+            693
+          ],
+          "en": "We exploit three different types of terrains, slopes, stairs, and discrete height fields during the training procedure, as is presented in Fig. 8. We also introduce terrain curriculum strategy, where the level of terrain difficulty is dynamically adjusted according to the distance that the robot can travel during a fixed duration. Besides, we exploit domain randomization for some simulation parameters, as is shown in Table 3.",
+          "reference": false,
+          "source_image": "figs/p012-008-source.png",
+          "zh": "如图 8 所示，我们在训练过程中使用了三种不同类型的地形：斜坡、楼梯和离散高度场。我们还引入了地形课程策略，其中地形难度等级会根据机器人在固定时长内能够行进的距离进行动态调整。此外，如表 3 所示，我们对部分仿真参数应用了域随机化。"
+        },
+        {
+          "id": "p12-b9",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            709,
+            301,
+            719
+          ],
+          "en": "- C.3 Pseudo code for H 8 locomotion control",
+          "reference": false,
+          "source_image": "figs/p012-009-source.png",
+          "zh": "- C.3 H 8 运动控制伪代码"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "blocks": [
+        {
+          "id": "p13-b0",
+          "kind": "caption",
+          "bbox": [
+            179,
+            100,
+            433,
+            110
+          ],
+          "en": "Table 2: Reward functions for Unitree Aliengo locomotion task",
+          "reference": false,
+          "source_image": "figs/p013-000-source.png",
+          "zh": "表 2：Unitree Aliengo 运动任务的奖励函数"
+        },
+        {
+          "id": "p13-b1",
+          "kind": "table",
+          "bbox": [
+            111,
+            123,
+            479,
+            510
+          ],
+          "en": "|Term (˚ indicatesRtask)|Calculation|Scale|| |---|---|---|---| |linear velocity tracking˚|expp´}vxy´vcmd xy }2{σtrackq|1.0|| |angular velocity tracking˚ z-axis linear velocity|expp´}ωz ´ωcmd z }2{σtrackq v2 z|0.5 ´2.0|| |roll-pitch angular velocity|}ωxy}2|´0.05|| |joint power|ř|τ| d |9q||´2e´5|| |joint power distribution|Varr|τ| d |9q|s|´1e´5|| |joint accelerations|}:q}2|´2.5e´7|| |action rate|}at´at´1}2|´0.01|| |smoothness|}at´2at´1`at´2}2|´0.01|| |joint position limits|1rq R pqmin, qmaxqs|´5.0|| |joint velocity limits|1r9q R p9qmin, 9qmaxqs|´5.0|| |torque limits|1rτ R pτmin, τmaxqs|´5.0|| |orientation|}gxy}2|´0.2|| |base height|}h´htarget}2|´1.0|| |(a) Slopes|(b) Stairs|(c) Di i|screte height fields|",
+          "reference": false,
+          "image": "figs/p013-001.png",
+          "labels": []
+        },
+        {
+          "id": "p13-b2",
+          "kind": "caption",
+          "bbox": [
+            135,
+            522,
+            477,
+            532
+          ],
+          "en": "Figure 8: Demonstration of different terrains used in simulated training environments",
+          "reference": false,
+          "source_image": "figs/p013-002-source.png",
+          "zh": "图 8：仿真训练环境中使用的不同地形展示"
+        },
+        {
+          "id": "p13-b3",
+          "kind": "caption",
+          "bbox": [
+            183,
+            595,
+            429,
+            605
+          ],
+          "en": "Table 3: Domain Randomizations and their Respective Range",
+          "reference": false,
+          "source_image": "figs/p013-003-source.png",
+          "zh": "表 3：域随机化及其对应范围"
+        },
+        {
+          "id": "p13-b4",
+          "kind": "table",
+          "bbox": [
+            188,
+            617,
+            421,
+            688
+          ],
+          "en": "|Parameters|Range[Min, Max]|Unit| |---|---|---| |Ground Friction|r0.2,2.75s |-| |Ground Restitution|r0.0,1.0s|-| |JointKp|r0.8,1.2s ˆ20|-| |JointKd|r0.8,1.2s ˆ0.5|-| |Initial Joint Positions|r0.5,1.5sˆnominal value|rad|",
+          "reference": false,
+          "image": "figs/p013-004.png",
+          "labels": []
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "blocks": [
+        {
+          "id": "p14-b0",
+          "kind": "table",
+          "bbox": [
+            108,
+            300,
+            490,
+            489
+          ],
+          "en": "|Algorithm 1:LearningH8Locomotion Control| |---| |Input: Initial actorπ0, disturberd0, overall value functionV0, task value functionV cost 0 , initial guessη0, initial multiplierβ0, upper bound of task rewardRcost max Output: policyπ, disturberd πold “π0,dold “d0,Vold “V0,V cost old “V cost 0 foriteration =1,2,¨ ¨ ¨ , max iterationdo Run policyπoldin environment forT time steps Compute values of each states withVold Compute cost values of each states withV cost old Compute costsCt “Rtask max ´Rt Compute advantage estimationAt OptimizeπwithLP P O actor `λ ˚LHinf OptimizedwithLdisturber λ“λ´α˚LHinf η “0.9˚η`0.1˚ řT t“1 Ct řT t“1 }dold}2 πold “π end|",
+          "reference": false,
+          "image": "figs/p014-000.png",
+          "labels": []
+        }
+      ]
+    }
+  ],
+  "page_count": 14
+}

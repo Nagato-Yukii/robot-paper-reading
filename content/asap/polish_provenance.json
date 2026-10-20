@@ -1,0 +1,115 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 280,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "asap-001",
+      "conversation_id": "bc9e392e-6ab0-43f6-94fc-ff7b446c6bdc",
+      "receipt_sha256": "543f8a90acc97172a93b16a1af90659e2d7ab6230dcead5aecf5ad96e4ce0729",
+      "usage": {
+        "input_tokens": 36422,
+        "output_tokens": 18521,
+        "thinking_tokens": 11475,
+        "cache_read_tokens": 22114,
+        "total_tokens": 54943
+      },
+      "elapsed_seconds": 134.34
+    },
+    {
+      "job_id": "asap-002",
+      "conversation_id": "d0c44d6a-49d4-4681-ad7a-c3667a283de7",
+      "receipt_sha256": "f3f28689d326f82c1d9169c354e91b17b9706bfb2d284463af5eca57883383e8",
+      "usage": {
+        "input_tokens": 26521,
+        "output_tokens": 10524,
+        "thinking_tokens": 5828,
+        "cache_read_tokens": 18996,
+        "total_tokens": 37045
+      },
+      "elapsed_seconds": 110.19
+    },
+    {
+      "job_id": "asap-003",
+      "conversation_id": "33db6bb7-70c7-427c-9b2e-a764ea8b3453",
+      "receipt_sha256": "2854807a9aa482e1a76948a2f6adac181eb944783d1ea56486fa42ac431b98e8",
+      "usage": {
+        "input_tokens": 37834,
+        "output_tokens": 19861,
+        "thinking_tokens": 12852,
+        "cache_read_tokens": 22065,
+        "total_tokens": 57695
+      },
+      "elapsed_seconds": 132.11
+    },
+    {
+      "job_id": "asap-004",
+      "conversation_id": "5bc7de7d-53bc-40b9-8828-148c2c81314d",
+      "receipt_sha256": "431c952dcfbe054f8ca651bd87fd093bd387972ca45e603b71aa063a5b229c3e",
+      "usage": {
+        "input_tokens": 34231,
+        "output_tokens": 16920,
+        "thinking_tokens": 9424,
+        "cache_read_tokens": 21951,
+        "total_tokens": 51151
+      },
+      "elapsed_seconds": 123.33
+    },
+    {
+      "job_id": "asap-005",
+      "conversation_id": "f4f6b9fe-8789-4efd-bd5a-5d7fa60cf173",
+      "receipt_sha256": "72f5289e3f280ccd1e9b614ce1ca5d12ce30302404b7f74b542de4a8122c2881",
+      "usage": {
+        "input_tokens": 29813,
+        "output_tokens": 12788,
+        "thinking_tokens": 6511,
+        "cache_read_tokens": 20677,
+        "total_tokens": 42601
+      },
+      "elapsed_seconds": 117.24
+    },
+    {
+      "job_id": "asap-006",
+      "conversation_id": "df6004e0-dce3-40f6-9ec9-46fca9cb3f17",
+      "receipt_sha256": "5d6dd105763ed3aeeacc457555a0da2947c1c86075af9c82d21d2a4cad5721d8",
+      "usage": {
+        "input_tokens": 60072,
+        "output_tokens": 21282,
+        "thinking_tokens": 15011,
+        "cache_read_tokens": 0,
+        "total_tokens": 81354
+      },
+      "elapsed_seconds": 153.42
+    },
+    {
+      "job_id": "asap-007",
+      "conversation_id": "c0c82955-a46f-4787-9c7d-f37085a58751",
+      "receipt_sha256": "c857fddd85cf58f9e1ad682b8d19e2721aace4608f908bcf72764c6f9186569b",
+      "usage": {
+        "input_tokens": 55776,
+        "output_tokens": 17930,
+        "thinking_tokens": 12281,
+        "cache_read_tokens": 0,
+        "total_tokens": 73706
+      },
+      "elapsed_seconds": 113.3
+    },
+    {
+      "job_id": "asap-008",
+      "conversation_id": "659ce6f2-dc85-4376-8ab9-22ee0b985346",
+      "receipt_sha256": "433d6ddeba1d9feefdb7ab735c2749b14733adda44e06dc0a9b35f3b22453e55",
+      "usage": {
+        "input_tokens": 14339,
+        "output_tokens": 8416,
+        "thinking_tokens": 7923,
+        "cache_read_tokens": 0,
+        "total_tokens": 22755
+      },
+      "elapsed_seconds": 73.91
+    }
+  ]
+}

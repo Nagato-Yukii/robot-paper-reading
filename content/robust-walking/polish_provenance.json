@@ -1,0 +1,63 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 124,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "robust-walking-001",
+      "conversation_id": "3ea1d6ab-37b2-4368-8ca9-06a04bf8c08d",
+      "receipt_sha256": "cba96cff724056d2ec69f575f15c3931f402ab4e2d75007e3ba4c1a61b9175f5",
+      "usage": {
+        "input_tokens": 35831,
+        "output_tokens": 18242,
+        "thinking_tokens": 13433,
+        "cache_read_tokens": 20532,
+        "total_tokens": 54073
+      },
+      "elapsed_seconds": 129.4
+    },
+    {
+      "job_id": "robust-walking-002",
+      "conversation_id": "e215fecb-f5df-4a62-9c6c-a21fbb5947b6",
+      "receipt_sha256": "5f90f22da0628dbc06b020e8e8716fd2d3fc98f21d405fbc47cf4822989df541",
+      "usage": {
+        "input_tokens": 28673,
+        "output_tokens": 12120,
+        "thinking_tokens": 6506,
+        "cache_read_tokens": 20206,
+        "total_tokens": 40793
+      },
+      "elapsed_seconds": 450.11
+    },
+    {
+      "job_id": "robust-walking-003",
+      "conversation_id": "138f1e2a-7219-4095-b603-35a1b0ec1ea9",
+      "receipt_sha256": "a3bc78bc8715cb652a64e171362af467ae4683901aad72d1bc583378ee3dcc5f",
+      "usage": {
+        "input_tokens": 35893,
+        "output_tokens": 18554,
+        "thinking_tokens": 12138,
+        "cache_read_tokens": 20986,
+        "total_tokens": 54447
+      },
+      "elapsed_seconds": 133.37
+    },
+    {
+      "job_id": "robust-walking-004",
+      "conversation_id": "19c6b26f-724b-4ceb-bddf-9c1f1c757272",
+      "receipt_sha256": "688bf8a7b6bb37aca20c2536c917d3136aa383582456feeb836cf3fdd961b1b9",
+      "usage": {
+        "input_tokens": 13866,
+        "output_tokens": 7726,
+        "thinking_tokens": 7459,
+        "cache_read_tokens": 0,
+        "total_tokens": 21592
+      },
+      "elapsed_seconds": 73.34
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 162,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "exbody-001",
+      "conversation_id": "d0fb11c1-ab8b-4420-a1d8-da499dd61268",
+      "receipt_sha256": "8bafb80152864a908a3df33f2e2ffc1e9a223317d21a338bf8a8479157e2e835",
+      "usage": {
+        "input_tokens": 47554,
+        "output_tokens": 26638,
+        "thinking_tokens": 19576,
+        "cache_read_tokens": 24514,
+        "total_tokens": 74192
+      },
+      "elapsed_seconds": 192.3
+    },
+    {
+      "job_id": "exbody-002",
+      "conversation_id": "efe4d1b9-8ba3-46ce-9106-5955938a317b",
+      "receipt_sha256": "be10a616fc53e97331a4f8eec19ab2ac28634f706346653b69b1b018343434b3",
+      "usage": {
+        "input_tokens": 30595,
+        "output_tokens": 13906,
+        "thinking_tokens": 7899,
+        "cache_read_tokens": 20831,
+        "total_tokens": 44501
+      },
+      "elapsed_seconds": 100.59
+    },
+    {
+      "job_id": "exbody-003",
+      "conversation_id": "486efc83-c3ed-44a1-83dc-573da75f006c",
+      "receipt_sha256": "f15ba93bc6e9ebe437482cf222f04dc476abba564e07247104b37b1bff5f6194",
+      "usage": {
+        "input_tokens": 50901,
+        "output_tokens": 31353,
+        "thinking_tokens": 24235,
+        "cache_read_tokens": 22821,
+        "total_tokens": 82254
+      },
+      "elapsed_seconds": 227.34
+    },
+    {
+      "job_id": "exbody-004",
+      "conversation_id": "c7daca8a-5e9a-405f-b4b3-84490d528545",
+      "receipt_sha256": "d15eef812cb71baae059362f5f268177e2f3335550c773cc2ac9ed7ed41f0778",
+      "usage": {
+        "input_tokens": 33634,
+        "output_tokens": 15886,
+        "thinking_tokens": 9457,
+        "cache_read_tokens": 21599,
+        "total_tokens": 49520
+      },
+      "elapsed_seconds": 110.13
+    },
+    {
+      "job_id": "exbody-005",
+      "conversation_id": "6afe1e3d-cc7a-4067-b846-4349567776c2",
+      "receipt_sha256": "0a1e58da87e446aae6146a50fa41ca479ca099659a60eedb53b9f6545542ad83",
+      "usage": {
+        "input_tokens": 36488,
+        "output_tokens": 6613,
+        "thinking_tokens": 5827,
+        "cache_read_tokens": 0,
+        "total_tokens": 43101
+      },
+      "elapsed_seconds": 60.5
+    }
+  ]
+}

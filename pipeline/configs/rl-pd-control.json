@@ -1,0 +1,25 @@
+{
+  "id": "rl-pd-control",
+  "sha256": "b753d08fb1c4ab178d471280ac47f3bbbfafc86c40ec9ad00eb9d4f5b4772046",
+  "brand": "RL & PD Control",
+  "zh_title": "机器人强化学习与关节 PD 控制",
+  "category": "中文资料 · 关节控制",
+  "pdf": "sources/rl-pd-control.pdf",
+  "title": "机器人强化学习与关节 PD 控制 · 中英对照",
+  "brand_sub": "机器人强化学习与关节PD控制 - 知乎",
+  "out": "site/rl-pd-control",
+  "imported": true,
+  "source_language": "zh",
+  "math": false,
+  "translation": "Original Chinese",
+  "source_aliases": [
+    "new_papers/zhihu_机器人强化学习与关节PD控制.pdf",
+    "papers/zhihu-rl-joint-pd-control.pdf"
+  ],
+  "validation": {
+    "equations": {},
+    "equation_references": 0,
+    "paragraphs": 61
+  },
+  "translation_review": "original-chinese"
+}

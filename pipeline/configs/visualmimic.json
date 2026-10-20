@@ -1,0 +1,39 @@
+{
+  "id": "visualmimic",
+  "sha256": "18dc57557a843d9a220317aee9b391b204f77549a1eb6af4cdd6cd903493adcf",
+  "brand": "VisualMimic",
+  "zh_title": "VisualMimic：通过运动跟踪与生成实现视觉人形移动操作",
+  "category": "视觉 · 动作模仿",
+  "pdf": "sources/visualmimic.pdf",
+  "title": "VisualMimic：通过运动跟踪与生成实现视觉人形移动操作 · 中英对照",
+  "brand_sub": "VisualMimic: Visual Humanoid Loco-Manipulation via Motion Tracking and Generation",
+  "out": "site/visualmimic",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "papers/imitation-learning/VisualMimic.pdf"
+  ],
+  "validation": {
+    "equations": {
+      "1": "p5-b4",
+      "2": "p5-b6",
+      "3": "p5-b8",
+      "4": "p5-b17",
+      "5": "p6-b1",
+      "6": "p6-b4",
+      "7": "p6-b7",
+      "8": "p6-b11",
+      "9": "p6-b14"
+    },
+    "equation_references": 0,
+    "paragraphs": 137
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 107,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

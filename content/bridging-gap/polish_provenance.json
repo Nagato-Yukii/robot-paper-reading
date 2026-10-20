@@ -1,0 +1,102 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 275,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "bridging-gap-001",
+      "conversation_id": "455f6b15-1869-4458-8f9d-c567b6ec41b7",
+      "receipt_sha256": "7404bdddaa8f50589f95355026e6bf8c3ea9b4a1813fbb77d4ae25cff44709ea",
+      "usage": {
+        "input_tokens": 49920,
+        "output_tokens": 13106,
+        "thinking_tokens": 7200,
+        "cache_read_tokens": 0,
+        "total_tokens": 63026
+      },
+      "elapsed_seconds": 99.92
+    },
+    {
+      "job_id": "bridging-gap-002",
+      "conversation_id": "4d46e677-2dc6-4972-8d2c-d096e4caf7a0",
+      "receipt_sha256": "2791f126a5197f4193989db024223964f3f12b8fa21ef9d346185f8aefd2bafe",
+      "usage": {
+        "input_tokens": 18306,
+        "output_tokens": 19569,
+        "thinking_tokens": 16811,
+        "cache_read_tokens": 0,
+        "total_tokens": 37875
+      },
+      "elapsed_seconds": 148.45
+    },
+    {
+      "job_id": "bridging-gap-003",
+      "conversation_id": "2a030b6d-9be4-4fb7-bdc4-1d0c7416d26f",
+      "receipt_sha256": "6bee675d4f067caff2ec75facd36f5c2cf0e7beb6f82824d7fce512b00de64e2",
+      "usage": {
+        "input_tokens": 18428,
+        "output_tokens": 24095,
+        "thinking_tokens": 21319,
+        "cache_read_tokens": 0,
+        "total_tokens": 42523
+      },
+      "elapsed_seconds": 174.99
+    },
+    {
+      "job_id": "bridging-gap-004",
+      "conversation_id": "d797b0ca-97d0-41da-9451-08f9fb3d7253",
+      "receipt_sha256": "dfb554c75c635b5d9fd2c12b9961d61f0aa3b1708d7d842c5802ba8ce1c76d29",
+      "usage": {
+        "input_tokens": 32522,
+        "output_tokens": 15812,
+        "thinking_tokens": 9607,
+        "cache_read_tokens": 20685,
+        "total_tokens": 48334
+      },
+      "elapsed_seconds": 109.45
+    },
+    {
+      "job_id": "bridging-gap-005",
+      "conversation_id": "51c9b0bd-ad85-42a4-b8bc-82205bfa08f2",
+      "receipt_sha256": "9fb45dbe89eb55eb6bb1cac8229861f9f08d7a9ef458b48181e46234b7e2eaf1",
+      "usage": {
+        "input_tokens": 20179,
+        "output_tokens": 36556,
+        "thinking_tokens": 32946,
+        "cache_read_tokens": 0,
+        "total_tokens": 56735
+      },
+      "elapsed_seconds": 248.27
+    },
+    {
+      "job_id": "bridging-gap-006",
+      "conversation_id": "6a764eb6-3474-4a73-8149-1b95f2ef2d5d",
+      "receipt_sha256": "dde3e1120910218f4d23ec1ff5a32e328f95300f37ef0fb9433d2792f51812ad",
+      "usage": {
+        "input_tokens": 37934,
+        "output_tokens": 20823,
+        "thinking_tokens": 15311,
+        "cache_read_tokens": 20333,
+        "total_tokens": 58757
+      },
+      "elapsed_seconds": 154.54
+    },
+    {
+      "job_id": "bridging-gap-007",
+      "conversation_id": "5ef3f094-22d6-4267-8f1c-218aeb8010b1",
+      "receipt_sha256": "520dd6c0d9c61af943c355cded1c57adac30eae06a0e145287f87a7c1bff89df",
+      "usage": {
+        "input_tokens": 24529,
+        "output_tokens": 9388,
+        "thinking_tokens": 5614,
+        "cache_read_tokens": 17769,
+        "total_tokens": 33917
+      },
+      "elapsed_seconds": 76.38
+    }
+  ]
+}

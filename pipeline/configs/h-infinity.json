@@ -1,0 +1,43 @@
+{
+  "id": "h-infinity",
+  "sha256": "c0a77f5a54728cf98cbc39d75bbbcb86c0fc0a6265c7b3a02f63896e27123a48",
+  "brand": "H∞ Locomotion",
+  "zh_title": "学习 H∞ 运动控制",
+  "category": "控制理论 · 鲁棒控制",
+  "pdf": "sources/h-infinity.pdf",
+  "title": "学习 H∞ 运动控制 · 中英对照",
+  "brand_sub": "Learning H-Infinity Locomotion Control",
+  "out": "site/h-infinity",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "papers/control-theory/H-infinity Control.pdf"
+  ],
+  "validation": {
+    "equations": {
+      "1": "p3-b3",
+      "2": "p3-b6",
+      "3": "p3-b8",
+      "4": "p3-b10",
+      "5": "p3-b15",
+      "6": "p4-b3",
+      "7": "p4-b5",
+      "8": "p4-b7",
+      "9": "p4-b11",
+      "10": "p5-b1",
+      "11": "p5-b3",
+      "12": "p5-b6",
+      "13": "p12-b3"
+    },
+    "equation_references": 0,
+    "paragraphs": 123
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 87,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

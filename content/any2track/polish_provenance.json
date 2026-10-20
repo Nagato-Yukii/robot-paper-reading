@@ -1,0 +1,76 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 119,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "any2track-001a",
+      "conversation_id": "33b73d97-835d-45ed-afbd-3cd0fe00485b",
+      "receipt_sha256": "188b8543b9a6a0e129e69d025a36bfaa9d8faa791e7a236f4176bc9c04ef8ff8",
+      "usage": {
+        "input_tokens": 22955,
+        "output_tokens": 7827,
+        "thinking_tokens": 4711,
+        "cache_read_tokens": 17341,
+        "total_tokens": 30782
+      },
+      "elapsed_seconds": 66.12
+    },
+    {
+      "job_id": "any2track-001b",
+      "conversation_id": "acf61db2-20a3-4079-a98a-70a04d3ee5f8",
+      "receipt_sha256": "c5dbd7c57728d0e0cd4efa3d6692d16d20fc8863d7164f33e6ce3f0754aa01af",
+      "usage": {
+        "input_tokens": 69415,
+        "output_tokens": 48755,
+        "thinking_tokens": 45136,
+        "cache_read_tokens": 19029,
+        "total_tokens": 118170
+      },
+      "elapsed_seconds": 372.35
+    },
+    {
+      "job_id": "any2track-002",
+      "conversation_id": "5fff0995-75b4-46c1-8d6c-b811c545b644",
+      "receipt_sha256": "55f9d75788b5c4d43d24969d2a06561eab549587910ae9492ceddf99b56ddc09",
+      "usage": {
+        "input_tokens": 47017,
+        "output_tokens": 27804,
+        "thinking_tokens": 22664,
+        "cache_read_tokens": 21073,
+        "total_tokens": 74821
+      },
+      "elapsed_seconds": 208.04
+    },
+    {
+      "job_id": "any2track-003",
+      "conversation_id": "0c2757db-361b-4d6a-8658-8bdf208831d6",
+      "receipt_sha256": "5a4d9a73be243c01502e4e00450bd5bf96256cf4001c1d8e27130db8a8cea832",
+      "usage": {
+        "input_tokens": 27462,
+        "output_tokens": 11860,
+        "thinking_tokens": 8052,
+        "cache_read_tokens": 18250,
+        "total_tokens": 39322
+      },
+      "elapsed_seconds": 126.26
+    },
+    {
+      "job_id": "any2track-004",
+      "conversation_id": "cd4184a8-c871-4a0b-92a7-bb450f9df825",
+      "receipt_sha256": "26c1f0e9bde3522f61d0a1b26cc3b64277747b37f32213d28efd388c548762d4",
+      "usage": {
+        "input_tokens": 30631,
+        "output_tokens": 2755,
+        "thinking_tokens": 2473,
+        "cache_read_tokens": 0,
+        "total_tokens": 33386
+      },
+      "elapsed_seconds": 29.43
+    }
+  ]
+}

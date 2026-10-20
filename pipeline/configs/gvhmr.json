@@ -1,0 +1,37 @@
+{
+  "id": "gvhmr",
+  "sha256": "3aaf2bb42fc13ba23b944db10519c77bf5b60e4d9b95655346a76c5e465026c5",
+  "brand": "GVHMR",
+  "zh_title": "GVHMR：通过重力视角坐标恢复世界坐标系下的人体运动",
+  "category": "人体运动 · 三维重建",
+  "pdf": "sources/gvhmr.pdf",
+  "title": "GVHMR：通过重力视角坐标恢复世界坐标系下的人体运动 · 中英对照",
+  "brand_sub": "World-Grounded Human Motion Recovery via Gravity-View Coordinates",
+  "out": "site/gvhmr",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "papers/human-pose-vision/GVHMR.pdf"
+  ],
+  "validation": {
+    "equations": {
+      "1": "p4-b9",
+      "2": "p4-b14",
+      "3": "p5-b6",
+      "4": "p5-b6",
+      "5": "p5-b8",
+      "6": "p5-b11",
+      "7": "p5-b11"
+    },
+    "equation_references": 2,
+    "paragraphs": 134
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 86,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

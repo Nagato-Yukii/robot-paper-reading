@@ -1,0 +1,63 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 143,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "beyondmimic-001",
+      "conversation_id": "adfc81cc-cfcf-47fe-bac0-df09035b88fe",
+      "receipt_sha256": "dc145af61594cd2857394249a3b7687e8a24b2be38590deabe72c49c22b23d94",
+      "usage": {
+        "input_tokens": 45794,
+        "output_tokens": 26858,
+        "thinking_tokens": 19553,
+        "cache_read_tokens": 22679,
+        "total_tokens": 72652
+      },
+      "elapsed_seconds": 195.7
+    },
+    {
+      "job_id": "beyondmimic-002",
+      "conversation_id": "434a32b1-80c7-491b-bf26-73e37da35912",
+      "receipt_sha256": "0ce9be6605f9227515d831eee0eada8502439f9184b7f7251aca617304143304",
+      "usage": {
+        "input_tokens": 31328,
+        "output_tokens": 14900,
+        "thinking_tokens": 8991,
+        "cache_read_tokens": 20343,
+        "total_tokens": 46228
+      },
+      "elapsed_seconds": 100.31
+    },
+    {
+      "job_id": "beyondmimic-003",
+      "conversation_id": "13ebb2bc-9b8f-410b-bf26-30806434178d",
+      "receipt_sha256": "af6c9afe01fd1c2199afc11fb6bfe2f58165c351b6843415f9bb4eb8d1024dc8",
+      "usage": {
+        "input_tokens": 18408,
+        "output_tokens": 27640,
+        "thinking_tokens": 24950,
+        "cache_read_tokens": 0,
+        "total_tokens": 46048
+      },
+      "elapsed_seconds": 206.59
+    },
+    {
+      "job_id": "beyondmimic-004",
+      "conversation_id": "a597a82f-e8db-43dc-90ce-4b527d114370",
+      "receipt_sha256": "413ca0fc8158b589b3d6e93216a3e442219ce3111a39a34d906a7b00057489bb",
+      "usage": {
+        "input_tokens": 24240,
+        "output_tokens": 9035,
+        "thinking_tokens": 6077,
+        "cache_read_tokens": 17555,
+        "total_tokens": 33275
+      },
+      "elapsed_seconds": 77.67
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 107,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "visualmimic-001",
+      "conversation_id": "0a193093-3d23-4e34-9970-4da54896f258",
+      "receipt_sha256": "75d977d5743538b78a7028fdf86609c6e693e0e7d40ba14b180c057284b0b152",
+      "usage": {
+        "input_tokens": 29037,
+        "output_tokens": 16342,
+        "thinking_tokens": 9433,
+        "cache_read_tokens": 27323,
+        "total_tokens": 45379
+      },
+      "elapsed_seconds": 121.38
+    },
+    {
+      "job_id": "visualmimic-002",
+      "conversation_id": "b1064275-ffb5-4316-a9ec-aaf677feb388",
+      "receipt_sha256": "bf76d7cd88a76f143f99ee7156da13421278d40649257a9f0b8eacd8970522ae",
+      "usage": {
+        "input_tokens": 19472,
+        "output_tokens": 13129,
+        "thinking_tokens": 8366,
+        "cache_read_tokens": 29438,
+        "total_tokens": 32601
+      },
+      "elapsed_seconds": 97.57
+    },
+    {
+      "job_id": "visualmimic-003",
+      "conversation_id": "80375d01-35d1-47e5-8c66-dbeba919529c",
+      "receipt_sha256": "ac75497f6dddeff213165cd3b0f4906ea851206787790c82715b885e7f4e8abf",
+      "usage": {
+        "input_tokens": 17550,
+        "output_tokens": 17390,
+        "thinking_tokens": 15210,
+        "cache_read_tokens": 0,
+        "total_tokens": 34940
+      },
+      "elapsed_seconds": 127.43
+    }
+  ]
+}

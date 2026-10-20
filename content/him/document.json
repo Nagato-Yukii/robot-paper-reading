@@ -1,0 +1,2713 @@
+{
+  "title": "Hybrid Internal Model: Learning Agile Legged Locomotion with Simulated Robot Response",
+  "pages": [
+    {
+      "number": 1,
+      "blocks": [
+        {
+          "id": "p1-b1",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            81,
+            514,
+            114
+          ],
+          "en": "HYBRID INTERNAL MODEL: LEARNING AGILE LEGGED LOCOMOTION WITH SIMULATED ROBOT RESPONSE",
+          "reference": false,
+          "source_image": "figs/p001-001-source.png",
+          "zh": "混合内部模型：基于模拟机器人响应学习敏捷足式运动"
+        },
+        {
+          "id": "p1-b2",
+          "kind": "text",
+          "bbox": [
+            113,
+            135,
+            500,
+            159
+          ],
+          "en": "Junfeng Long1∗ , Zirui Wang1,2∗ , Quanyi Li1 , Jiawei Gao1,3 , Liu Cao1,3 , Jiangmiao Pang1� 1OpenRobotLab, Shanghai AI Laboratory, 2Zhejiang University, 3Tsinghua University",
+          "reference": false,
+          "source_image": "figs/p001-002-source.png",
+          "zh": "Junfeng Long1∗ , Zirui Wang1,2∗ , Quanyi Li1 , Jiawei Gao1,3 , Liu Cao1,3 , Jiangmiao Pang1 1OpenRobotLab, Shanghai AI Laboratory, 2Zhejiang University, 3Tsinghua University"
+        },
+        {
+          "id": "p1-b3",
+          "kind": "picture",
+          "bbox": [
+            110,
+            188,
+            499,
+            435
+          ],
+          "en": "Teacher Env Factor Module Module Lidar Camera Mimic Mimic Student Adaptation Module Module ONLY require 200 M Frames IMU Motor (1 hour on RTX 4090) Minimal Sensors No Mimic Learning Efficient Learning Sprinting Stairs Rough Slopes High Platform Substantial Agility",
+          "reference": false,
+          "image": "figs/p001-003.png",
+          "labels": []
+        },
+        {
+          "id": "p1-b4",
+          "kind": "caption",
+          "bbox": [
+            108,
+            438,
+            505,
+            459
+          ],
+          "en": "Figure 1: Our locomotion policy can drive robots to walk across any terrain under any disturbances. Key insight lies in alternatively estimating environmental dynamics with the response of the robot.",
+          "reference": false,
+          "source_image": "figs/p001-004-source.png",
+          "zh": "图 1：我们的运动策略能够驱动机器人在任意扰动下跨越任意地形。核心思想在于转而利用机器人的响应来估计环境动力学。"
+        },
+        {
+          "id": "p1-b5",
+          "kind": "section-header",
+          "bbox": [
+            278,
+            471,
+            334,
+            480
+          ],
+          "en": "ABSTRACT",
+          "reference": false,
+          "source_image": "figs/p001-005-source.png",
+          "zh": "摘要"
+        },
+        {
+          "id": "p1-b6",
+          "kind": "text",
+          "bbox": [
+            143,
+            495,
+            469,
+            714
+          ],
+          "en": "Robust locomotion control depends on accurate state estimations. However, the sensors of most legged robots can only provide partial and noisy observations, making the estimation particularly challenging, especially for external states like terrain frictions and elevation maps. Inspired by the classical Internal Model Control principle, we consider these external states as disturbances and introduce Hybrid Internal Model (HIM) to estimate them according to the response of the robot. The response, which we refer to as the hybrid internal embedding, contains the robot’s explicit velocity and implicit stability representation, corresponding to two primary goals for locomotion tasks: explicitly tracking velocity and implicitly maintaining stability. We use contrastive learning to optimize the embedding to be close to the robot’s successor state, in which the response is naturally embedded. HIM has several appealing benefits: It only needs the robot’s proprioceptions, i.e., those from joint encoders and IMU as observations. It innovatively maintains consistent observations between simulation reference and reality that avoids information loss in mimicking learning. It exploits batch-level information that is more robust to noises and keeps better sample efficiency. It only requires 1 hour of training on an RTX 4090 to enable a quadruped robot to traverse any terrain under any disturbances. A wealth of real-world experiments demonstrates its agility, even in high-difficulty tasks and cases never occurred during the training process, revealing remarkable open-world generalizability.",
+          "reference": false,
+          "source_image": "figs/p001-006-source.png",
+          "zh": "稳健的运动控制依赖于精确的状态估计。然而，大多数足式机器人的传感器只能提供局部且含噪声的观测，使得状态估计极具挑战性，尤其是对于地面摩擦力和高程图等外部状态而言。受经典内模控制原理的启发，我们将这些外部状态视为扰动，并引入混合内部模型（Hybrid Internal Model, HIM），以根据机器人的响应对其进行估计。该响应被我们称为混合内部嵌入，包含了机器人显式的速度表征和隐式的稳定性表征，对应于运动任务的两个首要目标：显式跟踪速度与隐式维持稳定性。我们使用对比学习来优化该嵌入，使其接近机器人的后继状态，而响应自然地内嵌于该后继状态中。HIM 具有若干引人注目的优势：它仅需要机器人的本体感觉，即来自关节编码器和 IMU 的数据作为观测；它创新性地在仿真参考与现实之间保持了一致的观测，避免了模仿学习中的信息损失；它利用了对噪声更鲁棒的批次级信息，并保持了更好的样本效率；它仅需在单张 RTX 4090 上训练 1 小时，即可使四足机器人在任意扰动下跨越任意地形。大量真实世界实验展示了它的敏捷性，即使在高难度任务以及训练过程中从未出现过的情形下，也展现出了卓越的开放世界泛化能力。"
+        },
+        {
+          "id": "p1-b7",
+          "kind": "footnote",
+          "bbox": [
+            119,
+            723,
+            390,
+            732
+          ],
+          "en": "∗ Equal Contributions. � Corresponding Author. Project page at this URL.",
+          "reference": false,
+          "source_image": "figs/p001-007-source.png",
+          "zh": "∗ 同等贡献。 通讯作者。项目主页见此 URL。"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "blocks": [
+        {
+          "id": "p2-b0",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            83,
+            206,
+            92
+          ],
+          "en": "1 INTRODUCTION",
+          "reference": false,
+          "source_image": "figs/p002-000-source.png",
+          "zh": "1 引言"
+        },
+        {
+          "id": "p2-b1",
+          "kind": "text",
+          "bbox": [
+            108,
+            124,
+            505,
+            232
+          ],
+          "en": "In recent years, learning-based locomotion control methods for quadruped robots have achieved remarkable results (Hwangbo et al., 2019; Peng et al., 2020; Yang et al., 2020; Xie et al., 2021; Imai et al., 2022; Yu et al., 2021; Yang et al., 2022; Margolis et al., 2022; Rudin et al., 2022; Agrawal et al., 2022; Yang et al., 2023b; Margolis & Agrawal, 2023; Yang et al., 2023b), demonstrating agility beyond traditional control methods in the wild (Lee et al., 2020; Miki et al., 2022b) or on low-cost hardware platforms (Kumar et al., 2021; Wu et al., 2022). Powered by numerous and diverse simulated data, these algorithms allow the quadruped robots to work in real environments directly, and perform not only simple movements but complex skills such as manipulation (Fu et al., 2022; Ji et al., 2023; Cheng et al., 2023) and parkour (Yang et al., 2023a; Zhuang et al., 2023; Caluwaerts et al., 2023).",
+          "reference": false,
+          "source_image": "figs/p002-001-source.png",
+          "zh": "近年来，针对四足机器人的基于学习的运动控制方法取得了显著成果 (Hwangbo et al., 2019; Peng et al., 2020; Yang et al., 2020; Xie et al., 2021; Imai et al., 2022; Yu et al., 2021; Yang et al., 2022; Margolis et al., 2022; Rudin et al., 2022; Agrawal et al., 2022; Yang et al., 2023b; Margolis & Agrawal, 2023; Yang et al., 2023b)，在野外环境 (Lee et al., 2020; Miki et al., 2022b) 或低成本硬件平台 (Kumar et al., 2021; Wu et al., 2022) 上展现出超越传统控制方法的敏捷性。得益于大量且多样化的仿真数据，这些算法使四足机器人能够直接在真实环境中运行，不仅能完成简单的移动，还能完成诸如操作 (Fu et al., 2022; Ji et al., 2023; Cheng et al., 2023) 和跑酷 (Yang et al., 2023a; Zhuang et al., 2023; Caluwaerts et al., 2023) 等复杂技能。"
+        },
+        {
+          "id": "p2-b2",
+          "kind": "text",
+          "bbox": [
+            108,
+            239,
+            505,
+            436
+          ],
+          "en": "To achieve substantial agility, it is necessary to provide the quadruped robots with accurate and complete external states (Hartley et al., 2018). However, most onboard sensors provide partial and noisy observations about proprioception and surroundings, impeding the development of robust robot systems. As a remedy, a two-stage training strategy is usually adopted by recent learning-based methods. Firstly, an oracle policy is trained with access to external states such as terrain frictions and elevation maps in the simulator where domain randomization is applied to enhance generalizability across various terrain conditions. Subsequently, the knowledge in this policy is transferred to another policy through mimicking where external states are disabled (Miki et al., 2022a) or inferred from other information (Kumar et al., 2021). Although methods derived from this strategy yield promising results, their performance is constrained in two ways: (1) Despite the benefits of domain randomization for simulation-to-real (sim2real) transfer, the introduced noises restrict further optimization of the model, particularly when they directly learn to regress absolute environmental parameters. (2) This two-phase training paradigm complicates the training process and inevitably induces information loss in the mimicking learning phase, no matter whether it is achieved by imitation learning (Miki et al., 2022a) or adaptation methods (Kumar et al., 2021). Moreover, certain solutions require additional exteroceptive sensors, such as cameras (Agarwal et al., 2023) or lidar Rudin et al. (2022), whose configurations vary across different robot platforms. Therefore, it is challenging to train and deploy a policy on universal platforms.",
+          "reference": false,
+          "source_image": "figs/p002-002-source.png",
+          "zh": "为了实现极高的敏捷性，必须向四足机器人提供精确且完整的外部状态 (Hartley et al., 2018)。然而，大多数机载传感器提供的关于本体感觉和周围环境的观测都是局部且含噪声的，阻碍了鲁棒机器人系统的开发。作为补救措施，近期的基于学习的方法通常采用两阶段训练策略。首先，在模拟器中训练一个可以访问地面摩擦力和高程图等外部状态的特权策略（oracle policy），其中应用域随机化来增强在各种地形条件下的泛化能力。随后，通过模仿将该策略中的知识迁移到另一个策略中，在该阶段外部状态被禁用 (Miki et al., 2022a) 或从其他信息中推断得出 (Kumar et al., 2021)。尽管基于该策略衍生出的方法取得了可观的成果，但其性能仍受到两方面的限制：(1) 尽管域随机化有利于仿真到现实迁移（sim2real），但引入的噪声限制了模型的进一步优化，尤其是当模型直接学习回归绝对环境参数时；(2) 这种两阶段训练范式使训练过程复杂化，并且无论通过模仿学习 (Miki et al., 2022a) 还是自适应方法 (Kumar et al., 2021) 实现，都不可避免地在模仿学习阶段造成信息损失。此外，某些解决方案需要额外的外感受传感器，例如相机 (Agarwal et al., 2023) 或激光雷达 (Rudin et al., 2022)，而这些传感器的配置在不同的机器人平台上各不相同。因此，在通用平台上训练和部署策略极具挑战性。"
+        },
+        {
+          "id": "p2-b3",
+          "kind": "text",
+          "bbox": [
+            108,
+            443,
+            505,
+            628
+          ],
+          "en": "In this work, we propose a method where the policy network does not require access to any external states during the entire training process. To be more specific, our method, termed Hybrid Internal Model (HIM), considers all external states such as elevation maps and ground friction as system disturbances. Inspired by the classical Internal Model Control (IMC) (Rivera et al., 1986) that simulates system response to estimate disturbances, we attempt to estimate these system disturbances according to the simulated response of the robot. Characterized by the velocity and stability, the response is termed as hybrid internal embedding, which is extracted from a sequence of historical observations. Considering the response is naturally embedded within the successor state of the robot, the hybrid internal embedding is optimized through contrastive learning, which pulls close the embedding and the future state. We use Proximal Policy Optimization (PPO) to train the policy network and feed it with both partial observations and the hybrid internal embedding. The embedding is optimized through Hybrid Internal Optimization (HIO) in each PPO iteration, allowing the policy to implicitly infer and distinguish the disturbance from the external environment. As a result, the policy can be deployed in diverse real-world settings. Also, contrastive learning makes the policy more robust to noises, and the batch-level information further improves sample efficiency. On the other hand, our method is lightweight and universal on all legged-robot platforms, as long as they provide basic proprioceptive information from IMU and joint sensors.",
+          "reference": false,
+          "source_image": "figs/p002-003-source.png",
+          "zh": "在这项工作中，我们提出了一种在整个训练过程中策略网络均无需访问任何外部状态的方法。具体而言，我们提出的方法称为混合内部模型（Hybrid Internal Model, HIM），它将高程图和地面摩擦力等所有外部状态均视为系统扰动。受经典的内模控制（Internal Model Control, IMC）(Rivera et al., 1986) 通过模拟系统响应来估计扰动的启发，我们尝试根据模拟的机器人响应来估计这些系统扰动。该响应以速度和稳定性为表征，被称为混合内部嵌入，它从一系列历史观测中提取而来。考虑到响应自然地内嵌于机器人的后继状态中，混合内部嵌入通过对比学习进行优化，拉近该嵌入与未来状态的距离。我们使用近端策略优化（Proximal Policy Optimization, PPO）来训练策略网络，并为其同时输入局部观测和混合内部嵌入。在每次 PPO 迭代中，该嵌入通过混合内部优化（Hybrid Internal Optimization, HIO）进行优化，使策略能够隐式推断并区分来自外部环境的扰动。因此，该策略可以部署在多样化的现实世界环境中。同时，对比学习使策略对噪声更具鲁棒性，而批次级信息进一步提高了样本效率。另一方面，我们的方法非常轻量，且适用于所有足式机器人平台，只要它们能够提供来自 IMU 和关节传感器的基本本体感觉信息。"
+        },
+        {
+          "id": "p2-b4",
+          "kind": "text",
+          "bbox": [
+            107,
+            635,
+            505,
+            733
+          ],
+          "en": "We train our method in Isaac Gym (Makoviychuk et al., 2021) and deploy it on Unitree Aliengo, A1, and Go1 robots. We evaluate and ablate its performance in both simulation and real-world regimes with carefully designed benchmarks and metrics. Experiments show that HIM can use minimal sensors, i.e. , joint encoders and IMU, to drive a robot to traverse across any terrain under any disturbances. The policy converges with only 200 million samples and only costs 1 hour on an RTX 4090 GPU for deployment. We also observe that our method can perform very well with high-difficulty tasks such as long-range stairs and the cases never occurred in the training process such as compositional terrains, and deformable slopes, revealing an excellent generalizability in the open world. We hope the simple and efficient method can bring new insights to the community.",
+          "reference": false,
+          "source_image": "figs/p002-004-source.png",
+          "zh": "我们在 Isaac Gym (Makoviychuk et al., 2021) 中训练我们的方法，并将其部署在 Unitree Aliengo、A1 和 Go1 机器人上。我们通过精心设计的基准和评估指标，在仿真和真实世界环境中评估了其性能并进行了消融实验。实验表明，HIM 仅需极少的传感器（即关节编码器和 IMU），即可驱动机器人跨越任意扰动下的任意地形。该策略仅需 2 亿个样本即可收敛，在单张 RTX 4090 GPU 上仅耗时 1 小时即可达到可部署状态。我们还观察到，我们的方法在长距离楼梯等高难度任务以及组合地形、可变形斜坡等训练过程中从未出现的情形中均表现出色，展现了在开放世界中卓越的泛化能力。我们希望这种简单高效的方法能为该领域带来新的启发。"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "blocks": [
+        {
+          "id": "p3-b0",
+          "kind": "caption",
+          "bbox": [
+            108,
+            63,
+            505,
+            106
+          ],
+          "en": "Table 1: Comparisons between our method and previous methods. Teacher-Student refers to (Miki et al., 2022a), MONO means (Agarwal et al., 2023), AMP means Adversarial Motion Priors (Wu et al., 2022; Escontrela et al., 2022) and RMA means Rapid Motor Adaptation (Kumar et al., 2021). Current Env. Parameters indicate the elevation map, friction, restitution, etc. in current frame.",
+          "reference": false,
+          "source_image": "figs/p003-000-source.png",
+          "zh": "表 1：我们的方法与以往方法的比较。Teacher-Student 指 (Miki et al., 2022a)，MONO 指 (Agarwal et al., 2023)，AMP 指对抗动作先验（Adversarial Motion Priors）(Wu et al., 2022; Escontrela et al., 2022)，RMA 指快速运动自适应（Rapid Motor Adaptation）(Kumar et al., 2021)。当前环境参数（Current Env. Parameters）表示当前帧中的高程图、摩擦力、恢复系数等。"
+        },
+        {
+          "id": "p3-b1",
+          "kind": "table",
+          "bbox": [
+            115,
+            111,
+            497,
+            186
+          ],
+          "en": "|Methods|Representations|External Sensors|Mimic Targets|Reference Dataset|# Samples (millions)| |---|---|---|---|---|---| |Teacher-Student|Current Env. Parameters|LiDAR|Behavior|-|Unknown| |MONO|Current Env. Parameters|Depth Camera|Behavior|-|Unknown| |AMP|Current Env. Parameters|-|Behavior|✓|600| |RMA|Current Env. Parameters|-|Latent|-|1,280| |Ours|Simulated Robot Response|-|-|-|200|",
+          "reference": false,
+          "image": "figs/p003-001.png",
+          "labels": []
+        },
+        {
+          "id": "p3-b2",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            210,
+            212,
+            220
+          ],
+          "en": "2 RELATED WORK",
+          "reference": false,
+          "source_image": "figs/p003-002-source.png",
+          "zh": "2 相关工作"
+        },
+        {
+          "id": "p3-b3",
+          "kind": "text",
+          "bbox": [
+            108,
+            235,
+            505,
+            355
+          ],
+          "en": "Historically, algorithms for legged robots have been largely rooted in traditional control-based methods, largely due to their inherent stability and robustness. Most of these works use model-based control to define controllers (Bosworth et al., 2015; Xiang et al., 2010; Yin et al., 2007; Sreenath et al., 2011; Hutter et al., 2016; Bledt et al., 2018). However, it is difficult for these controllers to adapt to situations with widely varying physical properties, such as ice, rough terrains, or deformable materials. At the same time, with the assistance of various physical simulators (Todorov et al., 2012; Panerati et al., 2021), especially the Isaac Gym (Makoviychuk et al., 2021), which enables massively parallel simulation, Deep Reinforcement Learning (DRL) for legged locomotion showcased its promising potential. This has motivated the use of learned controllers trained with RL that can adapt to changes in dynamics (Tan et al., 2018; Lee et al., 2020; Kumar et al., 2021; Fu et al., 2021; Rudin et al., 2022) in simulators, which can be deployed on the real-world robots.",
+          "reference": false,
+          "source_image": "figs/p003-003-source.png",
+          "zh": "从历史上看，足式机器人算法主要植根于传统的基于控制的方法，这主要归因于其固有的稳定性和鲁棒性。这些工作大多采用基于模型的控制来设计控制器 (Bosworth et al., 2015; Xiang et al., 2010; Yin et al., 2007; Sreenath et al., 2011; Hutter et al., 2016; Bledt et al., 2018)。然而，这些控制器很难适应物理特性差异巨大的环境，例如结冰路面、粗糙地形或可变形材料。与此同时，在各种物理仿真器 (Todorov et al., 2012; Panerati et al., 2021) 特别是支持大规模并行仿真的 Isaac Gym (Makoviychuk et al., 2021) 的助力下，用于足式运动的深度强化学习（DRL）展现出巨大的潜力。这促使人们使用在仿真器中通过强化学习训练、能够适应动力学变化的习得式控制器 (Tan et al., 2018; Lee et al., 2020; Kumar et al., 2021; Fu et al., 2021; Rudin et al., 2022)，并将其部署到真实世界机器人上。"
+        },
+        {
+          "id": "p3-b4",
+          "kind": "text",
+          "bbox": [
+            108,
+            362,
+            505,
+            471
+          ],
+          "en": "While the sim2real framework exhibits attractive properties, there are gaps between simulation and real robots in two aspects. Firstly, most of the real robots cannot access external states such as elevation maps, contact forces, etc. . Secondly, the real-world observations are always noisy. To solve this problem, previous methods used mimic learning to compensate for the absence of environmental information. The mimic learning methods can be categorized into two main frameworks: adaptation and teacher-student. The methods using adaptation framework include Kumar et al. (2021), Agrawal et al. (2022), Margolis & Agrawal (2023) and the methods using teacher-student framework include Lee et al. (2020), Chen et al. (2019), Margolis et al. (2022), Wu et al. (2022). While these methods go some way toward solving the sim-to-real problem, there are still huge performance reductions between the reference policy and the deployable policy.",
+          "reference": false,
+          "source_image": "figs/p003-004-source.png",
+          "zh": "尽管 sim2real 框架具有显著的优势，但在仿真与真实机器人之间仍存在两方面的差距。首先，大多数真实机器人无法获取诸如高程图、接触力等外部状态。其次，现实世界中的观测始终存在噪声。为解决这一问题，以往的方法采用模仿学习来弥补环境信息的缺失。模仿学习方法主要可分为两大架构：自适应（adaptation）架构和教师-学生（teacher-student）架构。采用自适应架构的方法包括 Kumar et al. (2021)、Agrawal et al. (2022)、Margolis & Agrawal (2023)，而采用教师-学生架构的方法包括 Lee et al. (2020)、Chen et al. (2019)、Margolis et al. (2022)、Wu et al. (2022)。虽然这些方法在一定程度上缓解了仿真到现实迁移（sim-to-real）问题，但参考策略与可部署策略之间仍存在巨大的性能下降。"
+        },
+        {
+          "id": "p3-b5",
+          "kind": "text",
+          "bbox": [
+            108,
+            478,
+            505,
+            564
+          ],
+          "en": "Meanwhile, there is also a different group of methods that incorporate dynamics learning to improve legged locomotion. DayDreamer (Wu et al., 2023) followed the Model-based Reinforcement learning (MBRL) framework, which uses a learned “world model” to synthesize infinite interactions; DreamWaQ (Nahrendra et al., 2023) uses a leaned representations via VAE ( ? ) to boost the performance of legged locomotion. What these methods have in common is the use of a regression objective to learn a model or representation, which requires the neural network to fit the targets perfectly. However, due to the uncertainty brought by domain randomization, the network is willing to fit the random noise, eventually resulting in representation collapse.",
+          "reference": false,
+          "source_image": "figs/p003-005-source.png",
+          "zh": "与此同时，还有另一类方法通过引入动力学学习来改善足式运动。DayDreamer (Wu et al., 2023) 遵循基于模型的强化学习（MBRL）框架，该框架利用习得的“世界模型”合成无限的交互数据；DreamWaQ (Nahrendra et al., 2023) 利用通过 VAE ( ? ) 学到的表征来提升足式运动的性能。这些方法的共同点在于使用回归目标来学习模型或表征，这要求神经网络完美拟合目标。然而，由于域随机化带来的不确定性，网络往往会拟合随机噪声，最终导致表征崩溃。"
+        },
+        {
+          "id": "p3-b6",
+          "kind": "text",
+          "bbox": [
+            108,
+            571,
+            505,
+            647
+          ],
+          "en": "While our method can fall into this group, a significant difference from the works above is that our method neither follows the computationally expensive MBRL framework nor uses regression objectives, which can lead to representation collapse as auxiliary losses. In contrast, we follow the IMC principle and use prototypical contrastive learning (Caron et al., 2020; Yarats et al., 2021; Deng et al., 2022) as the auxiliary loss, which only requires the encoder to distinguish how the current situation differs from other situations based on historical observations. This makes fuller use of the samples, and the sample-driven regularization leads to better robustness (LeCun, 2022).",
+          "reference": false,
+          "source_image": "figs/p003-006-source.png",
+          "zh": "虽然我们的方法也可以归入这一类，但与上述工作的一个显著区别在于，我们的方法既没有采用计算开销庞大的 MBRL 框架，也没有使用可能导致表征崩溃的回归目标作为辅助损失。相反，我们遵循 IMC 原理，采用原型对比学习（prototypical contrastive learning）(Caron et al., 2020; Yarats et al., 2021; Deng et al., 2022) 作为辅助损失，仅要求编码器根据历史观测来区分当前情况与其他情况的差异。这使得样本得到了更充分的利用，且样本驱动的正则化带来了更强的鲁棒性 (LeCun, 2022)。"
+        },
+        {
+          "id": "p3-b7",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            665,
+            210,
+            674
+          ],
+          "en": "3 METHODOLOGY",
+          "reference": false,
+          "source_image": "figs/p003-007-source.png",
+          "zh": "3 方法"
+        },
+        {
+          "id": "p3-b8",
+          "kind": "text",
+          "bbox": [
+            108,
+            690,
+            505,
+            731
+          ],
+          "en": "Our Hybrid Internal Model (HIM) can efficiently train a policy that not only promotes sim2real compatibility but also significantly enhances robotic agility. It is inspired by the classical Internal Model Control principles and implemented within a learning-based framework. Next, we first present an overview and delve into details afterward.",
+          "reference": false,
+          "source_image": "figs/p003-008-source.png",
+          "zh": "我们的混合内部模型（HIM）能够高效训练一种策略，该策略不仅能促进仿真到现实迁移（sim2real）的兼容性，还能显著增强机器人的敏捷性。它受到经典内模控制原理的启发，并在基于学习的框架内得以实现。接下来，我们首先给出框架概述，随后深入探讨具体细节。"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "blocks": [
+        {
+          "id": "p4-b0",
+          "kind": "picture",
+          "bbox": [
+            108,
+            81,
+            505,
+            287
+          ],
+          "en": "Proprioception Hybrid Internal Optimization l#& Pull Closer l#$ Target Contrastive & $ Encoder \"l! # Learning l% l% 𝐨%!&' l&' Push Away l$' Policy \"l\"! Contrastive Learning Source Hybrid Internal Policy Comparisons 𝐨%!\"#:! Encoder Embedding \"𝐯! Network l#& Mimic l#$ 𝐨! \" External & l% l% $ Force Critic Policy Network 𝑉! Gradient a! l&' l$' Elevation Maps Proximal Policy Optimization Mimic Learning . . . . . . . . . . . .",
+          "reference": false,
+          "image": "figs/p004-000.png",
+          "labels": []
+        },
+        {
+          "id": "p4-b1",
+          "kind": "caption",
+          "bbox": [
+            108,
+            311,
+            505,
+            343
+          ],
+          "en": "Figure 2: Overview of our framework. The policy network receives partial observations and the hybrid internal embedding, which is optimized to the robot’s successor state with contrastive learning. The framework is alternatively optimized with HIO and PPO.",
+          "reference": false,
+          "source_image": "figs/p004-001-source.png",
+          "zh": "图 2：我们框架的概览。策略网络接收局部观测和混合内部嵌入，该嵌入通过对比学习朝着机器人的后继状态进行优化。该框架通过 HIO 和 PPO 交替进行优化。"
+        },
+        {
+          "id": "p4-b2",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            368,
+            239,
+            375
+          ],
+          "en": "3.1 FRAMEWORK OVERVIEW",
+          "reference": false,
+          "source_image": "figs/p004-002-source.png",
+          "zh": "3.1 框架概览"
+        },
+        {
+          "id": "p4-b3",
+          "kind": "text",
+          "bbox": [
+            108,
+            389,
+            505,
+            465
+          ],
+          "en": "To control a legged robot, the algorithm needs to determine the movements of its actuators for a desired velocity given its proprioceptive information. We follow the paradigm (Rudin et al., 2022) that models the legged locomotion task as a sequential decision problem. The entire framework is depicted in Fig. 2. The optimization process encompasses two phases: Hybrid Internal Optimization (HIO), which trains the hybrid internal model, and Proximal Policy Optimization (PPO), which optimizes the policy network. In each iteration, we first update the parameters of HIM, then freeze them and optimize the actor and critic modules.",
+          "reference": false,
+          "source_image": "figs/p004-003-source.png",
+          "zh": "为了控制足式机器人，算法需要在给定本体感觉信息的情况下，确定其执行器的动作以达到期望速度。我们遵循将足式运动任务建模为序贯决策问题的范式 (Rudin et al., 2022)。整个框架如图 2 所示。优化过程包含两个阶段：训练混合内部模型的混合内部优化（HIO），以及优化策略网络的近端策略优化（PPO）。在每次迭代中，我们首先更新 HIM 的参数，然后将其冻结并优化 actor 和 critic 模块。"
+        },
+        {
+          "id": "p4-b4",
+          "kind": "text",
+          "bbox": [
+            107,
+            472,
+            505,
+            560
+          ],
+          "en": "State Space. The policy network takes partial observation oa tas input, which includes the desired velocity, the proprioceptive information from its joint encoder and IMU, and the last action a t− 1. The desired velocity c t = [ vxc, v yc, ω yawc] indicates the linear velocity in longitudinal and lateral direc- tions, and the angular velocity in the horizontal direction, respectively. The joint encoder provides its joint position θt and joint velocity θ˙ t . The IMU provides its base angular velocity ωt and gravity direction in robot frame g t . Our value network is allowed to access privileged information at the training stage and thus can provide a more accurate estimation of state values. Its input oc tcontains two extra components to oa t:current external forceftand surrounding ground heightht.",
+          "reference": false,
+          "source_image": "figs/p004-004-source.png",
+          "zh": "状态空间。策略网络以局部观测 oa t 作为输入，其中包括期望速度、来自其关节编码器和 IMU 的本体感觉信息，以及上一时刻动作 a t− 1。期望速度 c t = [ vxc, v yc, ω yawc] 分别表示纵向和横向线速度，以及水平方向的角速度。关节编码器提供其关节位置 θt 和关节速度 θ˙ t。IMU 提供其基座角速度 ωt 以及在机器人坐标系下的重力方向 g t。我们的价值网络在训练阶段被允许获取特权信息，从而能够提供更准确的状态价值估计。相比于 oa t，它的输入 oc t 包含两个额外分量：当前外力 ft 和周围地面高度 ht。"
+        },
+        {
+          "id": "p4-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            567,
+            505,
+            621
+          ],
+          "en": "Action Space. The movement of each actuator is formulated as the bias between the target joint position θ target and nominal joint position θ 0. To reduce the instability of the network output, we add a scale k ≤ 1 to the policy output a t , thus the final target positions for joints are θ target = θ 0 + k a t. The dimension of the action space A equals the number of actuators. For example, quadrupedal robots such as Unitree A1 or ANYmal have 12 actuators, with 3 on each leg.",
+          "reference": false,
+          "source_image": "figs/p004-005-source.png",
+          "zh": "动作空间。每个执行器的运动被公式化为目标关节位置 θ target 与标称关节位置 θ 0 之间的偏移量。为了减少网络输出的不稳定性，我们给策略输出 a t 乘以缩放系数 k ≤ 1，因此关节的最终目标位置为 θ target = θ 0 + k a t。动作空间 A 的维度等于执行器的数量。例如，Unitree A1 或 ANYmal 等四足机器人拥有 12 个执行器，每条腿上各有 3 个。"
+        },
+        {
+          "id": "p4-b6",
+          "kind": "text",
+          "bbox": [
+            107,
+            627,
+            505,
+            648
+          ],
+          "en": "Reward Functions. We follow the reward functions from Rudin et al. (2022) and Agarwal et al. (2023) with default weights. The details are listed in Appendix A.1.",
+          "reference": false,
+          "source_image": "figs/p004-006-source.png",
+          "zh": "奖励函数。我们沿用 Rudin et al. (2022) 和 Agarwal et al. (2023) 中的奖励函数及默认权重。详情列于附录 A.1。"
+        },
+        {
+          "id": "p4-b7",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            666,
+            249,
+            674
+          ],
+          "en": "3.2 HYBRID INTERNAL MODEL",
+          "reference": false,
+          "source_image": "figs/p004-007-source.png",
+          "zh": "3.2 混合内部模型"
+        },
+        {
+          "id": "p4-b8",
+          "kind": "text",
+          "bbox": [
+            107,
+            688,
+            505,
+            730
+          ],
+          "en": "The classical Internal Model Control (IMC) (Rivera et al., 1986) suggests that we can perform robust control without directly modeling the disturbance. As shown in Fig 3-(a), it uses an internal model to simulate the system response and further estimate the system disturbance, increasing the closed-loop stability. The more accurate the internal model is, the more robust control it can perform.",
+          "reference": false,
+          "source_image": "figs/p004-008-source.png",
+          "zh": "经典的内模控制（Internal Model Control, IMC）(Rivera et al., 1986) 指出，我们无需直接对扰动建模即可实现鲁棒控制。如图 3-(a) 所示，它使用内部模型来模拟系统响应并进一步估计系统扰动，从而提高闭环稳定性。内部模型越精确，所能实现的控制就越鲁棒。"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "blocks": [
+        {
+          "id": "p5-b0",
+          "kind": "text",
+          "bbox": [
+            107,
+            85,
+            297,
+            270
+          ],
+          "en": "In legged locomotion, the external environmental dynamics such as elevation maps, ground friction, and ground restitution are disturbances to the system. However, accurately estimating them is particularly challenging. Inspired by IMC, we propose using a model to estimate the robot’s response as a viable alternative. As aforementioned, the robot is explicitly given a desired velocity for locomotion. Meanwhile, it is also implicitly commanded to maintain stability. To this end, we introduce a hybrid internal model that simultaneously estimates an explicit velocity and another implicit response. These estimations, along with robot observations, are collectively fed into the policy network, forming a fully closed-loop control system. The framework is shown in Fig 3-(b).",
+          "reference": false,
+          "source_image": "figs/p005-000-source.png",
+          "zh": "在足式运动中，高程图、地面摩擦力和地面恢复系数等外部环境动力学对系统而言属于扰动。然而，精确估计它们极具挑战性。受 IMC 的启发，我们建议使用一个模型来估计机器人的响应，作为一种可行的替代方案。如前所述，在运动中机器人被显式地赋予了期望速度；与此同时，它也被隐式地要求保持稳定性。为此，我们引入了一个混合内部模型，该模型同时估计一个显式的速度和另一个隐式的响应。这些估计值与机器人的观测一同输入到策略网络中，构成一个完全闭环的控制系统。该框架如图 3-(b) 所示。"
+        },
+        {
+          "id": "p5-b1",
+          "kind": "picture",
+          "bbox": [
+            306,
+            85,
+            504,
+            248
+          ],
+          "en": "(a) Disturbance Control Reference Signal Output Controller Simulated Model Response Feedback (b) Velocity (Explicit)Stability (Implicit) Environmental Disturbances Commands C C Policy Actions C Outputs Network Velocity & Hybrid Internal Implicit Response Model Feedback Addition C Concatenation",
+          "reference": false,
+          "image": "figs/p005-001.png",
+          "labels": []
+        },
+        {
+          "id": "p5-b2",
+          "kind": "caption",
+          "bbox": [
+            310,
+            258,
+            500,
+            268
+          ],
+          "en": "Figure 3: (a) IMC and (b) our implementations.",
+          "reference": false,
+          "source_image": "figs/p005-002-source.png",
+          "zh": "图3：(a) IMC 与 (b) 我们的实现。"
+        },
+        {
+          "id": "p5-b3",
+          "kind": "text",
+          "bbox": [
+            107,
+            277,
+            505,
+            323
+          ],
+          "en": "In practice, HIM uses sequential history observations oa t−H : tto extract the hybrid internal embed- ding that consists of the robot’s velocity ˆ v t and the implicit responseˆ l t . H is set as 5 by default. The extractor is a 3-layer Multi-Layer Perceptron (MLP) with hidden dimensions of 512, 256, and 128, respectively. The policy network takes the embedding and oa tas inputs and outputs actions.",
+          "reference": false,
+          "source_image": "figs/p005-003-source.png",
+          "zh": "在实践中，HIM 使用序列历史观测 oa t−H : t 来提取由机器人的速度 ˆ v t 和隐式响应 ˆ l t 组成的混合内部嵌入。H 默认设置为 5。提取器是一个 3 层多层感知机（MLP），隐藏层维度分别为 512、256 和 128。策略网络以该嵌入和 oa t 作为输入并输出动作。"
+        },
+        {
+          "id": "p5-b4",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            337,
+            280,
+            345
+          ],
+          "en": "3.3 HYBRID INTERNAL OPTIMIZATION",
+          "reference": false,
+          "source_image": "figs/p005-004-source.png",
+          "zh": "3.3 混合内部优化"
+        },
+        {
+          "id": "p5-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            355,
+            505,
+            435
+          ],
+          "en": "The most critical thing for the internal embedding (ˆ v t,ˆ l t ) is how to optimize it to simulate the robot’s response, which is naturally embedded within the robot’s successor state oa t +1.Inalignmentwith the principles of IMC, we can directly estimate oa t +1giveno ta −H : t.However, this is challenging due to the high dimension of robot states and the disparity between simulation and reality. Alternatively, given that we train the framework in a simulation environment, we can directly learn to regress the explicit velocity v ˆ t using its ground truth. For the implicit responseˆ l t , we propose modeling it into a latent space Z ⊂ R16 and optimizing it to be close to the successor state with contrastive learning.",
+          "reference": false,
+          "source_image": "figs/p005-005-source.png",
+          "zh": "对于内部嵌入 (ˆ v t, ˆ l t) 而言，最关键的问题是如何对其进行优化以模拟机器人的响应，而这种响应自然蕴含在机器人的后继状态 oa t +1 中。与 IMC 的原理一致，我们可以在给定 oa t−H : t 的条件下直接估计 oa t +1。然而，由于机器人状态的高维性以及仿真与现实之间的差距，这极具挑战性。另一种方法是，鉴于我们在仿真环境中训练该框架，我们可以直接利用真值来学习回归显式速度 v ˆ t。对于隐式响应 ˆ l t，我们提出将其建模到一个潜在空间 Z ⊂ R16 中，并通过对比学习对其进行优化，使其接近后继状态。"
+        },
+        {
+          "id": "p5-b6",
+          "kind": "text",
+          "bbox": [
+            107,
+            442,
+            505,
+            576
+          ],
+          "en": "In practice, in each iteration, we collect trajectories in each environment as a batch. If a pair of oa t +1 and oa t−H : tbelong to the same trajectory, they are positive pairs.Otherwise, they are negative pairs. The pairs are optimized by swapping assignments tasks similar to SwAV (Caron et al., 2020). Given a sequence of proprioception observations sampled from the rollout trajectories, we can derive the subsequent observation oa t +1from a transition as a target vector and view the concatenated historical observations oa t−H : tas a source vector.We ensure that the augmentation is consistent across time steps. Source and target vectors are fed to the source encoder and target encoder respectively to obtain the latent feature lsource t and ltarget t which are mapped onto a unit sphere in high-dimensional space with a L 2-normalization. To predict the cluster assignment probability psource t and ptarget t from lsource t and ltarget t , we first apply a L 2-normalization on the prototype to obtain normalized matrix E = { e ¯1 , ..., ¯ e K} , and then take a softmax over the dot products of source vectors or target vectors with all the prototypes:",
+          "reference": false,
+          "source_image": "figs/p005-006-source.png",
+          "zh": "在实践中，在每次迭代中，我们将各个环境中的轨迹收集为一个批次。如果一对 oa t +1 和 oa t−H : t 属于同一条轨迹，则它们为正样本对；否则为负样本对。这些样本对通过类似于 SwAV（Caron et al., 2020）的交换分配任务来进行优化。给定从 rollout 轨迹中采样的本体感觉观测序列，我们可以从状态转移中导出后续观测 oa t +1 作为目标向量，并将拼接的历史观测 oa t−H : t 视为源向量。我们确保数据增强在各个时间步之间保持一致。源向量和目标向量分别输入到源编码器和目标编码器中，以获得潜在特征 lsource t 和 ltarget t，并通过 L 2 归一化将其映射到高维空间中的单位球面上。为了从 lsource t 和 ltarget t 预测聚类分配概率 psource t 和 ptarget t，我们首先对原型应用 L 2 归一化以获得归一化矩阵 E = { e ¯1 , ..., ¯ e K}，然后对源向量或目标向量与所有原型的点积计算 softmax："
+        },
+        {
+          "id": "p5-b7",
+          "kind": "formula",
+          "bbox": [
+            169,
+            579,
+            505,
+            612
+          ],
+          "en": "p source t = � k exp ′ exp ( τ 1( l τ 1 t source l t source ⊤ e ⊤k e ) k′ ) , p target t = � k exp ′ exp ( τ 1( l τ 1 t target l t target ⊤ e ⊤k e ) k′ ) . (1)",
+          "reference": false,
+          "image": "figs/p005-007.png",
+          "labels": [
+            "1"
+          ]
+        },
+        {
+          "id": "p5-b8",
+          "kind": "text",
+          "bbox": [
+            108,
+            615,
+            504,
+            638
+          ],
+          "en": "Here, psource t and ptarget t are the predicted probability that historical observations oa t−H : tmapsto individual cluster with index k , while τ is a temperature parameter.",
+          "reference": false,
+          "source_image": "figs/p005-008-source.png",
+          "zh": "此处，psource t 和 ptarget t 是历史观测 oa t−H : t 映射到索引为 k 的单个聚类的预测概率，而 τ 为温度参数。"
+        },
+        {
+          "id": "p5-b9",
+          "kind": "text",
+          "bbox": [
+            108,
+            644,
+            505,
+            689
+          ],
+          "en": "To obtain the targets ( qsource 1 , ..., qsource K ) and ( qtarget 1 , ..., qtarget K ) for the aforementioned predicted probabilities, while avoiding trivial solutions, the Sinkhorn-Knopp algorithm (Cuturi, 2013) is applied to both encoders. Now that we have the cluster assignment predictions and targets, the representation learning objective is simply to maximize the prediction accuracy:",
+          "reference": false,
+          "source_image": "figs/p005-009-source.png",
+          "zh": "为了获得上述预测概率的目标 ( qsource 1 , ..., qsource K ) 和 ( qtarget 1 , ..., qtarget K )，同时避免平凡解，我们对两个编码器都应用了 Sinkhorn-Knopp 算法（Cuturi, 2013）。既然已经获得了聚类分配预测和目标，表征学习的目标就只是最大化预测准确率："
+        },
+        {
+          "id": "p5-b10",
+          "kind": "formula",
+          "bbox": [
+            190,
+            704,
+            505,
+            734
+          ],
+          "en": "H J SwAV = − 2 1 H �( q source t log p target t + q target t log p source t ) . (2) t =1",
+          "reference": false,
+          "image": "figs/p005-010.png",
+          "labels": [
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "blocks": [
+        {
+          "id": "p6-b0",
+          "kind": "picture",
+          "bbox": [
+            158,
+            58,
+            452,
+            206
+          ],
+          "en": "Terrain TypeStairs Terrain Type Stairs Rough Slope Rough Slope Slope Discrete Slope Discrete Dimension 1 Dimension 1 (a) Ours (b) Regression (Nahrendra et al., 2023) Dimension 2 Dimension 2",
+          "reference": false,
+          "image": "figs/p006-000.png",
+          "labels": []
+        },
+        {
+          "id": "p6-b1",
+          "kind": "caption",
+          "bbox": [
+            108,
+            220,
+            505,
+            230
+          ],
+          "en": "Figure 4: Latent space visualizations of (a) our hybrid internal model and (b) Nahrendra et al. (2023).",
+          "reference": false,
+          "source_image": "figs/p006-001-source.png",
+          "zh": "图4：(a) 我们的混合内部模型与 (b) Nahrendra et al. (2023) 的潜在空间可视化。"
+        },
+        {
+          "id": "p6-b2",
+          "kind": "text",
+          "bbox": [
+            107,
+            260,
+            505,
+            346
+          ],
+          "en": "Analysis. Our method can maximize the similarity of latent features between historical observations and the next observations, implicitly modeling external states without requirements for regression. This also improves the performance of locomotion policy by making use of the information in batch level, i.e. , the different environment properties in different kinds of terrain. We conduct t-SNE Van der Maaten & Hinton (2008) on the latent outputs of our methods and regression (Nahrendra et al., 2023). The visualization shows that our hybrid internal model has a more separable encoding of environments, which means that our method carries more precious environmental information, resulting in a stronger ability to identify which kind of terrain the robot is on.",
+          "reference": false,
+          "source_image": "figs/p006-002-source.png",
+          "zh": "分析。我们的方法能够最大化历史观测与下一观测之间潜在特征的相似度，从而在不需要回归的情况下隐式建模外部状态。这也通过利用批次级别的信息，即不同类型地形中的不同环境属性，提升了运动策略的性能。我们对我们方法以及回归方法（Nahrendra et al., 2023）的潜在输出进行了 t-SNE（Van der Maaten & Hinton, 2008）分析。可视化结果表明，我们的混合内部模型对环境具有更具可分性的编码，这意味着我们的方法携带了更多宝贵的环境信息，从而具备更强的辨识机器人所处地形类型的能力。"
+        },
+        {
+          "id": "p6-b3",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            369,
+            216,
+            377
+          ],
+          "en": "3.4 TRAINING DETAILS",
+          "reference": false,
+          "source_image": "figs/p006-003-source.png",
+          "zh": "3.4 训练细节"
+        },
+        {
+          "id": "p6-b4",
+          "kind": "text",
+          "bbox": [
+            107,
+            393,
+            505,
+            425
+          ],
+          "en": "Simulation Setup. We use Isaac Gym (Rudin et al., 2022) with 4096 parallel environments and a rollout length of 100 time steps. The training process needs 1000 rollouts which takes 1 hour of wall clock time on NVIDIA RTX 4090. But its performance continues improving until 2000 rollouts.",
+          "reference": false,
+          "source_image": "figs/p006-004-source.png",
+          "zh": "仿真设置。我们使用包含 4096 个并行环境的 Isaac Gym（Rudin et al., 2022），rollout 长度为 100 个时间步。训练过程需要 1000 次 rollout，在 NVIDIA RTX 4090 上耗时 1 小时的实际时间。但其性能在达到 2000 次 rollout 之前会持续提升。"
+        },
+        {
+          "id": "p6-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            432,
+            505,
+            486
+          ],
+          "en": "Dynamics Randomization. To improve the robustness of the policy and facilitate the sim-to-real process, we randomize the mass of the robot body and links, the centre of mass (CoM) of the robot, the payload applied to the body of the robot, the ground friction and restitution coefficients, the motor strength, the joint-level PD gains, the system delay, the external force, and the initial joint positions in each episode. The randomization ranges for each parameter are detailed in Appendix A.2.",
+          "reference": false,
+          "source_image": "figs/p006-005-source.png",
+          "zh": "动力学随机化。为了提升策略的鲁棒性并促进仿真到现实迁移过程，我们在每个回合中对机器人机身和连杆的质量、机器人的质心（CoM）、施加在机器人机身上的负载、地面摩擦系数与恢复系数、电机强度、关节级 PD 增益、系统延迟、外力以及初始关节位置进行随机化。每个参数的随机化范围详见附录 A.2。"
+        },
+        {
+          "id": "p6-b6",
+          "kind": "text",
+          "bbox": [
+            107,
+            493,
+            505,
+            634
+          ],
+          "en": "Training Curriculum. We use a similar terrain curriculum as Rudin et al. (2022) and Wu et al. (2022). We create a height field map with 200 terrains arranged in a 20 × 10 grid, and each row has the same type of terrain arranged in increasing difficulty, while each grid is 10 × 10 m2 . The detailed description of our training terrain is in Appendix A.3. We put all the robots in different types of terrains with the lowest difficulty at the beginning, the terrain level will increase if the robot reaches 80% of linear tracking reward, and will decrease if they can not travel half of the terrains in one episode. We use a simple command curriculum to help the robots learn from easy to hard. On complex terrains such as stairs or discrete obstacles, we sample longitudinal and lateral linear velocity commands in [ − 1 . 0 , 1 . 0] m/s and horizontal angular velocity in [ − 2 . 0 , 2 . 0] rad/s. On slopes and rough slopes, we increase the range of longitudinal linear velocity to [ − 3 . 0 , 3 . 0] m/s and the range of horizontal angular velocity to [ − 3 . 0 , 3 . 0] rad/s. The commands are all sampled uniformly in the corresponding range and independently for each robot, we sample the commands every 25 time steps.",
+          "reference": false,
+          "source_image": "figs/p006-006-source.png",
+          "zh": "训练课程。我们使用了与 Rudin et al. (2022) 和 Wu et al. (2022) 类似的地形课程。我们创建了一个高程图，包含排列在 20 × 10 网格中的 200 种地形，每一行具有相同类型的地形且按难度递增排列，每个网格为 10 × 10 m2。有关训练地形的详细描述见附录 A.3。一开始我们将所有机器人放置在最低难度的不同类型地形中；如果机器人达到 80% 的线速度跟踪奖励，地形等级就会提升；如果机器人在一个回合内行进距离未达到地形的一半，地形等级就会降低。我们使用简单的指令课程来帮助机器人由易到难进行学习。在诸如楼梯或离散障碍物等复杂地形上，我们在 [ − 1 . 0 , 1 . 0] m/s 范围内采样纵向与横向线速度指令，并在 [ − 2 . 0 , 2 . 0] rad/s 范围内采样水平角速度指令。在斜坡和粗糙斜坡上，我们将纵向线速度范围扩大到 [ − 3 . 0 , 3 . 0] m/s，并将水平角速度范围扩大到 [ − 3 . 0 , 3 . 0] rad/s。指令均在相应范围内均匀采样，且对每个机器人独立进行采样，我们每 25 个时间步采样一次指令。"
+        },
+        {
+          "id": "p6-b7",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            660,
+            201,
+            669
+          ],
+          "en": "4 EXPERIMENTS",
+          "reference": false,
+          "source_image": "figs/p006-007-source.png",
+          "zh": "4 实验"
+        },
+        {
+          "id": "p6-b8",
+          "kind": "text",
+          "bbox": [
+            107,
+            690,
+            505,
+            733
+          ],
+          "en": "In this section, we evaluate the performance of our method in both simulation and real-world regimes and conduct ablation studies. The demo videos of our method can be found at the Project Page. Additional descriptions of the experimental setup, baselines, and hyper-parameters can be found in the Appendix.",
+          "reference": false,
+          "source_image": "figs/p006-008-source.png",
+          "zh": "在本节中，我们在仿真和真实世界环境下评估我们方法的性能，并进行消融实验。我们方法的演示视频可在项目主页获取。关于实验设置、基准方法和超参数的补充说明见附录。"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "blocks": [
+        {
+          "id": "p7-b0",
+          "kind": "caption",
+          "bbox": [
+            108,
+            63,
+            504,
+            84
+          ],
+          "en": "Table 2: Main results with average performance ↑ in the real-world benchmarks over 20 trials, where ± captures a 95% confidence interval. The top results are highlighted.",
+          "reference": false,
+          "source_image": "figs/p007-000-source.png",
+          "zh": "表2：在真实世界基准上经过 20 次试验的平均性能 ↑ 主要结果，其中 ± 表示 95% 置信区间。最优结果已突出显示。"
+        },
+        {
+          "id": "p7-b1",
+          "kind": "table",
+          "bbox": [
+            113,
+            88,
+            497,
+            283
+          ],
+          "en": "|Benchmarks|Environments|Metrics|Ours|RMA|MoB|Built-in MPC| |---|---|---|---|---|---|---| |Stairs|Short-range (A1)|Success rate (%)|100|60|0|0| ||Long-range (Aliengo)|Number of stairs|176.5±7.81|75.35±19.98|0.0±0.0|0.0±0.0| |Unseen Terrains|Compositional Terrain (Aliengo)|Success rate (%)|85|45|0|0| ||Deformable Slope (A1)|Success rate (%)|55|10|0|0| |Anti-|Dragging Obstacle (A1)|Maximum weight (Kg)|10|10|7|3| |disturbance|Vertical Hit (A1)|Maximum weight (Kg)|8|7.5|7|5| ||Payload (A1)|Maximum weight (Kg)|8|7|4|7| ||Missing steps (Aliengo)|Success rate (%)|100|0|0|0|",
+          "reference": false,
+          "image": "figs/p007-001.png",
+          "labels": []
+        },
+        {
+          "id": "p7-b2",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            316,
+            223,
+            324
+          ],
+          "en": "4.1 EVALUATION SETUPS",
+          "reference": false,
+          "source_image": "figs/p007-002-source.png",
+          "zh": "4.1 评估设置"
+        },
+        {
+          "id": "p7-b3",
+          "kind": "text",
+          "bbox": [
+            108,
+            340,
+            417,
+            350
+          ],
+          "en": "Compared Methods. We compare our method with the following methods:",
+          "reference": false,
+          "source_image": "figs/p007-003-source.png",
+          "zh": "对比方法。我们将我们的方法与以下方法进行对比："
+        },
+        {
+          "id": "p7-b4",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            351,
+            451,
+            361
+          ],
+          "en": "- Baseline: Train without HIM but keep the source encoder and optimize it with PPO.",
+          "reference": false,
+          "source_image": "figs/p007-004-source.png",
+          "zh": "- Baseline：不使用 HIM 进行训练，但保留源编码器并使用 PPO 对其进行优化。"
+        },
+        {
+          "id": "p7-b5",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            362,
+            413,
+            372
+          ],
+          "en": "- Ours w/o velocity input: Set the velocity inputs to the policy network as 0.",
+          "reference": false,
+          "source_image": "figs/p007-005-source.png",
+          "zh": "- Ours w/o velocity input：将输入至策略网络的速度设为 0。"
+        },
+        {
+          "id": "p7-b6",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            373,
+            364,
+            382
+          ],
+          "en": "- Ours w/o velocity loss: Direct remove the velocity estimation.",
+          "reference": false,
+          "source_image": "figs/p007-006-source.png",
+          "zh": "- Ours w/o velocity loss：直接移除速度估计。"
+        },
+        {
+          "id": "p7-b7",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            383,
+            459,
+            393
+          ],
+          "en": "- Ours w/o internal latent input: Set the internal latent inputs to the policy network as 0.",
+          "reference": false,
+          "source_image": "figs/p007-007-source.png",
+          "zh": "- Ours w/o internal latent input：将输入至策略网络的内部潜在特征设为 0。"
+        },
+        {
+          "id": "p7-b8",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            394,
+            410,
+            402
+          ],
+          "en": "- Ours w/o internal latent loss: Direct remove the internal latent estimation.",
+          "reference": false,
+          "source_image": "figs/p007-008-source.png",
+          "zh": "- Ours w/o internal latent loss：直接移除内部潜在特征估计。"
+        },
+        {
+          "id": "p7-b9",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            405,
+            409,
+            415
+          ],
+          "en": "- Regression: Optimize the hybrid internal model with regression methods.",
+          "reference": false,
+          "source_image": "figs/p007-009-source.png",
+          "zh": "- Regression：使用回归方法优化混合内部模型。"
+        },
+        {
+          "id": "p7-b10",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            416,
+            351,
+            426
+          ],
+          "en": "- Oracle: Train the policy with a history of full observations.",
+          "reference": false,
+          "source_image": "figs/p007-010-source.png",
+          "zh": "- Oracle：使用完整观测的历史信息来训练策略。"
+        },
+        {
+          "id": "p7-b11",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            427,
+            300,
+            437
+          ],
+          "en": "- Rapid Motor Adaptation (Kumar et al., 2021).",
+          "reference": false,
+          "source_image": "figs/p007-011-source.png",
+          "zh": "- Rapid Motor Adaptation (Kumar et al., 2021)。"
+        },
+        {
+          "id": "p7-b12",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            438,
+            413,
+            448
+          ],
+          "en": "- Multiplicity of Behavior (Walk These Ways) (Margolis & Agrawal, 2023).",
+          "reference": false,
+          "source_image": "figs/p007-012-source.png",
+          "zh": "- Multiplicity of Behavior (Walk These Ways) (Margolis & Agrawal, 2023)。"
+        },
+        {
+          "id": "p7-b13",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            449,
+            423,
+            459
+          ],
+          "en": "- Onboard MPC controller, which is only compared in real-world experiments.",
+          "reference": false,
+          "source_image": "figs/p007-013-source.png",
+          "zh": "- 机载 MPC 控制器（Onboard MPC controller），仅在真实世界实验中进行对比。"
+        },
+        {
+          "id": "p7-b14",
+          "kind": "text",
+          "bbox": [
+            108,
+            466,
+            505,
+            509
+          ],
+          "en": "Setups in the Real World. We deploy our policy on Unitree A1, Go1, and Aliengo. The policy runs at 50 Hz, with a PD controller running at 500 Hz to track the target. The parameters are kp = 30 . 0, kd = 0 . 75 for A1 and Go1, kp = 40 . 0, kd = 2 . 0 for Aliengo. We compare methods with robust tests in the real world, with 3 benchmarks and 8 tasks. The details can be found in Appendix B.1.",
+          "reference": false,
+          "source_image": "figs/p007-014-source.png",
+          "zh": "真实世界设置。我们将策略部署在 Unitree A1、Go1 和 Aliengo 上。策略运行频率为 50 Hz，PD 控制器以 500 Hz 运行以跟踪目标。A1 和 Go1 的参数为 kp = 30 . 0, kd = 0 . 75，Aliengo 的参数为 kp = 40 . 0, kd = 2 . 0。我们在真实世界中通过鲁棒性测试对比各方法，包括 3 个基准和 8 个任务。详细信息见附录 B.1。"
+        },
+        {
+          "id": "p7-b15",
+          "kind": "text",
+          "bbox": [
+            107,
+            516,
+            505,
+            562
+          ],
+          "en": "Setups in Simulations. In simulations, we compare methods according to the tracking errors. The tracking errors for linear velocity and angular velocity are quantified using the norms ∥vx,y −vx,ytarget∥ 2 and ∥ω yaw −ω yawtarget∥ 2, respectively. We test the tracking performance under various terrain conditions and motion ranges. A detailed description can be found in Appendix B.2.",
+          "reference": false,
+          "source_image": "figs/p007-015-source.png",
+          "zh": "仿真设置。在仿真中，我们根据跟踪误差来对比各方法。线速度和角速度的跟踪误差分别使用范数 ∥vx,y −vx,ytarget∥ 2 和 ∥ω yaw −ω yawtarget∥ 2 进行量化。我们在各种地形条件和运动范围内测试跟踪性能。详细描述见附录 B.2。"
+        },
+        {
+          "id": "p7-b16",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            584,
+            198,
+            592
+          ],
+          "en": "4.2 MAIN RESULTS",
+          "reference": false,
+          "source_image": "figs/p007-016-source.png",
+          "zh": "4.2 主要结果"
+        },
+        {
+          "id": "p7-b17",
+          "kind": "text",
+          "bbox": [
+            108,
+            607,
+            505,
+            683
+          ],
+          "en": "Real-world Results In our real-world benchmarks, we compare our method with RMA (Kumar et al., 2021), MoB (Margolis & Agrawal, 2023), and Built-in MPC. The results in Table 2 show our method outperforms the other methods on all tasks and maintains more natural gaits. It proves that our method can well inherit the policy in simulation and can be deployed to the real world easily. We also observe that our method can perform very well with high-difficulty tasks such as long-range stairs and the cases never occurred in the training process such as compositional terrains, and deformable slopes, revealing an excellent generalizability in the open world.",
+          "reference": false,
+          "source_image": "figs/p007-017-source.png",
+          "zh": "真实世界结果 在我们的真实世界基准中，我们将我们的方法与 RMA (Kumar et al., 2021)、MoB (Margolis & Agrawal, 2023) 和内置 MPC（Built-in MPC）进行对比。表 2 的结果表明，我们的方法在所有任务上均优于其他方法，并保持了更自然的步态。这证明了我们的方法能够很好地继承仿真中的策略，并且可以轻松部署到真实世界中。我们还观察到，我们的方法在诸如长距离楼梯等高难度任务以及训练过程中从未出现过的场景（如组合地形和可形变斜坡）中表现极佳，展现出了在开放世界中出色的泛化能力。"
+        },
+        {
+          "id": "p7-b18",
+          "kind": "text",
+          "bbox": [
+            108,
+            690,
+            505,
+            733
+          ],
+          "en": "Simulation Results In our simulation benchmarks, we compare our method with Baseline, Regression, RMA (Kumar et al., 2021) and MoB (Margolis & Agrawal, 2023) with Unitree Aliengo. Results in Table 3 show that our method outperforms the other methods on almost all tasks. Our method holds more performance improvements than the other methods and significantly outper-",
+          "reference": false,
+          "source_image": "figs/p007-018-source.png",
+          "zh": "仿真结果 在仿真基准中，我们使用 Unitree Aliengo 将我们的方法与 Baseline、Regression、RMA (Kumar et al., 2021) 和 MoB (Margolis & Agrawal, 2023) 进行对比。表 3 的结果表明，我们的方法在几乎所有任务上均优于其他方法。与其它方法相比，我们的方法取得了更大的性能提升，并且显著优"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "blocks": [
+        {
+          "id": "p8-b0",
+          "kind": "caption",
+          "bbox": [
+            112,
+            63,
+            497,
+            73
+          ],
+          "en": "Table 3: Average tracking error ↓ in simulation over 4096 × 5 trials. Top results are highlighted.",
+          "reference": false,
+          "source_image": "figs/p008-000-source.png",
+          "zh": "表3：仿真中经过 4096 × 5 次试验的平均跟踪误差 ↓。最优结果已突出显示。"
+        },
+        {
+          "id": "p8-b1",
+          "kind": "table",
+          "bbox": [
+            108,
+            78,
+            502,
+            426
+          ],
+          "en": "|Terrain Types|Velocity Types|Ranges|Ours|Regression|RMA|Baseline|MoB (Trot)| |---|---|---|---|---|---|---|---| ||Linear|[-1, 1] m/s|0.073|0.071|0.158|0.271|0.103| |||[-2, 2] m/s|0.075|0.077|0.270|0.305|0.126| |Slopes|Angular|[-1, 1] rad/s|0.084|0.086|0.091|0.164|0.081| |||[-2, 2] rad/s|0.124|0.130|0.134|0.202|0.114| |||[-1, 1] m/s|0.078|0.075|0.155|0.207|0.069| ||Combined|[-1, 1] rad/s|0.047|0.050|0.074|0.143|0.052| |||[-2, 2] m/s|0.094|0.107|0.203|0.224|0.103| |||[-2, 2] rad/s|0.067|0.071|0.102|0.157|0.069| ||Linear|[-1, 1] m/s|0.086|0.091|0.201|0.287|0.105| |||[-2, 2] m/s|0.085|0.088|0.294|0.331|0.124| |Rough |Angular|[-1, 1] rad/s|0.097|0.108|0.142|0.160|0.119| |Slopes||[-2, 2] rad/s|0.143|0.150|0.147|0.187|0.135| |||[-1, 1] m/s|0.088|0.095|0.167|0.220|0.147| ||Combined|[-1, 1] rad/s|0.054|0.070|0.086|0.169|0.092| |||[-2, 2] m/s|0.103|0.137|0.221|0.284|0.195| |||[-2, 2] rad/s|0.076|0.096|0.117|0.201|0.114| ||Linear|[-1, 1] m/s|0.147|0.194|0.306|0.377|1.108| |Stairs|Angular|[-1, 1] rad/s|0.087|0.101|0.241|0.370|0.930| ||Cbid|[-1, 1] m/s|0.135|0.217|0.337|0.405|1.270| ||omne|[-1, 1] rad/s|0.096|0.154|0.201|0.289|0.992| ||Linear|[-1, 1] m/s|0.125|0.182|0.311|0.279|0.973| |Discretre Obstacles|Angular|[-1, 1] rad/s|0.083|0.097|0.175|0.253|0.841| ||Cbid|[-1, 1] m/s|0.125|0.206|0.305|0.374|1.254| ||omne|[-1, 1] rad/s|0.075|0.133|0.177|0.246|0.976|",
+          "reference": false,
+          "image": "figs/p008-001.png",
+          "labels": []
+        },
+        {
+          "id": "p8-b2",
+          "kind": "text",
+          "bbox": [
+            108,
+            455,
+            505,
+            476
+          ],
+          "en": "forms the Regression method. Besides, our method also performs better in 66.67% of the velocity range on easy terrain.",
+          "reference": false,
+          "source_image": "figs/p008-002-source.png",
+          "zh": "于 Regression 方法。此外，在简单地形上，我们的方法在 66.67% 的速度范围内表现也更好。"
+        },
+        {
+          "id": "p8-b3",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            492,
+            217,
+            500
+          ],
+          "en": "4.3 ABLATION STUDIES",
+          "reference": false,
+          "source_image": "figs/p008-003-source.png",
+          "zh": "4.3 消融实验"
+        },
+        {
+          "id": "p8-b4",
+          "kind": "text",
+          "bbox": [
+            108,
+            513,
+            505,
+            589
+          ],
+          "en": "Ablation Studies in Simulations. We mainly conduct ablation studies in simulation with Aliengo. The metrics include the normalized linear velocity tracking score, the normalized angular velocity tracking score, and the maximum reachable terrain level. The task and command sampling are described in Section 3.4. The definition of terrain levels can be found in Appendix A.3. Terrains include rough flats, pyramid slopes, rough pyramid slopes, wave terrain, stairs, and flats with discrete obstacles, and the corresponding proportion is [0.1, 0.2, 0.6, 0.1]. The normalized linear velocity tracking score (NLTS) and the normalized angular velocity tracking score (NATS) are:",
+          "reference": false,
+          "source_image": "figs/p008-004-source.png",
+          "zh": "仿真中的消融实验。我们主要在仿真中使用 Aliengo 进行消融实验。评估指标包括归一化线速度跟踪得分、归一化角速度跟踪得分以及最大可达地形等级。任务和指令采样见第 3.4 节。地形等级的定义见附录 A.3。地形包括粗糙平地、金字塔斜坡、粗糙金字塔斜坡、波浪地形、楼梯以及带有离散障碍物的平地，相应比例为 [0.1, 0.2, 0.6, 0.1]。归一化线速度跟踪得分（NLTS）和归一化角速度跟踪得分（NATS）分别为："
+        },
+        {
+          "id": "p8-b5",
+          "kind": "formula",
+          "bbox": [
+            162,
+            597,
+            450,
+            621
+          ],
+          "en": "NLTS = exp( − ∥vx,y − v x target ,y ∥ 2 2 ) , NATS = exp( − ∥ω yaw − ω y target aw ∥ 2 2 ) . 0 . 25 0 . 25",
+          "reference": false,
+          "image": "figs/p008-005.png",
+          "labels": []
+        },
+        {
+          "id": "p8-b6",
+          "kind": "text",
+          "bbox": [
+            107,
+            629,
+            505,
+            661
+          ],
+          "en": "The results are shown in Fig. 4.3, in which the curves are averaged over 10 seeds. The shaded area represents the standard deviation across seeds. Despite our method does not need terrain information, it exhibits the most similar results to the Oracle policy. We also conclude that:",
+          "reference": false,
+          "source_image": "figs/p008-006-source.png",
+          "zh": "结果如图 4.3 所示，其中曲线基于 10 个随机种子取平均。阴影区域表示跨种子的标准差。尽管我们的方法不需要地形信息，但它展现出了与 Oracle 策略最相似的结果。我们还得出以下结论："
+        },
+        {
+          "id": "p8-b7",
+          "kind": "text",
+          "bbox": [
+            107,
+            668,
+            505,
+            689
+          ],
+          "en": "1. In our hybrid internal model, both internal embedding and velocity estimation improve the policy. The absence of any of them can lead to performance degradation.",
+          "reference": false,
+          "source_image": "figs/p008-007-source.png",
+          "zh": "1. 在我们的混合内部模型中，内部嵌入和速度估计都提升了策略性能。缺少其中任何一项都会导致性能下降。"
+        },
+        {
+          "id": "p8-b8",
+          "kind": "text",
+          "bbox": [
+            107,
+            690,
+            505,
+            711
+          ],
+          "en": "2. Our hybrid internal optimization outperforms the Regression method. It proves that our method can utilize batch-level information to better understand the properties of different terrains.",
+          "reference": false,
+          "source_image": "figs/p008-008-source.png",
+          "zh": "2. 我们的混合内部优化优于 Regression 方法。这证明了我们的方法能够利用批次级别的信息来更好地理解不同地形的属性。"
+        },
+        {
+          "id": "p8-b9",
+          "kind": "text",
+          "bbox": [
+            107,
+            712,
+            505,
+            733
+          ],
+          "en": "3. RMA can not imitate all the great performances of Oracle. Our method maintains consistent observations between simulation and reality and results in better performance.",
+          "reference": false,
+          "source_image": "figs/p008-009-source.png",
+          "zh": "3. RMA 无法复现 Oracle 的所有出色表现。我们的方法在仿真与现实之间保持了一致的观测，从而取得了更好的性能。"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "blocks": [
+        {
+          "id": "p9-b0",
+          "kind": "picture",
+          "bbox": [
+            108,
+            81,
+            505,
+            218
+          ],
+          "en": "(a) (b) (c)",
+          "reference": false,
+          "image": "figs/p009-000.png",
+          "labels": []
+        },
+        {
+          "id": "p9-b1",
+          "kind": "caption",
+          "bbox": [
+            108,
+            242,
+            505,
+            263
+          ],
+          "en": "Figure 5: Ablation studies with learning curves of (a) normalized linear velocity tracking score, (b) normalized angular velocity tracking score, and (c) maximum reachable terrain level in Isaac Gym.",
+          "reference": false,
+          "source_image": "figs/p009-001-source.png",
+          "zh": "图 5：消融实验及各指标的学习曲线：(a) 归一化线速度跟踪得分，(b) 归一化角速度跟踪得分，以及 (c) 在 Isaac Gym 中的最大可达地形等级。"
+        },
+        {
+          "id": "p9-b2",
+          "kind": "caption",
+          "bbox": [
+            107,
+            298,
+            505,
+            319
+          ],
+          "en": "Table 4: Ablation studies with average performance ↑ in the real-world benchmarks over 20 trials, where ± captures a 95% confidence interval. Top performances are highlighted.",
+          "reference": false,
+          "source_image": "figs/p009-002-source.png",
+          "zh": "表 4：真实世界基准测试中 20 次试验的消融实验平均性能 ↑，其中 ± 表示 95% 置信区间。最佳性能已突出显示。"
+        },
+        {
+          "id": "p9-b3",
+          "kind": "table",
+          "bbox": [
+            111,
+            323,
+            499,
+            478
+          ],
+          "en": "|Benchmarks|Environments|Metrics|Ours|Ours w/o vel. inp.|Ours w/o vel. loss|Ours w/o lat. inp.|Ours w/o lat. loss|Regression|Baseline| |---|---|---|---|---|---|---|---|---|---| |Stairs|Short-range (A1)|Success rate (%)|100|85|80|50|55|85|10| ||Long-range (Aliengo)|Number of stairs|176.5±7.81|51.45±25.67|54.6±24.68|13.3±13.42|10.6±9.68|155.7±13.48|0.0±0.0| |Unseen Terrains|Compositional Terrain (Aliengo)|Success rate (%)|85|70|75|50|50|70|15| ||Deformable Slope (A1)|Success rate (%)|55|30|25|0|0|30|0| |Anti-|Dragging Obstacle (A1)|Maximum weight (Kg)|10|10|10|5|5|10|4| |disturbance|Vertical Hit (A1)|Maximum weight (Kg)|8|7|6.5|4|4|8|5.5| ||Payload (A1)|Maximum weight (Kg)|8|7|7|3.5|3.5|7.5|3| ||Missing steps (Aliengo)|Success rate (%)|100|90|90|5|0|65|0|",
+          "reference": false,
+          "image": "figs/p009-003.png",
+          "labels": []
+        },
+        {
+          "id": "p9-b4",
+          "kind": "text",
+          "bbox": [
+            108,
+            518,
+            505,
+            550
+          ],
+          "en": "Ablation Studies in the Real World. We also conduct ablation studies on our real-world benchmarks. Results in Table 4 show that our hybrid internal model contributes to the performance, with the internal model playing a critical role.",
+          "reference": false,
+          "source_image": "figs/p009-004-source.png",
+          "zh": "真实世界中的消融实验。我们还在真实世界基准上进行了消融实验。表 4 的结果表明，我们的混合内部模型提升了系统性能，其中内部模型起到了关键作用。"
+        },
+        {
+          "id": "p9-b5",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            583,
+            196,
+            593
+          ],
+          "en": "5 CONCLUSION",
+          "reference": false,
+          "source_image": "figs/p009-005-source.png",
+          "zh": "5 结论"
+        },
+        {
+          "id": "p9-b6",
+          "kind": "text",
+          "bbox": [
+            108,
+            618,
+            505,
+            716
+          ],
+          "en": "Our work presents a promising framework and reveals the connection between learning-based locomotion control and classical Internal Model Control principles. In addition, our experimental results show that joint encoders and an IMU provide sufficient information. We also demonstrate that compared to regression, contrastive learning provides a better representation in terms of robustness to noise and high sample efficiency. To the best of our knowledge, our method is the first system to fully utilize batch-level information in locomotion tasks, leveraging massively parallel simulations of Isaac Gym. However, the lack of external perceptions, e.g., visual information, leaves legged robots with only a primitive skill set. We will incorporate our method with external perception in the future to overcome more challenging environments and higher-level tasks.",
+          "reference": false,
+          "source_image": "figs/p009-006-source.png",
+          "zh": "我们的工作提出了一个前景广阔的框架，并揭示了基于学习的运动控制与经典内模控制原理之间的联系。此外，我们的实验结果表明关节编码器和 IMU 即可提供充足的信息。我们还证明了与回归相比，对比学习在抗噪鲁棒性和高样本效率方面能够提供更优的表征。据我们所知，我们的方法是首个在运动任务中充分利用批次级（batch-level）信息的系统，该系统借助了 Isaac Gym 的大规模并行仿真。然而，缺乏视觉信息等外部感知使得足式机器人只能掌握初级的技能集。未来我们将在方法中融入外部感知，以征服更具挑战性的环境并完成更高阶的任务。"
+        },
+        {
+          "id": "p9-b7",
+          "kind": "text",
+          "bbox": [
+            108,
+            722,
+            478,
+            733
+          ],
+          "en": "Acknowledgement. This work is supported by Shanghai Artificial Intelligence Laboratory.",
+          "reference": false,
+          "source_image": "figs/p009-007-source.png",
+          "zh": "致谢。本项目得到了上海人工智能实验室的资助。"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "blocks": [
+        {
+          "id": "p10-b0",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            83,
+            176,
+            92
+          ],
+          "en": "REFERENCES",
+          "reference": true,
+          "source_image": "figs/p010-000-source.png",
+          "zh": "REFERENCES"
+        },
+        {
+          "id": "p10-b1",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            103,
+            505,
+            124
+          ],
+          "en": "- Ananye Agarwal, Ashish Kumar, Jitendra Malik, and Deepak Pathak. Legged locomotion in challenging terrains using egocentric vision. In Conference on Robot Learning (CoRL) , 2023.",
+          "reference": true,
+          "source_image": "figs/p010-001-source.png",
+          "zh": "- Ananye Agarwal, Ashish Kumar, Jitendra Malik, and Deepak Pathak. Legged locomotion in challenging terrains using egocentric vision. In Conference on Robot Learning (CoRL) , 2023."
+        },
+        {
+          "id": "p10-b2",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            134,
+            505,
+            165
+          ],
+          "en": "- Ayush Agrawal, Shuxiao Chen, Akshara Rai, and Koushil Sreenath. Vision-aided dynamic quadrupedal locomotion on discrete terrain using motion libraries. In International Conference on Robotics and Automation (ICRA) , 2022.",
+          "reference": true,
+          "source_image": "figs/p010-002-source.png",
+          "zh": "- Ayush Agrawal, Shuxiao Chen, Akshara Rai, and Koushil Sreenath. Vision-aided dynamic quadrupedal locomotion on discrete terrain using motion libraries. In International Conference on Robotics and Automation (ICRA) , 2022."
+        },
+        {
+          "id": "p10-b3",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            176,
+            505,
+            208
+          ],
+          "en": "- Gerardo Bledt, Matthew J Powell, Benjamin Katz, Jared Di Carlo, Patrick M Wensing, and Sangbae Kim. Mit cheetah 3: Design and control of a robust, dynamic quadruped robot. In IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) , 2018.",
+          "reference": true,
+          "source_image": "figs/p010-003-source.png",
+          "zh": "- Gerardo Bledt, Matthew J Powell, Benjamin Katz, Jared Di Carlo, Patrick M Wensing, and Sangbae Kim. Mit cheetah 3: Design and control of a robust, dynamic quadruped robot. In IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) , 2018."
+        },
+        {
+          "id": "p10-b4",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            218,
+            505,
+            250
+          ],
+          "en": "- Will Bosworth, Sangbae Kim, and Neville Hogan. The mit super mini cheetah: A small, low-cost quadrupedal robot for dynamic locomotion. In 2015 IEEE International Symposium on Safety, Security, and Rescue Robotics (SSRR) , 2015.",
+          "reference": true,
+          "source_image": "figs/p010-004-source.png",
+          "zh": "- Will Bosworth, Sangbae Kim, and Neville Hogan. The mit super mini cheetah: A small, low-cost quadrupedal robot for dynamic locomotion. In 2015 IEEE International Symposium on Safety, Security, and Rescue Robotics (SSRR) , 2015."
+        },
+        {
+          "id": "p10-b5",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            260,
+            505,
+            292
+          ],
+          "en": "- Ken Caluwaerts, Atil Iscen, J Chase Kew, Wenhao Yu, Tingnan Zhang, Daniel Freeman, KuangHuei Lee, Lisa Lee, Stefano Saliceti, Vincent Zhuang, et al. Barkour: Benchmarking animal-level agility with quadruped robots. arXiv preprint arXiv:2305.14654 , 2023.",
+          "reference": true,
+          "source_image": "figs/p010-005-source.png",
+          "zh": "- Ken Caluwaerts, Atil Iscen, J Chase Kew, Wenhao Yu, Tingnan Zhang, Daniel Freeman, KuangHuei Lee, Lisa Lee, Stefano Saliceti, Vincent Zhuang, et al. Barkour: Benchmarking animal-level agility with quadruped robots. arXiv preprint arXiv:2305.14654 , 2023."
+        },
+        {
+          "id": "p10-b6",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            302,
+            505,
+            334
+          ],
+          "en": "- Mathilde Caron, Ishan Misra, Julien Mairal, Priya Goyal, Piotr Bojanowski, and Armand Joulin. Unsupervised learning of visual features by contrasting cluster assignments. Advances in neural information processing systems , 2020.",
+          "reference": true,
+          "source_image": "figs/p010-006-source.png",
+          "zh": "- Mathilde Caron, Ishan Misra, Julien Mairal, Priya Goyal, Piotr Bojanowski, and Armand Joulin. Unsupervised learning of visual features by contrasting cluster assignments. Advances in neural information processing systems , 2020."
+        },
+        {
+          "id": "p10-b7",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            344,
+            505,
+            365
+          ],
+          "en": "- Dian Chen, Brady Zhou, Vladlen Koltun, and Philipp Kr¨ahenb¨uhl. Learning by cheating. In Conference on Robot Learning (CoRL) , 2019.",
+          "reference": true,
+          "source_image": "figs/p010-007-source.png",
+          "zh": "- Dian Chen, Brady Zhou, Vladlen Koltun, and Philipp Kr¨ahenb¨uhl. Learning by cheating. In Conference on Robot Learning (CoRL) , 2019."
+        },
+        {
+          "id": "p10-b8",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            375,
+            505,
+            405
+          ],
+          "en": "- Xuxin Cheng, Ashish Kumar, and Deepak Pathak. Legs as manipulator: Pushing quadrupedal agility beyond locomotion. In IEEE International Conference on Robotics and Automation (ICRA) , 2023.",
+          "reference": true,
+          "source_image": "figs/p010-008-source.png",
+          "zh": "- Xuxin Cheng, Ashish Kumar, and Deepak Pathak. Legs as manipulator: Pushing quadrupedal agility beyond locomotion. In IEEE International Conference on Robotics and Automation (ICRA) , 2023."
+        },
+        {
+          "id": "p10-b9",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            417,
+            504,
+            438
+          ],
+          "en": "- Marco Cuturi. Sinkhorn distances: Lightspeed computation of optimal transport. Advances in neural information processing systems , 2013.",
+          "reference": true,
+          "source_image": "figs/p010-009-source.png",
+          "zh": "- Marco Cuturi. Sinkhorn distances: Lightspeed computation of optimal transport. Advances in neural information processing systems , 2013."
+        },
+        {
+          "id": "p10-b10",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            448,
+            505,
+            480
+          ],
+          "en": "- Fei Deng, Ingook Jang, and Sungjin Ahn. Dreamerpro: Reconstruction-free model-based reinforcement learning with prototypical representations. In International Conference on Machine Learning , 2022.",
+          "reference": true,
+          "source_image": "figs/p010-010-source.png",
+          "zh": "- Fei Deng, Ingook Jang, and Sungjin Ahn. Dreamerpro: Reconstruction-free model-based reinforcement learning with prototypical representations. In International Conference on Machine Learning , 2022."
+        },
+        {
+          "id": "p10-b11",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            490,
+            505,
+            522
+          ],
+          "en": "- Alejandro Escontrela, Xue Bin Peng, Wenhao Yu, Tingnan Zhang, Atil Iscen, Ken Goldberg, and Pieter Abbeel. Adversarial motion priors make good substitutes for complex reward functions. In IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) , 2022.",
+          "reference": true,
+          "source_image": "figs/p010-011-source.png",
+          "zh": "- Alejandro Escontrela, Xue Bin Peng, Wenhao Yu, Tingnan Zhang, Atil Iscen, Ken Goldberg, and Pieter Abbeel. Adversarial motion priors make good substitutes for complex reward functions. In IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) , 2022."
+        },
+        {
+          "id": "p10-b12",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            532,
+            505,
+            553
+          ],
+          "en": "- Zipeng Fu, Ashish Kumar, Jitendra Malik, and Deepak Pathak. Minimizing energy consumption leads to the emergence of gaits in legged robots. In Conference on Robot Learning (CoRL) , 2021.",
+          "reference": true,
+          "source_image": "figs/p010-012-source.png",
+          "zh": "- Zipeng Fu, Ashish Kumar, Jitendra Malik, and Deepak Pathak. Minimizing energy consumption leads to the emergence of gaits in legged robots. In Conference on Robot Learning (CoRL) , 2021."
+        },
+        {
+          "id": "p10-b13",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            563,
+            505,
+            584
+          ],
+          "en": "- Zipeng Fu, Xuxin Cheng, and Deepak Pathak. Deep whole-body control: Learning a unified policy for manipulation and locomotion. In Conference on Robot Learning (CoRL) , 2022.",
+          "reference": true,
+          "source_image": "figs/p010-013-source.png",
+          "zh": "- Zipeng Fu, Xuxin Cheng, and Deepak Pathak. Deep whole-body control: Learning a unified policy for manipulation and locomotion. In Conference on Robot Learning (CoRL) , 2022."
+        },
+        {
+          "id": "p10-b14",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            595,
+            505,
+            637
+          ],
+          "en": "- Ross Hartley, Josh Mangelson, Lu Gan, Maani Ghaffari Jadidi, Jeffrey M Walls, Ryan M Eustice, and Jessy W Grizzle. Legged robot state-estimation through combined forward kinematic and preintegrated contact factors. In 2018 IEEE International Conference on Robotics and Automation (ICRA) , pp. 4422–4429. IEEE, 2018.",
+          "reference": true,
+          "source_image": "figs/p010-014-source.png",
+          "zh": "- Ross Hartley, Josh Mangelson, Lu Gan, Maani Ghaffari Jadidi, Jeffrey M Walls, Ryan M Eustice, and Jessy W Grizzle. Legged robot state-estimation through combined forward kinematic and preintegrated contact factors. In 2018 IEEE International Conference on Robotics and Automation (ICRA) , pp. 4422–4429. IEEE, 2018."
+        },
+        {
+          "id": "p10-b15",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            648,
+            505,
+            690
+          ],
+          "en": "- Marco Hutter, Christian Gehring, Dominic Jud, Andreas Lauber, C Dario Bellicoso, Vassilios Tsounis, Jemin Hwangbo, Karen Bodie, Peter Fankhauser, Michael Bloesch, et al. Anymal-a highly mobile and dynamic quadrupedal robot. In IEEE/RSJ international conference on intelligent robots and systems (IROS) , 2016.",
+          "reference": true,
+          "source_image": "figs/p010-015-source.png",
+          "zh": "- Marco Hutter, Christian Gehring, Dominic Jud, Andreas Lauber, C Dario Bellicoso, Vassilios Tsounis, Jemin Hwangbo, Karen Bodie, Peter Fankhauser, Michael Bloesch, et al. Anymal-a highly mobile and dynamic quadrupedal robot. In IEEE/RSJ international conference on intelligent robots and systems (IROS) , 2016."
+        },
+        {
+          "id": "p10-b16",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            701,
+            505,
+            732
+          ],
+          "en": "- Jemin Hwangbo, Joonho Lee, Alexey Dosovitskiy, Dario Bellicoso, Vassilios Tsounis, Vladlen Koltun, and Marco Hutter. Learning agile and dynamic motor skills for legged robots. Science Robotics , 2019.",
+          "reference": true,
+          "source_image": "figs/p010-016-source.png",
+          "zh": "- Jemin Hwangbo, Joonho Lee, Alexey Dosovitskiy, Dario Bellicoso, Vassilios Tsounis, Vladlen Koltun, and Marco Hutter. Learning agile and dynamic motor skills for legged robots. Science Robotics , 2019."
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "blocks": [
+        {
+          "id": "p11-b0",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            85,
+            505,
+            116
+          ],
+          "en": "- Chieko Imai, Minghao Zhang, Yuchen Zhang, Marcin Kierebinski, Ruihan Yang, Yuzhe Qin, and Xiaolong Wang. Vision-guided quadrupedal locomotion in the wild with multi-modal delay randomization. In IEEE/RSJ international conference on intelligent robots and systems (IROS) , 2022.",
+          "reference": true,
+          "source_image": "figs/p011-000-source.png",
+          "zh": "- Chieko Imai, Minghao Zhang, Yuchen Zhang, Marcin Kierebinski, Ruihan Yang, Yuzhe Qin, and Xiaolong Wang. Vision-guided quadrupedal locomotion in the wild with multi-modal delay randomization. In IEEE/RSJ international conference on intelligent robots and systems (IROS) , 2022."
+        },
+        {
+          "id": "p11-b1",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            125,
+            505,
+            146
+          ],
+          "en": "- Yandong Ji, Gabriel B Margolis, and Pulkit Agrawal. Dribblebot: Dynamic legged manipulation in the wild. In IEEE International Conference on Robotics and Automation (ICRA) , 2023.",
+          "reference": true,
+          "source_image": "figs/p011-001-source.png",
+          "zh": "- Yandong Ji, Gabriel B Margolis, and Pulkit Agrawal. Dribblebot: Dynamic legged manipulation in the wild. In IEEE International Conference on Robotics and Automation (ICRA) , 2023."
+        },
+        {
+          "id": "p11-b2",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            154,
+            505,
+            175
+          ],
+          "en": "- Ashish Kumar, Zipeng Fu, Deepak Pathak, and Jitendra Malik. Rma: Rapid motor adaptation for legged robots. In Robotics: Science and Systems , 2021.",
+          "reference": true,
+          "source_image": "figs/p011-002-source.png",
+          "zh": "- Ashish Kumar, Zipeng Fu, Deepak Pathak, and Jitendra Malik. Rma: Rapid motor adaptation for legged robots. In Robotics: Science and Systems , 2021."
+        },
+        {
+          "id": "p11-b3",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            184,
+            448,
+            194
+          ],
+          "en": "- Yann LeCun. A path towards autonomous machine intelligence. Open Review , 2022.",
+          "reference": true,
+          "source_image": "figs/p011-003-source.png",
+          "zh": "- Yann LeCun. A path towards autonomous machine intelligence. Open Review , 2022."
+        },
+        {
+          "id": "p11-b4",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            202,
+            505,
+            223
+          ],
+          "en": "- Joonho Lee, Jemin Hwangbo, Lorenz Wellhausen, Vladlen Koltun, and Marco Hutter. Learning quadrupedal locomotion over challenging terrain. Science robotics , 2020.",
+          "reference": true,
+          "source_image": "figs/p011-004-source.png",
+          "zh": "- Joonho Lee, Jemin Hwangbo, Lorenz Wellhausen, Vladlen Koltun, and Marco Hutter. Learning quadrupedal locomotion over challenging terrain. Science robotics , 2020."
+        },
+        {
+          "id": "p11-b5",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            231,
+            505,
+            274
+          ],
+          "en": "- Viktor Makoviychuk, Lukasz Wawrzyniak, Yunrong Guo, Michelle Lu, Kier Storey, Miles Macklin, David Hoeller, Nikita Rudin, Arthur Allshire, Ankur Handa, et al. Isaac gym: High performance gpu-based physics simulation for robot learning. Advances in neural information processing systems , 2021.",
+          "reference": true,
+          "source_image": "figs/p011-005-source.png",
+          "zh": "- Viktor Makoviychuk, Lukasz Wawrzyniak, Yunrong Guo, Michelle Lu, Kier Storey, Miles Macklin, David Hoeller, Nikita Rudin, Arthur Allshire, Ankur Handa, et al. Isaac gym: High performance gpu-based physics simulation for robot learning. Advances in neural information processing systems , 2021."
+        },
+        {
+          "id": "p11-b6",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            283,
+            505,
+            304
+          ],
+          "en": "- Gabriel B Margolis and Pulkit Agrawal. Walk these ways: Tuning robot control for generalization with multiplicity of behavior. In Conference on Robot Learning (CoRL) , 2023.",
+          "reference": true,
+          "source_image": "figs/p011-006-source.png",
+          "zh": "- Gabriel B Margolis and Pulkit Agrawal. Walk these ways: Tuning robot control for generalization with multiplicity of behavior. In Conference on Robot Learning (CoRL) , 2023."
+        },
+        {
+          "id": "p11-b7",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            312,
+            505,
+            333
+          ],
+          "en": "- Gabriel B Margolis, Ge Yang, Kartik Paigwar, Tao Chen, and Pulkit Agrawal. Rapid locomotion via reinforcement learning. In Robotics: Science and Systems , 2022.",
+          "reference": true,
+          "source_image": "figs/p011-007-source.png",
+          "zh": "- Gabriel B Margolis, Ge Yang, Kartik Paigwar, Tao Chen, and Pulkit Agrawal. Rapid locomotion via reinforcement learning. In Robotics: Science and Systems , 2022."
+        },
+        {
+          "id": "p11-b8",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            341,
+            505,
+            371
+          ],
+          "en": "- Takahiro Miki, Joonho Lee, Jemin Hwangbo, Lorenz Wellhausen, Vladlen Koltun, and Marco Hutter. Learning robust perceptive locomotion for quadrupedal robots in the wild. Science Robotics , 2022a.",
+          "reference": true,
+          "source_image": "figs/p011-008-source.png",
+          "zh": "- Takahiro Miki, Joonho Lee, Jemin Hwangbo, Lorenz Wellhausen, Vladlen Koltun, and Marco Hutter. Learning robust perceptive locomotion for quadrupedal robots in the wild. Science Robotics , 2022a."
+        },
+        {
+          "id": "p11-b9",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            382,
+            505,
+            413
+          ],
+          "en": "- Takahiro Miki, Lorenz Wellhausen, Ruben Grandia, Fabian Jenelten, Timon Homberger, and Marco Hutter. Elevation mapping for locomotion and navigation using gpu. In IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) , 2022b.",
+          "reference": true,
+          "source_image": "figs/p011-009-source.png",
+          "zh": "- Takahiro Miki, Lorenz Wellhausen, Ruben Grandia, Fabian Jenelten, Timon Homberger, and Marco Hutter. Elevation mapping for locomotion and navigation using gpu. In IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) , 2022b."
+        },
+        {
+          "id": "p11-b10",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            422,
+            505,
+            454
+          ],
+          "en": "- I Made Aswin Nahrendra, Byeongho Yu, and Hyun Myung. Dreamwaq: Learning robust quadrupedal locomotion with implicit terrain imagination via deep reinforcement learning. In IEEE International Conference on Robotics and Automation (ICRA) , 2023.",
+          "reference": true,
+          "source_image": "figs/p011-010-source.png",
+          "zh": "- I Made Aswin Nahrendra, Byeongho Yu, and Hyun Myung. Dreamwaq: Learning robust quadrupedal locomotion with implicit terrain imagination via deep reinforcement learning. In IEEE International Conference on Robotics and Automation (ICRA) , 2023."
+        },
+        {
+          "id": "p11-b11",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            462,
+            505,
+            505
+          ],
+          "en": "- Jacopo Panerati, Hehui Zheng, SiQi Zhou, James Xu, Amanda Prorok, and Angela P Schoellig. Learning to fly—a gym environment with pybullet physics for reinforcement learning of multiagent quadcopter control. In IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) , 2021.",
+          "reference": true,
+          "source_image": "figs/p011-011-source.png",
+          "zh": "- Jacopo Panerati, Hehui Zheng, SiQi Zhou, James Xu, Amanda Prorok, and Angela P Schoellig. Learning to fly—a gym environment with pybullet physics for reinforcement learning of multiagent quadcopter control. In IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) , 2021."
+        },
+        {
+          "id": "p11-b12",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            514,
+            505,
+            534
+          ],
+          "en": "- Xue Bin Peng, Erwin Coumans, Tingnan Zhang, Tsang-Wei Lee, Jie Tan, and Sergey Levine. Learning agile robotic locomotion skills by imitating animals. In Robotics: Science and Systems , 2020.",
+          "reference": true,
+          "source_image": "figs/p011-012-source.png",
+          "zh": "- Xue Bin Peng, Erwin Coumans, Tingnan Zhang, Tsang-Wei Lee, Jie Tan, and Sergey Levine. Learning agile robotic locomotion skills by imitating animals. In Robotics: Science and Systems , 2020."
+        },
+        {
+          "id": "p11-b13",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            543,
+            505,
+            564
+          ],
+          "en": "- Daniel E Rivera, Manfred Morari, and Sigurd Skogestad. Internal model control: Pid controller design. Industrial & engineering chemistry process design and development , 1986.",
+          "reference": true,
+          "source_image": "figs/p011-013-source.png",
+          "zh": "- Daniel E Rivera, Manfred Morari, and Sigurd Skogestad. Internal model control: Pid controller design. Industrial & engineering chemistry process design and development , 1986."
+        },
+        {
+          "id": "p11-b14",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            572,
+            505,
+            593
+          ],
+          "en": "- Nikita Rudin, David Hoeller, Philipp Reist, and Marco Hutter. Learning to walk in minutes using massively parallel deep reinforcement learning. In Conference on Robot Learning (CoRL) , 2022.",
+          "reference": true,
+          "source_image": "figs/p011-014-source.png",
+          "zh": "- Nikita Rudin, David Hoeller, Philipp Reist, and Marco Hutter. Learning to walk in minutes using massively parallel deep reinforcement learning. In Conference on Robot Learning (CoRL) , 2022."
+        },
+        {
+          "id": "p11-b15",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            602,
+            505,
+            633
+          ],
+          "en": "- Koushil Sreenath, Hae-Won Park, Ioannis Poulakakis, and Jessy W Grizzle. A compliant hybrid zero dynamics controller for stable, efficient and fast bipedal walking on mabel. The International Journal of Robotics Research , 2011.",
+          "reference": true,
+          "source_image": "figs/p011-015-source.png",
+          "zh": "- Koushil Sreenath, Hae-Won Park, Ioannis Poulakakis, and Jessy W Grizzle. A compliant hybrid zero dynamics controller for stable, efficient and fast bipedal walking on mabel. The International Journal of Robotics Research , 2011."
+        },
+        {
+          "id": "p11-b16",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            642,
+            505,
+            674
+          ],
+          "en": "- Jie Tan, Tingnan Zhang, Erwin Coumans, Atil Iscen, Yunfei Bai, Danijar Hafner, Steven Bohez, and Vincent Vanhoucke. Sim-to-real: Learning agile locomotion for quadruped robots. In Robotics: Science and Systems , 2018.",
+          "reference": true,
+          "source_image": "figs/p011-016-source.png",
+          "zh": "- Jie Tan, Tingnan Zhang, Erwin Coumans, Atil Iscen, Yunfei Bai, Danijar Hafner, Steven Bohez, and Vincent Vanhoucke. Sim-to-real: Learning agile locomotion for quadruped robots. In Robotics: Science and Systems , 2018."
+        },
+        {
+          "id": "p11-b17",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            682,
+            505,
+            703
+          ],
+          "en": "- Emanuel Todorov, Tom Erez, and Yuval Tassa. Mujoco: A physics engine for model-based control. In IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) , 2012.",
+          "reference": true,
+          "source_image": "figs/p011-017-source.png",
+          "zh": "- Emanuel Todorov, Tom Erez, and Yuval Tassa. Mujoco: A physics engine for model-based control. In IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) , 2012."
+        },
+        {
+          "id": "p11-b18",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            712,
+            505,
+            732
+          ],
+          "en": "- Laurens Van der Maaten and Geoffrey Hinton. Visualizing data using t-sne. Journal of machine learning research , 2008.",
+          "reference": true,
+          "source_image": "figs/p011-018-source.png",
+          "zh": "- Laurens Van der Maaten and Geoffrey Hinton. Visualizing data using t-sne. Journal of machine learning research , 2008."
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "blocks": [
+        {
+          "id": "p12-b0",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            85,
+            505,
+            105
+          ],
+          "en": "- Jinze Wu, Guiyang Xin, Chenkun Qi, and Yufei Xue. Learning robust and agile legged locomotion using adversarial motion priors. IEEE Robotics and Automation Letters , 2022.",
+          "reference": true,
+          "source_image": "figs/p012-000-source.png",
+          "zh": "- Jinze Wu, Guiyang Xin, Chenkun Qi, and Yufei Xue. Learning robust and agile legged locomotion using adversarial motion priors. IEEE Robotics and Automation Letters , 2022."
+        },
+        {
+          "id": "p12-b1",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            114,
+            505,
+            135
+          ],
+          "en": "- Philipp Wu, Alejandro Escontrela, Danijar Hafner, Pieter Abbeel, and Ken Goldberg. Daydreamer: World models for physical robot learning. In Conference on Robot Learning (CoRL) , 2023.",
+          "reference": true,
+          "source_image": "figs/p012-001-source.png",
+          "zh": "- Philipp Wu, Alejandro Escontrela, Danijar Hafner, Pieter Abbeel, and Ken Goldberg. Daydreamer: World models for physical robot learning. In Conference on Robot Learning (CoRL) , 2023."
+        },
+        {
+          "id": "p12-b2",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            144,
+            505,
+            176
+          ],
+          "en": "- Yujiang Xiang, Jasbir S Arora, and Karim Abdel-Malek. Physics-based modeling and simulation of human walking: a review of optimization-based and other approaches. Structural and multidisciplinary optimization , 2010.",
+          "reference": true,
+          "source_image": "figs/p012-002-source.png",
+          "zh": "- Yujiang Xiang, Jasbir S Arora, and Karim Abdel-Malek. Physics-based modeling and simulation of human walking: a review of optimization-based and other approaches. Structural and multidisciplinary optimization , 2010."
+        },
+        {
+          "id": "p12-b3",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            185,
+            505,
+            217
+          ],
+          "en": "- Zhaoming Xie, Xingye Da, Michiel Van de Panne, Buck Babich, and Animesh Garg. Dynamics randomization revisited: A case study for quadrupedal locomotion. In IEEE International Conference on Robotics and Automation (ICRA) , 2021.",
+          "reference": true,
+          "source_image": "figs/p012-003-source.png",
+          "zh": "- Zhaoming Xie, Xingye Da, Michiel Van de Panne, Buck Babich, and Animesh Garg. Dynamics randomization revisited: A case study for quadrupedal locomotion. In IEEE International Conference on Robotics and Automation (ICRA) , 2021."
+        },
+        {
+          "id": "p12-b4",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            226,
+            505,
+            247
+          ],
+          "en": "- Chuanyu Yang, Kai Yuan, Qiuguo Zhu, Wanming Yu, and Zhibin Li. Multi-expert learning of adaptive legged locomotion. Science Robotics , 2020.",
+          "reference": true,
+          "source_image": "figs/p012-004-source.png",
+          "zh": "- Chuanyu Yang, Kai Yuan, Qiuguo Zhu, Wanming Yu, and Zhibin Li. Multi-expert learning of adaptive legged locomotion. Science Robotics , 2020."
+        },
+        {
+          "id": "p12-b5",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            256,
+            505,
+            288
+          ],
+          "en": "- Ruihan Yang, Minghao Zhang, Nicklas Hansen, Huazhe Xu, and Xiaolong Wang. Learning visionguided quadrupedal locomotion end-to-end with cross-modal transformers. In International Conference on Learning Representations , 2022.",
+          "reference": true,
+          "source_image": "figs/p012-005-source.png",
+          "zh": "- Ruihan Yang, Minghao Zhang, Nicklas Hansen, Huazhe Xu, and Xiaolong Wang. Learning visionguided quadrupedal locomotion end-to-end with cross-modal transformers. In International Conference on Learning Representations , 2022."
+        },
+        {
+          "id": "p12-b6",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            297,
+            505,
+            328
+          ],
+          "en": "- Ruihan Yang, Zhuoqun Chen, Jianhan Ma, Chongyi Zheng, Yiyu Chen, Quan Nguyen, and Xiaolong Wang. Generalized animal imitator: Agile locomotion with versatile motion prior. arXiv preprint arXiv:2310.01408 , 2023a.",
+          "reference": true,
+          "source_image": "figs/p012-006-source.png",
+          "zh": "- Ruihan Yang, Zhuoqun Chen, Jianhan Ma, Chongyi Zheng, Yiyu Chen, Quan Nguyen, and Xiaolong Wang. Generalized animal imitator: Agile locomotion with versatile motion prior. arXiv preprint arXiv:2310.01408 , 2023a."
+        },
+        {
+          "id": "p12-b7",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            338,
+            505,
+            358
+          ],
+          "en": "- Ruihan Yang, Ge Yang, and Xiaolong Wang. Neural volumetric memory for visual locomotion control. In Conference on Computer Vision and Pattern Recognition , 2023b.",
+          "reference": true,
+          "source_image": "figs/p012-007-source.png",
+          "zh": "- Ruihan Yang, Ge Yang, and Xiaolong Wang. Neural volumetric memory for visual locomotion control. In Conference on Computer Vision and Pattern Recognition , 2023b."
+        },
+        {
+          "id": "p12-b8",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            367,
+            505,
+            388
+          ],
+          "en": "- Denis Yarats, Rob Fergus, Alessandro Lazaric, and Lerrel Pinto. Reinforcement learning with prototypical representations. In International Conference on Machine Learning , 2021.",
+          "reference": true,
+          "source_image": "figs/p012-008-source.png",
+          "zh": "- Denis Yarats, Rob Fergus, Alessandro Lazaric, and Lerrel Pinto. Reinforcement learning with prototypical representations. In International Conference on Machine Learning , 2021."
+        },
+        {
+          "id": "p12-b9",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            397,
+            505,
+            418
+          ],
+          "en": "- KangKang Yin, Kevin Loken, and Michiel Van de Panne. Simbicon: Simple biped locomotion control. ACM Transactions on Graphics (TOG) , 2007.",
+          "reference": true,
+          "source_image": "figs/p012-009-source.png",
+          "zh": "- KangKang Yin, Kevin Loken, and Michiel Van de Panne. Simbicon: Simple biped locomotion control. ACM Transactions on Graphics (TOG) , 2007."
+        },
+        {
+          "id": "p12-b10",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            427,
+            505,
+            459
+          ],
+          "en": "- Wenhao Yu, Deepali Jain, Alejandro Escontrela, Atil Iscen, Peng Xu, Erwin Coumans, Sehoon Ha, Jie Tan, and Tingnan Zhang. Visual-locomotion: Learning to walk on complex terrains with vision. In Conference on Robot Learning (CoRL) , 2021.",
+          "reference": true,
+          "source_image": "figs/p012-010-source.png",
+          "zh": "- Wenhao Yu, Deepali Jain, Alejandro Escontrela, Atil Iscen, Peng Xu, Erwin Coumans, Sehoon Ha, Jie Tan, and Tingnan Zhang. Visual-locomotion: Learning to walk on complex terrains with vision. In Conference on Robot Learning (CoRL) , 2021."
+        },
+        {
+          "id": "p12-b11",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            468,
+            505,
+            489
+          ],
+          "en": "- Ziwen Zhuang, Zipeng Fu, Jianren Wang, Christopher Atkeson, Soeren Schwertfeger, Chelsea Finn, and Hang Zhao. Robot parkour learning. In Conference on Robot Learning (CoRL) , 2023.",
+          "reference": true,
+          "source_image": "figs/p012-011-source.png",
+          "zh": "- Ziwen Zhuang, Zipeng Fu, Jianren Wang, Christopher Atkeson, Soeren Schwertfeger, Chelsea Finn, and Hang Zhao. Robot parkour learning. In Conference on Robot Learning (CoRL) , 2023."
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "blocks": [
+        {
+          "id": "p13-b0",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            83,
+            238,
+            92
+          ],
+          "en": "A HYPER-PARAMETERS",
+          "reference": false,
+          "source_image": "figs/p013-000-source.png",
+          "zh": "A 超参数"
+        },
+        {
+          "id": "p13-b1",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            108,
+            225,
+            116
+          ],
+          "en": "A.1 REWARD FUNCTIONS",
+          "reference": false,
+          "source_image": "figs/p013-001-source.png",
+          "zh": "A.1 奖励函数"
+        },
+        {
+          "id": "p13-b2",
+          "kind": "text",
+          "bbox": [
+            107,
+            129,
+            505,
+            150
+          ],
+          "en": "The reward functions we used during the training are shown in Table 5, which come from Kumar et al. (2021); Agarwal et al. (2023); Margolis & Agrawal (2023); Fu et al. (2021).",
+          "reference": false,
+          "source_image": "figs/p013-002-source.png",
+          "zh": "我们在训练过程中使用的奖励函数如表 5 所示，这些奖励函数来自 Kumar et al. (2021); Agarwal et al. (2023); Margolis & Agrawal (2023); Fu et al. (2021)。"
+        },
+        {
+          "id": "p13-b3",
+          "kind": "caption",
+          "bbox": [
+            271,
+            170,
+            341,
+            178
+          ],
+          "en": "Table 5: Rewards",
+          "reference": false,
+          "source_image": "figs/p013-003-source.png",
+          "zh": "表 5：奖励"
+        },
+        {
+          "id": "p13-b4",
+          "kind": "table",
+          "bbox": [
+            169,
+            183,
+            440,
+            358
+          ],
+          "en": "|Reward|Equation(ri)|Weight(wi)| |---|---|---| |Lin. velocity tracking Ang. velocity tracking|exp � − ∥vcmd xy −vxy∥2 2 σ � exp � −(ωcmd yaw −ωyaw ) 2 σ �|1.0 0.5| |Linear velocity(z)|v2 z|-2.0| |Angular velocity(xy)|∥ωxy∥2 2 |-0.05| |Orientation|∥g∥2 2 ¨|-0.2 | |Joint accelerations|∥θ∥2|−2.5×10−7| |Joint power||τ∥˙θ|T|−2×10−5| |Body height|(htarget −h)2|-1.0| |Foot clearance|�3 i=0 � ptarget z −pi z �2· vi xy|-0.01| |Action rate|∥at −at−1∥2 2 |-0.01| |Smoothness|∥at −2at−1+at−2∥2 2|-0.01|",
+          "reference": false,
+          "image": "figs/p013-004.png",
+          "labels": []
+        },
+        {
+          "id": "p13-b5",
+          "kind": "text",
+          "bbox": [
+            108,
+            374,
+            505,
+            409
+          ],
+          "en": "In Table 5, σ is the tracking shaping scale and we use σ = 0 . 25, htarget is the desired base height corresponding to ground, pztarget and pi zare the desired feet position and real feet position in z-axis of robot’s frame and vxyiis the feet velocity in xy-plane of robot’s frame.",
+          "reference": false,
+          "source_image": "figs/p013-005-source.png",
+          "zh": "在表 5 中，σ 为跟踪塑形尺度且取 σ = 0.25，htarget 是相对于地面的期望机身高度，pztarget 与 pi z 分别是机器人坐标系 z 轴上的期望足端位置与实际足端位置，vxyi 是机器人坐标系 xy 平面内的足端速度。"
+        },
+        {
+          "id": "p13-b6",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            423,
+            254,
+            431
+          ],
+          "en": "A.2 DOMAIN RANDOMIZATIONS",
+          "reference": false,
+          "source_image": "figs/p013-006-source.png",
+          "zh": "A.2 域随机化"
+        },
+        {
+          "id": "p13-b7",
+          "kind": "text",
+          "bbox": [
+            108,
+            443,
+            505,
+            464
+          ],
+          "en": "For the training of our method and other methods, domain randomizations we use are shown in Table 6, which come from Wu et al. (2022); Nahrendra et al. (2023).",
+          "reference": false,
+          "source_image": "figs/p013-007-source.png",
+          "zh": "在我们方法及其他对比方法的训练中，所采用的域随机化如表 6 所示，均引自 Wu et al. (2022); Nahrendra et al. (2023)。"
+        },
+        {
+          "id": "p13-b8",
+          "kind": "caption",
+          "bbox": [
+            183,
+            485,
+            429,
+            495
+          ],
+          "en": "Table 6: Domain Randomizations and their Respective Range",
+          "reference": false,
+          "source_image": "figs/p013-008-source.png",
+          "zh": "表 6：域随机化项及其对应范围"
+        },
+        {
+          "id": "p13-b9",
+          "kind": "table",
+          "bbox": [
+            164,
+            500,
+            445,
+            648
+          ],
+          "en": "|Parameters|Range[Min, Max]|Unit| |---|---|---| |Body Mass|[0.8,1.2]×nominal value|Kg| |Link Mass|[0.8,1.2]×nominal value |Kg| |CoM|[−0.1,0.1]×[−0.1,0.1]×[−0.1,0.1]|m| |Payload Mass|[−1,3] |Kg| |Ground Friction|[0.2,2.75] |-| |Ground Restitution|[0.0,1.0]|-| |Motor Strength|[0.8,1.2]×motor torque |Nm| |JointKp|[0.8,1.2]×20 |-| |JointKd|[0.8,1.2]×0.5 |-| |Initial Joint Positions|[0.5,1.5]×nominal value |rad| |System Delay|[0,3∆t]|s| |External Force|[−30,30]×[−30,30]×[−30,30]|N|",
+          "reference": false,
+          "image": "figs/p013-009.png",
+          "labels": []
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "blocks": [
+        {
+          "id": "p14-b0",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            85,
+            225,
+            92
+          ],
+          "en": "A.3 TRAINING TERRAINS",
+          "reference": false,
+          "source_image": "figs/p014-000-source.png",
+          "zh": "A.3 训练地形"
+        },
+        {
+          "id": "p14-b1",
+          "kind": "text",
+          "bbox": [
+            107,
+            105,
+            399,
+            115
+          ],
+          "en": "Our terrain comprises slopes, rough slopes, stairs, and discrete obstacles.",
+          "reference": false,
+          "source_image": "figs/p014-001-source.png",
+          "zh": "我们的地形包括斜坡、崎岖斜坡、楼梯以及离散障碍物。"
+        },
+        {
+          "id": "p14-b2",
+          "kind": "text",
+          "bbox": [
+            107,
+            122,
+            505,
+            177
+          ],
+          "en": "The slopes and rough slopes vary in inclination from 0◦ to 40◦ with the addition of uniform noise ranging from ± 1 cm to ± 8 cm on the rough slopes. The stairs have random widths ranging from 20 cm to 40 cm and heights varying from 5 cm to 23 cm. The discrete obstacles have heights ranging from ± 5 cm to ± 15 cm. We assign difficulty levels to the terrains using integers from 0 to 9. More specifically, for a terrain level indicated by levelterrain , the corresponding terrains are as follows:",
+          "reference": false,
+          "source_image": "figs/p014-002-source.png",
+          "zh": "斜坡和崎岖斜坡的倾角在 0° 到 40° 之间变化，并在崎岖斜坡上添加了范围为 ±1 cm 至 ±8 cm 的均匀噪声。楼梯的宽度在 20 cm 到 40 cm 之间随机分布，高度在 5 cm 到 23 cm 之间变化。离散障碍物的高度在 ±5 cm 到 ±15 cm 之间。我们使用 0 到 9 的整数来设定地形的难度等级。更具体地，对于由 levelterrain 表示的地形等级，相应的地形如下："
+        },
+        {
+          "id": "p14-b3",
+          "kind": "text",
+          "bbox": [
+            247,
+            191,
+            286,
+            206
+          ],
+          "en": "level 9terrain ◦ ;",
+          "reference": false,
+          "source_image": "figs/p014-003-source.png",
+          "zh": "〔行内公式见原版〕；"
+        },
+        {
+          "id": "p14-b4",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            195,
+            248,
+            205
+          ],
+          "en": "- Slopes: with inclination of 40 ×",
+          "reference": false,
+          "source_image": "figs/p014-004-source.png",
+          "zh": "- 斜坡：倾角为 40 ×"
+        },
+        {
+          "id": "p14-b5",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            206,
+            464,
+            221
+          ],
+          "en": "- Rough slopes: with amplitude of 1 + 7 ×level 9terrain cm and inclination of 40 ×level 9terrain ◦ ;",
+          "reference": false,
+          "source_image": "figs/p014-005-source.png",
+          "zh": "- 崎岖斜坡：幅度为 1 + 7 ×〔行内公式见原版〕cm，倾角为 40 ×〔行内公式见原版〕；"
+        },
+        {
+          "id": "p14-b6",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            221,
+            307,
+            236
+          ],
+          "en": "- Stairs: with step height of 5 + 18 ×level 9terrain cm;",
+          "reference": false,
+          "source_image": "figs/p014-006-source.png",
+          "zh": "- 楼梯：台阶高度为 5 + 18 ×〔行内公式见原版〕cm；"
+        },
+        {
+          "id": "p14-b7",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            236,
+            505,
+            260
+          ],
+          "en": "- Discrete obstacles: with height of 5 + 10 ×level 9terrain cm. The proportion of the above terrains is - 0.1, 0.2, 0.6, and 0.1 correspondingly.",
+          "reference": false,
+          "source_image": "figs/p014-007-source.png",
+          "zh": "- 离散障碍物：高度为 5 + 10 ×〔行内公式见原版〕cm。上述地形的比例分别为 0.1、0.2、0.6 和 0.1。"
+        },
+        {
+          "id": "p14-b8",
+          "kind": "text",
+          "bbox": [
+            108,
+            275,
+            225,
+            283
+          ],
+          "en": "A.4 HYPER PARAMETERS",
+          "reference": false,
+          "source_image": "figs/p014-008-source.png",
+          "zh": "A.4 超参数"
+        },
+        {
+          "id": "p14-b9",
+          "kind": "caption",
+          "bbox": [
+            227,
+            309,
+            385,
+            319
+          ],
+          "en": "Table 7: Hyper Parameters for Training",
+          "reference": false,
+          "source_image": "figs/p014-009-source.png",
+          "zh": "表 7：训练超参数"
+        },
+        {
+          "id": "p14-b10",
+          "kind": "table",
+          "bbox": [
+            217,
+            324,
+            395,
+            574
+          ],
+          "en": "|General|| |---|---| |Batch Size Mini-batch Size Number of epochs|4096×200 4096×50 5| |PPO|| |Clip range|0.2| |Entropy coefficient|0.01| |Discount factor|0.99| |GAE discount factor|0.95| |Desired KL-divergence|0.01 | |Learning rate|1×10−3| |Adam epsilon|1×10−8| |Gradient clipping|10| |HIM|| |Number of prototypes|16| |Contrastive loss scale|1.0| |Velocity estimation loss scale|1.0| |Learning rate|1×10−3| |Adam epsilon|1×10−8| |Gradient clipping|10|",
+          "reference": false,
+          "image": "figs/p014-010.png",
+          "labels": []
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "blocks": [
+        {
+          "id": "p15-b0",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            83,
+            258,
+            92
+          ],
+          "en": "B EXPERIMENTAL DETAILS",
+          "reference": false,
+          "source_image": "figs/p015-000-source.png",
+          "zh": "B 实验细节"
+        },
+        {
+          "id": "p15-b1",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            115,
+            283,
+            123
+          ],
+          "en": "B.1 REAL-WORLD BENCHMARK SETUP",
+          "reference": false,
+          "source_image": "figs/p015-001-source.png",
+          "zh": "B.1 真实世界基准设置"
+        },
+        {
+          "id": "p15-b2",
+          "kind": "text",
+          "bbox": [
+            107,
+            140,
+            452,
+            150
+          ],
+          "en": "Our benchmark consists of three parts: stairs , unseen terrains and anti-disturbance :",
+          "reference": false,
+          "source_image": "figs/p015-002-source.png",
+          "zh": "我们的基准测试由三部分组成：楼梯、未见地形和抗扰动："
+        },
+        {
+          "id": "p15-b3",
+          "kind": "section-header",
+          "bbox": [
+            107,
+            157,
+            137,
+            165
+          ],
+          "en": "Stairs:",
+          "reference": false,
+          "source_image": "figs/p015-003-source.png",
+          "zh": "楼梯："
+        },
+        {
+          "id": "p15-b4",
+          "kind": "text",
+          "bbox": [
+            107,
+            168,
+            505,
+            211
+          ],
+          "en": "• Short-range stairs: This scene includes two sets of stairs with 5 steps each. The height and width of the stairs are 16 cm and 27 cm, respectively. The Unitree A1 robot is used to test our policy in this scene, and the metric is the success rate of going through both stairs. The corresponding snapshots of this scene are displayed in the left column of Fig. 6(a).",
+          "reference": false,
+          "source_image": "figs/p015-004-source.png",
+          "zh": "• 短距离楼梯：该场景包含两组楼梯，每组各 5 级台阶。台阶的高度和宽度分别为 16 cm 和 27 cm。在该场景中，使用 Unitree A1 机器人测试我们的策略，评估指标为通过两组楼梯的成功率。该场景对应的快照展示在图 6(a) 的左列。"
+        },
+        {
+          "id": "p15-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            212,
+            505,
+            255
+          ],
+          "en": "• Long-range stairs: This scene consists of hundreds of stairs with a height of 17 cm and a width of 25 cm. The Unitree Aliengo robot is equipped with policies that need to be tested, and the metric is the number of stairs the robot can ascend without stopping. The corresponding photos of this scene are shown in the right column of Fig. 6(a).",
+          "reference": false,
+          "source_image": "figs/p015-005-source.png",
+          "zh": "• 长距离楼梯：该场景由数百级高度为 17 cm、宽度为 25 cm 的台阶组成。使用 Unitree Aliengo 机器人搭载待测策略进行测试，评估指标为机器人连续不间断攀爬的台阶数量。该场景对应的照片展示在图 6(a) 的右列。"
+        },
+        {
+          "id": "p15-b6",
+          "kind": "section-header",
+          "bbox": [
+            107,
+            273,
+            179,
+            281
+          ],
+          "en": "Unseen terrains:",
+          "reference": false,
+          "source_image": "figs/p015-006-source.png",
+          "zh": "未见地形："
+        },
+        {
+          "id": "p15-b7",
+          "kind": "text",
+          "bbox": [
+            107,
+            284,
+            505,
+            316
+          ],
+          "en": "• Compositional terrain: This scene alternates between gravel and stairs, as depicted in the upper picture of Fig. 6(b). The Unitree Aliengo robot is equipped with policies that need to be tested, and the metric is the success rate of going through three compositional alternations.",
+          "reference": false,
+          "source_image": "figs/p015-007-source.png",
+          "zh": "• 组合地形：如图 6(b) 上方图片所示，该场景在碎石路面与楼梯之间交替变换。Unitree Aliengo 机器人搭载待测策略，评估指标是通过三次交替组合地形的成功率。"
+        },
+        {
+          "id": "p15-b8",
+          "kind": "text",
+          "bbox": [
+            107,
+            317,
+            505,
+            348
+          ],
+          "en": "• Deformable slope: This scene makes a deformable slope created by two soft beds, as shown in the lower picture of Fig. 6(b). The Unitree A1 robot is used to test our policy, and the metric is the success rate of navigating through this slope.",
+          "reference": false,
+          "source_image": "figs/p015-008-source.png",
+          "zh": "• 可变形斜坡：如图 6(b) 下方图片所示，该场景是由两张软垫构成的可变形斜坡。使用 Unitree A1 机器人测试我们的策略，评估指标为通过该斜坡的成功率。"
+        },
+        {
+          "id": "p15-b9",
+          "kind": "section-header",
+          "bbox": [
+            107,
+            366,
+            184,
+            374
+          ],
+          "en": "Anti-disturbance:",
+          "reference": false,
+          "source_image": "figs/p015-009-source.png",
+          "zh": "抗扰动："
+        },
+        {
+          "id": "p15-b10",
+          "kind": "text",
+          "bbox": [
+            107,
+            377,
+            505,
+            420
+          ],
+          "en": "• Dragging obstacle: This task simulates the scenario where the robot’s leg is dragged by obstacles. A wooden box is attached to the robot’s back leg, preventing its movement. The metric for this task is the maximum weight the robot can handle. The Unitree A1 robot is used, and the illustration can be found in the top-left of Fig. 6(c).",
+          "reference": false,
+          "source_image": "figs/p015-010-source.png",
+          "zh": "• 拖拽障碍物：该任务模拟了机器人腿部被障碍物拖拽的情景。一个木箱系在机器人的后腿上以阻碍其运动。该任务的评估指标是机器人所能承受的最大重量。实验采用 Unitree A1 机器人，示意图见图 6(c) 的左上方。"
+        },
+        {
+          "id": "p15-b11",
+          "kind": "text",
+          "bbox": [
+            107,
+            421,
+            505,
+            464
+          ],
+          "en": "• Lateral hit: This task evaluates the robot’s push-recovery ability. The robot is subjected to a lateral force from a load swinging down from a height of 107 cm. The Unitree A1 robot is used in this task, and the metric is the maximum weight of the load that the robot can withstand after being hit. The illustration is shown in the top-right of Fig. 6(c).",
+          "reference": false,
+          "source_image": "figs/p015-011-source.png",
+          "zh": "• 侧向撞击：该任务评估机器人的抗推扰恢复能力（push-recovery）。重物从 107 cm 的高度摆落，对机器人施加侧向冲击力。该任务使用 Unitree A1 机器人，评估指标为受撞击后机器人所能承受的最大重物重量。示意图见图 6(c) 的右上角。"
+        },
+        {
+          "id": "p15-b12",
+          "kind": "text",
+          "bbox": [
+            107,
+            465,
+            505,
+            497
+          ],
+          "en": "• Payload: This task assesses the robot’s carrying capacity. The Unitree A1 robot is used, and the maximum weight that the robot can carry while walking is measured. The illustration can be found in the bottom-left of Fig. 6(c).",
+          "reference": false,
+          "source_image": "figs/p015-012-source.png",
+          "zh": "• 负载：该任务评估机器人的负重能力。采用 Unitree A1 机器人，测量其在行走时所能承载的最大重量。示意图见图 6(c) 的左下角。"
+        },
+        {
+          "id": "p15-b13",
+          "kind": "text",
+          "bbox": [
+            107,
+            498,
+            505,
+            541
+          ],
+          "en": "• Missing step: This task simulates the robot’s reaction when it misses steps and falls from a high platform. The platform’s height, as shown in the bottom-right of Fig. 6(c), is 42 cm. The Unitree Aliengo robot is used in this task, and the metric is the success rate of maintaining balance after descending.",
+          "reference": false,
+          "source_image": "figs/p015-013-source.png",
+          "zh": "• 踏空：该任务模拟机器人踩空并从高台跌落时的反应。如图 6(c) 右下角所示，平台高度为 42 cm。该任务使用 Unitree Aliengo 机器人，评估指标为从高处落下后保持平衡的成功率。"
+        },
+        {
+          "id": "p15-b14",
+          "kind": "picture",
+          "bbox": [
+            111,
+            568,
+            498,
+            693
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p015-014.png",
+          "labels": []
+        },
+        {
+          "id": "p15-b15",
+          "kind": "picture",
+          "bbox": [
+            156,
+            697,
+            452,
+            705
+          ],
+          "en": "(a) Stairs (b) Unseen terrains (c) Anti-disturbance",
+          "reference": false,
+          "image": "figs/p015-015.png",
+          "labels": []
+        },
+        {
+          "id": "p15-b16",
+          "kind": "caption",
+          "bbox": [
+            114,
+            720,
+            498,
+            730
+          ],
+          "en": "Figure 6: Snapshots of our real-world scene benchmarks for quantitative analysis in Section 4.1.",
+          "reference": false,
+          "source_image": "figs/p015-016-source.png",
+          "zh": "图 6：第 4.1 节中用于定量分析的真实世界场景基准快照。"
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "blocks": [
+        {
+          "id": "p16-b0",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            85,
+            283,
+            92
+          ],
+          "en": "B.2 SIMULATION BENCHMARK SETUPS",
+          "reference": false,
+          "source_image": "figs/p016-000-source.png",
+          "zh": "B.2 仿真基准设置"
+        },
+        {
+          "id": "p16-b1",
+          "kind": "text",
+          "bbox": [
+            107,
+            105,
+            505,
+            170
+          ],
+          "en": "We consider tracking tasks with 3 different ranges of commands for each type of terrain. The tracking error on slopes and rough slopes are tested in the range [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] rad/s and [ − 2 . 0 , 2 . 0] m/s × [ − 1 . 0 , 1 . 0] m/s × [ − 2 . 0 , 2 . 0] rads/s. All other tests are conducted within the range [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] rad/s. These ranges correspond to linear velocity in the forward direction, lateral directions, and angular velocity about the vertical axis, respectively.",
+          "reference": false,
+          "source_image": "figs/p016-001-source.png",
+          "zh": "针对每种地形，我们考虑具有 3 种不同指令范围的跟踪任务。斜坡和崎岖斜坡上的跟踪误差在 [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] rad/s 以及 [ − 2 . 0 , 2 . 0] m/s × [ − 1 . 0 , 1 . 0] m/s × [ − 2 . 0 , 2 . 0] rads/s 范围内进行测试。所有其他测试均在 [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] rad/s 范围内进行。这些范围分别对应前向线速度、横向线速度以及绕竖直轴的角速度。"
+        },
+        {
+          "id": "p16-b2",
+          "kind": "text",
+          "bbox": [
+            107,
+            177,
+            505,
+            232
+          ],
+          "en": "When testing the linear velocity tracking error, the angular velocity target is set to 0. For the angular velocity tracking error tests, the linear velocity target is 0. The ’combined velocity’ tests are conducted without setting either velocity component to 0. We uniformly sample test commands within these ranges. The environmental conditions are set to levelterrain = 1 , 2 , 3 , 4, with an equal distribution of 25% for each, as explained in Appendix A.3.",
+          "reference": false,
+          "source_image": "figs/p016-002-source.png",
+          "zh": "在测试线速度跟踪误差时，角速度目标设为 0。对于角速度跟踪误差测试，线速度目标为 0。“组合速度”（combined velocity）测试则在不将任何一个速度分量设为 0 的情况下进行。我们在这些范围内均匀采样测试指令。正如附录 A.3 中所说明的，环境条件设置为 levelterrain = 1 , 2 , 3 , 4，各自所占比例均匀分布为 25%。"
+        },
+        {
+          "id": "p16-b3",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            247,
+            305,
+            255
+          ],
+          "en": "B.3 ABLATION ON NUMBER OF PROTOTYPES",
+          "reference": false,
+          "source_image": "figs/p016-003-source.png",
+          "zh": "B.3 原型数量消融实验"
+        },
+        {
+          "id": "p16-b4",
+          "kind": "text",
+          "bbox": [
+            107,
+            267,
+            505,
+            288
+          ],
+          "en": "We conducted ablation studies on the number of prototypes in our research. By default, we set the number of prototypes to 16, which corresponds to the square of terrain types.",
+          "reference": false,
+          "source_image": "figs/p016-004-source.png",
+          "zh": "我们在研究中对原型数量进行了消融实验。默认情况下，我们将原型数量设为 16，这对应于地形类型数量的平方。"
+        },
+        {
+          "id": "p16-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            295,
+            505,
+            327
+          ],
+          "en": "The training curves for different numbers of prototypes are shown in Fig. 7. It can be observed that the performance of our method steadily improves as the number of prototypes increases until it reaches 64. After this, the performance starts to decline.",
+          "reference": false,
+          "source_image": "figs/p016-005-source.png",
+          "zh": "不同原型数量下的训练曲线如图 7 所示。可以看出，随着原型数量的增加，我们方法的性能稳步提升，直到达到 64。此后，性能开始出现下降。"
+        },
+        {
+          "id": "p16-b6",
+          "kind": "text",
+          "bbox": [
+            107,
+            334,
+            505,
+            388
+          ],
+          "en": "This finding suggests that the representation of environmental dynamics does not require dense representation like pure regression, but overly sparse representation is also inadequate. Additionally, a high number of prototypes accelerates training during the initial stages but compromises final performance. Conversely, a low number of prototypes may lead to slower initial training but ultimately achieves superior final performance.",
+          "reference": false,
+          "source_image": "figs/p016-006-source.png",
+          "zh": "这一发现表明，环境动力学的表征并不需要像纯回归那样采用密集表征，但过于稀疏的表征同样是不够的。此外，较多的原型数量在训练初期能够加速训练，但会损害最终性能。相反，较少的原型数量可能会导致初期训练较慢，但最终能取得更为优越的最终性能。"
+        },
+        {
+          "id": "p16-b7",
+          "kind": "text",
+          "bbox": [
+            107,
+            395,
+            505,
+            425
+          ],
+          "en": "Thus, determining an appropriate number of prototypes is vital for striking a balance between rapid training speed and optimal final performance. This matter warrants further investigation in future studies.",
+          "reference": false,
+          "source_image": "figs/p016-007-source.png",
+          "zh": "因此，确定合适数量的原型对于在较快的训练速度与最优的最终性能之间取得平衡至关重要。这一问题值得在未来的研究中进一步探讨。"
+        },
+        {
+          "id": "p16-b8",
+          "kind": "picture",
+          "bbox": [
+            108,
+            437,
+            504,
+            658
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p016-008.png",
+          "labels": []
+        },
+        {
+          "id": "p16-b9",
+          "kind": "caption",
+          "bbox": [
+            155,
+            682,
+            457,
+            692
+          ],
+          "en": "Figure 7: Normalized Linear Tracking Score over the number of Prototypes",
+          "reference": false,
+          "source_image": "figs/p016-009-source.png",
+          "zh": "图 7：归一化线速度跟踪得分随原型数量的变化"
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "blocks": [
+        {
+          "id": "p17-b0",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            85,
+            240,
+            92
+          ],
+          "en": "B.4 OUTDOOR EXPERIMENTS",
+          "reference": false,
+          "source_image": "figs/p017-000-source.png",
+          "zh": "B.4 室外实验"
+        },
+        {
+          "id": "p17-b1",
+          "kind": "text",
+          "bbox": [
+            108,
+            105,
+            505,
+            137
+          ],
+          "en": "We further evaluated our policy in additional real-world scenes. Videos can be found at the following URL. Illustrations of the scenes that have appeared during our outdoor experiments are shown in Fig. 8.",
+          "reference": false,
+          "source_image": "figs/p017-001-source.png",
+          "zh": "我们还在更多真实世界场景中进一步评估了我们的策略。相关视频可在以下 URL 查看。图 8 展示了我们在室外实验中所测试场景的示意图。"
+        },
+        {
+          "id": "p17-b2",
+          "kind": "picture",
+          "bbox": [
+            108,
+            149,
+            504,
+            311
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p017-002.png",
+          "labels": []
+        },
+        {
+          "id": "p17-b3",
+          "kind": "caption",
+          "bbox": [
+            115,
+            335,
+            497,
+            345
+          ],
+          "en": "Figure 8: Snapshots of various outdoor scenes for the agility evaluation of our quadruped robot.",
+          "reference": false,
+          "source_image": "figs/p017-003-source.png",
+          "zh": "图 8：用于四足机器人敏捷性评估的各类室外场景快照。"
+        }
+      ]
+    }
+  ],
+  "page_count": 17
+}

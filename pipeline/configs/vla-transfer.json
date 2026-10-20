@@ -1,0 +1,29 @@
+{
+  "id": "vla-transfer",
+  "sha256": "0a62dc36bbbfdea232ad45a0ab75c82e9cf535b55333ff22c02d5da1897ccac3",
+  "brand": "RT-2",
+  "zh_title": "RT-2：将网络知识迁移到机器人控制的视觉语言动作模型",
+  "category": "VLA · 迁移学习",
+  "pdf": "sources/vla-transfer.pdf",
+  "title": "RT-2：将网络知识迁移到机器人控制的视觉语言动作模型 · 中英对照",
+  "brand_sub": "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control",
+  "out": "site/vla-transfer",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "new_papers/Vision-Language-Action Models Transfer.pdf"
+  ],
+  "validation": {
+    "equations": {},
+    "equation_references": 0,
+    "paragraphs": 220
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 132,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

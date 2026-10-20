@@ -1,0 +1,44 @@
+{
+  "id": "zest",
+  "sha256": "398f5b6601c6273f9a2cf397607f292d7c47a7d16af4ae4a434580cea4b5b371",
+  "brand": "ZEST",
+  "zh_title": "ZEST：面向运动型机器人控制的零样本具身技能迁移",
+  "category": "技能迁移 · 机器人控制",
+  "pdf": "sources/zest.pdf",
+  "title": "ZEST：面向运动型机器人控制的零样本具身技能迁移 · 中英对照",
+  "brand_sub": "ZEST: Zero-shot Embodied Skill Transfer for Athletic Robot Control",
+  "out": "site/zest",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "papers/sim-to-real/ZEST.pdf"
+  ],
+  "validation": {
+    "equations": {
+      "1": "p11-b3",
+      "2": "p11-b5",
+      "3": "p17-b8",
+      "4": "p17-b8",
+      "5": "p17-b8",
+      "6": "p17-b14",
+      "7": "p17-b16",
+      "8": "p18-b2",
+      "9": "p18-b6",
+      "10": "p18-b11",
+      "11": "p18-b12",
+      "12": "p18-b17",
+      "13a": "p21-b6",
+      "13b": "p21-b7"
+    },
+    "equation_references": 4,
+    "paragraphs": 278
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 204,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

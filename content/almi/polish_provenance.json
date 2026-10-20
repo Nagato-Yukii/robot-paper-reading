@@ -1,0 +1,89 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 169,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "almi-001",
+      "conversation_id": "5312eeb1-9f00-48d7-a3dc-a1a790c45b4e",
+      "receipt_sha256": "58a9562700802c752524162b5fd26749342060c72bdfc6aa8de123beb38fc33d",
+      "usage": {
+        "input_tokens": 19825,
+        "output_tokens": 15359,
+        "thinking_tokens": 12140,
+        "cache_read_tokens": 0,
+        "total_tokens": 35184
+      },
+      "elapsed_seconds": 123.78
+    },
+    {
+      "job_id": "almi-002",
+      "conversation_id": "ee88f25e-ec16-4bf8-a4e7-986653fc6c2e",
+      "receipt_sha256": "b061fa079aade07e28667cd6d007b384c4b368f9615351d5067ffa2512886be8",
+      "usage": {
+        "input_tokens": 54186,
+        "output_tokens": 15328,
+        "thinking_tokens": 8308,
+        "cache_read_tokens": 0,
+        "total_tokens": 69514
+      },
+      "elapsed_seconds": 114.8
+    },
+    {
+      "job_id": "almi-003",
+      "conversation_id": "154bbade-9fbd-413a-b1ff-63ed8da332fa",
+      "receipt_sha256": "86cced3e0960909ba7dcd6d4436e6ff79de35f0e04e2f9fac1027dd54f18bd60",
+      "usage": {
+        "input_tokens": 20206,
+        "output_tokens": 35577,
+        "thinking_tokens": 32170,
+        "cache_read_tokens": 0,
+        "total_tokens": 55783
+      },
+      "elapsed_seconds": 216.57
+    },
+    {
+      "job_id": "almi-004",
+      "conversation_id": "4ebb3f9b-b711-48a5-afd3-07c68a09c6b8",
+      "receipt_sha256": "06e5af57e4ae8a1a8469a2999f57ea3c5dd764413c8c43a95b1de0802ebfeb5c",
+      "usage": {
+        "input_tokens": 54978,
+        "output_tokens": 34620,
+        "thinking_tokens": 30536,
+        "cache_read_tokens": 20490,
+        "total_tokens": 89598
+      },
+      "elapsed_seconds": 241.4
+    },
+    {
+      "job_id": "almi-005",
+      "conversation_id": "bfa9d115-f43f-46e7-a880-19d908fde71a",
+      "receipt_sha256": "03a28b9f01700da3db8f11cfdd087f8e61bce44ac9eefc06cd036ea3803d43ca",
+      "usage": {
+        "input_tokens": 38837,
+        "output_tokens": 20849,
+        "thinking_tokens": 14077,
+        "cache_read_tokens": 21938,
+        "total_tokens": 59686
+      },
+      "elapsed_seconds": 146.47
+    },
+    {
+      "job_id": "almi-006",
+      "conversation_id": "60895f09-fb11-4eed-97f7-d934bdbcd172",
+      "receipt_sha256": "7b18a5ccc8469c1e3a04b42bb0e5dfec77dab1609a63ff6812c2a3fb62f149f2",
+      "usage": {
+        "input_tokens": 13954,
+        "output_tokens": 5644,
+        "thinking_tokens": 5313,
+        "cache_read_tokens": 0,
+        "total_tokens": 19598
+      },
+      "elapsed_seconds": 55.2
+    }
+  ]
+}

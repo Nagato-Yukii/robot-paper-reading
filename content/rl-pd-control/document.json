@@ -1,0 +1,1002 @@
+{
+  "title": "机器人强化学习与关节PD控制 - 知乎",
+  "pages": [
+    {
+      "number": 1,
+      "blocks": [
+        {
+          "id": "p1-b0",
+          "kind": "section-header",
+          "bbox": [
+            43,
+            57,
+            229,
+            71
+          ],
+          "en": "机器人强化学习与关节PD控制",
+          "reference": false,
+          "source_image": "figs/p001-000-source.png",
+          "zh": "机器人强化学习与关节PD控制"
+        },
+        {
+          "id": "p1-b2",
+          "kind": "section-header",
+          "bbox": [
+            73,
+            84,
+            92,
+            93
+          ],
+          "en": "白告",
+          "reference": false,
+          "source_image": "figs/p001-002-source.png",
+          "zh": "白告"
+        },
+        {
+          "id": "p1-b1",
+          "kind": "picture",
+          "bbox": [
+            43,
+            85,
+            66,
+            108
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p001-001.png",
+          "labels": []
+        },
+        {
+          "id": "p1-b3",
+          "kind": "text",
+          "bbox": [
+            73,
+            97,
+            309,
+            105
+          ],
+          "en": "世之奇伟瑰怪非常之观常在险远而人之所罕至焉故非有志者不能至",
+          "reference": false,
+          "source_image": "figs/p001-003-source.png",
+          "zh": "世之奇伟瑰怪非常之观常在险远而人之所罕至焉故非有志者不能至"
+        },
+        {
+          "id": "p1-b4",
+          "kind": "section-header",
+          "bbox": [
+            62,
+            121,
+            126,
+            130
+          ],
+          "en": "收录于 · 具身智能",
+          "reference": false,
+          "source_image": "figs/p001-004-source.png",
+          "zh": "收录于 · 具身智能"
+        },
+        {
+          "id": "p1-b5",
+          "kind": "text",
+          "bbox": [
+            43,
+            152,
+            549,
+            198
+          ],
+          "en": "基于强化学习（RL）控制的足式机器人的关节驱动器，通常工作在一种“非标准”模式——PD 模式 。它 既不属于 DS402 协议里定义的 CSP（Cyclic Synchronous Position, 周期同步位置），也不是 CST（Cyclic Synchronous Torque，周期同步力矩），却在强化学习仿真框架中成了默认的“底层语言”。",
+          "reference": false,
+          "source_image": "figs/p001-005-source.png",
+          "zh": "基于强化学习（RL）控制的足式机器人的关节驱动器，通常工作在一种“非标准”模式——PD 模式 。它 既不属于 DS402 协议里定义的 CSP（Cyclic Synchronous Position, 周期同步位置），也不是 CST（Cyclic Synchronous Torque，周期同步力矩），却在强化学习仿真框架中成了默认的“底层语言”。"
+        },
+        {
+          "id": "p1-b6",
+          "kind": "text",
+          "bbox": [
+            43,
+            219,
+            379,
+            230
+          ],
+          "en": "PD模式类似关节的阻抗控制，也有人称为MIT模式 或者PVT模式。",
+          "reference": false,
+          "source_image": "figs/p001-006-source.png",
+          "zh": "PD模式类似关节的阻抗控制，也有人称为MIT模式 或者PVT模式。"
+        },
+        {
+          "id": "p1-b7",
+          "kind": "text",
+          "bbox": [
+            43,
+            251,
+            163,
+            263
+          ],
+          "en": "下面分三条线展开：",
+          "reference": false,
+          "source_image": "figs/p001-007-source.png",
+          "zh": "下面分三条线展开："
+        },
+        {
+          "id": "p1-b8",
+          "kind": "list-item",
+          "bbox": [
+            43,
+            283,
+            287,
+            295
+          ],
+          "en": "1. PD 模式到底在算什么——公式背后的物理直觉；",
+          "reference": false,
+          "source_image": "figs/p001-008-source.png",
+          "zh": "1. PD 模式到底在算什么——公式背后的物理直觉；"
+        },
+        {
+          "id": "p1-b9",
+          "kind": "list-item",
+          "bbox": [
+            43,
+            301,
+            429,
+            312
+          ],
+          "en": "2. 它为何成为 RL 的“御用接口”——把“硬实时”留给自己，把“任务决策”留给策略；",
+          "reference": false,
+          "source_image": "figs/p001-009-source.png",
+          "zh": "2. 它为何成为 RL 的“御用接口”——把“硬实时”留给自己，把“任务决策”留给策略；"
+        },
+        {
+          "id": "p1-b10",
+          "kind": "list-item",
+          "bbox": [
+            43,
+            318,
+            357,
+            329
+          ],
+          "en": "3. 增益怎么挑——从仿真调到真机，让机器人既站得稳又跑得快。",
+          "reference": false,
+          "source_image": "figs/p001-010-source.png",
+          "zh": "3. 增益怎么挑——从仿真调到真机，让机器人既站得稳又跑得快。"
+        },
+        {
+          "id": "p1-b11",
+          "kind": "section-header",
+          "bbox": [
+            43,
+            366,
+            158,
+            379
+          ],
+          "en": "1. 电机PD控制 模式",
+          "reference": false,
+          "source_image": "figs/p001-011-source.png",
+          "zh": "1. 电机PD控制 模式"
+        },
+        {
+          "id": "p1-b12",
+          "kind": "text",
+          "bbox": [
+            43,
+            400,
+            425,
+            411
+          ],
+          "en": "考虑电机的旋转运动方程，电机的转子惯量 x 角加速度 = 扭矩 - 摩擦 - 阻尼",
+          "reference": false,
+          "source_image": "figs/p001-012-source.png",
+          "zh": "考虑电机的旋转运动方程，电机的转子惯量 x 角加速度 = 扭矩 - 摩擦 - 阻尼"
+        },
+        {
+          "id": "p1-b13",
+          "kind": "text",
+          "bbox": [
+            43,
+            467,
+            498,
+            479
+          ],
+          "en": "式(1)中，I为电机的转子惯量，为电机产生的扭矩， 为摩擦， 为阻尼 (viscous damping)",
+          "reference": false,
+          "source_image": "figs/p001-013-source.png",
+          "zh": "式(1)中，I为电机的转子惯量，为电机产生的扭矩， 为摩擦， 为阻尼 (viscous damping)"
+        },
+        {
+          "id": "p1-b14",
+          "kind": "picture",
+          "bbox": [
+            121,
+            529,
+            475,
+            695
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p001-014.png",
+          "labels": []
+        },
+        {
+          "id": "p1-b15",
+          "kind": "text",
+          "bbox": [
+            43,
+            744,
+            295,
+            755
+          ],
+          "en": "在强化学习最常用的PD控制模式下，力矩指令为",
+          "reference": false,
+          "source_image": "figs/p001-015-source.png",
+          "zh": "在强化学习最常用的PD控制模式下，力矩指令为"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "blocks": [
+        {
+          "id": "p2-b0",
+          "kind": "text",
+          "bbox": [
+            43,
+            91,
+            142,
+            103
+          ],
+          "en": "带入式(1)整理得",
+          "reference": false,
+          "source_image": "figs/p002-000-source.png",
+          "zh": "带入式(1)整理得"
+        },
+        {
+          "id": "p2-b1",
+          "kind": "text",
+          "bbox": [
+            43,
+            156,
+            213,
+            168
+          ],
+          "en": "对式(3)两侧取拉普拉斯变换 得",
+          "reference": false,
+          "source_image": "figs/p002-001-source.png",
+          "zh": "对式(3)两侧取拉普拉斯变换 得"
+        },
+        {
+          "id": "p2-b2",
+          "kind": "text",
+          "bbox": [
+            43,
+            222,
+            316,
+            234
+          ],
+          "en": "整理可得从位置指令 到位置反馈 的传递函数为",
+          "reference": false,
+          "source_image": "figs/p002-002-source.png",
+          "zh": "整理可得从位置指令 到位置反馈 的传递函数为"
+        },
+        {
+          "id": "p2-b3",
+          "kind": "picture",
+          "bbox": [
+            193,
+            252,
+            406,
+            288
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p002-003.png",
+          "labels": []
+        },
+        {
+          "id": "p2-b4",
+          "kind": "text",
+          "bbox": [
+            43,
+            305,
+            195,
+            316
+          ],
+          "en": "标准二阶系统的传递函数为",
+          "reference": false,
+          "source_image": "figs/p002-004-source.png",
+          "zh": "标准二阶系统的传递函数为"
+        },
+        {
+          "id": "p2-b5",
+          "kind": "picture",
+          "bbox": [
+            193,
+            335,
+            404,
+            370
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p002-005.png",
+          "labels": []
+        },
+        {
+          "id": "p2-b6",
+          "kind": "text",
+          "bbox": [
+            43,
+            387,
+            110,
+            399
+          ],
+          "en": "式(6)中，",
+          "reference": false,
+          "source_image": "figs/p002-006-source.png",
+          "zh": "式(6)中，"
+        },
+        {
+          "id": "p2-b7",
+          "kind": "list-item",
+          "bbox": [
+            43,
+            421,
+            512,
+            452
+          ],
+          "en": "- 为自然频率 (natural frequency)，决定了系统无阻尼时的振荡快慢（rad/s）， 决定“上升速度” - • 为 阻尼比 (damping ratio)，为与临界阻尼的比值， 决定“振荡有无和衰减快慢”",
+          "reference": false,
+          "source_image": "figs/p002-007-source.png",
+          "zh": "- 为自然频率 (natural frequency)，决定了系统无阻尼时的振荡快慢（rad/s）， 决定“上升速度” - • 为 阻尼比 (damping ratio)，为与临界阻尼的比值， 决定“振荡有无和衰减快慢”"
+        },
+        {
+          "id": "p2-b8",
+          "kind": "text",
+          "bbox": [
+            43,
+            473,
+            176,
+            484
+          ],
+          "en": "对比式(5)和式(6)，可得",
+          "reference": false,
+          "source_image": "figs/p002-008-source.png",
+          "zh": "对比式(5)和式(6)，可得"
+        },
+        {
+          "id": "p2-b9",
+          "kind": "picture",
+          "bbox": [
+            54,
+            503,
+            150,
+            539
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p002-009.png",
+          "labels": []
+        },
+        {
+          "id": "p2-b10",
+          "kind": "list-item",
+          "bbox": [
+            43,
+            509,
+            54,
+            514
+          ],
+          "en": "-",
+          "reference": false,
+          "source_image": "figs/p002-010-source.png",
+          "zh": "-"
+        },
+        {
+          "id": "p2-b11",
+          "kind": "list-item",
+          "bbox": [
+            43,
+            527,
+            54,
+            533
+          ],
+          "en": "-",
+          "reference": false,
+          "source_image": "figs/p002-011-source.png",
+          "zh": "-"
+        },
+        {
+          "id": "p2-b12",
+          "kind": "text",
+          "bbox": [
+            43,
+            557,
+            446,
+            569
+          ],
+          "en": "这就是为什么在Beyond Mimic [1]中的把PD参数和自然频率与阻尼比联系起来。",
+          "reference": false,
+          "source_image": "figs/p002-012-source.png",
+          "zh": "这就是为什么在Beyond Mimic [1]中的把PD参数和自然频率与阻尼比联系起来。"
+        },
+        {
+          "id": "p2-b13",
+          "kind": "picture",
+          "bbox": [
+            117,
+            587,
+            480,
+            755
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p002-013.png",
+          "labels": []
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "blocks": [
+        {
+          "id": "p3-b0",
+          "kind": "text",
+          "bbox": [
+            43,
+            58,
+            356,
+            70
+          ],
+          "en": "ETH [2] 在上面建模的基础上又进了一步，考虑了系统的时延",
+          "reference": false,
+          "source_image": "figs/p003-000-source.png",
+          "zh": "ETH [2] 在上面建模的基础上又进了一步，考虑了系统的时延"
+        },
+        {
+          "id": "p3-b1",
+          "kind": "picture",
+          "bbox": [
+            127,
+            120,
+            470,
+            310
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p003-001.png",
+          "labels": []
+        },
+        {
+          "id": "p3-b2",
+          "kind": "text",
+          "bbox": [
+            43,
+            328,
+            435,
+            339
+          ],
+          "en": "Towards bridging the gap: Systematic sim-to-real transfer for diverse legged robots",
+          "reference": false,
+          "source_image": "figs/p003-002-source.png",
+          "zh": "Towards bridging the gap: Systematic sim-to-real transfer for diverse legged robots"
+        },
+        {
+          "id": "p3-b3",
+          "kind": "text",
+          "bbox": [
+            43,
+            359,
+            287,
+            370
+          ],
+          "en": "这里不过多细讲，后面3.2会介绍PD参数选择。",
+          "reference": false,
+          "source_image": "figs/p003-003-source.png",
+          "zh": "这里不过多细讲，后面3.2会介绍PD参数选择。"
+        },
+        {
+          "id": "p3-b4",
+          "kind": "section-header",
+          "bbox": [
+            43,
+            407,
+            243,
+            420
+          ],
+          "en": "2. 为什么强化学习中电机用PD模式",
+          "reference": false,
+          "source_image": "figs/p003-004-source.png",
+          "zh": "2. 为什么强化学习中电机用PD模式"
+        },
+        {
+          "id": "p3-b5",
+          "kind": "text",
+          "bbox": [
+            43,
+            441,
+            509,
+            470
+          ],
+          "en": "在机器人强化学习中，关节控制通常不直接输出扭矩，而是采用 位置式PD控制 （ProportionalDerivative Control）作为仿真中关节的底层驱动。",
+          "reference": false,
+          "source_image": "figs/p003-005-source.png",
+          "zh": "在机器人强化学习中，关节控制通常不直接输出扭矩，而是采用 位置式PD控制 （ProportionalDerivative Control）作为仿真中关节的底层驱动。"
+        },
+        {
+          "id": "p3-b6",
+          "kind": "text",
+          "bbox": [
+            43,
+            491,
+            550,
+            520
+          ],
+          "en": "在经典的强化学习框架leggedgym 中，策略网络（Policy）通常输出的action是 目标关节位置 （相对于 默认位置的增量），然后由底层的PD控制器将其转换为关节的扭矩指令下发给仿真器。",
+          "reference": false,
+          "source_image": "figs/p003-006-source.png",
+          "zh": "在经典的强化学习框架leggedgym 中，策略网络（Policy）通常输出的action是 目标关节位置 （相对于 默认位置的增量），然后由底层的PD控制器将其转换为关节的扭矩指令下发给仿真器。"
+        },
+        {
+          "id": "p3-b7",
+          "kind": "text",
+          "bbox": [
+            43,
+            541,
+            187,
+            552
+          ],
+          "en": "使用PD控制有几个优点：",
+          "reference": false,
+          "source_image": "figs/p003-007-source.png",
+          "zh": "使用PD控制有几个优点："
+        },
+        {
+          "id": "p3-b8",
+          "kind": "text",
+          "bbox": [
+            43,
+            573,
+            544,
+            602
+          ],
+          "en": "• 降低训练难度： 相比于直接输出扭矩，基于位置偏移的策略在训练初期更趋向于维持在“站立”或默认 姿态，而扭矩策略在初期往往会产生剧烈且混沌的动作导致机器人摔倒，增加了探索难度",
+          "reference": false,
+          "source_image": "figs/p003-008-source.png",
+          "zh": "• 降低训练难度： 相比于直接输出扭矩，基于位置偏移的策略在训练初期更趋向于维持在“站立”或默认 姿态，而扭矩策略在初期往往会产生剧烈且混沌的动作导致机器人摔倒，增加了探索难度"
+        },
+        {
+          "id": "p3-b9",
+          "kind": "text",
+          "bbox": [
+            56,
+            624,
+            541,
+            721
+          ],
+          "en": "Our policy outputs low-impedance joint position commands, which we find to be very effective in many tasks. Peng et al. [57] found that such a controller can outperform a torque controller in both training speed and final control performance. Even though there is always a bijective map between them, the two action parameterizations have different smoothness and thus different training difficulty. In addition, a position policy has an advantage in training since it starts as a standing controller whereas a torque controller initially creates many trajectories that result in falling.",
+          "reference": false,
+          "source_image": "figs/p003-009-source.png",
+          "zh": "Our policy outputs low-impedance joint position commands, which we find to be very effective in many tasks. Peng et al. [57] found that such a controller can outperform a torque controller in both training speed and final control performance. Even though there is always a bijective map between them, the two action parameterizations have different smoothness and thus different training difficulty. In addition, a position policy has an advantage in training since it starts as a standing controller whereas a torque controller initially creates many trajectories that result in falling."
+        },
+        {
+          "id": "p3-b10",
+          "kind": "text",
+          "bbox": [
+            43,
+            741,
+            553,
+            770
+          ],
+          "en": "• 提供柔顺性： 采用低阻抗（Low-impedance）的PD控制可以让机器人具备物理柔性，能够吸收足端与 地面的撞击力，并在与环境交互时更加安全 。",
+          "reference": false,
+          "source_image": "figs/p003-010-source.png",
+          "zh": "• 提供柔顺性： 采用低阻抗（Low-impedance）的PD控制可以让机器人具备物理柔性，能够吸收足端与 地面的撞击力，并在与环境交互时更加安全 。"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "blocks": [
+        {
+          "id": "p4-b0",
+          "kind": "section-header",
+          "bbox": [
+            43,
+            58,
+            262,
+            72
+          ],
+          "en": "2.1. 为什么不直接计算关节力矩指令？",
+          "reference": false,
+          "source_image": "figs/p004-000-source.png",
+          "zh": "2.1. 为什么不直接计算关节力矩指令？"
+        },
+        {
+          "id": "p4-b1",
+          "kind": "text",
+          "bbox": [
+            43,
+            93,
+            551,
+            138
+          ],
+          "en": "从控制频率考虑，RL之前基于模型的足式机器人的控制基本上都是计算关节力矩的，直接给关节高频下 发力矩指令（驱动器是CST模式的），所以之前不少足式机器人的WBC (Whole Body Control)控制器都跑在 1K Hz。",
+          "reference": false,
+          "source_image": "figs/p004-001-source.png",
+          "zh": "从控制频率考虑，RL之前基于模型的足式机器人的控制基本上都是计算关节力矩的，直接给关节高频下 发力矩指令（驱动器是CST模式的），所以之前不少足式机器人的WBC (Whole Body Control)控制器都跑在 1K Hz。"
+        },
+        {
+          "id": "p4-b2",
+          "kind": "text",
+          "bbox": [
+            43,
+            159,
+            546,
+            205
+          ],
+          "en": "而RL策略网络通常 50 Hz 左右推理更新一次，而 PD 在仿真里一般跑到200Hz；在硬件上驱动器内部会 进行更高频的PD计算。把高频跟踪任务交给关节的PD控制器 后，RL 看到的近似是一个50Hz的“准静态”系 统，不需要在 50 Hz 的采样间隔里操心动态误差，学习难度下降。",
+          "reference": false,
+          "source_image": "figs/p004-002-source.png",
+          "zh": "而RL策略网络通常 50 Hz 左右推理更新一次，而 PD 在仿真里一般跑到200Hz；在硬件上驱动器内部会 进行更高频的PD计算。把高频跟踪任务交给关节的PD控制器 后，RL 看到的近似是一个50Hz的“准静态”系 统，不需要在 50 Hz 的采样间隔里操心动态误差，学习难度下降。"
+        },
+        {
+          "id": "p4-b3",
+          "kind": "text",
+          "bbox": [
+            43,
+            226,
+            552,
+            290
+          ],
+          "en": "从sim2real角度考虑，真实关节的背隙、摩擦、阻尼这些参数很难精确建模，但它们对“扭矩→位置”映 射影响极大。让 RL 策略只生成“位置”，实物机器人同样用驱动器的 PD控制 去跟踪，相当于把仿真和真实系 统都放在同一控制接口下，让关节的PD控制器去处理这些 gap；如果 RL 直接输出扭矩，实物一旦模型失配 就容易瞬间失控。",
+          "reference": false,
+          "source_image": "figs/p004-003-source.png",
+          "zh": "从sim2real角度考虑，真实关节的背隙、摩擦、阻尼这些参数很难精确建模，但它们对“扭矩→位置”映 射影响极大。让 RL 策略只生成“位置”，实物机器人同样用驱动器的 PD控制 去跟踪，相当于把仿真和真实系 统都放在同一控制接口下，让关节的PD控制器去处理这些 gap；如果 RL 直接输出扭矩，实物一旦模型失配 就容易瞬间失控。"
+        },
+        {
+          "id": "p4-b4",
+          "kind": "text",
+          "bbox": [
+            43,
+            311,
+            543,
+            339
+          ],
+          "en": "再者从实机调试安全角度考虑，PD模式控位置比较安全，参数调不好机器人可能跟得慢或者抖；而如 果是CST模式的话，机器人可能要么不动或者一下起飞。",
+          "reference": false,
+          "source_image": "figs/p004-004-source.png",
+          "zh": "再者从实机调试安全角度考虑，PD模式控位置比较安全，参数调不好机器人可能跟得慢或者抖；而如 果是CST模式的话，机器人可能要么不动或者一下起飞。"
+        },
+        {
+          "id": "p4-b5",
+          "kind": "section-header",
+          "bbox": [
+            43,
+            375,
+            150,
+            389
+          ],
+          "en": "2.2. PD控制的本质",
+          "reference": false,
+          "source_image": "figs/p004-005-source.png",
+          "zh": "2.2. PD控制的本质"
+        },
+        {
+          "id": "p4-b6",
+          "kind": "text",
+          "bbox": [
+            43,
+            410,
+            469,
+            422
+          ],
+          "en": "ETH的文章 [3] 中提到RL策略通过训练预见到误差会发生，并主动利用误差实现目标。",
+          "reference": false,
+          "source_image": "figs/p004-006-source.png",
+          "zh": "ETH的文章 [3] 中提到RL策略通过训练预见到误差会发生，并主动利用误差实现目标。"
+        },
+        {
+          "id": "p4-b7",
+          "kind": "text",
+          "bbox": [
+            56,
+            444,
+            552,
+            558
+          ],
+          "en": "Note that the position policy we use here is different from position controllers commonly used in robotics. Position controllers are sometimes limited in performance when the position reference is time-indexed, which means that there is a higherlevel controller that assumes that the position plan will be followed at high accuracy. This is the main reason that torque controllers have become popular in legged robotics. However, as in many other RL literature, our control policy is state-indexed and does not suffer from the limitations of common PD controllers. The policy is trained to foresee that position errors will occur and even uses them to generate acceleration and interaction forces.",
+          "reference": false,
+          "source_image": "figs/p004-007-source.png",
+          "zh": "Note that the position policy we use here is different from position controllers commonly used in robotics. Position controllers are sometimes limited in performance when the position reference is time-indexed, which means that there is a higherlevel controller that assumes that the position plan will be followed at high accuracy. This is the main reason that torque controllers have become popular in legged robotics. However, as in many other RL literature, our control policy is state-indexed and does not suffer from the limitations of common PD controllers. The policy is trained to foresee that position errors will occur and even uses them to generate acceleration and interaction forces."
+        },
+        {
+          "id": "p4-b8",
+          "kind": "section-header",
+          "bbox": [
+            43,
+            578,
+            409,
+            590
+          ],
+          "en": "BeyondMimic中也提到期望位置更多地是作为产生期望力矩的中间变量。",
+          "reference": false,
+          "source_image": "figs/p004-008-source.png",
+          "zh": "BeyondMimic中也提到期望位置更多地是作为产生期望力矩的中间变量。"
+        },
+        {
+          "id": "p4-b9",
+          "kind": "text",
+          "bbox": [
+            56,
+            612,
+            552,
+            640
+          ],
+          "en": "At low gains, these setpoints are not intended as desired position targets; rather, they serve as intermediate variables to generate desired torques, and are intentionally not clipped by joint kinematic limits.",
+          "reference": false,
+          "source_image": "figs/p004-009-source.png",
+          "zh": "At low gains, these setpoints are not intended as desired position targets; rather, they serve as intermediate variables to generate desired torques, and are intentionally not clipped by joint kinematic limits."
+        },
+        {
+          "id": "p4-b10",
+          "kind": "text",
+          "bbox": [
+            43,
+            660,
+            524,
+            672
+          ],
+          "en": "RL中PD控制本质上是一种映射。策略利用位置误差作为中间量，通过PD关系映射产生期望力矩。",
+          "reference": false,
+          "source_image": "figs/p004-010-source.png",
+          "zh": "RL中PD控制本质上是一种映射。策略利用位置误差作为中间量，通过PD关系映射产生期望力矩。"
+        },
+        {
+          "id": "p4-b11",
+          "kind": "text",
+          "bbox": [
+            43,
+            693,
+            551,
+            721
+          ],
+          "en": "所以机器人在运动过程中，低阻抗追求关节柔顺性，机器人的关节位置指令和反馈可能差得很远，所以 在分析问题的时候看位置曲线很难分析出问题。",
+          "reference": false,
+          "source_image": "figs/p004-011-source.png",
+          "zh": "所以机器人在运动过程中，低阻抗追求关节柔顺性，机器人的关节位置指令和反馈可能差得很远，所以 在分析问题的时候看位置曲线很难分析出问题。"
+        },
+        {
+          "id": "p4-b12",
+          "kind": "section-header",
+          "bbox": [
+            43,
+            757,
+            152,
+            771
+          ],
+          "en": "3. 如何选择PD参数",
+          "reference": false,
+          "source_image": "figs/p004-012-source.png",
+          "zh": "3. 如何选择PD参数"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "blocks": [
+        {
+          "id": "p5-b0",
+          "kind": "section-header",
+          "bbox": [
+            43,
+            58,
+            259,
+            72
+          ],
+          "en": "3.1. 基于关节额定值与运动范围 (ETH)",
+          "reference": false,
+          "source_image": "figs/p005-000-source.png",
+          "zh": "3.1. 基于关节额定值与运动范围 (ETH)"
+        },
+        {
+          "id": "p5-b1",
+          "kind": "text",
+          "bbox": [
+            43,
+            93,
+            506,
+            105
+          ],
+          "en": "可以通过额定扭矩/运动范围来估算Kp，保证确保策略网络的输出范围与扭矩/位置需求相匹配",
+          "reference": false,
+          "source_image": "figs/p005-001-source.png",
+          "zh": "可以通过额定扭矩/运动范围来估算Kp，保证确保策略网络的输出范围与扭矩/位置需求相匹配"
+        },
+        {
+          "id": "p5-b2",
+          "kind": "section-header",
+          "bbox": [
+            43,
+            140,
+            242,
+            155
+          ],
+          "en": "3.2. 基于固有频率 (Beyond Mimic)",
+          "reference": false,
+          "source_image": "figs/p005-002-source.png",
+          "zh": "3.2. 基于固有频率 (Beyond Mimic)"
+        },
+        {
+          "id": "p5-b3",
+          "kind": "text",
+          "bbox": [
+            43,
+            175,
+            551,
+            203
+          ],
+          "en": "第1节中推到了关节PD控制的传递函数，说明了PD参数和机器人关节这个二阶机械系统的动态特性的关 系。",
+          "reference": false,
+          "source_image": "figs/p005-003-source.png",
+          "zh": "第1节中推到了关节PD控制的传递函数，说明了PD参数和机器人关节这个二阶机械系统的动态特性的关 系。"
+        },
+        {
+          "id": "p5-b4",
+          "kind": "text",
+          "bbox": [
+            43,
+            226,
+            210,
+            238
+          ],
+          "en": "Beyond Mimic中推荐自然频率",
+          "reference": false,
+          "source_image": "figs/p005-004-source.png",
+          "zh": "Beyond Mimic中推荐自然频率"
+        },
+        {
+          "id": "p5-b5",
+          "kind": "text",
+          "bbox": [
+            272,
+            226,
+            418,
+            238
+          ],
+          "en": "，阻尼比 来定Kp, Kd。",
+          "reference": false,
+          "source_image": "figs/p005-005-source.png",
+          "zh": "，阻尼比 来定Kp, Kd。"
+        },
+        {
+          "id": "p5-b6",
+          "kind": "text",
+          "bbox": [
+            43,
+            260,
+            551,
+            306
+          ],
+          "en": "，刚度与自然频率平方成正比。ωn 越高，关节越“硬”，抵抗位置误差的能力越强，选10不算太 大，保证关节柔顺；但是也不能太低，低了关节位置环带宽很低，在步频提高时容易跟不上，要摔倒了想要 快速卖不但跟不上",
+          "reference": false,
+          "source_image": "figs/p005-006-source.png",
+          "zh": "，刚度与自然频率平方成正比。ωn 越高，关节越“硬”，抵抗位置误差的能力越强，选10不算太 大，保证关节柔顺；但是也不能太低，低了关节位置环带宽很低，在步频提高时容易跟不上，要摔倒了想要 快速卖不但跟不上"
+        },
+        {
+          "id": "p5-b7",
+          "kind": "picture",
+          "bbox": [
+            43,
+            324,
+            553,
+            540
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p005-007.png",
+          "labels": []
+        },
+        {
+          "id": "p5-b8",
+          "kind": "text",
+          "bbox": [
+            43,
+            560,
+            547,
+            590
+          ],
+          "en": "，阻尼比 ，在计算PD参数时只考虑了电机转子惯量和减速比，没有考虑负 载的惯量，这在真实系统中会把阻尼比拉低，所以把Kd给大一点让整个系统阻尼更大一些，不容易振荡。",
+          "reference": false,
+          "source_image": "figs/p005-008-source.png",
+          "zh": "，阻尼比 ，在计算PD参数时只考虑了电机转子惯量和减速比，没有考虑负 载的惯量，这在真实系统中会把阻尼比拉低，所以把Kd给大一点让整个系统阻尼更大一些，不容易振荡。"
+        },
+        {
+          "id": "p5-b9",
+          "kind": "text",
+          "bbox": [
+            43,
+            684,
+            549,
+            729
+          ],
+          "en": "[1]. Liao, Qiayuan, Takara E. Truong, Xiaoyu Huang, Guy Tevet, Koushil Sreenath, and C. Karen Liu. “BeyondMimic: From Motion Tracking to Versatile Humanoid Control via Guided Diffusion.” arXiv:2508.08241. Preprint, arXiv, August 13, 2025. doi.org/10.48550/arXiv.....",
+          "reference": false,
+          "source_image": "figs/p005-009-source.png",
+          "zh": "[1]. Liao, Qiayuan, Takara E. Truong, Xiaoyu Huang, Guy Tevet, Koushil Sreenath, and C. Karen Liu. “BeyondMimic: From Motion Tracking to Versatile Humanoid Control via Guided Diffusion.” arXiv:2508.08241. Preprint, arXiv, August 13, 2025. doi.org/10.48550/arXiv....."
+        },
+        {
+          "id": "p5-b10",
+          "kind": "text",
+          "bbox": [
+            43,
+            751,
+            548,
+            779
+          ],
+          "en": "[2]. Bjelonic, Filip, Fabian Tischhauser, and Marco Hutter. “Towards Bridging the Gap: Systematic Sim-toReal Transfer for Diverse Legged Robots.” arXiv:2509.06342. Preprint, arXiv, September 8, 2025.",
+          "reference": false,
+          "source_image": "figs/p005-010-source.png",
+          "zh": "[2]. Bjelonic, Filip, Fabian Tischhauser, and Marco Hutter. “Towards Bridging the Gap: Systematic Sim-toReal Transfer for Diverse Legged Robots.” arXiv:2509.06342. Preprint, arXiv, September 8, 2025."
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "blocks": [
+        {
+          "id": "p6-b0",
+          "kind": "text",
+          "bbox": [
+            43,
+            59,
+            162,
+            70
+          ],
+          "en": "doi.org/10.48550/arXiv.....",
+          "reference": false,
+          "source_image": "figs/p006-000-source.png",
+          "zh": "doi.org/10.48550/arXiv....."
+        },
+        {
+          "id": "p6-b1",
+          "kind": "text",
+          "bbox": [
+            43,
+            92,
+            546,
+            120
+          ],
+          "en": "[3]. Hwangbo, Jemin, Joonho Lee, Alexey Dosovitskiy, et al. “Learning Agile and Dynamic Motor Skills for Legged Robots.” Science Robotics 4, no. 26 (2019): eaau5872. doi.org/10.1126/scirobo....",
+          "reference": false,
+          "source_image": "figs/p006-001-source.png",
+          "zh": "[3]. Hwangbo, Jemin, Joonho Lee, Alexey Dosovitskiy, et al. “Learning Agile and Dynamic Motor Skills for Legged Robots.” Science Robotics 4, no. 26 (2019): eaau5872. doi.org/10.1126/scirobo...."
+        },
+        {
+          "id": "p6-b2",
+          "kind": "text",
+          "bbox": [
+            43,
+            167,
+            158,
+            175
+          ],
+          "en": "编辑于 2026-05-26 14:59・北京",
+          "reference": false,
+          "source_image": "figs/p006-002-source.png",
+          "zh": "编辑于 2026-05-26 14:59・北京"
+        },
+        {
+          "id": "p6-b3",
+          "kind": "text",
+          "bbox": [
+            222,
+            225,
+            374,
+            234
+          ],
+          "en": "来源：知乎| 悠趣谷 · 零成本| 我要插件",
+          "reference": false,
+          "source_image": "figs/p006-003-source.png",
+          "zh": "来源：知乎| 悠趣谷 · 零成本| 我要插件"
+        }
+      ]
+    }
+  ],
+  "page_count": 6
+}

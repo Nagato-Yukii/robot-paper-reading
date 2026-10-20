@@ -1,0 +1,39 @@
+{
+  "id": "kungfubot2",
+  "sha256": "564abc6e58ed9b7b35a6952c85b6e561569c9a38aa23b4c734320d1b57168cd3",
+  "brand": "KungfuBot2",
+  "zh_title": "KungfuBot2：学习多样化的人形全身运动技能",
+  "category": "人形机器人 · 全身控制",
+  "pdf": "sources/kungfubot2.pdf",
+  "title": "KungfuBot2：学习多样化的人形全身运动技能 · 中英对照",
+  "brand_sub": "KungfuBot2: Learning Versatile Motion Skills for Humanoid Whole-Body Control",
+  "out": "site/kungfubot2",
+  "imported": true,
+  "source_language": "en",
+  "math": false,
+  "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
+  "source_aliases": [
+    "papers/humanoid-whole-body/KungFuBot2.pdf"
+  ],
+  "validation": {
+    "equations": {
+      "1": "p4-b2",
+      "2": "p4-b3",
+      "4": "p4-b6",
+      "5": "p4-b11",
+      "6": "p4-b13",
+      "7": "p4-b15",
+      "8": "p4-b18",
+      "9": "p5-b2",
+      "10": "p5-b4"
+    },
+    "equation_references": 0,
+    "paragraphs": 148
+  },
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "polished_paragraphs": 98,
+  "polished_at": "2026-10-19T14:17:11.267530+00:00"
+}

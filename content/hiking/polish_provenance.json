@@ -1,0 +1,63 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 144,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "hiking-001",
+      "conversation_id": "cff338e1-2297-40d1-be08-c6e1cba2603f",
+      "receipt_sha256": "9a193956c7a8d944feec6c4e9efb6c5887ba69924d69a54a1f7265a541d4620b",
+      "usage": {
+        "input_tokens": 32575,
+        "output_tokens": 15819,
+        "thinking_tokens": 8690,
+        "cache_read_tokens": 21370,
+        "total_tokens": 48394
+      },
+      "elapsed_seconds": 103.19
+    },
+    {
+      "job_id": "hiking-002",
+      "conversation_id": "6820f6b3-8b3f-452e-8f67-5ef99210e764",
+      "receipt_sha256": "324cfece93a447d5bbd714d47516dc2e4f9f48add951d102253fbb30ac7e428c",
+      "usage": {
+        "input_tokens": 32719,
+        "output_tokens": 16116,
+        "thinking_tokens": 10776,
+        "cache_read_tokens": 19802,
+        "total_tokens": 48835
+      },
+      "elapsed_seconds": 117.97
+    },
+    {
+      "job_id": "hiking-003",
+      "conversation_id": "d3d661d9-c31e-4f59-bdf9-9e00cfbe03ff",
+      "receipt_sha256": "de2d4f3b9535589fab7fbdd7d6064e128f3f8851e04d2697229c974e38568e52",
+      "usage": {
+        "input_tokens": 26577,
+        "output_tokens": 10518,
+        "thinking_tokens": 5777,
+        "cache_read_tokens": 19014,
+        "total_tokens": 37095
+      },
+      "elapsed_seconds": 87.81
+    },
+    {
+      "job_id": "hiking-004",
+      "conversation_id": "31e3917c-2175-461b-ac6e-b37e5dd16def",
+      "receipt_sha256": "b3593b21bc7df496220dd24fdf0314a27011c0c25bd71d4e7c2d1b07ffb1d049",
+      "usage": {
+        "input_tokens": 41826,
+        "output_tokens": 9926,
+        "thinking_tokens": 7597,
+        "cache_read_tokens": 0,
+        "total_tokens": 51752
+      },
+      "elapsed_seconds": 450.11
+    }
+  ]
+}

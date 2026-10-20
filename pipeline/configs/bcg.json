@@ -7,5 +7,7 @@
   "accent": "#0f766e",
   "accent_soft": "#e6f4f1",
   "math": true,
-  "out": "site/bcg"
+  "out": "site/bcg",
+  "translation_model": "DeepSeek-V4.1-Flash 1017 High",
+  "translation_credit": "译文：DeepSeek-V4.1-Flash 1017 High"
 }

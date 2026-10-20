@@ -28,6 +28,8 @@ header.top{position:sticky;top:0;z-index:50;background:rgba(250,248,243,.92);
 .brand{font-weight:700;letter-spacing:.02em;font-size:15px;white-space:nowrap}
 .brand small{font-weight:400;color:var(--faint);margin-left:8px;font-size:12px}
 .spacer{flex:1}
+.translation-credit{max-width:var(--w);margin:0 auto;padding:4px 22px 6px;text-align:right;font:12px/1.5 var(--sans);color:var(--accent)}
+.translation-credit:empty{display:none}
 .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
 .seg button{border:0;background:#fff;padding:5px 11px;font:inherit;font-size:12.5px;
   color:var(--soft);cursor:pointer}
@@ -169,6 +171,45 @@ html[data-mode="en"] h2,html[data-mode="en"] h3{font-family:var(--en)}
   figure.float{page-break-inside:avoid}
   a{color:inherit}
 }
+
+/* Imported PDF library: preserve the exact source math and cross references. */
+.brand{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.pair>.en,.pair>.zh{min-width:0;overflow-wrap:anywhere}
+h2 .en-h{font-family:var(--en);font-size:.7em;font-weight:400;color:var(--faint);margin-left:12px}
+.translation-notice{margin:20px 0;padding:14px 18px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;background:var(--accent-soft);font:13px/1.8 var(--sans);color:var(--soft)}
+.imported-heading{font-weight:700;background:var(--accent-soft);padding:15px 12px;margin-top:20px;border-radius:6px}
+.equation-index{padding:14px 18px;border:1px solid var(--line);border-radius:8px;font:13px/1.8 var(--sans);margin:18px 0;scroll-margin-top:90px}
+.equation-index summary{cursor:pointer}
+.equation-index>div{display:flex;gap:8px 16px;flex-wrap:wrap;padding-top:12px}
+.eq[id]{scroll-margin-top:90px}
+.eq-anchor{display:block;scroll-margin-top:100px}
+.eq-ref{font-weight:600;text-decoration:underline;text-underline-offset:3px;border-radius:3px}
+.eq-backlinks{display:flex;gap:8px 16px;flex-wrap:wrap;margin-top:10px;font:12px/1.8 var(--sans)}
+.eq-backref{padding:2px 8px;border:1px solid var(--line);border-radius:12px}
+.imported-formula img{width:auto;max-width:100%;max-height:none}
+.source-check,.source-page{font:12px/1.7 var(--sans);color:var(--faint);margin:12px 0}
+.source-check summary,.source-page summary{cursor:pointer}
+.source-check img,.source-page img{display:block;width:100%;height:auto;margin:12px 0;background:white;border:1px solid var(--line)}
+.source-page img{max-width:900px;margin-inline:auto}
+.bibliography-pair{font-size:12px}
+[id^="ref-"],.pair[id],figure[id]{scroll-margin-top:90px}
+:target{outline:2px solid var(--accent);outline-offset:5px}
+.eq-anchor:target{outline:0}
+figure:has(.eq-anchor:target){outline:2px solid var(--accent);outline-offset:8px}
+@media print{.source-check,.source-page,.eq-backlinks{display:none!important}.brand{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.pair>.en,.pair>.zh{min-width:0;overflow-wrap:anywhere}
+h2 .en-h{font-family:var(--en);font-size:.7em;font-weight:400;color:var(--faint);margin-left:12px}
+.translation-notice{font-size:10px}.imported-heading{break-after:avoid}}
+
+@media(max-width:720px){
+  .top-in{flex-wrap:wrap;gap:8px;padding:8px 12px}
+  .brand{flex:1 0 100%}
+  .brand small,.spacer{display:none}
+  .seg{flex-shrink:0}
+  .seg button{font-size:12px;padding:5px 8px;white-space:nowrap}
+  .tools{margin-left:auto;gap:6px}
+  .tools button{padding:5px 6px;white-space:nowrap}
+}
 </style>
 <link rel="stylesheet" href="vendor/katex/katex.min.css">
 </head>
@@ -189,6 +230,7 @@ html[data-mode="en"] h2,html[data-mode="en"] h3{font-family:var(--en)}
       <button id="totop" title="回到顶部">↑ 顶部</button>
     </div>
   </div>
+  <div class="translation-credit">译文：DeepSeek-V4.1-Flash 1017 High</div>
 </header>
 
 <div class="wrap">
@@ -488,7 +530,7 @@ html[data-mode="en"] h2,html[data-mode="en"] h3{font-family:var(--en)}
 <p class="zh">从被扰动的状态 x<sub>k</sub><sup>(i)</sup> 出发，各分支在<b>共享动作</b>下演化 H 个控制步，起初使用来自名义 rollout 的当前动作 a<sub>k</sub>。每次转移 f<sub>κ</sub> 在动作保持不变的情况下积分 S 个仿真子步，之后对分支状态取平均。因此即使 H = 1，也允许分支先演化 S 个子步，再由平均值提供奖励与下一个动作。它们的前向传播与聚合为</p>
 </div>
 
-<div class="eq">\[ x_{t+1}^{(i)}=f_\kappa\left(x_t^{(i)},a_t\right),\qquad \bar{x}_{t+1}=\mathcal{A}\left(x_{t+1}^{(1)},\dots,x_{t+1}^{(B)}\right),\qquad k\le t \lt k+H \tag{1} \]</div>
+<div class="eq" id="eq-1">\[ x_{t+1}^{(i)}=f_\kappa\left(x_t^{(i)},a_t\right),\qquad \bar{x}_{t+1}=\mathcal{A}\left(x_{t+1}^{(1)},\dots,x_{t+1}^{(B)}\right),\qquad k\le t \lt k+H \tag{1} \]</div>
 
 <div class="pair">
 <p class="en">where \(\mathcal{A}\) aggregates the branch states into a representative state x̄<sub>t+1</sub>, using arithmetic means for positions and velocities. At subsequent control boundaries (t &gt; k), the policy with parameters θ computes a<sub>t</sub> = π<sub>θ</sub>(x̄<sub>t</sub>), and the same action is applied to every branch. The averaged state also supplies the observation and reward at that boundary. The nominal rollout then resumes from x<sub>k+H</sub> = x̄<sub>k+H</sub>.</p>
@@ -515,21 +557,21 @@ html[data-mode="en"] h2,html[data-mode="en"] h3{font-family:var(--en)}
 <p class="zh">记 Z<sub>t</sub> = dx<sub>t</sub>/dθ、U<sub>t</sub> = da<sub>t</sub>/dθ，分别表示状态与动作对策略参数的总体敏感性；并记 F<sub>x,t</sub> = ∂f<sub>κ</sub>/∂x、F<sub>a,t</sub> = ∂f<sub>κ</sub>/∂a 为在 (x<sub>t</sub>, a<sub>t</sub>) 处求值的转移 Jacobian。不做捆绑时，梯度沿单一轨迹传播：</p>
 </div>
 
-<div class="eq">\[ Z_{t+1}=F_{x,t}Z_t+F_{a,t}U_t \tag{2} \]</div>
+<div class="eq" id="eq-2">\[ Z_{t+1}=F_{x,t}Z_t+F_{a,t}U_t \tag{2} \]</div>
 
 <div class="pair">
 <p class="en">BCG instead propagates a sensitivity Z<sub>t</sub><sup>(i)</sup> = dx<sub>t</sub><sup>(i)</sup>/dθ along each perturbed branch, with Jacobians evaluated at (x<sub>t</sub><sup>(i)</sup>, a<sub>t</sub>). Since the perturbations are treated as constants, Z<sub>k</sub><sup>(i)</sup> = Z<sub>k</sub>. For k ≤ t &lt; k + H,</p>
 <p class="zh">BCG 则沿每个被扰动的分支传播一份敏感性 Z<sub>t</sub><sup>(i)</sup> = dx<sub>t</sub><sup>(i)</sup>/dθ，其中的 Jacobian 在 (x<sub>t</sub><sup>(i)</sup>, a<sub>t</sub>) 处求值。由于扰动被视为常数，故 Z<sub>k</sub><sup>(i)</sup> = Z<sub>k</sub>。对 k ≤ t &lt; k + H，有</p>
 </div>
 
-<div class="eq">\[ Z_{t+1}^{(i)}=F_{x,t}^{(i)}Z_t^{(i)}+F_{a,t}^{(i)}U_t,\qquad \bar{Z}_{t+1}=\sum_{i=1}^{B}\frac{\partial\mathcal{A}}{\partial x_{t+1}^{(i)}}Z_{t+1}^{(i)} \tag{3} \]</div>
+<div class="eq" id="eq-3">\[ Z_{t+1}^{(i)}=F_{x,t}^{(i)}Z_t^{(i)}+F_{a,t}^{(i)}U_t,\qquad \bar{Z}_{t+1}=\sum_{i=1}^{B}\frac{\partial\mathcal{A}}{\partial x_{t+1}^{(i)}}Z_{t+1}^{(i)} \tag{3} \]</div>
 
 <div class="pair">
 <p class="en">where Z̄<sub>t+1</sub> = dx̄<sub>t+1</sub>/dθ. For state components aggregated arithmetically, the corresponding rows of this expression become</p>
 <p class="zh">其中 Z̄<sub>t+1</sub> = dx̄<sub>t+1</sub>/dθ。对按算术平均聚合的状态分量，该表达式的对应行变为</p>
 </div>
 
-<div class="eq">\[ \bar{Z}_{t+1}=\frac{1}{B}\sum_{i=1}^{B}\underbrace{\left(F_{x,t}^{(i)}Z_t^{(i)}+F_{a,t}^{(i)}U_t\right)}_{\text{averaging sensitivities across perturbed branches}} \tag{4} \]</div>
+<div class="eq" id="eq-4">\[ \bar{Z}_{t+1}=\frac{1}{B}\sum_{i=1}^{B}\underbrace{\left(F_{x,t}^{(i)}Z_t^{(i)}+F_{a,t}^{(i)}U_t\right)}_{\text{averaging sensitivities across perturbed branches}} \tag{4} \]</div>
 
 <div class="pair">
 <p class="en">This average is the local smoothing mechanism: it can attenuate sharp, contact-dependent variations by combining sensitivities from nearby trajectories. The shared action sensitivity U<sub>t</sub> includes the policy's dependence on x̄<sub>t</sub> for t &gt; k, so the recurrence retains feedback through all H − S simulation substeps. These state and action sensitivities enter the imitation-objective gradient through the chain rule, as described next.</p>
@@ -543,7 +585,7 @@ html[data-mode="en"] h2,html[data-mode="en"] h3{font-family:var(--en)}
 <p class="zh">我们在 SHAC [4] 中使用这种捆绑 rollout：最小化 III-D 节的 ℒ<sub>FO</sub>，其中奖励与 critic 输入都在 bundle 期间的<b>平均状态</b>上求值。为学习动态的人形行为，我们把该框架用于基于 ADD [12] 的动作模仿。选择 ADD 的原因是：其可微奖励允许梯度同时穿过目标函数与被仿真的 rollout；而其学习得到的聚合方式，避免了其他动作模仿框架中需要对各项跟踪奖励权重做手工调参。模仿奖励为</p>
 </div>
 
-<div class="eq">\[ r_t^{\mathrm{ADD}}=-\log\left(1-D_\psi(\Delta_t)\right),\qquad \Delta_t=f_{\mathrm{ref},t}-f_t \tag{5} \]</div>
+<div class="eq" id="eq-5">\[ r_t^{\mathrm{ADD}}=-\log\left(1-D_\psi(\Delta_t)\right),\qquad \Delta_t=f_{\mathrm{ref},t}-f_t \tag{5} \]</div>
 
 <div class="pair">
 <p class="en">where f<sub>t</sub> and f<sub>ref,t</sub> are simulated and phase-matched reference motion features. The discriminator D<sub>ψ</sub> is trained to distinguish the ideal zero residual from policy-generated residuals, providing an adaptive tracking objective. We use this reward in ℒ<sub>FO</sub> and backpropagate through the discriminator's input and the bundled simulator rollout to update the policy. ADD thus supplies the imitation objective, while BCG stabilizes its propagation through stiff contact.</p>
@@ -764,12 +806,17 @@ html[data-mode="en"] h2,html[data-mode="en"] h3{font-family:var(--en)}
   try{var m=localStorage.getItem('rax-mode'); if(m) setMode(m);}catch(e){}
 
   var fs=100;
-  function applyFs(){document.querySelectorAll('.pair').forEach(function(p){
-    p.style.fontSize='';});
-    document.body.style.zoom='';}
-  var base=15.6;
-  document.getElementById('fs-up').onclick=function(){fs=Math.min(150,fs+6);document.querySelectorAll('.pair > .zh').forEach(function(e){e.style.fontSize=(base*fs/100)+'px')};document.querySelectorAll('.pair > .en').forEach(function(e){e.style.fontSize=(14.4*fs/100)+'px')}};
-  document.getElementById('fs-down').onclick=function(){fs=Math.max(80,fs-6);document.querySelectorAll('.pair > .zh').forEach(function(e){e.style.fontSize=(base*fs/100)+'px')};document.querySelectorAll('.pair > .en').forEach(function(e){e.style.fontSize=(14.4*fs/100)+'px')}};
+  function changeFontSize(step){
+    fs=Math.max(80,Math.min(150,fs+step));
+    document.querySelectorAll('.pair > .zh').forEach(function(e){
+      e.style.fontSize=(15.6*fs/100)+'px';
+    });
+    document.querySelectorAll('.pair > .en').forEach(function(e){
+      e.style.fontSize=(14.4*fs/100)+'px';
+    });
+  }
+  document.getElementById('fs-up').onclick=function(){changeFontSize(6)};
+  document.getElementById('fs-down').onclick=function(){changeFontSize(-6)};
 
   document.getElementById('totop').onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
 

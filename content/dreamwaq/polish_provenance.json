@@ -1,0 +1,63 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 132,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "dreamwaq-001",
+      "conversation_id": "d26fc902-73d8-463a-a8ea-ae37fe4374d8",
+      "receipt_sha256": "4447d1068b00403e90c35081e0d88df15938ac051c0ddaa353733638f09faea8",
+      "usage": {
+        "input_tokens": 36985,
+        "output_tokens": 19201,
+        "thinking_tokens": 12766,
+        "cache_read_tokens": 21504,
+        "total_tokens": 56186
+      },
+      "elapsed_seconds": 136.37
+    },
+    {
+      "job_id": "dreamwaq-002",
+      "conversation_id": "1bbe5006-d403-4cf5-b5d5-eb707345128b",
+      "receipt_sha256": "7dd124de42925b736f8f6ac389ce484d9b5fd4631b0e353b3ccf386149e60a23",
+      "usage": {
+        "input_tokens": 53027,
+        "output_tokens": 32478,
+        "thinking_tokens": 26575,
+        "cache_read_tokens": 22092,
+        "total_tokens": 85505
+      },
+      "elapsed_seconds": 220.23
+    },
+    {
+      "job_id": "dreamwaq-003",
+      "conversation_id": "f5cce48d-e518-4405-98ea-1db842f4fd14",
+      "receipt_sha256": "5925f7fe2a68c29062cf74bd0671df86b850b35ac417718a7debb0d49f6f5cb1",
+      "usage": {
+        "input_tokens": 34208,
+        "output_tokens": 16371,
+        "thinking_tokens": 8715,
+        "cache_read_tokens": 22451,
+        "total_tokens": 50579
+      },
+      "elapsed_seconds": 101.5
+    },
+    {
+      "job_id": "dreamwaq-004",
+      "conversation_id": "71e5fa04-61c7-4ecb-ace5-50cacd158cbc",
+      "receipt_sha256": "a540658f75a5e828f8649a5147d8c131966aef958572498bb5acdd32797401d1",
+      "usage": {
+        "input_tokens": 36710,
+        "output_tokens": 6220,
+        "thinking_tokens": 4321,
+        "cache_read_tokens": 0,
+        "total_tokens": 42930
+      },
+      "elapsed_seconds": 56.36
+    }
+  ]
+}

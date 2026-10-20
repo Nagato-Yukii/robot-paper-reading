@@ -1,0 +1,63 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 120,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "him-001",
+      "conversation_id": "3d6e9ed2-155e-4167-9087-c3a0a9c8be23",
+      "receipt_sha256": "31b255d6c46b7cea660c21006845b5c742051de714cf12d5e608d9ca8f461e14",
+      "usage": {
+        "input_tokens": 20693,
+        "output_tokens": 19895,
+        "thinking_tokens": 16083,
+        "cache_read_tokens": 0,
+        "total_tokens": 40588
+      },
+      "elapsed_seconds": 130.89
+    },
+    {
+      "job_id": "him-002",
+      "conversation_id": "69ae6e16-11a0-4199-9a24-7033ffc8c0d4",
+      "receipt_sha256": "7a363e6f336bad5d411f76a31b6f899e07cdf5a504e2ed84ce88044cffd9a196",
+      "usage": {
+        "input_tokens": 32108,
+        "output_tokens": 15033,
+        "thinking_tokens": 9140,
+        "cache_read_tokens": 20670,
+        "total_tokens": 47141
+      },
+      "elapsed_seconds": 109.44
+    },
+    {
+      "job_id": "him-003",
+      "conversation_id": "065bb84a-f7e4-499f-85ec-c2121a1f6581",
+      "receipt_sha256": "4df4bd5fe12b03e2951be51d1988d3b63ac62ca0eeea013c85a8bd4a5c5402f6",
+      "usage": {
+        "input_tokens": 51353,
+        "output_tokens": 30412,
+        "thinking_tokens": 26378,
+        "cache_read_tokens": 21106,
+        "total_tokens": 81765
+      },
+      "elapsed_seconds": 225.92
+    },
+    {
+      "job_id": "him-004",
+      "conversation_id": "55a81de5-7548-4753-8827-642f3bd88363",
+      "receipt_sha256": "817c50edc437029fb0f72f4a14ca3ff33bd6e6b8f6eb65cf2008f5302b1914c9",
+      "usage": {
+        "input_tokens": 15015,
+        "output_tokens": 12284,
+        "thinking_tokens": 11449,
+        "cache_read_tokens": 0,
+        "total_tokens": 27299
+      },
+      "elapsed_seconds": 100.68
+    }
+  ]
+}

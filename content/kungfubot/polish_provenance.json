@@ -1,0 +1,76 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "completed_at": "2026-10-19T14:17:11.267530+00:00",
+  "paragraphs": 168,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "kungfubot-001",
+      "conversation_id": "f9b0154a-3e81-45e7-b978-fd29da632b11",
+      "receipt_sha256": "828b96ddd4e09cf15c28e3175e980e3826a9999b814bff85ef7765acc71e1615",
+      "usage": {
+        "input_tokens": 34964,
+        "output_tokens": 17013,
+        "thinking_tokens": 9939,
+        "cache_read_tokens": 22293,
+        "total_tokens": 51977
+      },
+      "elapsed_seconds": 125.02
+    },
+    {
+      "job_id": "kungfubot-002",
+      "conversation_id": "b1794cbb-8e16-4f1f-ae6c-b0f543668985",
+      "receipt_sha256": "1110eb661ea0f8e36dbd3e0c98273bbd1d425d45f9004eb3848c3652c99d916d",
+      "usage": {
+        "input_tokens": 63919,
+        "output_tokens": 23402,
+        "thinking_tokens": 16734,
+        "cache_read_tokens": 0,
+        "total_tokens": 87321
+      },
+      "elapsed_seconds": 161.26
+    },
+    {
+      "job_id": "kungfubot-003",
+      "conversation_id": "98f312e1-f9ad-4702-a6f6-48de4861f84b",
+      "receipt_sha256": "401cb611efd3addf38de197354b7fe6e0dce0f5ff6a58218291a62af703a1b10",
+      "usage": {
+        "input_tokens": 28178,
+        "output_tokens": 12250,
+        "thinking_tokens": 8209,
+        "cache_read_tokens": 18709,
+        "total_tokens": 40428
+      },
+      "elapsed_seconds": 84.59
+    },
+    {
+      "job_id": "kungfubot-004",
+      "conversation_id": "1d8a9616-1446-426d-8530-da1a175c4912",
+      "receipt_sha256": "5c7a1f0b9e48f16bb1df8364d836b8f02ef83fa076765b83b8e5e87ced8f318f",
+      "usage": {
+        "input_tokens": 24259,
+        "output_tokens": 8744,
+        "thinking_tokens": 5036,
+        "cache_read_tokens": 18660,
+        "total_tokens": 33003
+      },
+      "elapsed_seconds": 67.39
+    },
+    {
+      "job_id": "kungfubot-005",
+      "conversation_id": "24e337da-b880-473e-b1de-e59514af9a2a",
+      "receipt_sha256": "8b8efaa9591a713c71bdbbaa9342e6a04ddb96772e8ca0d1c5ca06b2521c0e5d",
+      "usage": {
+        "input_tokens": 42787,
+        "output_tokens": 11553,
+        "thinking_tokens": 10360,
+        "cache_read_tokens": 0,
+        "total_tokens": 54340
+      },
+      "elapsed_seconds": 98.87
+    }
+  ]
+}
