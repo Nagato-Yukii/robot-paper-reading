@@ -3,82 +3,212 @@
   "basis": "所有评分由用户自行填写；默认未评分。",
   "papers": {
     "rax": {
-      "comment": "把在线探索用于自动编写机器人控制程序，适合参考跨本体任务组织与评测设计。"
+      "comment": "把在线探索用于自动编写机器人控制程序，适合参考跨本体任务组织与评测设计。",
+      "cover": {
+        "src": "rax/figs/figure01_p01.jpg",
+        "alt": "RAX 在不同机器人上的操作任务与探索演示"
+      },
+      "en_title": "Scaling Online Exploration for Robot Agents"
     },
     "bcg": {
-      "comment": "用局部平滑缓解接触梯度不稳定，为可微分仿真到真机提供了值得借鉴的路径。"
+      "comment": "用局部平滑缓解接触梯度不稳定，为可微分仿真到真机提供了值得借鉴的路径。",
+      "cover": {
+        "src": "bcg/figs/fig1.jpg",
+        "alt": "接触梯度平滑示意与人形机器人动作演示"
+      },
+      "en_title": "Bundled Contact Gradients: Stabilizing Differentiable Simulation for Deployable Dynamic Tasks"
     },
     "vla-transfer": {
-      "comment": "将动作统一为文本 token，把视觉语言预训练接入机器人控制，值得作为 VLA 入门主线。"
+      "comment": "将动作统一为文本 token，把视觉语言预训练接入机器人控制，值得作为 VLA 入门主线。",
+      "cover": {
+        "src": "vla-transfer/figs/p005-002.png",
+        "alt": "RT-2 根据语义指令完成物体操作的实例"
+      },
+      "en_title": "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control"
     },
     "lswm": {
-      "comment": "结合长短历史重建与未来预测，适合参考双足运动中的状态表征设计。"
+      "comment": "结合长短历史重建与未来预测，适合参考双足运动中的状态表征设计。",
+      "cover": {
+        "src": "lswm/figs/p010-010.png",
+        "alt": "双足机器人在室外和复杂地形中的实机运动"
+      },
+      "en_title": "LSWM: A Long–Short History World Model for Bipedal Locomotion via Reinforcement Learning"
     },
     "rl-pd-control": {
-      "comment": "把强化学习动作与关节 PD 控制的关系讲清楚，适合补齐控制接口的基础概念。"
+      "comment": "把强化学习动作与关节 PD 控制的关系讲清楚，适合补齐控制接口的基础概念。",
+      "cover": {
+        "src": "rl-pd-control/figs/p001-014.png",
+        "alt": "机器人关节 PD 控制的信号与反馈结构"
+      },
+      "en_title": "Robot Reinforcement Learning and Joint PD Control"
     },
     "gvhmr": {
-      "comment": "借助重力视角坐标恢复世界系人体运动，适合作为视频动作数据处理的参考。"
+      "comment": "借助重力视角坐标恢复世界系人体运动，适合作为视频动作数据处理的参考。",
+      "cover": {
+        "src": "gvhmr/figs/p001-004.png",
+        "alt": "由视频恢复世界坐标系人体运动与轨迹的效果"
+      },
+      "en_title": "World-Grounded Human Motion Recovery via Gravity-View Coordinates"
     },
     "wham": {
-      "comment": "融合视觉、运动上下文与接触约束恢复全局人体轨迹，适合参考动作重建流程。"
+      "comment": "融合视觉、运动上下文与接触约束恢复全局人体轨迹，适合参考动作重建流程。",
+      "cover": {
+        "src": "wham/figs/p001-003.png",
+        "alt": "WHAM 全局人体轨迹与接触恢复效果对比"
+      },
+      "en_title": "WHAM: World-grounded Humans with Accurate Motion"
     },
     "exbody": {
-      "comment": "拆分上身动作模仿与下身移动控制，适合参考实用的人形全身控制结构。"
+      "comment": "拆分上身动作模仿与下身移动控制，适合参考实用的人形全身控制结构。",
+      "cover": {
+        "src": "exbody/figs/p001-009.png",
+        "alt": "人形机器人在海边日落场景下展示全身动作"
+      },
+      "en_title": "Expressive Whole-Body Control for Humanoid Robots"
     },
     "kungfubot2": {
-      "comment": "通过混合跟踪目标与专家结构整合多种动作，适合参考单策略多技能学习。"
+      "comment": "通过混合跟踪目标与专家结构整合多种动作，适合参考单策略多技能学习。",
+      "cover": {
+        "src": "kungfubot2/figs/p001-003.png",
+        "alt": "人形机器人执行多样化动作与技能的真机演示"
+      },
+      "en_title": "KungfuBot2: Learning Versatile Motion Skills for Humanoid Whole-Body Control"
     },
     "kungfubot": {
-      "comment": "把动作处理和自适应跟踪课程串起来，适合参考高动态技能的训练细节。"
+      "comment": "把动作处理和自适应跟踪课程串起来，适合参考高动态技能的训练细节。",
+      "cover": {
+        "src": "kungfubot/figs/p009-000.png",
+        "alt": "人形机器人执行功夫与高动态动作的连续画面"
+      },
+      "en_title": "KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills"
     },
     "asap": {
-      "comment": "用真实轨迹学习仿真修正模型，适合研究高动态动作中的仿真到现实差距。"
+      "comment": "用真实轨迹学习仿真修正模型，适合研究高动态动作中的仿真到现实差距。",
+      "cover": {
+        "src": "asap/figs/p001-003.png",
+        "alt": "人形机器人复现多组高动态人体动作"
+      },
+      "en_title": "ASAP: Aligning Simulation and Real-World Physics for Learning Agile Humanoid Whole-Body Skills"
     },
     "robust-walking": {
-      "comment": "以随机地形训练和自适应步频提升真机行走鲁棒性，适合参考简洁的训练课程。"
+      "comment": "以随机地形训练和自适应步频提升真机行走鲁棒性，适合参考简洁的训练课程。",
+      "cover": {
+        "src": "robust-walking/figs/p001-017.png",
+        "alt": "人形机器人及其在不同地面上的足部接触"
+      },
+      "en_title": "Robust Humanoid Walking on Compliant and Uneven Terrain with Deep Reinforcement Learning"
     },
     "bridging-gap": {
-      "comment": "从执行器到整机逐层校准动力学，适合参考跨平台迁移与能效验证的工程方法。"
+      "comment": "从执行器到整机逐层校准动力学，适合参考跨平台迁移与能效验证的工程方法。",
+      "cover": {
+        "src": "bridging-gap/figs/p004-004.png",
+        "alt": "系统化仿真到现实迁移所覆盖的多种足式机器人"
+      },
+      "en_title": "Towards bridging the gap: Systematic sim-to-real transfer for diverse legged robots"
     },
     "beyondmimic": {
-      "comment": "将高质量动作跟踪与引导扩散连接起来，适合参考从模仿到通用控制的完整流程。"
+      "comment": "将高质量动作跟踪与引导扩散连接起来，适合参考从模仿到通用控制的完整流程。",
+      "cover": {
+        "src": "beyondmimic/figs/p001-004.png",
+        "alt": "动作跟踪、扩散策略与引导控制的整体示意"
+      },
+      "en_title": "BeyondMimic: From Motion Tracking to Versatile Humanoid Control via Guided Diffusion"
     },
     "almi": {
-      "comment": "让上下身策略在相互扰动中学习协调，适合参考移动稳定性与动作保真的权衡。"
+      "comment": "让上下身策略在相互扰动中学习协调，适合参考移动稳定性与动作保真的权衡。",
+      "cover": {
+        "src": "almi/figs/p020-007.png",
+        "alt": "人形机器人动作与对抗扰动分布的可视化"
+      },
+      "en_title": "Adversarial Locomotion and Motion Imitation for Humanoid Policy Learning"
     },
     "learning-failures": {
-      "comment": "显式记忆失败状态以减少重复试错，适合参考可接入现有强化学习流程的改进。"
+      "comment": "显式记忆失败状态以减少重复试错，适合参考可接入现有强化学习流程的改进。",
+      "cover": {
+        "src": "learning-failures/figs/p001-008.png",
+        "alt": "通过失败记忆减少重复跌倒并延长有效轨迹"
+      },
+      "en_title": "Learning From Failures: Efficient Reinforcement Learning Control with Episodic Memory"
     },
     "hiking": {
-      "comment": "以深度感知和落脚安全机制支持复杂地形通行，适合参考端到端感知运动控制。"
+      "comment": "以深度感知和落脚安全机制支持复杂地形通行，适合参考端到端感知运动控制。",
+      "cover": {
+        "src": "hiking/figs/p001-005.png",
+        "alt": "人形机器人在野外、台阶和障碍地形中穿行"
+      },
+      "en_title": "Hiking in the Wild: A Scalable Perceptive Parkour Framework for Humanoids"
     },
     "ase": {
-      "comment": "把动作库压缩为可复用的技能嵌入，适合建立分层控制与运动先验的基础认识。"
+      "comment": "把动作库压缩为可复用的技能嵌入，适合建立分层控制与运动先验的基础认识。",
+      "cover": {
+        "src": "ase/figs/p001-003.png",
+        "alt": "物理角色展现多种连续运动技能"
+      },
+      "en_title": "ASE: Large-Scale Reusable Adversarial Skill Embeddings for Physically Simulated Characters"
     },
     "zest": {
-      "comment": "用精简模仿流程跨数据源和机器人部署动态技能，适合参考执行器建模与训练课程。"
+      "comment": "用精简模仿流程跨数据源和机器人部署动态技能，适合参考执行器建模与训练课程。",
+      "cover": {
+        "src": "zest/figs/p004-006.png",
+        "alt": "Atlas 人形机器人在真实场景中执行动态技能"
+      },
+      "en_title": "ZEST: Zero-shot Embodied Skill Transfer for Athletic Robot Control"
     },
     "h-infinity": {
-      "comment": "将鲁棒控制思想接入对抗强化学习，适合参考扰动强度与控制性能的显式约束。"
+      "comment": "将鲁棒控制思想接入对抗强化学习，适合参考扰动强度与控制性能的显式约束。",
+      "cover": {
+        "src": "h-infinity/figs/p001-003.png",
+        "alt": "四足机器人在斜坡、楼梯和外力扰动下运动"
+      },
+      "en_title": "Learning H-Infinity Locomotion Control"
     },
     "rt1": {
-      "comment": "系统研究机器人数据规模与模型泛化，适合参考大规模多任务策略的设计和评测。"
+      "comment": "系统研究机器人数据规模与模型泛化，适合参考大规模多任务策略的设计和评测。",
+      "cover": {
+        "src": "rt1/figs/p005-001.png",
+        "alt": "RT-1 机器人的真实操作环境与多样化任务物体"
+      },
+      "en_title": "RT-1: Robotics Transformer for Real-World Control at Scale"
     },
     "dagger": {
-      "comment": "用交互式数据聚合缓解模仿学习的分布偏移，理论清楚且容易迁移到新任务。"
+      "comment": "用交互式数据聚合缓解模仿学习的分布偏移，理论清楚且容易迁移到新任务。",
+      "cover": {
+        "src": "dagger/figs/p006-006.png",
+        "alt": "DAgger 模仿学习实验中的 Super Tux Kart 赛车场景"
+      },
+      "en_title": "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning"
     },
     "visualmimic": {
-      "comment": "将视觉高层策略连接到通用动作跟踪器，适合参考人形移动操作的分层接口。"
+      "comment": "将视觉高层策略连接到通用动作跟踪器，适合参考人形移动操作的分层接口。",
+      "cover": {
+        "src": "visualmimic/figs/p001-003.png",
+        "alt": "人形机器人在室外拱廊中执行视觉移动操作"
+      },
+      "en_title": "VisualMimic: Visual Humanoid Loco-Manipulation via Motion Tracking and Generation"
     },
     "him": {
-      "comment": "用显式速度与隐式稳定性表征学习机器人响应，适合参考轻量的本体感知控制。"
+      "comment": "用显式速度与隐式稳定性表征学习机器人响应，适合参考轻量的本体感知控制。",
+      "cover": {
+        "src": "him/figs/p001-003.png",
+        "alt": "混合内部模型与真实四足机器人复杂地形演示"
+      },
+      "en_title": "Hybrid Internal Model: Learning Agile Legged Locomotion with Simulated Robot Response"
     },
     "dreamwaq": {
-      "comment": "通过隐式地形表征支持无视觉四足运动，适合参考状态估计与策略学习的联合设计。"
+      "comment": "通过隐式地形表征支持无视觉四足运动，适合参考状态估计与策略学习的联合设计。",
+      "cover": {
+        "src": "dreamwaq/figs/p001-004.png",
+        "alt": "DreamWaQ 的隐式地形想象训练与真机迁移示意"
+      },
+      "en_title": "DreamWaQ: Learning Robust Quadrupedal Locomotion With Implicit Terrain Imagination via Deep Reinforcement Learning"
     },
     "any2track": {
-      "comment": "将动力学适应作为额外能力训练，适合参考多种扰动下的鲁棒动作跟踪。"
+      "comment": "将动力学适应作为额外能力训练，适合参考多种扰动下的鲁棒动作跟踪。",
+      "cover": {
+        "src": "any2track/figs/p001-003.png",
+        "alt": "人形机器人在不同地形和外力干扰下跟踪动作"
+      },
+      "en_title": "Track Any Motions under Any Disturbances"
     }
   }
 }

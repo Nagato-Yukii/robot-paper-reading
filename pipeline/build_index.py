@@ -19,8 +19,15 @@ def render_card(ident, title, review):
         ratings.append(f'<div><dt>{label}</dt><dd class="stars" role="group" '
                        f'aria-label="{label}" data-paper="{html.escape(ident)}" '
                        f'data-metric="{key}">{buttons}</dd></div>')
+    cover = review['cover']
+    cover_path = (ROOT / 'site' / cover['src']).resolve()
+    if not cover_path.is_relative_to(ROOT / 'site') or not cover_path.is_file():
+        raise ValueError(f'Missing paper cover: {ident}')
     return f'''    <article class="card">
-      <h3><a href="{html.escape(ident)}/index.html">{html.escape(title)}</a></h3>
+      <h3><a href="{html.escape(ident)}/index.html">{html.escape(title)}<span class="paper-en" lang="en">{html.escape(review['en_title'])}</span></a></h3>
+      <a class="paper-cover" href="{html.escape(ident)}/index.html" aria-label="打开{html.escape(title)}">
+        <img src="{html.escape(cover['src'])}" alt="{html.escape(cover['alt'])}" loading="lazy" decoding="async">
+      </a>
       <p class="review">{html.escape(review['comment'])}</p>
       <dl class="ratings">{''.join(ratings)}</dl>
     </article>'''
