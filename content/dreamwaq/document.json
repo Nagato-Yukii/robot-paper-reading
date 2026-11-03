@@ -27,10 +27,11 @@
             496,
             139
           ],
-          "en": "I Made Aswin Nahrendra1 , Byeongho Yu1 , and Hyun Myung1∗ , Senior Member, IEEE",
+          "en": "I Made Aswin Nahrendra\\(^{1}\\) , Byeongho Yu\\(^{1}\\) , and Hyun Myung\\(^{1\\ast}\\) , Senior Member, IEEE",
           "reference": false,
           "source_image": "figs/p001-002-source.png",
-          "zh": "I Made Aswin Nahrendra1、Byeongho Yu1与Hyun Myung1∗，IEEE高级会员"
+          "zh": "I Made Aswin Nahrendra\\(^{1}\\)、Byeongho Yu\\(^{1}\\)与Hyun Myung\\(^{1\\ast}\\)，IEEE高级会员",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b3",
@@ -139,24 +140,34 @@
             189,
             734
           ],
-          "en": "∗ Corresponding Author: Hyun Myung",
+          "en": "\\(^{\\ast}\\) Corresponding Author: Hyun Myung",
           "reference": false,
           "source_image": "figs/p001-012-source.png",
-          "zh": "∗ 通讯作者：Hyun Myung"
+          "zh": "\\(^{\\ast}\\) 通讯作者：Hyun Myung",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b4",
           "kind": "picture",
           "bbox": [
-            314,
-            157,
-            557,
-            300
+            312.0,
+            155.0,
+            559.0,
+            302.0
           ],
           "en": "Training in simulation Context-aided Estimator Policy Network (Actor) 128×64×19 512×256×128×12 Temporal partial $!, &! Policy gradient observations (\"\"! ) Current obs. (\"!) Value Network (Critic) 512×256×128×1 Privileged observations (!!) Zero-shot sim-to-real $!, &! \"\"! \"! #!",
           "reference": false,
           "image": "figs/p001-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            314.0,
+            157.0,
+            557.0,
+            300.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 741,
+          "image_height": 441
         },
         {
           "id": "p1-b5",
@@ -226,7 +237,8 @@
           "en": "In this paper, we proposed a framework called Dream Wa lking for Q uadrupedal Robots ( DreamWaQ ), that trains a robust locomotion policy for quadrupedal robots with",
           "reference": false,
           "source_image": "figs/p001-016-source.png",
-          "zh": "在本文中，我们提出了一个名为 DreamWaQ（Dream Walking for Quadrupedal Robots）的框架，该框架仅利用"
+          "zh": "在本文中，我们提出了一个名为 DreamWaQ（Dream Walking for Quadrupedal Robots）的框架，该框架仅利用",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -319,17 +331,26 @@
         },
         {
           "id": "p2-b6",
-          "kind": "formula",
+          "kind": "section-header",
           "bbox": [
-            141,
-            400,
-            212,
-            410
+            139.0,
+            398.0,
+            214.0,
+            412.0
           ],
           "en": "II. DREAMWAQ",
           "reference": false,
-          "image": "figs/p002-006.png",
-          "labels": []
+          "original_bbox": [
+            141.0,
+            400.0,
+            212.0,
+            410.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 225,
+          "image_height": 42,
+          "source_image": "figs/p002-006.png",
+          "zh": "II. DreamWaQ"
         },
         {
           "id": "p2-b7",
@@ -354,10 +375,11 @@
             299,
             607
           ],
-          "en": "In this work, the environment is modeled as an infinite-horizon partially observable Markov decision process (POMDP), defined by the tuple M = ( S, O, A, d 0 , p, r, γ ). The full state, partial observation, and action are continuous, and defined by s ∈S , o ∈O , and a ∈A , respectively. The environment starts with an initial state distribution, d 0( s 0); progresses with a state transition probability p ( s t +1 | s t, a t ); and each transition is rewarded with a reward function, r : S × A →R . The discount factor is defined by γ ∈ [0 , 1). Additionally, in this paper, we define a temporal observation at time t over the past H measurements as oH t= � o t o t− 1 . . . o t−H � T . We also define a context vector, z t , which contains a latent representation of the world state. The context vector is inferred using the method that will be discussed in Section II-C.",
+          "en": "In this work, the environment is modeled as an infinite-horizon partially observable Markov decision process (POMDP), defined by the tuple \\(\\mathcal{M}=(\\mathcal{S},\\mathcal{O},\\mathcal{A},d_0,p,r,\\gamma)\\). The full state, partial observation, and action are continuous, and defined by \\(\\mathcal{\\textbf{s}\\in\\mathcal{S}}\\), \\(\\mathcal{\\textbf{o}\\in\\mathcal{O}}\\), and \\(\\mathcal{\\textbf{a}\\in\\mathcal{A}}\\), respectively. The environment starts with an initial state distribution, \\(d_0(\\textbf{s}_0)\\); progresses with a state transition probability \\(p(\\textbf{s}_{t+1}|\\textbf{s}_{t},\\textbf{a}_{t})\\); and each transition is rewarded with a reward function, \\(r:\\mathcal{S}\\times\\mathcal{A}\\to\\mathcal{R}\\). The discount factor is defined by \\(\\gamma\\in[0,1)\\). Additionally, in this paper, we define a temporal observation at time \\(t\\) over the past \\(H\\) measurements as \\(\\textbf{o}^H_t=\\begin{bmatrix}\\textbf{o}_t & \\textbf{o}_{t-1} \\dots \\textbf{o}_{t-H} \\end{bmatrix}^T\\). We also define a context vector, \\(\\textbf{z}_{t}\\), which contains a latent representation of the world state. The context vector is inferred using the method that will be discussed in Section II-C.",
           "reference": false,
           "source_image": "figs/p002-008-source.png",
-          "zh": "在本研究中，环境被建模为一个无限时域部分可观测马尔可夫决策过程（POMDP），由元组 M = ( S, O, A, d 0 , p, r, γ ) 定义。全状态、部分观测和动作均为连续变量，分别定义为 s ∈S、o ∈O 和 a ∈A。环境由初始状态分布 d 0( s 0) 开始；根据状态转移概率 p ( s t +1 | s t, a t ) 发生状态演化；每次状态转移均通过奖励函数 r : S × A →R 给予奖励。折扣因子定义为 γ ∈ [0 , 1)。此外，在本文中，我们将时间 t 处基于过去 H 次测量的时序观测定义为 〔行内公式见原版〕。我们还定义了上下文向量 z t，其包含世界状态的潜在表征。该上下文向量通过将在第 II-C 节中讨论的方法推断得出。"
+          "zh": "在本研究中，环境被建模为一个无限时域部分可观测马尔可夫决策过程（POMDP），由元组 \\(\\mathcal{M}=(\\mathcal{S},\\mathcal{O},\\mathcal{A},d_0,p,r,\\gamma)\\) 定义。全状态、部分观测和动作均为连续变量，分别定义为 \\(\\mathcal{\\textbf{s}\\in\\mathcal{S}}\\)、\\(\\mathcal{\\textbf{o}\\in\\mathcal{O}}\\) 和 \\(\\mathcal{\\textbf{a}\\in\\mathcal{A}}\\)。环境由初始状态分布 \\(d_0(\\textbf{s}_0)\\) 开始；根据状态转移概率 \\(p(\\textbf{s}_{t+1}|\\textbf{s}_{t},\\textbf{a}_{t})\\) 发生状态演化；每次状态转移均通过奖励函数 \\(r:\\mathcal{S}\\times\\mathcal{A}\\to\\mathcal{R}\\) 给予奖励。折扣因子定义为 \\(\\gamma\\in[0,1)\\)。此外，在本文中，我们将时间 \\(t\\) 处基于过去 \\(H\\) 次测量的时序观测定义为 \\(\\textbf{o}^H_t=\\begin{bmatrix}\\textbf{o}_t & \\textbf{o}_{t-1} \\dots \\textbf{o}_{t-H} \\end{bmatrix}^T\\)。我们还定义了上下文向量 \\(\\textbf{z}_{t}\\)，其包含世界状态的潜在表征。该上下文向量通过将在第 II-C 节中讨论的方法推断得出。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b9",
@@ -410,10 +432,11 @@
             559,
             280
           ],
-          "en": "For learning implicit terrain imagination, we adopted an asymmetric actor-critic architecture [28]. We discovered that the interplay between the policy and value networks in actorcritic algorithms is sufficient for learning a robust locomotion policy that could implicitly imagine the privileged observations, given partial temporal observations. In DreamWaQ, the policy (actor) receives temporal partial observations, oH t, as the input, while the value network (critic) receives the full state, s t , as shown in Fig. 1. In this work, we use H = 5. Consequently, the data efficiency during training is significantly increased because only one training phase is required. Moreover, the policy can explore all possible trajectories during training, increasing its robustness through generalization. In this work, the policy is optimized using the proximal policy optimization (PPO) algorithm [29].",
+          "en": "For learning implicit terrain imagination, we adopted an asymmetric actor-critic architecture [28]. We discovered that the interplay between the policy and value networks in actorcritic algorithms is sufficient for learning a robust locomotion policy that could implicitly imagine the privileged observations, given partial temporal observations. In DreamWaQ, the policy (actor) receives temporal partial observations, \\(\\textbf{o}^{H}_t\\), as the input, while the value network (critic) receives the full state, \\(\\mathcal{\\textbf{s}}_t\\), as shown in Fig. 1. In this work, we use \\(H=5\\). Consequently, the data efficiency during training is significantly increased because only one training phase is required. Moreover, the policy can explore all possible trajectories during training, increasing its robustness through generalization. In this work, the policy is optimized using the proximal policy optimization (PPO) algorithm [29].",
           "reference": false,
           "source_image": "figs/p002-012-source.png",
-          "zh": "为了学习隐式地形想象，我们采用了一种非对称行动者-评论家（actor-critic）架构 [28]。我们发现，在行动者-评论家算法中，策略网络与价值网络之间的相互作用足以训练出一种鲁棒的运动策略——该策略能够在给定部分时序观测的情况下，隐式想象出特权观测信息。在 DreamWaQ 中，策略（actor）接收时序局部观测 oH t 作为输入，而价值网络（critic）则接收全状态 s t 作为输入，如图 1 所示。在本研究中，我们取 H = 5。因此，由于仅需一个训练阶段，训练期间的数据效率得到了显著提升。此外，策略在训练期间能够探索所有可能的轨迹，从而通过泛化性增强其鲁棒性。在本研究中，策略采用近端策略优化（PPO）算法 [29] 进行优化。"
+          "zh": "为了学习隐式地形想象，我们采用了一种非对称行动者-评论家（actor-critic）架构 [28]。我们发现，在行动者-评论家算法中，策略网络与价值网络之间的相互作用足以训练出一种鲁棒的运动策略——该策略能够在给定部分时序观测的情况下，隐式想象出特权观测信息。在 DreamWaQ 中，策略（actor）接收时序局部观测 \\(\\textbf{o}^{H}_t\\) 作为输入，而价值网络（critic）则接收全状态 \\(\\mathcal{\\textbf{s}}_t\\) 作为输入，如图 1 所示。在本研究中，我们取 \\(H=5\\)。因此，由于仅需一个训练阶段，训练期间的数据效率得到了显著提升。此外，策略在训练期间能够探索所有可能的轨迹，从而通过泛化性增强其鲁棒性。在本研究中，策略采用近端策略优化（PPO）算法 [29] 进行优化。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b13",
@@ -424,26 +447,36 @@
             559,
             363
           ],
-          "en": "1) Policy Network: The policy, πφ ( a t| o t, v t, z t ) is a neural network parameterized by φ that infers an action a t , given a proprioceptive observation o t , body velocity v t , and latent state z t . o t is measured directly from joint encoders and IMU, while v t and z t are estimated by a context-aided estimator network (CENet), which will be discussed in Section II-C. o t is an n × 1 vector defined as follows:",
+          "en": "1) Policy Network: The policy, \\(\\pi_{\\phi}(\\textbf{a}_t|\\textbf{o}_t,\\\\textbf{v}_t,\\textbf{z}_t)\\) is a neural network parameterized by \\(\\phi\\) that infers an action \\(\\textbf{a}_t\\), given a proprioceptive observation \\(\\textbf{o}_t\\), body velocity \\(\\textbf{v}_t\\), and latent state \\(\\textbf{z}_t\\). \\(\\textbf{o}_t\\) is measured directly from joint encoders and IMU, while \\(\\textbf{v}_t\\) and \\(\\textbf{z}_t\\) are estimated by a context-aided estimator network (CENet), which will be discussed in Section II-C. \\(\\textbf{o}_t\\) is an \\(n\\times1\\) vector defined as follows:",
           "reference": false,
           "source_image": "figs/p002-013-source.png",
-          "zh": "1) 策略网络：策略 πφ ( a t| o t, v t, z t ) 是由 φ 参数化的神经网络，其在给定本体感受观测 o t、机体速度 v t 和潜在状态 z t 的情况下推断动作 a t。o t 直接由关节编码器和 IMU 测量获得，而 v t 与 z t 则由上下文辅助估计器网络（CENet）进行估计，具体将在第 II-C 节中讨论。o t 为 n × 1 维向量，定义如下："
+          "zh": "1) 策略网络：策略 \\(\\pi_{\\phi}(\\textbf{a}_t|\\textbf{o}_t,\\textbf{v}_t,\\textbf{z}_t)\\) 是由 \\(\\phi\\) 参数化的神经网络，其在给定本体感受观测 \\(\\textbf{o}_t\\)、机体速度 \\(\\textbf{v}_t\\) 和潜在状态 \\(\\textbf{z}_t\\) 的情况下推断动作 \\(\\textbf{a}_t\\)。\\(\\textbf{o}_t\\) 直接由关节编码器和 IMU 测量获得，而 \\(\\textbf{v}_t\\) 与 \\(\\textbf{z}_t\\) 则由上下文辅助估计器网络（CENet）进行估计，具体将在第 II-C 节中讨论。\\(\\textbf{o}_t\\) 为 \\(n\\times1\\) 维向量，定义如下：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b14",
           "kind": "formula",
           "bbox": [
-            357,
-            370,
-            559,
-            385
+            355.0,
+            368.0,
+            561.0,
+            387.0
           ],
           "en": "o t = � ω t g t c t θ t θ ˙ t a t− 1� T , (1)",
           "reference": false,
           "image": "figs/p002-014.png",
           "labels": [
             "1"
-          ]
+          ],
+          "original_bbox": [
+            357.0,
+            370.0,
+            559.0,
+            385.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 618,
+          "image_height": 57
         },
         {
           "id": "p2-b15",
@@ -454,10 +487,11 @@
             559,
             441
           ],
-          "en": "where ω t , g t , c t , θ t , θ˙ t , and a t− 1 are the body angular velocity, gravity vector in the body frame, body velocity command, joint angle, joint angular velocity, and previous action, respectively.",
+          "en": "where \\(\\boldsymbol{\\omega}_t\\), \\(\\textbf{g}_t\\), \\(\\textbf{c}_t\\), \\(\\boldsymbol{\\theta}_t\\), \\(\\boldsymbol{\\dot{\\theta}}_t\\), and \\(\\textbf{a}_{t-1}\\) are the body angular velocity, gravity vector in the body frame, body velocity command, joint angle, joint angular velocity, and previous action, respectively.",
           "reference": false,
           "source_image": "figs/p002-015-source.png",
-          "zh": "其中，ω t、g t、c t、θ t、θ˙ t 和 a t− 1 分别为机体角速度、机体坐标系下的重力向量、机体速度指令、关节角度、关节角速度以及上一时刻的动作。"
+          "zh": "其中，\\(\\boldsymbol{\\omega}_t\\)、\\(\\textbf{g}_t\\)、\\(\\textbf{c}_t\\)、\\(\\boldsymbol{\\theta}_t\\)、\\(\\boldsymbol{\\dot{\\theta}}_t\\) 和 \\(\\textbf{a}_{t-1}\\) 分别为机体角速度、机体坐标系下的重力向量、机体速度指令、关节角度、关节角速度以及上一时刻的动作。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b16",
@@ -468,26 +502,36 @@
             559,
             487
           ],
-          "en": "2) Value Network: The value network is trained to output an estimation of the state value, V ( s t ). Unlike the policy, the value network receives the privileged observation, s t , which is defined as",
+          "en": "2) Value Network: The value network is trained to output an estimation of the state value, \\(V(\\textbf{s}_t)\\). Unlike the policy, the value network receives the privileged observation, \\(\\textbf{s}_t\\), which is defined as",
           "reference": false,
           "source_image": "figs/p002-016-source.png",
-          "zh": "2) 价值网络：价值网络经过训练用于输出状态价值的估计值 V ( s t )。与策略网络不同，价值网络接收特权观测 s t，其定义为"
+          "zh": "2) 价值网络：价值网络经过训练用于输出状态价值的估计值 \\(V(\\textbf{s}_t)\\)。与策略网络不同，价值网络接收特权观测 \\(\\textbf{s}_t\\)，其定义为",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b17",
           "kind": "formula",
           "bbox": [
-            383,
-            494,
-            559,
-            510
+            381.0,
+            492.0,
+            561.0,
+            512.0
           ],
           "en": "s t = � o t v t d t h t � T , (2)",
           "reference": false,
           "image": "figs/p002-017.png",
           "labels": [
             "2"
-          ]
+          ],
+          "original_bbox": [
+            383.0,
+            494.0,
+            559.0,
+            510.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 540,
+          "image_height": 60
         },
         {
           "id": "p2-b18",
@@ -498,10 +542,11 @@
             559,
             575
           ],
-          "en": "where d t is the disturbance force applied randomly on the robot’s body and h t is the height map scan of the robot’s surroundings as an exteroceptive cue for the value network. In the proposed DreamWaQ, the policy network is trained to implicitly infer d t and h t from proprioception.",
+          "en": "where \\(\\textbf{d}_{t}\\) is the disturbance force applied randomly on the robot’s body and \\(\\textbf{h}_{t}\\) is the height map scan of the robot’s surroundings as an exteroceptive cue for the value network. In the proposed DreamWaQ, the policy network is trained to implicitly infer \\(\\textbf{d}_{t}\\) and \\(\\textbf{h}_{t}\\) from proprioception.",
           "reference": false,
           "source_image": "figs/p002-018-source.png",
-          "zh": "其中，d t 是随机施加在机器人机体上的扰动力，h t 是机器人周围的高度图扫描，作为输入给价值网络的外感受线索。在所提出的 DreamWaQ 中，策略网络经过训练能够从本体感觉中隐式推断出 d t 和 h t。"
+          "zh": "其中，\\(\\textbf{d}_{t}\\) 是随机施加在机器人机体上的扰动力，\\(\\textbf{h}_{t}\\) 是机器人周围的高度图扫描，作为输入给价值网络的外感受线索。在所提出的 DreamWaQ 中，策略网络经过训练能够从本体感觉中隐式推断出 \\(\\textbf{d}_{t}\\) 和 \\(\\textbf{h}_{t}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b19",
@@ -512,26 +557,36 @@
             559,
             635
           ],
-          "en": "3) Action Space: The action space is a 12 × 1 vector, a t , corresponding to the desired joint angle of the robot. To facilitate learning, we train the policy to infer the desired joint angle around the robot’s stand still pose, θ stand. Hence, the robot’s desired joint angle is defined as",
+          "en": "3) Action Space: The action space is a \\(12\\times1\\) vector, \\(\\textbf{a}_t\\), corresponding to the desired joint angle of the robot. To facilitate learning, we train the policy to infer the desired joint angle around the robot’s stand still pose, \\(\\boldsymbol{\\theta}_\\text{stand}\\). Hence, the robot’s desired joint angle is defined as",
           "reference": false,
           "source_image": "figs/p002-019-source.png",
-          "zh": "3) 动作空间：动作空间为一个 12 × 1 维向量 a t，对应于机器人的期望关节角度。为了便于策略学习，我们训练策略推断出机器人静止站立姿态 θ stand 附近的期望关节角度。因此，机器人的期望关节角度定义为："
+          "zh": "3) 动作空间：动作空间为一个 \\(12\\times1\\) 维向量 \\(\\textbf{a}_t\\)，对应于机器人的期望关节角度。为了便于策略学习，我们训练策略推断出机器人静止站立姿态 \\(\\boldsymbol{\\theta}_\\text{stand}\\) 附近的期望关节角度。因此，机器人的期望关节角度定义为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b20",
           "kind": "formula",
           "bbox": [
-            398,
-            645,
-            559,
-            654
+            396.0,
+            643.0,
+            561.0,
+            656.0
           ],
           "en": "θ des = θ stand + a t. (3)",
           "reference": false,
           "image": "figs/p002-020.png",
           "labels": [
             "3"
-          ]
+          ],
+          "original_bbox": [
+            398.0,
+            645.0,
+            559.0,
+            654.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 495,
+          "image_height": 39
         },
         {
           "id": "p2-b21",
@@ -575,24 +630,34 @@
             299,
             121
           ],
-          "en": "TABLE I: Reward function elements. exp( · ) and var( · ) are exponential and variance operators, respectively. ( · )des and ( · )cmd indicate the desired and commanded values, respectively. x, y, and z are defined on the robot’s body frame, with x and z pointing forward and upward, respectively. g , v xy , ω yaw, h , pf,z,k , vf,xy,k , and τ are the gravity vector projected into the robot’s body frame, linear velocities in the xy plane, yaw rate, body height w.r.t. the ground, foot height, foot lateral velocity, and joint torque, respectively.",
+          "en": "TABLE I: Reward function elements. \\(\\mathrm{exp(\\cdot)}\\) and \\(\\mathrm{var(\\cdot)}\\) are exponential and variance operators, respectively. \\((\\cdot)^\\textbf{des}\\) and \\((\\cdot)^\\textbf{cmd}\\) indicate the desired and commanded values, respectively. \\(x\\), \\(y\\), and \\(z\\) are defined on the robot’s body frame, with \\(x\\) and \\(z\\) pointing forward and upward, respectively. \\(\\textbf{g}\\), \\(\\textbf{v}_{xy}\\), \\(\\omega_\\mathrm{yaw}\\), \\(h\\), \\(p_{f,z,k}\\), \\(v_{f,xy,k}\\), and \\(\\boldsymbol{\\tau}\\) are the gravity vector projected into the robot’s body frame, linear velocities in the \\(xy\\) plane, yaw rate, body height w.r.t. the ground, foot height, foot lateral velocity, and joint torque, respectively.",
           "reference": false,
           "source_image": "figs/p003-000-source.png",
-          "zh": "表 I：奖励函数各项。exp( · ) 和 var( · ) 分别表示指数运算符与方差运算符。( · )des 和 ( · )cmd 分别表示期望值与指令值。x、y 和 z 定义在机器人机体坐标系中，x 和 z 分别指向前方与上方。g、v xy、ω yaw、h、pf,z,k、vf,xy,k 以及 τ 分别表示投影到机器人机体坐标系中的重力向量、xy 平面内的线速度、偏航角速度、机体相对地面的高度、足端高度、足端横向速度以及关节力矩。"
+          "zh": "表 I：奖励函数各项。\\(\\mathrm{exp(\\cdot)}\\) 和 \\(\\mathrm{var(\\cdot)}\\) 分别表示指数运算符与方差运算符。\\((\\cdot)^\\textbf{des}\\) 和 \\((\\cdot)^\\textbf{cmd}\\) 分别表示期望值与指令值。\\(x\\)、\\(y\\) 和 \\(z\\) 定义在机器人机体坐标系中，\\(x\\) 和 \\(z\\) 分别指向前方与上方。\\(\\textbf{g}\\)、\\(\\textbf{v}_{xy}\\)、\\(\\omega_\\mathrm{yaw}\\)、\\(h\\)、\\(p_{f,z,k}\\)、\\(v_{f,xy,k}\\) 以及 \\(\\boldsymbol{\\tau}\\) 分别表示投影到机器人机体坐标系中的重力向量、\\(xy\\) 平面内的线速度、偏航角速度、机体相对地面的高度、足端高度、足端横向速度以及关节力矩。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b1",
           "kind": "table",
           "bbox": [
-            59,
-            137,
-            295,
-            266
+            57.0,
+            135.0,
+            297.0,
+            268.0
           ],
           "en": "|Reward|Equation (ri)|Weight (wi)| |---|---|---| |Lin. velocity tracking|exp � −4(vcmd xy −vxy)2�|1.0| |Ang. velocity tracking|exp � −4(ωcmd yaw −ωyaw)2�|0.5| |Linear velocity (z)|v2 z|−2.0| |Angular velocity (xy)|ω2 xy|−0.05| |Orientation||g|2 |−0.2| |Joint accelerations|¨θ 2|−2.5×10−7| |Joint power||τ|| ˙θ||−2×10−5| |Body height|(hdes −h)2|−1.0| |Foot clearance|(pdes f,z,k −pf,z,k)2· vf,xy,k |−0.01| |Action rate|(at −at−1)2|−0.01| |Smoothness|(at −2at−1+at−2)2|−0.01| |Power distribution|var(τ · ˙θ)2|−10−5|",
           "reference": false,
           "image": "figs/p003-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            59.0,
+            137.0,
+            295.0,
+            266.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 720,
+          "image_height": 399
         },
         {
           "id": "p3-b2",
@@ -612,17 +677,26 @@
           "id": "p3-b3",
           "kind": "formula",
           "bbox": [
-            133,
-            354,
-            299,
-            369
+            131.0,
+            352.0,
+            301.0,
+            371.0
           ],
           "en": "rt ( s t, a t ) = � riwi, (4)",
           "reference": false,
           "image": "figs/p003-003.png",
           "labels": [
             "4"
-          ]
+          ],
+          "original_bbox": [
+            133.0,
+            354.0,
+            299.0,
+            369.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 510,
+          "image_height": 57
         },
         {
           "id": "p3-b4",
@@ -633,10 +707,11 @@
             291,
             385
           ],
-          "en": "where i is the index of each reward, as shown in Table I.",
+          "en": "where \\(i\\) is the index of each reward, as shown in Table I.",
           "reference": false,
           "source_image": "figs/p003-004-source.png",
-          "zh": "其中 i 为各项奖励的索引，具体如表 I 所示。"
+          "zh": "其中 \\(i\\) 为各项奖励的索引，具体如表 I 所示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b5",
@@ -661,10 +736,11 @@
             299,
             590
           ],
-          "en": "5) Curriculum Learning: We utilized a game-inspired curriculum [12] to ensure progressive locomotion policy learning over difficult terrains. The terrains consisted of smooth, rough, discretized, and stair terrains with ten levels of inclination within [0° , 22°]. Furthermore, we found that utilizing the grid-adaptive curriculum [23] for low-speed locomotion results in a better and more stable turning that prevents foot tripping.",
+          "en": "5) Curriculum Learning: We utilized a game-inspired curriculum [12] to ensure progressive locomotion policy learning over difficult terrains. The terrains consisted of smooth, rough, discretized, and stair terrains with ten levels of inclination within \\([0\\degree, 22\\degree]\\). Furthermore, we found that utilizing the grid-adaptive curriculum [23] for low-speed locomotion results in a better and more stable turning that prevents foot tripping.",
           "reference": false,
           "source_image": "figs/p003-006-source.png",
-          "zh": "5) 课程学习：我们利用受游戏启发的课程学习机制 [12]，以确保在困难地形上逐步学习运动策略。所用地形包含平滑地形、粗糙地形、离散地形和楼梯地形，并在 [0°, 22°] 范围内设置了 10 个坡度级别。此外，我们发现针对低速运动采用网格自适应课程 [23] 能够实现更好且更稳定的转向，从而有效防止足部绊倒。"
+          "zh": "5) 课程学习：我们利用受游戏启发的课程学习机制 [12]，以确保在困难地形上逐步学习运动策略。所用地形包含平滑地形、粗糙地形、离散地形和楼梯地形，并在 \\([0\\degree, 22\\degree]\\) 范围内设置了 10 个坡度级别。此外，我们发现针对低速运动采用网格自适应课程 [23] 能够实现更好且更稳定的转向，从而有效防止足部绊倒。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b7",
@@ -689,10 +765,11 @@
             299,
             698
           ],
-          "en": "The policy trained using the method described in Section II-B requires v t and z t as input, which can be estimated from proprioception. Prior works estimate z t as the latent variable for understanding terrain properties [20], [21], [23]. Additionally, estimating v t using a learned network significantly improves the locomotion policy’s robustness [24] by eliminating the accumulated estimation drift.",
+          "en": "The policy trained using the method described in Section II-B requires \\(\\textbf{v}_t\\) and \\(\\textbf{z}_t\\) as input, which can be estimated from proprioception. Prior works estimate \\(\\textbf{z}_t\\) as the latent variable for understanding terrain properties [20], [21], [23]. Additionally, estimating \\(\\textbf{v}_t\\) using a learned network significantly improves the locomotion policy’s robustness [24] by eliminating the accumulated estimation drift.",
           "reference": false,
           "source_image": "figs/p003-008-source.png",
-          "zh": "使用第 II-B 节所述方法训练的策略需要将 $v_t$ 和 $z_t$ 作为输入，这两个量可通过本体感受进行估计。先前的研究将 $z_t$ 作为理解地形特性的潜在变量进行估计 [20], [21], [23]。此外，利用学习得到的网络估计 $v_t$ 能够消除累积估计漂移，从而显著提升运动策略的鲁棒性 [24]。"
+          "zh": "使用第 II-B 节所述方法训练的策略需要将 \\(\\textbf{v}_t\\) 和 \\(\\textbf{z}_t\\) 作为输入，这两个量可通过本体感受进行估计。先前的研究将 \\(\\textbf{z}_t\\) 作为理解地形特性的潜在变量进行估计 [20], [21], [23]。此外，利用学习得到的网络估计 \\(\\textbf{v}_t\\) 能够消除累积估计漂移，从而显著提升运动策略的鲁棒性 [24]。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b9",
@@ -712,15 +789,24 @@
           "id": "p3-b10",
           "kind": "picture",
           "bbox": [
-            314,
-            50,
-            557,
-            111
+            312.0,
+            48.0,
+            559.0,
+            113.0
           ],
           "en": "3×1 Body velocity 𝐯! estimation model 𝐨\"! Body linear velocity (𝐯!) 𝐨!#$ Context vector (𝐳!) 𝐳! 𝐨\"! Temporal partial observations 128×64×19 16×1 64×128×48Auto-encoder model 𝐨!#$ Next partial observations",
           "reference": false,
           "image": "figs/p003-010.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            314.0,
+            50.0,
+            557.0,
+            111.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 741,
+          "image_height": 195
         },
         {
           "id": "p3-b11",
@@ -759,26 +845,36 @@
             559,
             364
           ],
-          "en": "CENet consists of a single encoder and a multi-head decoder architecture as shown in Fig. 2. The encoder network encodes oH t into v t and z t . The first head estimates v t , whereas the second reconstructs o t +1. We leveraged a β - variational auto-encoder ( β -VAE) [31]–[33] as the autoencoder architecture. CENet is optimized using a hybrid loss function, defined as follows:",
+          "en": "CENet consists of a single encoder and a multi-head decoder architecture as shown in Fig. 2. The encoder network encodes \\(\\textbf{o}^H_t\\) into \\(\\textbf{v}_t\\) and \\(\\textbf{z}_t\\). The first head estimates \\(\\textbf{v}_t\\), whereas the second reconstructs \\(\\textbf{o}_{t+1}\\). We leveraged a \\(\\beta\\)-variational auto-encoder (\\(\\beta\\)-VAE) [31]–[33] as the autoencoder architecture. CENet is optimized using a hybrid loss function, defined as follows:",
           "reference": false,
           "source_image": "figs/p003-013-source.png",
-          "zh": "CENet 由单一编码器和多头解码器架构组成，如图 2 所示。编码器网络将 $o_t^H$ 编码为 $v_t$ 与 $z_t$。第一个头估计 $v_t$，而第二个头则重建 $o_{t+1}$。我们采用 $\\beta$-变分自编码器（$\\beta$-VAE）[31]–[33] 作为自编码器架构。CENet 使用混合损失函数进行优化，定义如下："
+          "zh": "CENet 由单一编码器和多头解码器架构组成，如图 2 所示。编码器网络将 \\(\\textbf{o}^H_t\\) 编码为 \\(\\textbf{v}_t\\) 与 \\(\\textbf{z}_t\\)。第一个头估计 \\(\\textbf{v}_t\\)，而第二个头则重建 \\(\\textbf{o}_{t+1}\\)。我们采用 \\(\\beta\\)-变分自编码器（\\(\\beta\\)-VAE）[31]–[33] 作为自编码器架构。CENet 使用混合损失函数进行优化，定义如下：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b14",
           "kind": "formula",
           "bbox": [
-            395,
-            372,
-            559,
-            382
+            393.0,
+            370.0,
+            561.0,
+            384.0
           ],
           "en": "L CE = L est + L VAE , (5)",
           "reference": false,
           "image": "figs/p003-014.png",
           "labels": [
             "5"
-          ]
+          ],
+          "original_bbox": [
+            395.0,
+            372.0,
+            559.0,
+            382.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 504,
+          "image_height": 42
         },
         {
           "id": "p3-b15",
@@ -789,26 +885,36 @@
             559,
             446
           ],
-          "en": "where L est and L VAE are the body velocity estimation and VAE loss, respectively. For explicit state estimation, we employed a mean-squared-error (MSE) loss between the estimated body velocity, ˜ v t , and the ground truth, v t , from the simulator as follows:",
+          "en": "where \\(\\mathcal{L}_{\\text{est}}\\) and \\(\\mathcal{L}_\\text{VAE}\\) are the body velocity estimation and VAE loss, respectively. For explicit state estimation, we employed a mean-squared-error (MSE) loss between the estimated body velocity, \\(\\tilde{\\textbf{v}}_t\\), and the ground truth, \\(\\textbf{v}_t\\), from the simulator as follows:",
           "reference": false,
           "source_image": "figs/p003-015-source.png",
-          "zh": "其中 $L_{est}$ 和 $L_{VAE}$ 分别是机体速度估计损失与 VAE 损失。对于显式状态估计，我们在估计的机体速度 $\\tilde{v}_t$ 与来自仿真器的真实值 $v_t$ 之间采用均方误差（MSE）损失，如下所示："
+          "zh": "其中 \\(\\mathcal{L}_{\\text{est}}\\) 和 \\(\\mathcal{L}_\\text{VAE}\\) 分别是机体速度估计损失与 VAE 损失。对于显式状态估计，我们在估计的机体速度 \\(\\tilde{\\textbf{v}}_t\\) 与来自仿真器的真实值 \\(\\textbf{v}_t\\) 之间采用均方误差（MSE）损失，如下所示：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b16",
           "kind": "formula",
           "bbox": [
-            392,
-            455,
-            559,
-            466
+            390.0,
+            453.0,
+            561.0,
+            468.0
           ],
           "en": "L est = MSE (˜ v t, v t ) . (6)",
           "reference": false,
           "image": "figs/p003-016.png",
           "labels": [
             "6"
-          ]
+          ],
+          "original_bbox": [
+            392.0,
+            455.0,
+            559.0,
+            466.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 513,
+          "image_height": 45
         },
         {
           "id": "p3-b17",
@@ -819,19 +925,20 @@
             559,
             529
           ],
-          "en": "The VAE network is trained with the standard β -VAE loss, which consists of reconstruction and latent losses. We employed MSE for the reconstruction loss and KullbackLeibler (KL) divergence [34] as the latent loss. The VAE loss is formulated as",
+          "en": "The VAE network is trained with the standard \\(\\beta\\)-VAE loss, which consists of reconstruction and latent losses. We employed MSE for the reconstruction loss and KullbackLeibler (KL) divergence [34] as the latent loss. The VAE loss is formulated as",
           "reference": false,
           "source_image": "figs/p003-017-source.png",
-          "zh": "VAE 网络使用标准的 $\\beta$-VAE 损失进行训练，该损失由重建损失和潜在损失组成。我们采用 MSE 作为重建损失，并采用 Kullback-Leibler（KL）散度 [34] 作为潜在损失。VAE 损失公式如下："
+          "zh": "VAE 网络使用标准的 \\(\\beta\\)-VAE 损失进行训练，该损失由重建损失和潜在损失组成。我们采用 MSE 作为重建损失，并采用 Kullback-Leibler（KL）散度 [34] 作为潜在损失。VAE 损失公式如下：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b18-eq-7",
           "kind": "formula",
           "bbox": [
-            313,
-            530,
-            559,
-            553.8575439453125
+            311.0,
+            521.8331909179688,
+            561.0,
+            555.8575439453125
           ],
           "en": "t ) ∥p(zt)), (7)",
           "image": "figs/p3-b18-eq-7.png",
@@ -839,7 +946,16 @@
             "7"
           ],
           "recovered": true,
-          "reference": false
+          "reference": false,
+          "original_bbox": [
+            313.0,
+            530.0,
+            559.0,
+            553.8575439453125
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 750,
+          "image_height": 103
         },
         {
           "id": "p3-b18",
@@ -850,10 +966,11 @@
             559,
             625
           ],
-          "en": "L VAE = MSE (˜ o t +1 , o t +1) + βD KL( q ( z t| oH t)∥p(zt)),(7) where ˜ o t +1 is the reconstructed next observation, q ( z t| oH t) is the posterior distribution of the z t , given oH t.p(zt)is the context’s prior distribution parameterized by a Gaussian distribution. We chose a standard normal distribution for the prior distribution because all observations are normalized to have a zero mean and unit variance.",
+          "en": "\\(\\mathcal{L}_\\text{VAE} = MSE(\\tilde{\\textbf{o}}_{t+1},\\textbf{o}_{t+1}) + \\beta D_\\text{KL}(q(\\textbf{z}_t|\\textbf{o}^H_t)\\parallel p(\\textbf{z}_t)), (7)\\) where \\(\\tilde{\\textbf{o}}_{t+1}\\) is the reconstructed next observation, \\(q(\\textbf{z}_t|\\textbf{o}^H_t)\\) is the posterior distribution of the \\(\\textbf{z}_t\\), given \\(\\textbf{o}^H_t\\). \\(p(\\textbf{z}_t)\\) is the context’s prior distribution parameterized by a Gaussian distribution. We chose a standard normal distribution for the prior distribution because all observations are normalized to have a zero mean and unit variance.",
           "reference": false,
           "source_image": "figs/p003-018-source.png",
-          "zh": "$L_{VAE} = \\text{MSE}(\\tilde{o}_{t+1}, o_{t+1}) + \\beta D_{KL}(q(z_t | o_t^H) \\parallel p(z_t)), (7)$ 其中 $\\tilde{o}_{t+1}$ 是重建的下一时刻观测，$q(z_t | o_t^H)$ 是给定 $o_t^H$ 时 $z_t$ 的后验分布。$p(z_t)$ 是由高斯分布参数化的上下文先验分布。我们选择标准正态分布作为先验分布，因为所有观测均已被归一化为零均值和单位方差。"
+          "zh": "\\(\\mathcal{L}_\\text{VAE} = MSE(\\tilde{\\textbf{o}}_{t+1},\\textbf{o}_{t+1}) + \\beta D_\\text{KL}(q(\\textbf{z}_t|\\textbf{o}^H_t)\\parallel p(\\textbf{z}_t)), (7)\\) 其中 \\(\\tilde{\\textbf{o}}_{t+1}\\) 是重建的下一时刻观测，\\(q(\\textbf{z}_t|\\textbf{o}^H_t)\\) 是给定 \\(\\textbf{o}^H_t\\) 时 \\(\\textbf{z}_t\\) 的后验分布。\\(p(\\textbf{z}_t)\\) 是由高斯分布参数化的上下文先验分布。我们选择标准正态分布作为先验分布，因为所有观测均已被归一化为零均值和单位方差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b19",
@@ -883,26 +1000,36 @@
             299,
             148
           ],
-          "en": "the standard deviation to the mean, of the episodic reward over m domain-randomized environments. The key idea is that bootstrapping is required when the CV of m agents’ rewards is small to make the policy more robust against inaccurate estimation. However, it should not bootstrap when the agents have not learned well enough, as indicated by a large CV in their rewards. We define the bootstrapping probability for each learning iteration as follows:",
+          "en": "the standard deviation to the mean, of the episodic reward over \\(m\\) domain-randomized environments. The key idea is that bootstrapping is required when the CV of \\(m\\) agents’ rewards is small to make the policy more robust against inaccurate estimation. However, it should not bootstrap when the agents have not learned well enough, as indicated by a large CV in their rewards. We define the bootstrapping probability for each learning iteration as follows:",
           "reference": false,
           "source_image": "figs/p004-000-source.png",
-          "zh": "$m$ 个域随机化环境中回合奖励的标准差与均值之比。其核心思想是：当 $m$ 个智能体奖励的 CV 较小时需要进行自举，以使策略对不准确的估计更具鲁棒性。然而，当智能体尚未充分学习时（表现为其奖励具有较大的 CV），则不应进行自举。我们将每个学习迭代步的自举概率定义如下："
+          "zh": "\\(m\\) 个域随机化环境中回合奖励的标准差与均值之比。其核心思想是：当 \\(m\\) 个智能体奖励的 CV 较小时需要进行自举，以使策略对不准确的估计更具鲁棒性。然而，当智能体尚未充分学习时（表现为其奖励具有较大的 CV），则不应进行自举。我们将每个学习迭代步的自举概率定义如下：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b1",
           "kind": "formula",
           "bbox": [
-            121,
-            157,
-            299,
-            168
+            119.0,
+            155.0,
+            301.0,
+            170.0
           ],
           "en": "p boot = 1 − tanh( CV ( R )) , (8)",
           "reference": false,
           "image": "figs/p004-001.png",
           "labels": [
             "8"
-          ]
+          ],
+          "original_bbox": [
+            121.0,
+            157.0,
+            299.0,
+            168.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 546,
+          "image_height": 45
         },
         {
           "id": "p4-b2",
@@ -913,10 +1040,11 @@
             299,
             235
           ],
-          "en": "where p boot ∈ [0 , 1] is the bootstrapping probability and R is an m × 1 vector of episodic rewards from m domainrandomized environments. CV ( · ), and tanh( · ) are coefficient of variation and hyperbolic tangent operations, respectively. tanh is used to smoothly upper-bounds CV ( R ) to one.",
+          "en": "where \\(p_\\text{boot}\\!\\in\\![0,1]\\) is the bootstrapping probability and \\(\\textbf{R}\\) is an \\(m\\!\\times\\!1\\) vector of episodic rewards from \\(m\\) domainrandomized environments. \\(CV(\\cdot)\\), and \\(\\tanh(\\cdot)\\) are coefficient of variation and hyperbolic tangent operations, respectively. \\(\\tanh\\) is used to smoothly upper-bounds \\(CV(\\textbf{R})\\) to one.",
           "reference": false,
           "source_image": "figs/p004-002-source.png",
-          "zh": "其中 $p_{\\text{boot}} \\in [0, 1]$ 为自举概率，$R$ 是来自 $m$ 个域随机化环境的回合奖励组成的 $m \\times 1$ 向量。$\\text{CV}(\\cdot)$ 与 $\\tanh(\\cdot)$ 分别为变异系数和双曲正切运算。使用 $\\tanh$ 是为了平滑地将 $\\text{CV}(R)$ 的上限限制为 1。"
+          "zh": "其中 \\(p_\\text{boot}\\!\\in\\![0,1]\\) 为自举概率，\\(\\textbf{R}\\) 是来自 \\(m\\) 个域随机化环境的回合奖励组成的 \\(m\\!\\times\\!1\\) 向量。\\(CV(\\cdot)\\) 与 \\(\\tanh(\\cdot)\\) 分别为变异系数和双曲正切运算。使用 \\(\\tanh\\) 是为了平滑地将 \\(CV(\\textbf{R})\\) 的上限限制为 1。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b3",
@@ -1067,10 +1195,11 @@
             299,
             698
           ],
-          "en": "We used the Isaac Gym simulator [36] based on the open-source implementation of [12] to synchronously train the policy, value, and CENet networks for 1 , 000 iterations. We trained 4 , 096 agents domain-randomized agents in parallel. The details of the randomized parameters are listed in Table II. For all algorithms, the policy network was trained using PPO with clipping range, generalized advantage estimation factor, and discount factor of 0 . 2, 0 . 95, and 0 . 99, respectively. The networks were optimized using the Adam optimizer [37] with a learning rate of 10−3 .",
+          "en": "We used the Isaac Gym simulator [36] based on the open-source implementation of [12] to synchronously train the policy, value, and CENet networks for \\(1,\\!000\\) iterations. We trained \\(4,\\!096\\) agents domain-randomized agents in parallel. The details of the randomized parameters are listed in Table II. For all algorithms, the policy network was trained using PPO with clipping range, generalized advantage estimation factor, and discount factor of \\(0.2\\), \\(0.95\\), and \\(0.99\\), respectively. The networks were optimized using the Adam optimizer [37] with a learning rate of \\(10^{-3}\\).",
           "reference": false,
           "source_image": "figs/p004-013-source.png",
-          "zh": "我们基于 [12] 的开源实现，使用 Isaac Gym 仿真器 [36] 同步训练策略网络、价值网络以及 CENet 网络 1,000 个迭代步。我们并行训练了 4,096 个经过域随机化的智能体。随机化参数的详细信息列于表 II 中。对于所有算法，策略网络均采用 PPO 进行训练，其裁剪范围、广义优势估计因子和折扣因子分别为 0.2、0.95 和 0.99。网络采用 Adam 优化器 [37] 进行优化，学习率为 $10^{-3}$。"
+          "zh": "我们基于 [12] 的开源实现，使用 Isaac Gym 仿真器 [36] 同步训练策略网络、价值网络以及 CENet 网络 \\(1,\\!000\\) 个迭代步。我们并行训练了 \\(4,\\!096\\) 个经过域随机化的智能体。随机化参数的详细信息列于表 II 中。对于所有算法，策略网络均采用 PPO 进行训练，其裁剪范围、广义优势估计因子和折扣因子分别为 \\(0.2\\)、\\(0.95\\) 和 \\(0.99\\)。网络采用 Adam 优化器 [37] 进行优化，学习率为 \\(10^{-3}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b14",
@@ -1104,29 +1233,47 @@
           "id": "p4-b16",
           "kind": "picture",
           "bbox": [
-            339,
-            74,
-            532,
-            139
+            337.0,
+            72.0,
+            534.0,
+            141.0
           ],
           "en": "Parameter Randomization range Unit Payload [ − 1 , 2] kg Kp factor [0 . 9 , 1 . 1] Nm / rad Kd factor [0 . 9 , 1 . 1] Nms / rad Motor strength factor [0 . 9 , 1 . 1] Nm Center of mass shift [ − 50 , 50] mm Friction coefficient [0 . 2 , 1 . 25] - System delay [0 . 0 , 15 . 0] ms",
           "reference": false,
           "image": "figs/p004-016.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            339.0,
+            74.0,
+            532.0,
+            139.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 591,
+          "image_height": 207
         },
         {
           "id": "p4-b17",
           "kind": "picture",
           "bbox": [
-            314,
-            158,
-            557,
-            232
+            312.0,
+            156.0,
+            559.0,
+            234.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p004-017.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            314.0,
+            158.0,
+            557.0,
+            232.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 741,
+          "image_height": 234
         },
         {
           "id": "p4-b18",
@@ -1193,10 +1340,11 @@
             559,
             604
           ],
-          "en": "Real-world experiments were conducted using a Unitree A1 [26] robot. All estimation and control processes were run on an Intel NUC mounted on top of the robot and we used the PyBind interface provided in [38] to send the joint angle command to the robot. An additional onboard PC with a battery added a payload of approximately 500 g to the robot. During inference, the policy runs synchronously with the CENet at 50 Hz. The desired joint angles were tracked using a PD controller with proportional and derivative gains of Kp = 28 and Kd = 0 . 7, respectively at 200 Hz.",
+          "en": "Real-world experiments were conducted using a Unitree A1 [26] robot. All estimation and control processes were run on an Intel NUC mounted on top of the robot and we used the PyBind interface provided in [38] to send the joint angle command to the robot. An additional onboard PC with a battery added a payload of approximately 500 g to the robot. During inference, the policy runs synchronously with the CENet at \\(50~\\text{Hz}\\). The desired joint angles were tracked using a PD controller with proportional and derivative gains of \\(K_p=28\\) and \\(K_d=0.7\\), respectively at \\(200~\\text{Hz}\\).",
           "reference": false,
           "source_image": "figs/p004-022-source.png",
-          "zh": "真实世界实验采用 Unitree A1 [26] 机器人进行。所有估计与控制过程均运行在安装于机器人顶部的 Intel NUC 上，我们使用 [38] 提供的 PyBind 接口向机器人发送关节角度指令。配备电池的额外机载 PC 为机器人增加了约 500 g 的有效载荷。在推理阶段，策略与 CENet 以 50 Hz 的频率同步运行。期望关节角度采用 PD 控制器在 200 Hz 下进行跟踪，其比例增益和微分增益分别为 $K_p = 28$ 和 $K_d = 0.7$。"
+          "zh": "真实世界实验采用 Unitree A1 [26] 机器人进行。所有估计与控制过程均运行在安装于机器人顶部的 Intel NUC 上，我们使用 [38] 提供的 PyBind 接口向机器人发送关节角度指令。配备电池的额外机载 PC 为机器人增加了约 500 g 的有效载荷。在推理阶段，策略与 CENet 以 \\(50~\\text{Hz}\\) 的频率同步运行。期望关节角度采用 PD 控制器在 \\(200~\\text{Hz}\\) 下进行跟踪，其比例增益和微分增益分别为 \\(K_p=28\\) 和 \\(K_d=0.7\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b23",
@@ -1221,10 +1369,11 @@
             559,
             734
           ],
-          "en": "We evaluated the command tracking performance in a Gazebo simulation to obtain accurate ground truth. The robot was given random commands for ten minutes, and the commands were uniformly sampled from [ − 1 . 0 , 1 . 0] every ten seconds. For fair comparison, random commands were generated using the same random seed for each controller. Each controller was run five times with different random seeds to verify repeatability. We measured absolute tracking error (ATE) as the performance metric and constructed a",
+          "en": "We evaluated the command tracking performance in a Gazebo simulation to obtain accurate ground truth. The robot was given random commands for ten minutes, and the commands were uniformly sampled from \\([-1.0, 1.0]\\) every ten seconds. For fair comparison, random commands were generated using the same random seed for each controller. Each controller was run five times with different random seeds to verify repeatability. We measured absolute tracking error (ATE) as the performance metric and constructed a",
           "reference": false,
           "source_image": "figs/p004-024-source.png",
-          "zh": "我们在 Gazebo 仿真中评估指令跟踪性能，以获取准确的真实值。向机器人给定持续 10 分钟的随机指令，指令每 10 秒从 $[-1.0, 1.0]$ 中均匀采样。为公平对比，每个控制器所用的随机指令均使用相同的随机种子生成。每个控制器使用不同的随机种子运行 5 次，以验证可重复性。我们测量绝对跟踪误差（ATE）作为性能评价指标，并绘制了"
+          "zh": "我们在 Gazebo 仿真中评估指令跟踪性能，以获取准确的真实值。向机器人给定持续 10 分钟的随机指令，指令每 10 秒从 \\([-1.0, 1.0]\\) 中均匀采样。为公平对比，每个控制器所用的随机指令均使用相同的随机种子生成。每个控制器使用不同的随机种子运行 5 次，以验证可重复性。我们测量绝对跟踪误差（ATE）作为性能评价指标，并绘制了",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1235,15 +1384,24 @@
           "id": "p5-b0",
           "kind": "picture",
           "bbox": [
-            55,
-            50,
-            298,
-            158
+            53.0,
+            48.0,
+            300.0,
+            160.0
           ],
           "en": "𝑣! \" 𝑣# \" 𝜔$ \" Tracking error",
           "reference": false,
           "image": "figs/p005-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            55.0,
+            50.0,
+            298.0,
+            158.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 741,
+          "image_height": 336
         },
         {
           "id": "p5-b1",
@@ -1254,24 +1412,34 @@
             299,
             199
           ],
-          "en": "Fig. 4: Command tracking error represented as a boxplot. vxeandv yeare forward and lateral velocity tracking errors, respectively, measured in m/s . ωzeisyawratetrackingerrormeasuredinrad/s.The∗∗∗∗annotations indicate measurements with p -value −4 .",
+          "en": "Fig. 4: Command tracking error represented as a boxplot. \\(v^e_{x}\\) and \\(v^e_{y}\\) are forward and lateral velocity tracking errors, respectively, measured in \\(m/s\\). \\(\\omega^e_{z}\\) is yaw rate tracking error measured in \\(rad/s\\). The \\(*\\!\\!*\\!\\!**\\) annotations indicate measurements with \\(p\\text{-value}\\!<\\!10^{-4}\\).",
           "reference": false,
           "source_image": "figs/p005-001-source.png",
-          "zh": "图 4：以箱线图表示的指令跟踪误差。$v_x^e$ 与 $v_y^e$ 分别为前向和横向速度跟踪误差，单位为 m/s。$\\omega_z^e$ 为偏航角速度跟踪误差，单位为 rad/s。∗∗∗∗ 注记表示 p-value 〔行内公式见原版〕的测量结果。"
+          "zh": "图 4：以箱线图表示的指令跟踪误差。\\(v^e_{x}\\) 与 \\(v^e_{y}\\) 分别为前向和横向速度跟踪误差，单位为 \\(m/s\\)。\\(\\omega^e_{z}\\) 为偏航角速度跟踪误差，单位为 \\(rad/s\\)。\\(*\\!\\!*\\!\\!**\\) 注记表示 \\(p\\text{-value}\\!<\\!10^{-4}\\) 的测量结果。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b2",
           "kind": "picture",
           "bbox": [
-            55,
-            211,
-            298,
-            288
+            53.0,
+            209.0,
+            300.0,
+            290.0
           ],
           "en": "Foot stumble",
           "reference": false,
           "image": "figs/p005-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            55.0,
+            211.0,
+            298.0,
+            288.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 741,
+          "image_height": 243
         },
         {
           "id": "p5-b3",
@@ -1296,10 +1464,11 @@
             299,
             417
           ],
-          "en": "barplot, as shown in Fig. 4. The significance of the improvement obtained by DreamWaQ against other methods was measured using paired t -test, as shown in Fig. 4, indicating that DreamWaQ consistently outperforms the baselines. Moreover, the proposed AdaBoot method also significantly improved DreamWaQ, owing to its statistical bootstrapping strategy during training.",
+          "en": "barplot, as shown in Fig. 4. The significance of the improvement obtained by DreamWaQ against other methods was measured using paired \\(t\\)-test, as shown in Fig. 4, indicating that DreamWaQ consistently outperforms the baselines. Moreover, the proposed AdaBoot method also significantly improved DreamWaQ, owing to its statistical bootstrapping strategy during training.",
           "reference": false,
           "source_image": "figs/p005-004-source.png",
-          "zh": "柱状图，如图 4 所示。DreamWaQ 相较于其他方法所取得改进的显著性是通过配对 $t$ 检验衡量的，如图 4 所示，这表明 DreamWaQ 始终优于各基线方法。此外，所提出的 AdaBoot 方法也显著提升了 DreamWaQ 的性能，这归功于其在训练期间采用的统计自举策略。"
+          "zh": "柱状图，如图 4 所示。DreamWaQ 相较于其他方法所取得改进的显著性是通过配对 \\(t\\) 检验衡量的，如图 4 所示，这表明 DreamWaQ 始终优于各基线方法。此外，所提出的 AdaBoot 方法也显著提升了 DreamWaQ 的性能，这归功于其在训练期间采用的统计自举策略。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b5",
@@ -1366,10 +1535,11 @@
             299,
             734
           ],
-          "en": "To test the learned policy’s robustness, we perturbed the robot in the simulation with random pushes by applying random velocities with random directions along the x , y , and z axes of the robot’s body frame with a one-second interval until it fell. The random push velocities were uniformly",
+          "en": "To test the learned policy’s robustness, we perturbed the robot in the simulation with random pushes by applying random velocities with random directions along the \\(x\\), \\(y\\), and \\(z\\) axes of the robot’s body frame with a one-second interval until it fell. The random push velocities were uniformly",
           "reference": false,
           "source_image": "figs/p005-009-source.png",
-          "zh": "为了测试所学策略的鲁棒性，我们在仿真中通过随机推力对机器人施加扰动：沿机器人机体坐标系的 $x$、$y$ 和 $z$ 轴施加具有随机方向的随机速度，时间间隔为 1 秒，直至机器人摔倒。随机推力速度均匀地"
+          "zh": "为了测试所学策略的鲁棒性，我们在仿真中通过随机推力对机器人施加扰动：沿机器人机体坐标系的 \\(x\\)、\\(y\\) 和 \\(z\\) 轴施加具有随机方向的随机速度，时间间隔为 1 秒，直至机器人摔倒。随机推力速度均匀地",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b10",
@@ -1389,15 +1559,24 @@
           "id": "p5-b11",
           "kind": "table",
           "bbox": [
-            326,
-            83,
-            545,
-            141
+            324.0,
+            81.0,
+            547.0,
+            143.0
           ],
           "en": "|Algorithm|Max. push (m/s)|Survival rate (%)| |---|---|---| |Baseline|0.511±0.053|20.51±6.44| |AdaptationNet|0.714±0.096|82.37±2.49| |EstimatorNet|0.871±0.124|80.92±5.73| |DreamWaQ w/o AdaBoot|1.015±0.121|90.71±1.25| |DreamWaQ w/ AdaBoot|1.121±0.164|95.23±1.61|",
           "reference": false,
           "image": "figs/p005-011.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            326.0,
+            83.0,
+            545.0,
+            141.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 669,
+          "image_height": 186
         },
         {
           "id": "p5-b12",
@@ -1408,10 +1587,11 @@
             559,
             233
           ],
-          "en": "sampled from [ − vmax push,vmax push], wherevmax push≥0 is the maximum push speed. We also measured the survival rate, i.e., the percentage of the robot’s survival time within 30 minutes of a random walk. The result of the robustness test is summarized in Table III.",
+          "en": "sampled from \\([-\\!\\textbf{v}^\\text{max}_\\text{push},\\!\\textbf{v}^\\text{max}_\\text{push}]\\), where \\(\\textbf{v}^\\text{max}_\\text{push}\\!\\geq\\!0\\) is the maximum push speed. We also measured the survival rate, i.e., the percentage of the robot’s survival time within 30 minutes of a random walk. The result of the robustness test is summarized in Table III.",
           "reference": false,
           "source_image": "figs/p005-012-source.png",
-          "zh": "从 [ − vmax push,vmax push] 中采样，其中 vmax push ≥ 0 为最大推击速度。我们还测定了存活率，即机器人在 30 分钟随机游走中存活时间的百分比。鲁棒性测试结果汇总于表 III。"
+          "zh": "从 \\([-\\!\\textbf{v}^\\text{max}_\\text{push},\\!\\textbf{v}^\\text{max}_\\text{push}]\\) 中采样，其中 \\(\\textbf{v}^\\text{max}_\\text{push}\\!\\geq\\!0\\) 为最大推击速度。我们还测定了存活率，即机器人在 30 分钟随机游走中存活时间的百分比。鲁棒性测试结果汇总于表 III。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b13",
@@ -1492,15 +1672,24 @@
           "id": "p6-b0",
           "kind": "picture",
           "bbox": [
-            66,
-            50,
-            546,
-            248
+            64.0,
+            48.0,
+            548.0,
+            250.0
           ],
           "en": "(a) (a) Go downstairs Normal walk Climb upstairs Normal walk Normal walk (b) Normal walk Irregular foothold Adaptation Recovery Foot stumble Foot slip",
           "reference": false,
           "image": "figs/p006-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            66.0,
+            50.0,
+            546.0,
+            248.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1452,
+          "image_height": 606
         },
         {
           "id": "p6-b1",
@@ -1520,15 +1709,24 @@
           "id": "p6-b2",
           "kind": "picture",
           "bbox": [
-            66,
-            274,
-            546,
-            439
+            64.0,
+            272.0,
+            548.0,
+            441.0
           ],
           "en": "A Start B Finish Finish Start",
           "reference": false,
           "image": "figs/p006-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            66.0,
+            274.0,
+            546.0,
+            439.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1452,
+          "image_height": 507
         },
         {
           "id": "p6-b3",

@@ -12,6 +12,7 @@ import re
 import shutil
 import time
 from pathlib import Path
+from math_text import normalize_math
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -118,9 +119,10 @@ def labels_in_formula(page, box):
     return list(dict.fromkeys(found))
 
 
-def save_crop(page, rect, path, dpi=200):
+def save_crop(page, rect, path, dpi=216):
     import pymupdf
-    rect = (pymupdf.Rect(rect)+(-2,-2,2,2)) & page.rect
+    from repair_crops import complete_crop_rect
+    rect = complete_crop_rect(page, rect)
     if rect.is_empty: return
     pix = page.get_pixmap(matrix=pymupdf.Matrix(dpi/72,dpi/72), clip=rect, alpha=False)
     pix.save(str(path))
@@ -141,6 +143,8 @@ def extract(pdf, ident, output):
             kind = box['class']
             raw = chunk['text'][slice(*box['pos'])]
             text = plain(raw)
+            if kind == 'formula' and re.fullmatch(r'[IVX]+\.\s*[A-Z][A-Z ,\-]{4,}', text):
+                kind = 'section-header'
             if kind in ('page-header','page-footer'): continue
             if kind == 'title' and not title: title = text
             if kind == 'section-header':
@@ -264,10 +268,12 @@ def render(data, cfg):
     backlinks = {key:[] for key in anchors}
     def resolve(label, block_id):
         return min(candidates[label], key=lambda key:abs(locations[key[0]]-locations[block_id]))
-    def linked(text, block_id, lang):
+    def linked_prose(text, block_id, lang):
         # Only link explicit equation cues. Bare numeric tuples are ambiguous.
         # Extend the cue over lists/ranges, e.g. Eqs. (3), (4) and (5).
-        pattern = r'(?:\b(?:[Ee]q(?:uation)?s?\.?|[Ee]xpressions?)\s*|(?:公式|方程|式)\s*)\(?[A-Z]?\.?\d+(?:\.\d+)*[a-z]?\)?(?:\s*(?:,|and|or|to|through|–|—|-|和|至|、)\s*\(?[A-Z]?\.?\d+(?:\.\d+)*[a-z]?\)?)*'
+        pattern = r'(?:\b(?:[Ee]q(?:uation)?s?\.?|[Ee]xpressions?)\s*|(?:公式|方程|式)\s*|\b(?:in|from|by|using|see)\s+(?=\())\(?[A-Z]?\.?\d+(?:\.\d+)*[a-z]?\)?(?:\s*(?:,|and|or|to|through|–|—|-|和|至|、)\s*\(?[A-Z]?\.?\d+(?:\.\d+)*[a-z]?\)?)*'
+        pattern = pattern.replace(r'\(?', r'[（(]?').replace(r'\)?', r'[）)]?')
+        pattern += r'|[（(]\s*[A-Z]?\.?\d+(?:\.\d+)*[a-z]?\s*[）)](?=\s*(?:中|所示|给出|可知|定义|得到))'
         def replace_cue(match):
             cue=match.group(0)
             def replace_number(number):
@@ -287,16 +293,33 @@ def render(data, cfg):
             parts.append(html.escape(text[last:match.start()]));parts.append(replace_cue(match));last=match.end()
         return ''.join(parts)+html.escape(text[last:])
 
+    def linked(text, block_id, lang):
+        # Equation cross-reference anchors must not split a LaTeX expression.
+        return ''.join(html.escape(part) if i % 2 else linked_prose(part, block_id, lang)
+                       for i, part in enumerate(re.split(r'(\\\(.*?\\\)|\\\[.*?\\\])', text, flags=re.S)))
+
+    def image_dimensions(relative):
+        import struct
+        path = ROOT / 'site' / cfg['id'] / relative
+        with path.open('rb') as stream:
+            header = stream.read(24)
+        if header.startswith(b'\x89PNG\r\n\x1a\n'):
+            width, height = struct.unpack('>II', header[16:24])
+            return f' width="{width}" height="{height}"'
+        return ''
+
     body=[]
     body.append(f'<div class="title-block"><div class="kicker">{html.escape(cfg["category"])}</div><h1>{html.escape(cfg["zh_title"])}</h1><p class="en-title">{html.escape(data["title"])}</p><div class="links"><a href="../index.html">← 返回论文库</a><a href="{{{{PDF}}}}" target="_blank" rel="noopener">原始 PDF ↗</a></div></div>')
     chinese=cfg.get('source_language')=='zh'
-    if chinese:
+    if cfg.get('translation_notice'):
+        notice=html.escape(cfg['translation_notice'])
+    elif chinese:
         notice='本资料原文为中文，保留原文及公式图表。'
     elif cfg.get('translation_engine')=='antigravity':
-        notice='中文经 Gemini 3.8 Flash（Medium）对照英文逐段重译与润色，尚未经过逐段人工校对。缺损的行内公式已标明，请核对原版；图表及编号公式保留原貌。'
+        notice='中文经 Gemini 3.8 Flash（Medium）对照英文逐段重译与润色，尚未经过逐段人工校对。正文数学记号已依据作者源码恢复；图表及编号公式按原 PDF 保留。'
     else:
         notice='中文为 OPUS-MT 本机机器初译，尚未人工逐段校对。数学符号以同页原文及公式裁图为准；文中图表内文字和参考文献保留原貌。'
-    body.append('<aside class="translation-notice">'+notice+' 可展开每段“核对原版排版”或每页原图进行核对。点击正文公式编号可跳转，公式下方可返回引用处。</aside>')
+    body.append('<aside class="translation-notice">'+notice+' 可展开每页原图进行核对。点击正文公式编号可跳转，公式下方可返回引用处。</aside>')
     if equations:
         index_links=' '.join(f'<a class="eq-ref" href="#{anchor}">({html.escape(key[1])}) · {key[0].split("-")[0]}</a>' for key,anchor in anchors.items())
         body.append(f'<details class="equation-index" id="equation-index"><summary>公式索引（{len(equations)} 个原始编号）</summary><div>{index_links}</div></details>')
@@ -304,12 +327,12 @@ def render(data, cfg):
         number=page['number']
         body.append(f'<h2 data-num="{number}">第 {number} 页<span class="en-h">Page {number}</span><a class="pg" href="{{{{PDF}}}}#page={number}" target="_blank">PDF p.{number}</a></h2>')
         for b in page['blocks']:
-            ident=b['id'];kind=b['kind'];en=b['en'];zh=b.get('zh','')
+            ident=b['id'];kind=b['kind'];en=normalize_math(b['en']);zh=normalize_math(b.get('zh',''))
             if 'image' in b:
                 block_anchors=''.join(f'<span class="eq-anchor" id="{anchors[(ident,label)]}"></span>' for label in b.get('labels',[]))
                 label_text=' / '.join('('+x+')' for x in b.get('labels',[]))
                 desc={'formula':'公式','table':'表格','picture':'插图','code':'代码'}.get(kind,'原文图像')
-                body.append(f'<figure class="float imported-{kind}" id="{ident}">{block_anchors}<img loading="lazy" decoding="async" src="{b["image"]}" alt="{desc} {label_text} · 第 {number} 页"><figcaption>{desc} {html.escape(label_text)} · PDF p.{number}</figcaption>__BACKLINKS_{ident}__</figure>')
+                body.append(f'<figure class="float imported-{kind}" id="{ident}">{block_anchors}<img loading="lazy" decoding="async"{image_dimensions(b["image"])} src="{b["image"]}" alt="{desc} {label_text} · 第 {number} 页"><figcaption>{desc} {html.escape(label_text)} · PDF p.{number}</figcaption>__BACKLINKS_{ident}__</figure>')
             else:
                 en_html=linked(en,ident,'en');zh_html=linked(zh,ident,'zh')
                 supplemental=[]
@@ -322,8 +345,14 @@ def render(data, cfg):
                 if supplemental:zh_html+='<span class="source-equation-refs"> 原文公式引用：'+'、'.join(supplemental)+'</span>'
                 cls='pair imported-heading' if kind in ('title','section-header') else 'pair'
                 if b.get('reference'): cls+=' bibliography-pair'
-                body.append(f'<div class="{cls}" id="{ident}"><div class="en" lang="en"><p>{en_html}</p><details class="source-check"><summary>核对原版排版</summary><img loading="lazy" src="{b["source_image"]}" alt="第 {number} 页对应原文段落"></details></div><div class="zh" lang="zh-CN"><p>{zh_html}</p></div></div>')
+                body.append(f'<div class="{cls}" id="{ident}"><div class="en" lang="en"><p>{en_html}</p></div><div class="zh" lang="zh-CN"><p>{zh_html}</p></div></div>')
         body.append(f'<details class="source-page"><summary>展开第 {number} 页原版整页（含全部图表、公式与页眉页脚）</summary><a href="{{{{PDF}}}}#page={number}" target="_blank"><img loading="lazy" decoding="async" src="figs/page-{number:03d}.jpg" alt="原始 PDF 第 {number} 页"></a></details>')
+    if cfg.get('source_license'):
+        body.append('<p class="source-license">原文署名：'+html.escape(cfg.get('source_authors', ''))+'. '
+                    +html.escape(data['title'])+'. '+html.escape(cfg.get('source_version', ''))
+                    +'. <a href="'+html.escape(cfg.get('source_url', ''),quote=True)+'">原始出版物</a> · '
+                    +'<a href="'+html.escape(cfg.get('source_license_url', ''),quote=True)+'">'
+                    +html.escape(cfg['source_license'])+'</a>。本站新增中文机器译文与阅读排版。</p>')
     result='\n'.join(body)
     for page in data['pages']:
         for b in page['blocks']:

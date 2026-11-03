@@ -10,7 +10,7 @@
   "out": "site/dagger",
   "imported": true,
   "source_language": "en",
-  "math": false,
+  "math": true,
   "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
   "source_aliases": [
     "papers/imitation-learning/A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning.pdf",

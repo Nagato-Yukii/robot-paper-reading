@@ -1,0 +1,43 @@
+{
+  "id": "energy-gaits",
+  "brand": "Energy & Gaits",
+  "zh_title": "最小化能耗促成足式机器人步态的涌现",
+  "category": "足式运动 · 能效",
+  "sha256": "35e20083fbcc9bcc12b8020a715f471663e880ae94d4615b673a08c9f380ddd7",
+  "pdf": "sources/energy-gaits.pdf",
+  "title": "最小化能耗促成足式机器人步态的涌现 · 中英对照",
+  "brand_sub": "Minimizing Energy Consumption Leads to the Emergence of Gaits in Legged Robots",
+  "out": "site/energy-gaits",
+  "imported": true,
+  "source_language": "en",
+  "math": true,
+  "source_aliases": [
+    "https://arxiv.org/abs/2111.01674",
+    "https://proceedings.mlr.press/v164/fu22a.html"
+  ],
+  "source_url": "https://proceedings.mlr.press/v164/fu22a.html",
+  "source_version": "PMLR 164:928–937, 2022 (CoRL 2021)",
+  "source_license": "CC BY 4.0",
+  "source_license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_authors": "Zipeng Fu, Ashish Kumar, Jitendra Malik, Deepak Pathak",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "translation_kind": "direct-translation",
+  "translation_credit": "译文：Gemini3.8 Flash medium",
+  "translation": "Gemini 3.8 Flash (Medium), translated directly from English via local Antigravity CLI",
+  "translation_review": "gemini-translated-awaiting-human-review",
+  "polished_paragraphs": 86,
+  "polished_at": "2026-10-20T13:58:01.640555+00:00",
+  "validation": {
+    "equations": {
+      "1": "p3-b11",
+      "2": "p3-b13",
+      "3": "p4-b7",
+      "4": "p4-b8",
+      "5": "p4-b9"
+    },
+    "equation_references": 2,
+    "paragraphs": 126
+  }
+}

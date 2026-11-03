@@ -27,10 +27,11 @@
             559,
             191
           ],
-          "en": "JEAN-PIERRE SLEIMAN1† , HE LI1† , ALPHONSUS ADU-BREDU2† , ROBIN DEITS2† , ARUN KUMAR2† , KEVIN BERGAMIN2‡ , MOHAK BHARDWAJ2‡ , SCOTT BIDDLESTONE1‡ , NICOLA BURGER1‡ , MATTHEW A. ESTRADA1‡ , FRANCESCO IACOBELLI1‡ , TWAN KOOLEN2‡ , ALEXANDER LAMBERT2‡ , ERICA LIN1‡ , M. EVA MUNGAI1‡ , ZACH NOBLES1‡ , SHANE ROZEN-LEVY2‡ , YUYAO SHI1‡ , JIASHUN WANG1‡ , JAKOB WELNER2‡ , FANGZHOU YU1‡ , MIKE ZHANG1‡ , ALFRED RIZZI1‡‡ , JESSICA HODGINS1‡‡ , SYLVAIN BERTRAND1‡‡ , YEUHI ABE2‡‡ , SCOTT KUINDERSMA2‡‡ , FARBOD FARSHIDIAN1‡‡∗",
+          "en": "JEAN-PIERRE SLEIMAN1\\(^\\dagger\\) , HE LI1\\(^\\dagger\\) , ALPHONSUS ADU-BREDU2\\(^\\dagger\\) , ROBIN DEITS2\\(^\\dagger\\) , ARUN KUMAR2\\(^\\dagger\\) , KEVIN BERGAMIN2\\(^\\ddagger\\) , MOHAK BHARDWAJ2\\(^\\ddagger\\) , SCOTT BIDDLESTONE1\\(^\\ddagger\\) , NICOLA BURGER1\\(^\\ddagger\\) , MATTHEW A. ESTRADA1\\(^\\ddagger\\) , FRANCESCO IACOBELLI1\\(^\\ddagger\\) , TWAN KOOLEN2\\(^\\ddagger\\) , ALEXANDER LAMBERT2\\(^\\ddagger\\) , ERICA LIN1\\(^\\ddagger\\) , M. EVA MUNGAI1\\(^\\ddagger\\) , ZACH NOBLES1\\(^\\ddagger\\) , SHANE ROZEN-LEVY2\\(^\\ddagger\\) , YUYAO SHI1\\(^\\ddagger\\) , JIASHUN WANG1\\(^\\ddagger\\) , JAKOB WELNER2\\(^\\ddagger\\) , FANGZHOU YU1\\(^\\ddagger\\) , MIKE ZHANG1\\(^\\ddagger\\) , ALFRED RIZZI1\\(^{\\ddagger\\ddagger}\\) , JESSICA HODGINS1\\(^{\\ddagger\\ddagger}\\) , SYLVAIN BERTRAND1\\(^{\\ddagger\\ddagger}\\) , YEUHI ABE2\\(^{\\ddagger\\ddagger}\\) , SCOTT KUINDERSMA2\\(^{\\ddagger\\ddagger}\\) , FARBOD FARSHIDIAN1\\(^{\\ddagger\\ddagger}\\ast\\)",
           "reference": false,
           "source_image": "figs/p001-003-source.png",
-          "zh": "JEAN-PIERRE SLEIMAN1† , HE LI1† , ALPHONSUS ADU-BREDU2† , ROBIN DEITS2† , ARUN KUMAR2† , KEVIN BERGAMIN2‡ , MOHAK BHARDWAJ2‡ , SCOTT BIDDLESTONE1‡ , NICOLA BURGER1‡ , MATTHEW A. ESTRADA1‡ , FRANCESCO IACOBELLI1‡ , TWAN KOOLEN2‡ , ALEXANDER LAMBERT2‡ , ERICA LIN1‡ , M. EVA MUNGAI1‡ , ZACH NOBLES1‡ , SHANE ROZEN-LEVY2‡ , YUYAO SHI1‡ , JIASHUN WANG1‡ , JAKOB WELNER2‡ , FANGZHOU YU1‡ , MIKE ZHANG1‡ , ALFRED RIZZI1‡‡ , JESSICA HODGINS1‡‡ , SYLVAIN BERTRAND1‡‡ , YEUHI ABE2‡‡ , SCOTT KUINDERSMA2‡‡ , FARBOD FARSHIDIAN1‡‡∗"
+          "zh": "JEAN-PIERRE SLEIMAN1\\(^\\dagger\\) , HE LI1\\(^\\dagger\\) , ALPHONSUS ADU-BREDU2\\(^\\dagger\\) , ROBIN DEITS2\\(^\\dagger\\) , ARUN KUMAR2\\(^\\dagger\\) , KEVIN BERGAMIN2\\(^\\ddagger\\) , MOHAK BHARDWAJ2\\(^\\ddagger\\) , SCOTT BIDDLESTONE1\\(^\\ddagger\\) , NICOLA BURGER1\\(^\\ddagger\\) , MATTHEW A. ESTRADA1\\(^\\ddagger\\) , FRANCESCO IACOBELLI1\\(^\\ddagger\\) , TWAN KOOLEN2\\(^\\ddagger\\) , ALEXANDER LAMBERT2\\(^\\ddagger\\) , ERICA LIN1\\(^\\ddagger\\) , M. EVA MUNGAI1\\(^\\ddagger\\) , ZACH NOBLES1\\(^\\ddagger\\) , SHANE ROZEN-LEVY2\\(^\\ddagger\\) , YUYAO SHI1\\(^\\ddagger\\) , JIASHUN WANG1\\(^\\ddagger\\) , JAKOB WELNER2\\(^\\ddagger\\) , FANGZHOU YU1\\(^\\ddagger\\) , MIKE ZHANG1\\(^\\ddagger\\) , ALFRED RIZZI1\\(^{\\ddagger\\ddagger}\\) , JESSICA HODGINS1\\(^{\\ddagger\\ddagger}\\) , SYLVAIN BERTRAND1\\(^{\\ddagger\\ddagger}\\) , YEUHI ABE2\\(^{\\ddagger\\ddagger}\\) , SCOTT KUINDERSMA2\\(^{\\ddagger\\ddagger}\\) , FARBOD FARSHIDIAN1\\(^{\\ddagger\\ddagger}\\ast\\)",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b4",
@@ -111,10 +112,11 @@
             308,
             272
           ],
-          "en": "∗ Corresponding author. Email: ffarshidian@rai-inst.com",
+          "en": "\\(^\\ast\\) Corresponding author. Email: ffarshidian@rai-inst.com",
           "reference": false,
           "source_image": "figs/p001-009-source.png",
-          "zh": "∗ 通信作者。邮箱：ffarshidian@rai-inst.com"
+          "zh": "\\(^\\ast\\) 通信作者。邮箱：ffarshidian@rai-inst.com",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b10",
@@ -443,15 +445,24 @@
           "id": "p4-b6",
           "kind": "picture",
           "bbox": [
-            313,
-            46,
-            564,
-            234
+            311.0,
+            44.0,
+            566.0,
+            236.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p004-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            313.0,
+            46.0,
+            564.0,
+            234.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 765,
+          "image_height": 576
         },
         {
           "id": "p4-b7",
@@ -565,10 +576,11 @@
             299,
             374
           ],
-          "en": "These motions are difficult precisely because they invoke contacts beyond the feet (hands, knees, forearms, torso, back), placing them outside the design envelope of standard whole-body control pipelines. For model-based frameworks, the intricacy of modeling contact phenomena—high-impulse events, stick–slip transitions, and extended body–ground interactions over complex geometries—poses a major obstacle to designing stabilizing controllers for multi-contact behaviors. Accordingly, these methods typically predefine the active end-effectors and avoid motions with whole-body contacts. Even for RL policies trained in simulation, these regimes magnify the sim-to-real gap, as small mismatches in contact, friction, compliance, and geometry compound over extended contact-rich phases. Consistent with Table 1, simpler foot-only gaits ( walk , jog ) exhibit lower tracking errors across MAE( q ) and MAD( R ), whereas more dynamic, multi-contact skills ( forward roll , roll on all fours , crawl on all fours , army crawl , cartwheel , breakdance ) show higher orientation and angular-velocity discrepancies.",
+          "en": "These motions are difficult precisely because they invoke contacts beyond the feet (hands, knees, forearms, torso, back), placing them outside the design envelope of standard whole-body control pipelines. For model-based frameworks, the intricacy of modeling contact phenomena—high-impulse events, stick–slip transitions, and extended body–ground interactions over complex geometries—poses a major obstacle to designing stabilizing controllers for multi-contact behaviors. Accordingly, these methods typically predefine the active end-effectors and avoid motions with whole-body contacts. Even for RL policies trained in simulation, these regimes magnify the sim-to-real gap, as small mismatches in contact, friction, compliance, and geometry compound over extended contact-rich phases. Consistent with Table 1, simpler foot-only gaits ( walk , jog ) exhibit lower tracking errors across \\( \\mathrm{MAE}(\\boldsymbol q) \\) and \\( \\mathrm{MAD}(R) \\), whereas more dynamic, multi-contact skills ( forward roll , roll on all fours , crawl on all fours , army crawl , cartwheel , breakdance ) show higher orientation and angular-velocity discrepancies.",
           "reference": false,
           "source_image": "figs/p005-002-source.png",
-          "zh": "这些动作之所以困难，恰恰是因为它们涉及脚部以外的接触（手、膝盖、前臂、躯干、背部），从而超出了标准全身控制流程的设计范畴。对于基于模型的框架而言，接触现象建模的复杂性——高冲量事件、粘滞-滑动转变以及在复杂几何构型上较长时间的身体-地面相互作用——为设计用于多接触行为的稳定控制器带来了巨大障碍。因此，这些方法通常预先定义主动末端执行器，并避免涉及全身接触的动作。即使对于在仿真中训练的强化学习策略，这些运动模式也会放大仿真到现实迁移差距，因为在较长的富接触阶段中，接触、摩擦力、顺应性和几何形态上的微小失配会不断累积复合。与表 1 一致，更简单的纯足部步态（walk、jog）在 MAE(q) 和 MAD(R) 上表现出较低的跟踪误差，而动态性更强、多接触的技能（forward roll、roll on all fours、crawl on all fours、army crawl、cartwheel、breakdance）则表现出更高的朝向和角速度偏差。"
+          "zh": "这些动作之所以困难，恰恰是因为它们涉及脚部以外的接触（手、膝盖、前臂、躯干、背部），从而超出了标准全身控制流程的设计范畴。对于基于模型的框架而言，接触现象建模的复杂性——高冲量事件、粘滞-滑动转变以及在复杂几何构型上较长时间的身体-地面相互作用——为设计用于多接触行为的稳定控制器带来了巨大障碍。因此，这些方法通常预先定义主动末端执行器，并避免涉及全身接触的动作。即使对于在仿真中训练的强化学习策略，这些运动模式也会放大仿真到现实迁移差距，因为在较长的富接触阶段中，接触、摩擦力、顺应性和几何形态上的微小失配会不断累积复合。与表 1 一致，更简单的纯足部步态（walk、jog）在 \\( \\mathrm{MAE}(\\boldsymbol q) \\) 和 \\( \\mathrm{MAD}(R) \\) 上表现出较低的跟踪误差，而动态性更强、多接触的技能（forward roll、roll on all fours、crawl on all fours、army crawl、cartwheel、breakdance）则表现出更高的朝向和角速度偏差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b3",
@@ -607,10 +619,11 @@
             299,
             648
           ],
-          "en": "Our experiments with ViCap references highlight robustness to noisy, video-reconstructed motions while maintaining fluid, temporally coherent motion over long sequences (Movie S2). We employ video demonstrations captured in the wild with a handheld phone camera, yielding a fast and practical data generation pipeline: record → reconstruct → retarget → train → execute , where reconstruct denotes 3D pose estimation with temporal smoothing. Converting a recorded video into a retargeted reference motion takes minutes, so in practice, we can capture a new clip in the morning, train during the day, and run it on hardware that evening.",
+          "en": "Our experiments with ViCap references highlight robustness to noisy, video-reconstructed motions while maintaining fluid, temporally coherent motion over long sequences (Movie S2). We employ video demonstrations captured in the wild with a handheld phone camera, yielding a fast and practical data generation pipeline: record \\(\\rightarrow\\) reconstruct \\(\\rightarrow\\) retarget \\(\\rightarrow\\) train \\(\\rightarrow\\) execute , where reconstruct denotes 3D pose estimation with temporal smoothing. Converting a recorded video into a retargeted reference motion takes minutes, so in practice, we can capture a new clip in the morning, train during the day, and run it on hardware that evening.",
           "reference": false,
           "source_image": "figs/p005-005-source.png",
-          "zh": "我们使用 ViCap 参考动作的实验突出了对带噪声的视频重建动作的鲁棒性，同时在长序列上保持了流畅且时间连贯的运动（Movie S2）。我们采用通过手持手机摄像头在野外自然环境中采集的视频演示，构建了一条快速且实用的数据生成流程：录制 → 重建 → 重定向 → 训练 → 执行，其中“重建”表示带有时间平滑的 3D 姿态估计。将录制的视频转换为重定向后的参考动作仅需数分钟，因此在实践中，我们可以在早上采集一段新视频片段，白天进行训练，并在当晚部署到硬件上运行。"
+          "zh": "我们使用 ViCap 参考动作的实验突出了对带噪声的视频重建动作的鲁棒性，同时在长序列上保持了流畅且时间连贯的运动（Movie S2）。我们采用通过手持手机摄像头在野外自然环境中采集的视频演示，构建了一条快速且实用的数据生成流程：录制 \\(\\rightarrow\\) 重建 \\(\\rightarrow\\) 重定向 \\(\\rightarrow\\) 训练 \\(\\rightarrow\\) 执行，其中“重建”表示带有时间平滑的 3D 姿态估计。将录制的视频转换为重定向后的参考动作仅需数分钟，因此在实践中，我们可以在早上采集一段新视频片段，白天进行训练，并在当晚部署到硬件上运行。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b6",
@@ -635,10 +648,11 @@
             572,
             123
           ],
-          "en": "remain surprisingly low (e.g., MAE( q ) and MAD( R ) near 0.05 rad). We attribute this to a reward formulation that does not force tight adherence to the reference root trajectory: the policy is encouraged to track the global motion in a relaxed fashion, rejecting obvious artifacts while still solving the task. Moreover, our MDP and rewards do not require contact labels, so the policy is agnostic to noisy contact timings/schedules extracted from the ViCap reference.",
+          "en": "remain surprisingly low (e.g., \\( \\mathrm{MAE}(\\boldsymbol q) \\) and \\( \\mathrm{MAD}(R) \\) near 0.05 rad). We attribute this to a reward formulation that does not force tight adherence to the reference root trajectory: the policy is encouraged to track the global motion in a relaxed fashion, rejecting obvious artifacts while still solving the task. Moreover, our MDP and rewards do not require contact labels, so the policy is agnostic to noisy contact timings/schedules extracted from the ViCap reference.",
           "reference": false,
           "source_image": "figs/p005-007-source.png",
-          "zh": "仍保持令人惊讶的低水平（例如，MAE(q) 和 MAD(R) 接近 0.05 rad）。我们将此归因于一种并未强制严格贴合参考根轨迹的奖励函数设计：策略被鼓励以较为宽松的方式跟踪全局运动，在排除明显瑕疵的同时仍然完成任务。此外，我们的马尔可夫决策过程（MDP）和奖励函数不需要接触标签，因此策略对从 ViCap 参考中提取出的带噪声的接触时序/调度完全不敏感。"
+          "zh": "仍保持令人惊讶的低水平（例如，\\( \\mathrm{MAE}(\\boldsymbol q) \\) 和 \\( \\mathrm{MAD}(R) \\) 接近 0.05 rad）。我们将此归因于一种并未强制严格贴合参考根轨迹的奖励函数设计：策略被鼓励以较为宽松的方式跟踪全局运动，在排除明显瑕疵的同时仍然完成任务。此外，我们的马尔可夫决策过程（MDP）和奖励函数不需要接触标签，因此策略对从 ViCap 参考中提取出的带噪声的接触时序/调度完全不敏感。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b8",
@@ -649,10 +663,11 @@
             572,
             601
           ],
-          "en": "We further demonstrate cross-embodiment transfer on Unitree’s G1 with an athletic ballet sequence featuring a sustained aerial phase with both legs abducted in mid-air and extended single-foot support near the edge of stability, stressing balance, orientation regulation, and precise foot placement. We also evaluate scene-interactive box skills on G1: jump onto box , climb up box , and climb down box . These experiments involve whole-body contacts and push the system near its operational limits. Instead of providing the policy with the box’s precise location through perception or MoCap, we test its ability to execute these skills robustly using a minimalist, proprioceptive-only interface. To achieve this, we train the policy with slight randomizations in the initial relative pose between the robot and the box. At test time, the policy reliably handles this variability without additional sensing. Furthermore, these scene-interactive skills reflect a combination of challenges, including (i) compounded modeling mismatches arising from multi-contact interactions, (ii) discrepancies between the simulated box and the physical platform (notably compliance and friction), (iii) lack of box–robot relative-positioning feedback, and (iv) artifacts in the reconstructed references. Despite these factors, hardware executions are completed reliably, and the characteristic style of the source motions remains evident. As highlighted in Table 1, errors remain reasonable overall and are comparable to those observed for the more challenging behaviors presented in the MoCap section. To further characterize repeatability and robustness on these challenging behaviors, we conduct additional variability testing. In Movie S6, we execute box climb up and box climb down five times consecutively, achieving five out of five successful runs under conditions kept as close as possible to the nominal training setup (i.e., the box height set to its nominal value of 0.75 m and the robot initialized near the nominal pose with respect to the box). In Movie S7, we stress-test the policy’s robustness by varying the initial robot–box relative pose around the nominal configuration. Since these policies are inherently invariant to lateral offsets relative to the box center, we randomize the robot’s initial offset in x and yaw while keeping y close to the nominal value. All trials initialized within the training distribution succeed ( ± 10 cm in x and ± 0.3 rad in yaw), as highlighted in Figure S5. Beyond this range, we observe occasional successes, while failures occur for initial states outside the training distribution. We additionally test robustness to mass variability by attaching a 2 kg payload to the torso and still obtain successful executions for both box climb up and box climb down. Finally, we vary the box height beyond the randomized training range. Although training uses a nominal height of 0.75 m with randomization over [0.70, 0.80] m, box climb up executes successfully at 0.55 m, while box climb down succeeds at both 0.55 m and 0.95 m.",
+          "en": "We further demonstrate cross-embodiment transfer on Unitree’s G1 with an athletic ballet sequence featuring a sustained aerial phase with both legs abducted in mid-air and extended single-foot support near the edge of stability, stressing balance, orientation regulation, and precise foot placement. We also evaluate scene-interactive box skills on G1: jump onto box , climb up box , and climb down box . These experiments involve whole-body contacts and push the system near its operational limits. Instead of providing the policy with the box’s precise location through perception or MoCap, we test its ability to execute these skills robustly using a minimalist, proprioceptive-only interface. To achieve this, we train the policy with slight randomizations in the initial relative pose between the robot and the box. At test time, the policy reliably handles this variability without additional sensing. Furthermore, these scene-interactive skills reflect a combination of challenges, including (i) compounded modeling mismatches arising from multi-contact interactions, (ii) discrepancies between the simulated box and the physical platform (notably compliance and friction), (iii) lack of box–robot relative-positioning feedback, and (iv) artifacts in the reconstructed references. Despite these factors, hardware executions are completed reliably, and the characteristic style of the source motions remains evident. As highlighted in Table 1, errors remain reasonable overall and are comparable to those observed for the more challenging behaviors presented in the MoCap section. To further characterize repeatability and robustness on these challenging behaviors, we conduct additional variability testing. In Movie S6, we execute box climb up and box climb down five times consecutively, achieving five out of five successful runs under conditions kept as close as possible to the nominal training setup (i.e., the box height set to its nominal value of 0.75 m and the robot initialized near the nominal pose with respect to the box). In Movie S7, we stress-test the policy’s robustness by varying the initial robot–box relative pose around the nominal configuration. Since these policies are inherently invariant to lateral offsets relative to the box center, we randomize the robot’s initial offset in \\(x\\) and yaw while keeping \\(y\\) close to the nominal value. All trials initialized within the training distribution succeed ( \\(\\pm 10\\) cm in \\(x\\) and \\(\\pm 0.3\\) rad in yaw), as highlighted in Figure S5. Beyond this range, we observe occasional successes, while failures occur for initial states outside the training distribution. We additionally test robustness to mass variability by attaching a 2 kg payload to the torso and still obtain successful executions for both box climb up and box climb down. Finally, we vary the box height beyond the randomized training range. Although training uses a nominal height of 0.75 m with randomization over \\([0.70, 0.80]\\) m, box climb up executes successfully at 0.55 m, while box climb down succeeds at both 0.55 m and 0.95 m.",
           "reference": false,
           "source_image": "figs/p005-008-source.png",
-          "zh": "我们在 Unitree 的 G1 上进一步展示了跨本体迁移，采用了一段高动态芭蕾舞动作序列，其特点是包含双腿在空中外展的持续腾空阶段，以及处于稳定性边缘的长时间单脚支撑，这对平衡、朝向调节和精准落脚提出了极高要求。我们还在 G1 上评估了场景交互式木箱技能：跳上木箱（jump onto box）、爬上木箱（climb up box）和爬下木箱（climb down box）。这些实验涉及全身接触，并将系统推至接近其运行极限的状态。我们没有通过感知或动作捕捉（MoCap）向策略提供木箱的精确位置，而是通过极简的、仅依赖本体感觉的接口测试其稳健执行这些技能的能力。为了实现这一点，我们在训练策略时对机器人与木箱之间的初始相对位姿进行了微小的随机化。在测试时，策略能够在无需额外感知的情况下可靠应对这种变化。此外，这些场景交互技能体现了一系列交织的挑战，包括：(i) 多接触相互作用引起的复合建模失配，(ii) 仿真木箱与物理平台之间的差异（尤其是顺应性和摩擦力），(iii) 缺乏木箱-机器人相对定位反馈，以及 (iv) 重建参考动作中的瑕疵。尽管存在这些不利因素，硬件执行依然可靠完成，且源动作的特征风格依然清晰显著。如表 1 所着重指出的，整体误差保持在合理范围内，且与动作捕捉部分展示的更具挑战性行为所观察到的误差相当。为了进一步刻画这些挑战性行为的可重复性与鲁棒性，我们进行了额外的变异性测试。在 Movie S6 中，我们连续五次执行爬上木箱和爬下木箱，在尽可能保持接近标称训练设置的条件下（即木箱高度设为其标称值 0.75 m，机器人相对于木箱在标称位姿附近初始化），取得了五次尝试全部成功的成绩。在 Movie S7 中，我们通过在标称构型周围改变初始机器人-木箱相对位姿来对策略的鲁棒性进行压力测试。由于这些策略本身对相对于木箱中心的横向偏移具有不变性，我们在保持 y 接近标称值的同时，对机器人在 x 方向和偏航角（yaw）上的初始偏移进行了随机化。如图 S5 所示，在训练分布内初始化的所有试验均获成功（x 方向 ± 10 cm，yaw 角 ± 0.3 rad）。超出此范围后，我们观察到偶有成功，而当初始状态处于训练分布之外时则会出现失败。我们还通过在躯干上附加 2 kg 负载来测试对质量变化的鲁棒性，爬上木箱和爬下木箱依然均能成功执行。最后，我们在随机化训练范围之外改变木箱高度。尽管训练使用的是 0.75 m 的标称高度并在 [0.70, 0.80] m 范围内随机化，但爬上木箱在 0.55 m 高度下成功执行，而爬下木箱在 0.55 m 和 0.95 m 高度下均获得成功。"
+          "zh": "我们在 Unitree 的 G1 上进一步展示了跨本体迁移，采用了一段高动态芭蕾舞动作序列，其特点是包含双腿在空中外展的持续腾空阶段，以及处于稳定性边缘的长时间单脚支撑，这对平衡、朝向调节和精准落脚提出了极高要求。我们还在 G1 上评估了场景交互式木箱技能：跳上木箱（jump onto box）、爬上木箱（climb up box）和爬下木箱（climb down box）。这些实验涉及全身接触，并将系统推至接近其运行极限的状态。我们没有通过感知或动作捕捉（MoCap）向策略提供木箱的精确位置，而是通过极简的、仅依赖本体感觉的接口测试其稳健执行这些技能的能力。为了实现这一点，我们在训练策略时对机器人与木箱之间的初始相对位姿进行了微小的随机化。在测试时，策略能够在无需额外感知的情况下可靠应对这种变化。此外，这些场景交互技能体现了一系列交织的挑战，包括：(i) 多接触相互作用引起的复合建模失配，(ii) 仿真木箱与物理平台之间的差异（尤其是顺应性和摩擦力），(iii) 缺乏木箱-机器人相对定位反馈，以及 (iv) 重建参考动作中的瑕疵。尽管存在这些不利因素，硬件执行依然可靠完成，且源动作的特征风格依然清晰显著。如表 1 所着重指出的，整体误差保持在合理范围内，且与动作捕捉部分展示的更具挑战性行为所观察到的误差相当。为了进一步刻画这些挑战性行为的可重复性与鲁棒性，我们进行了额外的变异性测试。在 Movie S6 中，我们连续五次执行爬上木箱和爬下木箱，在尽可能保持接近标称训练设置的条件下（即木箱高度设为其标称值 0.75 m，机器人相对于木箱在标称位姿附近初始化），取得了五次尝试全部成功的成绩。在 Movie S7 中，我们通过在标称构型周围改变初始机器人-木箱相对位姿来对策略的鲁棒性进行压力测试。由于这些策略本身对相对于木箱中心的横向偏移具有不变性，我们在保持 \\(y\\) 接近标称值的同时，对机器人在 \\(x\\) 方向和偏航角（yaw）上的初始偏移进行了随机化。如图 S5 所示，在训练分布内初始化的所有试验均获成功（\\(x\\) 方向 \\(\\pm 10\\) cm，yaw 角 \\(\\pm 0.3\\) rad）。超出此范围后，我们观察到偶有成功，而当初始状态处于训练分布之外时则会出现失败。我们还通过在躯干上附加 2 kg 负载来测试对质量变化的鲁棒性，爬上木箱和爬下木箱依然均能成功执行。最后，我们在随机化训练范围之外改变木箱高度。尽管训练使用的是 0.75 m 的标称高度并在 \\([0.70, 0.80]\\) m 范围内随机化，但爬上木箱在 0.55 m 高度下成功执行，而爬下木箱在 0.55 m 和 0.95 m 高度下均获得成功。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b9",
@@ -710,24 +725,34 @@
             565,
             99
           ],
-          "en": "Table 1. Evaluation across motions, grouped by reference source. A skill is labeled as multi-contact if any body part other than the feet interacts with the ground. Metrics are reported as mean absolute error (MAE), mean angular distance (MAD), and mean L2 error (ML2) over successful trials; lower is better. MAE( q ) is for joint-position error; MAD( R ) is for base orientation error; ML2( ω ) is for base angular velocity errors, respectively. We also include data for the maximum errors in joint position and orientation, denoted as max( q ) and max( R ) respectively.",
+          "en": "Table 1. Evaluation across motions, grouped by reference source. A skill is labeled as multi-contact if any body part other than the feet interacts with the ground. Metrics are reported as mean absolute error (MAE), mean angular distance (MAD), and mean L2 error (ML2) over successful trials; lower is better. MAE\\((\\boldsymbol q)\\) is for joint-position error; MAD\\((R)\\) is for base orientation error; ML2\\((\\boldsymbol\\omega)\\) is for base angular velocity errors, respectively. We also include data for the maximum errors in joint position and orientation, denoted as max\\((\\boldsymbol q)\\) and max\\((R)\\) respectively.",
           "reference": false,
           "source_image": "figs/p006-001-source.png",
-          "zh": "表 1. 各动作的评估结果，按参考数据来源分组。若除脚部以外的任何身体部位与地面发生接触，则该技能被标记为多接触（multi-contact）。各项指标基于成功试验计算，分别汇报为平均绝对误差（MAE）、平均角距离（MAD）和平均 L2 误差（ML2）；数值越低越好。MAE( q )、MAD( R ) 和 ML2( ω ) 分别对应关节位置误差、基座朝向误差以及基座角速度误差。我们还汇报了关节位置和朝向的最大误差数据，分别记为 max( q ) 和 max( R )。"
+          "zh": "表 1. 各动作的评估结果，按参考数据来源分组。若除脚部以外的任何身体部位与地面发生接触，则该技能被标记为多接触（multi-contact）。各项指标基于成功试验计算，分别汇报为平均绝对误差（MAE）、平均角距离（MAD）和平均 L2 误差（ML2）；数值越低越好。MAE\\((\\boldsymbol q)\\)、MAD\\((R)\\) 和 ML2\\((\\boldsymbol\\omega)\\) 分别对应关节位置误差、基座朝向误差以及基座角速度误差。我们还汇报了关节位置和朝向的最大误差数据，分别记为 max\\((\\boldsymbol q)\\) 和 max\\((R)\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b2",
           "kind": "table",
           "bbox": [
-            41,
-            107,
-            561,
-            378
+            39.0,
+            105.0,
+            563.0,
+            380.0
           ],
           "en": "|Motion|Robot|Multi-Contact Skill (✗/✓)|Duration (s)|MAE(q) (rad)|MAD(R) (rad)|ML2(ω) (rad/s)|max(q) (rad)|max(R) (rad)| |---|---|---|---|---|---|---|---|---| |MoCap-Derived Moti|ons|||||||| |Walk|Atlas|✗|8.47|0.057|0.030|0.364|0.487|0.078| |Jog|Atlas|✗|5.89|0.041|0.059|0.699|0.643|0.165| |Forward roll|Atlas|✓|7.11|0.062|0.137|1.654|0.907|0.528| |Roll on all fours|Atlas|✓|7.80|0.064|0.080|1.604|0.643|0.203| |Crawl on all fours|Atlas|✓|14.74|0.056|0.097|0.922|0.764|0.240| |Army crawl|Atlas|✓ |16.66|0.103|0.075|1.011|0.638|0.276| |Cartwheel|Atlas|✓ |5.98|0.084|0.064|1.734|0.673|0.235| |Breakdance|Atlas|✓|6.56|0.079|0.133|1.911|0.825|0.365| |Cartwheel|G1|✓|8.00|0.078|0.331|0.886|0.660|0.892| |Table-tennis|G1|✗|29.98|0.108|0.402|1.827|2.483|0.637| |ViCap-Derived Motio|ns|||||||| |Soccer kick|Atlas|✗|6.00|0.049|0.050|1.253|0.653|0.141| |Dance snippet A|Atlas|✗|12.70|0.051|0.039|0.414|0.769|0.080| | Dance snippet B|Atlas|✗|9.40|0.054|0.066|1.463|0.762|0.239| |Dance snippet C|Atlas|✗|11.59|0.055|0.046|1.248|0.759|0.125| | Ballet sequence|G1|✗|7.00|0.061|0.186|1.395|1.101|0.588| | Jump onto box|G1|✗|5.00|0.041|0.259|0.936|0.883|0.914| | Climb up box|G1|✓|9.18|0.073|0.385|0.855|1.103|0.798| | Climb down box|G1|✓|10.62|0.108|0.394|0.836|0.957|0.867| |Animation-Derived M|otions|||||||| |Handstand invert|Atlas|✓|5.18|0.074|0.082|0.465|0.950|0.450| |Handstand balance|Spot|✗|4.30|0.075|0.064|0.409|0.532|0.235| |Continuous backflip|Spot|✗|6.00|0.192|0.150|0.732|2.381|0.528| |l Barrel roll*|Spot|✗|2.45|0.146|0.840*|1.451|1.068|1.571| |Happy dog|Spot|✗|12.00|0.107|0.069|1.008|1.180|0.349|",
           "reference": false,
           "image": "figs/p006-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            41.0,
+            107.0,
+            561.0,
+            378.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1572,
+          "image_height": 825
         },
         {
           "id": "p6-b3",
@@ -766,10 +791,11 @@
             293,
             622
           ],
-          "en": "Although animation references are kinematically clean and temporally coherent, several sequences are dynamically aggressive or partially infeasible for the physical system. In these cases, the learned policy intentionally relaxes adherence to the reference—especially for base orientation and angular-rate profiles—to remain feasible, which increases reported means while preserving overall execution quality. This pattern is visible in Table 1 when contrasting MAE( q ) and MAD( R ) with the corresponding maxima: for Atlas handstand invert , the means are moderate while max( q ) and max( R ) spike during transient inversions; on Spot, backflip and barrel roll show larger orientation and angular-velocity errors (see MAD( R ) and ML2( ω )) and high maxima, reflecting brief deviations from the reference for the sake of feasibility and stability. Notably, the policy’s robustness is highlighted on the Spot robot for the barrel roll motion, where it completes the motion even after the on-board IMU sensor saturates mid-maneuver.",
+          "en": "Although animation references are kinematically clean and temporally coherent, several sequences are dynamically aggressive or partially infeasible for the physical system. In these cases, the learned policy intentionally relaxes adherence to the reference—especially for base orientation and angular-rate profiles—to remain feasible, which increases reported means while preserving overall execution quality. This pattern is visible in Table 1 when contrasting \\(\\mathrm{MAE}(\\boldsymbol q)\\) and \\(\\mathrm{MAD}(R)\\) with the corresponding maxima: for Atlas handstand invert , the means are moderate while \\(\\max(\\boldsymbol q)\\) and \\(\\max(R)\\) spike during transient inversions; on Spot, backflip and barrel roll show larger orientation and angular-velocity errors (see \\(\\mathrm{MAD}(R)\\) and \\(\\mathrm{ML2}(\\boldsymbol\\omega)\\)) and high maxima, reflecting brief deviations from the reference for the sake of feasibility and stability. Notably, the policy’s robustness is highlighted on the Spot robot for the barrel roll motion, where it completes the motion even after the on-board IMU sensor saturates mid-maneuver.",
           "reference": false,
           "source_image": "figs/p006-005-source.png",
-          "zh": "尽管动画参考在运动学上干净且具有时间连贯性，但有若干序列在动力学上过于剧烈，或者对物理系统而言在局部是不可行的。在这些情况下，学得的策略会有意放宽对参考动作的贴合度——尤其是对基座朝向和角速度曲线的贴合——以保持物理可行性，这在保证整体执行质量的同时增大了汇报的均值误差。将 Table 1 中的 MAE( q ) 和 MAD( R ) 与对应的最大值进行对比时，可以清晰地看出这一规律：对于 Atlas 的倒立动作（handstand invert），均值误差处于适中水平，而 max( q ) 和 max( R ) 则在短暂倒立期间急剧升高；在 Spot 上，后空翻和桶滚表现出更大的朝向与角速度误差（见 MAD( R ) 和 ML2( ω )）以及较高的最大值，这反映了为了可行性和稳定性而对参考轨迹做出的短暂偏离。值得注意的是，策略的鲁棒性在 Spot 机器人的桶滚动作中尤为突出，即使机载 IMU 传感器在动作进行到一半时发生饱和，它依然完成了该动作。"
+          "zh": "尽管动画参考在运动学上干净且具有时间连贯性，但有若干序列在动力学上过于剧烈，或者对物理系统而言在局部是不可行的。在这些情况下，学得的策略会有意放宽对参考动作的贴合度——尤其是对基座朝向和角速度曲线的贴合——以保持物理可行性，这在保证整体执行质量的同时增大了汇报的均值误差。将 Table 1 中的 \\(\\mathrm{MAE}(\\boldsymbol q)\\) 和 \\(\\mathrm{MAD}(R)\\) 与对应的最大值进行对比时，可以清晰地看出这一规律：对于 Atlas 的倒立动作（handstand invert），均值误差处于适中水平，而 \\(\\max(\\boldsymbol q)\\) 和 \\(\\max(R)\\) 则在短暂倒立期间急剧升高；在 Spot 上，后空翻和桶滚表现出更大的朝向与角速度误差（见 \\(\\mathrm{MAD}(R)\\) 和 \\(\\mathrm{ML2}(\\boldsymbol\\omega)\\)）以及较高的最大值，这反映了为了可行性和稳定性而对参考轨迹做出的短暂偏离。值得注意的是，策略的鲁棒性在 Spot 机器人的桶滚动作中尤为突出，即使机载 IMU 传感器在动作进行到一半时发生饱和，它依然完成了该动作。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b6",
@@ -822,10 +848,11 @@
             566,
             623
           ],
-          "en": "Evaluation proceeds by initializing each episode at the start of a randomly sampled reference trajectory and rolling it to completion. For each reference, we run 10000 rollouts under full domain randomization, sampling external pushes, observation noise, robot link masses, friction coefficients, and perturbations of the initial state. We quantify performance and robustness via ablations presented in Figure 2(e–f), which report success rates after 10 h ( ≈ 7k iterations) and 20 h ( ≈ 14k iterations) of training. At 10 h, our method achieves the highest mean success and markedly better lower-tail performance across behaviors. By 20 h, several ablations narrow the mean gap, yet the baseline remains more robust, with higher p10 and minimum success values that lie closer to the mean.",
+          "en": "Evaluation proceeds by initializing each episode at the start of a randomly sampled reference trajectory and rolling it to completion. For each reference, we run 10000 rollouts under full domain randomization, sampling external pushes, observation noise, robot link masses, friction coefficients, and perturbations of the initial state. We quantify performance and robustness via ablations presented in Figure 2(e–f), which report success rates after 10 h ( \\(\\approx\\) 7k iterations) and 20 h ( \\(\\approx\\) 14k iterations) of training. At 10 h, our method achieves the highest mean success and markedly better lower-tail performance across behaviors. By 20 h, several ablations narrow the mean gap, yet the baseline remains more robust, with higher p10 and minimum success values that lie closer to the mean.",
           "reference": false,
           "source_image": "figs/p006-009-source.png",
-          "zh": "评估过程是在随机采样的参考轨迹起点初始化每个回合（episode），并将其 rollout/轨迹展开直至结束。对于每个参考动作，我们在完全域随机化下运行 10000 次 rollout/轨迹展开，对外部推力、观测噪声、机器人连杆质量、摩擦系数以及初始状态扰动进行采样。我们通过 Figure 2(e–f) 中展示的消融实验来量化性能与鲁棒性，图中汇报了训练 10 h（≈ 7k 次迭代）和 20 h（≈ 14k 次迭代）后的成功率。在 10 h 时，我们的方法在各项行为中均取得了最高的平均成功率，且在下尾部（最差情况）性能上明显更优。到 20 h 时，若干消融变体缩小了与平均水平的差距，但基线方法依然更加鲁棒，具有更高的 p10 分位数和更接近均值的最低成功率。"
+          "zh": "评估过程是在随机采样的参考轨迹起点初始化每个回合（episode），并将其 rollout/轨迹展开直至结束。对于每个参考动作，我们在完全域随机化下运行 10000 次 rollout/轨迹展开，对外部推力、观测噪声、机器人连杆质量、摩擦系数以及初始状态扰动进行采样。我们通过 Figure 2(e–f) 中展示的消融实验来量化性能与鲁棒性，图中汇报了训练 10 h（\\(\\approx\\) 7k 次迭代）和 20 h（\\(\\approx\\) 14k 次迭代）后的成功率。在 10 h 时，我们的方法在各项行为中均取得了最高的平均成功率，且在下尾部（最差情况）性能上明显更优。到 20 h 时，若干消融变体缩小了与平均水平的差距，但基线方法依然更加鲁棒，具有更高的 p10 分位数和更接近均值的最低成功率。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b10",
@@ -850,57 +877,93 @@
           "id": "p7-b1",
           "kind": "picture",
           "bbox": [
-            47,
-            46,
-            174,
-            133
+            45.0,
+            44.0,
+            176.0,
+            135.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            47.0,
+            46.0,
+            174.0,
+            133.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 393,
+          "image_height": 273
         },
         {
           "id": "p7-b2",
           "kind": "picture",
           "bbox": [
-            180,
-            46,
-            306,
-            133
+            178.0,
+            44.0,
+            308.0,
+            135.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            180.0,
+            46.0,
+            306.0,
+            133.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 390,
+          "image_height": 273
         },
         {
           "id": "p7-b3",
           "kind": "picture",
           "bbox": [
-            47,
-            139,
-            237,
-            147
+            45.0,
+            137.0,
+            239.0,
+            149.0
           ],
           "en": "(a) Wrench scaling. (b) Failure levels.",
           "reference": false,
           "image": "figs/p007-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            47.0,
+            139.0,
+            237.0,
+            147.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 582,
+          "image_height": 36
         },
         {
           "id": "p7-b7",
           "kind": "picture",
           "bbox": [
-            47,
-            159,
-            299,
-            295
+            45.0,
+            157.0,
+            301.0,
+            297.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            47.0,
+            159.0,
+            299.0,
+            295.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 768,
+          "image_height": 420
         },
         {
           "id": "p7-b8",
@@ -911,80 +974,126 @@
             202,
             309
           ],
-          "en": "(e) Ablation after 10 h training ( ≈ 7k iterations).",
+          "en": "(e) Ablation after 10 h training ( \\(\\approx\\) 7k iterations).",
           "reference": false,
           "source_image": "figs/p007-008-source.png",
-          "zh": "(e) 训练 10 h（≈ 7k 次迭代）后的消融结果。"
+          "zh": "(e) 训练 10 h（\\(\\approx\\) 7k 次迭代）后的消融结果。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b4",
           "kind": "picture",
           "bbox": [
-            444,
-            47,
-            571,
-            133
+            442.0,
+            45.0,
+            573.0,
+            135.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            444.0,
+            47.0,
+            571.0,
+            133.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 393,
+          "image_height": 270
         },
         {
           "id": "p7-b5",
           "kind": "picture",
           "bbox": [
-            312,
-            47,
-            438,
-            133
+            310.0,
+            45.0,
+            440.0,
+            135.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            312.0,
+            47.0,
+            438.0,
+            133.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 390,
+          "image_height": 270
         },
         {
           "id": "p7-b6",
           "kind": "picture",
           "bbox": [
-            312,
-            139,
-            531,
-            147
+            310.0,
+            137.0,
+            533.0,
+            149.0
           ],
           "en": "(c) Trajectory-bin counts. (d) Sampling probabilities.",
           "reference": false,
           "image": "figs/p007-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            312.0,
+            139.0,
+            531.0,
+            147.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 669,
+          "image_height": 36
         },
         {
           "id": "p7-b9",
           "kind": "picture",
           "bbox": [
-            319,
-            159,
-            571,
-            295
+            317.0,
+            157.0,
+            573.0,
+            297.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            319.0,
+            159.0,
+            571.0,
+            295.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 768,
+          "image_height": 420
         },
         {
           "id": "p7-b10",
           "kind": "picture",
           "bbox": [
-            319,
-            301,
-            476,
-            309
+            317.0,
+            299.0,
+            478.0,
+            311.0
           ],
           "en": "(f) Ablation after 20 h training ( ≈ 14k iterations).",
           "reference": false,
           "image": "figs/p007-010.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            319.0,
+            301.0,
+            476.0,
+            309.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 483,
+          "image_height": 36
         },
         {
           "id": "p7-b11",
@@ -1121,15 +1230,24 @@
           "id": "p8-b3",
           "kind": "table",
           "bbox": [
-            52,
-            105,
-            267,
-            195
+            50.0,
+            103.0,
+            269.0,
+            197.0
           ],
           "en": "|Motion|MAE|(q)(rad)|MAD(|R)(rad)| |---|---|---|---|---| ||MPC|RL|MPC|RL| |Walk|0.047|0.055|0.020|0.028| |Jog|0.117|0.076|0.110|0.062| |Handstand invert|–|0.147|–|0.125| |Cartwheel|0.237|0.088|0.060|0.063| |Roll on all fours|–|0.086|–|0.091| |Dance snippet B|–|0.096|–|0.150|",
           "reference": false,
           "image": "figs/p008-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            52.0,
+            105.0,
+            267.0,
+            195.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 657,
+          "image_height": 282
         },
         {
           "id": "p8-b4",
@@ -1154,10 +1272,11 @@
             293,
             478
           ],
-          "en": "For a quantitative comparison, Table 2 reports MAE( q ) and MAD( R ) for MPC and RL. Empirically, for walk , MPC and RL perform nearly the same: the contact schedule is clean and easy to label, and the trajectory never pushes the robot beyond its operational bounds, which suits MPC. On the other hand, RL outperforms MPC on the more dynamic behaviors, namely cartwheel and jog . In particular, for jog , we observe MPC degradation tied to inconsistent contact annotation at the start of the reference despite extensive manual refinements. Several sequences fail under MPC (reported as “–” in the MPC columns): dance B (inaccurate contact sequence and sliding), handstand invert (controller saturation on arm torque under a point-contact constraint), and roll on all fours (difficulty regulating extended toe-contact phases without knee collisions). The videos of the references augmented with contact labels, as well as rollouts from MPC and the RL policy, are provided in Movie S5.",
+          "en": "For a quantitative comparison, Table 2 reports \\( \\mathrm{MAE}(\\boldsymbol q) \\) and \\( \\mathrm{MAD}(R) \\) for MPC and RL. Empirically, for walk , MPC and RL perform nearly the same: the contact schedule is clean and easy to label, and the trajectory never pushes the robot beyond its operational bounds, which suits MPC. On the other hand, RL outperforms MPC on the more dynamic behaviors, namely cartwheel and jog . In particular, for jog , we observe MPC degradation tied to inconsistent contact annotation at the start of the reference despite extensive manual refinements. Several sequences fail under MPC (reported as “–” in the MPC columns): dance B (inaccurate contact sequence and sliding), handstand invert (controller saturation on arm torque under a point-contact constraint), and roll on all fours (difficulty regulating extended toe-contact phases without knee collisions). The videos of the references augmented with contact labels, as well as rollouts from MPC and the RL policy, are provided in Movie S5.",
           "reference": false,
           "source_image": "figs/p008-005-source.png",
-          "zh": "为了进行定量对比，Table 2 报告了 MPC 和 RL 的 MAE( q ) 与 MAD( R )。从实验结果来看，对于 walk，MPC 和 RL 的表现几乎相同：接触调度干净且易于标记，并且轨迹从未将机器人推向超出其运行极限的范围，这正契合 MPC 的优势。另一方面，RL 在更具动态性的行为上超越了 MPC，即 cartwheel 和 jog。尤其是对于 jog，尽管进行了大量的精细手动调整，我们仍观察到 MPC 的性能下降与参考动作开头的接触标注不一致密切相关。在 MPC 下有几个动作序列执行失败（在 MPC 列中记为“–”）：dance B（接触序列不准确及滑动）、handstand invert（点接触约束下手臂力矩出现控制器饱和）以及 roll on all fours（在不发生膝部碰撞的情况下难以调节较长的脚趾接触阶段）。附带接触标签的参考动作视频，以及 MPC 和 RL 策略的 rollout/轨迹展开视频，均在 Movie S5 中提供。"
+          "zh": "为了进行定量对比，Table 2 报告了 MPC 和 RL 的 \\( \\mathrm{MAE}(\\boldsymbol q) \\) 与 \\( \\mathrm{MAD}(R) \\)。从实验结果来看，对于 walk，MPC 和 RL 的表现几乎相同：接触调度干净且易于标记，并且轨迹从未将机器人推向超出其运行极限的范围，这正契合 MPC 的优势。另一方面，RL 在更具动态性的行为上超越了 MPC，即 cartwheel 和 jog。尤其是对于 jog，尽管进行了大量的精细手动调整，我们仍观察到 MPC 的性能下降与参考动作开头的接触标注不一致密切相关。在 MPC 下有几个动作序列执行失败（在 MPC 列中记为“–”）：dance B（接触序列不准确及滑动）、handstand invert（点接触约束下手臂力矩出现控制器饱和）以及 roll on all fours（在不发生膝部碰撞的情况下难以调节较长的脚趾接触阶段）。附带接触标签的参考动作视频，以及 MPC 和 RL 策略的 rollout/轨迹展开视频，均在 Movie S5 中提供。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p8-b10",
@@ -1308,15 +1427,24 @@
           "id": "p9-b1",
           "kind": "picture",
           "bbox": [
-            47,
-            46,
-            571,
-            350
+            45.0,
+            44.0,
+            573.0,
+            352.0
           ],
           "en": "Motion Capture Adaptive Sampling Critic Actions 1 2 Source SkeletonKinematic RetargetingTarget Skeleton A A C referenceMotion NetworkGradients 1 2 Actor B Network 3 4 Motion reference difficulty 3 4 Direct Video Human-Scene Reconstruction Difficulty Level 1 A Isaac Lab 1 2 1 2 B Kinematic Retargeting Source Skeleton Target Skeleton C B 0 Time-segmented bins 3 4 3 4 C B Keyframe Animation Assistive Wrench A 1 2 C 1 2 Per motion success rate 3 4 3 4 PPO Probability of selection Actions Proprioception ed ObservationsProtion + Privilirioceppg Motion References Set Assistive wrench level",
           "reference": false,
           "image": "figs/p009-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            47.0,
+            46.0,
+            571.0,
+            350.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1584,
+          "image_height": 924
         },
         {
           "id": "p9-b2",
@@ -1355,10 +1483,11 @@
             299,
             616
           ],
-          "en": "3. Nominal Armature Model (Fixed-Configuration Approx.) : Finally, to eliminate the computational overhead of updating armatures at every timestep ( ≈ 20% slowdown), we compute the armature values once at a single, nominal configuration and fix them. This provides a computationally cheap model and a principled basis for designing the robot’s PD controller gains.",
+          "en": "3. Nominal Armature Model (Fixed-Configuration Approx.) : Finally, to eliminate the computational overhead of updating armatures at every timestep (\\(\\approx\\) 20% slowdown), we compute the armature values once at a single, nominal configuration and fix them. This provides a computationally cheap model and a principled basis for designing the robot’s PD controller gains.",
           "reference": false,
           "source_image": "figs/p009-004-source.png",
-          "zh": "3. 标称电枢模型（固定构型近似）：最后，为了消除在每个时间步更新电枢的计算开销（会导致约 20% 的减速），我们在单个标称构型下计算一次电枢值并将其固定。这提供了一个计算开销极低的模型，并为设计机器人的 PD 控制器增益提供了合乎原理的依据。"
+          "zh": "3. 标称电枢模型（固定构型近似）：最后，为了消除在每个时间步更新电枢的计算开销（会导致约 20% 的减速），我们在单个标称构型下计算一次电枢值并将其固定。这提供了一个计算开销极低的模型，并为设计机器人的 PD 控制器增益提供了合乎原理的依据。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b5",
@@ -1378,15 +1507,24 @@
           "id": "p9-b6",
           "kind": "picture",
           "bbox": [
-            333,
-            475,
-            558,
-            560
+            331.0,
+            473.0,
+            560.0,
+            562.0
           ],
           "en": "Full-order system Local approximation Dynamic/nominal armature Floating base hip motor thigh motor dependentjoint knee virtualmotor massless support links shank links four-bar mechanism",
           "reference": false,
           "image": "figs/p009-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            333.0,
+            475.0,
+            558.0,
+            560.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 687,
+          "image_height": 267
         },
         {
           "id": "p9-b7",
@@ -1528,24 +1666,34 @@
             293,
             582
           ],
-          "en": "We formulate ZEST as a goal-conditioned MDP, M = ( S , A , G , P , r , γ ). The state st ∈S represents the robot and environment states, and at ∈A is the continuous action corresponding to motor action. At time t , the agent receives the observation, ot = ψ ( st , gt ) and the target, gt ∈G , selects actions at ∼ πθ ( · | ot , gt ), obtains a reward rt = r ( st , at , gt ), and the system evolves to a new state st +1 ∼ P ( · | st , at ). The goal variable gt encodes the reference target to be tracked and can be instantiated in several forms: (i) a time-indexed reference snippet s ˆ t : t + H with H ≥ 0 (e.g., a single step or a short window); (ii) a latent embedding zt = f ( s ˆ t : t + H ) of such a snippet; or (iii) a phase variable ϕt ∈ [0, 1] plus a trajectory identifier in the case of multiple reference motions. The policy parameters θ are optimized to maximize the expected discounted return over a horizon T",
+          "en": "We formulate ZEST as a goal-conditioned MDP, \\(\\mathcal{M}=(\\mathcal{S},\\mathcal{A},\\mathcal{G},P,r,\\gamma)\\). The state \\(s_t \\in \\mathcal{S}\\) represents the robot and environment states, and \\(a_t \\in \\mathcal{A}\\) is the continuous action corresponding to motor action. At time \\(t\\), the agent receives the observation, \\(o_t=\\psi(s_t,g_t)\\) and the target, \\(g_t \\in \\mathcal{G}\\), selects actions \\(a_t\\!\\sim\\!\\pi_\\theta(\\,\\cdot\\,|\\,o_t,g_t)\\), obtains a reward \\(r_t=r(s_t,a_t,g_t)\\), and the system evolves to a new state \\(s_{t+1}\\!\\sim\\!P(\\,\\cdot\\,|\\,s_t,a_t)\\). The goal variable \\(g_t\\) encodes the reference target to be tracked and can be instantiated in several forms: (i) a time-indexed reference snippet \\(\\hat{s}_{t:t+H}\\) with \\(H\\!\\ge\\!0\\) (e.g., a single step or a short window); (ii) a latent embedding \\(z_t=f(\\hat{s}_{t:t+H})\\) of such a snippet; or (iii) a phase variable \\(\\phi_t\\in[0,1]\\) plus a trajectory identifier in the case of multiple reference motions. The policy parameters \\(\\theta\\) are optimized to maximize the expected discounted return over a horizon \\(T\\)",
           "reference": false,
           "source_image": "figs/p010-008-source.png",
-          "zh": "我们将 ZEST 形式化为目标条件马尔可夫决策过程（MDP）$M = (S, A, G, P, r, \\gamma)$。状态 $s_t \\in S$ 表示机器人与环境状态，$a_t \\in A$ 是对应电机动作的连续动作。在时间步 $t$，智能体接收观测 $o_t = \\psi(s_t, g_t)$ 与目标 $g_t \\in G$，选择动作 $a_t \\sim \\pi_\\theta(\\cdot \\mid o_t, g_t)$，获得奖励 $r_t = r(s_t, a_t, g_t)$，系统演化至新状态 $s_{t+1} \\sim P(\\cdot \\mid s_t, a_t)$。目标变量 $g_t$ 对要跟踪的参考目标进行编码，并可以实例化为若干形式：(i) 带有 $H \\ge 0$ 的时间索引参考片段 $\\hat{s}_{t:t+H}$（例如单步或短窗口）；(ii) 此类片段的潜在嵌入 $z_t = f(\\hat{s}_{t:t+H})$；或 (iii) 在存在多个参考动作情况下的相位变量 $\\phi_t \\in [0, 1]$ 加上轨迹标识符。策略参数 $\\theta$ 经过优化，以最大化时域 $T$ 内的期望折扣回报"
+          "zh": "我们将 ZEST 形式化为目标条件马尔可夫决策过程（MDP）\\(\\mathcal{M}=(\\mathcal{S},\\mathcal{A},\\mathcal{G},P,r,\\gamma)\\)。状态 \\(s_t \\in \\mathcal{S}\\) 表示机器人与环境状态，\\(a_t \\in \\mathcal{A}\\) 是对应电机动作的连续动作。在时间步 \\(t\\)，智能体接收观测 \\(o_t=\\psi(s_t,g_t)\\) 与目标 \\(g_t \\in \\mathcal{G}\\)，选择动作 \\(a_t\\!\\sim\\!\\pi_\\theta(\\,\\cdot\\,|\\,o_t,g_t)\\)，获得奖励 \\(r_t=r(s_t,a_t,g_t)\\)，系统演化至新状态 \\(s_{t+1}\\!\\sim\\!P(\\,\\cdot\\,|\\,s_t,a_t)\\)。目标变量 \\(g_t\\) 对要跟踪的参考目标进行编码，并可以实例化为若干形式：(i) 带有 \\(H\\!\\ge\\!0\\) 的时间索引参考片段 \\(\\hat{s}_{t:t+H}\\)（例如单步或短窗口）；(ii) 此类片段的潜在嵌入 \\(z_t=f(\\hat{s}_{t:t+H})\\)；或 (iii) 在存在多个参考动作情况下的相位变量 \\(\\phi_t\\in[0,1]\\) 加上轨迹标识符。策略参数 \\(\\theta\\) 经过优化，以最大化时域 \\(T\\) 内的期望折扣回报",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b9",
           "kind": "formula",
           "bbox": [
-            106,
-            591,
-            228,
-            619
+            104.0,
+            589.0,
+            230.0,
+            621.0
           ],
           "en": "T− 1 J ( θ ) = E ∑ γ t r ( st , at , gt ) , � t =0 �",
           "reference": false,
           "image": "figs/p010-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            106.0,
+            591.0,
+            228.0,
+            619.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 378,
+          "image_height": 96
         },
         {
           "id": "p10-b10",
@@ -1556,10 +1704,11 @@
             292,
             647
           ],
-          "en": "where the expectation is over rollouts induced by P and πθ , randomized initial states, and the goal distribution.",
+          "en": "where the expectation is over rollouts induced by \\(P\\) and \\(\\pi_\\theta\\), randomized initial states, and the goal distribution.",
           "reference": false,
           "source_image": "figs/p010-010-source.png",
-          "zh": "其中期望是关于由 $P$ 和 $\\pi_\\theta$ 诱导的 rollout/轨迹展开、随机化初始状态以及目标分布求取的。"
+          "zh": "其中期望是关于由 \\(P\\) 和 \\(\\pi_\\theta\\) 诱导的 rollout/轨迹展开、随机化初始状态以及目标分布求取的。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b11",
@@ -1621,15 +1770,24 @@
           "id": "p10-b15",
           "kind": "formula",
           "bbox": [
-            405,
-            179,
-            474,
-            190
+            403.0,
+            177.0,
+            476.0,
+            192.0
           ],
           "en": "o t = ( o prop, o ref),",
           "reference": false,
           "image": "figs/p010-015.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            405.0,
+            179.0,
+            474.0,
+            190.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 219,
+          "image_height": 45
         },
         {
           "id": "p10-b16",
@@ -1640,10 +1798,11 @@
             566,
             312
           ],
-          "en": "the proprioceptive part o prop = � Tω IT, Tg I,q j,q˙ j,a t− 1� contains only instantaneous onboard measurements. We intentionally exclude quantities that require a state estimator, such as global base pose or linear velocity. Here, T ω IT is the absolute angular velocity of the torso-attached IMU frame {T } , T g I is the normalized gravity vector expressed in {T } , and ( q j , q ˙ j , a t− 1) denote joint positions, joint velocities, and the previous action. We hypothesize that including a t− 1 is sufficient to infer essential information, such as contact states and base linear velocity, under nominal terrain conditions without resorting to long observation histories; it also provides the minimal temporal context needed to enforce action smoothness.",
+          "en": "the proprioceptive part \\({\\mathbf{o}_{\\text{prop}}=\\big({}_T \\boldsymbol \\omega_{IT},\\ {}_T \\boldsymbol g_{I},\\ \\boldsymbol q_j,\\ \\dot{\\boldsymbol q}_j,\\ \\boldsymbol a_{t-1}\\big)}\\) contains only instantaneous onboard measurements. We intentionally exclude quantities that require a state estimator, such as global base pose or linear velocity. Here, \\({}_T \\boldsymbol \\omega_{IT}\\) is the absolute angular velocity of the torso-attached IMU frame \\(\\{\\mathcal{T}\\}\\), \\({}_T \\boldsymbol g_{I}\\) is the normalized gravity vector expressed in \\(\\{\\mathcal{T}\\}\\), and \\((\\boldsymbol q_j,\\dot{\\boldsymbol q}_j,\\boldsymbol a_{t-1})\\) denote joint positions, joint velocities, and the previous action. We hypothesize that including \\(\\boldsymbol a_{t-1}\\) is sufficient to infer essential information, such as contact states and base linear velocity, under nominal terrain conditions without resorting to long observation histories; it also provides the minimal temporal context needed to enforce action smoothness.",
           "reference": false,
           "source_image": "figs/p010-016-source.png",
-          "zh": "其中本体感受部分〔行内公式见原版〕仅包含机载即时测量值。我们特意排除了需要状态估计器的物理量，例如全局基座姿态或线速度。这里，T ω IT 是固定在躯干上的 IMU 坐标系 {T } 的绝对角速度，T g I 是在 {T } 中表示的归一化重力向量，( q j , q ˙ j , a t− 1) 表示关节位置、关节速度和上一时刻的动作。我们假设，在标准地形条件下，包含 a t− 1 就足以推断出接触状态和基座线速度等关键信息，而无需借助冗长的观测历史；它还提供了保证动作平滑性所需的最小时间上下文。"
+          "zh": "其中本体感受部分\\({\\mathbf{o}_{\\text{prop}}=\\big({}_T \\boldsymbol \\omega_{IT},\\ {}_T \\boldsymbol g_{I},\\ \\boldsymbol q_j,\\ \\dot{\\boldsymbol q}_j,\\ \\boldsymbol a_{t-1}\\big)}\\)仅包含机载即时测量值。我们特意排除了需要状态估计器的物理量，例如全局基座姿态或线速度。这里，\\({}_T \\boldsymbol \\omega_{IT}\\) 是固定在躯干上的 IMU 坐标系 \\(\\{\\mathcal{T}\\}\\) 的绝对角速度，\\({}_T \\boldsymbol g_{I}\\) 是在 \\(\\{\\mathcal{T}\\}\\) 中表示的归一化重力向量，\\((\\boldsymbol q_j,\\dot{\\boldsymbol q}_j,\\boldsymbol a_{t-1})\\) 表示关节位置、关节速度和上一时刻的动作。我们假设，在标准地形条件下，包含 \\(\\boldsymbol a_{t-1}\\) 就足以推断出接触状态和基座线速度等关键信息，而无需借助冗长的观测历史；它还提供了保证动作平滑性所需的最小时间上下文。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b17",
@@ -1654,10 +1813,11 @@
             565,
             390
           ],
-          "en": "The reference observations o ref = � Irˆz IB,BˆvIB,BωˆIB,BˆgI,qˆj � encode the next target state extracted from the demonstration: I ˆ rz IBis the base height; B ˆ v IB and B ω ˆ IB are the absolute linear and angular base velocities expressed in the base frame {B} ; B ˆ g I is the gravity direction in {B} ; and q ˆ j are the reference joint positions. We deliberately avoid future-reference windows beyond this immediate next target as our ablations showed no benefit for performance or convergence speed.",
+          "en": "The reference observations \\({\\mathbf{o}_{\\text{ref}}=\\big({}_I \\hat{\\boldsymbol r}^z_{IB},\\ {}_B \\hat{\\boldsymbol v}_{IB},\\ {}_B \\hat{\\boldsymbol \\omega}_{IB},\\ {}_B \\hat{\\boldsymbol g}_{I},\\ \\hat{\\boldsymbol q}_j\\big)}\\) encode the next target state extracted from the demonstration: \\({}_I \\hat{\\boldsymbol r}^z_{IB}\\) is the base height; \\({}_B \\hat{\\boldsymbol v}_{IB}\\) and \\({}_B \\hat{\\boldsymbol \\omega}_{IB}\\) are the absolute linear and angular base velocities expressed in the base frame \\(\\{\\mathcal{B}\\}\\); \\({}_B \\hat{\\boldsymbol g}_{I}\\) is the gravity direction in \\(\\{\\mathcal{B}\\}\\); and \\(\\hat{\\boldsymbol q}_j\\) are the reference joint positions. We deliberately avoid future-reference windows beyond this immediate next target as our ablations showed no benefit for performance or convergence speed.",
           "reference": false,
           "source_image": "figs/p010-017-source.png",
-          "zh": "参考观测〔行内公式见原版〕编码了从演示中提取的紧邻下一目标状态：I ˆ rz IB 为基座高度；B ˆ v IB 和 B ω ˆ IB 是在基座坐标系 {B} 中表示的绝对基座线速度与角速度；B ˆ g I 是 {B} 中的重力方向；q ˆ j 为参考关节位置。我们特意避免使用超出该紧邻下一目标的未来参考窗口，因为我们的消融实验表明这对性能或收敛速度均无益处。"
+          "zh": "参考观测\\({\\mathbf{o}_{\\text{ref}}=\\big({}_I \\hat{\\boldsymbol r}^z_{IB},\\ {}_B \\hat{\\boldsymbol v}_{IB},\\ {}_B \\hat{\\boldsymbol \\omega}_{IB},\\ {}_B \\hat{\\boldsymbol g}_{I},\\ \\hat{\\boldsymbol q}_j\\big)}\\)编码了从演示中提取的紧邻下一目标状态：\\({}_I \\hat{\\boldsymbol r}^z_{IB}\\) 为基座高度；\\({}_B \\hat{\\boldsymbol v}_{IB}\\) 和 \\({}_B \\hat{\\boldsymbol \\omega}_{IB}\\) 是在基座坐标系 \\(\\{\\mathcal{B}\\}\\) 中表示的绝对基座线速度与角速度；\\({}_B \\hat{\\boldsymbol g}_{I}\\) 是 \\(\\{\\mathcal{B}\\}\\) 中的重力方向；\\(\\hat{\\boldsymbol q}_j\\) 为参考关节位置。我们特意避免使用超出该紧邻下一目标的未来参考窗口，因为我们的消融实验表明这对性能或收敛速度均无益处。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b18",
@@ -1696,24 +1856,34 @@
             565,
             493
           ],
-          "en": "The policy outputs residual actions a t , which are added to the reference joint positions before sending them as position targets to the joint-level PD controllers:",
+          "en": "The policy outputs residual actions \\( \\boldsymbol a_t \\), which are added to the reference joint positions before sending them as position targets to the joint-level PD controllers:",
           "reference": false,
           "source_image": "figs/p010-020-source.png",
-          "zh": "策略输出残差动作 a t，在作为位置目标发送给关节级 PD 控制器之前，该动作会被加到参考关节位置上："
+          "zh": "策略输出残差动作 \\( \\boldsymbol a_t \\)，在作为位置目标发送给关节级 PD 控制器之前，该动作会被加到参考关节位置上：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b21",
           "kind": "formula",
           "bbox": [
-            405,
-            495,
-            474,
-            509
+            403.0,
+            493.0,
+            476.0,
+            509.48687744140625
           ],
           "en": "q cmd j = q ˆ j + Σ a t ,",
           "reference": false,
           "image": "figs/p010-021.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            405.0,
+            495.0,
+            474.0,
+            509.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 219,
+          "image_height": 50
         },
         {
           "id": "p10-b22",
@@ -1724,24 +1894,34 @@
             566,
             596
           ],
-          "en": "where Σ is a positive-definite diagonal matrix of per-DoF action scales. These scales set the amplitude of residual corrections and exploration on each axis and reflect whether additional feedforward torque is needed for reference tracking: actuators that require more assistance (e.g., hips and knees) receive larger scales, whereas those adequately handled by the PD control loop alone (e.g., the robot’s head and wrists) use smaller scales. The PD gains are chosen by modeling each joint as an independent second-order system:",
+          "en": "where \\(\\boldsymbol{\\Sigma}\\) is a positive-definite diagonal matrix of per-DoF action scales. These scales set the amplitude of residual corrections and exploration on each axis and reflect whether additional feedforward torque is needed for reference tracking: actuators that require more assistance (e.g., hips and knees) receive larger scales, whereas those adequately handled by the PD control loop alone (e.g., the robot’s head and wrists) use smaller scales. The PD gains are chosen by modeling each joint as an independent second-order system:",
           "reference": false,
           "source_image": "figs/p010-022-source.png",
-          "zh": "其中 Σ 是由每个自由度（DoF）动作尺度组成的正定对角矩阵。这些尺度设定了各轴上残差修正与探索的幅度，并反映了参考跟踪是否需要额外的前馈力矩：需要更多辅助的执行器（例如髋部和膝关节）采用较大的尺度，而仅靠 PD 控制回路即可充分应对的执行器（例如机器人的头部和手腕）则采用较小的尺度。PD 增益是通过将每个关节建模为独立的二阶系统来选取的："
+          "zh": "其中 \\(\\boldsymbol{\\Sigma}\\) 是由每个自由度（DoF）动作尺度组成的正定对角矩阵。这些尺度设定了各轴上残差修正与探索的幅度，并反映了参考跟踪是否需要额外的前馈力矩：需要更多辅助的执行器（例如髋部和膝关节）采用较大的尺度，而仅靠 PD 控制回路即可充分应对的执行器（例如机器人的头部和手腕）则采用较小的尺度。PD 增益是通过将每个关节建模为独立的二阶系统来选取的：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b23",
           "kind": "formula",
           "bbox": [
-            377,
-            601,
-            502,
-            613
+            375.0,
+            599.0,
+            504.0,
+            615.0
           ],
           "en": "I θ ′′ ( t ) + Kd θ ′ ( t ) + Kp θ ( t ) = 0,",
           "reference": false,
           "image": "figs/p010-023.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            377.0,
+            601.0,
+            502.0,
+            613.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 387,
+          "image_height": 48
         },
         {
           "id": "p10-b24",
@@ -1752,24 +1932,34 @@
             566,
             649
           ],
-          "en": "where I is the nominal armature value (refer to the Modeling section) about that axis. The gains Kp and Kd are heuristically tuned to achieve a critically damped response with a desired natural frequency ωn > 0,",
+          "en": "where \\(I\\) is the nominal armature value (refer to the Modeling section) about that axis. The gains \\(K_p\\) and \\(K_d\\) are heuristically tuned to achieve a critically damped response with a desired natural frequency \\(\\omega_n>0\\),",
           "reference": false,
           "source_image": "figs/p010-024-source.png",
-          "zh": "其中 I 是关于该轴的标称电枢值（参见“建模”部分）。增益 Kp 和 Kd 采用启发式方法调优，以达到具有期望固有频率 ωn > 0 的临界阻尼响应，"
+          "zh": "其中 \\(I\\) 是关于该轴的标称电枢值（参见“建模”部分）。增益 \\(K_p\\) 和 \\(K_d\\) 采用启发式方法调优，以达到具有期望固有频率 \\(\\omega_n>0\\) 的临界阻尼响应，",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b25",
           "kind": "formula",
           "bbox": [
-            384,
-            653,
-            495,
-            666
+            382.0,
+            651.0,
+            497.0,
+            668.0
           ],
           "en": "Kp = I ωn 2, Kd = 2 I ωn .",
           "reference": false,
           "image": "figs/p010-025.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            384.0,
+            653.0,
+            495.0,
+            666.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 345,
+          "image_height": 51
         },
         {
           "id": "p10-b26",
@@ -1780,10 +1970,11 @@
             566,
             733
           ],
-          "en": "In practice, we set ωn to balance between responsiveness and robustness. It is set high enough for fast tracking, but not so high that the loop becomes brittle during deployment or that simulation requires very small time steps to resolve stiff dynamics with fast transients, which would in turn increase training times. The same PD gains are used in simulation and on hardware to minimize sim-to-real mismatch.",
+          "en": "In practice, we set \\(\\omega_n\\) to balance between responsiveness and robustness. It is set high enough for fast tracking, but not so high that the loop becomes brittle during deployment or that simulation requires very small time steps to resolve stiff dynamics with fast transients, which would in turn increase training times. The same PD gains are used in simulation and on hardware to minimize sim-to-real mismatch.",
           "reference": false,
           "source_image": "figs/p010-026-source.png",
-          "zh": "在实际应用中，我们设定 ωn 以在响应速度与鲁棒性之间取得平衡。其值被设定得足够高以实现快速跟踪，但又不会过高以致控制回路在实际部署中变得脆弱，或导致仿真需要极小的时间步长来求解具有快速瞬态过程的刚性动力学，进而增加训练时间。仿真和硬件上采用相同的 PD 增益，以最大程度减少仿真到现实迁移的不匹配。"
+          "zh": "在实际应用中，我们设定 \\(\\omega_n\\) 以在响应速度与鲁棒性之间取得平衡。其值被设定得足够高以实现快速跟踪，但又不会过高以致控制回路在实际部署中变得脆弱，或导致仿真需要极小的时间步长来求解具有快速瞬态过程的刚性动力学，进而增加训练时间。仿真和硬件上采用相同的 PD 增益，以最大程度减少仿真到现实迁移的不匹配。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1822,17 +2013,26 @@
           "id": "p11-b3",
           "kind": "formula",
           "bbox": [
-            114,
-            92,
-            298,
-            102
+            112.0,
+            90.0,
+            300.0,
+            104.0
           ],
           "en": "r total = r track + r reg + r survival. (1)",
           "reference": false,
           "image": "figs/p011-003.png",
           "labels": [
             "1"
-          ]
+          ],
+          "original_bbox": [
+            114.0,
+            92.0,
+            298.0,
+            102.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 564,
+          "image_height": 42
         },
         {
           "id": "p11-b4",
@@ -1852,17 +2052,26 @@
           "id": "p11-b5",
           "kind": "formula",
           "bbox": [
-            112,
-            206,
-            298,
-            231
+            110.0,
+            204.0,
+            300.0,
+            233.0
           ],
           "en": "r track = ∑ i cti exp� − κ ∥ e σ i i 2 ∥ 2 �, (2)",
           "reference": false,
           "image": "figs/p011-005.png",
           "labels": [
             "2"
-          ]
+          ],
+          "original_bbox": [
+            112.0,
+            206.0,
+            298.0,
+            231.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 570,
+          "image_height": 87
         },
         {
           "id": "p11-b6",
@@ -1873,10 +2082,11 @@
             299,
             369
           ],
-          "en": "where cti is the reward weight for term i , and e i denotes the error between the current and reference values for quantities such as base linear velocity, base angular velocity, base pose, joint positions, and keybody poses. The regularization component, denoted r reg, aggregates penalties that encourage smooth and physically feasible behavior. Concretely, we penalize rapid changes in actions across time steps, large joint accelerations, and violations of joint position and torque limits. The survival reward is a constant positive term granted at each step, r survival = c survival, which discourages premature termination by rewarding longer episodes. Full functional forms and hyperparameters for all reward terms are provided in the Supplementary Materials (Table S4).",
+          "en": "where \\( c_{t_i} \\) is the reward weight for term \\( i \\), and \\( \\mathbf{e}_i \\) denotes the error between the current and reference values for quantities such as base linear velocity, base angular velocity, base pose, joint positions, and keybody poses. The regularization component, denoted \\( r_{\\text{reg}} \\), aggregates penalties that encourage smooth and physically feasible behavior. Concretely, we penalize rapid changes in actions across time steps, large joint accelerations, and violations of joint position and torque limits. The survival reward is a constant positive term granted at each step, \\( r_{\\text{survival}} = c_{\\text{survival}} \\), which discourages premature termination by rewarding longer episodes. Full functional forms and hyperparameters for all reward terms are provided in the Supplementary Materials (Table S4).",
           "reference": false,
           "source_image": "figs/p011-006-source.png",
-          "zh": "其中 cti 是第 i 项的奖励权重，e i 表示基座线速度、基座角速度、基座姿态、关节位置和关键刚体姿态等物理量的当前值与参考值之间的误差。正则化部分记为 r reg，汇集了鼓励平滑且物理上可行的行为的各项惩罚。具体而言，我们惩罚时间步之间动作的剧烈变化、过大的关节加速度，以及对关节位置和力矩极限的违反。生存奖励是每个时间步给予的常数正奖励项 r survival = c survival，通过对更长的 episode 进行奖励来抑制过早终止。所有奖励项的完整函数形式和超参数见补充材料（表 S4）。"
+          "zh": "其中 \\( c_{t_i} \\) 是第 \\( i \\) 项的奖励权重，\\( \\mathbf{e}_i \\) 表示基座线速度、基座角速度、基座姿态、关节位置和关键刚体姿态等物理量的当前值与参考值之间的误差。正则化部分记为 \\( r_{\\text{reg}} \\)，汇集了鼓励平滑且物理上可行的行为的各项惩罚。具体而言，我们惩罚时间步之间动作的剧烈变化、过大的关节加速度，以及对关节位置和力矩极限的违反。生存奖励是每个时间步给予的常数正奖励项 \\( r_{\\text{survival}} = c_{\\text{survival}} \\)，通过对更长的 episode 进行奖励来抑制过早终止。所有奖励项的完整函数形式和超参数见补充材料（表 S4）。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p11-b7",
@@ -1957,10 +2167,11 @@
             299,
             680
           ],
-          "en": "To initialize our environment during training, we first adopt the Reference State Initialization (RSI) strategy introduced in [29]. At each reset, a random phase ϕ init ∼U (0, 1) is sampled. Then the environment is initialized at the corresponding reference state s ˆ( ϕ init). RSI exposes the policy to relevant states along the trajectory from the outset, decouples episode length from demonstration length, and improves sample efficiency. Additionally, when a rollout reaches the end of a demonstration, we insert a brief dwell and then reset by timeout (not failure), which further increases the number of informative transitions.",
+          "en": "To initialize our environment during training, we first adopt the Reference State Initialization (RSI) strategy introduced in [29]. At each reset, a random phase \\(\\phi_{\\text{init}}\\!\\sim\\!\\mathcal{U}(0,1)\\) is sampled. Then the environment is initialized at the corresponding reference state \\(\\hat{s}(\\phi_{\\text{init}})\\). RSI exposes the policy to relevant states along the trajectory from the outset, decouples episode length from demonstration length, and improves sample efficiency. Additionally, when a rollout reaches the end of a demonstration, we insert a brief dwell and then reset by timeout (not failure), which further increases the number of informative transitions.",
           "reference": false,
           "source_image": "figs/p011-012-source.png",
-          "zh": "为了在训练期间初始化我们的环境，我们首先采用了 [29] 中引入的参考状态初始化（RSI）策略。在每次重置时，随机采样一个相位 ϕ init ∼ U(0, 1)。随后将环境初始化在对应的参考状态 s ˆ( ϕ init) 下。RSI 从一开始就让策略接触到沿轨迹的相关状态，将回合长度与演示长度解耦，并提升了样本效率。此外，当 rollout 到达演示末尾时，我们插入短暂的停留，随后通过超时（而非失败）进行重置，这进一步增加了包含丰富信息的转移数量。"
+          "zh": "为了在训练期间初始化我们的环境，我们首先采用了 [29] 中引入的参考状态初始化（RSI）策略。在每次重置时，随机采样一个相位 \\(\\phi_{\\text{init}}\\!\\sim\\!\\mathcal{U}(0,1)\\)。随后将环境初始化在对应的参考状态 \\(\\hat{s}(\\phi_{\\text{init}})\\) 下。RSI 从一开始就让策略接触到沿轨迹的相关状态，将回合长度与演示长度解耦，并提升了样本效率。此外，当 rollout 到达演示末尾时，我们插入短暂的停留，随后通过超时（而非失败）进行重置，这进一步增加了包含丰富信息的转移数量。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p11-b13",
@@ -1985,10 +2196,11 @@
             572,
             156
           ],
-          "en": "are partitioned into fixed N -step bins, and each bin b maintains a failure level fb derived from recent tracking performance (based on a similarity score metric) and updated with an EMA filter. At reset, a bin index k is drawn from a categorical distribution whose logits are proportional to { fb} , and a phase is then sampled uniformly within the selected bin to obtain ϕ init; a small floor probability is retained for every bin to prevent forgetting previously acquired skills. This procedure increases sampling density on difficult motions and difficult phases while preserving global coverage; additional implementation details are provided in the Supplementary (Section S5).",
+          "en": "are partitioned into fixed \\(N\\)-step bins, and each bin \\(b\\) maintains a failure level \\(f_b\\) derived from recent tracking performance (based on a similarity score metric) and updated with an EMA filter. At reset, a bin index \\(k\\) is drawn from a categorical distribution whose logits are proportional to \\(\\{f_b\\}\\), and a phase is then sampled uniformly within the selected bin to obtain \\(\\phi_{\\text{init}}\\); a small floor probability is retained for every bin to prevent forgetting previously acquired skills. This procedure increases sampling density on difficult motions and difficult phases while preserving global coverage; additional implementation details are provided in the Supplementary (Section S5).",
           "reference": false,
           "source_image": "figs/p011-014-source.png",
-          "zh": "被划分为固定的 N 步分箱（bin），每个分箱 b 维护一个根据近期跟踪性能（基于相似度得分度量）得出并使用 EMA 滤波器更新的失败水平 fb。在重置时，从一个 logit 与 { fb} 成比例的类别分布中抽取分箱索引 k，随后在该选定分箱内均匀采样一个相位以获得 ϕ init；每个分箱都会保留一个较小的保底概率，以防止遗忘先前习得的技能。该流程在保持全局覆盖的同时，增加了在困难动作和困难相位上的采样密度；更多实现细节见补充材料（Section S5）。"
+          "zh": "被划分为固定的 \\(N\\) 步分箱（bin），每个分箱 \\(b\\) 维护一个根据近期跟踪性能（基于相似度得分度量）得出并使用 EMA 滤波器更新的失败水平 \\(f_b\\)。在重置时，从一个 logit 与 \\(\\{f_b\\}\\) 成比例的类别分布中抽取分箱索引 \\(k\\)，随后在该选定分箱内均匀采样一个相位以获得 \\(\\phi_{\\text{init}}\\)；每个分箱都会保留一个较小的保底概率，以防止遗忘先前习得的技能。该流程在保持全局覆盖的同时，增加了在困难动作和困难相位上的采样密度；更多实现细节见补充材料（Section S5）。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p11-b15",
@@ -2013,10 +2225,11 @@
             572,
             417
           ],
-          "en": "While the framework presented so far is sufficient to track most motions in our library, skills with highly dynamic base rotations and large angular rates (e.g., handstands, cartwheels, backflips) tend to trigger immediate early terminations under RSI alone and converge significantly slower compared to simpler behaviors such as walking and running. To address this, we employ an automatic assistive-wrench curriculum, serving as a continuation strategy that gradually increases task difficulty: a virtual spatial wrench is applied at the base and annealed as tracking improves, analogous to a gymnastics coach providing diminishing support to their student. Similar assistive-force curricula have been explored in previous related works [65–68]. The assistive wrench is computed in a model-based fashion using a PD term on the base pose tracking error, together with a feedforward component that compensates nominal torso dynamics. To keep assistance partially supportive while still compelling the agent to learn the skill for itself, we scale the assistive wrench by a gain β ∈ (0, β max) with β max < 1.0. The annealing schedule is driven automatically by the per-bin failure levels introduced in the adaptive RSI procedure: bins with higher failure receive stronger assistance initially and are relaxed more aggressively as tracking improves. Assistance decays quickly and ultimately vanishes once a target tracking performance is reached. Additional details are provided in the Supplementary (Section S6).",
+          "en": "While the framework presented so far is sufficient to track most motions in our library, skills with highly dynamic base rotations and large angular rates (e.g., handstands, cartwheels, backflips) tend to trigger immediate early terminations under RSI alone and converge significantly slower compared to simpler behaviors such as walking and running. To address this, we employ an automatic assistive-wrench curriculum, serving as a continuation strategy that gradually increases task difficulty: a virtual spatial wrench is applied at the base and annealed as tracking improves, analogous to a gymnastics coach providing diminishing support to their student. Similar assistive-force curricula have been explored in previous related works [65–68]. The assistive wrench is computed in a model-based fashion using a PD term on the base pose tracking error, together with a feedforward component that compensates nominal torso dynamics. To keep assistance partially supportive while still compelling the agent to learn the skill for itself, we scale the assistive wrench by a gain \\({\\beta\\!\\in\\!(0,\\beta_{\\text{max}})}\\) with \\({\\beta_{\\text{max}} < 1.0}\\). The annealing schedule is driven automatically by the per-bin failure levels introduced in the adaptive RSI procedure: bins with higher failure receive stronger assistance initially and are relaxed more aggressively as tracking improves. Assistance decays quickly and ultimately vanishes once a target tracking performance is reached. Additional details are provided in the Supplementary (Section S6).",
           "reference": false,
           "source_image": "figs/p011-016-source.png",
-          "zh": "尽管迄今为止介绍的框架足以跟踪我们动作库中的大多数运动，但具有高度动态基体旋转和大角速度的技能（例如倒立、侧手翻、后空翻）在仅使用 RSI 时往往会立即触发提前终止，且与步行和跑步等更简单的行为相比收敛速度明显更慢。为了解决这一问题，我们采用了一种自动辅助力旋量课程，作为逐渐增加任务难度的延拓策略：在基体上施加一个虚拟空间力旋量，并随着跟踪效果的改善而逐渐衰减，类似于体操教练为学员提供逐渐减少的辅助支撑。以往的相关工作 [65–68] 也曾探索过类似的辅助力课程。该辅助力旋量采用基于模型的方法计算，包含基体位姿跟踪误差上的 PD 项，以及用于补偿名义躯干动力学的前馈分量。为了让辅助保持部分支撑作用，同时仍迫使智能体自主学习该技能，我们通过增益 β ∈ (0, β max)（其中 β max < 1.0）对辅助力旋量进行缩放。退火调度由自适应 RSI 流程中引入的各分箱失败水平自动驱动：失败率较高的分箱最初会获得更强的辅助，并随着跟踪效果的改善而更迅速地放宽。一旦达到目标跟踪性能，辅助便会快速衰减并最终完全消失。更多细节见补充材料（Section S6）。"
+          "zh": "尽管迄今为止介绍的框架足以跟踪我们动作库中的大多数运动，但具有高度动态基体旋转和大角速度的技能（例如倒立、侧手翻、后空翻）在仅使用 RSI 时往往会立即触发提前终止，且与步行和跑步等更简单的行为相比收敛速度明显更慢。为了解决这一问题，我们采用了一种自动辅助力旋量课程，作为逐渐增加任务难度的延拓策略：在基体上施加一个虚拟空间力旋量，并随着跟踪效果的改善而逐渐衰减，类似于体操教练为学员提供逐渐减少的辅助支撑。以往的相关工作 [65–68] 也曾探索过类似的辅助力课程。该辅助力旋量采用基于模型的方法计算，包含基体位姿跟踪误差上的 PD 项，以及用于补偿名义躯干动力学的前馈分量。为了让辅助保持部分支撑作用，同时仍迫使智能体自主学习该技能，我们通过增益 \\({\\beta\\!\\in\\!(0,\\beta_{\\text{max}})}\\)（其中 \\({\\beta_{\\text{max}} < 1.0}\\)）对辅助力旋量进行缩放。退火调度由自适应 RSI 流程中引入的各分箱失败水平自动驱动：失败率较高的分箱最初会获得更强的辅助，并随着跟踪效果的改善而更迅速地放宽。一旦达到目标跟踪性能，辅助便会快速衰减并最终完全消失。更多细节见补充材料（Section S6）。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p11-b17",
@@ -2111,29 +2324,47 @@
           "id": "p12-b3",
           "kind": "table",
           "bbox": [
-            41,
-            183,
-            304,
-            359
+            39.0,
+            181.0,
+            306.0,
+            361.0
           ],
           "en": "|Section S1.|Nomenclature| |---|---| |Section S2.|Implementation Details: Actuator Modeling| |Section S3.|Implementation Details: Spot Modeling| |Section S4.|Implementation Details: Motion Dataset| |Section S5.|Implementation Details: Adaptive RSI Sampling| |Section S6.|Implementation Details: Assistive Wrench Curriculum| |Figure S1.|Illustration of Main Chain and Support Chain| |Figure S2.|Atlas Ankle Torque Limits Profile| |Figure S3.|Effect of Reference and Observation Windows on Success.| |Figure S4.|Robustness to Model Uncertainty and Disturbances.| |Figure S5.|Robustness Maps from Varied Initial Conditions.| |Table S1.|Library of Reference Motions for Multi-Skill Policy| |Table S2.|Normalized MSE of Simplified PLA Models.| |Table S3.|Observation Terms Summary| |Table S4.|Reward Terms Summary| |Table S5.|Domain Randomization Summary| |Table S6.|MDP Hyperparameters| |Table S7.|PPO Hyperparameters|",
           "reference": false,
           "image": "figs/p012-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            41.0,
+            183.0,
+            304.0,
+            359.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 801,
+          "image_height": 540
         },
         {
           "id": "p12-b4",
           "kind": "table",
           "bbox": [
-            41,
-            371,
-            278,
-            461
+            39.0,
+            369.0,
+            280.0,
+            463.0
           ],
           "en": "|Other Supp|lementary Material for this manuscript includes:| |---|---| |Movie S1.|Retargeted MoCap-derived References| |Movie S2.|Retargeted ViCap-derived References| |Movie S3.|Keyframe Animation References| |Movie S4.|Simulation-based Multi-Skill Policy Evaluation| |Movie S5.|Simulation-based Benchmarking against MPC| |Movie S6.|Box-Climbing: Repeatability Testing on Hardware.| |Movie S7.|Box-Climbing: Robustness Testing on Hardware.| |Movie S8.|Impact of PLA Modeling on Sim-to-Real Transfer.|",
           "reference": false,
           "image": "figs/p012-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            41.0,
+            371.0,
+            278.0,
+            461.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 723,
+          "image_height": 282
         },
         {
           "id": "p12-b5",
@@ -3218,15 +3449,24 @@
           "id": "p15-b3",
           "kind": "table",
           "bbox": [
-            187,
-            149,
-            431,
-            731
+            185.0,
+            147.0,
+            433.0,
+            733.0
           ],
           "en": "|I|Inertial (world) frame| |---|---| |B|Base frame| |T|Torso frame| |j|Joint index| |kb|Keybodies| |J|Set of joint indices| |nj|Number of joints| |nkb|Number of keybodies| |na|Number of actions| |q|Joint positions vector| |˙q|Joint velocities vector| |¨q|Joint accelerations vector| |τ|Joint torques vector| |M|Mass matrix| |h|Nonlinear forces vector| |J|Jacobian matrix| |F|Force vector| |W|Wrench vector| |I|(Base) inertia matrix| |M|Markov Decision Process| |st|State at timet| |at|Action at timet| |ot|Observation at timet| |πθ|Policy parameterized byθ| |θ|Policy parameters| |T|Finite horizon length| |N|Number of reference trajectories| |i ∈{1, . . . ,N}|Trajectory index| |Di|Continuous duration of trajectoryi| |Li|Discrete length of trajectoryi| |∆|Temporal bin width| |B|Total number of bins| |b ∈{0, . . . ,B−1}|Bin index| |Mi,b|Validity mask for trajectoryiin binb| |Ω|Feasible set of valid trajectory–bin pairs| ||Ω||Cardinality of feasible set of bins| |fi,b|Failure level for trajectoryiin binb| |α|EMA smoothing factor| |τ|Sampling temperature| |τbase|Base temperature| |ε|Uniform floor weight (per-bin lower bound≥ε/|Ω|)| |tinit|Initial time for episode| |ϕ|Normalized phase∈[0, 1]|",
           "reference": false,
           "image": "figs/p015-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            187.0,
+            149.0,
+            431.0,
+            731.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 744,
+          "image_height": 1758
         }
       ]
     },
@@ -3237,15 +3477,24 @@
           "id": "p16-b1",
           "kind": "table",
           "bbox": [
-            201,
-            50,
-            405,
-            685
+            199.0,
+            48.0,
+            407.0,
+            687.0
           ],
           "en": "|ϕinit|Initial phase for episode reset| |---|---| |ℓi,b|Logits for sampling| |pi,b|Sampling probabilities| |βi,b|Assistance scale for trajectoryiin binb| |βmax|Maximum assistance scale| |βe |Environment-specific assistance scale| |ˆSi,b|Smoothed similarity metric| |η|Target similarity threshold| |Fb|Assistive force vector| |Mb|Assistive moment vector| |we|Applied assistive wrench| |kv p, kv d|Virtual force PD gains| |kω p , kω d|Virtual torque PD gains| |rb,com|CoM position w.r.t. base| |sk|Instantaneous similarity metric at stepk| |¯se|Length-normalized similarity metric for episodee| |Lreal|Realized episode length| |Lmax|Maximum possible episode length| |¯Lepisode|Episode length limit| |rtotal|Total reward| |rtrack|Tracking reward component| |rreg|Regularization reward component| |rsurvival|Survival reward component| |cti|Tracking reward weight for termi| |ei|Error vector for tracking termi| |σ|Standard deviation for tracking rewards| |κ|Stiffness parameter for tracking rewards| |dt|Control timestep| |p, v|Position and linear velocity| |Φ, ω|Orientation and angular velocity| |g|Gravity vector| |rXY|Position of frameYw.r.t. frameX| |vXY|Velocity of frameYw.r.t. frameX| |ωXY|Angular velocity of frameYw.r.t. frameX| |X(·)|Quantity expressed in frameX| |ˆ(·)|Reference (desired) value| |(·)∗|Reference (desired) value (alternative notation)| |E[·]|Expectation operator| |∥· ∥|Euclidean norm| |exp(·)|Exponential function| |clip(·)|Clipping function| |U(a,b)|Uniform distribution betweenaandb| |N(µ,σ2)|Normal distribution| |1{·}|Indicator function| |⌈·⌉|Ceiling function| |⊟|Lie-group difference onSO(3)| |×|Cross product operator|",
           "reference": false,
           "image": "figs/p016-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            201.0,
+            50.0,
+            405.0,
+            685.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 624,
+          "image_height": 1917
         }
       ]
     },
@@ -3303,10 +3552,11 @@
             571,
             221
           ],
-          "en": "Here, we formulate an analytically exact Projected Model to circumvent the numerical constraint enforcement used in standard simulators. We begin by deriving the general equation of motion for a class of systems that contain a closed-kinematic chain. An instance of such a mechanism is the four-bar linkage, illustrated in Figure 4, where the primary kinematic chain consists of the floating base, thigh, shank, and their connecting joints. The PLA’s actuation is provided by a motor mounted on the thigh, which drives the knee joint through a four-bar linkage. Our objective is to project the dynamics of the PLA’s support links onto the main kinematic chain. To analyze the dynamics of PLA, we conceptually decompose its closed-loop structure into two overlapping open kinematic chains: a main chain , M , and a support chain , S , as illustrated in Figure.S1.",
+          "en": "Here, we formulate an analytically exact Projected Model to circumvent the numerical constraint enforcement used in standard simulators. We begin by deriving the general equation of motion for a class of systems that contain a closed-kinematic chain. An instance of such a mechanism is the four-bar linkage, illustrated in Figure 4, where the primary kinematic chain consists of the floating base, thigh, shank, and their connecting joints. The PLA’s actuation is provided by a motor mounted on the thigh, which drives the knee joint through a four-bar linkage. Our objective is to project the dynamics of the PLA’s support links onto the main kinematic chain. To analyze the dynamics of PLA, we conceptually decompose its closed-loop structure into two overlapping open kinematic chains: a main chain, \\(\\mathcal{M}\\), and a support chain, \\(\\mathcal{S}\\), as illustrated in Figure.S1.",
           "reference": false,
           "source_image": "figs/p017-004-source.png",
-          "zh": "在此，我们构建了一个解析精确的投影模型（Projected Model），以规避标准仿真器中采用的数值约束施加方法。我们首先推导包含闭式运动链的一类系统的一般运动方程。图 4 中所示的四连杆机构就是这种机构的一个实例，其中主运动链由浮动基体、大腿、小腿及其连接关节组成。PLA 的驱动由安装在大腿上的电机提供，该电机通过四连杆机构驱动膝关节。我们的目标是将 PLA 支撑连杆的动力学投影到主运动链上。为了分析 PLA 的动力学，我们在概念上将其闭环结构分解为两个重叠的开式运动链：主链 M 和支撑链 S，如图 S1 所示。"
+          "zh": "在此，我们构建了一个解析精确的投影模型（Projected Model），以规避标准仿真器中采用的数值约束施加方法。我们首先推导包含闭式运动链的一类系统的一般运动方程。图 4 中所示的四连杆机构就是这种机构的一个实例，其中主运动链由浮动基体、大腿、小腿及其连接关节组成。PLA 的驱动由安装在大腿上的电机提供，该电机通过四连杆机构驱动膝关节。我们的目标是将 PLA 支撑连杆的动力学投影到主运动链上。为了分析 PLA 的动力学，我们在概念上将其闭环结构分解为两个重叠的开式运动链：主链 \\(\\mathcal{M}\\) 和支撑链 \\(\\mathcal{S}\\)，如图 S1 所示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p17-b5",
@@ -3317,10 +3567,11 @@
             501,
             239
           ],
-          "en": "- The main chain , M , is comprised of the robot’s primary kinematic tree, the PLA’s parent link, and its unactuated branch.",
+          "en": "- The main chain, \\(\\mathcal{M}\\), is comprised of the robot’s primary kinematic tree, the PLA’s parent link, and its unactuated branch.",
           "reference": false,
           "source_image": "figs/p017-005-source.png",
-          "zh": "- 主链 M 由机器人的主运动树、PLA 的父连杆及其未驱动分支组成。"
+          "zh": "- 主链 \\(\\mathcal{M}\\) 由机器人的主运动树、PLA 的父连杆及其未驱动分支组成。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p17-b6",
@@ -3331,10 +3582,11 @@
             446,
             259
           ],
-          "en": "- The support chain , S , consists of the PLA’s support links, which also originate from the same parent link.",
+          "en": "- The support chain, \\(\\mathcal{S}\\), consists of the PLA’s support links, which also originate from the same parent link.",
           "reference": false,
           "source_image": "figs/p017-006-source.png",
-          "zh": "- 支撑链 S 由 PLA 的支撑连杆组成，这些连杆同样源自同一个父连杆。"
+          "zh": "- 支撑链 \\(\\mathcal{S}\\) 由 PLA 的支撑连杆组成，这些连杆同样源自同一个父连杆。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p17-b7",
@@ -3345,19 +3597,20 @@
             571,
             309
           ],
-          "en": "A central assumption of this decomposition is that while the parent link is fully modeled with its physical mass in chain M , it is considered massless in the support chain, S , to avoid double-counting inertial properties. We will further assume that the velocity of the PLA joints in the support kinematic chain, including the actuated joints q i and dependent joints, q d , can be calculated based on the velocity of the PLA joints in the main kinematic chain, q o ,",
+          "en": "A central assumption of this decomposition is that while the parent link is fully modeled with its physical mass in chain \\(\\mathcal{M}\\), it is considered massless in the support chain, \\(\\mathcal{S}\\), to avoid double-counting inertial properties. We will further assume that the velocity of the PLA joints in the support kinematic chain, including the actuated joints \\(\\mathbf{q}_i\\) and dependent joints, \\(\\mathbf{q}_d\\), can be calculated based on the velocity of the PLA joints in the main kinematic chain, \\(\\mathbf{q}_o\\),",
           "reference": false,
           "source_image": "figs/p017-007-source.png",
-          "zh": "该分解的一个核心假设是：虽然父连杆在链 M 中连同其物理质量被完整建模，但在支撑链 S 中被视为无质量的，以避免重复计算惯性属性。我们进一步假设，支撑运动链中 PLA 关节的速度（包括主动驱动关节 q i 和从动关节 q d）可以根据主运动链中 PLA 关节的速度 q o 计算得出："
+          "zh": "该分解的一个核心假设是：虽然父连杆在链 \\(\\mathcal{M}\\) 中连同其物理质量被完整建模，但在支撑链 \\(\\mathcal{S}\\) 中被视为无质量的，以避免重复计算惯性属性。我们进一步假设，支撑运动链中 PLA 关节的速度（包括主动驱动关节 \\(\\mathbf{q}_i\\) 和从动关节 \\(\\mathbf{q}_d\\)）可以根据主运动链中 PLA 关节的速度 \\(\\mathbf{q}_o\\) 计算得出：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p17-b8",
           "kind": "formula",
           "bbox": [
-            246,
-            310,
-            571,
-            486
+            47.498046875,
+            299.9817810058594,
+            573.0,
+            488.0
           ],
           "en": "    (3)  q q ˙ ˙ d i  =  Γ Γ d i ( ( q q o o ) )  q ˙ o , denote the kinematic mappings from the main chain joint velocities to the dependent and actuated joints, respectively. To simplify our derivation, we focus on a scenario where the parent joints are unactuated and the entire system is free from external forces, with actuation occurring only through the PLA. While extending this analysis to a more general case is straightforward, we will not cover it here to keep The dynamics of the main chain and auxiliary chain can then be expressed as follows:   M M M F (4)  q q ¨ ¨ o p  + h M = J ⊤  q ¨ p   0  M S q ¨ d 0 S F , (5)  q ¨ i  + h S =  τ i  − J ⊤",
           "reference": false,
@@ -3366,7 +3619,16 @@
             "3",
             "4",
             "5"
-          ]
+          ],
+          "original_bbox": [
+            246.0,
+            310.0,
+            571.0,
+            486.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1577,
+          "image_height": 565
         },
         {
           "id": "p17-b9",
@@ -3377,10 +3639,11 @@
             531,
             358
           ],
-          "en": "where Γ d and Γ i denote the kinematic mappings from the main chain joint velocities to the dependent and actuated joints, respectively.",
+          "en": "where \\(\\boldsymbol{\\Gamma}_d\\) and \\(\\boldsymbol{\\Gamma}_i\\) denote the kinematic mappings from the main chain joint velocities to the dependent and actuated joints, respectively.",
           "reference": false,
           "source_image": "figs/p017-009-source.png",
-          "zh": "其中 Γ d 和 Γ i 分别表示从主链关节速度到从动关节和驱动关节的运动学映射。"
+          "zh": "其中 \\(\\boldsymbol{\\Gamma}_d\\) 和 \\(\\boldsymbol{\\Gamma}_i\\) 分别表示从主链关节速度到从动关节和驱动关节的运动学映射。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p17-b10",
@@ -3405,24 +3668,34 @@
             571,
             537
           ],
-          "en": "where M M and h M are the mass matrix and the nonlinear forces of the main chain, and M S , h S denote those of the support chain. The variable q p corresponds to the parent joints, and τ i represents the torque applied at the PLA’s actuated joint. F is the generalized interaction force exchanged between the main and support chains at their connection point, and J M and J S are the corresponding Jacobians at that point. Given that the velocity of the point should be equal, we have",
+          "en": "where \\(\\mathbf{M}_{\\mathcal{M}}\\) and \\(\\mathbf{h}_{\\mathcal{M}}\\) are the mass matrix and the nonlinear forces of the main chain, and \\(\\mathbf{M}_{\\mathcal{S}}\\), \\(\\mathbf{h}_{\\mathcal{S}}\\) denote those of the support chain. The variable \\(\\mathbf{q}_p\\) corresponds to the parent joints, and \\(\\boldsymbol{\\tau}_i\\) represents the torque applied at the PLA’s actuated joint. \\(\\mathbf{F}\\) is the generalized interaction force exchanged between the main and support chains at their connection point, and \\(\\mathbf{J}_{\\mathcal{M}}\\) and \\(\\mathbf{J}_{\\mathcal{S}}\\) are the corresponding Jacobians at that point. Given that the velocity of the point should be equal, we have",
           "reference": false,
           "source_image": "figs/p017-011-source.png",
-          "zh": "其中 M M 和 h M 分别为主链的质量矩阵和非线性力，M S、h S 表示支撑链的对应项。变量 q p 对应父关节，τ i 表示施加在 PLA 驱动关节上的力矩。F 是主链与支撑链在连接点处相互作用的广义作用力，J M 与 J S 是该点处对应的雅可比矩阵。由于该点处的速度应当相等，我们有"
+          "zh": "其中 \\(\\mathbf{M}_{\\mathcal{M}}\\) 和 \\(\\mathbf{h}_{\\mathcal{M}}\\) 分别为主链的质量矩阵和非线性力，\\(\\mathbf{M}_{\\mathcal{S}}\\)、\\(\\mathbf{h}_{\\mathcal{S}}\\) 表示支撑链的对应项。变量 \\(\\mathbf{q}_p\\) 对应父关节，\\(\\boldsymbol{\\tau}_i\\) 表示施加在 PLA 驱动关节上的力矩。\\(\\mathbf{F}\\) 是主链与支撑链在连接点处相互作用的广义作用力，\\(\\mathbf{J}_{\\mathcal{M}}\\) 与 \\(\\mathbf{J}_{\\mathcal{S}}\\) 是该点处对应的雅可比矩阵。由于该点处的速度应当相等，我们有",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p17-b12",
           "kind": "formula",
           "bbox": [
-            265,
-            538,
-            352,
-            588
+            263.0,
+            536.0,
+            354.0,
+            590.0
           ],
           "en": " q ˙ p    J S q ˙ d  q q ˙ ˙ o p  .  q ˙ i  = J M",
           "reference": false,
           "image": "figs/p017-012.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            265.0,
+            538.0,
+            352.0,
+            588.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 273,
+          "image_height": 162
         },
         {
           "id": "p17-b13",
@@ -3442,17 +3715,26 @@
           "id": "p17-b14",
           "kind": "formula",
           "bbox": [
-            262,
-            612,
-            571,
-            676
+            260.0,
+            610.0,
+            573.0,
+            678.0
           ],
           "en": "I 0   J M = J S 0 Γ d ( q o ) . (6) 0 Γ i ( q o )  � �� � G ( q o )",
           "reference": false,
           "image": "figs/p017-014.png",
           "labels": [
             "6"
-          ]
+          ],
+          "original_bbox": [
+            262.0,
+            612.0,
+            571.0,
+            676.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 939,
+          "image_height": 204
         },
         {
           "id": "p17-b15",
@@ -3472,17 +3754,26 @@
           "id": "p17-b16",
           "kind": "formula",
           "bbox": [
-            175,
-            704,
-            571,
-            737
+            173.0,
+            702.0,
+            573.0,
+            739.0
           ],
           "en": "      � M M + G ⊤ M S G � (7)  q q ¨ ¨ o p  + h M + G ⊤ h S + G ⊤ M S G ˙  q ˙ 0 o  =  τ 0 o  ,",
           "reference": false,
           "image": "figs/p017-016.png",
           "labels": [
             "7"
-          ]
+          ],
+          "original_bbox": [
+            175.0,
+            704.0,
+            571.0,
+            737.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1200,
+          "image_height": 111
         }
       ]
     },
@@ -3498,26 +3789,36 @@
             565,
             68
           ],
-          "en": "where τ o denotes the output torque of PLA. The transmission Jacobian Γ i defines the relationship between the input torque and the output torque of the PLA, expressed as:",
+          "en": "where \\(\\boldsymbol{\\tau}_o\\) denotes the output torque of PLA. The transmission Jacobian \\(\\boldsymbol{\\Gamma}_i\\) defines the relationship between the input torque and the output torque of the PLA, expressed as:",
           "reference": false,
           "source_image": "figs/p018-001-source.png",
-          "zh": "其中 τ o 表示 PLA 的输出力矩。传动雅可比矩阵 Γ i 定义了 PLA 输入力矩与输出力矩之间的关系，表示为："
+          "zh": "其中 \\(\\boldsymbol{\\tau}_o\\) 表示 PLA 的输出力矩。传动雅可比矩阵 \\(\\boldsymbol{\\Gamma}_i\\) 定义了 PLA 输入力矩与输出力矩之间的关系，表示为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b2",
           "kind": "formula",
           "bbox": [
-            272,
-            70,
-            565,
-            83
+            270.0,
+            68.0,
+            567.0,
+            85.0
           ],
           "en": "τ o = Γ i ⊤ ( q o ) τ i . (8)",
           "reference": false,
           "image": "figs/p018-002.png",
           "labels": [
             "8"
-          ]
+          ],
+          "original_bbox": [
+            272.0,
+            70.0,
+            565.0,
+            83.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 891,
+          "image_height": 51
         },
         {
           "id": "p18-b3",
@@ -3556,26 +3857,36 @@
             565,
             178
           ],
-          "en": "Our first approximation is motivated by the lightweight design of the support links in the parallel kinematic chain of PLAs. We assume that these support links are massless while still accounting for the full inertia of the motor armatures and the main kinematic chain of PLA. By treating the support links as massless and considering the Coriolis forces, h S , to be negligible, we can derive:",
+          "en": "Our first approximation is motivated by the lightweight design of the support links in the parallel kinematic chain of PLAs. We assume that these support links are massless while still accounting for the full inertia of the motor armatures and the main kinematic chain of PLA. By treating the support links as massless and considering the Coriolis forces, \\(\\mathbf{h}_{\\mathcal{S}}\\), to be negligible, we can derive:",
           "reference": false,
           "source_image": "figs/p018-005-source.png",
-          "zh": "我们的第一种近似基于 PLA 平行运动链中支撑连杆的轻量化设计。我们假设这些支撑连杆是无质量的，同时仍计入电机电枢以及 PLA 主运动链的完整惯量。通过将支撑连杆视为无质量，并认为科里奥利力 h S 可忽略不计，我们可以推导出："
+          "zh": "我们的第一种近似基于 PLA 平行运动链中支撑连杆的轻量化设计。我们假设这些支撑连杆是无质量的，同时仍计入电机电枢以及 PLA 主运动链的完整惯量。通过将支撑连杆视为无质量，并认为科里奥利力 \\(\\mathbf{h}_{\\mathcal{S}}\\) 可忽略不计，我们可以推导出：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b6",
           "kind": "formula",
           "bbox": [
-            202,
-            190,
-            565,
-            223
+            200.0,
+            188.0,
+            567.0,
+            225.0
           ],
           "en": "0         M M + (9) � � 0 0 M o   q q ¨ ¨ o p  + h M +  h 0 0 =  τ 0 o  ,",
           "reference": false,
           "image": "figs/p018-006.png",
           "labels": [
             "9"
-          ]
+          ],
+          "original_bbox": [
+            202.0,
+            190.0,
+            565.0,
+            223.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1101,
+          "image_height": 111
         },
         {
           "id": "p18-b7",
@@ -3586,10 +3897,11 @@
             565,
             269
           ],
-          "en": "where M o ( q o ) = Γ i⊤IiΓiis the locally projected mass matrix, under the assumption thatMS= Diag(0,Ii) is diagonal and only encodes the PLA actuator armature values, with I i representing the motor armatures of the PLA. The term h 0( q o , q ˙ o ) = Γ i⊤Ii˙Γi˙qorepresents the vector of nonlinear forces arising from the PLA dynamics, which acts locally on the PLA’s output joints.",
+          "en": "where \\(\\mathbf{M}_o(\\mathbf{q}_o) = \\boldsymbol{\\Gamma}_i^\\top \\mathbf{I}_i \\boldsymbol{\\Gamma}_i\\) is the locally projected mass matrix, under the assumption that \\(\\mathbf{M}_{\\mathcal{S}} = \\text{Diag}(0, \\mathbf{I}_i)\\) is diagonal and only encodes the PLA actuator armature values, with \\(\\mathbf{I}_i\\) representing the motor armatures of the PLA. The term \\(\\mathbf{h}_0(\\mathbf{q}_o, \\dot{\\mathbf{q}}_o) = \\boldsymbol{\\Gamma}_i^\\top \\mathbf{I}_i \\dot{\\boldsymbol{\\Gamma}}_i \\dot{\\mathbf{q}}_o\\) represents the vector of nonlinear forces arising from the PLA dynamics, which acts locally on the PLA’s output joints.",
           "reference": false,
           "source_image": "figs/p018-007-source.png",
-          "zh": "其中 M o ( q o ) = Γ i⊤IiΓii 为局部投影质量矩阵，假设 MS= Diag(0,Ii) 是对角阵且仅编码 PLA 执行器的电枢值，其中 I i 代表 PLA 的电机电枢。项 h 0( q o , q ˙ o ) = Γ i⊤Ii˙Γi˙qore 表示由 PLA 动力学产生的非线性力向量，它局部作用于 PLA 的输出关节上。"
+          "zh": "其中 \\(\\mathbf{M}_o(\\mathbf{q}_o) = \\boldsymbol{\\Gamma}_i^\\top \\mathbf{I}_i \\boldsymbol{\\Gamma}_i\\) 为局部投影质量矩阵，假设 \\(\\mathbf{M}_{\\mathcal{S}} = \\text{Diag}(0, \\mathbf{I}_i)\\) 是对角阵且仅编码 PLA 执行器的电枢值，其中 \\(\\mathbf{I}_i\\) 代表 PLA 的电机电枢。项 \\(\\mathbf{h}_0(\\mathbf{q}_o, \\dot{\\mathbf{q}}_o) = \\boldsymbol{\\Gamma}_i^\\top \\mathbf{I}_i \\dot{\\boldsymbol{\\Gamma}}_i \\dot{\\mathbf{q}}_o\\) 表示由 PLA 动力学产生的非线性力向量，它局部作用于 PLA 的输出关节上。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b8",
@@ -3628,42 +3940,61 @@
             566,
             391
           ],
-          "en": "Although the Locally Projected Model is local, meaning that the dynamics of the PLA actuators only affect themselves and are solely a function of the PLA’s output joint, it should be noted that M o is not necessarily diagonal even though I ⟩ is diagonal. Since standard simulators cannot accommodate off-diagonal terms, this model faces limitations when applied to coupled PLAs, such as those found in the ankles of Atlas and G1, where two actuators simultaneously drive the ankle pitch and roll joints. To resolve this, we propose our second approximation, which we refer to as the Dynamic Armature Model . To derive this model, we decompose M o into two components: Do , which is a diagonal matrix, and Oo , which represents the off-diagonal elements. We then define the model as follows:",
+          "en": "Although the Locally Projected Model is local, meaning that the dynamics of the PLA actuators only affect themselves and are solely a function of the PLA’s output joint, it should be noted that \\(\\mathbf{M}_o\\) is not necessarily diagonal even though \\(\\mathbf{I}_{\\mathcal{i}}\\) is diagonal. Since standard simulators cannot accommodate off-diagonal terms, this model faces limitations when applied to coupled PLAs, such as those found in the ankles of Atlas and G1, where two actuators simultaneously drive the ankle pitch and roll joints. To resolve this, we propose our second approximation, which we refer to as the Dynamic Armature Model . To derive this model, we decompose \\(\\mathbf{M}_o\\) into two components: \\(D_{o}\\), which is a diagonal matrix, and \\(O_{o}\\), which represents the off-diagonal elements. We then define the model as follows:",
           "reference": false,
           "source_image": "figs/p018-010-source.png",
-          "zh": "尽管局部投影模型是局部的——意味着 PLA 执行器的动力学仅影响其自身，且仅仅是 PLA 输出关节的函数——但需要注意的是，即使 I ⟩ 是对角阵，M o 也不一定是对角阵。由于标准仿真器无法容纳非对角项，当该模型应用于耦合式 PLA 时会面临局限性，例如在 Atlas 和 G1 的脚踝中，两个执行器同时驱动脚踝俯仰和滚转关节。为了解决这一问题，我们提出了第二种近似，称之为动态电枢模型（Dynamic Armature Model）。为了推导该模型，我们将 M o 分解为两部分：对角矩阵 Do 和表示非对角元素的 Oo。随后我们将该模型定义如下："
+          "zh": "尽管局部投影模型是局部的——意味着 PLA 执行器的动力学仅影响其自身，且仅仅是 PLA 输出关节的函数——但需要注意的是，即使 \\(\\mathbf{I}_{\\mathcal{i}}\\) 是对角阵，\\(\\mathbf{M}_o\\) 也不一定是对角阵。由于标准仿真器无法容纳非对角项，当该模型应用于耦合式 PLA 时会面临局限性，例如在 Atlas 和 G1 的脚踝中，两个执行器同时驱动脚踝俯仰和滚转关节。为了解决这一问题，我们提出了第二种近似，称之为动态电枢模型（Dynamic Armature Model）。为了推导该模型，我们将 \\(\\mathbf{M}_o\\) 分解为两部分：对角矩阵 \\(D_{o}\\) 和表示非对角元素的 \\(O_{o}\\)。随后我们将该模型定义如下：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b11",
           "kind": "formula",
           "bbox": [
-            187,
-            402,
-            565,
-            436
+            185.0,
+            400.0,
+            567.0,
+            438.0
           ],
           "en": "0 0         M M + (10) � � 0 0 Do   q q ¨ ¨ o p  + h M +  h 0 + Oo ¨ q o  =  τ 0 o  .",
           "reference": false,
           "image": "figs/p018-011.png",
           "labels": [
             "10"
-          ]
+          ],
+          "original_bbox": [
+            187.0,
+            402.0,
+            565.0,
+            436.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1146,
+          "image_height": 114
         },
         {
           "id": "p18-b12",
           "kind": "formula",
           "bbox": [
-            187,
-            448,
-            565,
-            505
+            53.7979736328125,
+            446.0,
+            567.0,
+            507.0
           ],
           "en": "′ , we will use the previous joint acceleration of the PLA, denoted as q ¨ o . 0 0         � M M + � ′ (11) 0 0 Do   q q ¨ ¨ o p  + h M +  h 0 + Oo ¨ q o  =  τ 0 o  .",
           "reference": false,
           "image": "figs/p018-012.png",
           "labels": [
             "11"
-          ]
+          ],
+          "original_bbox": [
+            187.0,
+            448.0,
+            565.0,
+            505.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1540,
+          "image_height": 183
         },
         {
           "id": "p18-b13",
@@ -3674,10 +4005,11 @@
             430,
             460
           ],
-          "en": "In the next step, instead of using q ¨ o , we will use the previous joint acceleration of the PLA, denoted as q ¨",
+          "en": "In the next step, instead of using \\(\\ddot{\\boldsymbol{q}}_o\\), we will use the previous joint acceleration of the PLA, denoted as \\(\\ddot{\\boldsymbol{q}}_o^{\\prime}\\).",
           "reference": false,
           "source_image": "figs/p018-013-source.png",
-          "zh": "在下一步中，我们将不使用 q ¨ o，而是使用 PLA 上一时刻的关节加速度，记为〔行内公式见原版〕"
+          "zh": "下一步不再使用 \\(\\ddot{\\boldsymbol{q}}_o\\)，而采用 PLA 上一时刻的关节加速度，记为 \\(\\ddot{\\boldsymbol{q}}_o^{\\prime}\\)。",
+          "math_repair": "exact-author-latex-fragment-recovery"
         },
         {
           "id": "p18-b14",
@@ -3716,26 +4048,36 @@
             565,
             647
           ],
-          "en": "Thus far, our approximations have produced a compatible model with minimal error. However, the suggested configuration-dependent armature matrix creates a practical bottleneck. Updating armature values at each simulation step incurs a significant computational overhead (approximately 20% in Isaac Lab). To address this issue, we introduce our final and strongest approximation, the Nominal Armature Model . This model computes the joint armatures once at a single, well-chosen nominal configuration and then fixes these values throughout training, denoted by D¯ o and O¯ o . The dynamics of the Nominal Armature Model are as follows:",
+          "en": "Thus far, our approximations have produced a compatible model with minimal error. However, the suggested configuration-dependent armature matrix creates a practical bottleneck. Updating armature values at each simulation step incurs a significant computational overhead (approximately 20% in Isaac Lab). To address this issue, we introduce our final and strongest approximation, the Nominal Armature Model . This model computes the joint armatures once at a single, well-chosen nominal configuration and then fixes these values throughout training, denoted by \\( \\overline{D}_o \\) and \\( \\overline{O}_o \\). The dynamics of the Nominal Armature Model are as follows:",
           "reference": false,
           "source_image": "figs/p018-016-source.png",
-          "zh": "到目前为止，我们的近似方法已经产生了一个兼容且误差极小的模型。然而，前述与构型相关的电枢矩阵造成了实际的计算瓶颈。在每个仿真步更新电枢值会带来显著的计算开销（在 Isaac Lab 中约为 20%）。为了解决这一问题，我们引入了最终且最强的近似方法——名义电枢模型（Nominal Armature Model）。该模型仅在单一、精心挑选的名义构型下计算一次关节电枢，随后在整个训练过程中将这些值固定下来，分别记为 D¯ o 和 O¯ o。名义电枢模型的动力学方程如下："
+          "zh": "到目前为止，我们的近似方法已经产生了一个兼容且误差极小的模型。然而，前述与构型相关的电枢矩阵造成了实际的计算瓶颈。在每个仿真步更新电枢值会带来显著的计算开销（在 Isaac Lab 中约为 20%）。为了解决这一问题，我们引入了最终且最强的近似方法——名义电枢模型（Nominal Armature Model）。该模型仅在单一、精心挑选的名义构型下计算一次关节电枢，随后在整个训练过程中将这些值固定下来，分别记为 \\( \\overline{D}_o \\) 和 \\( \\overline{O}_o \\)。名义电枢模型的动力学方程如下：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b17",
           "kind": "formula",
           "bbox": [
-            187,
-            659,
-            565,
-            692
+            185.0,
+            657.0,
+            567.0,
+            694.0
           ],
           "en": "0 0         � M M + � ′ (12) 0 0 D ¯ o   q q ¨ ¨ o p  + h M +  h 0 + O ¯ o ¨ q o  =  τ 0 o  ,",
           "reference": false,
           "image": "figs/p018-017.png",
           "labels": [
             "12"
-          ]
+          ],
+          "original_bbox": [
+            187.0,
+            659.0,
+            565.0,
+            692.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1146,
+          "image_height": 111
         },
         {
           "id": "p18-b18",
@@ -3863,10 +4205,11 @@
             572,
             392
           ],
-          "en": "The equation Eq. (8) defines the relationship between the input torque and the output torque of the PLA. This mapping is dependent on the configuration, meaning that the output torque limits are not simply box limits, even though the input space does have box limits. An approximation approach is to use box limits. However, this can lead to either overly conservative or overly optimistic results. Figure S2 illustrates the configurationdependent torque limits on the Atlas ankle at specific joint roll and pitch angles, compared to the fixed boundary approximation. We sweep the ankle pitch–roll joint space over its position limits. At each pitch–roll joint pair, we calculate the transmission Jacobian Γ i (eq.Eq. (3)) and apply this linear transformation to the box limit in the motor space, resulting in a sequence of parallelograms. As shown, the fixed limits significantly underestimate the possible torque output.",
+          "en": "The equation Eq. (8) defines the relationship between the input torque and the output torque of the PLA. This mapping is dependent on the configuration, meaning that the output torque limits are not simply box limits, even though the input space does have box limits. An approximation approach is to use box limits. However, this can lead to either overly conservative or overly optimistic results. Figure S2 illustrates the configurationdependent torque limits on the Atlas ankle at specific joint roll and pitch angles, compared to the fixed boundary approximation. We sweep the ankle pitch–roll joint space over its position limits. At each pitch–roll joint pair, we calculate the transmission Jacobian \\(\\boldsymbol{\\Gamma}_i\\) (eq.Eq. (3)) and apply this linear transformation to the box limit in the motor space, resulting in a sequence of parallelograms. As shown, the fixed limits significantly underestimate the possible torque output.",
           "reference": false,
           "source_image": "figs/p019-008-source.png",
-          "zh": "方程 Eq. (8) 定义了 PLA 输入扭矩与输出扭矩之间的关系。该映射依赖于构型，这意味着尽管输入空间确实具有盒式界限（box limits），但输出扭矩界限并不是简单的盒式界限。一种近似方法是直接采用盒式界限。然而，这可能会导致过于保守或过于乐观的结果。图 S2 展示了 Atlas 脚踝在特定关节横滚和俯仰角下的构型相关扭矩限制，并与固定边界近似进行了对比。我们在脚踝的位置限值范围内对其俯仰-横滚关节空间进行了扫描。在每个俯仰-横滚关节对处，我们计算传动雅可比矩阵 Γ i (eq.Eq. (3))，并将该线性变换应用于电机空间的盒式界限，从而得到一系列平行四边形。如图所示，固定界限显著低估了可能输出的扭矩。"
+          "zh": "方程 Eq. (8) 定义了 PLA 输入扭矩与输出扭矩之间的关系。该映射依赖于构型，这意味着尽管输入空间确实具有盒式界限（box limits），但输出扭矩界限并不是简单的盒式界限。一种近似方法是直接采用盒式界限。然而，这可能会导致过于保守或过于乐观的结果。图 S2 展示了 Atlas 脚踝在特定关节横滚和俯仰角下的构型相关扭矩限制，并与固定边界近似进行了对比。我们在脚踝的位置限值范围内对其俯仰-横滚关节空间进行了扫描。在每个俯仰-横滚关节对处，我们计算传动雅可比矩阵 \\(\\boldsymbol{\\Gamma}_i\\) (eq.Eq. (3))，并将该线性变换应用于电机空间的盒式界限，从而得到一系列平行四边形。如图所示，固定界限显著低估了可能输出的扭矩。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p19-b9",
@@ -3900,15 +4243,24 @@
           "id": "p19-b11",
           "kind": "formula",
           "bbox": [
-            275,
-            488,
-            343,
-            508
+            273.0,
+            486.0,
+            345.0,
+            510.0
           ],
           "en": "τin τout = 1 + k|τin| ,",
           "reference": false,
           "image": "figs/p019-011.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            275.0,
+            488.0,
+            343.0,
+            508.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 216,
+          "image_height": 72
         },
         {
           "id": "p19-b12",
@@ -3919,24 +4271,34 @@
             571,
             536
           ],
-          "en": "with τout denoting output torque, τin input torque, and k a derating constant. Torque losses from transmission inefficiencies and friction were modeled using the following equation:",
+          "en": "with \\(\\tau_{out}\\) denoting output torque, \\(\\tau_{in}\\) input torque, and \\(k\\) a derating constant. Torque losses from transmission inefficiencies and friction were modeled using the following equation:",
           "reference": false,
           "source_image": "figs/p019-012-source.png",
-          "zh": "其中 τout 表示输出扭矩，τin 表示输入扭矩，k 为降额常数。传动效率损耗与摩擦引起的扭矩损耗采用以下方程建模："
+          "zh": "其中 \\(\\tau_{out}\\) 表示输出扭矩，\\(\\tau_{in}\\) 表示输入扭矩，\\(k\\) 为降额常数。传动效率损耗与摩擦引起的扭矩损耗采用以下方程建模：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p19-b13",
           "kind": "formula",
           "bbox": [
-            228,
-            540,
-            390,
-            550
+            226.0,
+            538.0,
+            392.0,
+            552.0
           ],
           "en": "τout = η ( τin − Iα ) − Kc tanh ( sω ) − Kvω ,",
           "reference": false,
           "image": "figs/p019-013.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            228.0,
+            540.0,
+            390.0,
+            550.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 498,
+          "image_height": 42
         },
         {
           "id": "p19-b14",
@@ -3947,24 +4309,34 @@
             572,
             590
           ],
-          "en": "where I is the rotor inertia, α the joint acceleration, Kc the Coulomb friction constant, s a smoothing factor, ω the joint velocity, Kv the viscous friction constant, and η the transmission efficiency. Two values of η are used, depending on whether the motor performs positive or negative work. The complete actuator model is thus expressed as:",
+          "en": "where \\(I\\) is the rotor inertia, \\(\\alpha\\) the joint acceleration, \\(K_c\\) the Coulomb friction constant, \\(s\\) a smoothing factor, \\(\\omega\\) the joint velocity, \\(K_v\\) the viscous friction constant, and \\(\\eta\\) the transmission efficiency. Two values of \\(\\eta\\) are used, depending on whether the motor performs positive or negative work. The complete actuator model is thus expressed as:",
           "reference": false,
           "source_image": "figs/p019-014-source.png",
-          "zh": "其中 I 为转子转动惯量，α 为关节加速度，Kc 为库仑摩擦常数，s 为平滑因子，ω 为关节速度，Kv 为粘性摩擦常数，η 为传动效率。根据电机做正功还是做负功，采用两个不同的 η 值。因此，完整的执行器模型表示为："
+          "zh": "其中 \\(I\\) 为转子转动惯量，\\(\\alpha\\) 为关节加速度，\\(K_c\\) 为库仑摩擦常数，\\(s\\) 为平滑因子，\\(\\omega\\) 为关节速度，\\(K_v\\) 为粘性摩擦常数，\\(\\eta\\) 为传动效率。根据电机做正功还是做负功，采用两个不同的 \\(\\eta\\) 值。因此，完整的执行器模型表示为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p19-b15",
           "kind": "formula",
           "bbox": [
-            212,
-            602,
-            406,
-            622
+            210.0,
+            600.0,
+            408.0,
+            624.0
           ],
           "en": "τin τout = η − Kc tanh ( sω ) − Kvω . � 1 + k|τin| − Iα �",
           "reference": false,
           "image": "figs/p019-015.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            212.0,
+            602.0,
+            406.0,
+            622.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 594,
+          "image_height": 72
         },
         {
           "id": "p19-b16",
@@ -3975,10 +4347,11 @@
             571,
             677
           ],
-          "en": "The actuator model output was low-pass filtered for simulation stability. Parameters k , I , Kc , s , and Kv were sourced directly from the manufacturer’s specifications. To define the randomization range for η , we recorded joint torques during dynamic maneuvers (such as a continuous backflip) and estimated the parameters through optimization. The minimum and maximum values set the domain randomization ranges for each actuator type.",
+          "en": "The actuator model output was low-pass filtered for simulation stability. Parameters \\(k\\), \\(I\\), \\(K_c\\), \\(s\\), and \\(K_v\\) were sourced directly from the manufacturer’s specifications. To define the randomization range for \\(\\eta\\), we recorded joint torques during dynamic maneuvers (such as a continuous backflip) and estimated the parameters through optimization. The minimum and maximum values set the domain randomization ranges for each actuator type.",
           "reference": false,
           "source_image": "figs/p019-016-source.png",
-          "zh": "对执行器模型的输出进行了低通滤波，以保证仿真的稳定性。参数 k、I、Kc、s 和 Kv 直接来源于制造商的技术规格。为了确定 η 的随机化范围，我们在动态机动（如连续后空翻）过程中记录了关节扭矩，并通过优化估计了相关参数。其最小值与最大值构成了各执行器类型的域随机化范围。"
+          "zh": "对执行器模型的输出进行了低通滤波，以保证仿真的稳定性。参数 \\(k\\)、\\(I\\)、\\(K_c\\)、\\(s\\) 和 \\(K_v\\) 直接来源于制造商的技术规格。为了确定 \\(\\eta\\) 的随机化范围，我们在动态机动（如连续后空翻）过程中记录了关节扭矩，并通过优化估计了相关参数。其最小值与最大值构成了各执行器类型的域随机化范围。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p19-b17",
@@ -4134,24 +4507,34 @@
             565,
             382
           ],
-          "en": "Given a library containing N reference trajectories indexed by i ∈{ 1, . . . , N} with continuous durations Di and discrete lengths Li . We fix a temporal bin width ∆ > 0 and partition time into bins b ∈{ 0, . . . , B− 1 } where",
+          "en": "Given a library containing \\(N\\) reference trajectories indexed by \\(i\\!\\in\\!\\{1,\\dots,N\\}\\) with continuous durations \\(D_i\\) and discrete lengths \\(L_i\\). We fix a temporal bin width \\(\\Delta{>}0\\) and partition time into bins \\(b\\!\\in\\!\\{0,\\dots,B{-}1\\}\\) where",
           "reference": false,
           "source_image": "figs/p020-008-source.png",
-          "zh": "给定一个包含 N 条参考轨迹的轨迹库，由连续时长为 Di 且离散长度为 Li 的 i ∈{ 1, . . . , N} 索引。我们固定一个时间分箱宽度 ∆ > 0，并将时间划分为分箱 b ∈{ 0, . . . , B− 1 }，其中"
+          "zh": "给定一个包含 \\(N\\) 条参考轨迹的轨迹库，由连续时长为 \\(D_i\\) 且离散长度为 \\(L_i\\) 的 \\(i\\!\\in\\!\\{1,\\dots,N\\}\\) 索引。我们固定一个时间分箱宽度 \\(\\Delta{>}0\\)，并将时间划分为分箱 \\(b\\!\\in\\!\\{0,\\dots,B{-}1\\}\\)，其中",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p20-b9",
           "kind": "formula",
           "bbox": [
-            268,
-            390,
-            338,
-            412
+            266.0,
+            388.0,
+            340.0,
+            414.0
           ],
           "en": "Di B = max . � i ∆ �",
           "reference": false,
           "image": "figs/p020-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            268.0,
+            390.0,
+            338.0,
+            412.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 222,
+          "image_height": 78
         },
         {
           "id": "p20-b10",
@@ -4171,15 +4554,24 @@
           "id": "p20-b11",
           "kind": "formula",
           "bbox": [
-            258,
-            430,
-            349,
-            441
+            256.0,
+            428.0,
+            351.0,
+            443.0
           ],
           "en": "Mi , b = 1 { b · ∆ < Di }",
           "reference": false,
           "image": "figs/p020-011.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            258.0,
+            430.0,
+            349.0,
+            441.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 285,
+          "image_height": 45
         },
         {
           "id": "p20-b12",
@@ -4190,24 +4582,34 @@
             565,
             479
           ],
-          "en": "marks bins that intersect the support of trajectory i . We define the feasible set Ω = { ( i , b ) : Mi , b = 1 } and maintain a per-bin failure level matrix f ∈ RN×B on Ω. For numerical convenience, we set fi , b = − ∞ for ( i , b ) / ∈ Ω so that invalid bins receive zero probability under a softmax. For each rollout e that starts in bin ( i , b ), we compute a length-normalized similarity metric that captures overall tracking performance",
+          "en": "marks bins that intersect the support of trajectory \\(i\\). We define the feasible set \\(\\Omega \\!=\\! \\{(i,b)\\,:\\,M_{i,b}\\!=\\!1\\}\\) and maintain a per-bin failure level matrix \\(f \\in \\mathbb{R}^{N\\times B}\\) on \\(\\Omega\\). For numerical convenience, we set \\(f_{i,b}\\!=\\!{-}\\infty\\) for \\((i,b)\\!\\notin\\!\\Omega\\) so that invalid bins receive zero probability under a softmax. For each rollout \\(e\\) that starts in bin \\((i,b)\\), we compute a length-normalized similarity metric that captures overall tracking performance",
           "reference": false,
           "source_image": "figs/p020-012-source.png",
-          "zh": "标记了与轨迹 i 的支撑集相交的分箱。我们定义可行集 Ω = { ( i , b ) : Mi , b = 1 }，并在 Ω 上维护一个逐分箱的失败程度矩阵 f ∈ RN×B。为了数值计算方便，对于 ( i , b ) / ∈ Ω，我们令 fi , b = − ∞，使得无效分箱在 softmax 下的概率为零。对于从分箱 ( i , b ) 开始的每条轨迹展开（rollout）e，我们计算一个按长度归一化的相似度指标，以反映整体跟踪性能"
+          "zh": "标记了与轨迹 \\(i\\) 的支撑集相交的分箱。我们定义可行集 \\(\\Omega \\!=\\! \\{(i,b)\\,:\\,M_{i,b}\\!=\\!1\\}\\)，并在 \\(\\Omega\\) 上维护一个逐分箱的失败程度矩阵 \\(f \\in \\mathbb{R}^{N\\times B}\\)。为了数值计算方便，对于 \\((i,b)\\!\\notin\\!\\Omega\\)，我们令 \\(f_{i,b}\\!=\\!{-}\\infty\\)，使得无效分箱在 softmax 下的概率为零。对于从分箱 \\((i,b)\\) 开始的每条轨迹展开（rollout）\\(e\\)，我们计算一个按长度归一化的相似度指标，以反映整体跟踪性能",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p20-b13",
           "kind": "formula",
           "bbox": [
-            236,
-            487,
-            370,
-            513
+            234.0,
+            485.0,
+            372.0,
+            515.0
           ],
           "en": "1 L real s ¯ e = ∑ sk , sk ∈ [0, 1], L max k =1",
           "reference": false,
           "image": "figs/p020-013.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            236.0,
+            487.0,
+            370.0,
+            513.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 414,
+          "image_height": 90
         },
         {
           "id": "p20-b14",
@@ -4218,24 +4620,34 @@
             565,
             554
           ],
-          "en": "where sk is given by the joint tracking reward. L real is the realized episode length and L max = min( L¯ episode, Li ) is the total number of steps that could have been realized when early terminations are not triggered (so early terminations are automatically penalized by missing terms). We then update the failure level with an exponential moving average (EMA):",
+          "en": "where \\( s_k \\) is given by the joint tracking reward. \\( L_{\\mathrm{real}} \\) is the realized episode length and \\( L_{\\max} = \\min(\\bar{L}_{\\text{episode}}, L_i) \\) is the total number of steps that could have been realized when early terminations are not triggered (so early terminations are automatically penalized by missing terms). We then update the failure level with an exponential moving average (EMA):",
           "reference": false,
           "source_image": "figs/p020-014-source.png",
-          "zh": "其中 sk 由关节跟踪奖励给出。L real 为实际达到的回合长度，而 L max = min( L¯ episode, Li ) 是未触发提前终止时原本可实现的总步数（因此提前终止会因缺失项而自动受到惩罚）。随后我们采用指数移动平均（EMA）更新失败程度："
+          "zh": "其中 \\( s_k \\) 由关节跟踪奖励给出。\\( L_{\\mathrm{real}} \\) 为实际达到的回合长度，而 \\( L_{\\max} = \\min(\\bar{L}_{\\text{episode}}, L_i) \\) 是未触发提前终止时原本可实现的总步数（因此提前终止会因缺失项而自动受到惩罚）。随后我们采用指数移动平均（EMA）更新失败程度：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p20-b15",
           "kind": "formula",
           "bbox": [
-            210,
-            562,
-            397,
-            574
+            208.0,
+            560.0,
+            399.0,
+            576.0
           ],
           "en": "fi , b ← (1 − α ) fi , b + α �1 − s ¯ e �, α ∈ (0, 1).",
           "reference": false,
           "image": "figs/p020-015.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            210.0,
+            562.0,
+            397.0,
+            574.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 573,
+          "image_height": 48
         },
         {
           "id": "p20-b16",
@@ -4255,15 +4667,24 @@
           "id": "p20-b17",
           "kind": "formula",
           "bbox": [
-            258,
-            599,
-            348,
-            619
+            256.0,
+            597.0,
+            350.0,
+            621.0
           ],
           "en": "fi , b ℓi , b = τ > 0, τ ,",
           "reference": false,
           "image": "figs/p020-017.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            258.0,
+            599.0,
+            348.0,
+            619.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 282,
+          "image_height": 72
         },
         {
           "id": "p20-b18",
@@ -4283,15 +4704,24 @@
           "id": "p20-b19",
           "kind": "formula",
           "bbox": [
-            199,
-            643,
-            407,
-            670
+            197.0,
+            641.0,
+            409.0,
+            672.0
           ],
           "en": "e ℓi , b 1 pi , b = (1 − ε ) ε ∈ (0, 1), ∑( u , v ) ∈ Ω e ℓu , v + ε | Ω | ,",
           "reference": false,
           "image": "figs/p020-019.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            199.0,
+            643.0,
+            407.0,
+            670.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 636,
+          "image_height": 93
         },
         {
           "id": "p20-b20",
@@ -4302,24 +4732,34 @@
             565,
             699
           ],
-          "en": "with pi , b = 0 for ( i , b ) / ∈ Ω. The temperature τ controls concentration around hard bins; the uniform floor ε preserves global coverage and mitigates forgetting. Finally, given ( i , b ) ∼ p , we sample a start time for trajectory i",
+          "en": "with \\(p_{i,b}\\!=\\!0\\) for \\((i,b)\\!\\notin\\!\\Omega\\). The temperature \\(\\tau\\) controls concentration around hard bins; the uniform floor \\(\\varepsilon\\) preserves global coverage and mitigates forgetting. Finally, given \\((i,b)\\!\\sim\\!p\\), we sample a start time for trajectory \\(i\\)",
           "reference": false,
           "source_image": "figs/p020-020-source.png",
-          "zh": "其中对于 ( i , b ) / ∈ Ω，有 pi , b = 0。温度 τ 控制向困难分箱集中的程度；均匀下界 ε 保持了全局覆盖并缓解了遗忘。最后，给定 ( i , b ) ∼ p，我们为轨迹 i 采样一个起始时间"
+          "zh": "其中对于 \\((i,b)\\!\\notin\\!\\Omega\\)，有 \\(p_{i,b}\\!=\\!0\\)。温度 \\(\\tau\\) 控制向困难分箱集中的程度；均匀下界 \\(\\varepsilon\\) 保持了全局覆盖并缓解了遗忘。最后，给定 \\((i,b)\\!\\sim\\!p\\)，我们为轨迹 \\(i\\) 采样一个起始时间",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p20-b21",
           "kind": "formula",
           "bbox": [
-            231,
-            706,
-            375,
-            718
+            229.0,
+            704.0,
+            377.0,
+            720.0
           ],
           "en": "tinit ∼U � b · ∆, min { ( b +1)∆, Di} �,",
           "reference": false,
           "image": "figs/p020-021.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            231.0,
+            706.0,
+            375.0,
+            718.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 444,
+          "image_height": 48
         },
         {
           "id": "p20-b22",
@@ -4330,10 +4770,11 @@
             244,
             735
           ],
-          "en": "and convert to a normalized phase ϕ = tinit / Di ∈ [0, 1].",
+          "en": "and convert to a normalized phase \\(\\phi = t_{init} / D_i \\in [0, 1]\\).",
           "reference": false,
           "source_image": "figs/p020-022-source.png",
-          "zh": "并转换为归一化相位 ϕ = tinit / Di ∈ [0, 1]。"
+          "zh": "并转换为归一化相位 \\(\\phi = t_{init} / D_i \\in [0, 1]\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -4363,24 +4804,34 @@
             571,
             83
           ],
-          "en": "We convert per-bin failure levels fi , b back to a smoothed similarity metric Sˆ i , b = 1 − fi , b on Ω and map them to a non-negative assistance scale via a monotone schedule that vanishes at a target similarity η :",
+          "en": "We convert per-bin failure levels \\(f_{i,b}\\) back to a smoothed similarity metric \\(\\hat{S}_{i,b} = 1 - f_{i,b}\\) on \\(\\Omega\\) and map them to a non-negative assistance scale via a monotone schedule that vanishes at a target similarity \\(\\eta\\):",
           "reference": false,
           "source_image": "figs/p021-002-source.png",
-          "zh": "我们将 Ω 上逐分箱的失败程度 fi , b 转换回平滑相似度指标 Sˆ i , b = 1 − fi , b，并通过在目标相似度 η 处归零的单调调度策略将其映射为非负辅助比例："
+          "zh": "我们将 \\(\\Omega\\) 上逐分箱的失败程度 \\(f_{i,b}\\) 转换回平滑相似度指标 \\(\\hat{S}_{i,b} = 1 - f_{i,b}\\)，并通过在目标相似度 \\(\\eta\\) 处归零的单调调度策略将其映射为非负辅助比例：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p21-b3",
           "kind": "formula",
           "bbox": [
-            202,
-            91,
-            418,
-            109
+            200.0,
+            89.0,
+            420.0,
+            111.0
           ],
           "en": "βi , b = clip�1 − S ˆ ηi , b , 0, β max �, η > 0, β max ∈ [0, 1]",
           "reference": false,
           "image": "figs/p021-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            202.0,
+            91.0,
+            418.0,
+            109.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 660,
+          "image_height": 66
         },
         {
           "id": "p21-b4",
@@ -4391,10 +4842,11 @@
             571,
             138
           ],
-          "en": "At initialization, we set the environment’s assistive gain based on its sampled trajectory-bin pair ( i , b ) (i.e., βe = βi , b ) and we hold βe constant during that episode.",
+          "en": "At initialization, we set the environment’s assistive gain based on its sampled trajectory-bin pair \\((i,b)\\) (i.e., \\(\\beta_e = \\beta_{i,b}\\)) and we hold \\(\\beta_e\\) constant during that episode.",
           "reference": false,
           "source_image": "figs/p021-004-source.png",
-          "zh": "在初始化时，我们根据采样的轨迹-分箱对 ( i , b ) 设置环境的辅助增益（即 βe = βi , b），并在该回合期间保持 βe 恒定。"
+          "zh": "在初始化时，我们根据采样的轨迹-分箱对 \\((i,b)\\) 设置环境的辅助增益（即 \\(\\beta_e = \\beta_{i,b}\\)），并在该回合期间保持 \\(\\beta_e\\) 恒定。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p21-b5",
@@ -4405,42 +4857,61 @@
             571,
             166
           ],
-          "en": "Virtual wrench computation. Let ( p , v , Φ , ω ) denote the base position, linear velocity, orientation, and angular velocity; a hat on top of each variable denotes its corresponding reference. We compute a nominal spatial wrench acting on the robot’s torso as follows:",
+          "en": "Virtual wrench computation. Let \\((\\mathbf{p},\\mathbf{v},\\boldsymbol{\\Phi},\\boldsymbol{\\omega})\\) denote the base position, linear velocity, orientation, and angular velocity; a hat on top of each variable denotes its corresponding reference. We compute a nominal spatial wrench acting on the robot’s torso as follows:",
           "reference": false,
           "source_image": "figs/p021-005-source.png",
-          "zh": "虚拟力旋量计算。设 ( p , v , Φ , ω ) 表示基座位置、线速度、朝向和角速度；每个变量顶部的帽子符号表示其对应的参考值。我们计算作用在机器人躯干上的名义空间力旋量如下："
+          "zh": "虚拟力旋量计算。设 \\((\\mathbf{p},\\mathbf{v},\\boldsymbol{\\Phi},\\boldsymbol{\\omega})\\) 表示基座位置、线速度、朝向和角速度；每个变量顶部的帽子符号表示其对应的参考值。我们计算作用在机器人躯干上的名义空间力旋量如下：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p21-b6",
           "kind": "formula",
           "bbox": [
-            165,
-            174,
-            571,
-            191
+            161.76400756835938,
+            172.0,
+            573.0,
+            210.0911102294922
           ],
           "en": "F b = M � v ˆ˙ + k v p ( ˆ p − p ) + kv d ( v ˆ − v ) − g � , (13a)",
           "reference": false,
           "image": "figs/p021-006.png",
           "labels": [
             "13a"
-          ]
+          ],
+          "original_bbox": [
+            165.0,
+            174.0,
+            571.0,
+            191.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1234,
+          "image_height": 115
         },
         {
           "id": "p21-b7",
           "kind": "formula",
           "bbox": [
-            161,
-            196,
-            571,
-            209
+            159.0,
+            191.07998657226562,
+            573.0,
+            211.0
           ],
           "en": "M b = I ω ˆ ˙ + k ω p I � Φ ˆ ⊟ Φ � + kωd I ( ˆ ω − ω ) + ω × ( I ω ) − r b,com × M g , (13b)",
           "reference": false,
           "image": "figs/p021-007.png",
           "labels": [
             "13b"
-          ]
+          ],
+          "original_bbox": [
+            161.0,
+            196.0,
+            571.0,
+            209.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1242,
+          "image_height": 60
         },
         {
           "id": "p21-b8",
@@ -4451,24 +4922,34 @@
             571,
             248
           ],
-          "en": "where M and I are the whole-body mass and nominal base inertia at a default configuration, g is gravity, r b,com is the position of the whole-body CoM with respect to the base, and ⊟ denotes the Lie-group difference on SO (3) (implemented via the rotation-log map for quaternions). The applied assistive wrench is",
+          "en": "where \\(M\\) and \\(\\mathbf{I}\\) are the whole-body mass and nominal base inertia at a default configuration, \\(\\mathbf{g}\\) is gravity, \\(\\mathbf{r}_{\\mathrm{b,com}}\\) is the position of the whole-body CoM with respect to the base, and \\(\\boxminus\\) denotes the Lie-group difference on \\(SO(3)\\) (implemented via the rotation-log map for quaternions). The applied assistive wrench is",
           "reference": false,
           "source_image": "figs/p021-008-source.png",
-          "zh": "其中 M 和 I 分别为默认构型下的全身质量和名义基座转动惯量，g 为重力，r b,com 为全身质心（CoM）相对于基座的位置，⊟ 表示 SO (3) 上的李群差（通过四元数的旋转对数映射实现）。所施加的辅助力旋量为"
+          "zh": "其中 \\(M\\) 和 \\(\\mathbf{I}\\) 分别为默认构型下的全身质量和名义基座转动惯量，\\(\\mathbf{g}\\) 为重力，\\(\\mathbf{r}_{\\mathrm{b,com}}\\) 为全身质心（CoM）相对于基座的位置，\\(\\boxminus\\) 表示 \\(SO(3)\\) 上的李群差（通过四元数的旋转对数映射实现）。所施加的辅助力旋量为",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p21-b9",
           "kind": "formula",
           "bbox": [
-            275,
-            248,
-            343,
-            281
+            273.0,
+            246.0,
+            345.0,
+            283.0
           ],
           "en": "  w e = βe  M F b b  ,",
           "reference": false,
           "image": "figs/p021-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            275.0,
+            248.0,
+            343.0,
+            281.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 216,
+          "image_height": 111
         },
         {
           "id": "p21-b10",
@@ -4479,10 +4960,11 @@
             571,
             307
           ],
-          "en": "expressed in the world frame and applied at the torso link. The cap β max < 1 keeps assistance partial to encourage meaningful exploration and avoid overfitting to the modified physics.",
+          "en": "expressed in the world frame and applied at the torso link. The cap \\(\\beta_{\\max} < 1\\) keeps assistance partial to encourage meaningful exploration and avoid overfitting to the modified physics.",
           "reference": false,
           "source_image": "figs/p021-010-source.png",
-          "zh": "在世界坐标系下表示并施加在躯干连杆上。上限截断 β max < 1 保证了辅助仅是部分的，以促进有意义的探索，并避免对修改后的物理环境产生过拟合。"
+          "zh": "在世界坐标系下表示并施加在躯干连杆上。上限截断 \\(\\beta_{\\max} < 1\\) 保证了辅助仅是部分的，以促进有意义的探索，并避免对修改后的物理环境产生过拟合。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p21-b11",
@@ -4493,10 +4975,11 @@
             571,
             369
           ],
-          "en": "Coupling to the adaptive RSI sampler. Because wi , b is a deterministic function of Sˆ i , b , bins with persistent errors (large fi , b , small Sˆ i , b ) receive stronger assistance initially. As tracking improves, the EMA drives fi , b down, which in turn reduces wi , b and eventually clamps it to zero once S ˆ i , b ≥ η . Simultaneously, the adaptive RSI scheme increases the sampling frequency of challenging bins until their failure levels subside while preserving coverage via the sampler’s floor probability, yielding a simple, performance-coupled continuation scheme that is guaranteed to decay assistance to zero at the desired similarity threshold.",
+          "en": "Coupling to the adaptive RSI sampler. Because \\(w_{i,b}\\) is a deterministic function of \\(\\hat{S}_{i,b}\\), bins with persistent errors (large \\(f_{i,b}\\), small \\(\\hat{S}_{i,b}\\)) receive stronger assistance initially. As tracking improves, the EMA drives \\(f_{i,b}\\) down, which in turn reduces \\(w_{i,b}\\) and eventually clamps it to zero once \\(\\hat{S}_{i,b} \\ge \\eta\\). Simultaneously, the adaptive RSI scheme increases the sampling frequency of challenging bins until their failure levels subside while preserving coverage via the sampler’s floor probability, yielding a simple, performance-coupled continuation scheme that is guaranteed to decay assistance to zero at the desired similarity threshold.",
           "reference": false,
           "source_image": "figs/p021-011-source.png",
-          "zh": "与自适应 RSI 采样器的耦合。由于 wi , b 是 Sˆ i , b 的确定性函数，存在持续误差的分箱（fi , b 较大，Sˆ i , b 较小）最初会获得更强的辅助。随着跟踪性能的提升，EMA 会促使 fi , b 下降，从而降低 wi , b，并在 S ˆ i , b ≥ η 时最终将其截断为零。与此同时，自适应 RSI 方案会增加困难分箱的采样频率，直至其失败程度减退，同时通过采样器的下界概率保持覆盖率，从而形成一种简单且与性能耦合的延拓方案，保证在达到期望的相似度阈值时将辅助逐步衰减至零。"
+          "zh": "与自适应 RSI 采样器的耦合。由于 \\(w_{i,b}\\) 是 \\(\\hat{S}_{i,b}\\) 的确定性函数，存在持续误差的分箱（\\(f_{i,b}\\) 较大，\\(\\hat{S}_{i,b}\\) 较小）最初会获得更强的辅助。随着跟踪性能的提升，EMA 会促使 \\(f_{i,b}\\) 下降，从而降低 \\(w_{i,b}\\)，并在 \\(\\hat{S}_{i,b} \\ge \\eta\\) 时最终将其截断为零。与此同时，自适应 RSI 方案会增加困难分箱的采样频率，直至其失败程度减退，同时通过采样器的下界概率保持覆盖率，从而形成一种简单且与性能耦合的延拓方案，保证在达到期望的相似度阈值时将辅助逐步衰减至零。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -4507,15 +4990,24 @@
           "id": "p22-b1",
           "kind": "picture",
           "bbox": [
-            120,
-            46,
-            486,
-            182
+            118.0,
+            44.0,
+            488.0,
+            184.0
           ],
           "en": "Full system Main chain Support chain Floating base massless links hip motor knee support links massless links",
           "reference": false,
           "image": "figs/p022-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            120.0,
+            46.0,
+            486.0,
+            182.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1110,
+          "image_height": 420
         },
         {
           "id": "p22-b2",
@@ -4535,15 +5027,24 @@
           "id": "p22-b3",
           "kind": "picture",
           "bbox": [
-            120,
-            442,
-            486,
-            712
+            118.0,
+            440.0,
+            488.0,
+            714.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p022-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            120.0,
+            442.0,
+            486.0,
+            712.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1110,
+          "image_height": 822
         },
         {
           "id": "p22-b4",
@@ -4568,15 +5069,24 @@
           "id": "p23-b1",
           "kind": "picture",
           "bbox": [
-            47,
-            46,
-            571,
-            231
+            45.0,
+            44.0,
+            573.0,
+            233.0
           ],
           "en": "1.0 1.0 0.9 0.9 0.8 0.8 0.7 0.7 0.6 Mean Mean 0.6 p10 0.5 p10 Min Min 0.5 0.4 1 5 10 15 20 0 5 10 15 20 Future references (steps) Observation history (steps) Success rate Success rate",
           "reference": false,
           "image": "figs/p023-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            47.0,
+            46.0,
+            571.0,
+            231.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1584,
+          "image_height": 567
         },
         {
           "id": "p23-b2",
@@ -4629,15 +5139,24 @@
           "id": "p24-b1",
           "kind": "picture",
           "bbox": [
-            41,
-            46,
-            565,
-            325
+            39.0,
+            44.0,
+            567.0,
+            327.0
           ],
           "en": "Mean p10 Min Mean p10 Min Mean p10 Min 1.0 1.0 1.0 0.9 0.9 0.9 0.8 0.8 0.8 0.7 0.7 0.7 0.6 0.6 0.6 0.5 0.5 3 2 1 0 1 2 3 3 2 1 0 1 2 3 3 2 1 0 1 2 3 Push randomization level Mass randomization level Friction randomization level (a) Pushes. (b) Mass. (c) Friction. Mean p10 Min Mean p10 Min Mean p10 Min 1.0 1.0 1.0 0.9 0.9 0.9 0.8 0.8 0.8 0.7 0.7 0.7 0.6 0.6 0.6 0.5 0.4 0.5 0.5 3 2 1 0 1 2 3 3 2 1 0 1 2 3 0 1 2 3 Obs noise randomization level Init state randomization level Actuator delay randomization level (d) Observation noise. (e) Initial state. (f) Actuator delay. Normalized Success Rate Normalized Success Rate Normalized Success Rate Normalized Success Rate Normalized Success Rate Normalized Success Rate",
           "reference": false,
           "image": "figs/p024-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            41.0,
+            46.0,
+            565.0,
+            325.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1584,
+          "image_height": 849
         },
         {
           "id": "p24-b2",
@@ -4662,29 +5181,47 @@
           "id": "p25-b0",
           "kind": "picture",
           "bbox": [
-            555,
-            26,
-            564,
-            32
+            553.0,
+            24.0,
+            566.0,
+            34.0
           ],
           "en": "25",
           "reference": false,
           "image": "figs/p025-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            555.0,
+            26.0,
+            564.0,
+            32.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 39,
+          "image_height": 30
         },
         {
           "id": "p25-b1",
           "kind": "picture",
           "bbox": [
-            52,
-            46,
-            565,
-            324
+            50.0,
+            43.839317321777344,
+            567.0,
+            326.0
           ],
           "en": "30 30 Success Success Failure Failure 20 20 10 10 0 0 10 10 20 20 30 30 30 20 10 0 10 20 30 30 20 10 0 10 20 30 y (cm) y (cm) (a) Box climb up. (b) Box climb down. (cm)x (cm)x",
           "reference": false,
           "image": "figs/p025-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            52.0,
+            46.0,
+            565.0,
+            324.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1551,
+          "image_height": 847
         },
         {
           "id": "p25-b2",
@@ -4695,10 +5232,11 @@
             572,
             443
           ],
-          "en": "Fig. S5. Robustness maps for box-climbing policies from varied initial conditions (top-down view). Each trial is drawn at its initial planar offset (∆ x , ∆ y ) relative to the box, with heading indicated by a short arrow oriented by the initial yaw ∆ ψ ; green indicates success and red indicates failure. Axes follow the manuscript convention: x points upward and y points left. The box footprint is shown as a light rectangle (80 cm along x and 120 cm along y ); in this zoomed view, only the portion of the footprint within the plotted window is visible. The dashed black square indicates the training randomization range ∆ x , ∆ y ∈ [ − 10, 10] cm, and the dashed blue arc indicates yaw randomization ∆ ψ ∈ [ − 0.3, 0.3] rad. Left : nominal robot start is defined at (0, 0) with the box center located 60 cm ahead along + x . Right : nominal robot start is aligned with the box center at (0, 0). For both box climb up and box climb down, all trials initialized within the training distribution succeed. We also observe successes outside this range (mainly for box climb down), while failures occur only for initial conditions beyond the training distribution. It is important to note that for visualization purposes, the y-positions were scattered by a small offset within ± 8 cm to reduce overlap (policy is inherently invariant to y).",
+          "en": "Fig. S5. Robustness maps for box-climbing policies from varied initial conditions (top-down view). Each trial is drawn at its initial planar offset \\((\\Delta x,\\Delta y)\\) relative to the box, with heading indicated by a short arrow oriented by the initial yaw \\(\\Delta\\psi\\); green indicates success and red indicates failure. Axes follow the manuscript convention: \\(x\\) points upward and \\(y\\) points left. The box footprint is shown as a light rectangle (80 cm along \\(x\\) and 120 cm along \\(y\\)); in this zoomed view, only the portion of the footprint within the plotted window is visible. The dashed black square indicates the training randomization range \\(\\Delta x,\\Delta y \\in [-10,10]\\) cm, and the dashed blue arc indicates yaw randomization \\(\\Delta\\psi \\in [-0.3,0.3]\\) rad. Left : nominal robot start is defined at \\((0,0)\\) with the box center located 60 cm ahead along \\(+x\\). Right : nominal robot start is aligned with the box center at \\((0,0)\\). For both box climb up and box climb down, all trials initialized within the training distribution succeed. We also observe successes outside this range (mainly for box climb down), while failures occur only for initial conditions beyond the training distribution. It is important to note that for visualization purposes, the \\(y\\)-positions were scattered by a small offset within \\(\\pm 8\\) cm to reduce overlap (policy is inherently invariant to \\(y\\)).",
           "reference": false,
           "source_image": "figs/p025-002-source.png",
-          "zh": "图 S5. 不同初始条件下箱体攀爬策略的鲁棒性分布图（俯视图）。每次试验均绘制在相对于箱体的初始平面偏移量 (∆x, ∆y) 处，其朝向由基于初始偏航角 ∆ψ 定向的短箭头指示；绿色表示成功，红色表示失败。坐标轴遵循论文约定：x 轴向上，y 轴向左。箱体底面轮廓显示为浅色矩形（沿 x 轴 80 cm，沿 y 轴 120 cm）；在此局部放大视图中，仅绘图窗口内的底面轮廓部分可见。黑色虚线正方形表示训练随机化范围 ∆x, ∆y ∈ [−10, 10] cm，蓝色虚线弧线表示偏航角随机化范围 ∆ψ ∈ [−0.3, 0.3] rad。左图：机器人的标称起始点定义在 (0, 0)，箱体中心位于沿 +x 方向前方 60 cm 处。右图：机器人的标称起始点与箱体中心在 (0, 0) 对齐。对于爬上箱体和爬下箱体任务，所有在训练分布内初始化的试验均取得成功。我们还在该范围之外观察到了成功案例（主要在爬下箱体任务中），而失败仅发生在超出训练分布的初始条件下。需要特别说明的是，出于可视化目的，y 轴位置被施加了 ±8 cm 内的微小抖动偏移以减少重叠（策略本身对 y 具有内在不变性）。"
+          "zh": "图 S5. 不同初始条件下箱体攀爬策略的鲁棒性分布图（俯视图）。每次试验均绘制在相对于箱体的初始平面偏移量 \\((\\Delta x,\\Delta y)\\) 处，其朝向由基于初始偏航角 \\(\\Delta\\psi\\) 定向的短箭头指示；绿色表示成功，红色表示失败。坐标轴遵循论文约定：\\(x\\) 轴向上，\\(y\\) 轴向左。箱体底面轮廓显示为浅色矩形（沿 \\(x\\) 轴 80 cm，沿 \\(y\\) 轴 120 cm）；在此局部放大视图中，仅绘图窗口内的底面轮廓部分可见。黑色虚线正方形表示训练随机化范围 \\(\\Delta x,\\Delta y \\in [-10,10]\\) cm，蓝色虚线弧线表示偏航角随机化范围 \\(\\Delta\\psi \\in [-0.3,0.3]\\) rad。左图：机器人的标称起始点定义在 \\((0,0)\\)，箱体中心位于沿 \\(+x\\) 方向前方 60 cm 处。右图：机器人的标称起始点与箱体中心在 \\((0,0)\\) 对齐。对于爬上箱体和爬下箱体任务，所有在训练分布内初始化的试验均取得成功。我们还在该范围之外观察到了成功案例（主要在爬下箱体任务中），而失败仅发生在超出训练分布的初始条件下。需要特别说明的是，出于可视化目的，\\(y\\) 轴位置被施加了 \\(\\pm 8\\) cm 内的微小抖动偏移以减少重叠（策略本身对 \\(y\\) 具有内在不变性）。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -4723,15 +5261,24 @@
           "id": "p26-b2",
           "kind": "table",
           "bbox": [
-            179,
-            78,
-            427,
-            293
+            177.0,
+            76.0,
+            429.0,
+            295.0
           ],
           "en": "|Trajectory Index|Motion / Description|Data Source|Duration (s)| |---|---|---|---| |0|Army Crawl|MoCap|16.633| |1|Dance|ViCap|9.333| |2|Stylish Walk|ViCap|11.533| |3|Soccer Kick|ViCap|6.633| |4|Breakdance|MoCap|8.300| |5|Cartwheel|MoCap|5.967| |6|Crouch Walk|MoCap|8.633| |7|Crawl on all Fours|MoCap|15.050| |8|Deep Squat|Animation|2.992| |9|Animated Walk|Animation|7.483| |10|Kneeling|MoCap|8.383| |11|Run|MoCap|6.475| |12|Lightsaber Routine|Animation|9.400| |13|Cartwheel–Backflip|MoCap|5.867| |14|Roll on all Fours|MoCap|8.800|",
           "reference": false,
           "image": "figs/p026-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            179.0,
+            78.0,
+            427.0,
+            293.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 756,
+          "image_height": 657
         },
         {
           "id": "p26-b3",
@@ -4751,15 +5298,24 @@
           "id": "p26-b4",
           "kind": "table",
           "bbox": [
-            201,
-            359,
-            402,
-            435
+            199.0,
+            357.0,
+            404.0,
+            437.0
           ],
           "en": "||Ankle Pitch|Ankle Roll| |---|---|---| |Locally Projected Model|9.527e−4|3.418e−4| |Dynamic Armature Model|1.296e−3|7.902e−4| |Nominal Armature Model|1.220e−3|9.391e−4| |Simplest Model|0.0776|0.8673|",
           "reference": false,
           "image": "figs/p026-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            201.0,
+            359.0,
+            402.0,
+            435.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 615,
+          "image_height": 240
         }
       ]
     },
@@ -4784,15 +5340,24 @@
           "id": "p27-b2",
           "kind": "table",
           "bbox": [
-            169,
-            194,
-            448,
-            626
+            167.0,
+            192.0,
+            450.0,
+            628.0
           ],
           "en": "|Term Name|Definition|Noise|Dim.| |---|---|---|---| |Propr |ioceptive O|bservations || |Torso angular velocity|TωIT|N(0, 0.102)|3| |Gravity vector in torso frame|TgI|N(0, 0.0152)|3| |Joint positions|qj|N(0, 0.0052)|nj| |Joint velocities|˙qj|N(0, 0.252)|nj| |Previous action|at−1|−|na| |Ref|erence Obse|rvations|| |Base height|I ˆrz IB|–|1| |Base linear velocity|B ˆvIB|–|3| |Base angular velocity|B ˆωIB|–|3| |Gravity vector in base frame|B ˆgI|–|3| |Joint positions|ˆqj|–|nj| |Privilege|d Informatio|n (critic only)|| |Base linear velocity|BvIB|–|3| |Base height|Irz IB|–|1| |Base contact force|B fcontact|–|3| |Keybodies contact forces|{fi}nkb i=1|–|3× nkb| |Keybody positions w.r.t. base|BrBK|–|3× nkb| |Keybody linear velocities|BvIK|–|3× nkb| |Fictitious force (assistive wrench)|fassist|–|3| |Fictitious torque (assistive wrench)|τassist|–|3| |Wrench scale|β|–|1| |Tracking rewards|rtrack|–|7| |Task phase|ϕ|–|1|",
           "reference": false,
           "image": "figs/p027-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            169.0,
+            194.0,
+            448.0,
+            626.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 849,
+          "image_height": 1308
         }
       ]
     },
@@ -4808,24 +5373,34 @@
             562,
             134
           ],
-          "en": "Table S4. Reward Terms Summary. The environment scales the reward weights with the time-step dt . For brevity, the time index t is omitted unless needed. Keybody positions and orientations are expressed w.r.t. the base frame. A common stiffness parameter of κ = 1/4 is set for all tracking reward terms.",
+          "en": "Table S4. Reward Terms Summary. The environment scales the reward weights with the time-step \\(dt\\) . For brevity, the time index \\(t\\) is omitted unless needed. Keybody positions and orientations are expressed w.r.t. the base frame. A common stiffness parameter of \\(\\kappa = 1/4\\) is set for all tracking reward terms.",
           "reference": false,
           "source_image": "figs/p028-001-source.png",
-          "zh": "表 S4. 奖励项汇总。环境使用时间步长 dt 对奖励权重进行缩放。为简练起见，除非必要，否则省略时间索引 t。关键刚体（keybody）的位置与朝向均相对于基座坐标系表示。所有跟踪奖励项均统一设置刚度参数 κ = 1/4。"
+          "zh": "表 S4. 奖励项汇总。环境使用时间步长 \\(dt\\) 对奖励权重进行缩放。为简练起见，除非必要，否则省略时间索引 \\(t\\)。关键刚体（keybody）的位置与朝向均相对于基座坐标系表示。所有跟踪奖励项均统一设置刚度参数 \\(\\kappa = 1/4\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p28-b2",
           "kind": "table",
           "bbox": [
-            119,
-            149,
-            487,
-            444
+            117.0,
+            147.0,
+            489.0,
+            446.3125305175781
           ],
           "en": "|Term Name|Definition|Weight|σi| |---|---|---|---| ||Tracking Reward||| |Base position tracking|exp �−κ ∥rIB −r∗ IB∥2/σ2 1 �|1|0.4| |Base orientation|exp �−κ ∥ΦIB⊟Φ∗ IB∥2/σ2 2 �|1|0.5| |Base angular velocity|exp �−κ ∥ωIB −ω∗ IB∥2/σ2 3 �|1|1.5| |Base linear velocity|exp �−κ ∥vIB −v∗ IB∥2/σ2 4 �|1|0.6| |Joint position|exp �−κ ∥qj −q∗ j ∥2/σ2 5 �|1|0.3·~~√~~ ~~n~~j| |Keybodies position|exp �−κ ∥rkb −r∗ kb∥2/σ2 6 �|1|0.2·~~√~~ nkb| |Keybodies orientation|exp �−κ ∥Φkb⊟Φ∗ kb∥2/σ2 7 �|1|0.4·~~√~~ nkb| ||Regularization Penalty||| |Action smoothness|−∥at −at−1∥|0.15|–| |Joint acceleration|−∥¨qj∥|1×10−5|–| |Joint position limit|−∑ i∈J � max(0,qmin i −qi) +max(0,qi −qmax i ) �|1.0|–| |Joint torque limit|−∑ i∈J � max(0,τmin i −τi) +max(0,τi −τmax i ) �|0.1|–| ||Survival Reward||| |Survival|1|1|–|",
           "reference": false,
           "image": "figs/p028-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            119.0,
+            149.0,
+            487.0,
+            444.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1116,
+          "image_height": 898
         },
         {
           "id": "p28-b3",
@@ -4845,15 +5420,24 @@
           "id": "p28-b4",
           "kind": "table",
           "bbox": [
-            101,
-            586,
-            504,
-            683
+            99.0,
+            584.0,
+            506.0,
+            685.0
           ],
           "en": "|Term|Value| |---|---| |Static friction|U(0.6, 1.0)| |Dynamic friction|U(0.5, 0.9)| |Restitution|U(0.0, 0.2)| |Link masses|U(0.9, 1.1)×default masses| |External disturbance (impulsive push applied to base)|Interval=U(0.000 s, 10.000 s), vxy =0.500 m s−1|",
           "reference": false,
           "image": "figs/p028-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            101.0,
+            586.0,
+            504.0,
+            683.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1221,
+          "image_height": 303
         }
       ]
     },
@@ -4878,15 +5462,24 @@
           "id": "p29-b2",
           "kind": "table",
           "bbox": [
-            197,
-            109,
-            421,
-            343
+            195.0,
+            107.0,
+            423.0,
+            345.0
           ],
           "en": "|Hyperparameter|Value| |---|---| |Episode length(¯Lepisode)|10.000 s| |Simulation time-step(dt)|0.004 s| |Control decimation|5| |Action scale (per joint)|{0.05, 0.10, 0.20}| |Bin width(∆)|min � 4.000 s, mini Di �| |EMA alpha(α)|0.005| |Base temperature(τbase)|1.0| |Adaptive sampling temperature(τ)|τbase log � 1+|Ω| �| |Uniform floor weight(ε)|0.15| |Max wrench scale(βmax)|0.60| |Similarity threshold(η)|0.80| |Virtual torque PD gains(kωp, kω d )|(200.0, 10.0)| |Virtual force PD gains(kvp, kv d)|(0.0, 10.0)|",
           "reference": false,
           "image": "figs/p029-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            197.0,
+            109.0,
+            421.0,
+            343.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 684,
+          "image_height": 714
         },
         {
           "id": "p29-b3",
@@ -4906,15 +5499,24 @@
           "id": "p29-b4",
           "kind": "table",
           "bbox": [
-            170,
-            436,
-            448,
-            696
+            168.0,
+            434.0,
+            450.0,
+            698.0
           ],
           "en": "|Hyperparameter|Value| |---|---| |Actor Network|MLP(512, 256, 128) withELUactivation| |Critic Network|MLP(512, 512, 256) withELUactivation| |Empirical Normalization|True| |Learning Rate (start of training)|1e-3| |Learning Rate Schedule|“adaptive\" (based on KL-divergence)| |Discount Factor|0.99| |GAE Discount Factor|0.95| |Desired KL-divergence|0.01| |Clip Range|0.2| |Entropy Coefficient|0.001| |Value Function Loss Coefficient|0.5| |Number of Epochs|5| |Number of Environments|4096| |Batch Size|245,760(4096×24)| |Mini-Batch Size|61,440(4096×6)|",
           "reference": false,
           "image": "figs/p029-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            170.0,
+            436.0,
+            448.0,
+            696.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 846,
+          "image_height": 792
         }
       ]
     }

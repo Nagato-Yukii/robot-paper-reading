@@ -1,0 +1,71 @@
+{
+  "model": "gpt-6-astra",
+  "effort": "high",
+  "via": "local Codex CLI /usr/lib/chatgpt/resources/codex (0.159.2)",
+  "role_prompt": "You are an embodied intelligence generalist and academic translator, fluent in robotics, control, reinforcement learning, and mathematical notation.",
+  "completed_at": "2026-10-23T15:39:49.084212+00:00",
+  "paragraphs": 192,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "source_pdf_sha256": "e25f4cbf4d4106c981ae37443ea5bfada403dcd06bf5dd9ac909409700587b96",
+  "math_source": "正文数学记号已对照作者 LaTeX 源码与原 PDF 页面恢复。",
+  "batches": [
+    {
+      "job_id": "controlvae-01",
+      "rows": 29,
+      "receipt_sha256": "9163d93b634a9aa40e4d17e0861ae882b4851c629985c1a596b959b61fbc7c40",
+      "result_sha256": "b5ff0ec6519172c33db45af5a8ed4312f0cb1bd0b572a438d25106004cfc744c",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "controlvae-03",
+      "rows": 26,
+      "receipt_sha256": "6730a5758f7801cc2baec50173d2e9e7a9cd773d1e98494ccd04e0af01c3e9b0",
+      "result_sha256": "92f9f0c8c6489f07bab4200450de231f50e2f58f8fc123178bb3b18ef376cb42",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "controlvae-05",
+      "rows": 30,
+      "receipt_sha256": "e6a3223e711cb0aa8a4a331571c4064fe3403bf5804fc6c2ede804711a113b54",
+      "result_sha256": "4958771c071f4c81752ff724ed0dee9a3a5d9e49f4a3df91073dba7a1ae19beb",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "controlvae-07",
+      "rows": 35,
+      "receipt_sha256": "098c18c4c0bbee8fd4f3e2981181872646ce9a32f4f5844e9b777e46aa1affc1",
+      "result_sha256": "88cbdfdaaf32e2ca300f98edad8dd96f2a34aff63d2934c54314dd27c9202793",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "controlvae-09",
+      "rows": 34,
+      "receipt_sha256": "6bf6cd6845e612f74fc7d06f48127ef84b7c268d228503f95cd2fdcff8291c50",
+      "result_sha256": "e42a16d5db717fc60d998275505fb3c9412d3f552119e02c447a62d14b4d0716",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "controlvae-11",
+      "rows": 18,
+      "receipt_sha256": "c3266a0711d3d54d15d7d555b4581a1c118afd706302f2e628d58525034d9c7a",
+      "result_sha256": "3a3c3b8a46a7cc91f3020ab8b4ed864e402ea811be70beecb03ce516779f3322",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "controlvae-13",
+      "rows": 20,
+      "receipt_sha256": "f451390eebda59f19794fe86964f98df48e4f2848b2874909abe8c17cb7f7cdc",
+      "result_sha256": "df572415ee81140b5219809dfd50a4780c67d0010e6668c9c5f632ccefe0bf94",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    }
+  ],
+  "source_tex_archive_sha256": "cab558f75f3a1e6876980bdcb60c661772ab00a38b0ac88979f8facf31f0226a"
+}

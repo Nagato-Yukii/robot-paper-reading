@@ -1,0 +1,31 @@
+{
+  "id": "blind-precise-assembly",
+  "sha256": "5bc66905c70d821a0d70a728e66ba80acb2269f6b4231f2e57de0b3470f122fb",
+  "brand": "Blind Precise Assembly",
+  "zh_title": "无视觉精密装配：基于本体感知、面向多样零件的仿真到现实轴孔装配",
+  "category": "机器人装配 · 本体感知",
+  "pdf": "sources/blind-precise-assembly.pdf",
+  "title": "无视觉精密装配：基于本体感知、面向多样零件的仿真到现实轴孔装配 · 中英对照",
+  "brand_sub": "Blind Precise Assembly: Proprioceptive Sim-to-Real Peg-in-Hole for Diverse Parts",
+  "out": "site/blind-precise-assembly",
+  "imported": true,
+  "source_language": "en",
+  "math": true,
+  "source_aliases": [
+    "Blind Precise Assembly.pdf"
+  ],
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "translation_kind": "direct-translation",
+  "translation_credit": "译文：Gemini3.8 medium",
+  "translation": "Gemini 3.8 Flash (Medium), translated directly from English via local Antigravity CLI",
+  "translation_review": "gemini-translated-awaiting-human-review",
+  "polished_paragraphs": 105,
+  "polished_at": "2026-10-20T07:15:36.450813+00:00",
+  "validation": {
+    "equations": {},
+    "equation_references": 0,
+    "paragraphs": 161
+  }
+}

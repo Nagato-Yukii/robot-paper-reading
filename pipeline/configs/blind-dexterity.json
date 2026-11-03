@@ -1,0 +1,34 @@
+{
+  "id": "blind-dexterity",
+  "sha256": "d5e81f2676bf452bce756832f6a066671346596633c5e8c898362fd62986c612",
+  "brand": "Blind Dexterity",
+  "zh_title": "无视觉灵巧操作：仅凭本体感知实现人形机器人全身操作",
+  "category": "人形机器人 · 本体感知操作",
+  "pdf": "sources/blind-dexterity.pdf",
+  "title": "无视觉灵巧操作：仅凭本体感知实现人形机器人全身操作 · 中英对照",
+  "brand_sub": "Blind Dexterity: Whole-Body Humanoid Manipulation via Pure Proprioception",
+  "out": "site/blind-dexterity",
+  "imported": true,
+  "source_language": "en",
+  "math": true,
+  "source_aliases": [
+    "Blind Dexterity.pdf"
+  ],
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "translation_kind": "direct-translation",
+  "translation_credit": "译文：Gemini3.8 medium",
+  "translation": "Gemini 3.8 Flash (Medium), translated directly from English via local Antigravity CLI",
+  "translation_review": "gemini-translated-awaiting-human-review",
+  "polished_paragraphs": 116,
+  "polished_at": "2026-10-20T11:38:32.893304+00:00",
+  "validation": {
+    "equations": {
+      "1": "p3-b5",
+      "2": "p3-b20"
+    },
+    "equation_references": 0,
+    "paragraphs": 116
+  }
+}

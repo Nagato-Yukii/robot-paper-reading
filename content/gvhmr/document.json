@@ -36,15 +36,24 @@
           "id": "p1-b4",
           "kind": "picture",
           "bbox": [
-            51,
-            239,
-            561,
-            370
+            49.0,
+            237.0,
+            563.0,
+            372.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            51.0,
+            239.0,
+            561.0,
+            370.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1542,
+          "image_height": 405
         },
         {
           "id": "p1-b5",
@@ -321,15 +330,24 @@
           "id": "p2-b8",
           "kind": "picture",
           "bbox": [
-            328,
-            78,
-            547,
-            171
+            326.0,
+            76.0,
+            549.0,
+            173.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p002-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            328.0,
+            78.0,
+            547.0,
+            171.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 669,
+          "image_height": 291
         },
         {
           "id": "p2-b9",
@@ -410,15 +428,24 @@
           "id": "p3-b2",
           "kind": "picture",
           "bbox": [
-            81,
-            78,
-            529,
-            328
+            79.0,
+            76.0,
+            531.0,
+            330.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p003-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            81.0,
+            78.0,
+            529.0,
+            328.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1356,
+          "image_height": 762
         },
         {
           "id": "p3-b3",
@@ -471,10 +498,11 @@
             296,
             629
           ],
-          "en": "Given a monocular video { 𝐼𝑡 }𝑇 𝑡 =0, we formulate the task as predict- ing: (1) the local body poses { 𝜃𝑡 ∈ R21×3 }𝑇 𝑡 =0and shape coefficients 𝛽 ∈ R10 of SMPL-X, (2) the human trajectory from SMPL space to the camera space, including the orientation {Γ 𝑐𝑡 ∈ R3 }𝑇 𝑡 =0and trans- lation { 𝜏𝑐𝑡 ∈ R3 }𝑇 𝑡 =0, (3) the trajectory to the world space, including the orientation {Γ 𝑤𝑡 ∈ R3 }𝑇 𝑡 =0and translation {𝜏𝑡𝑤∈R3}𝑇 𝑡 =0.",
+          "en": "Given a monocular video \\(\\{I^{t}\\}_{t=0}^{T}\\), we formulate the task as predict- ing: (1) the local body poses \\(\\{\\theta^{t}\\in \\mathbb{R}^{21\\times 3}\\}_{t=0}^{T}\\)and shape coefficients \\(\\beta\\in \\mathbb{R}^{10}\\) of SMPL-X, (2) the human trajectory from SMPL space to the camera space, including the orientation \\(\\{\\Gamma_c^{t}\\in \\mathbb{R}^{3}\\}_{t=0}^{T}\\)and trans- lation \\(\\{\\tau_c^{t}\\in \\mathbb{R}^{3}\\}_{t=0}^{T}\\), (3) the trajectory to the world space, including the orientation \\(\\{\\Gamma_w^{t}\\in \\mathbb{R}^{3}\\}_{t=0}^{T}\\)and translation \\(\\{\\tau_w^{t}\\in \\mathbb{R}^{3}\\}_{t=0}^{T}\\).",
           "reference": false,
           "source_image": "figs/p003-006-source.png",
-          "zh": "给定单目视频 { 𝐼𝑡 }𝑇 𝑡 =0，我们将该任务形式化为预测：(1) SMPL-X 的局部身体姿态 { 𝜃𝑡 ∈ R21×3 }𝑇 𝑡 =0 与体型系数 𝛽 ∈ R10，(2) 人体从 SMPL 空间到相机空间的轨迹，包括朝向 {Γ 𝑐𝑡 ∈ R3 }𝑇 𝑡 =0 与平移 { 𝜏𝑐𝑡 ∈ R3 }𝑇 𝑡 =0，(3) 到世界空间的轨迹，包括朝向 {Γ 𝑤𝑡 ∈ R3 }𝑇 𝑡 =0 与平移 {𝜏𝑡𝑤∈R3}𝑇 𝑡 =0。"
+          "zh": "给定单目视频 \\(\\{I^{t}\\}_{t=0}^{T}\\)，我们将该任务形式化为预测：(1) SMPL-X 的局部身体姿态 \\(\\{\\theta^{t}\\in \\mathbb{R}^{21\\times 3}\\}_{t=0}^{T}\\) 与体型系数 \\(\\beta\\in \\mathbb{R}^{10}\\)，(2) 人体从 SMPL 空间到相机空间的轨迹，包括朝向 \\(\\{\\Gamma_c^{t}\\in \\mathbb{R}^{3}\\}_{t=0}^{T}\\) 与平移 \\(\\{\\tau_c^{t}\\in \\mathbb{R}^{3}\\}_{t=0}^{T}\\)，(3) 到世界空间的轨迹，包括朝向 \\(\\{\\Gamma_w^{t}\\in \\mathbb{R}^{3}\\}_{t=0}^{T}\\) 与平移 \\(\\{\\tau_w^{t}\\in \\mathbb{R}^{3}\\}_{t=0}^{T}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b7",
@@ -513,10 +541,11 @@
             562,
             533
           ],
-          "en": "Global human trajectory {Γ 𝑤𝑡 ,𝜏𝑤𝑡 } refers to the transformation from SMPL space to the gravity-aware world space 𝑊 . However, the definition of 𝑊 varies, as any rotation of 𝑊 around the gravity direction is valid, leading to different Γ 𝑤 and 𝜏𝑤 . We propose to first recover a gravity-aware human pose for each image, then transform these poses to a consistent global trajectory. This approach is inspired by the observation that humans can easily infer the orientation and gravity direction of a person in an image. And for consecutive frames, estimating the relative rotation around the gravity direction is intuitively easier and more robust.",
+          "en": "Global human trajectory \\(\\{\\Gamma^t_w, \\tau^t_w\\}\\) refers to the transformation from SMPL space to the gravity-aware world space \\(W\\) . However, the definition of \\(W\\) varies, as any rotation of \\(W\\) around the gravity direction is valid, leading to different \\(\\Gamma_w\\) and \\(\\tau_w\\) . We propose to first recover a gravity-aware human pose for each image, then transform these poses to a consistent global trajectory. This approach is inspired by the observation that humans can easily infer the orientation and gravity direction of a person in an image. And for consecutive frames, estimating the relative rotation around the gravity direction is intuitively easier and more robust.",
           "reference": false,
           "source_image": "figs/p003-009-source.png",
-          "zh": "全局人体轨迹 {Γ 𝑤𝑡 ,𝜏𝑤𝑡 } 指的是从 SMPL 空间到重力感知世界空间 𝑊 的变换。然而，𝑊 的定义各不相同，因为 𝑊 绕重力方向的任意旋转都是有效的，从而导致不同的 Γ 𝑤 和 𝜏𝑤。我们提议首先为每张图像恢复出重力感知的人体姿态，然后将这些姿态转换为一致的全局轨迹。该方法的灵感来自于以下观察：人类能够轻易推断出图像中人物的朝向和重力方向。而对于连续帧，估计绕重力方向的相对旋转在直觉上更容易且更鲁棒。"
+          "zh": "全局人体轨迹 \\(\\{\\Gamma^t_w, \\tau^t_w\\}\\) 指的是从 SMPL 空间到重力感知世界空间 \\(W\\) 的变换。然而，\\(W\\) 的定义各不相同，因为 \\(W\\) 绕重力方向的任意旋转都是有效的，从而导致不同的 \\(\\Gamma_w\\) 和 \\(\\tau_w\\)。我们提议首先为每张图像恢复出重力感知的人体姿态，然后将这些姿态转换为一致的全局轨迹。该方法的灵感来自于以下观察：人类能够轻易推断出图像中人物的朝向和重力方向。而对于连续帧，估计绕重力方向的相对旋转在直觉上更容易且更鲁棒。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b10",
@@ -527,10 +556,11 @@
             562,
             665
           ],
-          "en": "Specifically, for each image, we use the world gravity direction and the camera’s view direction (i.e., the normal vector of the image plane) to define Gravity-View (GV) Coordinates. The proposed new GV coordinate system is mainly used to resolve the rotation ambiguity, so we only predict the per-frame human orientation Γ 𝐺𝑉𝑡 relative to the GV system. When the camera moves, we compute the relative rotation between the GV systems of two adjacent frames with relative camera rotations 𝑅𝑡 Δ, thus transforming all Γ 𝐺𝑉𝑡to a consistent gravity-aware global space. For global translation, following [Rempe et al. 2021; Shin et al. 2024], we predict the human displacement in the SMPL coordinate system from time 𝑡 to 𝑡 + 1, and finally roll out in the aforementioned world reference frame.",
+          "en": "Specifically, for each image, we use the world gravity direction and the camera’s view direction (i.e., the normal vector of the image plane) to define Gravity-View (GV) Coordinates. The proposed new GV coordinate system is mainly used to resolve the rotation ambiguity, so we only predict the per-frame human orientation \\(\\Gamma^{t}_{GV}\\) relative to the GV system. When the camera moves, we compute the relative rotation between the GV systems of two adjacent frames with relative camera rotations \\(R^t_{\\Delta}\\), thus transforming all \\(\\Gamma^{t}_{GV}\\)to a consistent gravity-aware global space. For global translation, following [Rempe et al. 2021; Shin et al. 2024], we predict the human displacement in the SMPL coordinate system from time \\(t\\) to \\(t+1\\), and finally roll out in the aforementioned world reference frame.",
           "reference": false,
           "source_image": "figs/p003-010-source.png",
-          "zh": "具体而言，对于每张图像，我们利用世界重力方向和相机的视线方向（即图像平面的法向量）来定义重力-视线（GV）坐标系。所提出的新GV坐标系主要用于消除旋转的二义性，因此我们仅预测相对于GV系统的逐帧人体朝向 Γ 𝐺𝑉𝑡。当相机移动时，我们利用相对相机旋转 𝑅𝑡 Δ 计算相邻两帧的GV系统之间的相对旋转，从而将所有 Γ 𝐺𝑉𝑡 转换到一个一致的重力感知全局空间中。对于全局平移，遵循[Rempe et al. 2021; Shin et al. 2024]，我们预测从时刻 𝑡 到 𝑡 + 1 人体在SMPL坐标系下的位移，并最终在上述世界参考系中进行轨迹展开（rollout）。"
+          "zh": "具体而言，对于每张图像，我们利用世界重力方向和相机的视线方向（即图像平面的法向量）来定义重力-视线（GV）坐标系。所提出的新GV坐标系主要用于消除旋转的二义性，因此我们仅预测相对于GV系统的逐帧人体朝向 \\(\\Gamma^{t}_{GV}\\)。当相机移动时，我们利用相对相机旋转 \\(R^t_{\\Delta}\\) 计算相邻两帧的GV系统之间的相对旋转，从而将所有 \\(\\Gamma^{t}_{GV}\\) 转换到一个一致的重力感知全局空间中。对于全局平移，遵循[Rempe et al. 2021; Shin et al. 2024]，我们预测从时刻 \\(t\\) 到 \\(t+1\\) 人体在SMPL坐标系下的位移，并最终在上述世界参考系中进行轨迹展开（rollout）。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b11",
@@ -541,10 +571,11 @@
             561,
             694
           ],
-          "en": "Gravity-View Coordinate System. As illustrated in Fig. 4, (a) given a person with orientation Γ 𝑐 and a gravity direction 𝑔 � both described",
+          "en": "Gravity-View Coordinate System. As illustrated in Fig. 4, (a) given a person with orientation \\(\\Gamma_c\\) and a gravity direction \\(\\vec{g}\\) both described",
           "reference": false,
           "source_image": "figs/p003-011-source.png",
-          "zh": "Gravity-View 坐标系。如图 4 所示，(a) 给定人物朝向 Γ 𝑐 以及重力方向〔行内公式见原版〕，两者均描述"
+          "zh": "Gravity-View 坐标系。如图 4 所示，(a) 给定人物朝向 \\(\\Gamma_c\\) 以及重力方向 \\(\\vec{g}\\)，两者均描述",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -555,15 +586,24 @@
           "id": "p4-b2",
           "kind": "picture",
           "bbox": [
-            51,
-            78,
-            295,
-            154
+            49.0,
+            76.0,
+            297.0,
+            156.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p004-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            51.0,
+            78.0,
+            295.0,
+            154.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 744,
+          "image_height": 240
         },
         {
           "id": "p4-b3",
@@ -583,15 +623,24 @@
           "id": "p4-b4",
           "kind": "picture",
           "bbox": [
-            93,
-            194,
-            251,
-            282
+            91.0,
+            192.0,
+            253.0,
+            284.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p004-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            93.0,
+            194.0,
+            251.0,
+            282.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 486,
+          "image_height": 276
         },
         {
           "id": "p4-b5",
@@ -602,10 +651,11 @@
             295,
             324
           ],
-          "en": "Fig. 5. Relative rotation between two GV coordinate systems. (a) shows two adjacent GV coordinate systems and the camera view directions. (b) illustrates the relative rotation between two GV systems. 𝑅 Δ 𝐺𝑉 occurs exclusively around the y-axis (gravity direction).",
+          "en": "Fig. 5. Relative rotation between two GV coordinate systems. (a) shows two adjacent GV coordinate systems and the camera view directions. (b) illustrates the relative rotation between two GV systems. \\(R_{\\Delta GV}\\) occurs exclusively around the y-axis (gravity direction).",
           "reference": false,
           "source_image": "figs/p004-005-source.png",
-          "zh": "图 5. 两个 GV 坐标系之间的相对旋转。(a) 展示了两个相邻的 GV 坐标系及相机视线方向。(b) 说明了两个 GV 系统之间的相对旋转。𝑅 Δ 𝐺𝑉 完全绕 y 轴（重力方向）发生。"
+          "zh": "图 5. 两个 GV 坐标系之间的相对旋转。(a) 展示了两个相邻的 GV 坐标系及相机视线方向。(b) 说明了两个 GV 系统之间的相对旋转。\\(R_{\\Delta GV}\\) 完全绕 y 轴（重力方向）发生。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b6",
@@ -616,10 +666,11 @@
             296,
             419
           ],
-          "en": "in the camera space: (b) the y-axis of the GV coordinate system aligns with the gravity direction 𝑔 �, i.e., � 𝑦 = 𝑔 �; (c) the x-axis is perpendicular to both the camera view direction 𝑣𝑖𝑒𝑤−−−→ = [0 , 0 , 1]𝑇 and 𝑦 � by crossproduct, i.e., 𝑥 � = 𝑦 � × 𝑣𝑖𝑒𝑤−−−→ ; (d) finally, the z-axis is calculated by the right-hand rule, i.e., � 𝑧 = 𝑥 � × 𝑦 �. After obtaining these axes, we can re-calculate the person’s orientation in the GV coordinate system as our learning target: Γ 𝐺𝑉 = 𝑅𝑐 2 𝐺𝑉 · Γ 𝑐 = [� 𝑥, � 𝑦, � 𝑧 ]𝑇 · Γ 𝑐 .",
+          "en": "in the camera space: (b) the y-axis of the GV coordinate system aligns with the gravity direction \\(\\vec{g}\\), i.e., \\(\\vec{y} = \\vec{g}\\); (c) the x-axis is perpendicular to both the camera view direction \\(\\overrightarrow{view}=[0,0,1]^{T}\\) and \\(\\vec{y}\\) by crossproduct, i.e., \\(\\vec{x} = \\vec{y} \\times \\overrightarrow{view}\\) ; (d) finally, the z-axis is calculated by the right-hand rule, i.e., \\(\\vec{z} = \\vec{x} \\times \\vec{y}\\). After obtaining these axes, we can re-calculate the person’s orientation in the GV coordinate system as our learning target: \\(\\Gamma_{GV}= R_{c2GV} \\cdot \\Gamma_c = [\\vec{x}, \\vec{y}, \\vec{z}]^T \\cdot \\Gamma_c\\) .",
           "reference": false,
           "source_image": "figs/p004-006-source.png",
-          "zh": "在相机空间中：(b) GV 坐标系的 y 轴与重力方向〔行内公式见原版〕对齐，即〔行内公式见原版〕；(c) x 轴通过叉乘同时垂直于相机视线方向 𝑣𝑖𝑒𝑤−−−→ = [0 , 0 , 1]𝑇 与〔行内公式见原版〕，即〔行内公式见原版〕；(d) 最后，z 轴根据右手定则计算得出，即〔行内公式见原版〕。在获得这些轴后，我们可以重新计算人物在 GV 坐标系下的朝向，作为我们的学习目标：Γ 𝐺𝑉 = 𝑅𝑐 2 𝐺𝑉 · Γ 𝑐 = 〔行内公式见原版〕 · Γ 𝑐。"
+          "zh": "在相机空间中：(b) GV 坐标系的 y 轴与重力方向 \\(\\vec{g}\\) 对齐，即 \\(\\vec{y} = \\vec{g}\\)；(c) x 轴通过叉乘同时垂直于相机视线方向 \\(\\overrightarrow{view}=[0,0,1]^{T}\\) 与 \\(\\vec{y}\\)，即 \\(\\vec{x} = \\vec{y} \\times \\overrightarrow{view}\\)；(d) 最后，z 轴根据右手定则计算得出，即 \\(\\vec{z} = \\vec{x} \\times \\vec{y}\\)。在获得这些轴后，我们可以重新计算人物在 GV 坐标系下的朝向，作为我们的学习目标：\\(\\Gamma_{GV}= R_{c2GV} \\cdot \\Gamma_c = [\\vec{x}, \\vec{y}, \\vec{z}]^T \\cdot \\Gamma_c\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b7",
@@ -630,10 +681,11 @@
             296,
             480
           ],
-          "en": "Recovering Global Trajectory. It is noteworthy that an independent 𝐺𝑉𝑡 exists for each input frame 𝑡 , where we predict the person’s orientation Γ 𝐺𝑉𝑡. To recover a consistent global trajectory {Γ𝑡𝑤,𝜏𝑡𝑤}, all orientations must be transformed to a common reference system. In practice, we use 𝐺𝑉 0 as the world reference system 𝑊 .",
+          "en": "Recovering Global Trajectory. It is noteworthy that an independent \\(GV_t\\) exists for each input frame \\(t\\) , where we predict the person’s orientation \\(\\Gamma_{GV}^{t}\\). To recover a consistent global trajectory \\(\\{\\Gamma_w^{t},\\tau_w^{t}\\}\\), all orientations must be transformed to a common reference system. In practice, we use \\(GV_0\\) as the world reference system \\(W\\) .",
           "reference": false,
           "source_image": "figs/p004-007-source.png",
-          "zh": "恢复全局轨迹。值得注意的是，每个输入帧 𝑡 都存在一个独立的 𝐺𝑉𝑡，我们在此坐标系下预测人体的朝向 Γ 𝐺𝑉𝑡。为了恢复一致的全局轨迹 {Γ𝑡𝑤,𝜏𝑡𝑤}，所有朝向都必须变换到同一个公共参考系中。在实际操作中，我们使用 𝐺𝑉 0 作为世界参考系 𝑊。"
+          "zh": "恢复全局轨迹。值得注意的是，每个输入帧 \\(t\\) 都存在一个独立的 \\(GV_t\\)，我们在此坐标系下预测人体的朝向 \\(\\Gamma_{GV}^{t}\\)。为了恢复一致的全局轨迹 \\(\\{\\Gamma_w^{t},\\tau_w^{t}\\}\\)，所有朝向都必须变换到同一个公共参考系中。在实际操作中，我们使用 \\(GV_0\\) 作为世界参考系 \\(W\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b8",
@@ -644,26 +696,36 @@
             295,
             546
           ],
-          "en": "To begin with, in the special case of a static camera, the 𝐺𝑉𝑡 systems are identical across all frames. Therefore, the human global orientation {Γ 𝑤𝑡 } is equivalent to {Γ 𝐺𝑉𝑡}.Thetranslation{𝜏𝑡𝑤}is obtained by transforming all predicted local velocities 𝑣𝑟𝑜𝑜𝑡 into the world coordinate system using the orientations {Γ 𝑤𝑡 } and then performing a cumulative sum:",
+          "en": "To begin with, in the special case of a static camera, the \\(GV_t\\) systems are identical across all frames. Therefore, the human global orientation \\(\\{\\Gamma_w^t\\}\\) is equivalent to \\(\\{\\Gamma_{GV}^t\\}\\).Thetranslation\\(\\{\\tau_w^t\\}\\)is obtained by transforming all predicted local velocities \\(v_{root}\\) into the world coordinate system using the orientations \\(\\{\\Gamma_w^t\\}\\) and then performing a cumulative sum:",
           "reference": false,
           "source_image": "figs/p004-008-source.png",
-          "zh": "首先，在静态相机的特殊情况下，各帧之间的 𝐺𝑉𝑡 坐标系完全相同。因此，人体的全局朝向 {Γ 𝑤𝑡 } 等价于 {Γ 𝐺𝑉𝑡}。全局平移 {𝜏𝑡𝑤} 是通过利用朝向 {Γ 𝑤𝑡 } 将所有预测的局部速度 𝑣𝑟𝑜𝑜𝑡 变换到世界坐标系中，随后进行累加求和得到的："
+          "zh": "首先，在静态相机的特殊情况下，各帧之间的 \\(GV_t\\) 坐标系完全相同。因此，人体的全局朝向 \\(\\{\\Gamma_w^t\\}\\) 等价于 \\(\\{\\Gamma_{GV}^t\\}\\)。全局平移 \\(\\{\\tau_w^t\\}\\) 是通过利用朝向 \\(\\{\\Gamma_w^t\\}\\) 将所有预测的局部速度 \\(v_{root}\\) 变换到世界坐标系中，随后进行累加求和得到的：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b9",
           "kind": "formula",
           "bbox": [
-            118,
-            552,
-            295,
-            580
+            116.0,
+            550.0,
+            297.0,
+            582.0
           ],
           "en": "[0 , 0 , 0] 𝑇 , 𝑡 = 0 , 𝜏𝑤 𝑡 = (1) �� 𝑖𝑡 =−01 Γ 𝑖𝑤𝑣 𝑟𝑜𝑜𝑡 𝑖 , 𝑡 > 0 .",
           "reference": false,
           "image": "figs/p004-009.png",
           "labels": [
             "1"
-          ]
+          ],
+          "original_bbox": [
+            118.0,
+            552.0,
+            295.0,
+            580.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 543,
+          "image_height": 96
         },
         {
           "id": "p4-b10",
@@ -674,24 +736,34 @@
             296,
             695
           ],
-          "en": "For a moving camera, we first compute the rotation 𝑅𝑡 Δ 𝐺𝑉be- tween the GV coordinate systems of frame 𝑡 to frame 𝑡 − 1 by leveraging the input camera relative rotations 𝑅𝑡 Δ, the predicted human orientations Γ 𝑐𝑡 and Γ 𝐺𝑉𝑡. As illustrated in Fig. 5, we first calculate the rotation from camera to GV coordinate system at frame 𝑡 : 𝑅𝑐𝑡 2 𝑔𝑣= Γ 𝐺𝑉𝑡· (Γ𝑡𝑐)−1. Then, the camera view direction −−−→ 𝑣𝑖𝑒𝑤𝑐𝑡 = [0 , 0 , 1]𝑇 is transformed to the GV coordinate system as 𝑣𝑖𝑒𝑤−−−→ 𝐺𝑉𝑡=𝑅 𝑐𝑡 2 𝑔𝑣·−−−→ 𝑣𝑖𝑒𝑤𝑐𝑡 . We use the camera’s relative transformation to rotate this view direction to frame 𝑡 − 1, i.e., 𝑣𝑖𝑒𝑤−−−→𝑡−1 = ( 𝑅𝑡 Δ)−1 · −−−→ 𝑣𝑖𝑒𝑤𝑡 . Since the rotation",
+          "en": "For a moving camera, we first compute the rotation \\(R_{\\Delta GV}^{t}\\)be- tween the GV coordinate systems of frame \\(t\\) to frame \\(t-1\\) by leveraging the input camera relative rotations \\(R_{\\Delta}^t\\), the predicted human orientations \\(\\Gamma_c^t\\) and \\(\\Gamma_{GV}^t\\). As illustrated in Fig. 5, we first calculate the rotation from camera to GV coordinate system at frame \\(t\\) : \\(R_{c2gv}^{t} = \\Gamma_{GV}^{t} \\cdot (\\Gamma_c^t)^{-1}\\). Then, the camera view direction \\(\\overrightarrow{view}^{t}_{c} = [0,0,1]^T\\) is transformed to the GV coordinate system as \\(\\overrightarrow{view}^{t}_{GV} = R_{c2gv}^{t} \\cdot \\overrightarrow{view}^{t}_c\\) . We use the camera’s relative transformation to rotate this view direction to frame \\(t-1\\), i.e., \\(\\overrightarrow{view}^{t-1} = (R_{\\Delta}^{t})^{-1} \\cdot \\overrightarrow{view}^{t}\\) . Since the rotation",
           "reference": false,
           "source_image": "figs/p004-010-source.png",
-          "zh": "对于移动相机，我们首先利用输入的相机相对旋转 𝑅𝑡 Δ 以及预测的人体朝向 Γ 𝑐𝑡 和 Γ 𝐺𝑉𝑡，计算从帧 𝑡 到帧 𝑡 − 1 的 GV 坐标系之间的旋转 𝑅𝑡 Δ 𝐺𝑉。如图 5 所示，我们首先计算帧 𝑡 下从相机坐标系到 GV 坐标系的旋转：𝑅𝑐𝑡 2 𝑔𝑣= Γ 𝐺𝑉𝑡· (Γ𝑡𝑐)−1。然后，将相机视线方向 −−−→ 𝑣𝑖𝑒𝑤𝑐𝑡 = [0 , 0 , 1]𝑇 变换至 GV 坐标系，表示为 𝑣𝑖𝑒𝑤−−−→ 𝐺𝑉𝑡=𝑅 𝑐𝑡 2 𝑔𝑣·−−−→ 𝑣𝑖𝑒𝑤𝑐𝑡。我们利用相机的相对变换将该视线方向旋转至帧 𝑡 − 1，即 𝑣𝑖𝑒𝑤−−−→𝑡−1 = ( 𝑅𝑡 Δ)−1 · −−−→ 𝑣𝑖𝑒𝑤𝑡。由于该旋转"
+          "zh": "对于移动相机，我们首先利用输入的相机相对旋转 \\(R_{\\Delta}^t\\) 以及预测的人体朝向 \\(\\Gamma_c^t\\) 和 \\(\\Gamma_{GV}^t\\)，计算从帧 \\(t\\) 到帧 \\(t-1\\) 的 GV 坐标系之间的旋转 \\(R_{\\Delta GV}^{t}\\)。如图 5 所示，我们首先计算帧 \\(t\\) 下从相机坐标系到 GV 坐标系的旋转：\\(R_{c2gv}^{t} = \\Gamma_{GV}^{t} \\cdot (\\Gamma_c^t)^{-1}\\)。然后，将相机视线方向 \\(\\overrightarrow{view}^{t}_{c} = [0,0,1]^T\\) 变换至 GV 坐标系，表示为 \\(\\overrightarrow{view}^{t}_{GV} = R_{c2gv}^{t} \\cdot \\overrightarrow{view}^{t}_c\\)。我们利用相机的相对变换将该视线方向旋转至帧 \\(t-1\\)，即 \\(\\overrightarrow{view}^{t-1} = (R_{\\Delta}^{t})^{-1} \\cdot \\overrightarrow{view}^{t}\\)。由于该旋转",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b11",
           "kind": "picture",
           "bbox": [
-            365,
-            78,
-            511,
-            294
+            363.0,
+            76.0,
+            513.0,
+            296.0
           ],
           "en": "Camera Frame SMPL World-Ground SMPL ✓, β, Γ c, ⌧c ✓, β, Γ w, ⌧w Cropped Image to GV to World Frame Full Camera Frame & Post-Processing cw 8 NA EJ34W e tX1 a OxSKkmR6rHg M V+ w F v p2YTdj C /D9 5 b PQcI7 f z u GnL B h s j 4 BKbhunUQ7W8 M / P 6g0+ D mSToR3ecZNVa9t H O L lpA w5Gv 2szC QljZU s aMd/T20 n o S Bb Yzmk 7 + J X1 4W c q y RLw E5P AFIpri9V Gh utv x K J DE 4 h l dc 8 bO i/P ufC xa 1 5 gT+wnA Z 7jWM= Γ 8N A EJ 3 4WetX1aOYB l RI9Vj w oM cKg PbUC T 0dx2/i z s6 Z m NOZ 0 ajhtJ M oiLkB2b+4qzW5YCDQs lx 9 H E7pX 8 e w Vm fPR1TFSc 6 Kd A cVT9wqAzeKlS1p3Ln6 y JDofEhZBW8m / udUxN I tF 705QYPr i 2MCva+j XU Ic7aEAT C h4l dzrw H vW N S e fOY / D5Jk= c ✓ and β 8N A EJ 3 4WetX1aOx S KkmR6rHgM F 0bUDTsw 7 G/Yvhy 5 9 2+Q u w KRT3 U a D kVz G oeSd 8 LJvPHF t IcZryYjB746W u Amp Q si l C qx9 NME n 5 ZUhi R JtSyFq L 8nc o b M 41D2xlT H V7 +5 /jG6XK g0Q Y Im9Ok z C W as Nd p E urfw 3A FPj A Q 8 yv O Yo 5 Vdz 6 WrR tM XG f +B / gDCmI 8N A EJ3Ur1q/h 6 9LBb0mk V IFx4 2 goQ l s+S z OeD7G Zu t jY wy c fd vXRi MW NgktsG W4 Edh O F A oLJ7 zv PKHSaZpq 9 R 5 Cn1j IQ b i V 0 yD rx clBM +/T U Y6 w pCE s bIlDVmovycGk9j Q Lz1qe X P6UT RWi nJ /85 AZNK F 3rY2 w + QAgY je IZX HO E 8 + Kx/L 1oT z 5C i fP2kdc= ps Γ gNBE O yr x h f UY9eoPK R I8D/wTWcLsZ M lSz7 i d F v13b Jk Gajqp5t UM0l b O u4 m W ES c dqLJ3z v PF t KprQCRZD j 2 19 g If Aa7 n /o H58 YN 6 s BYn z 9C FU 4oVtqGih/p7I sD mKLXb Ad 1v3 Z k 0 l STR H j8 aM2J5NrEu AN 1CHe 2hw go I ZXP Os 9 + Kx/ L z 53 i fMkR= GV vroot (L, 3) (L, 6) (L, 21x6+10) (L, 6) (L, 6) (L, 3) Multitask MLPs Per-frame (L, 512) f ˆ token Relative Transformer Attention with ROPE ⇥ 12 Per-frame (L, 512) ftoken Early Fusion: P +mLkrhiXYBuWNa K 2 P oVqHDt5FJ p 4Mn 9 xvlyZc / 0s67RSOGTICU Aw f j 8gQde cCrYIGsniWE 9 kHtTQ N SU45eOVj6uPB/2Rpf D zoA017+ywdLgxmXJZ3aM 8Kh Fq v = i MLP( fi ) f gNBEOz1GeMr 6 tH L YA8hd0WPi cI 5Jm n sQaw 2Cj /x4 Sf URV3 p v bFKu 7 l o + k 5k7RpmeW02iKcO x rfzPI 9GX lv Jw NBF j CZ M 6T +L U s ASdyH o VQa DE h 4rO n TJAsdKupEVz 9 fhoUxG5 H tyC7M/ va + D mSZLIjqRgl 8Y1P0N e Ot9CA JhDg 8 y v Y e/ u xa F3z p kT+Pwdm6 bbox f 8NAEJ3Ur1q/ h 69LBb 0 m KV IFx4 2 oQ ls +Szu Ti eDHG Z t jY w y COWan DpVC 8 hQIl 7 ya 0i vBNMbud+54 r2 L1 g OExKRt F3X TZcY o 9qw J jS/kz Wef m nP U e + MXF h lSJY21Iurv i xGky j wHZ d m L/ 39bPq E tUp g TO 6Qn K c W s4oN V 0 af z B QgDt o sY S Hi GV 3 h z p0X 5 9 W LnmF P 7A+f w BK8 = kp 2 d fimg f gNBE O z1GeMr6tHLYA 8 hd0WDxj mc ka 5 i 9 CZ/p2 fw4 RSbI To K q 7ysV u v X 3 Q 8BCbm u nVgiDTyW 9 NfXjJ 7 PYRew5vp + d / 20 41 z r lxZ6 L MIq Uho s S o 3 n V2dkOj D Ig f h JP 19 0 RKA6U mW c pH atGbiv5 T 7l w zL8E ZM 4 us C B M 3 DgA up w1 oJ z/K b 9a T Wx hUrnmC P 7+f5 t R ∆ (L, 3) (L, 34) (L, 1024) (L, 6) Input Tokens Operation Output",
           "reference": false,
           "image": "figs/p004-011.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            365.0,
+            78.0,
+            511.0,
+            294.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 450,
+          "image_height": 660
         },
         {
           "id": "p4-b12",
@@ -702,10 +774,11 @@
             562,
             369
           ],
-          "en": "Fig. 6. Network architecture. The input features are fused into per-frame tokens by the early-fusion module, processed by the relative transformer, and then output by multitask MLPs as intermediate representations. The weak-camera parameter 𝑐𝑤 is restored to the camera frame 𝜏𝑐 following [Li et al. 2022b]. The predicted Γ 𝐺𝑉 and 𝑣𝑟𝑜𝑜𝑡 are converted to the world frame Γ 𝑤 and 𝜏𝑤 , as described in Sec. 3.1. Finally, we use joint stationary probabilities 𝑝𝑠 to post-process the global motion.",
+          "en": "Fig. 6. Network architecture. The input features are fused into per-frame tokens by the early-fusion module, processed by the relative transformer, and then output by multitask MLPs as intermediate representations. The weak-camera parameter \\(cw\\) is restored to the camera frame \\(\\tau_c\\) following [Li et al. 2022b]. The predicted \\(\\Gamma_{GV}\\) and \\(v_{root}\\) are converted to the world frame \\(\\Gamma_w\\) and \\(\\tau_w\\) , as described in Sec. 3.1. Finally, we use joint stationary probabilities \\(p_s\\) to post-process the global motion.",
           "reference": false,
           "source_image": "figs/p004-012-source.png",
-          "zh": "图 6. 网络架构。输入特征通过早期融合模块融合为逐帧 token，经由 Relative Transformer 处理，然后由多任务 MLP 输出作为中间表示。遵循 [Li et al. 2022b]，弱相机参数 𝑐𝑤 被恢复至相机坐标系 𝜏𝑐。预测的 Γ 𝐺𝑉 与 𝑣𝑟𝑜𝑜𝑡 按照 3.1 节所述转换为世界坐标系下的 Γ 𝑤 和 𝜏𝑤。最后，我们利用关节静止概率 𝑝𝑠 对全局运动进行后处理。"
+          "zh": "图 6. 网络架构。输入特征通过早期融合模块融合为逐帧 token，经由 Relative Transformer 处理，然后由多任务 MLP 输出作为中间表示。遵循 [Li et al. 2022b]，弱相机参数 \\(cw\\) 被恢复至相机坐标系 \\(\\tau_c\\)。预测的 \\(\\Gamma_{GV}\\) 与 \\(v_{root}\\) 按照 3.1 节所述转换为世界坐标系下的 \\(\\Gamma_w\\) 和 \\(\\tau_w\\)。最后，我们利用关节静止概率 \\(p_s\\) 对全局运动进行后处理。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b13",
@@ -716,26 +789,36 @@
             562,
             461
           ],
-          "en": "between the 𝐺𝑉𝑡 systems is always around the gravity vector, we can calculate the rotation matrix 𝑅𝑡 Δ 𝐺𝑉by projecting the view di- rections 𝑣𝑖𝑒𝑤−−−→𝑡−1 and 𝑣𝑖𝑒𝑤−−−→𝑡 onto the xz-plane and computing the angle between them. After obtaining { 𝑅𝑡 Δ 𝐺𝑉}of the entire input sequences, we can roll out to the first frame’s GV coordinate system for all frames:",
+          "en": "between the \\(GV_t\\) systems is always around the gravity vector, we can calculate the rotation matrix \\(R_{\\Delta GV}^{t}\\)by projecting the view di- rections \\(\\overrightarrow{view}^{t-1}\\) and \\(\\overrightarrow{view}^{t}\\) onto the xz-plane and computing the angle between them. After obtaining \\(\\{R_{\\Delta GV}^{t}\\}\\)of the entire input sequences, we can roll out to the first frame’s GV coordinate system for all frames:",
           "reference": false,
           "source_image": "figs/p004-013-source.png",
-          "zh": "各 𝐺𝑉𝑡 系统之间的旋转始终围绕重力向量进行，因此我们可以通过将视线方向 𝑣𝑖𝑒𝑤−−−→𝑡−1 与 𝑣𝑖𝑒𝑤−−−→𝑡 投影到 xz 平面上并计算它们之间的夹角，来求得旋转矩阵 𝑅𝑡 Δ 𝐺𝑉。在获得整个输入序列的 { 𝑅𝑡 Δ 𝐺𝑉} 后，我们可以将其 rollout 到所有帧的第一帧 GV 坐标系中："
+          "zh": "各 \\(GV_t\\) 系统之间的旋转始终围绕重力向量进行，因此我们可以通过将视线方向 \\(\\overrightarrow{view}^{t-1}\\) 与 \\(\\overrightarrow{view}^{t}\\) 投影到 xz 平面上并计算它们之间的夹角，来求得旋转矩阵 \\(R_{\\Delta GV}^{t}\\)。在获得整个输入序列的 \\(\\{R_{\\Delta GV}^{t}\\}\\) 后，我们可以将其 rollout 到所有帧的第一帧 GV 坐标系中：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b14",
           "kind": "formula",
           "bbox": [
-            378,
-            471,
-            561,
-            499
+            376.0,
+            469.0,
+            563.0,
+            501.0
           ],
           "en": "Γ 𝑤 𝑡 = Γ 𝐺𝑉 0 , 𝑡 = 0 , (2) �� 𝑖𝑡 =1 𝑅𝑖 Δ 𝐺𝑉 · Γ 𝐺𝑉 𝑡 , 𝑡 > 0 .",
           "reference": false,
           "image": "figs/p004-014.png",
           "labels": [
             "2"
-          ]
+          ],
+          "original_bbox": [
+            378.0,
+            471.0,
+            561.0,
+            499.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 561,
+          "image_height": 96
         },
         {
           "id": "p4-b15",
@@ -746,10 +829,11 @@
             562,
             541
           ],
-          "en": "This formulation also applies to static cameras, as the transformation 𝑅𝑡 Δ 𝐺𝑉is the identity transformation in this case. Finally, the translation is obtained using the same method as described in Eq. 1.",
+          "en": "This formulation also applies to static cameras, as the transformation \\(R_{\\Delta GV}^{t}\\)is the identity transformation in this case. Finally, the translation is obtained using the same method as described in Eq. 1.",
           "reference": false,
           "source_image": "figs/p004-015-source.png",
-          "zh": "该表述同样适用于静态相机，因为在这种情况下变换 𝑅𝑡 Δ 𝐺𝑉 为单位变换。最后，平移量采用与 Eq. 1 中所述相同的方法获得。"
+          "zh": "该表述同样适用于静态相机，因为在这种情况下变换 \\(R_{\\Delta GV}^{t}\\) 为单位变换。最后，平移量采用与 Eq. 1 中所述相同的方法获得。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b16",
@@ -793,10 +877,11 @@
             296,
             237
           ],
-          "en": "Input and preprocessing. The network design is shown in Fig. 6. Inspired by WHAM [Shin et al. 2024], we first preprocess the input video into four types of features: bounding boxes[Jocher et al. 2023; Li et al. 2022b], 2D keypoints [Xu et al. 2022], image features [Goel et al. 2023], and relative camera rotations [Teed et al. 2024]. Then, in the early-fusion module, we use individual MLPs to map these features to the same dimension. These vectors are then element-wise added to obtain per-frame tokens { 𝑓 token𝑡∈R512}. These tokens are processed by a Relative Transformer, where we introduce rotary positional encoding (RoPE) [Su et al. 2024] to enable the network to focus on relative position features. Additionally, we implement a receptive-field-limited attention mask to improve the network’s generalization ability when testing on long sequences.",
+          "en": "Input and preprocessing. The network design is shown in Fig. 6. Inspired by WHAM [Shin et al. 2024], we first preprocess the input video into four types of features: bounding boxes[Jocher et al. 2023; Li et al. 2022b], 2D keypoints [Xu et al. 2022], image features [Goel et al. 2023], and relative camera rotations [Teed et al. 2024]. Then, in the early-fusion module, we use individual MLPs to map these features to the same dimension. These vectors are then element-wise added to obtain per-frame tokens \\(\\{f_{\\text{token}}^t \\in \\mathbb{R}^{512}\\}\\). These tokens are processed by a Relative Transformer, where we introduce rotary positional encoding (RoPE) [Su et al. 2024] to enable the network to focus on relative position features. Additionally, we implement a receptive-field-limited attention mask to improve the network’s generalization ability when testing on long sequences.",
           "reference": false,
           "source_image": "figs/p005-003-source.png",
-          "zh": "输入与预处理。网络设计如图 6 所示。受 WHAM [Shin et al. 2024] 的启发，我们首先将输入视频预处理为四类特征：边界框 [Jocher et al. 2023; Li et al. 2022b]、2D 关键点 [Xu et al. 2022]、图像特征 [Goel et al. 2023] 以及相对相机旋转 [Teed et al. 2024]。随后，在早期融合模块中，我们使用各自独立的 MLP 将这些特征映射至相同维度。接着将这些向量按元素相加，得到逐帧 token { 𝑓 token𝑡∈R512}。这些 token 由 Relative Transformer 处理，其中我们引入了旋转位置编码（RoPE）[Su et al. 2024]，以使网络能够聚焦于相对位置特征。此外，我们实现了一个感受野受限的注意力掩码，以提高网络在长序列测试时的泛化能力。"
+          "zh": "输入与预处理。网络设计如图 6 所示。受 WHAM [Shin et al. 2024] 的启发，我们首先将输入视频预处理为四类特征：边界框 [Jocher et al. 2023; Li et al. 2022b]、2D 关键点 [Xu et al. 2022]、图像特征 [Goel et al. 2023] 以及相对相机旋转 [Teed et al. 2024]。随后，在早期融合模块中，我们使用各自独立的 MLP 将这些特征映射至相同维度。接着将这些向量按元素相加，得到逐帧 token \\(\\{f_{\\text{token}}^t \\in \\mathbb{R}^{512}\\}\\)。这些 token 由 Relative Transformer 处理，其中我们引入了旋转位置编码（RoPE）[Su et al. 2024]，以使网络能够聚焦于相对位置特征。此外，我们实现了一个感受野受限的注意力掩码，以提高网络在长序列测试时的泛化能力。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b4",
@@ -821,19 +906,20 @@
             295,
             365
           ],
-          "en": "Here we introduce rotary positional embedding to inject relative features into temporal tokens, where the output o𝑡 of the 𝑡 -th token after the self-attention layer is calculated via:",
+          "en": "Here we introduce rotary positional embedding to inject relative features into temporal tokens, where the output \\(\\mathbf{o}^t\\) of the \\(t\\) -th token after the self-attention layer is calculated via:",
           "reference": false,
           "source_image": "figs/p005-005-source.png",
-          "zh": "在此，我们引入旋转位置嵌入将相对特征注入到时间 token 中，其中自注意力层之后第 𝑡 个 token 的输出 o𝑡 通过下式计算："
+          "zh": "在此，我们引入旋转位置嵌入将相对特征注入到时间 token 中，其中自注意力层之后第 \\(t\\) 个 token 的输出 \\(\\mathbf{o}^t\\) 通过下式计算：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b6",
           "kind": "formula",
           "bbox": [
-            95,
-            373,
-            295,
-            411
+            93.0,
+            371.0,
+            297.0,
+            413.0
           ],
           "en": "o 𝑡 = ∑︁ Softmax 𝑠 ∈ 𝑇 � 𝑎𝑡𝑠 � 𝑖 W 𝑣 𝑓𝑡𝑜𝑘𝑒𝑛𝑖 (3) 𝑖 ∈ 𝑇 𝑎 𝑡𝑠 = (W 𝑞 𝑓𝑡𝑜𝑘𝑒𝑛 𝑡 )⊤R �p 𝑠 − p 𝑡 � (W 𝑘 𝑓 𝑡𝑜𝑘𝑒𝑛 𝑠 ) (4)",
           "reference": false,
@@ -841,7 +927,16 @@
           "labels": [
             "3",
             "4"
-          ]
+          ],
+          "original_bbox": [
+            95.0,
+            373.0,
+            295.0,
+            411.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 612,
+          "image_height": 126
         },
         {
           "id": "p5-b7",
@@ -852,26 +947,36 @@
             296,
             485
           ],
-          "en": "where Wq, Wk, Wv are the projection matrix, R(·) ∈ R512×512 is the rotary encoding of the relative position between two tokens, and p𝑡 indicates the temporal index of the 𝑡 -th token. Following the definition in RoPE, we divide the 512-dimensional space into 256 subspaces and combine them using the linearity of the inner product. R(·) is defined as:",
+          "en": "where \\(\\mathbf{W_q}\\), \\(\\mathbf{W_k}\\), \\(\\mathbf{W_v}\\) are the projection matrix, \\(\\mathbf{R}(\\cdot) \\in \\mathbb{R}^{512 \\times 512}\\) is the rotary encoding of the relative position between two tokens, and \\(\\mathbf{p}^t\\) indicates the temporal index of the \\(t\\)-th token. Following the definition in RoPE, we divide the 512-dimensional space into 256 subspaces and combine them using the linearity of the inner product. \\(\\mathbf{R}(\\cdot)\\) is defined as:",
           "reference": false,
           "source_image": "figs/p005-007-source.png",
-          "zh": "其中 Wq, Wk, Wv 为投影矩阵，R(·) ∈ R512×512 为两个 token 之间相对位置的旋转编码，p𝑡 表示第 𝑡 个 token 的时间索引。遵循 RoPE 中的定义，我们将 512 维空间划分为 256 个子空间，并利用内积的线性性质将其组合。R(·) 定义为："
+          "zh": "其中 \\(\\mathbf{W_q}\\), \\(\\mathbf{W_k}\\), \\(\\mathbf{W_v}\\) 为投影矩阵，\\(\\mathbf{R}(\\cdot) \\in \\mathbb{R}^{512 \\times 512}\\) 为两个 token 之间相对位置的旋转编码，\\(\\mathbf{p}^t\\) 表示第 \\(t\\) 个 token 的时间索引。遵循 RoPE 中的定义，我们将 512 维空间划分为 256 个子空间，并利用内积的线性性质将其组合。\\(\\mathbf{R}(\\cdot)\\) 定义为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b8",
           "kind": "formula",
           "bbox": [
-            51,
-            493,
-            299,
-            549
+            49.0,
+            491.0,
+            301.0,
+            551.0
           ],
           "en": "Rˆ � 𝛼 1 ⊤p� 0 − sin 𝜃 R(p) = ... , R ˆ ( 𝜃 ) = , ���� ���� � cossin 𝜃𝜃 cos 𝜃 � 0 Rˆ 𝛼 ⊤ � � 256 p � � (5)",
           "reference": false,
           "image": "figs/p005-008.png",
           "labels": [
             "5"
-          ]
+          ],
+          "original_bbox": [
+            51.0,
+            493.0,
+            299.0,
+            549.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 756,
+          "image_height": 180
         },
         {
           "id": "p5-b9",
@@ -882,10 +987,11 @@
             221,
             561
           ],
-          "en": "where 𝛼𝑖 is pre-defined frequency parameters.",
+          "en": "where \\(\\alpha_i\\) is pre-defined frequency parameters.",
           "reference": false,
           "source_image": "figs/p005-009-source.png",
-          "zh": "其中 𝛼𝑖 为预定义的频率参数。"
+          "zh": "其中 \\(\\alpha_i\\) 为预定义的频率参数。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b10",
@@ -905,10 +1011,10 @@
           "id": "p5-b11",
           "kind": "formula",
           "bbox": [
-            101,
-            590,
-            295,
-            643
+            99.0,
+            588.0,
+            297.0,
+            645.0
           ],
           "en": "o 𝑡 = ∑︁ Softmax 𝑠 ∈ 𝑇 � 𝑎𝑡𝑠 + 𝑚𝑡𝑠 � 𝑖 W 𝑣 𝑓𝑡𝑜𝑘𝑒𝑛𝑖 (6) 𝑖 ∈ 𝑇 0 , if − 𝐿 < 𝑡 − 𝑠 < 𝐿, 𝑚 𝑡𝑠 = (7) −∞ , otherwise . �",
           "reference": false,
@@ -916,7 +1022,16 @@
           "labels": [
             "6",
             "7"
-          ]
+          ],
+          "original_bbox": [
+            101.0,
+            590.0,
+            295.0,
+            643.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 594,
+          "image_height": 171
         },
         {
           "id": "p5-b12",
@@ -927,10 +1042,11 @@
             296,
             694
           ],
-          "en": "where 𝐿 is the maximum training length. The token 𝑡 attends only to tokens within 𝐿 relative positions. Consequently, the model can generalize to arbitrarily long sequences without needing autoregressive inference techniques, such as sliding-window.",
+          "en": "where \\(L\\) is the maximum training length. The token \\(t\\) attends only to tokens within \\(L\\) relative positions. Consequently, the model can generalize to arbitrarily long sequences without needing autoregressive inference techniques, such as sliding-window.",
           "reference": false,
           "source_image": "figs/p005-012-source.png",
-          "zh": "其中 𝐿 为最大训练长度。token 𝑡 仅对处于 𝐿 个相对位置以内的 token 进行注意力计算。因此，该模型无需借助滑动窗口等自回归推理技术，即可泛化至任意长度的序列。"
+          "zh": "其中 \\(L\\) 为最大训练长度。token \\(t\\) 仅对处于 \\(L\\) 个相对位置以内的 token 进行注意力计算。因此，该模型无需借助滑动窗口等自回归推理技术，即可泛化至任意长度的序列。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b13",
@@ -941,10 +1057,11 @@
             562,
             179
           ],
-          "en": "Network outputs. After the relative transformer, the 𝑓 token′are processed by multitask MLPs to predict multiple targets, including the weak-perspective camera parameters 𝑐𝑤 , the human orientation in the camera frame Γ 𝑐 , the SMPL local pose 𝜃 , the SMPL shape 𝛽 , the stationary label 𝑝 𝑗 , the global trajectory representation Γ 𝐺𝑉 and 𝑣𝑟𝑜𝑜𝑡 . To get the camera-frame human motion, we follow the standard CLIFF [Li et al. 2022b] to transform the weak-perspective camera to full-perspective. For the world-grounded human motion, we recover the global trajectory as described in Sec. 3.1.",
+          "en": "Network outputs. After the relative transformer, the \\(f_{\\text{token}}'\\) are processed by multitask MLPs to predict multiple targets, including the weak-perspective camera parameters \\(cw\\), the human orientation in the camera frame \\(\\Gamma_c\\), the SMPL local pose \\(\\theta\\), the SMPL shape \\(\\beta\\), the stationary label \\(p_j\\), the global trajectory representation \\(\\Gamma_{GV}\\) and \\(v_{root}\\). To get the camera-frame human motion, we follow the standard CLIFF [Li et al. 2022b] to transform the weak-perspective camera to full-perspective. For the world-grounded human motion, we recover the global trajectory as described in Sec. 3.1.",
           "reference": false,
           "source_image": "figs/p005-013-source.png",
-          "zh": "网络输出。经过 Relative Transformer 之后，𝑓 token′ 由多任务 MLP 进行处理，以预测多个目标，包括弱透视相机参数 𝑐𝑤、相机坐标系下的人体朝向 Γ 𝑐、SMPL 局部姿态 𝜃、SMPL 体型 𝛽、静止标签 𝑝 𝑗，以及全局轨迹表示 Γ 𝐺𝑉 和 𝑣𝑟𝑜𝑜𝑡。为了获得相机坐标系下的人体运动，我们遵循标准 CLIFF [Li et al. 2022b] 的方法将弱透视相机模型转换为全透视模型。对于世界基准的人体运动，我们按照 3.1 节所述恢复全局轨迹。"
+          "zh": "网络输出。经过 Relative Transformer 之后，\\(f_{\\text{token}}'\\) 由多任务 MLP 进行处理，以预测多个目标，包括弱透视相机参数 \\(cw\\)、相机坐标系下的人体朝向 \\(\\Gamma_c\\)、SMPL 局部姿态 \\(\\theta\\)、SMPL 体型 \\(\\beta\\)、静止标签 \\(p_j\\)，以及全局轨迹表示 \\(\\Gamma_{GV}\\) 和 \\(v_{root}\\)。为了获得相机坐标系下的人体运动，我们遵循标准 CLIFF [Li et al. 2022b] 的方法将弱透视相机模型转换为全透视模型。对于世界基准的人体运动，我们按照 3.1 节所述恢复全局轨迹。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b14",
@@ -997,10 +1114,11 @@
             562,
             567
           ],
-          "en": "GVHMR has 12 layers of transformer encoder. Each attention unit has 8 heads. The hidden dimension is 512. The MLP has two linear layers with GELU activation. GVHMR is trained from scratch on a mixed dataset consisting of AMASS [Mahmood et al. 2019], BEDLAM [Black et al. 2023], H36M [Ionescu et al. 2014], and 3DPW [von Marcard et al. 2018]. During training, we augment the 2D keypoints following WHAM. For AMASS, we simulate static and dynamic camera trajectories, generate bounding boxes, normalize the keypoints using these boxes from -1 to 1, and set image features to zero. For other datasets that come with videos, we extract image features using a fixed encoder [Goel et al. 2023]. The training sequence length is set to 𝐿 = 120. The model converges after 500 epochs with a batch size of 256. Training takes 13 hours on 2 RTX 4090 GPUs.",
+          "en": "GVHMR has 12 layers of transformer encoder. Each attention unit has 8 heads. The hidden dimension is 512. The MLP has two linear layers with GELU activation. GVHMR is trained from scratch on a mixed dataset consisting of AMASS [Mahmood et al. 2019], BEDLAM [Black et al. 2023], H36M [Ionescu et al. 2014], and 3DPW [von Marcard et al. 2018]. During training, we augment the 2D keypoints following WHAM. For AMASS, we simulate static and dynamic camera trajectories, generate bounding boxes, normalize the keypoints using these boxes from -1 to 1, and set image features to zero. For other datasets that come with videos, we extract image features using a fixed encoder [Goel et al. 2023]. The training sequence length is set to \\(L = 120\\). The model converges after 500 epochs with a batch size of 256. Training takes 13 hours on 2 RTX 4090 GPUs.",
           "reference": false,
           "source_image": "figs/p005-017-source.png",
-          "zh": "GVHMR 包含 12 层 Transformer 编码器。每个注意力单元有 8 个头。隐藏层维度为 512。MLP 包含两个带有 GELU 激活函数的线性层。GVHMR 在包含 AMASS [Mahmood et al. 2019]、BEDLAM [Black et al. 2023]、H36M [Ionescu et al. 2014] 和 3DPW [von Marcard et al. 2018] 的混合数据集上从零开始训练。训练期间，我们遵循 WHAM 对 2D 关键点进行数据增强。对于 AMASS，我们模拟静态和动态相机轨迹，生成边界框，并使用这些边界框将关键点归一化至 -1 到 1 之间，同时将图像特征置零。对于自带视频的其他数据集，我们使用固定的编码器 [Goel et al. 2023] 提取图像特征。训练序列长度设置为 𝐿 = 120。在批大小为 256 的情况下，模型在 500 个 epoch 后收敛。在 2 块 RTX 4090 GPU 上的训练耗时 13 小时。"
+          "zh": "GVHMR 包含 12 层 Transformer 编码器。每个注意力单元有 8 个头。隐藏层维度为 512。MLP 包含两个带有 GELU 激活函数的线性层。GVHMR 在包含 AMASS [Mahmood et al. 2019]、BEDLAM [Black et al. 2023]、H36M [Ionescu et al. 2014] 和 3DPW [von Marcard et al. 2018] 的混合数据集上从零开始训练。训练期间，我们遵循 WHAM 对 2D 关键点进行数据增强。对于 AMASS，我们模拟静态和动态相机轨迹，生成边界框，并使用这些边界框将关键点归一化至 -1 到 1 之间，同时将图像特征置零。对于自带视频的其他数据集，我们使用固定的编码器 [Goel et al. 2023] 提取图像特征。训练序列长度设置为 \\(L = 120\\)。在批大小为 256 的情况下，模型在 500 个 epoch 后收敛。在 2 块 RTX 4090 GPU 上的训练耗时 13 小时。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b18",
@@ -1081,15 +1199,24 @@
           "id": "p6-b3",
           "kind": "table",
           "bbox": [
-            106,
-            105,
-            506,
-            210
+            104.0,
+            103.0,
+            508.0,
+            212.0
           ],
           "en": "|||RIC|H (24)||||EMD|B (24)||| |---|---|---|---|---|---|---|---|---|---|---| |Models|WA-MPJPE100|W-MPJPE100|RTE|Jitter|Foot-Sliding|WA-MPJPE100|W-MPJPE100|RTE|Jitter|Foot-Sliding| |DPVO[Teed et al. 2024] +HMR2.0[Goel et al. 2023]|184.3|338.3|7.7|255.0|38.7|647.8|2231.4|15.8|537.3|107.6| |GLAMR [Yuan et al. 2022]|129.4|236.2|3.8|49.7|18.1|280.8|726.6|11.4|46.3|20.7| |TRACE [Sun et al. 2023]|238.1|925.4|610.4|1578.6|230.7|529.0|1702.3|17.7|2987.6|370.7| |SLAHMR [Ye et al. 2023]|98.1|186.4|28.9|34.3|5.1|326.9|776.1|10.2|31.3|14.5| |WHAM (w/ DPVO) [Shin et al. 2024]|109.9|184.6|4.1|19.7|3.3|135.6|354.8|6.0|22.5|4.4| |WHAM (w/ GT gyro) [Shin et al. 2024]|109.9|184.6|4.1|19.7|3.3|131.1|335.3|4.1|21.0|4.4| |Ours (w/ DPVO)|78.8|126.3|2.4|12.8|3.0|111.0|276.5|2.0|16.7|3.5| |Ours (w/ GT gyro)|78.8|126.3|2.4|12.8|3.0|109.1|274.9|1.9|16.5|3.5|",
           "reference": false,
           "image": "figs/p006-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            106.0,
+            105.0,
+            506.0,
+            210.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1212,
+          "image_height": 327
         },
         {
           "id": "p6-b4",
@@ -1109,15 +1236,24 @@
           "id": "p6-b5",
           "kind": "table",
           "bbox": [
-            132,
-            247,
-            480,
-            436
+            130.0,
+            245.0,
+            482.0,
+            438.0
           ],
           "en": "||||3DPW|(14)|||RICH|(24)|||EMDB|(24)|| |---|---|---|---|---|---|---|---|---|---|---|---|---|---| ||Models|PA-MPJPE|MPJPE|PVE|Accel|PA-MPJPE|MPJPE|PVE|Accel|PA-MPJPE|MPJPE|PVE|Accel| ||SPIN [Kolotouros et al. 2019]|59.2|96.9|112.8|31.4|69.7|122.9|144.2|35.2|87.1|140.3|174.9|41.3| |e|PARE∗[Kocabas et al. 2021a]|46.5|74.5|88.6|–|60.7|109.2|123.5|–|72.2|113.9|133.2|–| |ram|CLIFF∗[Li et al. 2022b]|43.0|69.0|81.2|22.5|56.6|102.6|115.0|22.4|68.1|103.3|128.0|24.5| |er-f|HybrIK∗[Li et al. 2021]|41.8|71.6|82.3|–|56.4|96.8|110.4|–|65.6|103.0|122.2|–| |p|HMR2.0 [Goel et al. 2023]|44.4|69.8|82.2|18.1|48.1|96.0|110.9|18.8|60.6|98.0|120.3|19.8| ||ReFit∗[Wang and Daniilidis 2023]|40.5|65.3|75.1|18.5|47.9|80.7|92.9|17.1|58.6|88.0|104.5|20.7| ||TCMR∗[Choi et al. 2021]|52.7|86.5|101.4|6.0|65.6|119.1|137.7|5.0|79.6|127.6|147.9|5.3| ||VIBE∗[Kocabas et al. 2020]|51.9|82.9|98.4|18.5|68.4|120.5|140.2|21.8|81.4|125.9|146.8|26.6| ||MPS-Net∗[Wei et al. 2022]|52.1|84.3|99.0|6.5|67.1|118.2|136.7|5.8|81.3|123.1|138.4|6.2| ||GLoT∗[Shen et al. 2023]|50.6|80.7|96.4|6.0|65.6|114.3|132.7|5.2|78.8|119.7|138.4|5.4| |l|GLAMR [Yuan et al. 2022]|51.1|–|–|8.0|79.9|–|–|107.7|73.5|113.6|133.4|32.9| |ora|TRACE∗[Sun et al. 2023]|50.9|79.1|95.4|28.6|–|–|–|–|70.9|109.9|127.4|25.5| |emp|SLAHMR [Ye et al. 2023]|55.9|–|–|–|52.5|–|–|9.4|69.5|93.5|110.7|7.1| |t|PACE [Kocabas et al. 2024]|–|–|–|–|49.3|–|–|8.8|–|–|–|–| ||WHAM∗[Shin et al. 2024]|35.9|57.8|68.7|6.6|44.3|80.0|91.2|5.3|50.4|79.7|94.4|5.3| ||Ours∗|36.2|55.6|67.2|5.0|39.5|66.0|74.4|4.1|42.7|72.6|84.2|3.6|",
           "reference": false,
           "image": "figs/p006-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            132.0,
+            247.0,
+            480.0,
+            436.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1056,
+          "image_height": 579
         },
         {
           "id": "p6-b6",
@@ -1142,10 +1278,11 @@
             296,
             694
           ],
-          "en": "Metrics. We follow the evaluation protocol of [Shin et al. 2024; Ye et al. 2023], using the code released by WHAM to apply FlipEval for test-time augmentation and evaluate our model’s performance. To compute world-coordinate metrics, we divide the predicted global sequences into shorter segments of 100 frames and align each segment to the ground-truth segment. When the alignment is performed using the entire segment, we report the World-aligned Mean Per Joint Position Error (WA-MPJPE100). When the alignment is performed using the first two frames, we report the World MPJPE (W-MPJPE100). Additionally, to assess the error over the global motion, we evaluate the whole sequence for Root Translation Error (RTE, in %), motion jittery (Jitter, in 𝑚 / 𝑠3 ), and foot sliding (FS, in 𝑚𝑚 ). The camera-coordinate metrics include the widely used MPJPE, Procrustes-aligned MPJPE (PA-MPJPE), Per Vertex Error (PVE), and Acceleration error (Accel, in 𝑚 / 𝑠2 ) [Goel et al. 2023; Li et al. 2022b; Shin et al. 2024; Ye et al. 2023].",
+          "en": "Metrics. We follow the evaluation protocol of [Shin et al. 2024; Ye et al. 2023], using the code released by WHAM to apply FlipEval for test-time augmentation and evaluate our model’s performance. To compute world-coordinate metrics, we divide the predicted global sequences into shorter segments of 100 frames and align each segment to the ground-truth segment. When the alignment is performed using the entire segment, we report the World-aligned Mean Per Joint Position Error (WA-MPJPE\\(_{100}\\)). When the alignment is performed using the first two frames, we report the World MPJPE (W-MPJPE\\(_{100}\\)). Additionally, to assess the error over the global motion, we evaluate the whole sequence for Root Translation Error (RTE, in \\(\\%\\)), motion jittery (Jitter, in \\(m/s^3\\)), and foot sliding (FS, in \\(mm\\)). The camera-coordinate metrics include the widely used MPJPE, Procrustes-aligned MPJPE (PA-MPJPE), Per Vertex Error (PVE), and Acceleration error (Accel, in \\(m/s^2\\)) [Goel et al. 2023; Li et al. 2022b; Shin et al. 2024; Ye et al. 2023].",
           "reference": false,
           "source_image": "figs/p006-007-source.png",
-          "zh": "评估指标。我们遵循 [Shin et al. 2024; Ye et al. 2023] 的评估协议，使用 WHAM 发布的开源代码应用 FlipEval 进行测试时增强，并评估我们模型的性能。为了计算世界坐标系指标，我们将预测的全局序列划分为 100 帧的较短片段，并将每个片段与真实值片段进行对齐。当使用整个片段进行对齐时，我们汇报世界坐标对齐的平均每关节位置误差（WA-MPJPE100）。当仅使用前两帧进行对齐时，我们汇报世界坐标 MPJPE（W-MPJPE100）。此外，为了评估全局运动的误差，我们针对整个序列评估根关节平移误差（RTE，单位为 %）、运动抖动（Jitter，单位为 𝑚 / 𝑠3 ）以及滑步（FS，单位为 𝑚𝑚 ）。相机坐标系指标包括广泛使用的 MPJPE、Procrustes 对齐的 MPJPE（PA-MPJPE）、逐顶点误差（PVE）和加速度误差（Accel，单位为 𝑚 / 𝑠2 ）[Goel et al. 2023; Li et al. 2022b; Shin et al. 2024; Ye et al. 2023]。"
+          "zh": "评估指标。我们遵循 [Shin et al. 2024; Ye et al. 2023] 的评估协议，使用 WHAM 发布的开源代码应用 FlipEval 进行测试时增强，并评估我们模型的性能。为了计算世界坐标系指标，我们将预测的全局序列划分为 100 帧的较短片段，并将每个片段与真实值片段进行对齐。当使用整个片段进行对齐时，我们汇报世界坐标对齐的平均每关节位置误差（WA-MPJPE\\(_{100}\\)）。当仅使用前两帧进行对齐时，我们汇报世界坐标 MPJPE（W-MPJPE\\(_{100}\\)）。此外，为了评估全局运动的误差，我们针对整个序列评估根关节平移误差（RTE，单位为 \\(\\%\\)）、运动抖动（Jitter，单位为 \\(m/s^3\\)）以及滑步（FS，单位为 \\(mm\\)）。相机坐标系指标包括广泛使用的 MPJPE、Procrustes 对齐的 MPJPE（PA-MPJPE）、逐顶点误差（PVE）和加速度误差（Accel，单位为 \\(m/s^2\\)）[Goel et al. 2023; Li et al. 2022b; Shin et al. 2024; Ye et al. 2023]。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b8",
@@ -1212,15 +1349,24 @@
           "id": "p7-b3",
           "kind": "table",
           "bbox": [
-            56,
-            117,
-            290,
-            183
+            54.0,
+            115.0,
+            292.0,
+            185.0
           ],
           "en": "|Variant|PA-MPJPE|MPJPE|WA-MPJPE|W-MPJPE|RTE|Jitter|Foot-Sliding| |---|---|---|---|---|---|---|---| |(1) w/o𝐺𝑉|40.0|67.0|162.6|278.9|5.9|9.7|7.5| |(2) w/oΓ𝐺𝑉|41.4|70.5|101.2|177.5|4.5|14.9|3.0| |(3) w/o Transformer|43.3|73.9|85.8|138.9|2.7|7.6|3.3| |(4) w/o Transformer∗|43.0|72.9|84.2|142.0|2.7|10.6|3.2| |(5) w/o RoPE|87.5|172.9|191.5|304.4|6.3|22.8|11.5| |(6) w/o RoPE∗|40.1|67.9|80.7|133.2|2.4|17.5|3.3| |(7) w/o PostProcessing|39.5|66.0|89.3|145.2|3.0|14.5|6.8| |Full Model|39.5|66.0|78.8|126.3|2.4|12.8|3.0|",
           "reference": false,
           "image": "figs/p007-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            56.0,
+            117.0,
+            290.0,
+            183.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 714,
+          "image_height": 210
         },
         {
           "id": "p7-b4",
@@ -1301,10 +1447,11 @@
             296,
             694
           ],
-          "en": "Ablation Studies. To understand the impact of each component in our method, we evaluate seven variants of GVHMR using the same training and evaluation protocol on the RICH dataset. The results are shown in Tab. 3: (1) w/o 𝐺𝑉 : when predicting human motion solely in the camera coordinate system, the metrics drop slightly. This suggests that gravity alignment improves camera-space human motion estimation accuracy. For this variant, we can further recover a non-gravity-aligned global motion, which performs poorly in global metrics. (2) w/o Γ 𝐺𝑉 : when predicting the relative global orientation from frame to frame, the world-coordinate metrics drop substantially, indicating that the model suffers from error accumulation in this configuration. (3) w/o Transformer : adopting a convolutional architecture yields poor performance, highlighting that our transformer architecture is more effective. (4) w/o Transformer∗ : when applying a convolutional architecture with a sliding window",
+          "en": "Ablation Studies. To understand the impact of each component in our method, we evaluate seven variants of GVHMR using the same training and evaluation protocol on the RICH dataset. The results are shown in Tab. 3: (1) w/o \\(GV\\) : when predicting human motion solely in the camera coordinate system, the metrics drop slightly. This suggests that gravity alignment improves camera-space human motion estimation accuracy. For this variant, we can further recover a non-gravity-aligned global motion, which performs poorly in global metrics. (2) w/o \\(\\Gamma_{GV}\\) : when predicting the relative global orientation from frame to frame, the world-coordinate metrics drop substantially, indicating that the model suffers from error accumulation in this configuration. (3) w/o Transformer : adopting a convolutional architecture yields poor performance, highlighting that our transformer architecture is more effective. (4) w/o \\(\\text{Transformer}^*\\) : when applying a convolutional architecture with a sliding window",
           "reference": false,
           "source_image": "figs/p007-015-source.png",
-          "zh": "消融实验。为了探究本方法中各组件的影响，我们在 RICH 数据集上采用相同的训练与评估协议，对 GVHMR 的七个变体进行了评估。结果如 Tab. 3 所示：(1) w/o 𝐺𝑉：当仅在相机坐标系中预测人体运动时，各项指标略有下降。这表明重力对齐提高了相机空间人体运动估计的精度。对于该变体，我们还可以进一步恢复未进行重力对齐的全局运动，其在全局指标上的表现较差。(2) w/o Γ 𝐺𝑉：当逐帧预测相对全局朝向时，世界坐标系指标大幅下降，表明模型在该配置下面临误差累积问题。(3) w/o Transformer：采用卷积架构会导致性能欠佳，这凸显出我们的 Transformer 架构更为有效。(4) w/o Transformer∗：当采用带有滑动窗口的卷积架构"
+          "zh": "消融实验。为了探究本方法中各组件的影响，我们在 RICH 数据集上采用相同的训练与评估协议，对 GVHMR 的七个变体进行了评估。结果如 Tab. 3 所示：(1) w/o \\(GV\\)：当仅在相机坐标系中预测人体运动时，各项指标略有下降。这表明重力对齐提高了相机空间人体运动估计的精度。对于该变体，我们还可以进一步恢复未进行重力对齐的全局运动，其在全局指标上的表现较差。(2) w/o \\(\\Gamma_{GV}\\)：当逐帧预测相对全局朝向时，世界坐标系指标大幅下降，表明模型在该配置下面临误差累积问题。(3) w/o Transformer：采用卷积架构会导致性能欠佳，这凸显出我们的 Transformer 架构更为有效。(4) w/o \\(\\text{Transformer}^*\\)：当采用带有滑动窗口的卷积架构",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b8",
@@ -1324,15 +1471,24 @@
           "id": "p7-b9",
           "kind": "table",
           "bbox": [
-            334,
-            107,
-            544,
-            146
+            332.0,
+            105.0,
+            546.0,
+            148.0
           ],
           "en": "|Method|PA-MPJPE|MPJPE|Accel|WA-MPJPE|W-MPJPE|RTE| |---|---|---|---|---|---|---| |WHAM +B|49.4|78.2|6.0|134.2|338.1|3.8| |WHAM +B+FlipEval|47.9|76.9|5.4|132.5|337.7|3.8| |GVHMR +B|44.2|74.0|4.0|110.6|274.9|1.9| |GVHMR +B+FlipEval|42.7|72.6|3.6|109.1|272.9|1.9|",
           "reference": false,
           "image": "figs/p007-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            334.0,
+            107.0,
+            544.0,
+            146.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 642,
+          "image_height": 129
         },
         {
           "id": "p7-b10",
@@ -1371,10 +1527,11 @@
             561,
             499
           ],
-          "en": "Running Time. We test the running time with an example video of 1430 frames (approximately 45 seconds). The preprocessing, which includes YOLOv8 detection, ViTPose, Vit feature extraction, and DPVO, takes a total of 46.0 seconds (4 . 9 + 20 . 0 + 10 . 1 + 11 . 0). The rest of the GVHMR takes 0.28 seconds. WHAM adopts the same preprocessing procedures, and it requires 2.0 seconds for the core network. The optimization-based method SLAHMR takes more than 6 hours to process. All models are tested with an RTX 4090 GPU. The improved efficiency enables scalable processing of human motion videos, aiding in the creation of foundational datasets.",
+          "en": "Running Time. We test the running time with an example video of 1430 frames (approximately 45 seconds). The preprocessing, which includes YOLOv8 detection, ViTPose, Vit feature extraction, and DPVO, takes a total of 46.0 seconds \\((4.9 + 20.0 + 10.1 + 11.0)\\). The rest of the GVHMR takes 0.28 seconds. WHAM adopts the same preprocessing procedures, and it requires 2.0 seconds for the core network. The optimization-based method SLAHMR takes more than 6 hours to process. All models are tested with an RTX 4090 GPU. The improved efficiency enables scalable processing of human motion videos, aiding in the creation of foundational datasets.",
           "reference": false,
           "source_image": "figs/p007-012-source.png",
-          "zh": "运行时间。我们使用一段包含 1430 帧（约 45 秒）的示例视频测试了运行时间。包括 YOLOv8 检测、ViTPose、ViT 特征提取和 DPVO 在内的预处理共耗时 46.0 秒（4.9 + 20.0 + 10.1 + 11.0）。GVHMR 的其余部分仅需 0.28 秒。WHAM 采用相同的预处理流程，其核心网络耗时 2.0 秒。而基于优化的方法 SLAHMR 处理时间超过 6 小时。所有模型均在 RTX 4090 GPU 上进行测试。效率的提升实现了对人体运动视频的可扩展处理，有助于构建基石数据集。"
+          "zh": "运行时间。我们使用一段包含 1430 帧（约 45 秒）的示例视频测试了运行时间。包括 YOLOv8 检测、ViTPose、ViT 特征提取和 DPVO 在内的预处理共耗时 46.0 秒\\((4.9 + 20.0 + 10.1 + 11.0)\\)。GVHMR 的其余部分仅需 0.28 秒。WHAM 采用相同的预处理流程，其核心网络耗时 2.0 秒。而基于优化的方法 SLAHMR 处理时间超过 6 小时。所有模型均在 RTX 4090 GPU 上进行测试。效率的提升实现了对人体运动视频的可扩展处理，有助于构建基石数据集。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b13",
@@ -2095,15 +2252,24 @@
           "id": "p10-b2",
           "kind": "picture",
           "bbox": [
-            102,
-            78,
-            510,
-            280
+            100.0,
+            76.0,
+            512.0,
+            282.0
           ],
           "en": "",
           "reference": true,
           "image": "figs/p010-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            102.0,
+            78.0,
+            510.0,
+            280.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1236,
+          "image_height": 618
         },
         {
           "id": "p10-b3",
@@ -2123,15 +2289,24 @@
           "id": "p10-b4",
           "kind": "picture",
           "bbox": [
-            140,
-            309,
-            472,
-            652
+            138.0,
+            307.0,
+            474.0,
+            654.0
           ],
           "en": "Input Image Ground Truth WHAM Ours",
           "reference": true,
           "image": "figs/p010-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            140.0,
+            309.0,
+            472.0,
+            652.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1008,
+          "image_height": 1041
         },
         {
           "id": "p10-b5",
@@ -2156,15 +2331,24 @@
           "id": "p11-b2",
           "kind": "picture",
           "bbox": [
-            51,
-            78,
-            561,
-            249
+            49.0,
+            76.0,
+            563.0,
+            251.0
           ],
           "en": "",
           "reference": true,
           "image": "figs/p011-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            51.0,
+            78.0,
+            561.0,
+            249.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1542,
+          "image_height": 525
         },
         {
           "id": "p11-b3",
@@ -2184,15 +2368,24 @@
           "id": "p11-b4",
           "kind": "picture",
           "bbox": [
-            51,
-            288,
-            561,
-            666
+            49.0,
+            286.0,
+            563.0,
+            668.0
           ],
           "en": "",
           "reference": true,
           "image": "figs/p011-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            51.0,
+            288.0,
+            561.0,
+            666.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1542,
+          "image_height": 1146
         },
         {
           "id": "p11-b5",

@@ -1,0 +1,45 @@
+{
+  "id": "active-inference-process-theory",
+  "sha256": "09f8d5c71d88054a2fdbaa60ebf43b7cf19b5e925e593671b9fed1868c98e92e",
+  "brand": "Active Inference",
+  "zh_title": "主动推断：一种过程理论",
+  "category": "主动推断 · 贝叶斯神经科学",
+  "pdf": "sources/active-inference-process-theory.pdf",
+  "title": "主动推断：一种过程理论 · 中英对照",
+  "brand_sub": "Active Inference: A Process Theory",
+  "out": "site/active-inference-process-theory",
+  "imported": true,
+  "source_language": "en",
+  "math": true,
+  "source_url": "https://doi.org/10.1162/NECO_a_00912",
+  "source_aliases": [
+    "/home/suzumiyaharuhi/Desktop/process_theory.pdf",
+    "https://activeinference.github.io/papers/process_theory.pdf"
+  ],
+  "source_version": "Neural Computation 29(1):1–49 (2017); user PDF includes 7 additional citing-article pages",
+  "source_authors": "Karl Friston, Thomas FitzGerald, Francesco Rigoli, Philipp Schwartenbeck, Giovanni Pezzulo",
+  "translation": "Gemini 3.8 Flash (Medium), translated from user-supplied PDF via local Antigravity CLI",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "translation_credit": "译文翻译：Gemini 3.8 Flash Medium",
+  "translation_notice": "中文由 Gemini 3.8 Flash（Medium）逐段翻译，覆盖正文及 A–F 附录，尚未经过逐段人工校对。正文数学记号对照原 PDF 页面恢复，图表内文字及显示公式保留原图。本文件为 49 页正式论文，另附 7 页后续被引文献列表；参考文献及该附加列表保留原文。",
+  "translation_review": "gemini-translated-awaiting-human-review",
+  "polished_paragraphs": 179,
+  "polished_at": "2026-10-29T12:54:39.894277+00:00",
+  "validation": {
+    "equations": {
+      "2.1": "p7-b4",
+      "2.2": "p7-b8",
+      "2.3": "p8-b8",
+      "2.4": "p9-b7",
+      "2.5": "p10-b5",
+      "2.6": "p13-b2",
+      "2.7": "p14-b2",
+      "2.8": "p14-b5",
+      "3.1": "p31-b2"
+    },
+    "equation_references": 42,
+    "paragraphs": 384
+  }
+}

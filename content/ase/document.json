@@ -36,15 +36,24 @@
           "id": "p1-b3",
           "kind": "picture",
           "bbox": [
-            51,
-            199,
-            561,
-            317
+            49.0,
+            197.0,
+            563.0,
+            319.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            51.0,
+            199.0,
+            561.0,
+            317.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1542,
+          "image_height": 366
         },
         {
           "id": "p1-b4",
@@ -429,26 +438,36 @@
             562,
             378
           ],
-          "en": "In our framework, both pre-training and transfer tasks will be modeled as reinforcement learning problems, where an agent interacts with an environment according to a policy 𝜋 in order to optimize a given objective [Sutton and Barto 1998]. At each time step 𝑡 , the agent observes the state s 𝑡 of the system, then samples an action from a policy a 𝑡 ∼ 𝜋 (a 𝑡 |s 𝑡 ). The agent then executes the action, which leads to a new state s 𝑡 +1, sampled according to the dynamics of the environment s 𝑡 +1 ∼ 𝑝 (s 𝑡 +1|s 𝑡 , a 𝑡 ), and a scalar reward 𝑟𝑡 = 𝑟 (s 𝑡 , a 𝑡 , s 𝑡 +1). The agent’s objective is to learn a policy that maximizes its expected discounted return 𝐽 ( 𝜋 ),",
+          "en": "In our framework, both pre-training and transfer tasks will be modeled as reinforcement learning problems, where an agent interacts with an environment according to a policy \\(\\pi\\) in order to optimize a given objective [Sutton and Barto 1998]. At each time step \\(t\\), the agent observes the state \\(\\mathbf{s}_t\\) of the system, then samples an action from a policy \\(\\mathbf{a}_t \\sim \\pi(\\mathbf{a}_t | \\mathbf{s}_t)\\). The agent then executes the action, which leads to a new state \\(\\mathbf{s}_{t+1}\\), sampled according to the dynamics of the environment \\(\\mathbf{s}_{t+1} \\sim p(\\mathbf{s}_{t+1} | \\mathbf{s}_t, \\mathbf{a}_t)\\), and a scalar reward \\(r_t = r(\\mathbf{s}_t, \\mathbf{a}_t, \\mathbf{s}_{t+1})\\). The agent’s objective is to learn a policy that maximizes its expected discounted return \\(J(\\pi)\\),",
           "reference": false,
           "source_image": "figs/p003-006-source.png",
-          "zh": "在我们的框架中，预训练和迁移任务都将被建模为强化学习问题，其中智能体根据策略 𝜋 与环境进行交互，以优化给定的目标[Sutton and Barto 1998]。在每个时间步 𝑡，智能体观察系统的状态 s 𝑡，然后从策略中采样动作 a 𝑡 ∼ 𝜋 (a 𝑡 |s 𝑡 )。随后智能体执行该动作，并根据环境动力学采样出新的状态 s 𝑡 +1 ∼ 𝑝 (s 𝑡 +1|s 𝑡 , a 𝑡 )，同时获得标量奖励 𝑟𝑡 = 𝑟 (s 𝑡 , a 𝑡 , s 𝑡 +1)。智能体的目标是学习一个使其期望折扣回报 𝐽 ( 𝜋 ) 最大化的策略，"
+          "zh": "在我们的框架中，预训练和迁移任务都将被建模为强化学习问题，其中智能体根据策略 \\(\\pi\\) 与环境进行交互，以优化给定的目标[Sutton and Barto 1998]。在每个时间步 \\(t\\)，智能体观察系统的状态 \\(\\mathbf{s}_t\\)，然后从策略中采样动作 \\(\\mathbf{a}_t \\sim \\pi(\\mathbf{a}_t | \\mathbf{s}_t)\\)。随后智能体执行该动作，并根据环境动力学采样出新的状态 \\(\\mathbf{s}_{t+1} \\sim p(\\mathbf{s}_{t+1} | \\mathbf{s}_t, \\mathbf{a}_t)\\)，同时获得标量奖励 \\(r_t = r(\\mathbf{s}_t, \\mathbf{a}_t, \\mathbf{s}_{t+1})\\)。智能体的目标是学习一个使其期望折扣回报 \\(J(\\pi)\\) 最大化的策略，",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b7",
           "kind": "formula",
           "bbox": [
-            390,
-            384,
-            561,
-            412
+            388.0,
+            382.0,
+            563.0,
+            414.0
           ],
           "en": "𝐽 ( 𝜋 ) = E 𝑝 ( 𝜏 | 𝜋 ) ∑︁ 𝛾 𝑡 𝑟𝑡 , (1) � 𝑇𝑡 =−01 �",
           "reference": false,
           "image": "figs/p003-007.png",
           "labels": [
             "1"
-          ]
+          ],
+          "original_bbox": [
+            390.0,
+            384.0,
+            561.0,
+            412.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 525,
+          "image_height": 96
         },
         {
           "id": "p3-b8",
@@ -459,10 +478,11 @@
             561,
             528
           ],
-          "en": "where 𝑝 ( 𝜏 | 𝜋 ) = 𝑝 (s0)�𝑇 𝑡 =− 01𝑝(s𝑡+1|s𝑡,a𝑡)𝜋(a𝑡|s𝑡)representsthe likelihood of a trajectory 𝜏 = {s0 , a0 ,𝑟 0 , s1 , ..., s 𝑇 −1 , a 𝑇 −1 ,𝑟𝑇 −1 , s 𝑇 } under 𝜋 . 𝑝 (s0) is the initial state distribution, 𝑇 denotes the time horizon of a trajectory, and 𝛾 ∈[0 , 1] is a discount factor. The reward function thus provides an interface through which users can specify the task that an agent should perform. However, designing effective reward functions that elicit the desired behaviors from an agent often involves a tedious design process. Therefore, constructing a sufficiently rich set of tasks that leads to diverse and sophisticated motor skills can present a daunting engineering endeavour.",
+          "en": "where \\(p(\\tau | \\pi) = p(\\mathbf{s}_0) \\prod_{t=0}^{T-1} p(\\mathbf{s}_{t+1} | \\mathbf{s}_t, \\mathbf{a}_t) \\pi(\\mathbf{a}_t | \\mathbf{s}_t)\\) represents the likelihood of a trajectory \\(\\tau = \\{\\mathbf{s}_0, \\mathbf{a}_0, r_0, \\mathbf{s}_1, ..., \\mathbf{s}_{T-1}, \\mathbf{a}_{T-1}, r_{T-1}, \\mathbf{s}_T\\}\\) under \\(\\pi\\). \\(p(\\mathbf{s}_0)\\) is the initial state distribution, \\(T\\) denotes the time horizon of a trajectory, and \\(\\gamma \\in [0, 1]\\) is a discount factor. The reward function thus provides an interface through which users can specify the task that an agent should perform. However, designing effective reward functions that elicit the desired behaviors from an agent often involves a tedious design process. Therefore, constructing a sufficiently rich set of tasks that leads to diverse and sophisticated motor skills can present a daunting engineering endeavour.",
           "reference": false,
           "source_image": "figs/p003-008-source.png",
-          "zh": "其中〔行内公式见原版〕表示策略 𝜋 下轨迹 𝜏 = {s0 , a0 , 𝑟 0 , s1 , ..., s 𝑇 −1 , a 𝑇 −1 , 𝑟𝑇 −1 , s 𝑇 } 的似然概率。𝑝 (s0) 是初始状态分布，𝑇 表示轨迹的时间跨度，𝛾 ∈ [0 , 1] 是折扣因子。因此，奖励函数提供了一个接口，用户可以通过该接口指定智能体应执行的任务。然而，设计有效的奖励函数以引导智能体产生期望行为通常涉及繁琐的设计过程。因此，构建足够丰富的任务集以产生多样化且复杂的运动技能可能是一项艰巨的工程挑战。"
+          "zh": "其中 \\(p(\\tau | \\pi) = p(\\mathbf{s}_0) \\prod_{t=0}^{T-1} p(\\mathbf{s}_{t+1} | \\mathbf{s}_t, \\mathbf{a}_t) \\pi(\\mathbf{a}_t | \\mathbf{s}_t)\\) 表示策略 \\(\\pi\\) 下轨迹 \\(\\tau = \\{\\mathbf{s}_0, \\mathbf{a}_0, r_0, \\mathbf{s}_1, ..., \\mathbf{s}_{T-1}, \\mathbf{a}_{T-1}, r_{T-1}, \\mathbf{s}_T\\}\\) 的似然概率。\\(p(\\mathbf{s}_0)\\) 是初始状态分布，\\(T\\) 表示轨迹的时间跨度，\\(\\gamma \\in [0, 1]\\) 是折扣因子。因此，奖励函数提供了一个接口，用户可以通过该接口指定智能体应执行的任务。然而，设计有效的奖励函数以引导智能体产生期望行为通常涉及繁琐的设计过程。因此，构建足够丰富的任务集以产生多样化且复杂的运动技能可能是一项艰巨的工程挑战。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b9",
@@ -487,10 +507,11 @@
             562,
             694
           ],
-          "en": "In this paper, we present adversarial skill embeddings (ASE), a scalable data-driven approach for learning reusable motor skills for physically simulated characters. An overview of our framework is provided in Figure 2. The training processes consists of two stages: a pre-training stage, and a task-training stage. During pre-training, the character is given a dataset of motion clips M = { 𝑚𝑖 }, which provides examples of the kinds of behaviors that the agent should learn. Each motion clip 𝑚𝑖 = {s𝑖 𝑡} is represented as a sequence of states that depicts a particular behavior. This dataset is used by an adversarial imitation learning procedure to train a low-level skill-conditioned policy 𝜋 (a|s , z), which maps latent variables z to behaviors that resemble motions shown in the dataset. Unlike most prior motion imitation techniques [Lee et al. 2010; Liu et al. 2010;",
+          "en": "In this paper, we present adversarial skill embeddings (ASE), a scalable data-driven approach for learning reusable motor skills for physically simulated characters. An overview of our framework is provided in Figure 2. The training processes consists of two stages: a pre-training stage, and a task-training stage. During pre-training, the character is given a dataset of motion clips \\(\\mathcal{M} = \\{m^i\\}\\), which provides examples of the kinds of behaviors that the agent should learn. Each motion clip \\(m^i = \\{\\mathbf{s}_t^i\\}\\) is represented as a sequence of states that depicts a particular behavior. This dataset is used by an adversarial imitation learning procedure to train a low-level skill-conditioned policy \\(\\pi(\\mathbf{a} | \\mathbf{s}, \\mathbf{z})\\), which maps latent variables \\(\\mathbf{z}\\) to behaviors that resemble motions shown in the dataset. Unlike most prior motion imitation techniques [Lee et al. 2010; Liu et al. 2010;",
           "reference": false,
           "source_image": "figs/p003-010-source.png",
-          "zh": "在本文中，我们提出了对抗技能嵌入（adversarial skill embeddings，简称 ASE），这是一种可扩展的数据驱动方法，用于为物理仿真角色学习可复用的运动技能。图 2 提供了我们框架的概览。训练过程包括两个阶段：预训练阶段和任务训练阶段。在预训练期间，角色被赋予一个动作片段数据集 M = { 𝑚𝑖 }，该数据集提供了智能体应当学习的行为类型示例。每个动作片段 𝑚𝑖 = {s𝑖 𝑡} 都表示为描绘特定行为的状态序列。该数据集被对抗模仿学习过程用于训练一个低层技能条件策略 𝜋 (a|s , z)，该策略将潜在变量 z 映射为类似于数据集中所示动作的行为。与大多数先前的动作模仿技术[Lee et al. 2010; Liu et al. 2010;"
+          "zh": "在本文中，我们提出了对抗技能嵌入（adversarial skill embeddings，简称 ASE），这是一种可扩展的数据驱动方法，用于为物理仿真角色学习可复用的运动技能。图 2 提供了我们框架的概览。训练过程包括两个阶段：预训练阶段和任务训练阶段。在预训练期间，角色被赋予一个动作片段数据集 \\(\\mathcal{M} = \\{m^i\\}\\)，该数据集提供了智能体应当学习的行为类型示例。每个动作片段 \\(m^i = \\{\\mathbf{s}_t^i\\}\\) 都表示为描绘特定行为的状态序列。该数据集被对抗模仿学习过程用于训练一个低层技能条件策略 \\(\\pi(\\mathbf{a} | \\mathbf{s}, \\mathbf{z})\\)，该策略将潜在变量 \\(\\mathbf{z}\\) 映射为类似于数据集中所示动作的行为。与大多数先前的动作模仿技术[Lee et al. 2010; Liu et al. 2010;",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b11",
@@ -515,15 +536,24 @@
           "id": "p4-b1",
           "kind": "picture",
           "bbox": [
-            51,
-            78,
-            295,
-            395
+            49.0,
+            76.0,
+            297.0,
+            397.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p004-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            51.0,
+            78.0,
+            295.0,
+            395.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 744,
+          "image_height": 963
         },
         {
           "id": "p4-b2",
@@ -534,10 +564,11 @@
             296,
             496
           ],
-          "en": "Fig. 2. The ASE framework consists of two stages: pre-training and transfer. During pre-training a low-level policy 𝜋 (a |s , z) is trained to map latent skills z to behaviors that resemble motions depicted in a dataset. The policy is trained to model a diverse repertoire of skills by using a reward function that combines an adversarial imitation objective, specified by a discriminator 𝐷 , and an unsupervised skill discovery, specified by an encoder 𝑞 . After pre-training, 𝜋 can be transferred to new tasks by using a task-specific high-level policy 𝜔 (z|s , g) to specify latent variables z for directing the low-level policy towards accomplishing a task-specific goal g.",
+          "en": "Fig. 2. The ASE framework consists of two stages: pre-training and transfer. During pre-training a low-level policy \\(\\pi(\\mathbf{a} | \\mathbf{s}, \\mathbf{z})\\) is trained to map latent skills \\(\\mathbf{z}\\) to behaviors that resemble motions depicted in a dataset. The policy is trained to model a diverse repertoire of skills by using a reward function that combines an adversarial imitation objective, specified by a discriminator \\(D\\), and an unsupervised skill discovery, specified by an encoder \\(q\\). After pre-training, \\(\\pi\\) can be transferred to new tasks by using a task-specific high-level policy \\(\\omega(\\mathbf{z} | \\mathbf{s}, \\mathbf{g})\\) to specify latent variables \\(\\mathbf{z}\\) for directing the low-level policy towards accomplishing a task-specific goal \\(\\mathbf{g}\\).",
           "reference": false,
           "source_image": "figs/p004-002-source.png",
-          "zh": "图 2. ASE 框架包含两个阶段：预训练和迁移。在预训练期间，低层策略 𝜋 (a |s , z) 被训练用于将潜在技能 z 映射到类似于数据集中描绘的动作的行为。该策略通过使用结合了判别器 𝐷 指定的对抗模仿目标以及编码器 𝑞 指定的无监督技能发现目标的奖励函数，来对多样化的技能库进行建模。预训练后，通过使用特定任务的高层策略 𝜔 (z|s , g) 来指定潜在变量 z，以引导低层策略完成特定任务的目标 g，从而可以将 𝜋 迁移到新任务中。"
+          "zh": "图 2. ASE 框架包含两个阶段：预训练和迁移。在预训练期间，低层策略 \\(\\pi(\\mathbf{a} | \\mathbf{s}, \\mathbf{z})\\) 被训练用于将潜在技能 \\(\\mathbf{z}\\) 映射到类似于数据集中描绘的动作的行为。该策略通过使用结合了判别器 \\(D\\) 指定的对抗模仿目标以及编码器 \\(q\\) 指定的无监督技能发现目标的奖励函数，来对多样化的技能库进行建模。预训练后，通过使用特定任务的高层策略 \\(\\omega(\\mathbf{z} | \\mathbf{s}, \\mathbf{g})\\) 来指定潜在变量 \\(\\mathbf{z}\\)，以引导低层策略完成特定任务的目标 \\(\\mathbf{g}\\)，从而可以将 \\(\\pi\\) 迁移到新任务中。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b3",
@@ -548,10 +579,11 @@
             296,
             646
           ],
-          "en": "Merel et al. 2020; Peng et al. 2018], our models need not exactly match any particular motion clip in the dataset. Instead, the objective is for a policy to discover a diverse and versatile set of skills that exhibits the general characteristics of the motion data. Then in the task-training stage, the low-level policy is reused to perform new tasks by training a task-specific high-level policy 𝜔 (z|s , g), which specifies latent variables for directing the low-level policy towards completing the task objectives. The high-level policy is conditioned on a task-specific goal g, and can be trained without any motion data. But since the low-level policy was trained with a motion dataset, it allows the character to produce naturalistic behaviors even in the absence of motion data.",
+          "en": "Merel et al. 2020; Peng et al. 2018], our models need not exactly match any particular motion clip in the dataset. Instead, the objective is for a policy to discover a diverse and versatile set of skills that exhibits the general characteristics of the motion data. Then in the task-training stage, the low-level policy is reused to perform new tasks by training a task-specific high-level policy \\(\\omega(\\mathbf{z} | \\mathbf{s}, \\mathbf{g})\\), which specifies latent variables for directing the low-level policy towards completing the task objectives. The high-level policy is conditioned on a task-specific goal \\(\\mathbf{g}\\), and can be trained without any motion data. But since the low-level policy was trained with a motion dataset, it allows the character to produce naturalistic behaviors even in the absence of motion data.",
           "reference": false,
           "source_image": "figs/p004-003-source.png",
-          "zh": "Merel et al. 2020; Peng et al. 2018]不同，我们的模型不需要精确匹配数据集中的任何特定动作片段。相反，其目标是让策略发现一组多样且多能的技能，体现动作数据的总体特征。随后在任务训练阶段，通过训练特定任务的高层策略 𝜔 (z|s , g) 来复用低层策略以执行新任务，该高层策略指定潜在变量以引导低层策略完成任务目标。高层策略以特定任务目标 g 为条件，且可以在没有任何动作数据的情况下进行训练。但由于低层策略是使用动作数据集训练的，即使在缺乏动作数据的情况下，它也能使角色产生逼真的自然行为。"
+          "zh": "Merel et al. 2020; Peng et al. 2018]不同，我们的模型不需要精确匹配数据集中的任何特定动作片段。相反，其目标是让策略发现一组多样且多能的技能，体现动作数据的总体特征。随后在任务训练阶段，通过训练特定任务的高层策略 \\(\\omega(\\mathbf{z} | \\mathbf{s}, \\mathbf{g})\\) 来复用低层策略以执行新任务，该高层策略指定潜在变量以引导低层策略完成任务目标。高层策略以特定任务目标 \\(\\mathbf{g}\\) 为条件，且可以在没有任何动作数据的情况下进行训练。但由于低层策略是使用动作数据集训练的，即使在缺乏动作数据的情况下，它也能使角色产生逼真的自然行为。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b4",
@@ -576,10 +608,11 @@
             296,
             694
           ],
-          "en": "In ASE, the skills are modeled by a skill-conditioned policy 𝜋 (a|s , z), where each skill is represented by a latent variable z ∈Z sampled",
+          "en": "In ASE, the skills are modeled by a skill-conditioned policy \\(\\pi(\\mathbf{a} | \\mathbf{s}, \\mathbf{z})\\), where each skill is represented by a latent variable \\(\\mathbf{z} \\in \\mathcal{Z}\\) sampled",
           "reference": false,
           "source_image": "figs/p004-005-source.png",
-          "zh": "在 ASE 中，技能由技能条件策略 𝜋 (a|s , z) 进行建模，其中每种技能都由一个采样的潜在变量 z ∈ Z 表示，"
+          "zh": "在 ASE 中，技能由技能条件策略 \\(\\pi(\\mathbf{a} | \\mathbf{s}, \\mathbf{z})\\) 进行建模，其中每种技能都由一个采样的潜在变量 \\(\\mathbf{z} \\in \\mathcal{Z}\\) 表示，",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b13",
@@ -604,26 +637,36 @@
             561,
             179
           ],
-          "en": "according to a prior over latent skills z ∼ 𝑝 (z). An effective skill model should produce realistic behaviors, while also providing a directable skill representation that can be conveniently utilized to perform new downstream tasks. This is accomplished by combining a motion imitation objective with an unsupervised skill discovery objective, which encourages the agent to develop a set of diverse skills that conforms to the behavioral characteristics specified by a dataset of motion clips. Given a motion dataset M, the pre-training objective is given by:",
+          "en": "according to a prior over latent skills \\(\\mathbf{z} \\sim p(\\mathbf{z})\\). An effective skill model should produce realistic behaviors, while also providing a directable skill representation that can be conveniently utilized to perform new downstream tasks. This is accomplished by combining a motion imitation objective with an unsupervised skill discovery objective, which encourages the agent to develop a set of diverse skills that conforms to the behavioral characteristics specified by a dataset of motion clips. Given a motion dataset \\(\\mathcal{M}\\), the pre-training objective is given by:",
           "reference": false,
           "source_image": "figs/p004-006-source.png",
-          "zh": "该潜在变量依据潜在技能的先验分布 z ∼ 𝑝 (z) 进行采样。一个有效的技能模型应当产生逼真的行为，同时还应提供便于利用来执行新下游任务的可导向技能表征。这是通过将动作模仿目标与无监督技能发现目标相结合来实现的，从而鼓励智能体发展出一组符合动作片段数据集所指定行为特征的多样化技能。给定动作数据集 M，预训练目标表示为："
+          "zh": "该潜在变量依据潜在技能的先验分布 \\(\\mathbf{z} \\sim p(\\mathbf{z})\\) 进行采样。一个有效的技能模型应当产生逼真的行为，同时还应提供便于利用来执行新下游任务的可导向技能表征。这是通过将动作模仿目标与无监督技能发现目标相结合来实现的，从而鼓励智能体发展出一组符合动作片段数据集所指定行为特征的多样化技能。给定动作数据集 \\(\\mathcal{M}\\)，预训练目标表示为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b7",
           "kind": "formula",
           "bbox": [
-            347,
-            189,
-            561,
-            206
+            345.0,
+            187.0,
+            563.0,
+            208.0
           ],
           "en": "max 𝜋 − 𝐷 JS � 𝑑 𝜋 (s , s ′ )������ 𝑑 M (s , s′)� + 𝛽𝐼 � s , s ′ ; z�� 𝜋 � . (2)",
           "reference": false,
           "image": "figs/p004-007.png",
           "labels": [
             "2"
-          ]
+          ],
+          "original_bbox": [
+            347.0,
+            189.0,
+            561.0,
+            206.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 654,
+          "image_height": 63
         },
         {
           "id": "p4-b8",
@@ -634,10 +677,11 @@
             562,
             446
           ],
-          "en": "The first term is the imitation objective, which encourages the policy to produce realistic behaviors by matching the marginal statetransition distribution of the dataset, where 𝐷 JS denotes the JensenShannon divergence, 𝑑𝜋 (s , s′ ) represents the marginal distribution of state transitions induced by 𝜋 , and 𝑑M (s , s′ ) is the marginal state-transition distribution of the motion dataset M. Intuitively, this objective encourages a low-level policy to reproduce the entire distribution of behaviors from which the motion data were sampled, rather than simply imitating the individual motion clips. An effective skill embedding, should therefore be able to generalize to behaviors that are not depicted in the motion clips, but still conform to the general characteristics of the dataset. The second term is the unsupervised skill discovery objective, which encourages the policy to develop a diverse and distinct set of skills by maximizing the mutual information between a skill z and the resulting behaviors, as represented by state transitions. 𝛽 is a manually specified coefficient. This objective encourages the low-level policy to be directable , such that different values of z leads to distinct and predictable behaviors. Computing these quantities exactly is generally intractable. In the following subsections, we will discuss techniques for constructing a practical approximation of this objective.",
+          "en": "The first term is the imitation objective, which encourages the policy to produce realistic behaviors by matching the marginal statetransition distribution of the dataset, where \\(D_\\mathrm{JS}\\) denotes the JensenShannon divergence, \\(d^\\pi(\\mathbf{s}, \\mathbf{s}')\\) represents the marginal distribution of state transitions induced by \\(\\pi\\), and \\(d^\\mathcal{M}(\\mathbf{s}, \\mathbf{s}')\\) is the marginal state-transition distribution of the motion dataset \\(\\mathcal{M}\\). Intuitively, this objective encourages a low-level policy to reproduce the entire distribution of behaviors from which the motion data were sampled, rather than simply imitating the individual motion clips. An effective skill embedding, should therefore be able to generalize to behaviors that are not depicted in the motion clips, but still conform to the general characteristics of the dataset. The second term is the unsupervised skill discovery objective, which encourages the policy to develop a diverse and distinct set of skills by maximizing the mutual information between a skill \\(\\mathbf{z}\\) and the resulting behaviors, as represented by state transitions. \\(\\beta\\) is a manually specified coefficient. This objective encourages the low-level policy to be directable , such that different values of \\(\\mathbf{z}\\) leads to distinct and predictable behaviors. Computing these quantities exactly is generally intractable. In the following subsections, we will discuss techniques for constructing a practical approximation of this objective.",
           "reference": false,
           "source_image": "figs/p004-008-source.png",
-          "zh": "第一项是模仿目标，它通过匹配数据集的边缘状态转移分布来鼓励策略产生逼真的行为，其中 𝐷 JS 表示 Jensen-Shannon 散度，𝑑𝜋 (s , s′ ) 表示由 𝜋 诱导的状态转移边缘分布，而 𝑑M (s , s′ ) 是动作数据集 M 的状态转移边缘分布。直观地说，该目标鼓励低层策略重现动作数据采样来源的完整行为分布，而不仅仅是模仿单个动作片段。因此，有效的技能嵌入应该能够泛化到动作片段中未描绘但仍符合数据集总体特征的行为。第二项是无监督技能发现目标，它通过最大化技能 z 与其产生的由状态转移所表征的行为之间的互信息，鼓励策略发展出一组多样且各具特色的技能。𝛽 是手动指定的系数。该目标鼓励低层策略具备可导向性（directable），使得不同的 z 值能够导致不同且可预测的行为。精确计算这些量通常是难以处理的。在以下各小节中，我们将讨论构建该目标实用近似的技术。"
+          "zh": "第一项是模仿目标，它通过匹配数据集的边缘状态转移分布来鼓励策略产生逼真的行为，其中 \\(D_\\mathrm{JS}\\) 表示 Jensen-Shannon 散度，\\(d^\\pi(\\mathbf{s}, \\mathbf{s}')\\) 表示由 \\(\\pi\\) 诱导的状态转移边缘分布，而 \\(d^\\mathcal{M}(\\mathbf{s}, \\mathbf{s}')\\) 是动作数据集 \\(\\mathcal{M}\\) 的状态转移边缘分布。直观地说，该目标鼓励低层策略重现动作数据采样来源的完整行为分布，而不仅仅是模仿单个动作片段。因此，有效的技能嵌入应该能够泛化到动作片段中未描绘但仍符合数据集总体特征的行为。第二项是无监督技能发现目标，它通过最大化技能 \\(\\mathbf{z}\\) 与其产生的由状态转移所表征的行为之间的互信息，鼓励策略发展出一组多样且各具特色的技能。\\(\\beta\\) 是手动指定的系数。该目标鼓励低层策略具备可导向性（directable），使得不同的 \\(\\mathbf{z}\\) 值能够导致不同且可预测的行为。精确计算这些量通常是难以处理的。在以下各小节中，我们将讨论构建该目标实用近似的技术。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b9",
@@ -662,26 +706,36 @@
             562,
             538
           ],
-          "en": "Since computing the Jensen-Shannon divergence can be computationally challenging, we will leverage a variational approximation in the form of a GAN-like framework [Goodfellow et al. 2014]. First, we introduce a discriminator 𝐷 (s , s′ ), which is trained to classify if a given state transition (s , s′ ) is from the dataset or was produced by the agent,",
+          "en": "Since computing the Jensen-Shannon divergence can be computationally challenging, we will leverage a variational approximation in the form of a GAN-like framework [Goodfellow et al. 2014]. First, we introduce a discriminator \\(D(\\mathbf{s}, \\mathbf{s}')\\), which is trained to classify if a given state transition \\((\\mathbf{s}, \\mathbf{s}')\\) is from the dataset or was produced by the agent,",
           "reference": false,
           "source_image": "figs/p004-010-source.png",
-          "zh": "由于计算 Jensen-Shannon 散度在计算上极具挑战性，我们将利用类 GAN 框架[Goodfellow et al. 2014]形式的变分近似。首先，我们引入一个判别器 𝐷 (s , s′ )，其被训练用于分类给定的状态转移 (s , s′ ) 是来自数据集还是由智能体产生，"
+          "zh": "由于计算 Jensen-Shannon 散度在计算上极具挑战性，我们将利用类 GAN 框架[Goodfellow et al. 2014]形式的变分近似。首先，我们引入一个判别器 \\(D(\\mathbf{s}, \\mathbf{s}')\\)，其被训练用于分类给定的状态转移 \\((\\mathbf{s}, \\mathbf{s}')\\) 是来自数据集还是由智能体产生，",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b11",
           "kind": "formula",
           "bbox": [
-            321,
-            548,
-            561,
-            573
+            319.0,
+            546.0,
+            563.0,
+            574.3795776367188
           ],
           "en": "min 𝐷 −E 𝑑 M (s , s′) �log � 𝐷 � s , s ′��� − E 𝑑𝜋 (s , s′) �log � 1 − 𝐷 � s , s ′��� . (3)",
           "reference": false,
           "image": "figs/p004-011.png",
           "labels": [
             "3"
-          ]
+          ],
+          "original_bbox": [
+            321.0,
+            548.0,
+            561.0,
+            573.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 732,
+          "image_height": 86
         },
         {
           "id": "p4-b12",
@@ -692,10 +746,11 @@
             562,
             694
           ],
-          "en": "The policy can then be trained using rewards specified by 𝑟𝑡 = −log (1 − 𝐷 (s 𝑡 , s 𝑡 +1)). It can be shown that this adversarial training procedure minimizes the Jensen-Shannon divergence between 𝑑𝜋 (s , s′ ) and 𝑑M (s , s′ ) [Ke et al. 2021; Nowozin et al. 2016]. This objective is similar to the one presented by Peng et al. [2021], and can be interpreted as training a policy to produce behaviors that appear to the discriminator as being indistinguishable from motions shown in the dataset. But unlike Peng et al. [2021], which leverages a discriminator to shape the behavioral style of policies trained from scratch for a particular task, our framework utilizes a discriminator to learn reusable skill embeddings, which can later be used to",
+          "en": "The policy can then be trained using rewards specified by \\(r_t = -\\mathrm{log}\\left(1 - D\\left(\\mathbf{s}_t, \\mathbf{s}_{t+1} \\right) \\right)\\). It can be shown that this adversarial training procedure minimizes the Jensen-Shannon divergence between \\(d^\\pi(\\mathbf{s}, \\mathbf{s}')\\) and \\(d^\\mathcal{M}(\\mathbf{s}, \\mathbf{s}')\\) [Ke et al. 2021; Nowozin et al. 2016]. This objective is similar to the one presented by Peng et al. [2021], and can be interpreted as training a policy to produce behaviors that appear to the discriminator as being indistinguishable from motions shown in the dataset. But unlike Peng et al. [2021], which leverages a discriminator to shape the behavioral style of policies trained from scratch for a particular task, our framework utilizes a discriminator to learn reusable skill embeddings, which can later be used to",
           "reference": false,
           "source_image": "figs/p004-012-source.png",
-          "zh": "随后可以使用由 𝑟𝑡 = −log (1 − 𝐷 (s 𝑡 , s 𝑡 +1)) 指定的奖励来训练该策略。可以证明，这种对抗训练过程最小化了 𝑑𝜋 (s , s′ ) 与 𝑑M (s , s′ ) 之间的 Jensen-Shannon 散度[Ke et al. 2021; Nowozin et al. 2016]。该目标类似于 Peng et al. [2021] 提出的目标，可解释为训练一个策略以生成在判别器看来与数据集中所示动作无法区分的行为。但与 Peng et al. [2021] 利用判别器塑造针对特定任务从头训练的策略的行为风格不同，我们的框架利用判别器来学习可复用的技能嵌入，之后可用于"
+          "zh": "随后可以使用由 \\(r_t = -\\mathrm{log}\\left(1 - D\\left(\\mathbf{s}_t, \\mathbf{s}_{t+1} \\right) \\right)\\) 指定的奖励来训练该策略。可以证明，这种对抗训练过程最小化了 \\(d^\\pi(\\mathbf{s}, \\mathbf{s}')\\) 与 \\(d^\\mathcal{M}(\\mathbf{s}, \\mathbf{s}')\\) 之间的 Jensen-Shannon 散度[Ke et al. 2021; Nowozin et al. 2016]。该目标类似于 Peng et al. [2021] 提出的目标，可解释为训练一个策略以生成在判别器看来与数据集中所示动作无法区分的行为。但与 Peng et al. [2021] 利用判别器塑造针对特定任务从头训练的策略的行为风格不同，我们的框架利用判别器来学习可复用的技能嵌入，之后可用于",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -739,26 +794,36 @@
             296,
             312
           ],
-          "en": "The imitation objective encourages the policy to produce behaviors that resemble the dataset, but it does not ensure that 𝜋 learns a skill representation that is easy to control and amenable for reuse on downstream tasks. Furthermore, the adversarial training procedure described in Section 5.1 is prone to mode-collapse, where the policy reproduces only a narrow range of behaviors depicted in the original dataset. To address these shortcomings, we incorporate a skill discovery objective, commonly used in unsupervised reinforcement learning, to encourage the policy to model more diverse and distinct behaviors. The objective aims to maximize the mutual information 𝐼 (s , s′ ; z| 𝜋 ) between the state transitions (s , s′ ) produced by a policy 𝜋 , and a latent skill variable z, drawn from a distribution of skills z ∼ 𝑝 (z). The intuition for this choice of objective can be made more apparent if we consider the definition of mutual information,",
+          "en": "The imitation objective encourages the policy to produce behaviors that resemble the dataset, but it does not ensure that \\(\\pi\\) learns a skill representation that is easy to control and amenable for reuse on downstream tasks. Furthermore, the adversarial training procedure described in Section 5.1 is prone to mode-collapse, where the policy reproduces only a narrow range of behaviors depicted in the original dataset. To address these shortcomings, we incorporate a skill discovery objective, commonly used in unsupervised reinforcement learning, to encourage the policy to model more diverse and distinct behaviors. The objective aims to maximize the mutual information \\(I(\\mathbf{s}, \\mathbf{s}' ; \\mathbf{z} | \\pi)\\) between the state transitions \\((\\mathbf{s}, \\mathbf{s}')\\) produced by a policy \\(\\pi\\), and a latent skill variable \\(\\mathbf{z}\\), drawn from a distribution of skills \\(\\mathbf{z} \\sim p(\\mathbf{z})\\). The intuition for this choice of objective can be made more apparent if we consider the definition of mutual information,",
           "reference": false,
           "source_image": "figs/p005-005-source.png",
-          "zh": "模仿目标鼓励策略产生类似于数据集的行为，但它不能确保 𝜋 学习到易于控制且适合在下游任务中复用的技能表征。此外，第 5.1 节中描述的对抗训练过程容易发生模式崩溃，即策略仅复现原始数据集中所描绘的狭窄范围的行为。为了解决这些不足，我们引入了无监督强化学习中常用的技能发现目标，以鼓励策略对更多样化且独特的行为进行建模。该目标旨在最大化由策略 𝜋 产生的状态转移 (s , s′ ) 与从技能分布 z ∼ 𝑝 (z) 中抽取的潜在技能变量 z 之间的互信息 𝐼 (s , s′ ; z| 𝜋 )。如果我们考察互信息的定义，选择该目标的直觉原因会更加清晰，"
+          "zh": "模仿目标鼓励策略产生类似于数据集的行为，但它不能确保 \\(\\pi\\) 学习到易于控制且适合在下游任务中复用的技能表征。此外，第 5.1 节中描述的对抗训练过程容易发生模式崩溃，即策略仅复现原始数据集中所描绘的狭窄范围的行为。为了解决这些不足，我们引入了无监督强化学习中常用的技能发现目标，以鼓励策略对更多样化且独特的行为进行建模。该目标旨在最大化由策略 \\(\\pi\\) 产生的状态转移 \\((\\mathbf{s}, \\mathbf{s}')\\) 与从技能分布 \\(\\mathbf{z} \\sim p(\\mathbf{z})\\) 中抽取的潜在技能变量 \\(\\mathbf{z}\\) 之间的互信息 \\(I(\\mathbf{s}, \\mathbf{s}' ; \\mathbf{z} | \\pi)\\)。如果我们考察互信息的定义，选择该目标的直觉原因会更加清晰，",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b6",
           "kind": "formula",
           "bbox": [
-            100,
-            318,
-            295,
-            328
+            98.0,
+            316.0,
+            297.0,
+            330.0
           ],
           "en": "𝐼 (s , s ′ ; z| 𝜋 ) = H (s , s ′ | 𝜋 ) −H (s , s ′ |z , 𝜋 ) . (4)",
           "reference": false,
           "image": "figs/p005-006.png",
           "labels": [
             "4"
-          ]
+          ],
+          "original_bbox": [
+            100.0,
+            318.0,
+            295.0,
+            328.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 597,
+          "image_height": 42
         },
         {
           "id": "p5-b7",
@@ -769,10 +834,11 @@
             296,
             399
           ],
-          "en": "Maximizing the mutual information can be interpreted as maximizing the marginal state-transition entropy H (s , s′ | 𝜋 ) induced by 𝜋 , while minimizing the conditional state-transition entropy H (s , s′ |z , 𝜋 ) produced by a particular skill z. In other words, the policy should learn a set of skills that produces diverse behaviors, while each individual skill should produce a distinct behavior.",
+          "en": "Maximizing the mutual information can be interpreted as maximizing the marginal state-transition entropy \\(\\mathcal{H}(\\mathbf{s}, \\mathbf{s}' | \\pi)\\) induced by \\(\\pi\\), while minimizing the conditional state-transition entropy \\(\\mathcal{H}(\\mathbf{s}, \\mathbf{s}' | \\mathbf{z}, \\pi)\\) produced by a particular skill \\(\\mathbf{z}\\). In other words, the policy should learn a set of skills that produces diverse behaviors, while each individual skill should produce a distinct behavior.",
           "reference": false,
           "source_image": "figs/p005-007-source.png",
-          "zh": "最大化互信息可以解释为最大化由 𝜋 诱导的边缘状态转移熵 H (s , s′ | 𝜋 )，同时最小化由特定技能 z 产生的条件状态转移熵 H (s , s′ |z , 𝜋 )。换句话说，策略应该学习一组能够产生多样化行为的技能，而每个单独的技能则应当产生独特且明确的行为。"
+          "zh": "最大化互信息可以解释为最大化由 \\(\\pi\\) 诱导的边缘状态转移熵 \\(\\mathcal{H}(\\mathbf{s}, \\mathbf{s}' | \\pi)\\)，同时最小化由特定技能 \\(\\mathbf{z}\\) 产生的条件状态转移熵 \\(\\mathcal{H}(\\mathbf{s}, \\mathbf{s}' | \\mathbf{z}, \\pi)\\)。换句话说，策略应该学习一组能够产生多样化行为的技能，而每个单独的技能则应当产生独特且明确的行为。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b8",
@@ -783,42 +849,61 @@
             296,
             509
           ],
-          "en": "Unfortunately, computing Equation 4 is intractable in most domains. Therefore, we will approximate 𝐼 (s , s′ ; z| 𝜋 ) using a variational lower bound presented by Gregor et al. [2017] and Eysenbach et al. [2019]. But unlike these prior methods, instead of learning a discrete set of skills, our policy will be trained to model a continuous latent space of skills, which is more amenable to interpolation and blending between different behaviors. To derive this objective, we first note that determining the marginal entropy H (s , s′ ) is also generally intractable. A more practical objective can be obtained by taking advantage of the symmetry of mutual information,",
+          "en": "Unfortunately, computing Equation 4 is intractable in most domains. Therefore, we will approximate \\(I(\\mathbf{s}, \\mathbf{s}' ; \\mathbf{z} | \\pi)\\) using a variational lower bound presented by Gregor et al. [2017] and Eysenbach et al. [2019]. But unlike these prior methods, instead of learning a discrete set of skills, our policy will be trained to model a continuous latent space of skills, which is more amenable to interpolation and blending between different behaviors. To derive this objective, we first note that determining the marginal entropy \\(\\mathcal{H}(\\mathbf{s}, \\mathbf{s}')\\) is also generally intractable. A more practical objective can be obtained by taking advantage of the symmetry of mutual information,",
           "reference": false,
           "source_image": "figs/p005-008-source.png",
-          "zh": "不幸的是，在大多数领域中计算公式 4 是难以处理的。因此，我们将使用 Gregor et al. [2017] 和 Eysenbach et al. [2019] 提出的变分下界来近似 𝐼 (s , s′ ; z| 𝜋 )。但与这些先前的方法不同的是，我们的策略不是学习一组离散的技能，而是被训练来建模一个连续的潜在技能空间，这更有利于不同行为之间的插值与融合。为了推导该目标，我们首先指出，确定边缘熵 H (s , s′ ) 通常也是难以处理的。利用互信息的对称性，可以得到一个更实用的目标，"
+          "zh": "不幸的是，在大多数领域中计算公式 4 是难以处理的。因此，我们将使用 Gregor et al. [2017] 和 Eysenbach et al. [2019] 提出的变分下界来近似 \\(I(\\mathbf{s}, \\mathbf{s}' ; \\mathbf{z} | \\pi)\\)。但与这些先前的方法不同的是，我们的策略不是学习一组离散的技能，而是被训练来建模一个连续的潜在技能空间，这更有利于不同行为之间的插值与融合。为了推导该目标，我们首先指出，确定边缘熵 \\(\\mathcal{H}(\\mathbf{s}, \\mathbf{s}')\\) 通常也是难以处理的。利用互信息的对称性，可以得到一个更实用的目标，",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b9",
           "kind": "formula",
           "bbox": [
-            109,
-            515,
-            295,
-            525
+            107.0,
+            513.0,
+            297.0,
+            527.0
           ],
           "en": "𝐼 (s , s ′ ; z| 𝜋 ) = 𝐼 (z; s , s ′ | 𝜋 ) (5)",
           "reference": false,
           "image": "figs/p005-009.png",
           "labels": [
             "5"
-          ]
+          ],
+          "original_bbox": [
+            109.0,
+            515.0,
+            295.0,
+            525.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 570,
+          "image_height": 42
         },
         {
           "id": "p5-b10",
           "kind": "formula",
           "bbox": [
-            151,
-            529,
-            295,
-            539
+            149.0,
+            527.0,
+            297.0,
+            541.0
           ],
           "en": "= H (z) −H (z|s , s ′ , 𝜋 ) . (6)",
           "reference": false,
           "image": "figs/p005-010.png",
           "labels": [
             "6"
-          ]
+          ],
+          "original_bbox": [
+            151.0,
+            529.0,
+            295.0,
+            539.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 444,
+          "image_height": 42
         },
         {
           "id": "p5-b11",
@@ -829,19 +914,20 @@
             296,
             654
           ],
-          "en": "This decomposition removes the need to estimate H (s , s′ | 𝜋 ), and instead we now only need to determine the entropy over skills H (z). Note that, since we are free to define 𝑝 (z) and it is independent of 𝜋 , H (z) is effectively a constant and does not influence the optimization process. Then, to obtain a tractable approximation of H (z|s , s′ , 𝜋 ), we will introduce a variational approximation 𝑞 (z|s , s′ ) of the conditional skill distribution 𝑝 (z|s , s′ , 𝜋 ). Since the cross-entropy between 𝑝 and 𝑞 is an upper bound on the entropy of 𝑝 , H ( 𝑝 ) ≤H ( 𝑝,𝑞 ), we obtain the following variational lower bound on 𝐼 (s , s′ ; z| 𝜋 ),",
+          "en": "This decomposition removes the need to estimate \\(\\mathcal{H}(\\mathbf{s}, \\mathbf{s}' | \\pi)\\), and instead we now only need to determine the entropy over skills \\(\\mathcal{H}(\\mathbf{z})\\). Note that, since we are free to define \\(p(\\mathbf{z})\\) and it is independent of \\(\\pi\\), \\(\\mathcal{H}(\\mathbf{z})\\) is effectively a constant and does not influence the optimization process. Then, to obtain a tractable approximation of \\(\\mathcal{H}(\\mathbf{z} | \\mathbf{s}, \\mathbf{s}', \\pi)\\), we will introduce a variational approximation \\(q(\\mathbf{z} | \\mathbf{s}, \\mathbf{s}')\\) of the conditional skill distribution \\(p(\\mathbf{z} | \\mathbf{s}, \\mathbf{s}', \\pi)\\). Since the cross-entropy between \\(p\\) and \\(q\\) is an upper bound on the entropy of \\(p\\), \\(\\mathcal{H}(p) \\leq \\mathcal{H}(p, q)\\), we obtain the following variational lower bound on \\(I(\\mathbf{s}, \\mathbf{s}' ; \\mathbf{z} | \\pi)\\),",
           "reference": false,
           "source_image": "figs/p005-011-source.png",
-          "zh": "该分解免除了估计 H (s , s′ | 𝜋 ) 的需要，取而代之的是我们现在只需确定技能的熵 H (z)。请注意，由于我们可以自由定义 𝑝 (z) 且其独立于 𝜋，因此 H (z) 实际上是一个常数，不会对优化过程产生影响。接下来，为了获得 H (z|s , s′ , 𝜋 ) 的可计算近似，我们将引入条件技能分布 𝑝 (z|s , s′ , 𝜋 ) 的变分近似 𝑞 (z|s , s′ )。由于 𝑝 与 𝑞 之间的交叉熵是 𝑝 的熵的上界，即 H ( 𝑝 ) ≤ H ( 𝑝, 𝑞 )，我们得到了以下关于 𝐼 (s , s′ ; z| 𝜋 ) 的变分下界，"
+          "zh": "该分解免除了估计 \\(\\mathcal{H}(\\mathbf{s}, \\mathbf{s}' | \\pi)\\) 的需要，取而代之的是我们现在只需确定技能的熵 \\(\\mathcal{H}(\\mathbf{z})\\)。请注意，由于我们可以自由定义 \\(p(\\mathbf{z})\\) 且其独立于 \\(\\pi\\)，因此 \\(\\mathcal{H}(\\mathbf{z})\\) 实际上是一个常数，不会对优化过程产生影响。接下来，为了获得 \\(\\mathcal{H}(\\mathbf{z} | \\mathbf{s}, \\mathbf{s}', \\pi)\\) 的可计算近似，我们将引入条件技能分布 \\(p(\\mathbf{z} | \\mathbf{s}, \\mathbf{s}', \\pi)\\) 的变分近似 \\(q(\\mathbf{z} | \\mathbf{s}, \\mathbf{s}')\\)。由于 \\(p\\) 与 \\(q\\) 之间的交叉熵是 \\(p\\) 的熵的上界，即 \\(\\mathcal{H}(p) \\leq \\mathcal{H}(p, q)\\)，我们得到了以下关于 \\(I(\\mathbf{s}, \\mathbf{s}' ; \\mathbf{z} | \\pi)\\) 的变分下界，",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b12",
           "kind": "formula",
           "bbox": [
-            60,
-            660,
-            295,
-            691
+            58.0,
+            658.0,
+            297.0,
+            693.0
           ],
           "en": "𝐼 (s , s ′ ; z| 𝜋 ) = H (z) + E 𝑝 (z) E 𝑝 (s , s′ | 𝜋, z) �log 𝑝 (z|s , s ′ , 𝜋 )� (7) ≥ max H (z) + E 𝑝 (z) E 𝑝 (s , s′ | 𝜋, z) �log 𝑞 (z|s , s ′ )� , (8) 𝑞",
           "reference": false,
@@ -849,7 +935,16 @@
           "labels": [
             "7",
             "8"
-          ]
+          ],
+          "original_bbox": [
+            60.0,
+            660.0,
+            295.0,
+            691.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 717,
+          "image_height": 105
         },
         {
           "id": "p5-b2",
@@ -860,10 +955,11 @@
             561,
             124
           ],
-          "en": "where the lower bound is tight if 𝑞 = 𝑝 . We will refer to 𝑞 (z|s , s′ ) as the encoder . This skill discovery objective encourages a policy to produce distinct behaviors for each skill z, such that the encoder can easily recover the z that produced a particular behavior.",
+          "en": "where the lower bound is tight if \\(q = p\\). We will refer to \\(q(\\mathbf{z} | \\mathbf{s}, \\mathbf{s}')\\) as the encoder . This skill discovery objective encourages a policy to produce distinct behaviors for each skill \\(\\mathbf{z}\\), such that the encoder can easily recover the \\(\\mathbf{z}\\) that produced a particular behavior.",
           "reference": false,
           "source_image": "figs/p005-002-source.png",
-          "zh": "其中当 𝑞 = 𝑝 时下界紧致。我们将 𝑞 (z|s , s′ ) 称为编码器。该技能发现目标鼓励策略针对每个技能 z 产生独特各异的行为，使得编码器能够容易地复原出产生特定行为的 z。"
+          "zh": "其中当 \\(q = p\\) 时下界紧致。我们将 \\(q(\\mathbf{z} | \\mathbf{s}, \\mathbf{s}')\\) 称为编码器。该技能发现目标鼓励策略针对每个技能 \\(\\mathbf{z}\\) 产生独特各异的行为，使得编码器能够容易地复原出产生特定行为的 \\(\\mathbf{z}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b3",
@@ -897,17 +993,26 @@
           "id": "p5-b14",
           "kind": "formula",
           "bbox": [
-            329,
-            175,
-            561,
-            229
+            327.0,
+            173.0,
+            563.0,
+            231.0
           ],
           "en": "arg max 𝜋 E 𝑝 (z) E 𝑝 ( 𝜏 | 𝜋, z) � 𝑇 ∑︁ 𝑡 =−01 𝛾 𝑡 � − log (1 − 𝐷 (s 𝑡 , s 𝑡 +1)) . (9) + 𝛽 log 𝑞 (z|s 𝑡 , s 𝑡 +1) ��",
           "reference": false,
           "image": "figs/p005-014.png",
           "labels": [
             "9"
-          ]
+          ],
+          "original_bbox": [
+            329.0,
+            175.0,
+            561.0,
+            229.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 708,
+          "image_height": 174
         },
         {
           "id": "p5-b15",
@@ -927,17 +1032,26 @@
           "id": "p5-b16",
           "kind": "formula",
           "bbox": [
-            350,
-            249,
-            561,
-            259
+            348.0,
+            247.0,
+            563.0,
+            261.0
           ],
           "en": "𝑟𝑡 = −log (1 − 𝐷 (s 𝑡 , s 𝑡 +1)) + 𝛽 log 𝑞 (z 𝑡 |s 𝑡 , s 𝑡 +1) . (10)",
           "reference": false,
           "image": "figs/p005-016.png",
           "labels": [
             "10"
-          ]
+          ],
+          "original_bbox": [
+            350.0,
+            249.0,
+            561.0,
+            259.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 645,
+          "image_height": 42
         },
         {
           "id": "p5-b17",
@@ -976,10 +1090,11 @@
             562,
             583
           ],
-          "en": "Although the method described in Section 5 provides a conceptually elegant approach for learning skill embeddings, a number of challenges need to be addressed in order to learn effective skill representations from large datasets in practice. In this section, we detail design improvements for training an effective low-level policy 𝜋 (a|s , z), including techniques for preventing low-quality out-ofdistribution samples from the latent space, improving stability during training, improving the responsiveness of the low-level policy, and developing robust recovery strategies that can be seamlessly integrated into downstream tasks.",
+          "en": "Although the method described in Section 5 provides a conceptually elegant approach for learning skill embeddings, a number of challenges need to be addressed in order to learn effective skill representations from large datasets in practice. In this section, we detail design improvements for training an effective low-level policy \\(\\pi(\\mathbf{a} | \\mathbf{s}, \\mathbf{z})\\), including techniques for preventing low-quality out-ofdistribution samples from the latent space, improving stability during training, improving the responsiveness of the low-level policy, and developing robust recovery strategies that can be seamlessly integrated into downstream tasks.",
           "reference": false,
           "source_image": "figs/p005-019-source.png",
-          "zh": "尽管第 5 节中描述的方法为学习技能嵌入提供了一种在概念上简洁优雅的途径，但在实践中，为了从大规模数据集中学习到有效的技能表示，仍有若干挑战亟待解决。在本节中，我们详细介绍了用于训练有效低层策略 𝜋 (a|s , z) 的设计改进，包括防止潜在空间产生低质量分布外样本的技术、提高训练稳定性的方法、增强低层策略响应能力的技术，以及开发能够无缝集成到下游任务中的鲁棒恢复策略。"
+          "zh": "尽管第 5 节中描述的方法为学习技能嵌入提供了一种在概念上简洁优雅的途径，但在实践中，为了从大规模数据集中学习到有效的技能表示，仍有若干挑战亟待解决。在本节中，我们详细介绍了用于训练有效低层策略 \\(\\pi(\\mathbf{a} | \\mathbf{s}, \\mathbf{z})\\) 的设计改进，包括防止潜在空间产生低质量分布外样本的技术、提高训练稳定性的方法、增强低层策略响应能力的技术，以及开发能够无缝集成到下游任务中的鲁棒恢复策略。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b20",
@@ -1004,10 +1119,11 @@
             562,
             694
           ],
-          "en": "First, we consider the design of the latent space of skills Z and the prior over skills 𝑝 (z). In GAN frameworks, a common choice is to model the latent distribution using a Gaussian 𝑝 (z) = N (0 , 𝐼 ). However, this design results in an unbounded latent space, where latents that are far from the origin of Z may produce low-quality samples. Since the latent space will be used as the action space for a high-level policy 𝜔 (z|s , g), an unbounded Z can lead 𝜔 to select latents that are far from the origin, which may result in unnatural",
+          "en": "First, we consider the design of the latent space of skills \\(\\mathcal{Z}\\) and the prior over skills \\(p(\\mathbf{z})\\). In GAN frameworks, a common choice is to model the latent distribution using a Gaussian \\(p(\\mathbf{z}) = \\mathcal{N}\\left(0, I \\right)\\). However, this design results in an unbounded latent space, where latents that are far from the origin of \\(\\mathcal{Z}\\) may produce low-quality samples. Since the latent space will be used as the action space for a high-level policy \\(\\omega(\\mathbf{z} | \\mathbf{s}, \\mathbf{g})\\), an unbounded \\(\\mathcal{Z}\\) can lead \\(\\omega\\) to select latents that are far from the origin, which may result in unnatural",
           "reference": false,
           "source_image": "figs/p005-021-source.png",
-          "zh": "首先，我们考虑技能的潜在空间 Z 以及技能先验 𝑝 (z) 的设计。在 GAN 框架中，一种常见的选择是使用高斯分布 𝑝 (z) = N (0 , 𝐼 ) 对潜在分布进行建模。然而，这种设计会导致无界的潜在空间，其中远离 Z 原点的潜在变量可能会产生低质量的样本。由于潜在空间将被用作高层策略 𝜔 (z|s , g) 的动作空间，无界的 Z 可能会导致 𝜔 选择远离原点的潜在变量，从而可能产生不自然的"
+          "zh": "首先，我们考虑技能的潜在空间 \\(\\mathcal{Z}\\) 以及技能先验 \\(p(\\mathbf{z})\\) 的设计。在 GAN 框架中，一种常见的选择是使用高斯分布 \\(p(\\mathbf{z}) = \\mathcal{N}\\left(0, I \\right)\\) 对潜在分布进行建模。然而，这种设计会导致无界的潜在空间，其中远离 \\(\\mathcal{Z}\\) 原点的潜在变量可能会产生低质量的样本。由于潜在空间将被用作高层策略 \\(\\omega(\\mathbf{z} | \\mathbf{s}, \\mathbf{g})\\) 的动作空间，无界的 \\(\\mathcal{Z}\\) 可能会导致 \\(\\omega\\) 选择远离原点的潜在变量，从而可能产生不自然的",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1023,26 +1139,36 @@
             296,
             157
           ],
-          "en": "motions. To better ensure high-quality samples, bounded latent spaces have also been used, where 𝑝 (z) can be modeled with a uniform distribution U[−1 , 1] or a truncated Gaussian [Brock et al. 2019]. In this work, we will model the latent space as a hypersphere Z = {z : ||z|| = 1} [Karras et al. 2019], and 𝑝 (z) will be a uniform distribution on the surface of the sphere. Samples can be drawn from 𝑝 (z) by normalizing samples from a standard Gaussian distribution,",
+          "en": "motions. To better ensure high-quality samples, bounded latent spaces have also been used, where \\(p(\\mathbf{z})\\) can be modeled with a uniform distribution \\(\\mathcal{U}[-1, 1]\\) or a truncated Gaussian [Brock et al. 2019]. In this work, we will model the latent space as a hypersphere \\(\\mathcal{Z} = \\{\\mathbf{z} : ||\\mathbf{z}|| = 1\\}\\) [Karras et al. 2019], and \\(p(\\mathbf{z})\\) will be a uniform distribution on the surface of the sphere. Samples can be drawn from \\(p(\\mathbf{z})\\) by normalizing samples from a standard Gaussian distribution,",
           "reference": false,
           "source_image": "figs/p006-001-source.png",
-          "zh": "动作。为了更好地保证高质样本，也有研究采用了有界潜在空间，其中 𝑝 (z) 可采用均匀分布 U[−1 , 1] 或截断高斯分布进行建模 [Brock et al. 2019]。在本工作中，我们将潜在空间建模为超球面 Z = {z : ||z|| = 1} [Karras et al. 2019]，且 𝑝 (z) 为该球面上的均匀分布。通过对来自标准高斯分布的样本进行归一化，即可从 𝑝 (z) 中抽取样本，"
+          "zh": "动作。为了更好地保证高质样本，也有研究采用了有界潜在空间，其中 \\(p(\\mathbf{z})\\) 可采用均匀分布 \\(\\mathcal{U}[-1, 1]\\) 或截断高斯分布进行建模 [Brock et al. 2019]。在本工作中，我们将潜在空间建模为超球面 \\(\\mathcal{Z} = \\{\\mathbf{z} : ||\\mathbf{z}|| = 1\\}\\) [Karras et al. 2019]，且 \\(p(\\mathbf{z})\\) 为该球面上的均匀分布。通过对来自标准高斯分布的样本进行归一化，即可从 \\(p(\\mathbf{z})\\) 中抽取样本，",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b2",
           "kind": "formula",
           "bbox": [
-            121,
-            162,
-            295,
-            172
+            119.0,
+            160.0,
+            297.0,
+            174.0
           ],
           "en": "z¯ ∼N (0 , 𝐼 ) , z = ¯z/||z¯|| . (11)",
           "reference": false,
           "image": "figs/p006-002.png",
           "labels": [
             "11"
-          ]
+          ],
+          "original_bbox": [
+            121.0,
+            162.0,
+            295.0,
+            172.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 534,
+          "image_height": 42
         },
         {
           "id": "p6-b3",
@@ -1090,17 +1216,26 @@
           "id": "p6-b6",
           "kind": "formula",
           "bbox": [
-            111,
-            269,
-            295,
-            287
+            109.0,
+            267.0,
+            297.0,
+            289.0
           ],
           "en": "𝑞 (z|s , s ′ ) = 𝑍 1 exp � 𝜅𝜇𝑞 (s , s ′ ) 𝑇 z� , (12)",
           "reference": false,
           "image": "figs/p006-006.png",
           "labels": [
             "12"
-          ]
+          ],
+          "original_bbox": [
+            111.0,
+            269.0,
+            295.0,
+            287.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 564,
+          "image_height": 66
         },
         {
           "id": "p6-b7",
@@ -1111,26 +1246,36 @@
             295,
             344
           ],
-          "en": "which is the analogue to the Gaussian distribution on the surface of a sphere. 𝜇𝑞 (s , s′ ) is the mean of the distribution, which must be normalized || 𝜇𝑞 (s , s′ )|| = 1, 𝑍 is a normalization constant, and 𝜅 is a scaling factor. The encoder can then be trained by maximizing the log-likelihood of samples (z , s , s′ ) collected from the policy,",
+          "en": "which is the analogue to the Gaussian distribution on the surface of a sphere. \\(\\mu_q(\\mathbf{s}, \\mathbf{s}')\\) is the mean of the distribution, which must be normalized \\(||\\mu_q(\\mathbf{s}, \\mathbf{s}')|| = 1\\), \\(Z\\) is a normalization constant, and \\(\\kappa\\) is a scaling factor. The encoder can then be trained by maximizing the log-likelihood of samples \\((\\mathbf{z}, \\mathbf{s}, \\mathbf{s}')\\) collected from the policy,",
           "reference": false,
           "source_image": "figs/p006-007-source.png",
-          "zh": "该分布是球面上高斯分布的对应物。𝜇𝑞 (s , s′ ) 是该分布的均值，必须满足归一化条件 || 𝜇𝑞 (s , s′ )|| = 1，𝑍 是归一化常数，𝜅 是尺度因子。随后，可以通过最大化从策略中采集到的样本 (z , s , s′ ) 的对数似然来训练编码器，"
+          "zh": "该分布是球面上高斯分布的对应物。\\(\\mu_q(\\mathbf{s}, \\mathbf{s}')\\) 是该分布的均值，必须满足归一化条件 \\(||\\mu_q(\\mathbf{s}, \\mathbf{s}')|| = 1\\)，\\(Z\\) 是归一化常数，\\(\\kappa\\) 是尺度因子。随后，可以通过最大化从策略中采集到的样本 \\((\\mathbf{z}, \\mathbf{s}, \\mathbf{s}')\\) 的对数似然来训练编码器，",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b8",
           "kind": "formula",
           "bbox": [
-            103,
-            348,
-            295,
-            367
+            101.0,
+            346.0,
+            297.0,
+            369.0
           ],
           "en": "max 𝑞 E 𝑝 (z) E 𝑑𝜋 (s , s′ |z) � 𝜅𝜇𝑞 (s , s ′ ) 𝑇 𝑧 � , (13)",
           "reference": false,
           "image": "figs/p006-008.png",
           "labels": [
             "13"
-          ]
+          ],
+          "original_bbox": [
+            103.0,
+            348.0,
+            295.0,
+            367.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 588,
+          "image_height": 69
         },
         {
           "id": "p6-b9",
@@ -1141,10 +1286,11 @@
             296,
             392
           ],
-          "en": "where 𝑑𝜋 (s , s′ |z) represents the likelihood of observing a state transition under 𝜋 given a particular skill z.",
+          "en": "where \\(d^\\pi(\\mathbf{s}, \\mathbf{s}' | \\mathbf{z})\\) represents the likelihood of observing a state transition under \\(\\pi\\) given a particular skill \\(\\mathbf{z}\\).",
           "reference": false,
           "source_image": "figs/p006-009-source.png",
-          "zh": "其中 𝑑𝜋 (s , s′ |z) 表示在给定特定技能 z 的情况下，在 𝜋 下观测到状态转移的可能性。"
+          "zh": "其中 \\(d^\\pi(\\mathbf{s}, \\mathbf{s}' | \\mathbf{z})\\) 表示在给定特定技能 \\(\\mathbf{z}\\) 的情况下，在 \\(\\pi\\) 下观测到状态转移的可能性。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b10",
@@ -1178,17 +1324,26 @@
           "id": "p6-b12",
           "kind": "formula",
           "bbox": [
-            54,
-            463,
-            295,
-            504
+            52.0,
+            461.0,
+            297.0,
+            506.0
           ],
           "en": "min 𝐷 − E 𝑑 M (s , s′) �log � 𝐷 � s , s ′��� − E 𝑑𝜋 (s , s′) �log � 1 − 𝐷 � s , s ′��� + 𝑤 gp E 𝑑 M (s , s′) �������∇ 𝜙 𝐷 ( 𝜙 )��� 𝜙 =(s , s′) ������2 � , (14)",
           "reference": false,
           "image": "figs/p006-012.png",
           "labels": [
             "14"
-          ]
+          ],
+          "original_bbox": [
+            54.0,
+            463.0,
+            295.0,
+            504.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 735,
+          "image_height": 135
         },
         {
           "id": "p6-b13",
@@ -1199,10 +1354,11 @@
             219,
             519
           ],
-          "en": "where 𝑤 gp is a manually specified coefficient.",
+          "en": "where \\(w_\\mathrm{gp}\\) is a manually specified coefficient.",
           "reference": false,
           "source_image": "figs/p006-013-source.png",
-          "zh": "其中 𝑤 gp 是人工指定的系数。"
+          "zh": "其中 \\(w_\\mathrm{gp}\\) 是人工指定的系数。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b14",
@@ -1227,10 +1383,11 @@
             296,
             661
           ],
-          "en": "When reusing pre-trained skills to perform new tasks, the high-level policy 𝜔 (z|s , g) specifies latents z 𝑡 at each timestep to control the behavior of the low-level policy 𝜋 (a|s , z). A responsive low-level policy should change its behaviors according to changes in z. However, the objective described in Equation 9 can lead to unresponsive behaviors, where 𝜋 may perform different behaviors depending on the initial z0 selected at the start of an episode, but if a new latent z′ is selected at a later timestep, then the policy may ignore z′ and continue performing the same behavior specified by z0. This lack of responsiveness can hamper a character’s ability to perform new tasks and agilely respond to unexpected perturbations.",
+          "en": "When reusing pre-trained skills to perform new tasks, the high-level policy \\(\\omega(\\mathbf{z} | \\mathbf{s}, \\mathbf{g})\\) specifies latents \\(\\mathbf{z}_t\\) at each timestep to control the behavior of the low-level policy \\(\\pi(\\mathbf{a} | \\mathbf{s}, \\mathbf{z})\\). A responsive low-level policy should change its behaviors according to changes in \\(\\mathbf{z}\\). However, the objective described in Equation 9 can lead to unresponsive behaviors, where \\(\\pi\\) may perform different behaviors depending on the initial \\(\\mathbf{z}_0\\) selected at the start of an episode, but if a new latent \\(\\mathbf{z}'\\) is selected at a later timestep, then the policy may ignore \\(\\mathbf{z}'\\) and continue performing the same behavior specified by \\(\\mathbf{z}_0\\). This lack of responsiveness can hamper a character’s ability to perform new tasks and agilely respond to unexpected perturbations.",
           "reference": false,
           "source_image": "figs/p006-015-source.png",
-          "zh": "当重用预训练技能来执行新任务时，高层策略 𝜔 (z|s , g) 会在每个时间步指定潜在变量 z 𝑡，以控制低层策略 𝜋 (a|s , z) 的行为。一个具有响应性的低层策略应当根据 z 的变化改变其行为。然而，公式 9 中描述的目标可能会导致不响应的行为：𝜋 可能会根据回合开始时所选的初始 z0 表现出不同的行为，但如果在随后的时间步选择了新的潜在变量 z′，策略可能会忽略 z′ 并继续执行由 z0 所指定的相同行为。这种响应性的缺失会削弱角色执行新任务以及敏捷应对意外扰动的能力。"
+          "zh": "当重用预训练技能来执行新任务时，高层策略 \\(\\omega(\\mathbf{z} | \\mathbf{s}, \\mathbf{g})\\) 会在每个时间步指定潜在变量 \\(\\mathbf{z}_t\\)，以控制低层策略 \\(\\pi(\\mathbf{a} | \\mathbf{s}, \\mathbf{z})\\) 的行为。一个具有响应性的低层策略应当根据 \\(\\mathbf{z}\\) 的变化改变其行为。然而，公式 9 中描述的目标可能会导致不响应的行为：\\(\\pi\\) 可能会根据回合开始时所选的初始 \\(\\mathbf{z}_0\\) 表现出不同的行为，但如果在随后的时间步选择了新的潜在变量 \\(\\mathbf{z}'\\)，策略可能会忽略 \\(\\mathbf{z}'\\) 并继续执行由 \\(\\mathbf{z}_0\\) 所指定的相同行为。这种响应性的缺失会削弱角色执行新任务以及敏捷应对意外扰动的能力。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b16",
@@ -1241,10 +1398,11 @@
             295,
             694
           ],
-          "en": "To improve the responsiveness of the low-level policy, we propose two modifications to the objective in Equation 9. First, instead of conditioning 𝜋 on a fixed z over an entire episode, we will instead",
+          "en": "To improve the responsiveness of the low-level policy, we propose two modifications to the objective in Equation 9. First, instead of conditioning \\(\\pi\\) on a fixed \\(\\mathbf{z}\\) over an entire episode, we will instead",
           "reference": false,
           "source_image": "figs/p006-016-source.png",
-          "zh": "为了提高低层策略的响应性，我们对公式 9 中的目标提出了两处修改。首先，我们不再让 𝜋 在整个回合中都以固定的 z 为条件，而是"
+          "zh": "为了提高低层策略的响应性，我们对公式 9 中的目标提出了两处修改。首先，我们不再让 \\(\\pi\\) 在整个回合中都以固定的 \\(\\mathbf{z}\\) 为条件，而是",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b23",
@@ -1269,10 +1427,11 @@
             562,
             146
           ],
-          "en": "construct a sequence of latents Z = {z0 , z1 , ..., z 𝑇 −1}, and condition 𝜋 on a different latent z 𝑡 at each timestep 𝑡 . The sequence of latents is constructed such that a latent z is repeated for multiple timesteps, before a new latent is sampled from 𝑝 (z) and repeated for multiple subsequent timesteps. This encourages the model to learn to transition between different skills.",
+          "en": "construct a sequence of latents \\(\\mathbf{Z} = \\{\\mathbf{z}_0, \\mathbf{z}_1, ..., \\mathbf{z}_{T-1}\\}\\), and condition \\(\\pi\\) on a different latent \\(\\mathbf{z}_t\\) at each timestep \\(t\\). The sequence of latents is constructed such that a latent \\(\\mathbf{z}\\) is repeated for multiple timesteps, before a new latent is sampled from \\(p(\\mathbf{z})\\) and repeated for multiple subsequent timesteps. This encourages the model to learn to transition between different skills.",
           "reference": false,
           "source_image": "figs/p006-017-source.png",
-          "zh": "构建一个潜在变量序列 Z = {z0 , z1 , ..., z 𝑇 −1}，并在每个时间步 𝑡 让 𝜋 以不同的潜在变量 z 𝑡 为条件。该潜在变量序列的构建方式是：某个潜在变量 z 会持续重复多个时间步，随后再从 𝑝 (z) 中采样一个新的潜在变量并在接下来的多个时间步中重复。这促使模型学会不同技能之间的过渡切换。"
+          "zh": "构建一个潜在变量序列 \\(\\mathbf{Z} = \\{\\mathbf{z}_0, \\mathbf{z}_1, ..., \\mathbf{z}_{T-1}\\}\\)，并在每个时间步 \\(t\\) 让 \\(\\pi\\) 以不同的潜在变量 \\(\\mathbf{z}_t\\) 为条件。该潜在变量序列的构建方式是：某个潜在变量 \\(\\mathbf{z}\\) 会持续重复多个时间步，随后再从 \\(p(\\mathbf{z})\\) 中采样一个新的潜在变量并在接下来的多个时间步中重复。这促使模型学会不同技能之间的过渡切换。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b18",
@@ -1292,17 +1451,26 @@
           "id": "p6-b19",
           "kind": "formula",
           "bbox": [
-            324,
-            221,
-            561,
-            315
+            322.0,
+            219.0,
+            563.0,
+            317.0
           ],
           "en": "arg max 𝜋 E 𝑝 (Z) E 𝑝 ( 𝜏 | 𝜋, Z) � 𝑇 ∑︁ 𝑡 =−01 𝛾 𝑡 � − log (1 − 𝐷 (s 𝑡 , s 𝑡 +1)) + 𝛽 log 𝑞 (z 𝑡 |s 𝑡 , s 𝑡 +1) �� − 𝑤 div E 𝑑𝜋 (s) Ez1 , z2∼ 𝑝 (z) − 1 , 𝐷 z (z1 , z2) �� 𝐷 KL ( 𝜋 (·|s , z1) , 𝜋 (·|s , z2)) �2 � (15)",
           "reference": false,
           "image": "figs/p006-019.png",
           "labels": [
             "15"
-          ]
+          ],
+          "original_bbox": [
+            324.0,
+            221.0,
+            561.0,
+            315.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 723,
+          "image_height": 294
         },
         {
           "id": "p6-b20",
@@ -1313,10 +1481,11 @@
             562,
             488
           ],
-          "en": "with 𝑤 div being a manually specified coefficient. The last term is the diversity objective, which stipulates that if two latents z1 and z2 are similar under a distance function 𝐷 z, then the policy should produce similar action distributions, as measured under the KLdivergence. Conversely, if z1 and z2 are different, then the resulting action distributions should also be different. In our implementation, the distance function is specified by 𝐷 z (z1 , z2) = 0 . 5(1 − z𝑇 1z2), which reflects the cosine distance between z1 and z2, since the latents lie on a sphere. This diversity objective is reminiscent of the loss used in multidimensional scaling [Kruskal 1964], and we found it to be more stable than the objective proposed by Yang et al. [2019]. Note, the reward for the policy at each time step depends only on the encoder 𝑞 and discriminator 𝐷 . The diversity objective is only applied during gradient updates.",
+          "en": "with \\(w_\\mathrm{div}\\) being a manually specified coefficient. The last term is the diversity objective, which stipulates that if two latents \\(\\mathbf{z}_1\\) and \\(\\mathbf{z}_2\\) are similar under a distance function \\(D_\\mathbf{z}\\), then the policy should produce similar action distributions, as measured under the KLdivergence. Conversely, if \\(\\mathbf{z}_1\\) and \\(\\mathbf{z}_2\\) are different, then the resulting action distributions should also be different. In our implementation, the distance function is specified by \\(D_\\mathbf{z}(\\mathbf{z}_1, \\mathbf{z}_2) = 0.5 (1 - \\mathbf{z}_1^T \\mathbf{z}_2)\\), which reflects the cosine distance between \\(\\mathbf{z}_1\\) and \\(\\mathbf{z}_2\\), since the latents lie on a sphere. This diversity objective is reminiscent of the loss used in multidimensional scaling [Kruskal 1964], and we found it to be more stable than the objective proposed by Yang et al. [2019]. Note, the reward for the policy at each time step depends only on the encoder \\(q\\) and discriminator \\(D\\). The diversity objective is only applied during gradient updates.",
           "reference": false,
           "source_image": "figs/p006-020-source.png",
-          "zh": "其中 𝑤 div 是人工指定的系数。最后一项是多样性目标，它规定如果两个潜在变量 z1 和 z2 在距离函数 𝐷 z 下相似，那么策略产生的动作分布在以 KL 散度度量时也应当相似。反之，如果 z1 和 z2 不同，那么所产生的动作分布也应当不同。在我们的实现中，距离函数定义为 𝐷 z (z1 , z2) = 0 . 5(1 − z𝑇 1z2)，鉴于这些潜在变量位于球面上，该函数反映了 z1 和 z2 之间的余弦距离。这种多样性目标与多维尺度分析（multidimensional scaling）[Kruskal 1964] 中使用的损失函数类似，并且我们发现它比 Yang 等人 [2019] 提出的目标更加稳定。注意，策略在每个时间步获得的奖励仅取决于编码器 𝑞 和判别器 𝐷。多样性目标仅在梯度更新期间施加。"
+          "zh": "其中 \\(w_\\mathrm{div}\\) 是人工指定的系数。最后一项是多样性目标，它规定如果两个潜在变量 \\(\\mathbf{z}_1\\) 和 \\(\\mathbf{z}_2\\) 在距离函数 \\(D_\\mathbf{z}\\) 下相似，那么策略产生的动作分布在以 KL 散度度量时也应当相似。反之，如果 \\(\\mathbf{z}_1\\) 和 \\(\\mathbf{z}_2\\) 不同，那么所产生的动作分布也应当不同。在我们的实现中，距离函数定义为 \\(D_\\mathbf{z}(\\mathbf{z}_1, \\mathbf{z}_2) = 0.5 (1 - \\mathbf{z}_1^T \\mathbf{z}_2)\\)，鉴于这些潜在变量位于球面上，该函数反映了 \\(\\mathbf{z}_1\\) 和 \\(\\mathbf{z}_2\\) 之间的余弦距离。这种多样性目标与多维尺度分析（multidimensional scaling）[Kruskal 1964] 中使用的损失函数类似，并且我们发现它比 Yang 等人 [2019] 提出的目标更加稳定。注意，策略在每个时间步获得的奖励仅取决于编码器 \\(q\\) 和判别器 \\(D\\)。多样性目标仅在梯度更新期间施加。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b21",
@@ -1341,10 +1510,11 @@
             562,
             694
           ],
-          "en": "A common failure case for physically simulated characters is losing balance and falling when subjected to perturbations. In these situations, it would be favorable to have characters that can automatically recover and resume performing a task. Therefore, in addition to training the low-level policy to imitate behaviors from a dataset, 𝜋 is also trained to recover from a large variety of fallen configurations. During pre-training, the character has a 10% probability of being initialized in a random fallen state at the start of each episode. The fallen states are generated by dropping the character from the air at random heights and orientations. This simple strategy then leads to robust recovery strategies that can consistently recover from significant perturbations. By incorporating these recovery strategies into the low-level controller, 𝜋 can be conveniently reused to allow the character to automatically recover from perturbations when performing downstream tasks, without requiring the character to be explicitly trained to recover from falling for each new task.",
+          "en": "A common failure case for physically simulated characters is losing balance and falling when subjected to perturbations. In these situations, it would be favorable to have characters that can automatically recover and resume performing a task. Therefore, in addition to training the low-level policy to imitate behaviors from a dataset, \\(\\pi\\) is also trained to recover from a large variety of fallen configurations. During pre-training, the character has a 10% probability of being initialized in a random fallen state at the start of each episode. The fallen states are generated by dropping the character from the air at random heights and orientations. This simple strategy then leads to robust recovery strategies that can consistently recover from significant perturbations. By incorporating these recovery strategies into the low-level controller, \\(\\pi\\) can be conveniently reused to allow the character to automatically recover from perturbations when performing downstream tasks, without requiring the character to be explicitly trained to recover from falling for each new task.",
           "reference": false,
           "source_image": "figs/p006-022-source.png",
-          "zh": "物理仿真角色的一个常见失效情况是在受到扰动时失去平衡并跌倒。在这些情况下，若角色能够自动恢复并继续执行任务将非常理想。因此，除了训练低层策略模仿数据集中的行为外，𝜋 还被训练以从各种各样的倒地构型中恢复起身。在预训练期间，角色在每个回合开始时有 10% 的概率被初始化为随机的倒地状态。倒地状态是通过在空中以随机高度和朝向让角色自由下落而生成的。这一简单的策略进而带来了鲁棒的恢复策略，能够从剧烈扰动中稳定恢复。通过将这些恢复策略融入低层控制器，𝜋 可以方便地被复用，使角色在执行下游任务时能够从扰动中自动恢复，而无需为每个新任务专门训练角色从跌倒中恢复。"
+          "zh": "物理仿真角色的一个常见失效情况是在受到扰动时失去平衡并跌倒。在这些情况下，若角色能够自动恢复并继续执行任务将非常理想。因此，除了训练低层策略模仿数据集中的行为外，\\(\\pi\\) 还被训练以从各种各样的倒地构型中恢复起身。在预训练期间，角色在每个回合开始时有 10% 的概率被初始化为随机的倒地状态。倒地状态是通过在空中以随机高度和朝向让角色自由下落而生成的。这一简单的策略进而带来了鲁棒的恢复策略，能够从剧烈扰动中稳定恢复。通过将这些恢复策略融入低层控制器，\\(\\pi\\) 可以方便地被复用，使角色在执行下游任务时能够从扰动中自动恢复，而无需为每个新任务专门训练角色从跌倒中恢复。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1369,15 +1539,24 @@
           "id": "p7-b2",
           "kind": "table",
           "bbox": [
-            62,
-            97,
-            291,
-            325
+            60.0,
+            95.0,
+            293.0,
+            334.1881408691406
           ],
           "en": "|1:|input M: dataset of reference motions| |---|---| |2:|𝐷←initialize discriminator| |3:|𝑞←initialize encoder| |4:|𝜋←initialize policy| |5:|𝑉←initialize value function| |6:|whilenot donedo| |7:|B ←∅initialize data buffer| |8:|fortrajectory𝑖=1, ...,𝑚do| |9:|Z←sample sequence of latents {z0,z1, ...,z𝑇−1}from𝑝(z)| |10:|𝜏𝑖←{s0,a0,s1, ...,s𝑇}collect trajectory with𝜋andZ| |11:|recordZin𝜏𝑖| |12:|fortime step𝑡=0, ...,𝑇−1do| |13:|𝑟𝑡←−log(1−𝐷(s𝑡,s𝑡+1)) +𝛽log𝑞(z𝑡|s𝑡,s𝑡+1) | |14:|record𝑟𝑡in𝜏𝑖| |15:|end for| |16:|store𝜏𝑖in B| |17:|end for| |18:|Update encoder:| |19:|forupdate step=1, ...,𝑛do| |20:|𝑏𝜋←sample batch of𝐾transitions {(s𝑗,s′ 𝑗, z𝑗) }𝐾 𝑗=1 from B| |21:|update𝑞according to Equation 13 using𝑏𝜋|",
           "reference": false,
           "image": "figs/p007-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            62.0,
+            97.0,
+            291.0,
+            325.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 699,
+          "image_height": 718
         },
         {
           "id": "p7-b3",
@@ -1388,10 +1567,11 @@
             286,
             437
           ],
-          "en": "22: end for 23: Update discriminator: 24: for update step = 1 , ...,𝑛 do 25: 𝑏M ← sample batch of 𝐾 transitions {(s 𝑗 , s′ 𝑗) }𝐾 𝑗 =1fromM 26: 𝑏𝜋 ← sample batch of 𝐾 transitions {(s 𝑗 , s′ 𝑗) }𝐾 𝑗 =1fromB 27: update 𝐷 according to Equation 14 using 𝑏M and 𝑏𝜋 28: end for 29: update 𝑉 and 𝜋 according to Equation 15 using data from B 30: end while",
+          "en": "22: end for 23: Update discriminator: 24: for update step \\(= 1,...,n\\) do 25: \\(b^{\\mathcal{M}} \\leftarrow\\) sample batch of \\(K\\) transitions \\(\\{(\\mathbf{s}_j, \\mathbf{s}'_j)\\}_{j=1}^K\\) from \\(\\mathcal{M}\\) 26: \\(b^\\pi \\leftarrow\\) sample batch of \\(K\\) transitions \\(\\{(\\mathbf{s}_j, \\mathbf{s}'_j)\\}_{j=1}^K\\) from \\(\\mathcal{B}\\) 27: update \\(D\\) according to Equation 14 using \\(b^{\\mathcal{M}}\\) and \\(b^\\pi\\) 28: end for 29: update \\(V\\) and \\(\\pi\\) according to Equation 15 using data from \\(\\mathcal{B}\\) 30: end while",
           "reference": false,
           "source_image": "figs/p007-003-source.png",
-          "zh": "22: end for 23: 更新判别器： 24: for update step = 1 , ..., 𝑛 do 25: 𝑏M ← 从 M 中采样包含 𝐾 个转移的批次 {(s 𝑗 , s′ 𝑗) }𝐾 𝑗 =1 26: 𝑏𝜋 ← 从 B 中采样包含 𝐾 个转移的批次 {(s 𝑗 , s′ 𝑗) }𝐾 𝑗 =1 27: 使用 𝑏M 和 𝑏𝜋 根据公式 14 更新 𝐷 28: end for 29: 使用来自 B 的数据根据公式 15 更新 𝑉 和 𝜋 30: end while"
+          "zh": "22: end for 23: 更新判别器： 24: for update step \\(= 1,...,n\\) do 25: \\(b^{\\mathcal{M}} \\leftarrow\\) 从 \\(\\mathcal{M}\\) 中采样包含 \\(K\\) 个转移的批次 \\(\\{(\\mathbf{s}_j, \\mathbf{s}'_j)\\}_{j=1}^K\\) 26: \\(b^\\pi \\leftarrow\\) 从 \\(\\mathcal{B}\\) 中采样包含 \\(K\\) 个转移的批次 \\(\\{(\\mathbf{s}_j, \\mathbf{s}'_j)\\}_{j=1}^K\\) 27: 使用 \\(b^{\\mathcal{M}}\\) 和 \\(b^\\pi\\) 根据公式 14 更新 \\(D\\) 28: end for 29: 使用来自 \\(\\mathcal{B}\\) 的数据根据公式 15 更新 \\(V\\) 和 \\(\\pi\\) 30: end while",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b4",
@@ -1416,24 +1596,34 @@
             296,
             694
           ],
-          "en": "Algorithm 1 provides an overview of the ASE pre-training process for the low-level policy. At the start of each episode, a sequence of latents Z = {z0 , z1 , ..., z 𝑇 −1} is sampled from the prior 𝑝 (z). A trajectory 𝜏𝑖 is collected by conditioning the policy 𝜋 on z 𝑡 at each timestep 𝑡 . The agent receives a reward 𝑟𝑡 at each timestep, calculated from the discriminator 𝐷 and encoder 𝑞 according to Equation 10. Once a batch of trajectories has been collected, minibatches of transitions (s 𝑗 , s′ 𝑗,z𝑗)are sampled from the trajectories and used to update the encoder according to Equation 13. The discriminator is updated according to Equation 14 using minibatches of transitions (s 𝑗 , s′ 𝑗)sampled from the agent’s trajectories and the motion dataset M. Finally, the recorded trajectories are used to update the policy. The policy is trained using proximal policy optimization (PPO) [Schulman et al. 2017], with advantages computed using GAE( 𝜆 ) [Schulman et al. 2015], and the value function is updated using TD( 𝜆 ) [Sutton and Barto 1998].",
+          "en": "Algorithm 1 provides an overview of the ASE pre-training process for the low-level policy. At the start of each episode, a sequence of latents \\(\\mathbf{Z} = \\{\\mathbf{z}_0, \\mathbf{z}_1, ..., \\mathbf{z}_{T-1}\\}\\) is sampled from the prior \\(p(\\mathbf{z})\\). A trajectory \\(\\tau^i\\) is collected by conditioning the policy \\(\\pi\\) on \\(\\mathbf{z}_t\\) at each timestep \\(t\\). The agent receives a reward \\(r_t\\) at each timestep, calculated from the discriminator \\(D\\) and encoder \\(q\\) according to Equation 10. Once a batch of trajectories has been collected, minibatches of transitions \\((\\mathbf{s}_j, \\mathbf{s}'_j, \\mathbf{z}_j)\\) are sampled from the trajectories and used to update the encoder according to Equation 13. The discriminator is updated according to Equation 14 using minibatches of transitions \\((\\mathbf{s}_j, \\mathbf{s}'_j)\\) sampled from the agent’s trajectories and the motion dataset \\(\\mathcal{M}\\). Finally, the recorded trajectories are used to update the policy. The policy is trained using proximal policy optimization (PPO) [Schulman et al. 2017], with advantages computed using GAE(\\(\\lambda\\)) [Schulman et al. 2015], and the value function is updated using TD(\\(\\lambda\\)) [Sutton and Barto 1998].",
           "reference": false,
           "source_image": "figs/p007-005-source.png",
-          "zh": "算法 1 概述了低层策略的 ASE 预训练过程。在每个回合开始时，从先验 𝑝 (z) 中采样一个潜在变量序列 Z = {z0 , z1 , ..., z 𝑇 −1}。通过在每个时间步 𝑡 让策略 𝜋 以 z 𝑡 为条件来采集轨迹 𝜏𝑖。智能体在每个时间步获得奖励 𝑟𝑡，该奖励是根据公式 10 由判别器 𝐷 和编码器 𝑞 计算得出的。一旦采集到一批轨迹，就从这些轨迹中抽取转移小批次 (s 𝑗 , s′ 𝑗,z𝑗)，并根据公式 13 用于更新编码器。判别器则根据公式 14，使用从智能体轨迹和动作数据集 M 中采样的转移小批次 (s 𝑗 , s′ 𝑗) 进行更新。最后，所记录的轨迹被用于更新策略。策略采用近端策略优化（PPO）[Schulman et al. 2017] 进行训练，其优势值使用 GAE( 𝜆 ) [Schulman et al. 2015] 计算，而价值函数则使用 TD( 𝜆 ) [Sutton and Barto 1998] 进行更新。"
+          "zh": "算法 1 概述了低层策略的 ASE 预训练过程。在每个回合开始时，从先验 \\(p(\\mathbf{z})\\) 中采样一个潜在变量序列 \\(\\mathbf{Z} = \\{\\mathbf{z}_0, \\mathbf{z}_1, ..., \\mathbf{z}_{T-1}\\}\\)。通过在每个时间步 \\(t\\) 让策略 \\(\\pi\\) 以 \\(\\mathbf{z}_t\\) 为条件来采集轨迹 \\(\\tau^i\\)。智能体在每个时间步获得奖励 \\(r_t\\)，该奖励是根据公式 10 由判别器 \\(D\\) 和编码器 \\(q\\) 计算得出的。一旦采集到一批轨迹，就从这些轨迹中抽取转移小批次 \\((\\mathbf{s}_j, \\mathbf{s}'_j, \\mathbf{z}_j)\\)，并根据公式 13 用于更新编码器。判别器则根据公式 14，使用从智能体轨迹和动作数据集 \\(\\mathcal{M}\\) 中采样的转移小批次 \\((\\mathbf{s}_j, \\mathbf{s}'_j)\\) 进行更新。最后，所记录的轨迹被用于更新策略。策略采用近端策略优化（PPO）[Schulman et al. 2017] 进行训练，其优势值使用 GAE(\\(\\lambda\\)) [Schulman et al. 2015] 计算，而价值函数则使用 TD(\\(\\lambda\\)) [Sutton and Barto 1998] 进行更新。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b6",
           "kind": "picture",
           "bbox": [
-            324,
-            78,
-            555,
-            251
+            322.0,
+            76.0,
+            557.0,
+            253.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            324.0,
+            78.0,
+            555.0,
+            251.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 705,
+          "image_height": 531
         },
         {
           "id": "p7-b7",
@@ -1444,10 +1634,11 @@
             561,
             312
           ],
-          "en": "Fig. 3. The unnormalized latent space Z¯ is used as the action space for the high-level policy 𝜔 . Initializing the action distribution at the origin of Z¯ allows 𝜔 to sample skills uniformly from the normalized latent space Z. By shifting the action distribution closer or further from the origin of Z¯ , 𝜔 can increase or decrease the entropy over skills in the normalized space Z.",
+          "en": "Fig. 3. The unnormalized latent space \\(\\bar{\\mathcal{Z}}\\) is used as the action space for the high-level policy \\(\\omega\\). Initializing the action distribution at the origin of \\(\\bar{\\mathcal{Z}}\\) allows \\(\\omega\\) to sample skills uniformly from the normalized latent space \\(\\mathcal{Z}\\). By shifting the action distribution closer or further from the origin of \\(\\bar{\\mathcal{Z}}\\), \\(\\omega\\) can increase or decrease the entropy over skills in the normalized space \\(\\mathcal{Z}\\).",
           "reference": false,
           "source_image": "figs/p007-007-source.png",
-          "zh": "图 3. 未归一化的潜在空间 Z¯ 被用作高层策略 𝜔 的动作空间。将动作分布初始化在 Z¯ 的原点处，可使 𝜔 能够从归一化潜在空间 Z 中均匀地采样技能。通过将动作分布移近或远离 Z¯ 的原点，𝜔 可以增大或减小其在归一化空间 Z 中技能分布的熵。"
+          "zh": "图 3. 未归一化的潜在空间 \\(\\bar{\\mathcal{Z}}\\) 被用作高层策略 \\(\\omega\\) 的动作空间。将动作分布初始化在 \\(\\bar{\\mathcal{Z}}\\) 的原点处，可使 \\(\\omega\\) 能够从归一化潜在空间 \\(\\mathcal{Z}\\) 中均匀地采样技能。通过将动作分布移近或远离 \\(\\bar{\\mathcal{Z}}\\) 的原点，\\(\\omega\\) 可以增大或减小其在归一化空间 \\(\\mathcal{Z}\\) 中技能分布的熵。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b8",
@@ -1472,10 +1663,11 @@
             562,
             417
           ],
-          "en": "After pre-training, the low-level policy 𝜋 (a|s , z) can be applied to downstream tasks by training a task-specific high-level policy 𝜔 (z|s , g), which receives as input the state of the character s and a task-specific goal g, then outputs a latent z for directing the lowlevel policy. In this section, we detail design decisions for improving exploration of skills and motion quality on downstream tasks.",
+          "en": "After pre-training, the low-level policy \\(\\pi(\\mathbf{a} | \\mathbf{s}, \\mathbf{z})\\) can be applied to downstream tasks by training a task-specific high-level policy \\(\\omega(\\mathbf{z} | \\mathbf{s}, \\mathbf{g})\\), which receives as input the state of the character \\(\\mathbf{s}\\) and a task-specific goal \\(\\mathbf{g}\\), then outputs a latent \\(\\mathbf{z}\\) for directing the lowlevel policy. In this section, we detail design decisions for improving exploration of skills and motion quality on downstream tasks.",
           "reference": false,
           "source_image": "figs/p007-009-source.png",
-          "zh": "预训练完成后，低层策略 𝜋 (a|s , z) 可通过训练特定任务的高层策略 𝜔 (z|s , g) 应用于下游任务。该高层策略接收角色状态 s 和特定任务目标 g 作为输入，随后输出一个潜在变量 z 用于指导低层策略。在本节中，我们详细介绍了在下游任务中用于改善技能探索和动作质量的设计决策。"
+          "zh": "预训练完成后，低层策略 \\(\\pi(\\mathbf{a} | \\mathbf{s}, \\mathbf{z})\\) 可通过训练特定任务的高层策略 \\(\\omega(\\mathbf{z} | \\mathbf{s}, \\mathbf{g})\\) 应用于下游任务。该高层策略接收角色状态 \\(\\mathbf{s}\\) 和特定任务目标 \\(\\mathbf{g}\\) 作为输入，随后输出一个潜在变量 \\(\\mathbf{z}\\) 用于指导低层策略。在本节中，我们详细介绍了在下游任务中用于改善技能探索和动作质量的设计决策。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b10",
@@ -1500,10 +1692,11 @@
             562,
             694
           ],
-          "en": "When the character is first presented with a new task, it has no knowledge of which skill will be most effective. Therefore, during early stages of training, the high-level policy should sample skills uniformly from Z in order to explore a diverse variety of behaviors. As training progresses, the policy should hone in on the skills that are more effective for the task, and assign lower likelihoods to skills that are less effective. Our choice of a spherical latent space provides a convenient structure that can directly encode this explorationexploitation trade-off into the action space for the high-level policy. This can be accomplished by using the unnormalized latents ¯z ∈ Z¯ as the action space for 𝜔 . The high-level policy is then defined as a Guassian in the unnormalized space 𝜔 (z¯|s , g) = N ( 𝜇𝜔 (s , g) , Σ 𝜔 ). The actions from 𝜔 are projected onto Z by normalizing the actions z = ¯z/||z¯||, before being passed to the low-level policy. An illustrative example of this sampling scheme is available in Figure 3. At the start of training, the action distribution of 𝜔 is initialized close to the origin of Z¯ , 𝜔 (z¯|s , g) ≈N (0 , Σ 𝜔 ), which allows 𝜔 to sample skill uniformly from the normalized latent space Z. As training progress, the mean 𝜇𝜔 (s , g) can be shifted away from the origin as needed by the gradient updates, thereby allowing 𝜔 to specialize, and increase the likelihood of more effective skills. By shifting the action distribution closer or further from the origin of Z¯ , the 𝜔 can increase or decrease its entropy over skills in Z respectively.",
+          "en": "When the character is first presented with a new task, it has no knowledge of which skill will be most effective. Therefore, during early stages of training, the high-level policy should sample skills uniformly from \\(\\mathcal{Z}\\) in order to explore a diverse variety of behaviors. As training progresses, the policy should hone in on the skills that are more effective for the task, and assign lower likelihoods to skills that are less effective. Our choice of a spherical latent space provides a convenient structure that can directly encode this explorationexploitation trade-off into the action space for the high-level policy. This can be accomplished by using the unnormalized latents \\(\\bar{\\mathbf{z}} \\in \\bar{\\mathcal{Z}}\\) as the action space for \\(\\omega\\). The high-level policy is then defined as a Guassian in the unnormalized space \\(\\omega(\\bar{\\mathbf{z}} | \\mathbf{s}, \\mathbf{g}) = \\mathcal{N}\\left(\\mu_\\omega(\\mathbf{s}, \\mathbf{g}), \\Sigma_\\omega \\right)\\). The actions from \\(\\omega\\) are projected onto \\(\\mathcal{Z}\\) by normalizing the actions \\(\\mathbf{z} = \\bar{\\mathbf{z}} / ||\\bar{\\mathbf{z}}||\\), before being passed to the low-level policy. An illustrative example of this sampling scheme is available in Figure 3. At the start of training, the action distribution of \\(\\omega\\) is initialized close to the origin of \\(\\bar{\\mathcal{Z}}\\), \\(\\omega(\\bar{\\mathbf{z}} | \\mathbf{s}, \\mathbf{g}) \\approx \\mathcal{N}\\left(0, \\Sigma_\\omega \\right)\\), which allows \\(\\omega\\) to sample skill uniformly from the normalized latent space \\(\\mathcal{Z}\\). As training progress, the mean \\(\\mu_\\omega(\\mathbf{s}, \\mathbf{g})\\) can be shifted away from the origin as needed by the gradient updates, thereby allowing \\(\\omega\\) to specialize, and increase the likelihood of more effective skills. By shifting the action distribution closer or further from the origin of \\(\\bar{\\mathcal{Z}}\\), the \\(\\omega\\) can increase or decrease its entropy over skills in \\(\\mathcal{Z}\\) respectively.",
           "reference": false,
           "source_image": "figs/p007-011-source.png",
-          "zh": "当角色首次面对新任务时，它并不知道哪种技能最为有效。因此，在训练初期，高层策略应当从 Z 中均匀采样技能，以探索多样化的行为。随着训练的推进，策略应当逐步聚焦于对该任务更有效的技能，并降低低效技能的选取概率。我们所选用的球面潜在空间提供了一种便利的结构，可将这种探索与利用的权衡（exploration-exploitation trade-off）直接编码到高层策略的动作空间中。具体实现方式是将未归一化的潜在变量 ¯z ∈ Z¯ 用作 𝜔 的动作空间。随后，高层策略在未归一化空间中被定义为一个高斯分布 𝜔 (z¯|s , g) = N ( 𝜇𝜔 (s , g) , Σ 𝜔 )。𝜔 输出的动作在传递给低层策略之前，通过归一化操作 z = ¯z/||z¯|| 被投影到 Z 上。图 3 展示了该采样方案的示意图。在训练开始时，𝜔 的动作分布被初始化在 Z¯ 原点附近，即 𝜔 (z¯|s , g) ≈N (0 , Σ 𝜔 )，这使得 𝜔 能够从归一化潜在空间 Z 中均匀采样技能。随着训练的进行，均值 𝜇𝜔 (s , g) 可根据梯度更新的需要移离原点，从而使 𝜔 能够专门化并提高更有效技能的选取概率。通过将动作分布移近或远离 Z¯ 的原点，𝜔 可以分别增大或减小其在 Z 中技能分布的熵。"
+          "zh": "当角色首次面对新任务时，它并不知道哪种技能最为有效。因此，在训练初期，高层策略应当从 \\(\\mathcal{Z}\\) 中均匀采样技能，以探索多样化的行为。随着训练的推进，策略应当逐步聚焦于对该任务更有效的技能，并降低低效技能的选取概率。我们所选用的球面潜在空间提供了一种便利的结构，可将这种探索与利用的权衡（exploration-exploitation trade-off）直接编码到高层策略的动作空间中。具体实现方式是将未归一化的潜在变量 \\(\\bar{\\mathbf{z}} \\in \\bar{\\mathcal{Z}}\\) 用作 \\(\\omega\\) 的动作空间。随后，高层策略在未归一化空间中被定义为一个高斯分布 \\(\\omega(\\bar{\\mathbf{z}} | \\mathbf{s}, \\mathbf{g}) = \\mathcal{N}\\left(\\mu_\\omega(\\mathbf{s}, \\mathbf{g}), \\Sigma_\\omega \\right)\\)。\\(\\omega\\) 输出的动作在传递给低层策略之前，通过归一化操作 \\(\\mathbf{z} = \\bar{\\mathbf{z}} / ||\\bar{\\mathbf{z}}||\\) 被投影到 \\(\\mathcal{Z}\\) 上。图 3 展示了该采样方案的示意图。在训练开始时，\\(\\omega\\) 的动作分布被初始化在 \\(\\bar{\\mathcal{Z}}\\) 原点附近，即 \\(\\omega(\\bar{\\mathbf{z}} | \\mathbf{s}, \\mathbf{g}) \\approx \\mathcal{N}\\left(0, \\Sigma_\\omega \\right)\\)，这使得 \\(\\omega\\) 能够从归一化潜在空间 \\(\\mathcal{Z}\\) 中均匀采样技能。随着训练的进行，均值 \\(\\mu_\\omega(\\mathbf{s}, \\mathbf{g})\\) 可根据梯度更新的需要移离原点，从而使 \\(\\omega\\) 能够专门化并提高更有效技能的选取概率。通过将动作分布移近或远离 \\(\\bar{\\mathcal{Z}}\\) 的原点，\\(\\omega\\) 可以分别增大或减小其在 \\(\\mathcal{Z}\\) 中技能分布的熵。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1514,43 +1707,70 @@
           "id": "p8-b1",
           "kind": "picture",
           "bbox": [
-            60,
-            83,
-            170,
-            185
+            58.0,
+            81.0,
+            172.0,
+            187.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            60.0,
+            83.0,
+            170.0,
+            185.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 342,
+          "image_height": 318
         },
         {
           "id": "p8-b2",
           "kind": "picture",
           "bbox": [
-            176,
-            83,
-            286,
-            185
+            174.0,
+            81.0,
+            288.0,
+            187.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            176.0,
+            83.0,
+            286.0,
+            185.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 342,
+          "image_height": 318
         },
         {
           "id": "p8-b3",
           "kind": "picture",
           "bbox": [
-            197,
-            190,
-            265,
-            198
+            195.0,
+            188.0,
+            267.0,
+            200.0
           ],
           "en": "(b) Visualization Model",
           "reference": false,
           "image": "figs/p008-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            197.0,
+            190.0,
+            265.0,
+            198.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 216,
+          "image_height": 36
         },
         {
           "id": "p8-b4",
@@ -1603,26 +1823,36 @@
             296,
             396
           ],
-          "en": "While 𝜋 is trained to produce natural behaviors for any latent skill z, when reusing the low-level policy on new tasks, it is still possible for 𝜔 to specify sequences of latents that lead to unnatural behaviors. This is especially noticeable when the actions from 𝜔 changes drastically between timesteps, leading the character to constantly change the skill that it is executing, which can result in unnatural jittery movements. Motion quality on downstream tasks can be improved by reusing the discriminator 𝐷 (s , s′ ) from pre-training as a portable motion prior when training the high-level policy. The reward for the high-level policy is then specified by a combination of a task-reward 𝑟𝐺 (s , a , s′ , g) and a style-reward from the discriminator, in a similar manner as Peng et al. [2021],",
+          "en": "While \\(\\pi\\) is trained to produce natural behaviors for any latent skill \\(\\mathbf{z}\\), when reusing the low-level policy on new tasks, it is still possible for \\(\\omega\\) to specify sequences of latents that lead to unnatural behaviors. This is especially noticeable when the actions from \\(\\omega\\) changes drastically between timesteps, leading the character to constantly change the skill that it is executing, which can result in unnatural jittery movements. Motion quality on downstream tasks can be improved by reusing the discriminator \\(D(\\mathbf{s}, \\mathbf{s}')\\) from pre-training as a portable motion prior when training the high-level policy. The reward for the high-level policy is then specified by a combination of a task-reward \\(r^G(\\mathbf{s}, \\mathbf{a}, \\mathbf{s}', \\mathbf{g})\\) and a style-reward from the discriminator, in a similar manner as Peng et al. [2021],",
           "reference": false,
           "source_image": "figs/p008-007-source.png",
-          "zh": "尽管 𝜋 经过训练能够针对任意潜在技能 z 产生自然的行为，但在新任务上复用低层策略时，𝜔 仍有可能指定导致不自然行为的潜在变量序列。当 𝜔 输出的动作在不同时间步之间发生剧烈变化时，这一点尤为明显，会导致角色不断切换正在执行的技能，从而产生不自然的抖动动作。在训练高层策略时，通过将预训练阶段的判别器 𝐷 (s , s′ ) 复用为可移植的动作先验，可以提高下游任务中的动作质量。高层策略的奖励随后由任务奖励 𝑟𝐺 (s , a , s′ , g) 与来自判别器的风格奖励相结合来指定，其方式类似于 Peng 等人 [2021]，"
+          "zh": "尽管 \\(\\pi\\) 经过训练能够针对任意潜在技能 \\(\\mathbf{z}\\) 产生自然的行为，但在新任务上复用低层策略时，\\(\\omega\\) 仍有可能指定导致不自然行为的潜在变量序列。当 \\(\\omega\\) 输出的动作在不同时间步之间发生剧烈变化时，这一点尤为明显，会导致角色不断切换正在执行的技能，从而产生不自然的抖动动作。在训练高层策略时，通过将预训练阶段的判别器 \\(D(\\mathbf{s}, \\mathbf{s}')\\) 复用为可移植的动作先验，可以提高下游任务中的动作质量。高层策略的奖励随后由任务奖励 \\(r^G(\\mathbf{s}, \\mathbf{a}, \\mathbf{s}', \\mathbf{g})\\) 与来自判别器的风格奖励相结合来指定，其方式类似于 Peng 等人 [2021]，",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p8-b8",
           "kind": "formula",
           "bbox": [
-            70,
-            400,
-            295,
-            412
+            68.0,
+            398.0,
+            297.0,
+            414.0
           ],
           "en": "𝑟𝑡 = 𝑤𝐺 𝑟𝐺 (s 𝑡 , a 𝑡 , s 𝑡 +1 , g) − 𝑤𝑆 log (1 − 𝐷 (s 𝑡 , s 𝑡 +1)) , (16)",
           "reference": false,
           "image": "figs/p008-008-source.png",
           "labels": [
             "16"
-          ]
+          ],
+          "original_bbox": [
+            70.0,
+            400.0,
+            295.0,
+            412.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 687,
+          "image_height": 48
         },
         {
           "id": "p8-b9",
@@ -1633,10 +1863,11 @@
             295,
             515
           ],
-          "en": "with 𝑤𝐺 and 𝑤𝑆 being manually specified coefficients. Note that the parameters of the discriminator are fixed after pre-training, and are not updated during task-training. Therefore, no motion data is needed when training on new tasks. Prior works have observed that training a policy against a fixed discriminator often leads to unnatural behaviors that exploit idiosyncrasies of the discriminator [Peng et al. 2021]. However, we found that the low-level policy 𝜋 sufficiently constrains the behaviors that can be produced by the character, such that this kind of exploitation is largely eliminated.",
+          "en": "with \\(w_G\\) and \\(w_S\\) being manually specified coefficients. Note that the parameters of the discriminator are fixed after pre-training, and are not updated during task-training. Therefore, no motion data is needed when training on new tasks. Prior works have observed that training a policy against a fixed discriminator often leads to unnatural behaviors that exploit idiosyncrasies of the discriminator [Peng et al. 2021]. However, we found that the low-level policy \\(\\pi\\) sufficiently constrains the behaviors that can be produced by the character, such that this kind of exploitation is largely eliminated.",
           "reference": false,
           "source_image": "figs/p008-009-source.png",
-          "zh": "其中 𝑤𝐺 和 𝑤𝑆 为人工指定的系数。请注意，判别器的参数在预训练后即固定，在任务训练期间不会更新。因此，在训练新任务时不需要动作数据。先前的研究指出，针对固定判别器训练策略往往会导致利用判别器特异缺陷的不自然行为 [Peng et al. 2021]。然而，我们发现低层策略 𝜋 充分约束了角色所能产生的行为，从而基本消除了此类投机性利用行为。"
+          "zh": "其中 \\(w_G\\) 和 \\(w_S\\) 为人工指定的系数。请注意，判别器的参数在预训练后即固定，在任务训练期间不会更新。因此，在训练新任务时不需要动作数据。先前的研究指出，针对固定判别器训练策略往往会导致利用判别器特异缺陷的不自然行为 [Peng et al. 2021]。然而，我们发现低层策略 \\(\\pi\\) 充分约束了角色所能产生的行为，从而基本消除了此类投机性利用行为。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p8-b10",
@@ -1689,10 +1920,11 @@
             296,
             681
           ],
-          "en": "The state s 𝑡 consists of a set of features that describes the configuration of the character’s body. The features include:",
+          "en": "The state \\(\\mathbf{s}_t\\) consists of a set of features that describes the configuration of the character’s body. The features include:",
           "reference": false,
           "source_image": "figs/p008-013-source.png",
-          "zh": "状态 s 𝑡 由一组描述角色身体构型的特征组成。这些特征包括："
+          "zh": "状态 \\(\\mathbf{s}_t\\) 由一组描述角色身体构型的特征组成。这些特征包括：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p8-b14",
@@ -1726,15 +1958,24 @@
           "id": "p8-b15",
           "kind": "picture",
           "bbox": [
-            330,
-            78,
-            549,
-            217
+            328.0,
+            76.0,
+            551.0,
+            219.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-015.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            330.0,
+            78.0,
+            549.0,
+            217.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 669,
+          "image_height": 429
         },
         {
           "id": "p8-b16",
@@ -1745,10 +1986,11 @@
             562,
             268
           ],
-          "en": "Fig. 5. Network architectures used to model various components of the system. All networks are comprised of fully-connected layers with ReLU activations for hidden layers. The discriminator 𝐷 and encoder 𝑞 are modeled by the same network with separate output layers.",
+          "en": "Fig. 5. Network architectures used to model various components of the system. All networks are comprised of fully-connected layers with ReLU activations for hidden layers. The discriminator \\(D\\) and encoder \\(q\\) are modeled by the same network with separate output layers.",
           "reference": false,
           "source_image": "figs/p008-016-source.png",
-          "zh": "图 5. 用于对系统各个组件建模的网络架构。所有网络均由全连接层组成，隐藏层使用 ReLU 激活函数。判别器 𝐷 和编码器 𝑞 由同一网络建模，但具有各自独立的输出层。"
+          "zh": "图 5. 用于对系统各个组件建模的网络架构。所有网络均由全连接层组成，隐藏层使用 ReLU 激活函数。判别器 \\(D\\) 和编码器 \\(q\\) 由同一网络建模，但具有各自独立的输出层。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p8-b17",
@@ -1829,10 +2071,11 @@
             562,
             518
           ],
-          "en": "The root is designated to be character’s pelvis. The character’s local coordinate frame is defined with the origin located at the root, the x-axis oriented along the root link’s facing direction, and the y- axis aligned with the global up vector. The 1D rotation of revolute joints are encoded using a scalar value, representing the rotation angle. The 3D rotation of the root and spherical joints are encoded using two 3D vector corresponding to the tangent u and normal v of the link’s local coordinate frame expressed in the link parent’s coordinate frame [Peng et al. 2021]. Combined, these features result in a 120D state space. Each action a 𝑡 specifies target rotations for PD controllers positioned at each of the character’s joints. Like Peng et al. [2021], the target rotation for 3D spherical joints are encoded using a 3D exponential map [Grassia 1998]. These action parameters result in a 31D action space.",
+          "en": "The root is designated to be character’s pelvis. The character’s local coordinate frame is defined with the origin located at the root, the x-axis oriented along the root link’s facing direction, and the y- axis aligned with the global up vector. The 1D rotation of revolute joints are encoded using a scalar value, representing the rotation angle. The 3D rotation of the root and spherical joints are encoded using two 3D vector corresponding to the tangent \\(\\mathbf{u}\\) and normal \\(\\mathbf{v}\\) of the link’s local coordinate frame expressed in the link parent’s coordinate frame [Peng et al. 2021]. Combined, these features result in a 120D state space. Each action \\(\\mathbf{a}_t\\) specifies target rotations for PD controllers positioned at each of the character’s joints. Like Peng et al. [2021], the target rotation for 3D spherical joints are encoded using a 3D exponential map [Grassia 1998]. These action parameters result in a 31D action space.",
           "reference": false,
           "source_image": "figs/p008-022-source.png",
-          "zh": "根节点被指定为角色的骨盆。角色的局部坐标系定义为：原点位于根节点，x 轴沿根刚体连杆的朝向方向，y 轴与全局向上向量对齐。旋转关节的 1D 旋转使用标量值编码，表示旋转角度。根节点和球关节的 3D 旋转使用两个 3D 向量进行编码，分别对应在刚体父级坐标系中表示的该刚体局部坐标系的切向量 u 和法向量 v [Peng et al. 2021]。综合起来，这些特征构成了一个 120D 的状态空间。每个动作 a 𝑡 为位于角色各关节处的 PD 控制器指定目标旋转。与 Peng 等人 [2021] 类似，3D 球关节的目标旋转使用 3D 指数映射编码 [Grassia 1998]。这些动作参数构成了一个 31D 的动作空间。"
+          "zh": "根节点被指定为角色的骨盆。角色的局部坐标系定义为：原点位于根节点，x 轴沿根刚体连杆的朝向方向，y 轴与全局向上向量对齐。旋转关节的 1D 旋转使用标量值编码，表示旋转角度。根节点和球关节的 3D 旋转使用两个 3D 向量进行编码，分别对应在刚体父级坐标系中表示的该刚体局部坐标系的切向量 \\(\\mathbf{u}\\) 和法向量 \\(\\mathbf{v}\\) [Peng et al. 2021]。综合起来，这些特征构成了一个 120D 的状态空间。每个动作 \\(\\mathbf{a}_t\\) 为位于角色各关节处的 PD 控制器指定目标旋转。与 Peng 等人 [2021] 类似，3D 球关节的目标旋转使用 3D 指数映射编码 [Grassia 1998]。这些动作参数构成了一个 31D 的动作空间。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p8-b23",
@@ -1857,10 +2100,11 @@
             562,
             694
           ],
-          "en": "A schematic illustration of the network architectures used to model the various components of the system is provided in Figure 5. The low-level policy is modeled by a neural network that maps a state s and latent z to a Gaussian distribution over actions 𝜋 (a|s , z) = N ( 𝜇𝜋 (s , z) , Σ 𝜋 ), with an input-dependent mean 𝜇𝜋 (s , z) and a fixed diagonal covariance matrix Σ 𝜋 . The mean is specified by a fullyconnected network with 3 hidden layers of [1024, 1024, 512] units, followed by linear output units. The value function 𝑉 (s , z) is modeled by a similar network, but with a single linear output unit. The encoder 𝑞 (z|s , s′ ) and discriminator 𝐷 (s , s′ ) are jointly modeled by a single network, with separate output units for the mean of the encoder distribution 𝜇𝑞 (s , s′ ) and the output of the discriminator. The output units of the encoder is normalized such that || 𝜇𝑞 (s , s′ )|| = 1, and the output of the discriminator consists of a single sigmoid unit.",
+          "en": "A schematic illustration of the network architectures used to model the various components of the system is provided in Figure 5. The low-level policy is modeled by a neural network that maps a state \\(\\mathbf{s}\\) and latent \\(\\mathbf{z}\\) to a Gaussian distribution over actions \\(\\pi(\\mathbf{a} | \\mathbf{s}, \\mathbf{z}) = \\mathcal{N}\\left(\\mu_\\pi(\\mathbf{s}, \\mathbf{z}), \\Sigma_\\pi \\right)\\), with an input-dependent mean \\(\\mu_\\pi(\\mathbf{s}, \\mathbf{z})\\) and a fixed diagonal covariance matrix \\(\\Sigma_\\pi\\). The mean is specified by a fullyconnected network with 3 hidden layers of [1024, 1024, 512] units, followed by linear output units. The value function \\(V(\\mathbf{s}, \\mathbf{z})\\) is modeled by a similar network, but with a single linear output unit. The encoder \\(q(\\mathbf{z} | \\mathbf{s}, \\mathbf{s}')\\) and discriminator \\(D(\\mathbf{s}, \\mathbf{s}')\\) are jointly modeled by a single network, with separate output units for the mean of the encoder distribution \\(\\mu_q(\\mathbf{s}, \\mathbf{s}')\\) and the output of the discriminator. The output units of the encoder is normalized such that \\(||\\mu_q(\\mathbf{s}, \\mathbf{s}')|| = 1\\), and the output of the discriminator consists of a single sigmoid unit.",
           "reference": false,
           "source_image": "figs/p008-024-source.png",
-          "zh": "图 5 给出了用于对系统各个组件建模的网络架构示意图。低层策略由一个神经网络建模，该网络将状态 s 和潜在变量 z 映射为动作上的高斯分布 𝜋 (a|s , z) = N ( 𝜇𝜋 (s , z) , Σ 𝜋 )，其均值 𝜇𝜋 (s , z) 依赖于输入，且具有固定的对角协方差矩阵 Σ 𝜋 。均值由一个包含 [1024, 1024, 512] 个单元的 3 个隐藏层的全连接网络给出，其后接线性输出单元。价值函数 𝑉 (s , z) 由类似的网络建模，但仅具有单个线性输出单元。编码器 𝑞 (z|s , s′ ) 和判别器 𝐷 (s , s′ ) 由单个网络联合建模，分别具有用于输出编码器分布均值 𝜇𝑞 (s , s′ ) 和判别器输出的独立输出单元。编码器的输出单元经过归一化，使得 || 𝜇𝑞 (s , s′ )|| = 1，而判别器的输出由单个 sigmoid 单元组成。"
+          "zh": "图 5 给出了用于对系统各个组件建模的网络架构示意图。低层策略由一个神经网络建模，该网络将状态 \\(\\mathbf{s}\\) 和潜在变量 \\(\\mathbf{z}\\) 映射为动作上的高斯分布 \\(\\pi(\\mathbf{a} | \\mathbf{s}, \\mathbf{z}) = \\mathcal{N}\\left(\\mu_\\pi(\\mathbf{s}, \\mathbf{z}), \\Sigma_\\pi \\right)\\)，其均值 \\(\\mu_\\pi(\\mathbf{s}, \\mathbf{z})\\) 依赖于输入，且具有固定的对角协方差矩阵 \\(\\Sigma_\\pi\\)。均值由一个包含 [1024, 1024, 512] 个单元的 3 个隐藏层的全连接网络给出，其后接线性输出单元。价值函数 \\(V(\\mathbf{s}, \\mathbf{z})\\) 由类似的网络建模，但仅具有单个线性输出单元。编码器 \\(q(\\mathbf{z} | \\mathbf{s}, \\mathbf{s}')\\) 和判别器 \\(D(\\mathbf{s}, \\mathbf{s}')\\) 由单个网络联合建模，分别具有用于输出编码器分布均值 \\(\\mu_q(\\mathbf{s}, \\mathbf{s}')\\) 和判别器输出的独立输出单元。编码器的输出单元经过归一化，使得 \\(||\\mu_q(\\mathbf{s}, \\mathbf{s}')|| = 1\\)，而判别器的输出由单个 sigmoid 单元组成。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1871,43 +2115,70 @@
           "id": "p9-b1",
           "kind": "picture",
           "bbox": [
-            52,
-            83,
-            305,
-            132
+            50.0,
+            81.0,
+            307.0,
+            134.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p009-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            52.0,
+            83.0,
+            305.0,
+            132.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 771,
+          "image_height": 159
         },
         {
           "id": "p9-b2",
           "kind": "picture",
           "bbox": [
-            307,
-            83,
-            560,
-            132
+            305.0,
+            81.0,
+            562.0,
+            134.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p009-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            307.0,
+            83.0,
+            560.0,
+            132.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 771,
+          "image_height": 159
         },
         {
           "id": "p9-b3",
           "kind": "picture",
           "bbox": [
-            52,
-            137,
-            560,
-            275
+            50.0,
+            135.0,
+            562.0,
+            277.0
           ],
           "en": "(a) Sword Swing (b) Shield Bash (c) Kick (d) Turn (e) Crouched Walk (f) Jog",
           "reference": false,
           "image": "figs/p009-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            52.0,
+            137.0,
+            560.0,
+            275.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1536,
+          "image_height": 426
         },
         {
           "id": "p9-b4",
@@ -1932,10 +2203,11 @@
             296,
             372
           ],
-          "en": "The high-level policy 𝜔 (z¯|s , g) = N ( 𝜇𝜔 (s , g) , Σ 𝜔 ) is modeled using 2 hidden layers with [1024, 512] units, followed by linear output units for the mean 𝜇𝜔 (s , g). Outputs from the high-level policy specify unnormalized latents ¯z, which are then normalized z = z¯/||z¯|| before being passed to the low-level policy 𝜋 . ReLU activations are used for all hidden units [Nair and Hinton 2010].",
+          "en": "The high-level policy \\(\\omega(\\bar{\\mathbf{z}} | \\mathbf{s}, \\mathbf{g}) = \\mathcal{N}\\left(\\mu_\\omega(\\mathbf{s}, \\mathbf{g}), \\Sigma_\\omega \\right)\\) is modeled using 2 hidden layers with [1024, 512] units, followed by linear output units for the mean \\(\\mu_\\omega(\\mathbf{s}, \\mathbf{g})\\). Outputs from the high-level policy specify unnormalized latents \\(\\bar{\\mathbf{z}}\\), which are then normalized \\(\\mathbf{z} = \\bar{\\mathbf{z}}/||\\bar{\\mathbf{z}}||\\) before being passed to the low-level policy \\(\\pi\\). ReLU activations are used for all hidden units [Nair and Hinton 2010].",
           "reference": false,
           "source_image": "figs/p009-005-source.png",
-          "zh": "高层策略 𝜔 (z¯|s , g) = N ( 𝜇𝜔 (s , g) , Σ 𝜔 ) 使用具有 [1024, 512] 个单元的 2 个隐藏层进行建模，后接输出均值 𝜇𝜔 (s , g) 的线性输出单元。高层策略的输出指定了未归一化的潜在变量 ¯z，其在传递给低层策略 𝜋 之前先进行归一化 z = z¯/||z¯||。所有隐藏单元均使用 ReLU 激活函数 [Nair and Hinton 2010]。"
+          "zh": "高层策略 \\(\\omega(\\bar{\\mathbf{z}} | \\mathbf{s}, \\mathbf{g}) = \\mathcal{N}\\left(\\mu_\\omega(\\mathbf{s}, \\mathbf{g}), \\Sigma_\\omega \\right)\\) 使用具有 [1024, 512] 个单元的 2 个隐藏层进行建模，后接输出均值 \\(\\mu_\\omega(\\mathbf{s}, \\mathbf{g})\\) 的线性输出单元。高层策略的输出指定了未归一化的潜在变量 \\(\\bar{\\mathbf{z}}\\)，其在传递给低层策略 \\(\\pi\\) 之前先进行归一化 \\(\\mathbf{z} = \\bar{\\mathbf{z}}/||\\bar{\\mathbf{z}}||\\)。所有隐藏单元均使用 ReLU 激活函数 [Nair and Hinton 2010]。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b6",
@@ -1974,26 +2246,36 @@
             296,
             565
           ],
-          "en": "Reach: We start with a simple reach task to evaluate the accuracy with which the model can control a character’s low-level movements for tasks that require more fine-grain precision. The objective for this task is to position the tip of the sword at a target location x∗ . The goal input for the policy g 𝑡 = x˜ 𝑡∗records the target location x˜ 𝑡∗inthecharacter’slocalcoordinateframe.Thetask-rewardis calculated according to:",
+          "en": "Reach: We start with a simple reach task to evaluate the accuracy with which the model can control a character’s low-level movements for tasks that require more fine-grain precision. The objective for this task is to position the tip of the sword at a target location \\(\\mathbf{x}^*\\) . The goal input for the policy \\(\\mathbf{g}_t = \\tilde{\\mathbf{x}}^*_t\\)records the target location \\(\\tilde{\\mathbf{x}}^*_t\\)inthecharacter’slocalcoordinateframe.Thetask-rewardis calculated according to:",
           "reference": false,
           "source_image": "figs/p009-008-source.png",
-          "zh": "触达（Reach）：我们首先从一个简单的触达任务开始，以评估模型在需要更高精细精度的任务中控制角色低层运动的准确性。该任务的目标是将剑尖定位在目标位置 x∗。策略的目标输入 g 𝑡 = x˜ 𝑡∗ 记录了在角色局部坐标系中的目标位置 x˜ 𝑡∗。任务奖励按如下方式计算："
+          "zh": "触达（Reach）：我们首先从一个简单的触达任务开始，以评估模型在需要更高精细精度的任务中控制角色低层运动的准确性。该任务的目标是将剑尖定位在目标位置 \\(\\mathbf{x}^*\\)。策略的目标输入 \\(\\mathbf{g}_t = \\tilde{\\mathbf{x}}^*_t\\) 记录了在角色局部坐标系中的目标位置 \\(\\tilde{\\mathbf{x}}^*_t\\)。任务奖励按如下方式计算：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b9",
           "kind": "formula",
           "bbox": [
-            115,
-            569,
-            295,
-            592
+            113.0,
+            567.0,
+            297.0,
+            594.0
           ],
           "en": "𝑟𝑡 𝐺 = exp −5 𝑡 , (17) � ������ 𝑥 ∗ − 𝑥 sword������2 �",
           "reference": false,
           "image": "figs/p009-009.png",
           "labels": [
             "17"
-          ]
+          ],
+          "original_bbox": [
+            115.0,
+            569.0,
+            295.0,
+            592.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 552,
+          "image_height": 81
         },
         {
           "id": "p9-b10",
@@ -2004,10 +2286,11 @@
             296,
             629
           ],
-          "en": "where 𝑥𝑡sword denotes the position of the sword tip at timestep 𝑡 . The target is placed randomly within 1m of the character’s root. This task represents a form of physics-based data-driven inverse-kinematics.",
+          "en": "where \\(x^\\mathrm{sword}_t\\) denotes the position of the sword tip at timestep \\(t\\) . The target is placed randomly within 1m of the character’s root. This task represents a form of physics-based data-driven inverse-kinematics.",
           "reference": false,
           "source_image": "figs/p009-010-source.png",
-          "zh": "其中 𝑥𝑡sword 表示在时间步 𝑡 剑尖的位置。目标被随机放置在距离角色根节点 1m 的范围内。该任务代表了一种基于物理的数据驱动逆运动学形式。"
+          "zh": "其中 \\(x^\\mathrm{sword}_t\\) 表示在时间步 \\(t\\) 剑尖的位置。目标被随机放置在距离角色根节点 1m 的范围内。该任务代表了一种基于物理的数据驱动逆运动学形式。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b11",
@@ -2018,10 +2301,11 @@
             296,
             694
           ],
-          "en": "Speed: To evaluate the model’s ability to utilize different locomotion skills, we consider a target speed task, where the objective is for the character to travel along a target direction d∗ at a target speed 𝑣∗ . The goal is represented by g 𝑡 = �d˜ 𝑡∗, 𝑣∗� , with d˜ 𝑡∗being the target direction in the character’s local coordinate frame. The",
+          "en": "Speed: To evaluate the model’s ability to utilize different locomotion skills, we consider a target speed task, where the objective is for the character to travel along a target direction \\(\\mathbf{d}^*\\) at a target speed \\(v^*\\) . The goal is represented by \\(\\mathbf{g}_t = \\left( \\tilde{\\mathbf{d}}^*_t, v^* \\right)\\) , with \\(\\tilde{\\mathbf{d}}^*_t\\)being the target direction in the character’s local coordinate frame. The",
           "reference": false,
           "source_image": "figs/p009-011-source.png",
-          "zh": "速度（Speed）：为了评估模型利用不同移动技能的能力，我们考虑一个目标速度任务，其目标是让角色沿目标方向 d∗ 以目标速度 𝑣∗ 移动。目标表示为 g 𝑡 = 〔行内公式见原版〕，其中 d˜ 𝑡∗ 为角色局部坐标系中的目标方向。其"
+          "zh": "速度（Speed）：为了评估模型利用不同移动技能的能力，我们考虑一个目标速度任务，其目标是让角色沿目标方向 \\(\\mathbf{d}^*\\) 以目标速度 \\(v^*\\) 移动。目标表示为 \\(\\mathbf{g}_t = \\left( \\tilde{\\mathbf{d}}^*_t, v^* \\right)\\)，其中 \\(\\tilde{\\mathbf{d}}^*_t\\) 为角色局部坐标系中的目标方向。其",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b12",
@@ -2041,17 +2325,26 @@
           "id": "p9-b13",
           "kind": "formula",
           "bbox": [
-            373,
-            322,
-            561,
-            345
+            371.0,
+            320.0,
+            563.0,
+            347.0
           ],
           "en": "𝑟𝑡 𝐺 = exp −0 . 25 𝑣 ∗ − d ∗ · x� 𝑡 root , (18) � � �2 �",
           "reference": false,
           "image": "figs/p009-013.png",
           "labels": [
             "18"
-          ]
+          ],
+          "original_bbox": [
+            373.0,
+            322.0,
+            561.0,
+            345.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 576,
+          "image_height": 81
         },
         {
           "id": "p9-b14",
@@ -2062,10 +2355,11 @@
             561,
             371
           ],
-          "en": "where x� 𝑡root is the velocity of the character’s root. The target speed is selected randomly between 𝑣∗ ∈[0 , 7]m/s.",
+          "en": "where \\(\\dot{\\mathbf{x}}_t^\\mathrm{root}\\) is the velocity of the character’s root. The target speed is selected randomly between \\(v^* \\in [0, 7]\\)m/s.",
           "reference": false,
           "source_image": "figs/p009-014-source.png",
-          "zh": "其中〔行内公式见原版〕为角色根节点的速度。目标速度在 𝑣∗ ∈[0 , 7]m/s 之间随机选取。"
+          "zh": "其中\\(\\dot{\\mathbf{x}}_t^\\mathrm{root}\\)为角色根节点的速度。目标速度在 \\(v^* \\in [0, 7]\\)m/s 之间随机选取。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b15",
@@ -2076,26 +2370,36 @@
             562,
             426
           ],
-          "en": "Steering: In the steering task, the objective is for the character to travel along a target direction, while facing a target heading direction h∗ . The goal is given by g 𝑡 = �d˜ 𝑡∗,h˜ 𝑡∗ �, with h˜ 𝑡∗being the local heading direction. The task-reward is calculated according to:",
+          "en": "Steering: In the steering task, the objective is for the character to travel along a target direction, while facing a target heading direction \\(\\mathbf{h}^*\\) . The goal is given by \\(\\mathbf{g}_t = \\left( \\tilde{\\mathbf{d}}^*_t, \\tilde{\\mathbf{h}}^*_t \\right)\\), with \\(\\tilde{\\mathbf{h}}^*_t\\) being the local heading direction. The task-reward is calculated according to:",
           "reference": false,
           "source_image": "figs/p009-015-source.png",
-          "zh": "转向（Steering）：在转向任务中，目标是让角色沿目标方向移动，同时面朝目标朝向 h∗。目标由 g 𝑡 = 〔行内公式见原版〕 给出，其中 h˜ 𝑡∗ 为局部朝向方向。任务奖励按如下方式计算："
+          "zh": "转向（Steering）：在转向任务中，目标是让角色沿目标方向移动，同时面朝目标朝向 \\(\\mathbf{h}^*\\)。目标由 \\(\\mathbf{g}_t = \\left( \\tilde{\\mathbf{d}}^*_t, \\tilde{\\mathbf{h}}^*_t \\right)\\) 给出，其中 \\(\\tilde{\\mathbf{h}}^*_t\\) 为局部朝向方向。任务奖励按如下方式计算：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b16",
           "kind": "formula",
           "bbox": [
-            333,
-            431,
-            561,
-            453
+            331.0,
+            429.0,
+            563.0,
+            455.0
           ],
           "en": "𝑟𝑡 𝐺 = 0 . 7 exp −0 . 25 𝑣 ∗ − d ∗ · x� 𝑡 root + 0 . 3 h ∗ · h 𝑡 root , (19) � � �2 �",
           "reference": false,
           "image": "figs/p009-016.png",
           "labels": [
             "19"
-          ]
+          ],
+          "original_bbox": [
+            333.0,
+            431.0,
+            561.0,
+            453.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 696,
+          "image_height": 78
         },
         {
           "id": "p9-b17",
@@ -2106,10 +2410,11 @@
             561,
             478
           ],
-          "en": "where h 𝑡root is the heading direction of the root, and the target speed is set to 𝑣∗ = 1 . 5m/s.",
+          "en": "where \\(\\mathbf{h}^\\mathrm{root}_t\\) is the heading direction of the root, and the target speed is set to \\(v^* = 1.5\\)m/s.",
           "reference": false,
           "source_image": "figs/p009-017-source.png",
-          "zh": "其中 h 𝑡root 为根节点的朝向方向，目标速度设定为 𝑣∗ = 1 . 5m/s。"
+          "zh": "其中 \\(\\mathbf{h}^\\mathrm{root}_t\\) 为根节点的朝向方向，目标速度设定为 \\(v^* = 1.5\\)m/s。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b18",
@@ -2120,26 +2425,36 @@
             562,
             518
           ],
-          "en": "Location: In this task, the objective is for the character to move to a target location x∗ . The goal g 𝑡 = x˜ 𝑡 records the target location x˜ 𝑡 in the character’s local frame. The task-reward is then given by:",
+          "en": "Location: In this task, the objective is for the character to move to a target location \\(\\mathbf{x}^*\\) . The goal \\(\\mathbf{g}_t = \\tilde{\\mathbf{x}}_t\\) records the target location \\(\\tilde{\\mathbf{x}}_t\\) in the character’s local frame. The task-reward is then given by:",
           "reference": false,
           "source_image": "figs/p009-018-source.png",
-          "zh": "定位（Location）：在该任务中，目标是让角色移动到目标位置 x∗。目标 g 𝑡 = x˜ 𝑡 记录了在角色局部坐标系中的目标位置 x˜ 𝑡。任务奖励随后由下式给出："
+          "zh": "定位（Location）：在该任务中，目标是让角色移动到目标位置 \\(\\mathbf{x}^*\\)。目标 \\(\\mathbf{g}_t = \\tilde{\\mathbf{x}}_t\\) 记录了在角色局部坐标系中的目标位置 \\(\\tilde{\\mathbf{x}}_t\\)。任务奖励随后由下式给出：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b19",
           "kind": "formula",
           "bbox": [
-            381,
-            523,
-            561,
-            540
+            379.0,
+            521.0,
+            563.0,
+            542.0
           ],
           "en": "𝑟𝑡 𝐺 = exp �−0 . 5 ���� 𝑥 ∗ − 𝑥𝑡 root����2 � , (20)",
           "reference": false,
           "image": "figs/p009-019.png",
           "labels": [
             "20"
-          ]
+          ],
+          "original_bbox": [
+            381.0,
+            523.0,
+            561.0,
+            540.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 552,
+          "image_height": 63
         },
         {
           "id": "p9-b20",
@@ -2150,10 +2465,11 @@
             508,
             557
           ],
-          "en": "with 𝑥𝑡root being the location of the character’s root.",
+          "en": "with \\(x^\\mathrm{root}_t\\) being the location of the character’s root.",
           "reference": false,
           "source_image": "figs/p009-020-source.png",
-          "zh": "其中 𝑥𝑡root 为角色根节点的位置。"
+          "zh": "其中 \\(x^\\mathrm{root}_t\\) 为角色根节点的位置。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b21",
@@ -2164,26 +2480,36 @@
             562,
             651
           ],
-          "en": "Strike: Finally, to evaluate the model’s effectiveness in composing disparate skills, we consider a strike task, where the objective is for the character to knock over a target object with its sword. The episode terminates if any body part makes contact with the target, other than the sword. The goal g 𝑡 = ( ˜x 𝑡∗,˜x� 𝑡∗,𝑞˜ 𝑡∗,𝑞�˜ 𝑡∗)recordsthe position of the target x˜ 𝑡∗,itsrotation𝑞˜ 𝑡∗,linearvelocityx�˜ 𝑡∗,and angular velocity 𝑞 �˜ 𝑡∗. All features are recorded in the character’s local coordinate frame. The reward is then calculated according to:",
+          "en": "Strike: Finally, to evaluate the model’s effectiveness in composing disparate skills, we consider a strike task, where the objective is for the character to knock over a target object with its sword. The episode terminates if any body part makes contact with the target, other than the sword. The goal \\(\\mathbf{g}_t = (\\tilde{\\mathbf{x}}^*_t, \\tilde{\\dot{\\mathbf{x}}}^*_t, \\tilde{q}^*_t, \\tilde{\\dot{q}}^*_t)\\)recordsthe position of the target \\(\\tilde{\\mathbf{x}}^*_t\\),itsrotation\\(\\tilde{q}^*_t\\),linearvelocity\\(\\tilde{\\dot{\\mathbf{x}}}^*_t\\),and angular velocity \\(\\tilde{\\dot{q}}^*_t\\). All features are recorded in the character’s local coordinate frame. The reward is then calculated according to:",
           "reference": false,
           "source_image": "figs/p009-021-source.png",
-          "zh": "打击（Strike）：最后，为了评估模型在组合不同技能方面的有效性，我们考虑一个打击任务，其目标是让角色用剑击倒目标物体。如果除剑以外的任何身体部位接触到目标，该回合即告终止。目标 g 𝑡 = 〔行内公式见原版〕 记录了目标的位置 x˜ 𝑡∗、旋转 𝑞˜ 𝑡∗、线速度〔行内公式见原版〕以及角速度〔行内公式见原版〕。所有特征均记录在角色的局部坐标系中。奖励随后按如下方式计算："
+          "zh": "打击（Strike）：最后，为了评估模型在组合不同技能方面的有效性，我们考虑一个打击任务，其目标是让角色用剑击倒目标物体。如果除剑以外的任何身体部位接触到目标，该回合即告终止。目标 \\(\\mathbf{g}_t = (\\tilde{\\mathbf{x}}^*_t, \\tilde{\\dot{\\mathbf{x}}}^*_t, \\tilde{q}^*_t, \\tilde{\\dot{q}}^*_t)\\) 记录了目标的位置 \\(\\tilde{\\mathbf{x}}^*_t\\)、旋转 \\(\\tilde{q}^*_t\\)、线速度 \\(\\tilde{\\dot{\\mathbf{x}}}^*_t\\) 以及角速度 \\(\\tilde{\\dot{q}}^*_t\\)。所有特征均记录在角色的局部坐标系中。奖励随后按如下方式计算：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b22",
           "kind": "formula",
           "bbox": [
-            406,
-            656,
-            561,
-            668
+            404.0,
+            654.0,
+            563.0,
+            670.0
           ],
           "en": "𝑟𝑡 𝐺 = 1 − uup · u 𝑡 ∗ , (21)",
           "reference": false,
           "image": "figs/p009-022.png",
           "labels": [
             "21"
-          ]
+          ],
+          "original_bbox": [
+            406.0,
+            656.0,
+            561.0,
+            668.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 477,
+          "image_height": 48
         },
         {
           "id": "p9-b23",
@@ -2194,10 +2520,11 @@
             561,
             694
           ],
-          "en": "where uup is the global up vector, and u 𝑡∗is the local up vector of the target object expressed in the global coordinate frame.",
+          "en": "where \\(\\mathbf{u}^\\mathrm{up}\\) is the global up vector, and \\(\\mathbf{u}^*_t\\) is the local up vector of the target object expressed in the global coordinate frame.",
           "reference": false,
           "source_image": "figs/p009-023-source.png",
-          "zh": "其中 uup 是全局向上向量，而 u 𝑡∗ 是在全局坐标系中表示的目标物体的局部向上向量。"
+          "zh": "其中 \\(\\mathbf{u}^\\mathrm{up}\\) 是全局向上向量，而 \\(\\mathbf{u}^*_t\\) 是在全局坐标系中表示的目标物体的局部向上向量。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b24",
@@ -2222,43 +2549,70 @@
           "id": "p10-b1",
           "kind": "picture",
           "bbox": [
-            52,
-            83,
-            305,
-            165
+            50.0,
+            81.0,
+            307.0,
+            167.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p010-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            52.0,
+            83.0,
+            305.0,
+            165.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 771,
+          "image_height": 258
         },
         {
           "id": "p10-b2",
           "kind": "picture",
           "bbox": [
-            307,
-            83,
-            560,
-            165
+            305.0,
+            81.0,
+            562.0,
+            167.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p010-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            307.0,
+            83.0,
+            560.0,
+            165.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 771,
+          "image_height": 258
         },
         {
           "id": "p10-b3",
           "kind": "picture",
           "bbox": [
-            51,
-            170,
-            561,
-            402
+            49.0,
+            168.0,
+            563.0,
+            404.0
           ],
           "en": "(a) Location (b) Strike (c) Reach (d) Speed (e) Steering: Walking Sideways (f) Steering: Walking Backwards Fig. 7. Simulated character performing tasks using skills from a pre-trained low-level policy. The character can be directed to perform various tasks using simple reward functions, and the low-level policy then enables the character to achieve the task objectives by using naturalistic behaviors. (a) Reach (b) Strike",
           "reference": false,
           "image": "figs/p010-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            51.0,
+            170.0,
+            561.0,
+            402.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1542,
+          "image_height": 708
         },
         {
           "id": "p10-b4",
@@ -2395,57 +2749,93 @@
           "id": "p11-b1",
           "kind": "picture",
           "bbox": [
-            52,
-            83,
-            181,
-            232
+            50.0,
+            81.0,
+            183.0,
+            234.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p011-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            52.0,
+            83.0,
+            181.0,
+            232.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 399,
+          "image_height": 459
         },
         {
           "id": "p11-b2",
           "kind": "picture",
           "bbox": [
-            183,
-            83,
-            301,
-            232
+            181.0,
+            81.0,
+            303.0,
+            234.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p011-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            183.0,
+            83.0,
+            301.0,
+            232.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 366,
+          "image_height": 459
         },
         {
           "id": "p11-b3",
           "kind": "picture",
           "bbox": [
-            302,
-            83,
-            421,
-            232
+            300.0,
+            81.0,
+            423.0,
+            234.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p011-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            302.0,
+            83.0,
+            421.0,
+            232.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 369,
+          "image_height": 459
         },
         {
           "id": "p11-b4",
           "kind": "picture",
           "bbox": [
-            422,
-            83,
-            560,
-            232
+            420.0,
+            81.0,
+            562.0,
+            234.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p011-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            422.0,
+            83.0,
+            560.0,
+            232.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 426,
+          "image_height": 459
         },
         {
           "id": "p11-b5",
@@ -2498,38 +2888,57 @@
             296,
             694
           ],
-          "en": "To demonstrate the effectiveness of the pre-trained skill embeddings, we apply the pre-trained low-level policy to a variety of downstream tasks. Separate high-level policies are trained for each task, while the same low-level policy is used for all tasks. Figure 7 illustrates behaviors learned by the character on each task. ASE learns to model a versatile corpus of skills that enables the character to effectively accomplish diverse task objectives. Though each task is represented by a simple reward function that specifies only a minimal criteria for the particular task, the learned skill embedding automatically gives rise to complex and naturalistic behaviors. In the case of the Reach task, the reward simply stipulates that the character should move the tip of its sword to a target location. But the policy then learns to utilize various life-like full-body postures in order to reach target. The skill embedding provides the high-level policy with finegrain control over the character’s low-level movements, allowing the character to closely track the target, with an average error of 0 . 088 ± 0 . 046m. For the Steering task, the character learns to utilize different forward, backward, and sideways walking behaviors to follow the target directions. When training the character to move at a target speed, the policy is able to transition between various locomotion gaits according to the desired speed. When the target speed is 0m/s, the character learns to stand still. As the target speed increases (∼ 2m/s), the character transitions to a crouched walking gait, and then breaks into a fast upright running gait at the fastest",
+          "en": "To demonstrate the effectiveness of the pre-trained skill embeddings, we apply the pre-trained low-level policy to a variety of downstream tasks. Separate high-level policies are trained for each task, while the same low-level policy is used for all tasks. Figure 7 illustrates behaviors learned by the character on each task. ASE learns to model a versatile corpus of skills that enables the character to effectively accomplish diverse task objectives. Though each task is represented by a simple reward function that specifies only a minimal criteria for the particular task, the learned skill embedding automatically gives rise to complex and naturalistic behaviors. In the case of the Reach task, the reward simply stipulates that the character should move the tip of its sword to a target location. But the policy then learns to utilize various life-like full-body postures in order to reach target. The skill embedding provides the high-level policy with finegrain control over the character’s low-level movements, allowing the character to closely track the target, with an average error of \\(0.088 \\pm 0.046\\)m. For the Steering task, the character learns to utilize different forward, backward, and sideways walking behaviors to follow the target directions. When training the character to move at a target speed, the policy is able to transition between various locomotion gaits according to the desired speed. When the target speed is 0m/s, the character learns to stand still. As the target speed increases (\\(\\sim2\\)m/s), the character transitions to a crouched walking gait, and then breaks into a fast upright running gait at the fastest",
           "reference": false,
           "source_image": "figs/p011-008-source.png",
-          "zh": "为了展示预训练技能嵌入的有效性，我们将预训练的低层策略应用到多种下游任务中。每项任务均单独训练高层策略，而所有任务复用相同的低层策略。图 7 说明了角色在各任务中学到的行为。ASE 学会了建模一套通用的技能库，使角色能够有效地达成多样的任务目标。尽管每个任务仅由一个指定该特定任务最低标准的简单奖励函数来表示，但学到的技能嵌入会自动衍生出复杂且逼真的行为。在 Reach 任务中，奖励函数仅仅规定角色应将其剑尖移动到目标位置。但随后策略学会了利用各种栩栩如生的全身姿态来达成目标。技能嵌入为高层策略提供了对角色低层运动的精细控制，使角色能够紧密追踪目标，平均误差为 0 . 088 ± 0 . 046m。对于 Steering 任务，角色学会利用不同的前向、后向和侧向行走行为来跟随目标方向。当训练角色以目标速度移动时，策略能够根据期望速度在各种运动步态之间进行转换。当目标速度为 0m/s 时，角色学会保持静止站立。随着目标速度增加（∼ 2m/s），角色会转换为蹲伏行走步态，然后在最高"
+          "zh": "为了展示预训练技能嵌入的有效性，我们将预训练的低层策略应用到多种下游任务中。每项任务均单独训练高层策略，而所有任务复用相同的低层策略。图 7 说明了角色在各任务中学到的行为。ASE 学会了建模一套通用的技能库，使角色能够有效地达成多样的任务目标。尽管每个任务仅由一个指定该特定任务最低标准的简单奖励函数来表示，但学到的技能嵌入会自动衍生出复杂且逼真的行为。在 Reach 任务中，奖励函数仅仅规定角色应将其剑尖移动到目标位置。但随后策略学会了利用各种栩栩如生的全身姿态来达成目标。技能嵌入为高层策略提供了对角色低层运动的精细控制，使角色能够紧密追踪目标，平均误差为 \\(0.088 \\pm 0.046\\)m。对于 Steering 任务，角色学会利用不同的前向、后向和侧向行走行为来跟随目标方向。当训练角色以目标速度移动时，策略能够根据期望速度在各种运动步态之间进行转换。当目标速度为 0m/s 时，角色学会保持静止站立。随着目标速度增加（\\(\\sim2\\)m/s），角色会转换为蹲伏行走步态，然后在最高",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p11-b9",
           "kind": "picture",
           "bbox": [
-            336,
-            309,
-            543,
-            406
+            334.0,
+            307.0,
+            545.0,
+            408.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p011-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            336.0,
+            309.0,
+            543.0,
+            406.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 633,
+          "image_height": 303
         },
         {
           "id": "p11-b10",
           "kind": "picture",
           "bbox": [
-            335,
-            411,
-            541,
-            517
+            333.0,
+            409.0,
+            543.0,
+            519.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p011-010.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            335.0,
+            411.0,
+            541.0,
+            517.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 630,
+          "image_height": 330
         },
         {
           "id": "p11-b11",
@@ -2582,71 +2991,116 @@
           "id": "p12-b1",
           "kind": "picture",
           "bbox": [
-            176,
-            83,
-            292,
-            169
+            174.0,
+            81.0,
+            294.0,
+            171.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p012-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            176.0,
+            83.0,
+            292.0,
+            169.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 360,
+          "image_height": 270
         },
         {
           "id": "p12-b2",
           "kind": "picture",
           "bbox": [
-            54,
-            83,
-            175,
-            169
+            52.0,
+            81.0,
+            177.0,
+            171.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p012-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            83.0,
+            175.0,
+            169.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 375,
+          "image_height": 270
         },
         {
           "id": "p12-b3",
           "kind": "picture",
           "bbox": [
-            176,
-            173,
-            292,
-            259
+            174.0,
+            171.0,
+            294.0,
+            261.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p012-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            176.0,
+            173.0,
+            292.0,
+            259.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 360,
+          "image_height": 270
         },
         {
           "id": "p12-b4",
           "kind": "picture",
           "bbox": [
-            54,
-            173,
-            175,
-            259
+            52.0,
+            171.0,
+            177.0,
+            261.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p012-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            173.0,
+            175.0,
+            259.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 375,
+          "image_height": 270
         },
         {
           "id": "p12-b5",
           "kind": "picture",
           "bbox": [
-            51,
-            263,
-            295,
-            271
+            49.0,
+            261.0,
+            297.0,
+            273.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p012-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            51.0,
+            263.0,
+            295.0,
+            271.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 744,
+          "image_height": 36
         },
         {
           "id": "p12-b6",
@@ -2685,26 +3139,36 @@
             296,
             503
           ],
-          "en": "Learning skill embeddings that can reproduce a wide range of behaviors is crucial for building general and reusable skill models. However, mode-collapse remains a persistent problem for adversarial imitation learning algorithms. To evaluate the diversity of the behaviors produced by our model, we compare motions produced by the low-level policy to motions from the original dataset. First, a trajectory 𝜏 is generated by conditioning 𝜋 on a random latent z ∼ 𝑝 (z). Then, for every transition (s 𝑡 , s 𝑡 +1) in the trajectory, we find a motion clip in the dataset 𝑚∗ ∈M that contains a transition that most closely matches the particular transition from 𝜋 ,",
+          "en": "Learning skill embeddings that can reproduce a wide range of behaviors is crucial for building general and reusable skill models. However, mode-collapse remains a persistent problem for adversarial imitation learning algorithms. To evaluate the diversity of the behaviors produced by our model, we compare motions produced by the low-level policy to motions from the original dataset. First, a trajectory \\(\\tau\\) is generated by conditioning \\(\\pi\\) on a random latent \\(\\mathbf{z} \\sim p(\\mathbf{z})\\). Then, for every transition \\((\\mathbf{s}_t, \\mathbf{s}_{t+1})\\) in the trajectory, we find a motion clip in the dataset \\(m^* \\in \\mathcal{M}\\) that contains a transition that most closely matches the particular transition from \\(\\pi\\),",
           "reference": false,
           "source_image": "figs/p012-008-source.png",
-          "zh": "学习能够复现广泛行为的技能嵌入对于构建通用且可复用的技能模型至关重要。然而，模式坍缩仍然是对抗动作模仿学习算法中长期存在的问题。为了评估我们模型生成行为的多样性，我们将低层策略产生的动作与原始数据集中的动作进行比较。首先，通过以随机潜在变量 z ∼ 𝑝 (z) 为条件调节 𝜋，生成轨迹 𝜏。然后，对于轨迹中的每个状态转移 (s 𝑡 , s 𝑡 +1)，我们在数据集 𝑚∗ ∈M 中寻找包含与 𝜋 的该特定状态转移匹配度最高的动作片段，"
+          "zh": "学习能够复现广泛行为的技能嵌入对于构建通用且可复用的技能模型至关重要。然而，模式坍缩仍然是对抗动作模仿学习算法中长期存在的问题。为了评估我们模型生成行为的多样性，我们将低层策略产生的动作与原始数据集中的动作进行比较。首先，通过以随机潜在变量 \\(\\mathbf{z} \\sim p(\\mathbf{z})\\) 为条件调节 \\(\\pi\\)，生成轨迹 \\(\\tau\\)。然后，对于轨迹中的每个状态转移 \\((\\mathbf{s}_t, \\mathbf{s}_{t+1})\\)，我们在数据集 \\(m^* \\in \\mathcal{M}\\) 中寻找包含与 \\(\\pi\\) 的该特定状态转移匹配度最高的动作片段，",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p12-b9",
           "kind": "formula",
           "bbox": [
-            86,
-            507,
-            295,
-            526
+            84.0,
+            505.0,
+            297.0,
+            528.0
           ],
           "en": "𝑚 ∗ = arg min 𝑚 𝑖 ∈M (s , mins ′ ) ∈ 𝑚 𝑖 ||s¯ 𝑡 − s¯||2 + ||s¯ 𝑡 +1 − s¯′||2 . (22)",
           "reference": false,
           "image": "figs/p012-009.png",
           "labels": [
             "22"
-          ]
+          ],
+          "original_bbox": [
+            86.0,
+            507.0,
+            295.0,
+            526.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 639,
+          "image_height": 69
         },
         {
           "id": "p12-b10",
@@ -2715,10 +3179,11 @@
             296,
             694
           ],
-          "en": "Note, ¯s represents the normalized state features of s, normalized using the mean and standard deviation of state features from the motion data. This matching process is repeated for every transition in a trajectory, and the motion clip that contains the most matches will be specified as the clip that best matches the trajectory 𝜏 . Figure 10 records the frequencies at which 𝜋 produces trajectories that matched each motion clip in the dataset across 1000 trajectories. We compare the distribution of trajectories generated by our ASE model to an ablated model that was trained without the skill discovery objective (Section 5.2) and the diversity objective (Equation 15). The ASE model produces a diverse variety of behaviors that more evenly covers the motions in the dataset. The model trained without the skill discovery objective and the diversity object produces less diverse behaviors, where a large portion of the trajectories matched a single motion clip, corresponding to an idle standing motion.",
+          "en": "Note, \\(\\bar{\\mathbf{s}}\\) represents the normalized state features of \\(\\mathbf{s}\\), normalized using the mean and standard deviation of state features from the motion data. This matching process is repeated for every transition in a trajectory, and the motion clip that contains the most matches will be specified as the clip that best matches the trajectory \\(\\tau\\). Figure 10 records the frequencies at which \\(\\pi\\) produces trajectories that matched each motion clip in the dataset across 1000 trajectories. We compare the distribution of trajectories generated by our ASE model to an ablated model that was trained without the skill discovery objective (Section 5.2) and the diversity objective (Equation 15). The ASE model produces a diverse variety of behaviors that more evenly covers the motions in the dataset. The model trained without the skill discovery objective and the diversity object produces less diverse behaviors, where a large portion of the trajectories matched a single motion clip, corresponding to an idle standing motion.",
           "reference": false,
           "source_image": "figs/p012-010-source.png",
-          "zh": "注意，¯s 表示 s 的归一化状态特征，它是使用动作数据中状态特征的均值和标准差归一化得到的。在轨迹的每一个状态转移上重复该匹配过程，包含最多匹配项的动作片段将被指定为与轨迹 𝜏 最匹配的片段。图 10 记录了在 1000 条轨迹中，𝜋 生成与数据集中各动作片段相匹配的轨迹的频率。我们将 ASE 模型生成的轨迹分布与在没有技能发现目标（第 5.2 节）和多样性目标（公式 15）下训练的消融模型进行了比较。ASE 模型产生了丰富多样的行为，更均匀地覆盖了数据集中的动作。而在没有技能发现目标和多样性目标的情况下训练的模型产生的行为多样性较低，其中很大一部分轨迹与单个动作片段匹配，对应于静止站立动作。"
+          "zh": "注意，\\(\\bar{\\mathbf{s}}\\) 表示 \\(\\mathbf{s}\\) 的归一化状态特征，它是使用动作数据中状态特征的均值和标准差归一化得到的。在轨迹的每一个状态转移上重复该匹配过程，包含最多匹配项的动作片段将被指定为与轨迹 \\(\\tau\\) 最匹配的片段。图 10 记录了在 1000 条轨迹中，\\(\\pi\\) 生成与数据集中各动作片段相匹配的轨迹的频率。我们将 ASE 模型生成的轨迹分布与在没有技能发现目标（第 5.2 节）和多样性目标（公式 15）下训练的消融模型进行了比较。ASE 模型产生了丰富多样的行为，更均匀地覆盖了数据集中的动作。而在没有技能发现目标和多样性目标的情况下训练的模型产生的行为多样性较低，其中很大一部分轨迹与单个动作片段匹配，对应于静止站立动作。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p12-b15",
@@ -2752,15 +3217,24 @@
           "id": "p12-b12",
           "kind": "table",
           "bbox": [
-            324,
-            150,
-            555,
-            210
+            322.0,
+            148.0,
+            557.0,
+            212.0
           ],
           "en": "|Task|Scratch|No SD + No Div.|No SD|No Div.|ASE (Ours)| |---|---|---|---|---|---| |Reach|0.56±0.11|0.18±0.05|0.33±0.05|0.72±0.02|0.75±0.01| |Speed|0.95±0.01|0.87±0.01|0.87±0.01|0.93±0.01|0.93±0.01| |Steering|0.94±0.01|0.72±0.01|0.74±0.02|0.90±0.01|0.90±0.01| |Location|0.67±0.01|0.22±0.04|0.25±0.06|0.47±0.01|0.45±0.01| |Strike|0.87±0.01|0.21±0.13|0.50±0.07|0.80±0.02|0.82±0.01|",
           "reference": false,
           "image": "figs/p012-012.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            324.0,
+            150.0,
+            555.0,
+            210.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 705,
+          "image_height": 192
         },
         {
           "id": "p12-b13",
@@ -2771,10 +3245,11 @@
             562,
             508
           ],
-          "en": "In addition to producing diverse skills, the low-level policy should also learn to transition between the various skills, so that the skills can be more easily composed and sequenced to perform more complex tasks. To evaluate a model’s ability to transition between different skills, we generate trajectories by conditioning 𝜋 on two random latents z 𝑆 and z 𝐷 per trajectory. A trajectory is then generated by first conditioning 𝜋 on z 𝑆 for 150 to 200 timesteps, then 𝜋 is conditioned on z 𝐷 for the remainder for the trajectory. We will refer to the two sub-trajectories produced by the different latents as the source trajectory 𝜏𝑆 and the destination trajectory 𝜏𝐷 . The two sub-trajectories are separately matched to motion clips in the dataset, following the same procedure in Equation 22, to identify the source motion 𝑚𝑆 and destination 𝑚𝐷 . We repeat this process for about 1000 trajectories, and record the probability of transitioning between each pair of motion clips in Figure 9. We compare ASE to models trained without the skill discovery objective (No SD), without the diversity objective (No Div.), and without both objectives (No SD + No Div.). Coverage denotes the portion of transitions out of all possible pairwise transitions observed from trajectories produced by a model coverage =transitionsfrommodel . Our ASE � all possible transitions � model generates much denser connections between different skills, and exhibits about 10% of all possible transitions. Removing the skill discovery objective and diversity objective results in less responsive models that exhibit substantially fewer transitions between skills.",
+          "en": "In addition to producing diverse skills, the low-level policy should also learn to transition between the various skills, so that the skills can be more easily composed and sequenced to perform more complex tasks. To evaluate a model’s ability to transition between different skills, we generate trajectories by conditioning \\(\\pi\\) on two random latents \\(\\mathbf{z}_S\\) and \\(\\mathbf{z}_D\\) per trajectory. A trajectory is then generated by first conditioning \\(\\pi\\) on \\(\\mathbf{z}_S\\) for 150 to 200 timesteps, then \\(\\pi\\) is conditioned on \\(\\mathbf{z}_D\\) for the remainder for the trajectory. We will refer to the two sub-trajectories produced by the different latents as the source trajectory \\(\\tau_S\\) and the destination trajectory \\(\\tau_D\\). The two sub-trajectories are separately matched to motion clips in the dataset, following the same procedure in Equation 22, to identify the source motion \\(m^S\\) and destination \\(m^D\\). We repeat this process for about 1000 trajectories, and record the probability of transitioning between each pair of motion clips in Figure 9. We compare ASE to models trained without the skill discovery objective (No SD), without the diversity objective (No Div.), and without both objectives (No SD + No Div.). Coverage denotes the portion of transitions out of all possible pairwise transitions observed from trajectories produced by a model \\(\\left(\\mathrm{coverage} = \\frac{\\mathrm{transitions \\ from \\ model}}{\\mathrm{all \\ possible \\ transitions}}\\right)\\). Our ASE model generates much denser connections between different skills, and exhibits about 10% of all possible transitions. Removing the skill discovery objective and diversity objective results in less responsive models that exhibit substantially fewer transitions between skills.",
           "reference": false,
           "source_image": "figs/p012-013-source.png",
-          "zh": "除了产生多样的技能之外，低层策略还应该学会不同技能之间的转移，从而使得技能更容易被组合与编排来执行更复杂的任务。为了评估模型在不同技能之间转移的能力，我们通过在每条轨迹上将 𝜋 分别以两个随机潜在变量 z 𝑆 和 z 𝐷 为条件调节来生成轨迹。具体而言，首先将 𝜋 以 z 𝑆 为条件调节 150 到 200 个时间步，接着 𝜋 在轨迹的剩余时间步内以 z 𝐷 为条件调节，从而生成一条轨迹。我们将由不同潜在变量生成的两个子轨迹分别称为源轨迹 𝜏𝑆 和目标轨迹 𝜏𝐷。按照公式 22 中的相同步骤，将这两个子轨迹分别与数据集中的动作片段进行匹配，以确定源动作 𝑚𝑆 和目标动作 𝑚𝐷。我们对大约 1000 条轨迹重复此过程，并在图 9 中记录了每对动作片段之间的转移概率。我们将 ASE 与在没有技能发现目标（No SD）、没有多样性目标（No Div.）以及同时没有这两个目标（No SD + No Div.）下训练的模型进行了比较。覆盖度（Coverage）表示在模型生成的轨迹中观察到的转移占所有可能成对转移的比例（〔行内公式见原版〕）。我们的 ASE 模型在不同技能之间生成了密集得多的连接，展现了所有可能转移中大约 10% 的转移。移除技能发现目标和多样性目标会导致模型响应度降低，并在技能之间表现出大幅减少的转移。"
+          "zh": "除了产生多样的技能之外，低层策略还应该学会不同技能之间的转移，从而使得技能更容易被组合与编排来执行更复杂的任务。为了评估模型在不同技能之间转移的能力，我们通过在每条轨迹上将 \\(\\pi\\) 分别以两个随机潜在变量 \\(\\mathbf{z}_S\\) 和 \\(\\mathbf{z}_D\\) 为条件调节来生成轨迹。具体而言，首先将 \\(\\pi\\) 以 \\(\\mathbf{z}_S\\) 为条件调节 150 到 200 个时间步，接着 \\(\\pi\\) 在轨迹的剩余时间步内以 \\(\\mathbf{z}_D\\) 为条件调节，从而生成一条轨迹。我们将由不同潜在变量生成的两个子轨迹分别称为源轨迹 \\(\\tau_S\\) 和目标轨迹 \\(\\tau_D\\)。按照公式 22 中的相同步骤，将这两个子轨迹分别与数据集中的动作片段进行匹配，以确定源动作 \\(m^S\\) 和目标动作 \\(m^D\\)。我们对大约 1000 条轨迹重复此过程，并在图 9 中记录了每对动作片段之间的转移概率。我们将 ASE 与在没有技能发现目标（No SD）、没有多样性目标（No Div.）以及同时没有这两个目标（No SD + No Div.）下训练的模型进行了比较。覆盖度（Coverage）表示在模型生成的轨迹中观察到的转移占所有可能成对转移的比例 \\(\\left(\\mathrm{coverage} = \\frac{\\mathrm{transitions \\ from \\ model}}{\\mathrm{all \\ possible \\ transitions}}\\right)\\)。我们的 ASE 模型在不同技能之间生成了密集得多的连接，展现了所有可能转移中大约 10% 的转移。移除技能发现目标和多样性目标会导致模型响应度降低，并在技能之间表现出大幅减少的转移。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p12-b14",
@@ -2799,71 +3274,116 @@
           "id": "p13-b3",
           "kind": "picture",
           "bbox": [
-            262,
-            83,
-            358,
-            191
+            260.0,
+            81.0,
+            360.0,
+            193.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            262.0,
+            83.0,
+            358.0,
+            191.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 300,
+          "image_height": 336
         },
         {
           "id": "p13-b1",
           "kind": "picture",
           "bbox": [
-            59,
-            83,
-            164,
-            191
+            57.0,
+            81.0,
+            166.0,
+            193.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            59.0,
+            83.0,
+            164.0,
+            191.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 327,
+          "image_height": 336
         },
         {
           "id": "p13-b2",
           "kind": "picture",
           "bbox": [
-            165,
-            83,
-            261,
-            191
+            163.0,
+            81.0,
+            263.0,
+            193.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            165.0,
+            83.0,
+            261.0,
+            191.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 300,
+          "image_height": 336
         },
         {
           "id": "p13-b4",
           "kind": "picture",
           "bbox": [
-            359,
-            83,
-            454,
-            191
+            357.0,
+            81.0,
+            456.0,
+            193.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            359.0,
+            83.0,
+            454.0,
+            191.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 297,
+          "image_height": 336
         },
         {
           "id": "p13-b5",
           "kind": "picture",
           "bbox": [
-            456,
-            83,
-            551,
-            191
+            454.0,
+            81.0,
+            553.0,
+            193.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            456.0,
+            83.0,
+            551.0,
+            191.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 297,
+          "image_height": 336
         },
         {
           "id": "p13-b6",
@@ -2883,43 +3403,70 @@
           "id": "p13-b7",
           "kind": "picture",
           "bbox": [
-            51,
-            259,
-            295,
-            305
+            49.0,
+            257.0,
+            297.0,
+            307.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            51.0,
+            259.0,
+            295.0,
+            305.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 744,
+          "image_height": 150
         },
         {
           "id": "p13-b8",
           "kind": "picture",
           "bbox": [
-            51,
-            307,
-            295,
-            353
+            49.0,
+            305.0,
+            297.0,
+            355.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            51.0,
+            307.0,
+            295.0,
+            353.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 744,
+          "image_height": 150
         },
         {
           "id": "p13-b9",
           "kind": "picture",
           "bbox": [
-            51,
-            354,
-            295,
-            401
+            49.0,
+            352.0,
+            297.0,
+            403.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            51.0,
+            354.0,
+            295.0,
+            401.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 744,
+          "image_height": 153
         },
         {
           "id": "p13-b10",
@@ -2981,15 +3528,24 @@
           "id": "p13-b11",
           "kind": "picture",
           "bbox": [
-            341,
-            254,
-            535,
-            372
+            339.0,
+            252.0,
+            537.0,
+            374.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-011.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            341.0,
+            254.0,
+            535.0,
+            372.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 594,
+          "image_height": 366
         },
         {
           "id": "p13-b12",
@@ -3014,10 +3570,11 @@
             562,
             567
           ],
-          "en": "uniformly sample latents from the normalized latent space Z, leading to a diverse range of behaviors that travel in different directions. Finally, we have trajectories produced by directly sampling in the normalized latent space Z with various standard deviations 𝜎 = [0 . 1 , 0 . 2 , 0 . 5]. This sampling strategy limits the policy to selecting latents within a local region on the surface of a hypersphere, which can lead to less diverse behaviors. More diverse behaviors can be obtained by drastically increasing the standard deviation of the action distribution. However, a large action standard deviation can hamper learning, and additional mechanisms are needed to decrease the standard deviation over time.",
+          "en": "uniformly sample latents from the normalized latent space \\(\\mathcal{Z}\\), leading to a diverse range of behaviors that travel in different directions. Finally, we have trajectories produced by directly sampling in the normalized latent space \\(\\mathcal{Z}\\) with various standard deviations \\(\\sigma = [0.1, 0.2, 0.5]\\). This sampling strategy limits the policy to selecting latents within a local region on the surface of a hypersphere, which can lead to less diverse behaviors. More diverse behaviors can be obtained by drastically increasing the standard deviation of the action distribution. However, a large action standard deviation can hamper learning, and additional mechanisms are needed to decrease the standard deviation over time.",
           "reference": false,
           "source_image": "figs/p013-016-source.png",
-          "zh": "在归一化潜在空间 Z 中均匀采样潜在变量，从而产生向不同方向行进的丰富行为。最后，我们考察在归一化潜在空间 Z 中以不同标准差 𝜎 = [0 . 1 , 0 . 2 , 0 . 5] 直接采样所生成的轨迹。这种采样策略将策略限制在超球体表面的局部区域内选取潜在变量，这可能会导致行为多样性降低。虽然可以通过大幅增加动作分布的标准差来获得更多样化的行为，但过大的动作标准差会阻碍学习，并且需要额外的机制来随时间推移逐渐减小标准差。"
+          "zh": "在归一化潜在空间 \\(\\mathcal{Z}\\) 中均匀采样潜在变量，从而产生向不同方向行进的丰富行为。最后，我们考察在归一化潜在空间 \\(\\mathcal{Z}\\) 中以不同标准差 \\(\\sigma = [0.1, 0.2, 0.5]\\) 直接采样所生成的轨迹。这种采样策略将策略限制在超球体表面的局部区域内选取潜在变量，这可能会导致行为多样性降低。虽然可以通过大幅增加动作分布的标准差来获得更多样化的行为，但过大的动作标准差会阻碍学习，并且需要额外的机制来随时间推移逐渐减小标准差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p13-b17",
@@ -3042,10 +3599,11 @@
             562,
             694
           ],
-          "en": "Reusing the pre-trained discriminator as a motion prior when training a high-level policy can improve motion quality. The task-reward function is combined with the style-reward using weights 𝑤𝐺 = 0 . 9 and 𝑤𝑆 = 0 . 1 respectively. A comparison of the motions produced with and without a motion prior is available in the supplementary video. Without the motion prior, the character is prone to producing unnatural jittering behaviors and other extraneous movements. With the motion prior, the character produces much smoother motions, and exhibits more natural transitions between different skills.",
+          "en": "Reusing the pre-trained discriminator as a motion prior when training a high-level policy can improve motion quality. The task-reward function is combined with the style-reward using weights \\(w_G = 0.9\\) and \\(w_S = 0.1\\) respectively. A comparison of the motions produced with and without a motion prior is available in the supplementary video. Without the motion prior, the character is prone to producing unnatural jittering behaviors and other extraneous movements. With the motion prior, the character produces much smoother motions, and exhibits more natural transitions between different skills.",
           "reference": false,
           "source_image": "figs/p013-018-source.png",
-          "zh": "在训练高层策略时，将预训练判别器复用为动作先验可以提高动作质量。任务奖励函数与风格奖励相结合，所使用的权重分别为 𝑤𝐺 = 0 . 9 和 𝑤𝑆 = 0 . 1。在补充视频中提供了使用与不使用动作先验所产生动作的对比。在没有动作先验的情况下，角色容易产生不自然的抖动行为以及其他无关运动。在使用动作先验的情况下，角色产生的动作要平滑得多，并在不同技能之间展现出更自然的转移。"
+          "zh": "在训练高层策略时，将预训练判别器复用为动作先验可以提高动作质量。任务奖励函数与风格奖励相结合，所使用的权重分别为 \\(w_G = 0.9\\) 和 \\(w_S = 0.1\\)。在补充视频中提供了使用与不使用动作先验所产生动作的对比。在没有动作先验的情况下，角色容易产生不自然的抖动行为以及其他无关运动。在使用动作先验的情况下，角色产生的动作要平滑得多，并在不同技能之间展现出更自然的转移。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -4677,10 +5235,11 @@
             296,
             269
           ],
-          "en": "Hyperparameter settings used during pre-training of the low-level policy are available in Table 2, and the hyperparameters for tasktraining of the high-level policy are available in Table 3. During pre-training, the trajectories are generated by conditioning the lowlevel policy 𝜋 on a random sequence of latents Z = {z0 , z1 , ..., z 𝑇 −1} sampled according to 𝑝 (z). The sequence of latents is constructed such that a latent z is repeated for multiple timesteps, before a new latent is sampled from 𝑝 (z) and repeated for multiple subsequent timesteps. Each latent is kept fixed for between 1 and 150 timesteps before being changed. During task-training, the high-level policy is queried at 6Hz, while the low-level policy operates at 30Hz. The latents specified by the high-level policy is therefore repeated for 5 steps for the low-level policy. This can help improve motion quality by lowering the rates at which the high-level policy can change the skill being executed by the low-level policy, reducing the prevalence of unnatural jittery behaviors.",
+          "en": "Hyperparameter settings used during pre-training of the low-level policy are available in Table 2, and the hyperparameters for tasktraining of the high-level policy are available in Table 3. During pre-training, the trajectories are generated by conditioning the lowlevel policy \\(\\pi\\) on a random sequence of latents \\(\\mathbf{Z} = \\{\\mathbf{z}_0, \\mathbf{z}_1, ..., \\mathbf{z}_{T-1}\\}\\) sampled according to \\(p(\\mathbf{z})\\). The sequence of latents is constructed such that a latent \\(\\mathbf{z}\\) is repeated for multiple timesteps, before a new latent is sampled from \\(p(\\mathbf{z})\\) and repeated for multiple subsequent timesteps. Each latent is kept fixed for between 1 and 150 timesteps before being changed. During task-training, the high-level policy is queried at 6Hz, while the low-level policy operates at 30Hz. The latents specified by the high-level policy is therefore repeated for 5 steps for the low-level policy. This can help improve motion quality by lowering the rates at which the high-level policy can change the skill being executed by the low-level policy, reducing the prevalence of unnatural jittery behaviors.",
           "reference": false,
           "source_image": "figs/p018-002-source.png",
-          "zh": "低层策略预训练期间所使用的超参数设置参见表2，高层策略任务训练的超参数参见表3。在预训练期间，轨迹是通过将低层策略 𝜋 置于根据 𝑝 (z) 采样的随机潜在变量序列 Z = {z0 , z1 , ..., z 𝑇 −1} 条件下生成的。该潜在变量序列的构建方式是：某个潜在变量 z 会重复多个时间步，然后从 𝑝 (z) 中采样一个新的潜在变量并在随后的多个时间步中重复。每个潜在变量在被更换前会保持固定 1 到 150 个时间步。在任务训练期间，高层策略以 6Hz 的频率被查询，而低层策略以 30Hz 的频率运行。因此，高层策略指定的潜在变量在低层策略中会重复 5 个步长。通过降低高层策略改变低层策略正在执行技能的频率，这有助于提高动作质量，减少不自然的抖动行为发生。"
+          "zh": "低层策略预训练期间所使用的超参数设置参见表2，高层策略任务训练的超参数参见表3。在预训练期间，轨迹是通过将低层策略 \\(\\pi\\) 置于根据 \\(p(\\mathbf{z})\\) 采样的随机潜在变量序列 \\(\\mathbf{Z} = \\{\\mathbf{z}_0, \\mathbf{z}_1, ..., \\mathbf{z}_{T-1}\\}\\) 条件下生成的。该潜在变量序列的构建方式是：某个潜在变量 \\(\\mathbf{z}\\) 会重复多个时间步，然后从 \\(p(\\mathbf{z})\\) 中采样一个新的潜在变量并在随后的多个时间步中重复。每个潜在变量在被更换前会保持固定 1 到 150 个时间步。在任务训练期间，高层策略以 6Hz 的频率被查询，而低层策略以 30Hz 的频率运行。因此，高层策略指定的潜在变量在低层策略中会重复 5 个步长。通过降低高层策略改变低层策略正在执行技能的频率，这有助于提高动作质量，减少不自然的抖动行为发生。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b3",
@@ -4700,15 +5259,24 @@
           "id": "p18-b4",
           "kind": "table",
           "bbox": [
-            346,
-            102,
-            529,
-            282
+            344.0,
+            100.0,
+            531.0,
+            284.0
           ],
           "en": "|Parameter|Value| |---|---| |dim(Z) Latent Space Dimension|64| |Σ𝜋Action Distribution Variance|0.0025| |𝛽Skill DiscoveryObjective Weight|0.5| |𝑤gp Gradient PenaltyWeight|5| |𝑤div DiversityObjective Weight|0.01| |𝜅Encoder ScalingFactor|1| |Samples Per Update Iteration|131072| |Policy/Value Function Minibatch Size|16384| |Discriminator/Encoder Minibatch Size|4096| |𝛾Discount|0.99| |Adam Stepsize|2×10−5| |GAE(𝜆)|0.95| |TD(𝜆)|0.95| |PPO ClipThreshold|0.2| |𝑇Episode Length|300|",
           "reference": false,
           "image": "figs/p018-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            346.0,
+            102.0,
+            529.0,
+            282.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 561,
+          "image_height": 552
         },
         {
           "id": "p18-b5",
@@ -4728,15 +5296,24 @@
           "id": "p18-b6",
           "kind": "table",
           "bbox": [
-            348,
-            330,
-            527,
-            464
+            346.0,
+            328.0,
+            529.0,
+            466.0
           ],
           "en": "|Parameter|Value| |---|---| |𝑤𝐺Task-Reward Weight|0.9| |𝑤𝑆Style-Reward Weight|0.1| |Σ𝜋Action Distribution Variance|0.01| |Samples Per Update Iteration|131072| |Policy/Value Function Minibatch Size|16384| |𝛾Discount|0.99| |Adam Stepsize|2×10−5| |GAE(𝜆)|0.95| |TD(𝜆)|0.95| |PPO ClipThreshold|0.2| |𝑇Episode Length|300|",
           "reference": false,
           "image": "figs/p018-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            348.0,
+            330.0,
+            527.0,
+            464.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 549,
+          "image_height": 414
         }
       ]
     }

@@ -10,7 +10,7 @@
   "out": "site/gvhmr",
   "imported": true,
   "source_language": "en",
-  "math": false,
+  "math": true,
   "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
   "source_aliases": [
     "papers/human-pose-vision/GVHMR.pdf"
@@ -25,7 +25,7 @@
       "6": "p5-b11",
       "7": "p5-b11"
     },
-    "equation_references": 2,
+    "equation_references": 3,
     "paragraphs": 134
   },
   "translation_review": "gemini-polished-awaiting-human-review",

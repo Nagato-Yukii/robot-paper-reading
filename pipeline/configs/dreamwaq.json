@@ -10,7 +10,7 @@
   "out": "site/dreamwaq",
   "imported": true,
   "source_language": "en",
-  "math": false,
+  "math": true,
   "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
   "source_aliases": [
     "papers/humanoid-locomotion/DreamWaQ.pdf"
@@ -27,7 +27,7 @@
       "8": "p4-b1"
     },
     "equation_references": 0,
-    "paragraphs": 132
+    "paragraphs": 133
   },
   "translation_review": "gemini-polished-awaiting-human-review",
   "translation_engine": "antigravity",

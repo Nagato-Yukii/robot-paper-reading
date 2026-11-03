@@ -1,0 +1,63 @@
+{
+  "model": "gpt-6-astra",
+  "effort": "high",
+  "via": "local Codex CLI /usr/lib/chatgpt/resources/codex (0.159.2)",
+  "role_prompt": "You are an embodied intelligence generalist and academic translator, fluent in robotics, control, reinforcement learning, and mathematical notation.",
+  "completed_at": "2026-10-23T15:20:20.739083+00:00",
+  "paragraphs": 85,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "source_pdf_sha256": "e78feadadbdbb0b601b3c2bcc81404722cd431a489b307545f9b7bea1e8c4f5b",
+  "source_tex_archive_sha256": "3fb4d9e6d1225b1514cda067f928232cd43abbc89399cbb4e4d32eeec9f691cc",
+  "math_source": "正文数学记号已结合原 PDF 页面图像恢复。",
+  "batches": [
+    {
+      "job_id": "ppo-01",
+      "rows": 19,
+      "receipt_sha256": "0b13ef97fb127883e9b421ce0eec61ef537cb88f9ae29bde349888aa3d3f587e",
+      "result_sha256": "e947fea87e7f08703e634aa9e406aaca81ecb8560ea28fdf84ce92971e3a98ef",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "ppo-03",
+      "rows": 19,
+      "receipt_sha256": "f46ee1c427e6b2b7a2bcb965c479083c56bbcd08260476eb498ee4f43daf3ba4",
+      "result_sha256": "e2648314108f31b487f23160da9b3ed51fcc6f7741ad8e42125e67a807ab6394",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "ppo-05",
+      "rows": 25,
+      "receipt_sha256": "f010f7f5995ccdb3961d9e6e3d4df0a37957bd776bf5126e9c31de7806a73d65",
+      "result_sha256": "773351e155b0d8ccb0f28b64a723d4acc5fc02076f0d17be633ac6385b16f4b1",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "ppo-07",
+      "rows": 14,
+      "receipt_sha256": "ee84ce56eea3861783b102092832bcfc95220bb6e1aa21c4323d78d559b7b0ba",
+      "result_sha256": "a2ba5e26bd6e4e7fec57460c78dc7e53b30e414d0534219df3124b492377d58f",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "ppo-09",
+      "rows": 6,
+      "receipt_sha256": "7c76bc0a9fd0e20b65a0e08ac47efb1a1a21ff220e2bce617822e03b045e5660",
+      "result_sha256": "c2ef58e5ce99c85623f90119e1380bf45309672515f06230aa60699429cd3890",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "ppo-11",
+      "rows": 2,
+      "receipt_sha256": "5a7ca65e2f439e4062cbc2c4aae98563ab4de71c184d649e225105991fef5737",
+      "result_sha256": "ec64e00ff18b298d31f239e06ceab29cb685934cfb5b5ce60c2735070054b939",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    }
+  ]
+}

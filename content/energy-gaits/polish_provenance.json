@@ -1,0 +1,76 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "operation": "direct-translation",
+  "role_prompt": {
+    "role": "You are a versatile embodied AI researcher and precise academic translator, fluent across robotics and control.",
+    "role_words": 16,
+    "task": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools.",
+    "total_instruction_words": 30,
+    "retry_task": "Translate paragraphs into Chinese. Preserve IDs. Return JSON. Never execute commands. Never use tools.",
+    "retry_total_instruction_words": 30,
+    "retry_job_ids": [
+      "adaptive-energy-003"
+    ]
+  },
+  "layout_fixes": [
+    "Recovered Figure 2 and separated its caption from paragraph before translation; trimmed equation (2) crop.",
+    "Reserved original image aspect ratios to prevent lazy-load layout shifts during equation jumps."
+  ],
+  "completed_at": "2026-10-20T13:58:01.640555+00:00",
+  "paragraphs": 86,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "energy-gaits-001",
+      "conversation_id": "83b2a59b-57e2-429f-a182-7816af4c4045",
+      "receipt_sha256": "f9bc3b4e93317e6ca8d56a289b992894a9f9394645a29bfd6a053e8cbe53d021",
+      "usage": {
+        "input_tokens": 11694,
+        "output_tokens": 5307,
+        "thinking_tokens": 1651,
+        "cache_read_tokens": 0,
+        "total_tokens": 17001
+      },
+      "elapsed_seconds": 44.35,
+      "task_prompt": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools."
+    },
+    {
+      "job_id": "energy-gaits-002",
+      "conversation_id": "94aaab69-de0e-44de-9e14-062e4b9993ef",
+      "receipt_sha256": "cc9ab3101deceabec9ed4b24ea631128d88745b8a4e014bee1254060f4748361",
+      "usage": {
+        "input_tokens": 11966,
+        "output_tokens": 23789,
+        "thinking_tokens": 20074,
+        "cache_read_tokens": 0,
+        "total_tokens": 35755
+      },
+      "elapsed_seconds": 157.83,
+      "task_prompt": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools."
+    },
+    {
+      "job_id": "energy-gaits-003",
+      "conversation_id": "f4415dc9-e64a-46ea-84e8-c82cb0119483",
+      "receipt_sha256": "2b351dc5f9280e01872484d51e51be2093f8429539048ecd1f176011369187b8",
+      "usage": {
+        "input_tokens": 26240,
+        "output_tokens": 8573,
+        "thinking_tokens": 5691,
+        "cache_read_tokens": 0,
+        "total_tokens": 34813
+      },
+      "elapsed_seconds": 63.93,
+      "task_prompt": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools."
+    }
+  ],
+  "usage": {
+    "input_tokens": 49900,
+    "output_tokens": 37669,
+    "thinking_tokens": 27416,
+    "cache_read_tokens": 0,
+    "total_tokens": 87569
+  }
+}

@@ -27,24 +27,34 @@
             500,
             159
           ],
-          "en": "Junfeng Long1∗ , Zirui Wang1,2∗ , Quanyi Li1 , Jiawei Gao1,3 , Liu Cao1,3 , Jiangmiao Pang1� 1OpenRobotLab, Shanghai AI Laboratory, 2Zhejiang University, 3Tsinghua University",
+          "en": "Junfeng Long1∗ , Zirui Wang1,2∗ , Quanyi Li1 , Jiawei Gao1,3 , Liu Cao1,3 , Jiangmiao Pang1 1OpenRobotLab, Shanghai AI Laboratory, 2Zhejiang University, 3Tsinghua University",
           "reference": false,
           "source_image": "figs/p001-002-source.png",
-          "zh": "Junfeng Long1∗ , Zirui Wang1,2∗ , Quanyi Li1 , Jiawei Gao1,3 , Liu Cao1,3 , Jiangmiao Pang1 1OpenRobotLab, Shanghai AI Laboratory, 2Zhejiang University, 3Tsinghua University"
+          "zh": "Junfeng Long1∗ , Zirui Wang1,2∗ , Quanyi Li1 , Jiawei Gao1,3 , Liu Cao1,3 , Jiangmiao Pang1 1OpenRobotLab, Shanghai AI Laboratory, 2Zhejiang University, 3Tsinghua University",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b3",
           "kind": "picture",
           "bbox": [
-            110,
-            188,
-            499,
-            435
+            108.0,
+            186.0,
+            501.0,
+            437.0
           ],
           "en": "Teacher Env Factor Module Module Lidar Camera Mimic Mimic Student Adaptation Module Module ONLY require 200 M Frames IMU Motor (1 hour on RTX 4090) Minimal Sensors No Mimic Learning Efficient Learning Sprinting Stairs Rough Slopes High Platform Substantial Agility",
           "reference": false,
           "image": "figs/p001-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            110.0,
+            188.0,
+            499.0,
+            435.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1179,
+          "image_height": 753
         },
         {
           "id": "p1-b4",
@@ -97,10 +107,11 @@
             390,
             732
           ],
-          "en": "∗ Equal Contributions. � Corresponding Author. Project page at this URL.",
+          "en": "∗ Equal Contributions.  Corresponding Author. Project page at this URL.",
           "reference": false,
           "source_image": "figs/p001-007-source.png",
-          "zh": "∗ 同等贡献。 通讯作者。项目主页见此 URL。"
+          "zh": "∗ 同等贡献。 通讯作者。项目主页见此 URL。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -200,15 +211,24 @@
           "id": "p3-b1",
           "kind": "table",
           "bbox": [
-            115,
-            111,
-            497,
-            186
+            113.0,
+            109.0,
+            499.0,
+            188.0
           ],
           "en": "|Methods|Representations|External Sensors|Mimic Targets|Reference Dataset|# Samples (millions)| |---|---|---|---|---|---| |Teacher-Student|Current Env. Parameters|LiDAR|Behavior|-|Unknown| |MONO|Current Env. Parameters|Depth Camera|Behavior|-|Unknown| |AMP|Current Env. Parameters|-|Behavior|✓|600| |RMA|Current Env. Parameters|-|Latent|-|1,280| |Ours|Simulated Robot Response|-|-|-|200|",
           "reference": false,
           "image": "figs/p003-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            115.0,
+            111.0,
+            497.0,
+            186.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1158,
+          "image_height": 237
         },
         {
           "id": "p3-b2",
@@ -317,15 +337,24 @@
           "id": "p4-b0",
           "kind": "picture",
           "bbox": [
-            108,
-            81,
-            505,
-            287
+            106.0,
+            79.0,
+            507.0,
+            289.0
           ],
           "en": "Proprioception Hybrid Internal Optimization l#& Pull Closer l#$ Target Contrastive & $ Encoder \"l! # Learning l% l% 𝐨%!&' l&' Push Away l$' Policy \"l\"! Contrastive Learning Source Hybrid Internal Policy Comparisons 𝐨%!\"#:! Encoder Embedding \"𝐯! Network l#& Mimic l#$ 𝐨! \" External & l% l% $ Force Critic Policy Network 𝑉! Gradient a! l&' l$' Elevation Maps Proximal Policy Optimization Mimic Learning . . . . . . . . . . . .",
           "reference": false,
           "image": "figs/p004-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            81.0,
+            505.0,
+            287.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1203,
+          "image_height": 630
         },
         {
           "id": "p4-b1",
@@ -378,10 +407,11 @@
             505,
             560
           ],
-          "en": "State Space. The policy network takes partial observation oa tas input, which includes the desired velocity, the proprioceptive information from its joint encoder and IMU, and the last action a t− 1. The desired velocity c t = [ vxc, v yc, ω yawc] indicates the linear velocity in longitudinal and lateral direc- tions, and the angular velocity in the horizontal direction, respectively. The joint encoder provides its joint position θt and joint velocity θ˙ t . The IMU provides its base angular velocity ωt and gravity direction in robot frame g t . Our value network is allowed to access privileged information at the training stage and thus can provide a more accurate estimation of state values. Its input oc tcontains two extra components to oa t:current external forceftand surrounding ground heightht.",
+          "en": "State Space. The policy network takes partial observation \\(\\mathbf{o}_{t}^{a}\\) as input, which includes the desired velocity, the proprioceptive information from its joint encoder and IMU, and the last action \\(\\mathbf{a}_{t-1}\\). The desired velocity \\(\\mathbf{c}_t = [v_x^c, v_y^c, \\omega_{\\text{yaw}}^c]\\) indicates the linear velocity in longitudinal and lateral direc- tions, and the angular velocity in the horizontal direction, respectively. The joint encoder provides its joint position \\(\\mathbf{\\theta}_t\\) and joint velocity \\(\\dot{\\mathbf{\\theta}}_t\\). The IMU provides its base angular velocity \\(\\mathbf{\\omega}_t\\) and gravity direction in robot frame \\(\\mathbf{g}_t\\). Our value network is allowed to access privileged information at the training stage and thus can provide a more accurate estimation of state values. Its input \\(\\mathbf{o}_{t}^{c}\\) contains two extra components to \\(\\mathbf{o}_{t}^{a}\\): current external force \\(\\mathbf{f}_{t}\\) and surrounding ground height \\(\\mathbf{h}_{t}\\).",
           "reference": false,
           "source_image": "figs/p004-004-source.png",
-          "zh": "状态空间。策略网络以局部观测 oa t 作为输入，其中包括期望速度、来自其关节编码器和 IMU 的本体感觉信息，以及上一时刻动作 a t− 1。期望速度 c t = [ vxc, v yc, ω yawc] 分别表示纵向和横向线速度，以及水平方向的角速度。关节编码器提供其关节位置 θt 和关节速度 θ˙ t。IMU 提供其基座角速度 ωt 以及在机器人坐标系下的重力方向 g t。我们的价值网络在训练阶段被允许获取特权信息，从而能够提供更准确的状态价值估计。相比于 oa t，它的输入 oc t 包含两个额外分量：当前外力 ft 和周围地面高度 ht。"
+          "zh": "状态空间。策略网络以局部观测 \\(\\mathbf{o}_{t}^{a}\\) 作为输入，其中包括期望速度、来自其关节编码器和 IMU 的本体感觉信息，以及上一时刻动作 \\(\\mathbf{a}_{t-1}\\)。期望速度 \\(\\mathbf{c}_t = [v_x^c, v_y^c, \\omega_{\\text{yaw}}^c]\\) 分别表示纵向和横向线速度，以及水平方向的角速度。关节编码器提供其关节位置 \\(\\mathbf{\\theta}_t\\) 和关节速度 \\(\\dot{\\mathbf{\\theta}}_t\\)。IMU 提供其基座角速度 \\(\\mathbf{\\omega}_t\\) 以及在机器人坐标系下的重力方向 \\(\\mathbf{g}_t\\)。我们的价值网络在训练阶段被允许获取特权信息，从而能够提供更准确的状态价值估计。相比于 \\(\\mathbf{o}_{t}^{a}\\)，它的输入 \\(\\mathbf{o}_{t}^{c}\\) 包含两个额外分量：当前外力 \\(\\mathbf{f}_{t}\\) 和周围地面高度 \\(\\mathbf{h}_{t}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b5",
@@ -392,10 +422,11 @@
             505,
             621
           ],
-          "en": "Action Space. The movement of each actuator is formulated as the bias between the target joint position θ target and nominal joint position θ 0. To reduce the instability of the network output, we add a scale k ≤ 1 to the policy output a t , thus the final target positions for joints are θ target = θ 0 + k a t. The dimension of the action space A equals the number of actuators. For example, quadrupedal robots such as Unitree A1 or ANYmal have 12 actuators, with 3 on each leg.",
+          "en": "Action Space. The movement of each actuator is formulated as the bias between the target joint position \\(\\mathbf{\\theta}_{\\text{target}}\\) and nominal joint position \\(\\mathbf{\\theta}_0\\). To reduce the instability of the network output, we add a scale \\(k \\leq 1\\) to the policy output \\(\\mathbf{a}_{t}\\), thus the final target positions for joints are \\(\\mathbf{\\theta}_{\\text{target}} = \\mathbf{\\theta}_0 + k \\mathbf{a}_{t}\\). The dimension of the action space \\(\\mathcal{A}\\) equals the number of actuators. For example, quadrupedal robots such as Unitree A1 or ANYmal have 12 actuators, with 3 on each leg.",
           "reference": false,
           "source_image": "figs/p004-005-source.png",
-          "zh": "动作空间。每个执行器的运动被公式化为目标关节位置 θ target 与标称关节位置 θ 0 之间的偏移量。为了减少网络输出的不稳定性，我们给策略输出 a t 乘以缩放系数 k ≤ 1，因此关节的最终目标位置为 θ target = θ 0 + k a t。动作空间 A 的维度等于执行器的数量。例如，Unitree A1 或 ANYmal 等四足机器人拥有 12 个执行器，每条腿上各有 3 个。"
+          "zh": "动作空间。每个执行器的运动被公式化为目标关节位置 \\(\\mathbf{\\theta}_{\\text{target}}\\) 与标称关节位置 \\(\\mathbf{\\theta}_0\\) 之间的偏移量。为了减少网络输出的不稳定性，我们给策略输出 \\(\\mathbf{a}_{t}\\) 乘以缩放系数 \\(k \\leq 1\\)，因此关节的最终目标位置为 \\(\\mathbf{\\theta}_{\\text{target}} = \\mathbf{\\theta}_0 + k \\mathbf{a}_{t}\\)。动作空间 \\(\\mathcal{A}\\) 的维度等于执行器的数量。例如，Unitree A1 或 ANYmal 等四足机器人拥有 12 个执行器，每条腿上各有 3 个。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b6",
@@ -462,15 +493,24 @@
           "id": "p5-b1",
           "kind": "picture",
           "bbox": [
-            306,
-            85,
-            504,
-            248
+            304.0,
+            83.0,
+            506.0,
+            250.0
           ],
           "en": "(a) Disturbance Control Reference Signal Output Controller Simulated Model Response Feedback (b) Velocity (Explicit)Stability (Implicit) Environmental Disturbances Commands C C Policy Actions C Outputs Network Velocity & Hybrid Internal Implicit Response Model Feedback Addition C Concatenation",
           "reference": false,
           "image": "figs/p005-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            306.0,
+            85.0,
+            504.0,
+            248.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 606,
+          "image_height": 501
         },
         {
           "id": "p5-b2",
@@ -495,10 +535,11 @@
             505,
             323
           ],
-          "en": "In practice, HIM uses sequential history observations oa t−H : tto extract the hybrid internal embed- ding that consists of the robot’s velocity ˆ v t and the implicit responseˆ l t . H is set as 5 by default. The extractor is a 3-layer Multi-Layer Perceptron (MLP) with hidden dimensions of 512, 256, and 128, respectively. The policy network takes the embedding and oa tas inputs and outputs actions.",
+          "en": "In practice, HIM uses sequential history observations \\(\\mathbf{o}_{t-H:t}^a\\) to extract the hybrid internal embed- ding that consists of the robot’s velocity \\(\\hat{\\mathbf{v}}_t\\) and the implicit response \\(\\mathbf{\\hat{l}}_t\\). H is set as 5 by default. The extractor is a 3-layer Multi-Layer Perceptron (MLP) with hidden dimensions of 512, 256, and 128, respectively. The policy network takes the embedding and \\(\\mathbf{o}_t^a\\) as inputs and outputs actions.",
           "reference": false,
           "source_image": "figs/p005-003-source.png",
-          "zh": "在实践中，HIM 使用序列历史观测 oa t−H : t 来提取由机器人的速度 ˆ v t 和隐式响应 ˆ l t 组成的混合内部嵌入。H 默认设置为 5。提取器是一个 3 层多层感知机（MLP），隐藏层维度分别为 512、256 和 128。策略网络以该嵌入和 oa t 作为输入并输出动作。"
+          "zh": "在实践中，HIM 使用序列历史观测 \\(\\mathbf{o}_{t-H:t}^a\\) 来提取由机器人的速度 \\(\\hat{\\mathbf{v}}_t\\) 和隐式响应 \\(\\mathbf{\\hat{l}}_t\\) 组成的混合内部嵌入。H 默认设置为 5。提取器是一个 3 层多层感知机（MLP），隐藏层维度分别为 512、256 和 128。策略网络以该嵌入和 \\(\\mathbf{o}_t^a\\) 作为输入并输出动作。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b4",
@@ -523,10 +564,11 @@
             505,
             435
           ],
-          "en": "The most critical thing for the internal embedding (ˆ v t,ˆ l t ) is how to optimize it to simulate the robot’s response, which is naturally embedded within the robot’s successor state oa t +1.Inalignmentwith the principles of IMC, we can directly estimate oa t +1giveno ta −H : t.However, this is challenging due to the high dimension of robot states and the disparity between simulation and reality. Alternatively, given that we train the framework in a simulation environment, we can directly learn to regress the explicit velocity v ˆ t using its ground truth. For the implicit responseˆ l t , we propose modeling it into a latent space Z ⊂ R16 and optimizing it to be close to the successor state with contrastive learning.",
+          "en": "The most critical thing for the internal embedding \\((\\hat{\\mathbf{v}}_t, \\mathbf{\\hat{l}}_t)\\) is how to optimize it to simulate the robot’s response, which is naturally embedded within the robot’s successor state \\(\\mathbf{o}_{t+1}^{a}\\).Inalignmentwith the principles of IMC, we can directly estimate \\(\\mathbf{o}_{t+1}^a\\) given \\(\\mathbf{o}_{t-H:t}^a\\).However, this is challenging due to the high dimension of robot states and the disparity between simulation and reality. Alternatively, given that we train the framework in a simulation environment, we can directly learn to regress the explicit velocity \\(\\hat{\\mathbf{v}}_t\\) using its ground truth. For the implicit response \\(\\mathbf{\\hat{l}}_t\\), we propose modeling it into a latent space \\(\\mathbf{Z} \\subset \\mathbf{R}^{16}\\) and optimizing it to be close to the successor state with contrastive learning.",
           "reference": false,
           "source_image": "figs/p005-005-source.png",
-          "zh": "对于内部嵌入 (ˆ v t, ˆ l t) 而言，最关键的问题是如何对其进行优化以模拟机器人的响应，而这种响应自然蕴含在机器人的后继状态 oa t +1 中。与 IMC 的原理一致，我们可以在给定 oa t−H : t 的条件下直接估计 oa t +1。然而，由于机器人状态的高维性以及仿真与现实之间的差距，这极具挑战性。另一种方法是，鉴于我们在仿真环境中训练该框架，我们可以直接利用真值来学习回归显式速度 v ˆ t。对于隐式响应 ˆ l t，我们提出将其建模到一个潜在空间 Z ⊂ R16 中，并通过对比学习对其进行优化，使其接近后继状态。"
+          "zh": "对于内部嵌入 \\((\\hat{\\mathbf{v}}_t, \\mathbf{\\hat{l}}_t)\\) 而言，最关键的问题是如何对其进行优化以模拟机器人的响应，而这种响应自然蕴含在机器人的后继状态 \\(\\mathbf{o}_{t+1}^{a}\\) 中。与 IMC 的原理一致，我们可以在给定 \\(\\mathbf{o}_{t-H:t}^a\\) 的条件下直接估计 \\(\\mathbf{o}_{t+1}^a\\)。然而，由于机器人状态的高维性以及仿真与现实之间的差距，这极具挑战性。另一种方法是，鉴于我们在仿真环境中训练该框架，我们可以直接利用真值来学习回归显式速度 \\(\\hat{\\mathbf{v}}_t\\)。对于隐式响应 \\(\\mathbf{\\hat{l}}_t\\)，我们提出将其建模到一个潜在空间 \\(\\mathbf{Z} \\subset \\mathbf{R}^{16}\\) 中，并通过对比学习对其进行优化，使其接近后继状态。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b6",
@@ -537,26 +579,36 @@
             505,
             576
           ],
-          "en": "In practice, in each iteration, we collect trajectories in each environment as a batch. If a pair of oa t +1 and oa t−H : tbelong to the same trajectory, they are positive pairs.Otherwise, they are negative pairs. The pairs are optimized by swapping assignments tasks similar to SwAV (Caron et al., 2020). Given a sequence of proprioception observations sampled from the rollout trajectories, we can derive the subsequent observation oa t +1from a transition as a target vector and view the concatenated historical observations oa t−H : tas a source vector.We ensure that the augmentation is consistent across time steps. Source and target vectors are fed to the source encoder and target encoder respectively to obtain the latent feature lsource t and ltarget t which are mapped onto a unit sphere in high-dimensional space with a L 2-normalization. To predict the cluster assignment probability psource t and ptarget t from lsource t and ltarget t , we first apply a L 2-normalization on the prototype to obtain normalized matrix E = { e ¯1 , ..., ¯ e K} , and then take a softmax over the dot products of source vectors or target vectors with all the prototypes:",
+          "en": "In practice, in each iteration, we collect trajectories in each environment as a batch. If a pair of \\(\\mathbf{o}_{t+1}^a\\) and \\(\\mathbf{o}_{t-H:t}^a\\) belong to the same trajectory, they are positive pairs.Otherwise, they are negative pairs. The pairs are optimized by swapping assignments tasks similar to SwAV (Caron et al., 2020). Given a sequence of proprioception observations sampled from the rollout trajectories, we can derive the subsequent observation \\(\\mathbf{o}^a_{t+1}\\) from a transition as a target vector and view the concatenated historical observations \\(\\mathbf{o}^a_{t-H: t}\\) as a source vector.We ensure that the augmentation is consistent across time steps. Source and target vectors are fed to the source encoder and target encoder respectively to obtain the latent feature \\(\\mathbf{l}^{\\text{source}}_t\\) and \\(\\mathbf{l}^{\\text{target}}_t\\) which are mapped onto a unit sphere in high-dimensional space with a \\(\\mathcal{L}_2\\)-normalization. To predict the cluster assignment probability \\(\\mathbf{p}^{\\text{source}}_t\\) and \\(\\mathbf{p}^{\\text{target}}_t\\) from \\(\\mathbf{l}^{\\text{source}}_t\\) and \\(\\mathbf{l}^{\\text{target}}_t\\), we first apply a \\(\\mathcal{L}_2\\)-normalization on the prototype to obtain normalized matrix \\(\\mathbf{E}=\\{ \\bar{\\mathbf{e}}_1, ..., \\bar{\\mathbf{e}}_K \\}\\), and then take a softmax over the dot products of source vectors or target vectors with all the prototypes:",
           "reference": false,
           "source_image": "figs/p005-006-source.png",
-          "zh": "在实践中，在每次迭代中，我们将各个环境中的轨迹收集为一个批次。如果一对 oa t +1 和 oa t−H : t 属于同一条轨迹，则它们为正样本对；否则为负样本对。这些样本对通过类似于 SwAV（Caron et al., 2020）的交换分配任务来进行优化。给定从 rollout 轨迹中采样的本体感觉观测序列，我们可以从状态转移中导出后续观测 oa t +1 作为目标向量，并将拼接的历史观测 oa t−H : t 视为源向量。我们确保数据增强在各个时间步之间保持一致。源向量和目标向量分别输入到源编码器和目标编码器中，以获得潜在特征 lsource t 和 ltarget t，并通过 L 2 归一化将其映射到高维空间中的单位球面上。为了从 lsource t 和 ltarget t 预测聚类分配概率 psource t 和 ptarget t，我们首先对原型应用 L 2 归一化以获得归一化矩阵 E = { e ¯1 , ..., ¯ e K}，然后对源向量或目标向量与所有原型的点积计算 softmax："
+          "zh": "在实践中，在每次迭代中，我们将各个环境中的轨迹收集为一个批次。如果一对 \\(\\mathbf{o}_{t+1}^a\\) 和 \\(\\mathbf{o}_{t-H:t}^a\\) 属于同一条轨迹，则它们为正样本对；否则为负样本对。这些样本对通过类似于 SwAV（Caron et al., 2020）的交换分配任务来进行优化。给定从 rollout 轨迹中采样的本体感觉观测序列，我们可以从状态转移中导出后续观测 \\(\\mathbf{o}^a_{t+1}\\) 作为目标向量，并将拼接的历史观测 \\(\\mathbf{o}^a_{t-H: t}\\) 视为源向量。我们确保数据增强在各个时间步之间保持一致。源向量和目标向量分别输入到源编码器和目标编码器中，以获得潜在特征 \\(\\mathbf{l}^{\\text{source}}_t\\) 和 \\(\\mathbf{l}^{\\text{target}}_t\\)，并通过 \\(\\mathcal{L}_2\\) 归一化将其映射到高维空间中的单位球面上。为了从 \\(\\mathbf{l}^{\\text{source}}_t\\) 和 \\(\\mathbf{l}^{\\text{target}}_t\\) 预测聚类分配概率 \\(\\mathbf{p}^{\\text{source}}_t\\) 和 \\(\\mathbf{p}^{\\text{target}}_t\\)，我们首先对原型应用 \\(\\mathcal{L}_2\\) 归一化以获得归一化矩阵 \\(\\mathbf{E}=\\{ \\bar{\\mathbf{e}}_1, ..., \\bar{\\mathbf{e}}_K \\}\\)，然后对源向量或目标向量与所有原型的点积计算 softmax：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b7",
           "kind": "formula",
           "bbox": [
-            169,
-            579,
-            505,
-            612
+            167.0,
+            577.0,
+            507.0,
+            614.0
           ],
           "en": "p source t = � k exp ′ exp ( τ 1( l τ 1 t source l t source ⊤ e ⊤k e ) k′ ) , p target t = � k exp ′ exp ( τ 1( l τ 1 t target l t target ⊤ e ⊤k e ) k′ ) . (1)",
           "reference": false,
           "image": "figs/p005-007.png",
           "labels": [
             "1"
-          ]
+          ],
+          "original_bbox": [
+            169.0,
+            579.0,
+            505.0,
+            612.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1020,
+          "image_height": 111
         },
         {
           "id": "p5-b8",
@@ -567,10 +619,11 @@
             504,
             638
           ],
-          "en": "Here, psource t and ptarget t are the predicted probability that historical observations oa t−H : tmapsto individual cluster with index k , while τ is a temperature parameter.",
+          "en": "Here, \\(\\mathbf{p}_t^{\\text{source}}\\) and \\(\\mathbf{p}_t^{\\text{target}}\\) are the predicted probability that historical observations \\(\\mathbf{o}^a_{t-H: t}\\)mapsto individual cluster with index \\(k\\) , while \\(\\tau\\) is a temperature parameter.",
           "reference": false,
           "source_image": "figs/p005-008-source.png",
-          "zh": "此处，psource t 和 ptarget t 是历史观测 oa t−H : t 映射到索引为 k 的单个聚类的预测概率，而 τ 为温度参数。"
+          "zh": "此处，\\(\\mathbf{p}_t^{\\text{source}}\\) 和 \\(\\mathbf{p}_t^{\\text{target}}\\) 是历史观测 \\(\\mathbf{o}^a_{t-H: t}\\) 映射到索引为 \\(k\\) 的单个聚类的预测概率，而 \\(\\tau\\) 为温度参数。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b9",
@@ -581,26 +634,36 @@
             505,
             689
           ],
-          "en": "To obtain the targets ( qsource 1 , ..., qsource K ) and ( qtarget 1 , ..., qtarget K ) for the aforementioned predicted probabilities, while avoiding trivial solutions, the Sinkhorn-Knopp algorithm (Cuturi, 2013) is applied to both encoders. Now that we have the cluster assignment predictions and targets, the representation learning objective is simply to maximize the prediction accuracy:",
+          "en": "To obtain the targets \\((\\mathbf{q}^{\\text{source}}_1, . . . , \\mathbf{q}^{\\text{source}}_K)\\) and \\((\\mathbf{q}^{\\text{target}}_1, . . . , \\mathbf{q}^{\\text{target}}_K)\\) for the aforementioned predicted probabilities, while avoiding trivial solutions, the Sinkhorn-Knopp algorithm (Cuturi, 2013) is applied to both encoders. Now that we have the cluster assignment predictions and targets, the representation learning objective is simply to maximize the prediction accuracy:",
           "reference": false,
           "source_image": "figs/p005-009-source.png",
-          "zh": "为了获得上述预测概率的目标 ( qsource 1 , ..., qsource K ) 和 ( qtarget 1 , ..., qtarget K )，同时避免平凡解，我们对两个编码器都应用了 Sinkhorn-Knopp 算法（Cuturi, 2013）。既然已经获得了聚类分配预测和目标，表征学习的目标就只是最大化预测准确率："
+          "zh": "为了获得上述预测概率的目标 \\((\\mathbf{q}^{\\text{source}}_1, . . . , \\mathbf{q}^{\\text{source}}_K)\\) 和 \\((\\mathbf{q}^{\\text{target}}_1, . . . , \\mathbf{q}^{\\text{target}}_K)\\)，同时避免平凡解，我们对两个编码器都应用了 Sinkhorn-Knopp 算法（Cuturi, 2013）。既然已经获得了聚类分配预测和目标，表征学习的目标就只是最大化预测准确率：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b10",
           "kind": "formula",
           "bbox": [
-            190,
-            704,
-            505,
-            734
+            188.0,
+            702.0,
+            507.0,
+            736.0
           ],
           "en": "H J SwAV = − 2 1 H �( q source t log p target t + q target t log p source t ) . (2) t =1",
           "reference": false,
           "image": "figs/p005-010.png",
           "labels": [
             "2"
-          ]
+          ],
+          "original_bbox": [
+            190.0,
+            704.0,
+            505.0,
+            734.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 957,
+          "image_height": 102
         }
       ]
     },
@@ -611,15 +674,24 @@
           "id": "p6-b0",
           "kind": "picture",
           "bbox": [
-            158,
-            58,
-            452,
-            206
+            156.0,
+            56.0,
+            454.0,
+            208.0
           ],
           "en": "Terrain TypeStairs Terrain Type Stairs Rough Slope Rough Slope Slope Discrete Slope Discrete Dimension 1 Dimension 1 (a) Ours (b) Regression (Nahrendra et al., 2023) Dimension 2 Dimension 2",
           "reference": false,
           "image": "figs/p006-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            158.0,
+            58.0,
+            452.0,
+            206.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 894,
+          "image_height": 456
         },
         {
           "id": "p6-b1",
@@ -700,10 +772,11 @@
             505,
             634
           ],
-          "en": "Training Curriculum. We use a similar terrain curriculum as Rudin et al. (2022) and Wu et al. (2022). We create a height field map with 200 terrains arranged in a 20 × 10 grid, and each row has the same type of terrain arranged in increasing difficulty, while each grid is 10 × 10 m2 . The detailed description of our training terrain is in Appendix A.3. We put all the robots in different types of terrains with the lowest difficulty at the beginning, the terrain level will increase if the robot reaches 80% of linear tracking reward, and will decrease if they can not travel half of the terrains in one episode. We use a simple command curriculum to help the robots learn from easy to hard. On complex terrains such as stairs or discrete obstacles, we sample longitudinal and lateral linear velocity commands in [ − 1 . 0 , 1 . 0] m/s and horizontal angular velocity in [ − 2 . 0 , 2 . 0] rad/s. On slopes and rough slopes, we increase the range of longitudinal linear velocity to [ − 3 . 0 , 3 . 0] m/s and the range of horizontal angular velocity to [ − 3 . 0 , 3 . 0] rad/s. The commands are all sampled uniformly in the corresponding range and independently for each robot, we sample the commands every 25 time steps.",
+          "en": "Training Curriculum. We use a similar terrain curriculum as Rudin et al. (2022) and Wu et al. (2022). We create a height field map with 200 terrains arranged in a \\(20 \\times 10\\) grid, and each row has the same type of terrain arranged in increasing difficulty, while each grid is \\(10 \\times 10 \\, \\text{m}^2\\) . The detailed description of our training terrain is in Appendix A.3. We put all the robots in different types of terrains with the lowest difficulty at the beginning, the terrain level will increase if the robot reaches 80% of linear tracking reward, and will decrease if they can not travel half of the terrains in one episode. We use a simple command curriculum to help the robots learn from easy to hard. On complex terrains such as stairs or discrete obstacles, we sample longitudinal and lateral linear velocity commands in \\([-1.0,\\, 1.0 ] \\,\\text{ m/s}\\) and horizontal angular velocity in \\([-2.0,\\, 2.0 ]\\,\\text{ rad/s}\\). On slopes and rough slopes, we increase the range of longitudinal linear velocity to \\([-3.0,\\, 3.0]\\,\\text{ m/s}\\) and the range of horizontal angular velocity to \\([-3.0,\\, 3.0]\\,\\text{ rad/s}\\). The commands are all sampled uniformly in the corresponding range and independently for each robot, we sample the commands every 25 time steps.",
           "reference": false,
           "source_image": "figs/p006-006-source.png",
-          "zh": "训练课程。我们使用了与 Rudin et al. (2022) 和 Wu et al. (2022) 类似的地形课程。我们创建了一个高程图，包含排列在 20 × 10 网格中的 200 种地形，每一行具有相同类型的地形且按难度递增排列，每个网格为 10 × 10 m2。有关训练地形的详细描述见附录 A.3。一开始我们将所有机器人放置在最低难度的不同类型地形中；如果机器人达到 80% 的线速度跟踪奖励，地形等级就会提升；如果机器人在一个回合内行进距离未达到地形的一半，地形等级就会降低。我们使用简单的指令课程来帮助机器人由易到难进行学习。在诸如楼梯或离散障碍物等复杂地形上，我们在 [ − 1 . 0 , 1 . 0] m/s 范围内采样纵向与横向线速度指令，并在 [ − 2 . 0 , 2 . 0] rad/s 范围内采样水平角速度指令。在斜坡和粗糙斜坡上，我们将纵向线速度范围扩大到 [ − 3 . 0 , 3 . 0] m/s，并将水平角速度范围扩大到 [ − 3 . 0 , 3 . 0] rad/s。指令均在相应范围内均匀采样，且对每个机器人独立进行采样，我们每 25 个时间步采样一次指令。"
+          "zh": "训练课程。我们使用了与 Rudin et al. (2022) 和 Wu et al. (2022) 类似的地形课程。我们创建了一个高程图，包含排列在 \\(20 \\times 10\\) 网格中的 200 种地形，每一行具有相同类型的地形且按难度递增排列，每个网格为 \\(10 \\times 10 \\, \\text{m}^2\\)。有关训练地形的详细描述见附录 A.3。一开始我们将所有机器人放置在最低难度的不同类型地形中；如果机器人达到 80% 的线速度跟踪奖励，地形等级就会提升；如果机器人在一个回合内行进距离未达到地形的一半，地形等级就会降低。我们使用简单的指令课程来帮助机器人由易到难进行学习。在诸如楼梯或离散障碍物等复杂地形上，我们在 \\([-1.0,\\, 1.0 ] \\,\\text{ m/s}\\) 范围内采样纵向与横向线速度指令，并在 \\([-2.0,\\, 2.0 ]\\,\\text{ rad/s}\\) 范围内采样水平角速度指令。在斜坡和粗糙斜坡上，我们将纵向线速度范围扩大到 \\([-3.0,\\, 3.0]\\,\\text{ m/s}\\)，并将水平角速度范围扩大到 \\([-3.0,\\, 3.0]\\,\\text{ rad/s}\\)。指令均在相应范围内均匀采样，且对每个机器人独立进行采样，我们每 25 个时间步采样一次指令。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b7",
@@ -747,24 +820,34 @@
             504,
             84
           ],
-          "en": "Table 2: Main results with average performance ↑ in the real-world benchmarks over 20 trials, where ± captures a 95% confidence interval. The top results are highlighted.",
+          "en": "Table 2: Main results with average performance \\(\\uparrow\\) in the real-world benchmarks over 20 trials, where \\(\\pm\\) captures a 95% confidence interval. The top results are highlighted.",
           "reference": false,
           "source_image": "figs/p007-000-source.png",
-          "zh": "表2：在真实世界基准上经过 20 次试验的平均性能 ↑ 主要结果，其中 ± 表示 95% 置信区间。最优结果已突出显示。"
+          "zh": "表2：在真实世界基准上经过 20 次试验的平均性能 \\(\\uparrow\\) 主要结果，其中 \\(\\pm\\) 表示 95% 置信区间。最优结果已突出显示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b1",
           "kind": "table",
           "bbox": [
-            113,
-            88,
-            497,
-            283
+            111.0,
+            86.0,
+            499.0,
+            285.0
           ],
           "en": "|Benchmarks|Environments|Metrics|Ours|RMA|MoB|Built-in MPC| |---|---|---|---|---|---|---| |Stairs|Short-range (A1)|Success rate (%)|100|60|0|0| ||Long-range (Aliengo)|Number of stairs|176.5±7.81|75.35±19.98|0.0±0.0|0.0±0.0| |Unseen Terrains|Compositional Terrain (Aliengo)|Success rate (%)|85|45|0|0| ||Deformable Slope (A1)|Success rate (%)|55|10|0|0| |Anti-|Dragging Obstacle (A1)|Maximum weight (Kg)|10|10|7|3| |disturbance|Vertical Hit (A1)|Maximum weight (Kg)|8|7.5|7|5| ||Payload (A1)|Maximum weight (Kg)|8|7|4|7| ||Missing steps (Aliengo)|Success rate (%)|100|0|0|0|",
           "reference": false,
           "image": "figs/p007-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            113.0,
+            88.0,
+            497.0,
+            283.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1164,
+          "image_height": 597
         },
         {
           "id": "p7-b2",
@@ -806,7 +889,8 @@
           "en": "- Baseline: Train without HIM but keep the source encoder and optimize it with PPO.",
           "reference": false,
           "source_image": "figs/p007-004-source.png",
-          "zh": "- Baseline：不使用 HIM 进行训练，但保留源编码器并使用 PPO 对其进行优化。"
+          "zh": "- Baseline：不使用 HIM 进行训练，但保留源编码器并使用 PPO 对其进行优化。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b5",
@@ -820,7 +904,8 @@
           "en": "- Ours w/o velocity input: Set the velocity inputs to the policy network as 0.",
           "reference": false,
           "source_image": "figs/p007-005-source.png",
-          "zh": "- Ours w/o velocity input：将输入至策略网络的速度设为 0。"
+          "zh": "- Ours w/o velocity input：将输入至策略网络的速度设为 0。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b6",
@@ -834,7 +919,8 @@
           "en": "- Ours w/o velocity loss: Direct remove the velocity estimation.",
           "reference": false,
           "source_image": "figs/p007-006-source.png",
-          "zh": "- Ours w/o velocity loss：直接移除速度估计。"
+          "zh": "- Ours w/o velocity loss：直接移除速度估计。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b7",
@@ -848,7 +934,8 @@
           "en": "- Ours w/o internal latent input: Set the internal latent inputs to the policy network as 0.",
           "reference": false,
           "source_image": "figs/p007-007-source.png",
-          "zh": "- Ours w/o internal latent input：将输入至策略网络的内部潜在特征设为 0。"
+          "zh": "- Ours w/o internal latent input：将输入至策略网络的内部潜在特征设为 0。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b8",
@@ -862,7 +949,8 @@
           "en": "- Ours w/o internal latent loss: Direct remove the internal latent estimation.",
           "reference": false,
           "source_image": "figs/p007-008-source.png",
-          "zh": "- Ours w/o internal latent loss：直接移除内部潜在特征估计。"
+          "zh": "- Ours w/o internal latent loss：直接移除内部潜在特征估计。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b9",
@@ -876,7 +964,8 @@
           "en": "- Regression: Optimize the hybrid internal model with regression methods.",
           "reference": false,
           "source_image": "figs/p007-009-source.png",
-          "zh": "- Regression：使用回归方法优化混合内部模型。"
+          "zh": "- Regression：使用回归方法优化混合内部模型。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b10",
@@ -890,7 +979,8 @@
           "en": "- Oracle: Train the policy with a history of full observations.",
           "reference": false,
           "source_image": "figs/p007-010-source.png",
-          "zh": "- Oracle：使用完整观测的历史信息来训练策略。"
+          "zh": "- Oracle：使用完整观测的历史信息来训练策略。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b11",
@@ -904,7 +994,8 @@
           "en": "- Rapid Motor Adaptation (Kumar et al., 2021).",
           "reference": false,
           "source_image": "figs/p007-011-source.png",
-          "zh": "- Rapid Motor Adaptation (Kumar et al., 2021)。"
+          "zh": "- Rapid Motor Adaptation (Kumar et al., 2021)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b12",
@@ -918,7 +1009,8 @@
           "en": "- Multiplicity of Behavior (Walk These Ways) (Margolis & Agrawal, 2023).",
           "reference": false,
           "source_image": "figs/p007-012-source.png",
-          "zh": "- Multiplicity of Behavior (Walk These Ways) (Margolis & Agrawal, 2023)。"
+          "zh": "- Multiplicity of Behavior (Walk These Ways) (Margolis & Agrawal, 2023)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b13",
@@ -932,7 +1024,8 @@
           "en": "- Onboard MPC controller, which is only compared in real-world experiments.",
           "reference": false,
           "source_image": "figs/p007-013-source.png",
-          "zh": "- 机载 MPC 控制器（Onboard MPC controller），仅在真实世界实验中进行对比。"
+          "zh": "- 机载 MPC 控制器（Onboard MPC controller），仅在真实世界实验中进行对比。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b14",
@@ -943,10 +1036,11 @@
             505,
             509
           ],
-          "en": "Setups in the Real World. We deploy our policy on Unitree A1, Go1, and Aliengo. The policy runs at 50 Hz, with a PD controller running at 500 Hz to track the target. The parameters are kp = 30 . 0, kd = 0 . 75 for A1 and Go1, kp = 40 . 0, kd = 2 . 0 for Aliengo. We compare methods with robust tests in the real world, with 3 benchmarks and 8 tasks. The details can be found in Appendix B.1.",
+          "en": "Setups in the Real World. We deploy our policy on Unitree A1, Go1, and Aliengo. The policy runs at 50 Hz, with a PD controller running at 500 Hz to track the target. The parameters are \\(k_p = 30.0\\), \\(k_d = 0.75\\) for A1 and Go1, \\(k_p = 40.0\\), \\(k_d = 2.0\\) for Aliengo. We compare methods with robust tests in the real world, with 3 benchmarks and 8 tasks. The details can be found in Appendix B.1.",
           "reference": false,
           "source_image": "figs/p007-014-source.png",
-          "zh": "真实世界设置。我们将策略部署在 Unitree A1、Go1 和 Aliengo 上。策略运行频率为 50 Hz，PD 控制器以 500 Hz 运行以跟踪目标。A1 和 Go1 的参数为 kp = 30 . 0, kd = 0 . 75，Aliengo 的参数为 kp = 40 . 0, kd = 2 . 0。我们在真实世界中通过鲁棒性测试对比各方法，包括 3 个基准和 8 个任务。详细信息见附录 B.1。"
+          "zh": "真实世界设置。我们将策略部署在 Unitree A1、Go1 和 Aliengo 上。策略运行频率为 50 Hz，PD 控制器以 500 Hz 运行以跟踪目标。A1 和 Go1 的参数为 \\(k_p = 30.0\\), \\(k_d = 0.75\\)，Aliengo 的参数为 \\(k_p = 40.0\\), \\(k_d = 2.0\\)。我们在真实世界中通过鲁棒性测试对比各方法，包括 3 个基准和 8 个任务。详细信息见附录 B.1。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b15",
@@ -957,10 +1051,11 @@
             505,
             562
           ],
-          "en": "Setups in Simulations. In simulations, we compare methods according to the tracking errors. The tracking errors for linear velocity and angular velocity are quantified using the norms ∥vx,y −vx,ytarget∥ 2 and ∥ω yaw −ω yawtarget∥ 2, respectively. We test the tracking performance under various terrain conditions and motion ranges. A detailed description can be found in Appendix B.2.",
+          "en": "Setups in Simulations. In simulations, we compare methods according to the tracking errors. The tracking errors for linear velocity and angular velocity are quantified using the norms \\(\\|v_{x,y} - v_{x,y}^{\\text{target}}\\|_2\\) and \\(\\|\\omega_{\\text{yaw}} - \\omega_{\\text{yaw}}^{\\text{target}}\\|_2\\), respectively. We test the tracking performance under various terrain conditions and motion ranges. A detailed description can be found in Appendix B.2.",
           "reference": false,
           "source_image": "figs/p007-015-source.png",
-          "zh": "仿真设置。在仿真中，我们根据跟踪误差来对比各方法。线速度和角速度的跟踪误差分别使用范数 ∥vx,y −vx,ytarget∥ 2 和 ∥ω yaw −ω yawtarget∥ 2 进行量化。我们在各种地形条件和运动范围内测试跟踪性能。详细描述见附录 B.2。"
+          "zh": "仿真设置。在仿真中，我们根据跟踪误差来对比各方法。线速度和角速度的跟踪误差分别使用范数 \\(\\|v_{x,y} - v_{x,y}^{\\text{target}}\\|_2\\) 和 \\(\\|\\omega_{\\text{yaw}} - \\omega_{\\text{yaw}}^{\\text{target}}\\|_2\\) 进行量化。我们在各种地形条件和运动范围内测试跟踪性能。详细描述见附录 B.2。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b16",
@@ -1018,24 +1113,34 @@
             497,
             73
           ],
-          "en": "Table 3: Average tracking error ↓ in simulation over 4096 × 5 trials. Top results are highlighted.",
+          "en": "Table 3: Average tracking error \\(\\downarrow\\) in simulation over \\(4096 \\times 5\\) trials. Top results are highlighted.",
           "reference": false,
           "source_image": "figs/p008-000-source.png",
-          "zh": "表3：仿真中经过 4096 × 5 次试验的平均跟踪误差 ↓。最优结果已突出显示。"
+          "zh": "表3：仿真中经过 \\(4096 \\times 5\\) 次试验的平均跟踪误差 \\(\\downarrow\\)。最优结果已突出显示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p8-b1",
           "kind": "table",
           "bbox": [
-            108,
-            78,
-            502,
-            426
+            106.0,
+            76.0,
+            504.0,
+            428.0
           ],
           "en": "|Terrain Types|Velocity Types|Ranges|Ours|Regression|RMA|Baseline|MoB (Trot)| |---|---|---|---|---|---|---|---| ||Linear|[-1, 1] m/s|0.073|0.071|0.158|0.271|0.103| |||[-2, 2] m/s|0.075|0.077|0.270|0.305|0.126| |Slopes|Angular|[-1, 1] rad/s|0.084|0.086|0.091|0.164|0.081| |||[-2, 2] rad/s|0.124|0.130|0.134|0.202|0.114| |||[-1, 1] m/s|0.078|0.075|0.155|0.207|0.069| ||Combined|[-1, 1] rad/s|0.047|0.050|0.074|0.143|0.052| |||[-2, 2] m/s|0.094|0.107|0.203|0.224|0.103| |||[-2, 2] rad/s|0.067|0.071|0.102|0.157|0.069| ||Linear|[-1, 1] m/s|0.086|0.091|0.201|0.287|0.105| |||[-2, 2] m/s|0.085|0.088|0.294|0.331|0.124| |Rough |Angular|[-1, 1] rad/s|0.097|0.108|0.142|0.160|0.119| |Slopes||[-2, 2] rad/s|0.143|0.150|0.147|0.187|0.135| |||[-1, 1] m/s|0.088|0.095|0.167|0.220|0.147| ||Combined|[-1, 1] rad/s|0.054|0.070|0.086|0.169|0.092| |||[-2, 2] m/s|0.103|0.137|0.221|0.284|0.195| |||[-2, 2] rad/s|0.076|0.096|0.117|0.201|0.114| ||Linear|[-1, 1] m/s|0.147|0.194|0.306|0.377|1.108| |Stairs|Angular|[-1, 1] rad/s|0.087|0.101|0.241|0.370|0.930| ||Cbid|[-1, 1] m/s|0.135|0.217|0.337|0.405|1.270| ||omne|[-1, 1] rad/s|0.096|0.154|0.201|0.289|0.992| ||Linear|[-1, 1] m/s|0.125|0.182|0.311|0.279|0.973| |Discretre Obstacles|Angular|[-1, 1] rad/s|0.083|0.097|0.175|0.253|0.841| ||Cbid|[-1, 1] m/s|0.125|0.206|0.305|0.374|1.254| ||omne|[-1, 1] rad/s|0.075|0.133|0.177|0.246|0.976|",
           "reference": false,
           "image": "figs/p008-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            78.0,
+            502.0,
+            426.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1194,
+          "image_height": 1056
         },
         {
           "id": "p8-b2",
@@ -1083,15 +1188,24 @@
           "id": "p8-b5",
           "kind": "formula",
           "bbox": [
-            162,
-            597,
-            450,
-            621
+            160.0,
+            595.0,
+            452.0,
+            623.0
           ],
           "en": "NLTS = exp( − ∥vx,y − v x target ,y ∥ 2 2 ) , NATS = exp( − ∥ω yaw − ω y target aw ∥ 2 2 ) . 0 . 25 0 . 25",
           "reference": false,
           "image": "figs/p008-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            162.0,
+            597.0,
+            450.0,
+            621.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 876,
+          "image_height": 84
         },
         {
           "id": "p8-b6",
@@ -1158,15 +1272,24 @@
           "id": "p9-b0",
           "kind": "picture",
           "bbox": [
-            108,
-            81,
-            505,
-            218
+            106.0,
+            79.0,
+            507.0,
+            220.0
           ],
           "en": "(a) (b) (c)",
           "reference": false,
           "image": "figs/p009-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            81.0,
+            505.0,
+            218.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1203,
+          "image_height": 423
         },
         {
           "id": "p9-b1",
@@ -1191,24 +1314,34 @@
             505,
             319
           ],
-          "en": "Table 4: Ablation studies with average performance ↑ in the real-world benchmarks over 20 trials, where ± captures a 95% confidence interval. Top performances are highlighted.",
+          "en": "Table 4: Ablation studies with average performance \\(\\uparrow\\) in the real-world benchmarks over 20 trials, where \\(\\pm\\) captures a \\(95\\%\\) confidence interval. Top performances are highlighted.",
           "reference": false,
           "source_image": "figs/p009-002-source.png",
-          "zh": "表 4：真实世界基准测试中 20 次试验的消融实验平均性能 ↑，其中 ± 表示 95% 置信区间。最佳性能已突出显示。"
+          "zh": "表 4：真实世界基准测试中 20 次试验的消融实验平均性能 \\(\\uparrow\\)，其中 \\(\\pm\\) 表示 \\(95\\%\\) 置信区间。最佳性能已突出显示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b3",
           "kind": "table",
           "bbox": [
-            111,
-            323,
-            499,
-            478
+            109.0,
+            321.0,
+            501.0,
+            480.0
           ],
           "en": "|Benchmarks|Environments|Metrics|Ours|Ours w/o vel. inp.|Ours w/o vel. loss|Ours w/o lat. inp.|Ours w/o lat. loss|Regression|Baseline| |---|---|---|---|---|---|---|---|---|---| |Stairs|Short-range (A1)|Success rate (%)|100|85|80|50|55|85|10| ||Long-range (Aliengo)|Number of stairs|176.5±7.81|51.45±25.67|54.6±24.68|13.3±13.42|10.6±9.68|155.7±13.48|0.0±0.0| |Unseen Terrains|Compositional Terrain (Aliengo)|Success rate (%)|85|70|75|50|50|70|15| ||Deformable Slope (A1)|Success rate (%)|55|30|25|0|0|30|0| |Anti-|Dragging Obstacle (A1)|Maximum weight (Kg)|10|10|10|5|5|10|4| |disturbance|Vertical Hit (A1)|Maximum weight (Kg)|8|7|6.5|4|4|8|5.5| ||Payload (A1)|Maximum weight (Kg)|8|7|7|3.5|3.5|7.5|3| ||Missing steps (Aliengo)|Success rate (%)|100|90|90|5|0|65|0|",
           "reference": false,
           "image": "figs/p009-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            111.0,
+            323.0,
+            499.0,
+            478.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1176,
+          "image_height": 477
         },
         {
           "id": "p9-b4",
@@ -2018,15 +2151,24 @@
           "id": "p13-b4",
           "kind": "table",
           "bbox": [
-            169,
-            183,
-            440,
-            358
+            167.0,
+            181.0,
+            442.0,
+            360.0
           ],
           "en": "|Reward|Equation(ri)|Weight(wi)| |---|---|---| |Lin. velocity tracking Ang. velocity tracking|exp � − ∥vcmd xy −vxy∥2 2 σ � exp � −(ωcmd yaw −ωyaw ) 2 σ �|1.0 0.5| |Linear velocity(z)|v2 z|-2.0| |Angular velocity(xy)|∥ωxy∥2 2 |-0.05| |Orientation|∥g∥2 2 ¨|-0.2 | |Joint accelerations|∥θ∥2|−2.5×10−7| |Joint power||τ∥˙θ|T|−2×10−5| |Body height|(htarget −h)2|-1.0| |Foot clearance|�3 i=0 � ptarget z −pi z �2· vi xy|-0.01| |Action rate|∥at −at−1∥2 2 |-0.01| |Smoothness|∥at −2at−1+at−2∥2 2|-0.01|",
           "reference": false,
           "image": "figs/p013-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            169.0,
+            183.0,
+            440.0,
+            358.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 825,
+          "image_height": 537
         },
         {
           "id": "p13-b5",
@@ -2037,10 +2179,11 @@
             505,
             409
           ],
-          "en": "In Table 5, σ is the tracking shaping scale and we use σ = 0 . 25, htarget is the desired base height corresponding to ground, pztarget and pi zare the desired feet position and real feet position in z-axis of robot’s frame and vxyiis the feet velocity in xy-plane of robot’s frame.",
+          "en": "In Table 5, \\(\\sigma\\) is the tracking shaping scale and we use \\(\\sigma = 0.25\\), \\(h^{\\text{target}}\\) is the desired base height corresponding to ground, \\(p_z^{\\text{target}}\\) and \\(p_z^i\\) are the desired feet position and real feet position in z-axis of robot’s frame and \\(v_{xy}^i\\) is the feet velocity in xy-plane of robot’s frame.",
           "reference": false,
           "source_image": "figs/p013-005-source.png",
-          "zh": "在表 5 中，σ 为跟踪塑形尺度且取 σ = 0.25，htarget 是相对于地面的期望机身高度，pztarget 与 pi z 分别是机器人坐标系 z 轴上的期望足端位置与实际足端位置，vxyi 是机器人坐标系 xy 平面内的足端速度。"
+          "zh": "在表 5 中，\\(\\sigma\\) 为跟踪塑形尺度且取 \\(\\sigma = 0.25\\)，\\(h^{\\text{target}}\\) 是相对于地面的期望机身高度，\\(p_z^{\\text{target}}\\) 与 \\(p_z^i\\) 分别是机器人坐标系 z 轴上的期望足端位置与实际足端位置，\\(v_{xy}^i\\) 是机器人坐标系 xy 平面内的足端速度。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p13-b6",
@@ -2088,15 +2231,24 @@
           "id": "p13-b9",
           "kind": "table",
           "bbox": [
-            164,
-            500,
-            445,
-            648
+            162.0,
+            498.0,
+            447.0,
+            650.0
           ],
           "en": "|Parameters|Range[Min, Max]|Unit| |---|---|---| |Body Mass|[0.8,1.2]×nominal value|Kg| |Link Mass|[0.8,1.2]×nominal value |Kg| |CoM|[−0.1,0.1]×[−0.1,0.1]×[−0.1,0.1]|m| |Payload Mass|[−1,3] |Kg| |Ground Friction|[0.2,2.75] |-| |Ground Restitution|[0.0,1.0]|-| |Motor Strength|[0.8,1.2]×motor torque |Nm| |JointKp|[0.8,1.2]×20 |-| |JointKd|[0.8,1.2]×0.5 |-| |Initial Joint Positions|[0.5,1.5]×nominal value |rad| |System Delay|[0,3∆t]|s| |External Force|[−30,30]×[−30,30]×[−30,30]|N|",
           "reference": false,
           "image": "figs/p013-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            164.0,
+            500.0,
+            445.0,
+            648.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 855,
+          "image_height": 456
         }
       ]
     },
@@ -2140,24 +2292,11 @@
             505,
             177
           ],
-          "en": "The slopes and rough slopes vary in inclination from 0◦ to 40◦ with the addition of uniform noise ranging from ± 1 cm to ± 8 cm on the rough slopes. The stairs have random widths ranging from 20 cm to 40 cm and heights varying from 5 cm to 23 cm. The discrete obstacles have heights ranging from ± 5 cm to ± 15 cm. We assign difficulty levels to the terrains using integers from 0 to 9. More specifically, for a terrain level indicated by levelterrain , the corresponding terrains are as follows:",
+          "en": "The slopes and rough slopes vary in inclination from 0\\(^{\\circ}\\) to 40\\(^{\\circ}\\) with the addition of uniform noise ranging from \\(\\pm\\) 1 cm to \\(\\pm\\) 8 cm on the rough slopes. The stairs have random widths ranging from 20 cm to 40 cm and heights varying from 5 cm to 23 cm. The discrete obstacles have heights ranging from \\(\\pm\\) 5 cm to \\(\\pm\\) 15 cm. We assign difficulty levels to the terrains using integers from 0 to 9. More specifically, for a terrain level indicated by \\(\\text{level}^{\\text{terrain}}\\), the corresponding terrains are as follows:",
           "reference": false,
           "source_image": "figs/p014-002-source.png",
-          "zh": "斜坡和崎岖斜坡的倾角在 0° 到 40° 之间变化，并在崎岖斜坡上添加了范围为 ±1 cm 至 ±8 cm 的均匀噪声。楼梯的宽度在 20 cm 到 40 cm 之间随机分布，高度在 5 cm 到 23 cm 之间变化。离散障碍物的高度在 ±5 cm 到 ±15 cm 之间。我们使用 0 到 9 的整数来设定地形的难度等级。更具体地，对于由 levelterrain 表示的地形等级，相应的地形如下："
-        },
-        {
-          "id": "p14-b3",
-          "kind": "text",
-          "bbox": [
-            247,
-            191,
-            286,
-            206
-          ],
-          "en": "level 9terrain ◦ ;",
-          "reference": false,
-          "source_image": "figs/p014-003-source.png",
-          "zh": "〔行内公式见原版〕；"
+          "zh": "斜坡和崎岖斜坡的倾角在 0\\(^{\\circ}\\) 到 40\\(^{\\circ}\\) 之间变化，并在崎岖斜坡上添加了范围为 \\(\\pm\\)1 cm 至 \\(\\pm\\)8 cm 的均匀噪声。楼梯的宽度在 20 cm 到 40 cm 之间随机分布，高度在 5 cm 到 23 cm 之间变化。离散障碍物的高度在 \\(\\pm\\)5 cm 到 \\(\\pm\\)15 cm 之间。我们使用 0 到 9 的整数来设定地形的难度等级。更具体地，对于由 \\(\\text{level}^{\\text{terrain}}\\) 表示的地形等级，相应的地形如下：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b4",
@@ -2168,10 +2307,11 @@
             248,
             205
           ],
-          "en": "- Slopes: with inclination of 40 ×",
+          "en": "- Slopes: with inclination of \\(40\\times\\frac{\\text{level}^{\\text{terrain}}}{9}\\,{}^\\circ\\);",
           "reference": false,
           "source_image": "figs/p014-004-source.png",
-          "zh": "- 斜坡：倾角为 40 ×"
+          "zh": "- 斜坡：倾角为 \\(40\\times\\frac{\\text{level}^{\\text{terrain}}}{9}\\,{}^\\circ\\)；",
+          "math_repair": "exact-author-latex-fragment-recovery"
         },
         {
           "id": "p14-b5",
@@ -2182,10 +2322,11 @@
             464,
             221
           ],
-          "en": "- Rough slopes: with amplitude of 1 + 7 ×level 9terrain cm and inclination of 40 ×level 9terrain ◦ ;",
+          "en": "- Rough slopes: with amplitude of \\(1 + 7 \\times \\frac{\\text{level}^{\\text{terrain}}}{9}\\) cm and inclination of \\(40 \\times \\frac{\\text{level}^{\\text{terrain}}}{9}\\) \\(^{\\circ}\\);",
           "reference": false,
           "source_image": "figs/p014-005-source.png",
-          "zh": "- 崎岖斜坡：幅度为 1 + 7 ×〔行内公式见原版〕cm，倾角为 40 ×〔行内公式见原版〕；"
+          "zh": "- 崎岖斜坡：幅度为 \\(1 + 7 \\times \\frac{\\text{level}^{\\text{terrain}}}{9}\\) cm，倾角为 \\(40 \\times \\frac{\\text{level}^{\\text{terrain}}}{9}\\) \\(^{\\circ}\\)；",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b6",
@@ -2196,10 +2337,11 @@
             307,
             236
           ],
-          "en": "- Stairs: with step height of 5 + 18 ×level 9terrain cm;",
+          "en": "- Stairs: with step height of \\(5 + 18 \\times \\frac{\\text{level}^{\\text{terrain}}}{9}\\) cm;",
           "reference": false,
           "source_image": "figs/p014-006-source.png",
-          "zh": "- 楼梯：台阶高度为 5 + 18 ×〔行内公式见原版〕cm；"
+          "zh": "- 楼梯：台阶高度为 \\(5 + 18 \\times \\frac{\\text{level}^{\\text{terrain}}}{9}\\) cm；",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b7",
@@ -2210,10 +2352,11 @@
             505,
             260
           ],
-          "en": "- Discrete obstacles: with height of 5 + 10 ×level 9terrain cm. The proportion of the above terrains is - 0.1, 0.2, 0.6, and 0.1 correspondingly.",
+          "en": "- Discrete obstacles: with height of \\(5 + 10 \\times \\frac{\\text{level}^{\\text{terrain}}}{9}\\) cm. The proportion of the above terrains is - 0.1, 0.2, 0.6, and 0.1 correspondingly.",
           "reference": false,
           "source_image": "figs/p014-007-source.png",
-          "zh": "- 离散障碍物：高度为 5 + 10 ×〔行内公式见原版〕cm。上述地形的比例分别为 0.1、0.2、0.6 和 0.1。"
+          "zh": "- 离散障碍物：高度为 \\(5 + 10 \\times \\frac{\\text{level}^{\\text{terrain}}}{9}\\) cm。上述地形的比例分别为 0.1、0.2、0.6 和 0.1。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b8",
@@ -2247,15 +2390,24 @@
           "id": "p14-b10",
           "kind": "table",
           "bbox": [
-            217,
-            324,
-            395,
-            574
+            215.0,
+            322.0,
+            397.0,
+            576.0
           ],
           "en": "|General|| |---|---| |Batch Size Mini-batch Size Number of epochs|4096×200 4096×50 5| |PPO|| |Clip range|0.2| |Entropy coefficient|0.01| |Discount factor|0.99| |GAE discount factor|0.95| |Desired KL-divergence|0.01 | |Learning rate|1×10−3| |Adam epsilon|1×10−8| |Gradient clipping|10| |HIM|| |Number of prototypes|16| |Contrastive loss scale|1.0| |Velocity estimation loss scale|1.0| |Learning rate|1×10−3| |Adam epsilon|1×10−8| |Gradient clipping|10|",
           "reference": false,
           "image": "figs/p014-010.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            217.0,
+            324.0,
+            395.0,
+            574.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 546,
+          "image_height": 762
         }
       ]
     },
@@ -2330,7 +2482,8 @@
           "en": "• Short-range stairs: This scene includes two sets of stairs with 5 steps each. The height and width of the stairs are 16 cm and 27 cm, respectively. The Unitree A1 robot is used to test our policy in this scene, and the metric is the success rate of going through both stairs. The corresponding snapshots of this scene are displayed in the left column of Fig. 6(a).",
           "reference": false,
           "source_image": "figs/p015-004-source.png",
-          "zh": "• 短距离楼梯：该场景包含两组楼梯，每组各 5 级台阶。台阶的高度和宽度分别为 16 cm 和 27 cm。在该场景中，使用 Unitree A1 机器人测试我们的策略，评估指标为通过两组楼梯的成功率。该场景对应的快照展示在图 6(a) 的左列。"
+          "zh": "• 短距离楼梯：该场景包含两组楼梯，每组各 5 级台阶。台阶的高度和宽度分别为 16 cm 和 27 cm。在该场景中，使用 Unitree A1 机器人测试我们的策略，评估指标为通过两组楼梯的成功率。该场景对应的快照展示在图 6(a) 的左列。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p15-b5",
@@ -2344,7 +2497,8 @@
           "en": "• Long-range stairs: This scene consists of hundreds of stairs with a height of 17 cm and a width of 25 cm. The Unitree Aliengo robot is equipped with policies that need to be tested, and the metric is the number of stairs the robot can ascend without stopping. The corresponding photos of this scene are shown in the right column of Fig. 6(a).",
           "reference": false,
           "source_image": "figs/p015-005-source.png",
-          "zh": "• 长距离楼梯：该场景由数百级高度为 17 cm、宽度为 25 cm 的台阶组成。使用 Unitree Aliengo 机器人搭载待测策略进行测试，评估指标为机器人连续不间断攀爬的台阶数量。该场景对应的照片展示在图 6(a) 的右列。"
+          "zh": "• 长距离楼梯：该场景由数百级高度为 17 cm、宽度为 25 cm 的台阶组成。使用 Unitree Aliengo 机器人搭载待测策略进行测试，评估指标为机器人连续不间断攀爬的台阶数量。该场景对应的照片展示在图 6(a) 的右列。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p15-b6",
@@ -2372,7 +2526,8 @@
           "en": "• Compositional terrain: This scene alternates between gravel and stairs, as depicted in the upper picture of Fig. 6(b). The Unitree Aliengo robot is equipped with policies that need to be tested, and the metric is the success rate of going through three compositional alternations.",
           "reference": false,
           "source_image": "figs/p015-007-source.png",
-          "zh": "• 组合地形：如图 6(b) 上方图片所示，该场景在碎石路面与楼梯之间交替变换。Unitree Aliengo 机器人搭载待测策略，评估指标是通过三次交替组合地形的成功率。"
+          "zh": "• 组合地形：如图 6(b) 上方图片所示，该场景在碎石路面与楼梯之间交替变换。Unitree Aliengo 机器人搭载待测策略，评估指标是通过三次交替组合地形的成功率。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p15-b8",
@@ -2386,7 +2541,8 @@
           "en": "• Deformable slope: This scene makes a deformable slope created by two soft beds, as shown in the lower picture of Fig. 6(b). The Unitree A1 robot is used to test our policy, and the metric is the success rate of navigating through this slope.",
           "reference": false,
           "source_image": "figs/p015-008-source.png",
-          "zh": "• 可变形斜坡：如图 6(b) 下方图片所示，该场景是由两张软垫构成的可变形斜坡。使用 Unitree A1 机器人测试我们的策略，评估指标为通过该斜坡的成功率。"
+          "zh": "• 可变形斜坡：如图 6(b) 下方图片所示，该场景是由两张软垫构成的可变形斜坡。使用 Unitree A1 机器人测试我们的策略，评估指标为通过该斜坡的成功率。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p15-b9",
@@ -2414,7 +2570,8 @@
           "en": "• Dragging obstacle: This task simulates the scenario where the robot’s leg is dragged by obstacles. A wooden box is attached to the robot’s back leg, preventing its movement. The metric for this task is the maximum weight the robot can handle. The Unitree A1 robot is used, and the illustration can be found in the top-left of Fig. 6(c).",
           "reference": false,
           "source_image": "figs/p015-010-source.png",
-          "zh": "• 拖拽障碍物：该任务模拟了机器人腿部被障碍物拖拽的情景。一个木箱系在机器人的后腿上以阻碍其运动。该任务的评估指标是机器人所能承受的最大重量。实验采用 Unitree A1 机器人，示意图见图 6(c) 的左上方。"
+          "zh": "• 拖拽障碍物：该任务模拟了机器人腿部被障碍物拖拽的情景。一个木箱系在机器人的后腿上以阻碍其运动。该任务的评估指标是机器人所能承受的最大重量。实验采用 Unitree A1 机器人，示意图见图 6(c) 的左上方。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p15-b11",
@@ -2428,7 +2585,8 @@
           "en": "• Lateral hit: This task evaluates the robot’s push-recovery ability. The robot is subjected to a lateral force from a load swinging down from a height of 107 cm. The Unitree A1 robot is used in this task, and the metric is the maximum weight of the load that the robot can withstand after being hit. The illustration is shown in the top-right of Fig. 6(c).",
           "reference": false,
           "source_image": "figs/p015-011-source.png",
-          "zh": "• 侧向撞击：该任务评估机器人的抗推扰恢复能力（push-recovery）。重物从 107 cm 的高度摆落，对机器人施加侧向冲击力。该任务使用 Unitree A1 机器人，评估指标为受撞击后机器人所能承受的最大重物重量。示意图见图 6(c) 的右上角。"
+          "zh": "• 侧向撞击：该任务评估机器人的抗推扰恢复能力（push-recovery）。重物从 107 cm 的高度摆落，对机器人施加侧向冲击力。该任务使用 Unitree A1 机器人，评估指标为受撞击后机器人所能承受的最大重物重量。示意图见图 6(c) 的右上角。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p15-b12",
@@ -2442,7 +2600,8 @@
           "en": "• Payload: This task assesses the robot’s carrying capacity. The Unitree A1 robot is used, and the maximum weight that the robot can carry while walking is measured. The illustration can be found in the bottom-left of Fig. 6(c).",
           "reference": false,
           "source_image": "figs/p015-012-source.png",
-          "zh": "• 负载：该任务评估机器人的负重能力。采用 Unitree A1 机器人，测量其在行走时所能承载的最大重量。示意图见图 6(c) 的左下角。"
+          "zh": "• 负载：该任务评估机器人的负重能力。采用 Unitree A1 机器人，测量其在行走时所能承载的最大重量。示意图见图 6(c) 的左下角。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p15-b13",
@@ -2456,35 +2615,54 @@
           "en": "• Missing step: This task simulates the robot’s reaction when it misses steps and falls from a high platform. The platform’s height, as shown in the bottom-right of Fig. 6(c), is 42 cm. The Unitree Aliengo robot is used in this task, and the metric is the success rate of maintaining balance after descending.",
           "reference": false,
           "source_image": "figs/p015-013-source.png",
-          "zh": "• 踏空：该任务模拟机器人踩空并从高台跌落时的反应。如图 6(c) 右下角所示，平台高度为 42 cm。该任务使用 Unitree Aliengo 机器人，评估指标为从高处落下后保持平衡的成功率。"
+          "zh": "• 踏空：该任务模拟机器人踩空并从高台跌落时的反应。如图 6(c) 右下角所示，平台高度为 42 cm。该任务使用 Unitree Aliengo 机器人，评估指标为从高处落下后保持平衡的成功率。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p15-b14",
           "kind": "picture",
           "bbox": [
-            111,
-            568,
-            498,
-            693
+            109.0,
+            566.0,
+            500.0,
+            695.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p015-014.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            111.0,
+            568.0,
+            498.0,
+            693.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1173,
+          "image_height": 387
         },
         {
           "id": "p15-b15",
           "kind": "picture",
           "bbox": [
-            156,
-            697,
-            452,
-            705
+            154.0,
+            695.0,
+            454.0,
+            707.0
           ],
           "en": "(a) Stairs (b) Unseen terrains (c) Anti-disturbance",
           "reference": false,
           "image": "figs/p015-015.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            156.0,
+            697.0,
+            452.0,
+            705.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 900,
+          "image_height": 36
         },
         {
           "id": "p15-b16",
@@ -2528,10 +2706,11 @@
             505,
             170
           ],
-          "en": "We consider tracking tasks with 3 different ranges of commands for each type of terrain. The tracking error on slopes and rough slopes are tested in the range [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] rad/s and [ − 2 . 0 , 2 . 0] m/s × [ − 1 . 0 , 1 . 0] m/s × [ − 2 . 0 , 2 . 0] rads/s. All other tests are conducted within the range [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] rad/s. These ranges correspond to linear velocity in the forward direction, lateral directions, and angular velocity about the vertical axis, respectively.",
+          "en": "We consider tracking tasks with 3 different ranges of commands for each type of terrain. The tracking error on slopes and rough slopes are tested in the range \\([-1.0,\\, 1.0] \\,\\text{m/s} \\times [-1.0,\\, 1.0] \\,\\text{m/s} \\times [-1.0,\\, 1.0] \\,\\text{rad/s}\\) and \\([-2.0,\\, 2.0] \\,\\text{m/s} \\times [-1.0,\\, 1.0] \\,\\text{m/s} \\times [-2.0,\\, 2.0] \\,\\text{rads/s}\\). All other tests are conducted within the range \\([-1.0,\\, 1.0] \\,\\text{m/s} \\times [-1.0,\\, 1.0] \\,\\text{m/s} \\times [-1.0,\\, 1.0] \\,\\text{rad/s}\\). These ranges correspond to linear velocity in the forward direction, lateral directions, and angular velocity about the vertical axis, respectively.",
           "reference": false,
           "source_image": "figs/p016-001-source.png",
-          "zh": "针对每种地形，我们考虑具有 3 种不同指令范围的跟踪任务。斜坡和崎岖斜坡上的跟踪误差在 [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] rad/s 以及 [ − 2 . 0 , 2 . 0] m/s × [ − 1 . 0 , 1 . 0] m/s × [ − 2 . 0 , 2 . 0] rads/s 范围内进行测试。所有其他测试均在 [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] m/s × [ − 1 . 0 , 1 . 0] rad/s 范围内进行。这些范围分别对应前向线速度、横向线速度以及绕竖直轴的角速度。"
+          "zh": "针对每种地形，我们考虑具有 3 种不同指令范围的跟踪任务。斜坡和崎岖斜坡上的跟踪误差在 \\([-1.0,\\, 1.0] \\,\\text{m/s} \\times [-1.0,\\, 1.0] \\,\\text{m/s} \\times [-1.0,\\, 1.0] \\,\\text{rad/s}\\) 以及 \\([-2.0,\\, 2.0] \\,\\text{m/s} \\times [-1.0,\\, 1.0] \\,\\text{m/s} \\times [-2.0,\\, 2.0] \\,\\text{rads/s}\\) 范围内进行测试。所有其他测试均在 \\([-1.0,\\, 1.0] \\,\\text{m/s} \\times [-1.0,\\, 1.0] \\,\\text{m/s} \\times [-1.0,\\, 1.0] \\,\\text{rad/s}\\) 范围内进行。这些范围分别对应前向线速度、横向线速度以及绕竖直轴的角速度。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p16-b2",
@@ -2542,10 +2721,11 @@
             505,
             232
           ],
-          "en": "When testing the linear velocity tracking error, the angular velocity target is set to 0. For the angular velocity tracking error tests, the linear velocity target is 0. The ’combined velocity’ tests are conducted without setting either velocity component to 0. We uniformly sample test commands within these ranges. The environmental conditions are set to levelterrain = 1 , 2 , 3 , 4, with an equal distribution of 25% for each, as explained in Appendix A.3.",
+          "en": "When testing the linear velocity tracking error, the angular velocity target is set to 0. For the angular velocity tracking error tests, the linear velocity target is 0. The ’combined velocity’ tests are conducted without setting either velocity component to 0. We uniformly sample test commands within these ranges. The environmental conditions are set to \\(\\text{level}^{\\text{terrain}} = 1, 2, 3, 4\\), with an equal distribution of 25% for each, as explained in Appendix A.3.",
           "reference": false,
           "source_image": "figs/p016-002-source.png",
-          "zh": "在测试线速度跟踪误差时，角速度目标设为 0。对于角速度跟踪误差测试，线速度目标为 0。“组合速度”（combined velocity）测试则在不将任何一个速度分量设为 0 的情况下进行。我们在这些范围内均匀采样测试指令。正如附录 A.3 中所说明的，环境条件设置为 levelterrain = 1 , 2 , 3 , 4，各自所占比例均匀分布为 25%。"
+          "zh": "在测试线速度跟踪误差时，角速度目标设为 0。对于角速度跟踪误差测试，线速度目标为 0。“组合速度”（combined velocity）测试则在不将任何一个速度分量设为 0 的情况下进行。我们在这些范围内均匀采样测试指令。正如附录 A.3 中所说明的，环境条件设置为 \\(\\text{level}^{\\text{terrain}} = 1, 2, 3, 4\\)，各自所占比例均匀分布为 25%。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p16-b3",
@@ -2621,15 +2801,24 @@
           "id": "p16-b8",
           "kind": "picture",
           "bbox": [
-            108,
-            437,
-            504,
-            658
+            106.0,
+            435.0,
+            506.0,
+            660.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p016-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            437.0,
+            504.0,
+            658.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1200,
+          "image_height": 675
         },
         {
           "id": "p16-b9",
@@ -2682,15 +2871,24 @@
           "id": "p17-b2",
           "kind": "picture",
           "bbox": [
-            108,
-            149,
-            504,
-            311
+            106.0,
+            147.0,
+            506.0,
+            313.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p017-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            149.0,
+            504.0,
+            311.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1200,
+          "image_height": 498
         },
         {
           "id": "p17-b3",

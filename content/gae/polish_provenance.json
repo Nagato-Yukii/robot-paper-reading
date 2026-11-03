@@ -1,0 +1,78 @@
+{
+  "model": "gpt-6-astra",
+  "effort": "high",
+  "via": "local Codex CLI /usr/lib/chatgpt/resources/codex (0.159.2)",
+  "role_prompt": "You are an embodied intelligence generalist and academic translator, fluent in robotics, control, reinforcement learning, and mathematical notation.",
+  "completed_at": "2026-10-23T15:20:20.739083+00:00",
+  "paragraphs": 130,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "source_pdf_sha256": "5aa736ccf3517a1f36d0ca8146982e69beaf9a2bdccac2ae324f780743bc045e",
+  "source_tex_archive_sha256": "80b698b288dc16533aadf9ba23f6e9f23a91ad8b2a9b1c47095888c3962b5c8e",
+  "math_source": "正文数学记号已对照作者 LaTeX 源码与原页恢复。",
+  "batches": [
+    {
+      "job_id": "gae-01",
+      "rows": 26,
+      "receipt_sha256": "7db1e0c9b657ac39c86a9fff24428f53e0d7edd354043b060c7bf04343363318",
+      "result_sha256": "e0bdd399fa874aae9c9c1c752a2f76479a8081350ad4137a4a88defee2abe763",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "gae-03",
+      "rows": 20,
+      "receipt_sha256": "b73b561d8366ce2116bec4f768bf1c15a2b6e94071c83e010f88c5a65062a5dd",
+      "result_sha256": "1c40816a4c0b8787d0bdb217fbcea4a02f706fc80e60b84d77a46db658da6ee5",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "gae-05",
+      "rows": 21,
+      "receipt_sha256": "92546126d9edad999ff34e7adf598175d2df4ab27f6b6a96123b39b7ae1975e8",
+      "result_sha256": "548ee248a6cbcc3ad1b6bb74c84189ef364e7c1c2926a12450cd9f8651bfb5f8",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "gae-07",
+      "rows": 23,
+      "receipt_sha256": "53481e27480dc90c8b72c82d25266a3735b478a2998ff2bbaaaf2f39ab6c80ee",
+      "result_sha256": "7b5e47ab38a3885747cddef4a72a7be37968209c3ebc10ccdbc98018216bd07f",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "gae-09",
+      "rows": 17,
+      "receipt_sha256": "48ff5edfc51f8c8c788115ba6cc9cbbd0200bc055749e140c72c9a9a175fdc42",
+      "result_sha256": "526c9fa80486c399dd54ca5a5fe366c5e3ace9dd2864999f452e099bb050e723",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "gae-11",
+      "rows": 20,
+      "receipt_sha256": "92aff195b57959da350c76d31dcbc5fc15631198ae3f7760f88297054efa309b",
+      "result_sha256": "8de7f1bdc11cc622b209a7a380c62f26ea0e51b61ebd133dc9f746ac942a0649",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "gae-13",
+      "rows": 3,
+      "receipt_sha256": "f8adf072ade6397d85cf396bed70488d88f825aa249727bc0b51264bbbafaac3",
+      "result_sha256": "d19433dacb4d4e63bbda61eb087d01c29691dd614f41f4c43752bcaece6f3e7c",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "terminology-review",
+      "rows": 10,
+      "result_sha256": "1139cac5ab68c2802cc3e194ade50e02ee4a9c28c6e36b3330c69d3644481af7",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    }
+  ]
+}

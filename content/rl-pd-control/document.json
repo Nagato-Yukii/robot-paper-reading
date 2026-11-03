@@ -36,15 +36,24 @@
           "id": "p1-b1",
           "kind": "picture",
           "bbox": [
-            43,
-            85,
-            66,
-            108
+            41.0,
+            83.0,
+            68.0,
+            110.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            43.0,
+            85.0,
+            66.0,
+            108.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 81,
+          "image_height": 81
         },
         {
           "id": "p1-b3",
@@ -204,15 +213,24 @@
           "id": "p1-b14",
           "kind": "picture",
           "bbox": [
-            121,
-            529,
-            475,
-            695
+            119.0,
+            527.0,
+            477.0,
+            697.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-014.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            121.0,
+            529.0,
+            475.0,
+            695.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1074,
+          "image_height": 510
         },
         {
           "id": "p1-b15",
@@ -279,15 +297,24 @@
           "id": "p2-b3",
           "kind": "picture",
           "bbox": [
-            193,
-            252,
-            406,
-            288
+            191.0,
+            250.0,
+            408.0,
+            290.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p002-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            193.0,
+            252.0,
+            406.0,
+            288.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 651,
+          "image_height": 120
         },
         {
           "id": "p2-b4",
@@ -307,15 +334,24 @@
           "id": "p2-b5",
           "kind": "picture",
           "bbox": [
-            193,
-            335,
-            404,
-            370
+            191.0,
+            333.0,
+            406.0,
+            372.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p002-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            193.0,
+            335.0,
+            404.0,
+            370.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 645,
+          "image_height": 117
         },
         {
           "id": "p2-b6",
@@ -363,15 +399,24 @@
           "id": "p2-b9",
           "kind": "picture",
           "bbox": [
-            54,
-            503,
-            150,
-            539
+            43.6661376953125,
+            501.0,
+            152.0,
+            541.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p002-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            503.0,
+            150.0,
+            539.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 326,
+          "image_height": 120
         },
         {
           "id": "p2-b10",
@@ -419,15 +464,24 @@
           "id": "p2-b13",
           "kind": "picture",
           "bbox": [
-            117,
-            587,
-            480,
-            755
+            115.0,
+            585.0,
+            482.0,
+            757.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p002-013.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            117.0,
+            587.0,
+            480.0,
+            755.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1101,
+          "image_height": 516
         }
       ]
     },
@@ -452,15 +506,24 @@
           "id": "p3-b1",
           "kind": "picture",
           "bbox": [
-            127,
-            120,
-            470,
-            310
+            125.0,
+            118.0,
+            472.0,
+            312.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p003-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            127.0,
+            120.0,
+            470.0,
+            310.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1041,
+          "image_height": 582
         },
         {
           "id": "p3-b2",
@@ -882,15 +945,24 @@
           "id": "p5-b7",
           "kind": "picture",
           "bbox": [
-            43,
-            324,
-            553,
-            540
+            41.0,
+            322.0,
+            555.0,
+            542.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p005-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            43.0,
+            324.0,
+            553.0,
+            540.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1542,
+          "image_height": 660
         },
         {
           "id": "p5-b8",

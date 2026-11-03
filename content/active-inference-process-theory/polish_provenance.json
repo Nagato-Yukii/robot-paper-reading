@@ -1,0 +1,325 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "role_prompt": "You are an academic translator specializing in active inference, Bayesian neuroscience, variational methods, and embodied control.",
+  "completed_at": "2026-10-29T12:54:39.894277+00:00",
+  "paragraphs": 179,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "source_pdf_sha256": "09f8d5c71d88054a2fdbaa60ebf43b7cf19b5e925e593671b9fed1868c98e92e",
+  "source_user_path": "/home/suzumiyaharuhi/Desktop/process_theory.pdf",
+  "math_source": "Original PDF page images, read-only visual comparison",
+  "formal_article_pages": 49,
+  "additional_citing_list_pages": 7,
+  "batches": [
+    {
+      "job_id": "pages-01",
+      "rows": 18,
+      "conversation_id": "ae59fdf3-c918-48b3-b237-062ae5c4af1f",
+      "usage": {
+        "input_tokens": 23609,
+        "output_tokens": 15195,
+        "thinking_tokens": 12386,
+        "cache_read_tokens": 0,
+        "total_tokens": 38804
+      },
+      "receipt_sha256": "af58c6a059eb9303acb7704d66854aba10167b4c82ea1eb6063d1424b978ec7d",
+      "result_sha256": "4877063abcb31c5cfeeb8977cbe9142564ccf55af8b74753dc52749e377f47c8"
+    },
+    {
+      "job_id": "pages-03",
+      "rows": 9,
+      "conversation_id": "f31b743d-1fea-4879-a65a-b4c26482af86",
+      "usage": {
+        "input_tokens": 22502,
+        "output_tokens": 13782,
+        "thinking_tokens": 10753,
+        "cache_read_tokens": 0,
+        "total_tokens": 36284
+      },
+      "receipt_sha256": "f291205f0a281ad9df582ebf81e61c5cf3bdb21c3e9ab8b0d7982dff38c86390",
+      "result_sha256": "1e25304d593860261792382b1a5dc845dc9905a609a148d8b0877dda1b815514"
+    },
+    {
+      "job_id": "pages-05",
+      "rows": 13,
+      "conversation_id": "2032e455-5880-4875-ab5e-32fafdf1d576",
+      "usage": {
+        "input_tokens": 21958,
+        "output_tokens": 17072,
+        "thinking_tokens": 15040,
+        "cache_read_tokens": 0,
+        "total_tokens": 39030
+      },
+      "receipt_sha256": "5feec7e340711877df5f51183ec8578553dd3bee7d3217f78d261b101bc5fb28",
+      "result_sha256": "0f861449cd8eff3d2f70d83d2af8536baf9ebb2d9ee5926a583c9a80132b6245"
+    },
+    {
+      "job_id": "pages-07",
+      "rows": 7,
+      "conversation_id": "c004e169-a593-400b-a06b-dc458d85400c",
+      "usage": {
+        "input_tokens": 21217,
+        "output_tokens": 10797,
+        "thinking_tokens": 9115,
+        "cache_read_tokens": 0,
+        "total_tokens": 32014
+      },
+      "receipt_sha256": "d355c1b8c9c93930cca58041fa8041276b3109f3069f9579b0f36a2204746936",
+      "result_sha256": "fcbf9df43c8d0702d8ff89c45ea3de12a0c8a4387318ad17abcb18e57aac601c"
+    },
+    {
+      "job_id": "pages-09",
+      "rows": 9,
+      "conversation_id": "047d254e-b61d-4747-bb4d-e2e5ea65f408",
+      "usage": {
+        "input_tokens": 21988,
+        "output_tokens": 12133,
+        "thinking_tokens": 10375,
+        "cache_read_tokens": 0,
+        "total_tokens": 34121
+      },
+      "receipt_sha256": "e129119a6f584a98cd830ef4251d88bd44b4c7ec589aeaede13a8942f3934025",
+      "result_sha256": "76748bf92711c3d36770ba2fd7920c1b025e2863161aa8c66c8e72ccc0aa1347"
+    },
+    {
+      "job_id": "pages-11",
+      "rows": 9,
+      "conversation_id": "c7b314e7-50d4-417d-95e0-0405a7410de1",
+      "usage": {
+        "input_tokens": 22804,
+        "output_tokens": 21853,
+        "thinking_tokens": 18930,
+        "cache_read_tokens": 0,
+        "total_tokens": 44657
+      },
+      "receipt_sha256": "8a932177b5fadf211df5769f2a8ab6948349b9ade5f81ce17930e52c788946f3",
+      "result_sha256": "f31b1670428340946d6fe0517ee763bf522e6205b50c554289fda849a648f3a8"
+    },
+    {
+      "job_id": "pages-13",
+      "rows": 7,
+      "conversation_id": "5b5bdef2-dc48-4337-ac55-4e5ce558266a",
+      "usage": {
+        "input_tokens": 21484,
+        "output_tokens": 15877,
+        "thinking_tokens": 14097,
+        "cache_read_tokens": 0,
+        "total_tokens": 37361
+      },
+      "receipt_sha256": "1c845ebfda1de8b8ce234798d7cc48a0c10b284e3f0c8a7c985ed582ecdbc3f8",
+      "result_sha256": "7f132970d7bb1a51af63753f06362b12976f622aab6cb19317b644bb1a34706b"
+    },
+    {
+      "job_id": "pages-15",
+      "rows": 8,
+      "conversation_id": "b0ace95a-f789-426a-9d0f-566e4eba1366",
+      "usage": {
+        "input_tokens": 22612,
+        "output_tokens": 18982,
+        "thinking_tokens": 16073,
+        "cache_read_tokens": 0,
+        "total_tokens": 41594
+      },
+      "receipt_sha256": "f63d21776122454b0bf9538e4b0972587a2e98a1c4f7abd5a0677f5ff9a4e9e9",
+      "result_sha256": "ca0d3948eb7591c8aba77b6e1d427d374ee0b7bcb9a82ccab6d4c3904dbcc74e"
+    },
+    {
+      "job_id": "pages-17",
+      "rows": 6,
+      "conversation_id": "6ec3adc5-9699-4b66-a7ef-fb98d0d7a26e",
+      "usage": {
+        "input_tokens": 32929,
+        "output_tokens": 13366,
+        "thinking_tokens": 11194,
+        "cache_read_tokens": 0,
+        "total_tokens": 46295
+      },
+      "receipt_sha256": "9fabe6822922e56de6cab48ba863799fd24e0653485ab6dc1e8d610d8a631f07",
+      "result_sha256": "d819e16e3b714bb4c1a6211a14a0f00d57c30dc611945b6f713bcec51e059379"
+    },
+    {
+      "job_id": "pages-19",
+      "rows": 8,
+      "conversation_id": "46804984-f267-4c39-aea5-a1af596fcd06",
+      "usage": {
+        "input_tokens": 22102,
+        "output_tokens": 18294,
+        "thinking_tokens": 16075,
+        "cache_read_tokens": 0,
+        "total_tokens": 40396
+      },
+      "receipt_sha256": "d01fcde0b7b3622200df2608e1c2b1ba09851ddcadca270d1d598b012469d1f4",
+      "result_sha256": "28898fbd440f0e30024ee2b33095c93e742b54215a0624daf8aa9207751eaf49"
+    },
+    {
+      "job_id": "pages-21",
+      "rows": 7,
+      "conversation_id": "dc4a6c2a-559f-45d1-8eeb-fdb12bf7e691",
+      "usage": {
+        "input_tokens": 33387,
+        "output_tokens": 14439,
+        "thinking_tokens": 12152,
+        "cache_read_tokens": 0,
+        "total_tokens": 47826
+      },
+      "receipt_sha256": "1eb680a83508beee5976bc1d16c6fd49253f7cf94f9304253cb790d8d064d531",
+      "result_sha256": "7c71f751ea6e23a055c333bafa093d71e7b7480b337dff3518f9d2c7170703c8"
+    },
+    {
+      "job_id": "pages-23",
+      "rows": 5,
+      "conversation_id": "1cf9b558-8f87-4aaf-b725-66999f226f0a",
+      "usage": {
+        "input_tokens": 21307,
+        "output_tokens": 13544,
+        "thinking_tokens": 11587,
+        "cache_read_tokens": 0,
+        "total_tokens": 34851
+      },
+      "receipt_sha256": "dd0b6930805cfb0c0d418c960f40acdd035659d5cbc9dae423f437ba7497d783",
+      "result_sha256": "ceb94a898b666075ba378cd4906b53c4cd8bb526878c80ec58ea122ec5a00694"
+    },
+    {
+      "job_id": "pages-25",
+      "rows": 5,
+      "conversation_id": "a40fc2cf-cace-44c8-b863-8d1a7f940dee",
+      "usage": {
+        "input_tokens": 21535,
+        "output_tokens": 10214,
+        "thinking_tokens": 8507,
+        "cache_read_tokens": 0,
+        "total_tokens": 31749
+      },
+      "receipt_sha256": "7a9fe61030c14568fc8b27d5269da3e9c9fb85d836a1c63e13b9e08db235566f",
+      "result_sha256": "e1eddbc03b90732209f39213f6b875dc8b277eeaec184469d1adbb859cbc06f1"
+    },
+    {
+      "job_id": "pages-27",
+      "rows": 7,
+      "conversation_id": "6c99802e-d169-418d-8862-de7d17fa8281",
+      "usage": {
+        "input_tokens": 46851,
+        "output_tokens": 13145,
+        "thinking_tokens": 7859,
+        "cache_read_tokens": 0,
+        "total_tokens": 59996
+      },
+      "receipt_sha256": "e32ea4bee3a258f4fad1bcffe2607af969beaca0974c286d20e250ca76f72200",
+      "result_sha256": "53f2159514c3e37435c6f8552fd9ce3e7ad5a14a7f516c315c3b1cd9a62716d2"
+    },
+    {
+      "job_id": "pages-29",
+      "rows": 3,
+      "conversation_id": "48613601-f56b-4c13-aa27-a2fdf8924708",
+      "usage": {
+        "input_tokens": 20584,
+        "output_tokens": 7945,
+        "thinking_tokens": 7045,
+        "cache_read_tokens": 0,
+        "total_tokens": 28529
+      },
+      "receipt_sha256": "ab2a7ea639585bc32d51bc46bef6ce87db5f8d350572fe40fc3e6e8f773a5059",
+      "result_sha256": "4b32c7f5fd54154e69aa6510d5288c5c9341c1231261444768b8579bde808824"
+    },
+    {
+      "job_id": "pages-31",
+      "rows": 6,
+      "conversation_id": "826c4c46-f179-4654-98fc-7d3d662d543a",
+      "usage": {
+        "input_tokens": 21619,
+        "output_tokens": 11493,
+        "thinking_tokens": 9707,
+        "cache_read_tokens": 0,
+        "total_tokens": 33112
+      },
+      "receipt_sha256": "c9b8bfd37ef51d6f676a146aa20e22a76b4fb6b4ed6ddca926f50c953aeacdb4",
+      "result_sha256": "24804dbae33d3db464c01a463c8a3e275a96f3588e23df3b22109f54cd362072"
+    },
+    {
+      "job_id": "pages-33",
+      "rows": 6,
+      "conversation_id": "ad56005c-0bd7-4e4d-a13e-0472eac952bf",
+      "usage": {
+        "input_tokens": 21725,
+        "output_tokens": 15508,
+        "thinking_tokens": 13375,
+        "cache_read_tokens": 0,
+        "total_tokens": 37233
+      },
+      "receipt_sha256": "60dc8dcf6ae39a12f82465715c96081f54ee844189adcdd3b90736cf1727f651",
+      "result_sha256": "6a4225ef8f4d9c2858585632d321980802033c7f9adaf8c9feca8ad38ac4854e"
+    },
+    {
+      "job_id": "pages-35",
+      "rows": 5,
+      "conversation_id": "d88c7755-ddc3-49f9-ad71-cbd425e11eab",
+      "usage": {
+        "input_tokens": 31964,
+        "output_tokens": 6918,
+        "thinking_tokens": 5439,
+        "cache_read_tokens": 0,
+        "total_tokens": 38882
+      },
+      "receipt_sha256": "c593b27cbe3e194c574026fbee18e85db0ef0f98fe6f5f1f9e30092c5cd66d01",
+      "result_sha256": "1156f81ddab04e632a074f370bd9643acc2c887a4ddce37da08c7d6dd4a5ce6b"
+    },
+    {
+      "job_id": "pages-37",
+      "rows": 10,
+      "conversation_id": "8265bcc8-16c4-4fba-9f65-63e147279e59",
+      "usage": {
+        "input_tokens": 21539,
+        "output_tokens": 21229,
+        "thinking_tokens": 19383,
+        "cache_read_tokens": 0,
+        "total_tokens": 42768
+      },
+      "receipt_sha256": "a265a87cff84020eb6494bbf0fe91a4ebec787f14076072a8ef51f8dd8db8e36",
+      "result_sha256": "73792da2815c3204ba81e5596376dd8d6f5efda53132971a8004f8f5d057c39a"
+    },
+    {
+      "job_id": "pages-39",
+      "rows": 12,
+      "conversation_id": "d6056e7b-f207-48eb-be83-1ff3856525b3",
+      "usage": {
+        "input_tokens": 20829,
+        "output_tokens": 13304,
+        "thinking_tokens": 12294,
+        "cache_read_tokens": 0,
+        "total_tokens": 34133
+      },
+      "receipt_sha256": "dc419fae1a1577b416f961994c81658389719f78916e3a6d7f07f913f398cc2a",
+      "result_sha256": "f3119dc274348b75a76173aeaa78c72f27584a12029eebc2efdb7ca154e46f93"
+    },
+    {
+      "job_id": "pages-41",
+      "rows": 13,
+      "conversation_id": "a175192d-b9b6-42df-8519-fdb0509e56dd",
+      "usage": {
+        "input_tokens": 20965,
+        "output_tokens": 13083,
+        "thinking_tokens": 11575,
+        "cache_read_tokens": 0,
+        "total_tokens": 34048
+      },
+      "receipt_sha256": "d025fdbf68c89180ef8d5ad9cafa5619390316058597606a59f1e91517dc702b",
+      "result_sha256": "f4d6c6726a62a41653233bafe12f24f859b4c5cd1924d43200fed216f1c75809"
+    },
+    {
+      "job_id": "pages-43",
+      "rows": 6,
+      "conversation_id": "a11262e3-6fcd-4245-9274-c13091ad78e4",
+      "usage": {
+        "input_tokens": 19748,
+        "output_tokens": 7696,
+        "thinking_tokens": 6713,
+        "cache_read_tokens": 0,
+        "total_tokens": 27444
+      },
+      "receipt_sha256": "db3364aacd1c3fe158590d4b432f50365b3ecaadad47aa5149cdcfb9ec95b021",
+      "result_sha256": "fb65d97652f544e2d45bc730cef85049fbb7e2ac53f7f236c923f7b765d610b5"
+    }
+  ]
+}

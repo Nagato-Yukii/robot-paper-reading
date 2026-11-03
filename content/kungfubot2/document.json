@@ -36,15 +36,24 @@
           "id": "p1-b3",
           "kind": "picture",
           "bbox": [
-            54,
-            173,
-            559,
-            465
+            52.0,
+            171.0,
+            561.0,
+            467.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            173.0,
+            559.0,
+            465.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1527,
+          "image_height": 888
         },
         {
           "id": "p1-b4",
@@ -189,7 +198,8 @@
           "en": "- We propose an OMoE architecture that disentangles motion representations, improving policy expressiveness and generalization across diverse skills.",
           "reference": false,
           "source_image": "figs/p002-002-source.png",
-          "zh": "- 我们提出了一种 OMoE 架构以解耦动作表征，提高了策略表达能力以及跨多样化技能的泛化性。"
+          "zh": "- 我们提出了一种 OMoE 架构以解耦动作表征，提高了策略表达能力以及跨多样化技能的泛化性。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b3",
@@ -203,7 +213,8 @@
           "en": "- We introduce a hybrid tracking objective together with a segment-level reward, balancing motion style fidelity and long-horizon stability.",
           "reference": false,
           "source_image": "figs/p002-003-source.png",
-          "zh": "- 我们引入了混合跟踪目标与分段级奖励，平衡了动作风格保真度与长时域稳定性。"
+          "zh": "- 我们引入了混合跟踪目标与分段级奖励，平衡了动作风格保真度与长时域稳定性。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b4",
@@ -217,7 +228,8 @@
           "en": "- We validate VMS on extensive simulated and real-world experiments, achieving robust tracking of both highdynamic and minute-level motion sequences.",
           "reference": false,
           "source_image": "figs/p002-004-source.png",
-          "zh": "- 我们在广泛的仿真与真实世界实验中验证了 VMS，实现了对高动态以及数分钟级别动作序列的鲁棒跟踪。"
+          "zh": "- 我们在广泛的仿真与真实世界实验中验证了 VMS，实现了对高动态以及数分钟级别动作序列的鲁棒跟踪。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b5",
@@ -340,15 +352,24 @@
           "id": "p3-b0",
           "kind": "picture",
           "bbox": [
-            54,
-            50,
-            559,
-            253
+            52.0,
+            48.0,
+            561.0,
+            255.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p003-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            50.0,
+            559.0,
+            253.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1527,
+          "image_height": 621
         },
         {
           "id": "p3-b1",
@@ -359,10 +380,11 @@
             559,
             299
           ],
-          "en": "Fig. 2: Framework of VMS. The large-scale motion capture dataset is first retargeted to the humanoid skeleton using an IK-based method. A teacher policy π tea is then trained in simulation with a hybrid tracking objective, further enhanced by a segment-level reward for long-horizon robustness. The student policy π stu is distilled from the teacher policy through behavior cloning. Finally, the distilled policy is deployed on the real humanoid robot.",
+          "en": "Fig. 2: Framework of VMS. The large-scale motion capture dataset is first retargeted to the humanoid skeleton using an IK-based method. A teacher policy \\(\\pi_{\\mathrm{tea}}\\) is then trained in simulation with a hybrid tracking objective, further enhanced by a segment-level reward for long-horizon robustness. The student policy \\(\\pi_{\\mathrm{stu}}\\) is distilled from the teacher policy through behavior cloning. Finally, the distilled policy is deployed on the real humanoid robot.",
           "reference": false,
           "source_image": "figs/p003-001-source.png",
-          "zh": "图 2：VMS 框架。首先使用基于逆运动学（IK）的方法将大规模动作捕捉数据集重定向到人形机器人骨骼。随后在仿真中利用混合跟踪目标训练教师策略 π tea，并通过分段级奖励进一步增强其长时域鲁棒性。学生策略 π stu 通过行为克隆从教师策略中蒸馏获得。最后，将蒸馏得到的策略部署到真实人形机器人上。"
+          "zh": "图 2：VMS 框架。首先使用基于逆运动学（IK）的方法将大规模动作捕捉数据集重定向到人形机器人骨骼。随后在仿真中利用混合跟踪目标训练教师策略 \\(\\pi_{\\mathrm{tea}}\\)，并通过分段级奖励进一步增强其长时域鲁棒性。学生策略 \\(\\pi_{\\mathrm{stu}}\\) 通过行为克隆从教师策略中蒸馏获得。最后，将蒸馏得到的策略部署到真实人形机器人上。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b2",
@@ -401,10 +423,11 @@
             299,
             544
           ],
-          "en": "In this work, we adopt the Unitree G1 robot [35], controlling 23 degrees of freedom (DoF), excluding the three DoFs of each wrist. We formulate humanoid motion tracking as a goal-conditioned reinforcement learning (RL) problem, where the agent interacts with the environment according to a policy π to maximize cumulative reward. At each timestep t , the policy receives the state s t and target state g t , and outputs an action a t ∈ R23 , which is subsequently converted into motor torques via a PD controller. This defines the policy as π ( a t| s t, g t ). The environment dynamics p ( s t +1 | s t, a t ) determine the next state, and a dense reward r ( s t, g t, a t ) evaluates tracking performance while providing regularization. The agent’s objective is to maximize the expected discounted return J = E t =0γtrt . �� T − 1 �",
+          "en": "In this work, we adopt the Unitree G1 robot [35], controlling 23 degrees of freedom (DoF), excluding the three DoFs of each wrist. We formulate humanoid motion tracking as a goal-conditioned reinforcement learning (RL) problem, where the agent interacts with the environment according to a policy \\(\\pi\\) to maximize cumulative reward. At each timestep \\(t\\), the policy receives the state \\(\\boldsymbol s_t\\) and target state \\(\\boldsymbol g_t\\), and outputs an action \\(\\boldsymbol a_t \\in \\mathbb{R}^{23}\\), which is subsequently converted into motor torques via a PD controller. This defines the policy as \\(\\pi(\\boldsymbol a_t | \\boldsymbol s_t, \\boldsymbol g_t)\\). The environment dynamics \\(p(\\boldsymbol s_{t+1} | \\boldsymbol s_t, \\boldsymbol a_t)\\) determine the next state, and a dense reward \\(r( \\boldsymbol s_t, \\boldsymbol g_t, \\boldsymbol a_t)\\) evaluates tracking performance while providing regularization. The agent’s objective is to maximize the expected discounted return \\(J = \\mathbb{E}\\Big[\\sum_{t=0}^{T-1} \\gamma^t r_t \\Big]\\).",
           "reference": false,
           "source_image": "figs/p003-004-source.png",
-          "zh": "在这项工作中，我们采用 Unitree G1 机器人 [35]，控制 23 个自由度（DoF），不包括每个手腕的 3 个自由度。我们将人形机器人动作跟踪建模为目标条件强化学习（RL）问题，其中智能体根据策略 π 与环境交互以最大化累积奖励。在每个时间步 t，策略接收状态 s t 和目标状态 g t，并输出动作 a t ∈ R23，随后通过 PD 控制器将其转换为电机力矩。这将策略定义为 π ( a t| s t, g t )。环境动力学 p ( s t +1 | s t, a t ) 决定下一个状态，而稠密奖励 r ( s t, g t, a t ) 在评估跟踪性能的同时提供正则化项。智能体的目标是最大化期望折扣回报 J = 〔行内公式见原版〕。"
+          "zh": "在这项工作中，我们采用 Unitree G1 机器人 [35]，控制 23 个自由度（DoF），不包括每个手腕的 3 个自由度。我们将人形机器人动作跟踪建模为目标条件强化学习（RL）问题，其中智能体根据策略 \\(\\pi\\) 与环境交互以最大化累积奖励。在每个时间步 \\(t\\)，策略接收状态 \\(\\boldsymbol s_t\\) 和目标状态 \\(\\boldsymbol g_t\\)，并输出动作 \\(\\boldsymbol a_t \\in \\mathbb{R}^{23}\\)，随后通过 PD 控制器将其转换为电机力矩。这将策略定义为 \\(\\pi(\\boldsymbol a_t | \\boldsymbol s_t, \\boldsymbol g_t)\\)。环境动力学 \\(p(\\boldsymbol s_{t+1} | \\boldsymbol s_t, \\boldsymbol a_t)\\) 决定下一个状态，而稠密奖励 \\(r( \\boldsymbol s_t, \\boldsymbol g_t, \\boldsymbol a_t)\\) 在评估跟踪性能的同时提供正则化项。智能体的目标是最大化期望折扣回报 \\(J = \\mathbb{E}\\Big[\\sum_{t=0}^{T-1} \\gamma^t r_t \\Big]\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b5",
@@ -415,10 +438,11 @@
             299,
             658
           ],
-          "en": "Following prior work [5], [14], we adopt a two-stage teacher–student learning paradigm to address the challenge of partial observability. In the first stage, an oracle teacher policy π tea is trained with Proximal Policy Optimization (PPO) [36], utilizing full state information. In the second stage, a student policy π stu is trained via behavior cloning (BC) to imitate the teacher, relying only on observations available at deployment. The overall framework of VMS is illustrated in Fig. 2.",
+          "en": "Following prior work [5], [14], we adopt a two-stage teacher–student learning paradigm to address the challenge of partial observability. In the first stage, an oracle teacher policy \\(\\pi_{\\mathrm{tea}}\\) is trained with Proximal Policy Optimization (PPO) [36], utilizing full state information. In the second stage, a student policy \\(\\pi_{\\mathrm{stu}}\\) is trained via behavior cloning (BC) to imitate the teacher, relying only on observations available at deployment. The overall framework of VMS is illustrated in Fig. 2.",
           "reference": false,
           "source_image": "figs/p003-005-source.png",
-          "zh": "遵循先前的工作 [5], [14]，我们采用两阶段教师-学生学习范式来解决部分可观测性的挑战。在第一阶段，利用完全状态信息，通过近端策略优化（PPO）[36] 训练特权教师策略 π tea。在第二阶段，通过行为克隆（BC）训练学生策略 π stu 以模仿教师策略，该策略仅依赖部署时可获得的观测数据。VMS 的整体框架如图 2 所示。"
+          "zh": "遵循先前的工作 [5], [14]，我们采用两阶段教师-学生学习范式来解决部分可观测性的挑战。在第一阶段，利用完全状态信息，通过近端策略优化（PPO）[36] 训练特权教师策略 \\(\\pi_{\\mathrm{tea}}\\)。在第二阶段，通过行为克隆（BC）训练学生策略 \\(\\pi_{\\mathrm{stu}}\\) 以模仿教师策略，该策略仅依赖部署时可获得的观测数据。VMS 的整体框架如图 2 所示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b6",
@@ -513,10 +537,11 @@
             559,
             628
           ],
-          "en": "For global root tracking, we denote the root’s position and rotation in the world frame as p and r . The policy seeks to minimize deviations from the reference root trajectory, ensuring overall spatial alignment across the motion.",
+          "en": "For global root tracking, we denote the root’s position and rotation in the world frame as \\(\\boldsymbol{p}\\) and \\(\\boldsymbol{r}\\). The policy seeks to minimize deviations from the reference root trajectory, ensuring overall spatial alignment across the motion.",
           "reference": false,
           "source_image": "figs/p003-012-source.png",
-          "zh": "对于全局根部跟踪，我们将根部在世界坐标系中的位置和旋转记为 p 和 r。策略旨在最小化与参考根部轨迹的偏差，以确保整个动作过程中的整体空间对齐。"
+          "zh": "对于全局根部跟踪，我们将根部在世界坐标系中的位置和旋转记为 \\(\\boldsymbol{p}\\) 和 \\(\\boldsymbol{r}\\)。策略旨在最小化与参考根部轨迹的偏差，以确保整个动作过程中的整体空间对齐。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b13",
@@ -527,10 +552,11 @@
             559,
             734
           ],
-          "en": "Specifically, we define the set of keybody parts as K , including the head, hands, elbows, knees, and ankles. The local tracking targets, denoted as keybody positions pK and orientations rK , are obtained by aligning the positions and orientations of these keybodies relative to the root between the current robot state and the reference motion. This encourages the policy to capture the local motion style demonstrated in the reference. By defining both global and local tracking",
+          "en": "Specifically, we define the set of keybody parts as \\(\\mathcal{K}\\), including the head, hands, elbows, knees, and ankles. The local tracking targets, denoted as keybody positions \\(\\boldsymbol{p}^\\mathcal{K}\\) and orientations \\(\\boldsymbol{r}^\\mathcal{K}\\), are obtained by aligning the positions and orientations of these keybodies relative to the root between the current robot state and the reference motion. This encourages the policy to capture the local motion style demonstrated in the reference. By defining both global and local tracking",
           "reference": false,
           "source_image": "figs/p003-013-source.png",
-          "zh": "具体而言，我们将关键刚体部件集合定义为 K，包括头部、手部、肘部、膝盖和脚踝。局部跟踪目标（记为关键刚体位置 pK 和朝向 rK）是通过在当前机器人状态与参考动作之间，对齐这些关键刚体相对于根部的位置和朝向来获得的。这促使策略捕获参考动作中所展现的局部动作风格。通过以此方式同时定义全局和局部跟踪"
+          "zh": "具体而言，我们将关键刚体部件集合定义为 \\(\\mathcal{K}\\)，包括头部、手部、肘部、膝盖和脚踝。局部跟踪目标（记为关键刚体位置 \\(\\boldsymbol{p}^\\mathcal{K}\\) 和朝向 \\(\\boldsymbol{r}^\\mathcal{K}\\)）是通过在当前机器人状态与参考动作之间，对齐这些关键刚体相对于根部的位置和朝向来获得的。这促使策略捕获参考动作中所展现的局部动作风格。通过以此方式同时定义全局和局部跟踪",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -560,42 +586,61 @@
             299,
             118
           ],
-          "en": "2) State Space Design: At each timestep t , the teacher policy π tea observes a state stea t and a goal g ttea :",
+          "en": "2) State Space Design: At each timestep \\(t\\), the teacher policy \\(\\pi_{\\mathrm{tea}}\\) observes a state \\(\\boldsymbol{s}^{\\mathrm{tea}}_t\\) and a goal \\(\\boldsymbol{g}^{\\mathrm{tea}}_t\\):",
           "reference": false,
           "source_image": "figs/p004-001-source.png",
-          "zh": "2) 状态空间设计：在每个时间步 t，教师策略 π tea 观察状态 stea t 和目标 g ttea："
+          "zh": "2) 状态空间设计：在每个时间步 \\(t\\)，教师策略 \\(\\pi_{\\mathrm{tea}}\\) 观察状态 \\(\\boldsymbol{s}^{\\mathrm{tea}}_t\\) 和目标 \\(\\boldsymbol{g}^{\\mathrm{tea}}_t\\)：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b2",
           "kind": "formula",
           "bbox": [
-            79,
-            124,
-            299,
-            143
+            77.0,
+            122.0,
+            301.0,
+            145.0
           ],
           "en": "s tea t = q t, q ˙ t, v t, ω t, p K t , r t K, ∆ p t, ∆ r t, a t− 1 , (1) � �",
           "reference": false,
           "image": "figs/p004-002.png",
           "labels": [
             "1"
-          ]
+          ],
+          "original_bbox": [
+            79.0,
+            124.0,
+            299.0,
+            143.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 672,
+          "image_height": 69
         },
         {
           "id": "p4-b3",
           "kind": "formula",
           "bbox": [
-            67,
-            150,
-            299,
-            169
+            65.0,
+            148.0,
+            301.0,
+            171.0
           ],
           "en": "= g t tea � q t ref +1: t + H , q ˙ t ref +1: t + H , p K t +1: , ref t + H , r t K +1: , ref t + H � , (2)",
           "reference": false,
           "image": "figs/p004-003.png",
           "labels": [
             "2"
-          ]
+          ],
+          "original_bbox": [
+            67.0,
+            150.0,
+            299.0,
+            169.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 708,
+          "image_height": 69
         },
         {
           "id": "p4-b4",
@@ -606,10 +651,11 @@
             299,
             266
           ],
-          "en": "where q t ∈ R23 and q ˙ t ∈ R23 denote the joint positions and velocities, v t ∈ R3 and ω t ∈ R3 are the root’s linear and angular velocities, and a t− 1 ∈ R23 is the previous action. ∆ p t ∈ R3 and ∆ r t ∈ R6 [41] represent the root’s position and rotation tracking errors. The goal g ttea provides a preview of reference joint positions, velocities, and relative keybody poses over the future H timesteps.",
+          "en": "where \\(\\boldsymbol{q}_t \\in \\mathbb{R}^{23}\\) and \\(\\dot{\\boldsymbol{q}}_t \\in \\mathbb{R}^{23}\\) denote the joint positions and velocities, \\(\\boldsymbol{v}_t \\in \\mathbb{R}^{3}\\) and \\(\\boldsymbol{\\omega}_t \\in \\mathbb{R}^{3}\\) are the root’s linear and angular velocities, and \\(\\boldsymbol{a}_{t-1} \\in \\mathbb{R}^{23}\\) is the previous action. \\(\\Delta \\boldsymbol{p}_t \\in \\mathbb{R}^3\\) and \\(\\Delta \\boldsymbol{r}_t \\in \\mathbb{R}^6\\) [41] represent the root’s position and rotation tracking errors. The goal \\(\\boldsymbol{g}^{\\mathrm{tea}}_t\\) provides a preview of reference joint positions, velocities, and relative keybody poses over the future \\(H\\) timesteps.",
           "reference": false,
           "source_image": "figs/p004-004-source.png",
-          "zh": "其中 q t ∈ R23 和 q ˙ t ∈ R23 分别表示关节位置与速度，v t ∈ R3 与 ω t ∈ R3 是根部的线速度与角速度，而 a t− 1 ∈ R23 是上一时间步的动作。∆ p t ∈ R3 和 ∆ r t ∈ R6 [41] 代表根部的位置与旋转跟踪误差。目标 g ttea 提供了未来 H 个时间步内参考关节位置、速度以及相对关键刚体姿态的前瞻预览。"
+          "zh": "其中 \\(\\boldsymbol{q}_t \\in \\mathbb{R}^{23}\\) 和 \\(\\dot{\\boldsymbol{q}}_t \\in \\mathbb{R}^{23}\\) 分别表示关节位置与速度，\\(\\boldsymbol{v}_t \\in \\mathbb{R}^{3}\\) 与 \\(\\boldsymbol{\\omega}_t \\in \\mathbb{R}^{3}\\) 是根部的线速度与角速度，而 \\(\\boldsymbol{a}_{t-1} \\in \\mathbb{R}^{23}\\) 是上一时间步的动作。\\(\\Delta \\boldsymbol{p}_t \\in \\mathbb{R}^3\\) 和 \\(\\Delta \\boldsymbol{r}_t \\in \\mathbb{R}^6\\) [41] 代表根部的位置与旋转跟踪误差。目标 \\(\\boldsymbol{g}^{\\mathrm{tea}}_t\\) 提供了未来 \\(H\\) 个时间步内参考关节位置、速度以及相对关键刚体姿态的前瞻预览。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b5",
@@ -620,26 +666,36 @@
             299,
             319
           ],
-          "en": "In real-world deployment, global root position and velocity are unavailable. Therefore, the student policy π stu relies on proprioceptive states, augmented with a short history of past observations. Its state sstu t and goal g tstu are defined as:",
+          "en": "In real-world deployment, global root position and velocity are unavailable. Therefore, the student policy \\(\\pi_{\\mathrm{stu}}\\) relies on proprioceptive states, augmented with a short history of past observations. Its state \\(\\boldsymbol{s}^{\\mathrm{stu}}_t\\) and goal \\(\\boldsymbol{g}^{\\mathrm{stu}}_t\\) are defined as:",
           "reference": false,
           "source_image": "figs/p004-005-source.png",
-          "zh": "在真实世界部署中，全局根部位置与速度是无法获取的。因此，学生策略 π stu 依赖于本体感受状态，并辅以过去观测数据的简短历史。其状态 sstu t 与目标 g tstu 定义为："
+          "zh": "在真实世界部署中，全局根部位置与速度是无法获取的。因此，学生策略 \\(\\pi_{\\mathrm{stu}}\\) 依赖于本体感受状态，并辅以过去观测数据的简短历史。其状态 \\(\\boldsymbol{s}^{\\mathrm{stu}}_t\\) 与目标 \\(\\boldsymbol{g}^{\\mathrm{stu}}_t\\) 定义为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b6",
           "kind": "formula",
           "bbox": [
-            61,
-            325,
-            299,
-            370
+            59.0,
+            323.0,
+            301.0,
+            372.0
           ],
           "en": "s stu t = q t−K : t, q ˙ t−K : t, ω t−K : t, ∆ r t−K : t, a t−K : t− 1 , (3) � � = g t stu � q t ref +1: t + H , q ˙ t ref +1: t + H , r t K +1: , ref t + H � , (4)",
           "reference": false,
           "image": "figs/p004-006.png",
           "labels": [
             "4"
-          ]
+          ],
+          "original_bbox": [
+            61.0,
+            325.0,
+            299.0,
+            370.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 726,
+          "image_height": 147
         },
         {
           "id": "p4-b7",
@@ -650,10 +706,11 @@
             299,
             452
           ],
-          "en": "where K is the number of past timesteps included in the student state, enabling the policy to leverage historical proprioceptive information to compensate for the partial observability. By defining goal states for both the teacher and the student, policies can plan actions conditioned on future motion, improving tracking accuracy and expressiveness.",
+          "en": "where \\(K\\) is the number of past timesteps included in the student state, enabling the policy to leverage historical proprioceptive information to compensate for the partial observability. By defining goal states for both the teacher and the student, policies can plan actions conditioned on future motion, improving tracking accuracy and expressiveness.",
           "reference": false,
           "source_image": "figs/p004-007-source.png",
-          "zh": "其中 K 是学生状态中所包含的历史时间步数，使策略能够利用历史本体感受信息来弥补部分可观测性。通过同时为教师和学生策略定义目标状态，策略能够以未来动作为条件来规划动作，从而提升跟踪精度与表现力。"
+          "zh": "其中 \\(K\\) 是学生状态中所包含的历史时间步数，使策略能够利用历史本体感受信息来弥补部分可观测性。通过同时为教师和学生策略定义目标状态，策略能够以未来动作为条件来规划动作，从而提升跟踪精度与表现力。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b8",
@@ -692,26 +749,36 @@
             299,
             714
           ],
-          "en": "At each timestep t , the input to OMoE is the concatenation of the state and goal ( s t, g t ). A set of M experts {hi}M i =1 maps the input to feature vectors:",
+          "en": "At each timestep \\(t\\), the input to OMoE is the concatenation of the state and goal \\((\\boldsymbol{s}_t, \\boldsymbol{g}_t)\\). A set of \\(M\\) experts \\(\\{h_i\\}_{i=1}^M\\) maps the input to feature vectors:",
           "reference": false,
           "source_image": "figs/p004-010-source.png",
-          "zh": "在每个时间步 t，OMoE 的输入是状态与目标的拼接 ( s t, g t )。一组包含 M 个专家的集合 {hi}M i =1 将输入映射为特征向量："
+          "zh": "在每个时间步 \\(t\\)，OMoE 的输入是状态与目标的拼接 \\((\\boldsymbol{s}_t, \\boldsymbol{g}_t)\\)。一组包含 \\(M\\) 个专家的集合 \\(\\{h_i\\}_{i=1}^M\\) 将输入映射为特征向量：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b11",
           "kind": "formula",
           "bbox": [
-            64,
-            722,
-            299,
-            735
+            62.0,
+            720.0,
+            301.0,
+            737.0
           ],
           "en": "Ut = [ u 1 , u 2 , . . . , u M ] ∈ R d×M , u i = hi ( s t, g t ) . (5)",
           "reference": false,
           "image": "figs/p004-011.png",
           "labels": [
             "5"
-          ]
+          ],
+          "original_bbox": [
+            64.0,
+            722.0,
+            299.0,
+            735.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 717,
+          "image_height": 51
         },
         {
           "id": "p4-b12",
@@ -731,17 +798,26 @@
           "id": "p4-b13",
           "kind": "formula",
           "bbox": [
-            408,
-            86,
-            559,
-            99
+            406.0,
+            84.0,
+            561.0,
+            101.0
           ],
           "en": "Ut ⊤Ut = IM , (6)",
           "reference": false,
           "image": "figs/p004-013.png",
           "labels": [
             "6"
-          ]
+          ],
+          "original_bbox": [
+            408.0,
+            86.0,
+            559.0,
+            99.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 465,
+          "image_height": 51
         },
         {
           "id": "p4-b14",
@@ -752,26 +828,36 @@
             559,
             185
           ],
-          "en": "ensuring that each u i represents an independent direction in feature space. Directly solving this constrained optimization is challenging, so we instead approximate it via the Gram–Schmidt (GS) process [42], [43]. GS maps Ut into an orthogonal basis V = { v 1 , . . . , v M } by sequentially removing projections onto previously obtained vectors:",
+          "en": "ensuring that each \\(\\boldsymbol{u}_i\\) represents an independent direction in feature space. Directly solving this constrained optimization is challenging, so we instead approximate it via the Gram–Schmidt (GS) process [42], [43]. GS maps \\(U_t\\) into an orthogonal basis \\(V = \\{\\boldsymbol{v}_1, \\dots, \\boldsymbol{v}_M\\}\\) by sequentially removing projections onto previously obtained vectors:",
           "reference": false,
           "source_image": "figs/p004-014-source.png",
-          "zh": "以确保每个 u i 都代表特征空间中的一个独立方向。直接求解这种带约束的优化问题极具挑战，因此我们转而通过施密特（Gram–Schmidt, GS）正交化过程 [42], [43] 来进行近似。GS 过程通过依次减去在先前已获得向量上的投影，将 Ut 映射为一个正交基 V = { v 1 , . . . , v M }："
+          "zh": "以确保每个 \\(\\boldsymbol{u}_i\\) 都代表特征空间中的一个独立方向。直接求解这种带约束的优化问题极具挑战，因此我们转而通过施密特（Gram–Schmidt, GS）正交化过程 [42], [43] 来进行近似。GS 过程通过依次减去在先前已获得向量上的投影，将 \\(U_t\\) 映射为一个正交基 \\(V = \\{\\boldsymbol{v}_1, \\dots, \\boldsymbol{v}_M\\}\\)：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b15",
           "kind": "formula",
           "bbox": [
-            346,
-            192,
-            559,
-            223
+            344.0,
+            190.0,
+            561.0,
+            225.0
           ],
           "en": "i− 1 ⟨ v j, u i⟩ v i = u i − � i = 1 , . . . , M. (7) ⟨ v j, v j⟩ v j, j =1",
           "reference": false,
           "image": "figs/p004-015.png",
           "labels": [
             "7"
-          ]
+          ],
+          "original_bbox": [
+            346.0,
+            192.0,
+            559.0,
+            223.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 651,
+          "image_height": 105
         },
         {
           "id": "p4-b16",
@@ -796,26 +882,36 @@
             559,
             346
           ],
-          "en": "A router network computes the expert weights as α = Router( s t, g t ) and assigns the resulting coefficients αi to their orthogonalized features. The weighted combination is passed through a shared output head f , producing the teacher action atea t :",
+          "en": "A router network computes the expert weights as \\(\\boldsymbol\\alpha = \\mathrm{Router}(\\boldsymbol s_t, \\boldsymbol g_t)\\) and assigns the resulting coefficients \\(\\alpha_i\\) to their orthogonalized features. The weighted combination is passed through a shared output head \\(f\\), producing the teacher action \\(\\boldsymbol a^\\mathrm{tea}_t\\):",
           "reference": false,
           "source_image": "figs/p004-017-source.png",
-          "zh": "路由网络计算专家权重 α = Router( s t, g t )，并将得到的系数 αi 分配给其正交化后的特征。加权组合经过一个共享输出头 f，生成教师动作 atea t："
+          "zh": "路由网络计算专家权重 \\(\\boldsymbol\\alpha = \\mathrm{Router}(\\boldsymbol s_t, \\boldsymbol g_t)\\)，并将得到的系数 \\(\\alpha_i\\) 分配给其正交化后的特征。加权组合经过一个共享输出头 \\(f\\)，生成教师动作 \\(\\boldsymbol a^\\mathrm{tea}_t\\)：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b18",
           "kind": "formula",
           "bbox": [
-            389,
-            346,
-            558,
-            377
+            387.0,
+            344.0,
+            560.0,
+            379.0
           ],
           "en": "a tea t = f αi v i . (8) �� i �",
           "reference": false,
           "image": "figs/p004-018.png",
           "labels": [
             "8"
-          ]
+          ],
+          "original_bbox": [
+            389.0,
+            346.0,
+            558.0,
+            377.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 519,
+          "image_height": 105
         },
         {
           "id": "p4-b19",
@@ -854,10 +950,11 @@
             559,
             657
           ],
-          "en": "In the student training stage, this history encoder is frozen and applied to real-world history observations, producing latent embeddings that enhance robustness to system noise and parameter uncertainty. Leveraging this representation enables the student to more effectively imitate the teacher. The student policy is then distilled via DAgger [44], minimizing the L 2 loss between the student’s output actions astu t and the teacher’s actions via ∥ atea t − astu t ∥ 22.",
+          "en": "In the student training stage, this history encoder is frozen and applied to real-world history observations, producing latent embeddings that enhance robustness to system noise and parameter uncertainty. Leveraging this representation enables the student to more effectively imitate the teacher. The student policy is then distilled via DAgger [44], minimizing the \\(\\mathcal{L}_{2}\\) loss between the student’s output actions \\(\\boldsymbol a^\\mathrm{stu}_t\\) and the teacher’s actions via \\(\\|\\boldsymbol a^\\mathrm{tea}_t - \\boldsymbol a^\\mathrm{stu}_t\\|_2^2\\).",
           "reference": false,
           "source_image": "figs/p004-021-source.png",
-          "zh": "在学生训练阶段，该历史编码器被冻结并应用于真实世界的历史观测，生成可增强对系统噪声和参数不确定性鲁棒性的潜在嵌入。利用该表征使学生能够更有效地模仿教师。随后，学生策略通过 DAgger [44] 进行蒸馏，通过 ∥ atea t − astu t ∥ 22 最小化学生输出动作 astu t 与教师动作之间的 L 2 损失。"
+          "zh": "在学生训练阶段，该历史编码器被冻结并应用于真实世界的历史观测，生成可增强对系统噪声和参数不确定性鲁棒性的潜在嵌入。利用该表征使学生能够更有效地模仿教师。随后，学生策略通过 DAgger [44] 进行蒸馏，通过 \\(\\|\\boldsymbol a^\\mathrm{tea}_t - \\boldsymbol a^\\mathrm{stu}_t\\|_2^2\\) 最小化学生输出动作 \\(\\boldsymbol a^\\mathrm{stu}_t\\) 与教师动作之间的 \\(\\mathcal{L}_{2}\\) 损失。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b22",
@@ -915,26 +1012,36 @@
             299,
             223
           ],
-          "en": "To mitigate this, we utilize a segment-level tracking reward that relaxes rigid step-wise tracking. As illustrated in Fig. 2, instead of enforcing alignment at a single timestep t , the agent is rewarded according to the minimum discrepancy between its state and the candidate reference states within a short temporal neighborhood. For global tracking, the reward rtglobal is defined as",
+          "en": "To mitigate this, we utilize a segment-level tracking reward that relaxes rigid step-wise tracking. As illustrated in Fig. 2, instead of enforcing alignment at a single timestep \\(t\\), the agent is rewarded according to the minimum discrepancy between its state and the candidate reference states within a short temporal neighborhood. For global tracking, the reward \\(r^{\\text{global}}_t\\) is defined as",
           "reference": false,
           "source_image": "figs/p005-001-source.png",
-          "zh": "为了缓解这一问题，我们采用了一种放宽严格逐时间步跟踪的片段级跟踪奖励。如图 2 所示，智能体并非被强制在单个时间步 t 处对齐，而是根据其状态与较短时间邻域内候选参考状态之间的最小差异获得奖励。对于全局跟踪，奖励 rtglobal 定义为"
+          "zh": "为了缓解这一问题，我们采用了一种放宽严格逐时间步跟踪的片段级跟踪奖励。如图 2 所示，智能体并非被强制在单个时间步 \\(t\\) 处对齐，而是根据其状态与较短时间邻域内候选参考状态之间的最小差异获得奖励。对于全局跟踪，奖励 \\(r^{\\text{global}}_t\\) 定义为",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b2",
           "kind": "formula",
           "bbox": [
-            88,
-            228,
-            299,
-            249
+            86.0,
+            226.0,
+            301.0,
+            251.0
           ],
           "en": "rt global = exp − min t + τ ) , (9) � τ ∈ [0 ,H ] d global( p t, p ref �",
           "reference": false,
           "image": "figs/p005-002.png",
           "labels": [
             "9"
-          ]
+          ],
+          "original_bbox": [
+            88.0,
+            228.0,
+            299.0,
+            249.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 645,
+          "image_height": 75
         },
         {
           "id": "p5-b3",
@@ -945,26 +1052,36 @@
             299,
             304
           ],
-          "en": "where H is the small future horizon and d global measures root position deviation. This allows the agent to catch up within a short future window, reducing sensitivity to transient errors. Similarly, for local keybody tracking, we define",
+          "en": "where \\(H\\) is the small future horizon and \\(d_\\text{global}\\) measures root position deviation. This allows the agent to catch up within a short future window, reducing sensitivity to transient errors. Similarly, for local keybody tracking, we define",
           "reference": false,
           "source_image": "figs/p005-003-source.png",
-          "zh": "其中 H 是较短的未来时间范围，d global 用于度量根位置偏差。这允许智能体在较短的未来窗口内跟上进度，降低了对瞬态误差的敏感度。类似地，对于局部关键体跟踪，我们定义"
+          "zh": "其中 \\(H\\) 是较短的未来时间范围，\\(d_\\text{global}\\) 用于度量根位置偏差。这允许智能体在较短的未来窗口内跟上进度，降低了对瞬态误差的敏感度。类似地，对于局部关键体跟踪，我们定义",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b4",
           "kind": "formula",
           "bbox": [
-            89,
-            309,
-            299,
-            330
+            87.0,
+            307.0,
+            301.0,
+            332.0
           ],
           "en": "rt local = exp − min t , p K t + , ref τ ) , (10) � τ ∈ [0 ,H ] d local( p K �",
           "reference": false,
           "image": "figs/p005-004.png",
           "labels": [
             "10"
-          ]
+          ],
+          "original_bbox": [
+            89.0,
+            309.0,
+            299.0,
+            330.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 642,
+          "image_height": 75
         },
         {
           "id": "p5-b5",
@@ -975,10 +1092,11 @@
             299,
             346
           ],
-          "en": "where d local measures deviations in local keybody positions.",
+          "en": "where \\(d_\\text{local}\\) measures deviations in local keybody positions.",
           "reference": false,
           "source_image": "figs/p005-005-source.png",
-          "zh": "其中 d local 用于度量局部关键体位置的偏差。"
+          "zh": "其中 \\(d_\\text{local}\\) 用于度量局部关键体位置的偏差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b6",
@@ -1012,15 +1130,24 @@
           "id": "p5-b8",
           "kind": "table",
           "bbox": [
-            64,
-            478,
-            289,
-            551
+            62.0,
+            476.0,
+            291.0,
+            553.0
           ],
           "en": "|Tracking terms|Weights|Regularization terms|Weights| |---|---|---|---| |Root position|1.5|Action rate|−0.1| |Root velocity|1.5|Feet slip|−0.1| |Root rotation|1.5|Torque limits|−5.0| |Key body position|3.0|Joint limits|−10| |Key body velocity|2.0|Joint velocities|−1e−4| |Key body rotation|2.0|Joint accelerations|−3e−7|",
           "reference": false,
           "image": "figs/p005-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            64.0,
+            478.0,
+            289.0,
+            551.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 687,
+          "image_height": 231
         },
         {
           "id": "p5-b9",
@@ -1082,15 +1209,24 @@
           "id": "p5-b13",
           "kind": "table",
           "bbox": [
-            319,
-            69,
-            549,
-            132
+            317.0,
+            67.0,
+            551.0,
+            134.0
           ],
           "en": "|DR terms|Range|Noised RSI|Noise scale| |---|---|---|---| |Base Mass|[−3,3]|Joint position|0.1| |Friction|[0.1,1.6]|Root position|0.05| |Motor Strength|[0.9,1.1]|Root velocity|0.2| |Default joint pos|[−0.01,0.01]|Root rotation|0.1| |Push Robot|[−0.5,0.5]|Root angular vel|0.5|",
           "reference": false,
           "image": "figs/p005-013.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            319.0,
+            69.0,
+            549.0,
+            132.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 702,
+          "image_height": 201
         },
         {
           "id": "p5-b14",
@@ -1132,7 +1268,8 @@
           "en": "- Q1. Can VMS outperforms baseline methods when trained on large-scale motion datasets?",
           "reference": false,
           "source_image": "figs/p005-016-source.png",
-          "zh": "- Q1. 在大规模运动数据集上训练时，VMS 的表现能否优于基线方法？"
+          "zh": "- Q1. 在大规模运动数据集上训练时，VMS 的表现能否优于基线方法？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b17",
@@ -1146,7 +1283,8 @@
           "en": "- Q2. Does OMoE enables effective learning and generalization of versatile motion skills?",
           "reference": false,
           "source_image": "figs/p005-017-source.png",
-          "zh": "- Q2. OMoE 能否实现多功能运动技能的有效学习与泛化？"
+          "zh": "- Q2. OMoE 能否实现多功能运动技能的有效学习与泛化？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b18",
@@ -1160,7 +1298,8 @@
           "en": "- Q3. Can the hybrid tracking objective augmented with a segment-level reward improve long-horizon motion performance?",
           "reference": false,
           "source_image": "figs/p005-018-source.png",
-          "zh": "- Q3. 结合片段级奖励增强的混合跟踪目标能否提升长时程运动性能？"
+          "zh": "- Q3. 结合片段级奖励增强的混合跟踪目标能否提升长时程运动性能？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b19",
@@ -1174,7 +1313,8 @@
           "en": "- Q4. How well does VMS perform in real-world?",
           "reference": false,
           "source_image": "figs/p005-019-source.png",
-          "zh": "- Q4. VMS 在现实世界中的表现如何？"
+          "zh": "- Q4. VMS 在现实世界中的表现如何？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b20",
@@ -1227,10 +1367,11 @@
             559,
             602
           ],
-          "en": "2) Metrics: Tracking performance is evaluated using the following metrics: Mean Per Keybody Position Error ( E mpkpe, mm ), Mean Per Joint Position Error ( E mpjpe, rad ), Mean Global Root Position Error ( E pos, mm ) and Mean Root Linear Velocity Error ( E vel, m/s ). For the test dataset, we report the success rate (%), where a motion is considered successful if the humanoid completes the entire sequence.",
+          "en": "2) Metrics: Tracking performance is evaluated using the following metrics: Mean Per Keybody Position Error (\\(E_\\mathrm{mpkpe}\\), \\(mm\\)), Mean Per Joint Position Error (\\(E_\\mathrm{mpjpe}\\), \\(rad\\)), Mean Global Root Position Error (\\(E_\\mathrm{pos}\\), \\(mm\\)) and Mean Root Linear Velocity Error (\\(E_\\mathrm{vel}\\), \\(m/s\\)). For the test dataset, we report the success rate (\\(\\%\\)), where a motion is considered successful if the humanoid completes the entire sequence.",
           "reference": false,
           "source_image": "figs/p005-023-source.png",
-          "zh": "2) 评估指标：跟踪性能通过以下指标进行评估：平均每关键体位置误差（E mpkpe, mm）、平均每关节位置误差（E mpjpe, rad）、平均全局根位置误差（E pos, mm）和平均根线性速度误差（E vel, m/s）。对于测试数据集，我们报告成功率（%），若人形机器人完成了整个序列，则认为该动作成功。"
+          "zh": "2) 评估指标：跟踪性能通过以下指标进行评估：平均每关键体位置误差（\\(E_\\mathrm{mpkpe}\\), \\(mm\\)）、平均每关节位置误差（\\(E_\\mathrm{mpjpe}\\), \\(rad\\)）、平均全局根位置误差（\\(E_\\mathrm{pos}\\), \\(mm\\)）和平均根线性速度误差（\\(E_\\mathrm{vel}\\), \\(m/s\\)）。对于测试数据集，我们报告成功率（\\(\\%\\)），若人形机器人完成了整个序列，则认为该动作成功。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b24",
@@ -1269,15 +1410,24 @@
           "id": "p6-b0",
           "kind": "picture",
           "bbox": [
-            54,
-            50,
-            299,
-            167
+            52.0,
+            48.0,
+            301.0,
+            169.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p006-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            50.0,
+            299.0,
+            167.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 747,
+          "image_height": 363
         },
         {
           "id": "p6-b1",
@@ -1367,15 +1517,24 @@
           "id": "p6-b7",
           "kind": "picture",
           "bbox": [
-            313,
-            50,
-            559,
-            247
+            311.0,
+            48.0,
+            561.0,
+            249.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p006-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            313.0,
+            50.0,
+            559.0,
+            247.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 750,
+          "image_height": 603
         },
         {
           "id": "p6-b8",
@@ -1461,38 +1620,57 @@
             511,
             60
           ],
-          "en": "TABLE III: Main results on training and test datasets. Results are reported as mean ± one standard deviation.",
+          "en": "TABLE III: Main results on training and test datasets. Results are reported as mean \\(\\pm\\) one standard deviation.",
           "reference": false,
           "source_image": "figs/p007-000-source.png",
-          "zh": "TABLE III：在训练集和测试集上的主要结果。结果以均值 ± 一个标准差的形式报告。"
+          "zh": "TABLE III：在训练集和测试集上的主要结果。结果以均值 \\(\\pm\\) 一个标准差的形式报告。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b1",
           "kind": "table",
           "bbox": [
-            61,
-            69,
-            551,
-            225
+            59.0,
+            67.0,
+            553.0,
+            227.0
           ],
           "en": "|||Trainin|g Dataset||||Test Dataset||| |---|---|---|---|---|---|---|---|---|---| |Method|Empkpe ↓|Empjpe ↓|Epos ↓|Evel ↓|Succ ↑|Empkpe ↓|Empjpe ↓|Epos ↓|Evel ↓| |Baseline|||||||||| |ExBody2 GMT VMS (ours)|53.03±2.48 45.28±1.21 42.59±1.10|0.684±0.020 0.526±0.011 0.499±0.009|373.9±28.1 292.1±14.2 48.15±1.26|0.256±0.020 0.187±0.006 0.176±0.004|90.97±0.18 90.07±0.15 92.68±0.20|62.78±0.805 58.89±0.932 52.95±0.497|0.654±0.012 0.574±0.023 0.568±0.003|468.2±40.2 397.1±28.7 57.92±1.16|0.416±0.028 0.354±0.022 0.216±0.002| |Abaltions on OM|oE||||||||| |VMS-MLP|49.12±1.43|0.583±0.020|59.86±1.43|0.199±0.010|86.67±0.34|56.73±0.811|0.653±0.006|67.21±3.92|0.285±0.007| |VMS-MoE VMS (ours)|45.03±1.78 42.59±1.10|0.558±0.014 0.499±0.009|56.97±1.56 48.15±1.26|0.188±0.007 0.176±0.004|88.52±0.31 92.68±0.20|54.86±0.517 52.95±0.497|0.628±0.003 0.568±0.003|59.90±1.25 57.92±1.16|0.250±0.003 0.216±0.002| |Abaltions on Seg|ment-level Tra|cking|||||||| |VMS-Global|50.28±1.55|0.562±0.022|44.09±2.12|0.180±0.010|60.52±0.24|69.57±0.969|0.576±0.005|60.53±1.12|0.243±0.005| |VMS-Step-wise|43.42±1.01|0.512±0.015|51.15±2.43|0.182±0.010|84.68±0.27|50.63±0.312|0.577±0.004|63.92±1.00|0.266±0.002| |VMS (ours)|42.59±1.10|0.499±0.009|48.15±1.26|0.176±0.004|92.68±0.20|52.95±0.497|0.568±0.003|57.92±1.16|0.216±0.002|",
           "reference": false,
           "image": "figs/p007-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            61.0,
+            69.0,
+            551.0,
+            225.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1482,
+          "image_height": 480
         },
         {
           "id": "p7-b2",
           "kind": "picture",
           "bbox": [
-            54,
-            262,
-            299,
-            400
+            52.0,
+            260.0,
+            301.0,
+            402.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            262.0,
+            299.0,
+            400.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 747,
+          "image_height": 426
         },
         {
           "id": "p7-b3",
@@ -1512,15 +1690,24 @@
           "id": "p7-b8",
           "kind": "picture",
           "bbox": [
-            66,
-            472,
-            287,
-            682
+            64.0,
+            470.0,
+            289.0,
+            684.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            66.0,
+            472.0,
+            287.0,
+            682.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 675,
+          "image_height": 642
         },
         {
           "id": "p7-b9",
@@ -1540,15 +1727,24 @@
           "id": "p7-b4",
           "kind": "picture",
           "bbox": [
-            313,
-            249,
-            559,
-            351
+            311.0,
+            247.0,
+            561.0,
+            353.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            313.0,
+            249.0,
+            559.0,
+            351.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 750,
+          "image_height": 318
         },
         {
           "id": "p7-b5",
@@ -1657,15 +1853,24 @@
           "id": "p8-b0",
           "kind": "picture",
           "bbox": [
-            54,
-            50,
-            299,
-            189
+            52.0,
+            48.0,
+            301.0,
+            191.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            50.0,
+            299.0,
+            189.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 747,
+          "image_height": 429
         },
         {
           "id": "p8-b1",

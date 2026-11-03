@@ -1,0 +1,2324 @@
+{
+  "title": "The Duke Humanoid: Design and Control For Energy Efficient Bipedal Locomotion Using Passive Dynamics",
+  "pages": [
+    {
+      "number": 1,
+      "blocks": [
+        {
+          "id": "p1-b1",
+          "kind": "title",
+          "bbox": [
+            71,
+            70,
+            541,
+            109
+          ],
+          "en": "The Duke Humanoid: Design and Control For Energy-Efficient Bipedal Locomotion Using Passive Dynamics",
+          "reference": false,
+          "source_image": "figs/p001-001-source.png",
+          "zh": "Duke Humanoid：基于被动动力学的高能效双足运动设计与控制"
+        },
+        {
+          "id": "p1-b2",
+          "kind": "text",
+          "bbox": [
+            160,
+            128,
+            452,
+            139
+          ],
+          "en": "Boxi Xia, Bokuan Li, Jacob Lee, Michael Scutari, Boyuan Chen",
+          "reference": false,
+          "source_image": "figs/p001-002-source.png",
+          "zh": "Boxi Xia, Bokuan Li, Jacob Lee, Michael Scutari, Boyuan Chen"
+        },
+        {
+          "id": "p1-b3",
+          "kind": "text",
+          "bbox": [
+            53,
+            163,
+            299,
+            292
+          ],
+          "en": "Abstract — We present the Duke Humanoid, an open-source 10-degrees-of-freedom humanoid, as an extensible platform for locomotion research. The design mimics human physiology, with symmetrical body alignment in the frontal plane to maintain static balance with straight knees. We develop a reinforcement learning policy that can be deployed zero-shot on the hardware for velocity-tracking walking tasks. Additionally, to enhance energy efficiency in locomotion, we propose an end-to-end reinforcement learning algorithm that encourages the robot to leverage passive dynamics. Our experimental results show that our passive policy reduces the cost of transport by up to 50% in simulation and 31% in real-world tests. Our website is http: //generalroboticslab.com/DukeHumanoidv1/.",
+          "reference": false,
+          "source_image": "figs/p001-003-source.png",
+          "zh": "摘要 — 我们推出了 Duke Humanoid，这是一款开源的 10 自由度人形机器人，作为用于运动研究的可扩展平台。该设计模仿人体生理结构，在额状面上具有对称的身体对齐结构，从而能够以直膝姿态保持静态平衡。我们开发了一种强化学习策略，可零样本（zero-shot）部署于硬件上以完成速度跟踪行走任务。此外，为了提高运动中的能量效率，我们提出了一种端到端强化学习算法，鼓励机器人利用被动动力学。实验结果表明，我们的被动策略在仿真中将运动能耗成本（cost of transport）降低了多达 50%，在真实世界测试中降低了 31%。我们的网站为 http://generalroboticslab.com/DukeHumanoidv1/。"
+        },
+        {
+          "id": "p1-b4",
+          "kind": "section-header",
+          "bbox": [
+            137,
+            301,
+            216,
+            309
+          ],
+          "en": "I. INTRODUCTION",
+          "reference": false,
+          "source_image": "figs/p001-004-source.png",
+          "zh": "I. 引言"
+        },
+        {
+          "id": "p1-b5",
+          "kind": "text",
+          "bbox": [
+            53,
+            316,
+            299,
+            422
+          ],
+          "en": "Recent advances in robotics have enabled humanoids to perform impressive dynamic motions, such as walking, high-speed running, and backflipping [1–4]. However, many commercially available humanoids are closed systems with limited customizability and access to low-level sensor and actuator interfaces. Some recent efforts open-source the software [5, 6], while others offer open-source hardware but are limited in their ability to perform dynamic motions due to the use of high-reduction-ratio servo motors [7–9].",
+          "reference": false,
+          "source_image": "figs/p001-005-source.png",
+          "zh": "机器人技术的最新进展已使人形机器人能够执行令人瞩目的动态动作，例如行走、高速奔跑和后空翻 [1–4]。然而，许多商用人形机器人是封闭系统，可定制性有限，且难以访问底层传感器和执行器接口。近期的一些成果对软件进行了开源 [5, 6]，而另一些成果虽然提供了开源硬件，但由于采用了大减速比伺服电机，执行动态运动的能力受到限制 [7–9]。"
+        },
+        {
+          "id": "p1-b6",
+          "kind": "text",
+          "bbox": [
+            53,
+            424,
+            299,
+            506
+          ],
+          "en": "The demand for customizable and high-performance humanoid platforms in the research community is evident. Yet, there remains a scarcity of open-source humanoid hardware capable of performing dynamic locomotion. Such platforms are essential for enabling transparent access, customization, and investigation of low-level hardware interactions, all of which are critical to advancing humanoid research.",
+          "reference": false,
+          "source_image": "figs/p001-006-source.png",
+          "zh": "研究界对可定制且高性能的人形机器人平台的需求显而易见。然而，能够执行动态运动的开源人形机器人硬件依然匮乏。此类平台对于实现透明访问、定制化以及对底层硬件交互的研究至关重要，而这些对于推动人形机器人研究的进展均不可或缺。"
+        },
+        {
+          "id": "p1-b7",
+          "kind": "text",
+          "bbox": [
+            53,
+            508,
+            299,
+            661
+          ],
+          "en": "This paper introduces an open-source humanoid platform (Fig. 1), designed to address the lack of open-source hardware capable of dynamic motion. The platform is customizable, allowing researchers to integrate design changes and cooptimize hardware and control systems. Our hardware design mimics human physiology by referencing the ratios of the femur, tibia, foot length, and stance width. The humanoid has a nearly symmetric weight distribution, naturally supporting static straight-knee standing. Additionally, we demonstrate the platform’s capabilities by deploying a reinforcement learning (RL) walking policy, trained in simulation, to the physical system without fine-tuning. Both hardware and software are open-sourced.",
+          "reference": false,
+          "source_image": "figs/p001-007-source.png",
+          "zh": "本文介绍了一款开源人形机器人平台（图 1），旨在解决缺乏能够进行动态运动的开源硬件的问题。该平台具有可定制性，允许研究人员集成设计修改并协同优化硬件与控制系统。我们的硬件设计参考了股骨、胫骨、足长以及站立宽度的比例，从而模仿人体生理结构。该人形机器人具有近乎对称的重量分布，自然支持静态直膝站立。此外，我们通过将在仿真中训练的强化学习（RL）行走策略零微调部署到实体系统上，展示了该平台的能力。硬件和软件均已开源。"
+        },
+        {
+          "id": "p1-b8",
+          "kind": "text",
+          "bbox": [
+            53,
+            663,
+            299,
+            698
+          ],
+          "en": "With our platform, we further study a fundamental question in humanoid locomotion: How can robots achieve energy-efficient human-like walking? Many humanoids are",
+          "reference": false,
+          "source_image": "figs/p001-008-source.png",
+          "zh": "借助我们的平台，我们进一步研究了人形机器人运动中的一个基本问题：机器人如何实现高能效的类人行走？许多人形机器人"
+        },
+        {
+          "id": "p1-b9",
+          "kind": "text",
+          "bbox": [
+            53,
+            708,
+            299,
+            734
+          ],
+          "en": "*This work is supported by DARPA FoundSci HR00112490372, DARPA TIAMAT HR00112490419, ARL STRONG W911NF2320182 and W911NF2220113. All authors are from Duke University.",
+          "reference": false,
+          "source_image": "figs/p001-009-source.png",
+          "zh": "*本项工作得到了 DARPA FoundSci HR00112490372、DARPA TIAMAT HR00112490419、ARL STRONG W911NF2320182 和 W911NF2220113 的资助。所有作者均来自杜克大学。"
+        },
+        {
+          "id": "p1-b10",
+          "kind": "picture",
+          "bbox": [
+            335.0,
+            155.0,
+            536.0,
+            257.0
+          ],
+          "en": "a) b) c)",
+          "reference": false,
+          "image": "figs/p001-010.png",
+          "labels": [],
+          "original_bbox": [
+            337.0,
+            157.0,
+            534.0,
+            255.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 603,
+          "image_height": 306
+        },
+        {
+          "id": "p1-b11",
+          "kind": "caption",
+          "bbox": [
+            313,
+            261,
+            559,
+            305
+          ],
+          "en": "Fig. 1: Duke Humanoid v1.0 : a) The frontal plane symmetry of the hip enables static standing with straight knees. b) and c) Additional poses demonstrating the robot’s range of motion.",
+          "reference": false,
+          "source_image": "figs/p001-011-source.png",
+          "zh": "图 1: Duke Humanoid v1.0：a) 髋关节在额状面上的对称性使其能够以直膝静态站立。b) 和 c) 展示机器人运动范围的其他姿势。"
+        },
+        {
+          "id": "p1-b12",
+          "kind": "text",
+          "bbox": [
+            313,
+            311,
+            559,
+            384
+          ],
+          "en": "designed with human-like morphology, which simplifies control but requires continuous active joint actuation, leading to inefficient energy use. This inefficiency results in frequent charging and battery replacement, leading to additional operational costs. Addressing this bottleneck requires both hardware innovations and improved control strategies.",
+          "reference": false,
+          "source_image": "figs/p001-012-source.png",
+          "zh": "被设计为具有类人形态，这简化了控制，但需要持续的主动关节驱动，导致能量利用效率低下。这种低效率导致频繁充电和电池更换，从而带来额外的运行成本。解决这一瓶颈既需要硬件创新，也需要改进控制策略。"
+        },
+        {
+          "id": "p1-b13",
+          "kind": "text",
+          "bbox": [
+            313,
+            387,
+            559,
+            576
+          ],
+          "en": "Unlike most humanoids that rely on consistent active motor control in locomotion, humans leverage passive dynamics in their gait. Human walking requires minimal muscular effort for leg swinging by utilizing pendulum-like motion [10, 11]. Some bipedal robots use passive dynamics to achieve human-level walking efficiency while requiring little to no power input [12–15]. However, their mass distribution is specifically tuned for passive walking, and any customization, such as adding a payload, may compromise their ability to walk effectively and efficiently. Previous work [12] indicates that straight-knee designs promote efficient walking without active control. These designs can maintain static equilibrium in a standing pose by fully locking the stance leg, while allowing a slight unlock of the knee in the swing leg. Our mechanical design satisfies this criterion through our near-symmetrical hip arrangement.",
+          "reference": false,
+          "source_image": "figs/p001-013-source.png",
+          "zh": "与大多数在运动中依赖持续主动电机控制的人形机器人不同，人类在步态中利用被动动力学。人类行走通过利用摆动样运动，在腿部摆动时只需极小的肌肉力量 [10, 11]。一些双足机器人利用被动动力学实现了人类级别的行走效率，同时几乎不需要或完全不需要动力输入 [12–15]。然而，它们的质量分布是专门针对被动行走进行调校的，任何定制（例如增加负载）都可能会损害其有效且高效行走的能力。先前的研究 [12] 表明，直膝设计有助于在无主动控制的情况下实现高效行走。这些设计可以通过完全锁定支撑腿来在站立姿态下保持静态平衡，同时允许摆动腿的膝盖轻微解锁。我们的机械设计通过近乎对称的髋关节布局满足了这一准则。"
+        },
+        {
+          "id": "p1-b14",
+          "kind": "text",
+          "bbox": [
+            313,
+            577,
+            559,
+            709
+          ],
+          "en": "In parallel, research on energy-efficient legged robot control has proposed learning gait patterns [16], using compliant reinforcement learning [17], and optimizing the center-ofmass trajectory [18]. Although end-to-end deep reinforcement learning has achieved state-of-the-art locomotion [19– 21], reinforcement learning based controller design has not yet sufficiently explored incorporating passive dynamics for bipedal locomotion within their framework. While passive dynamics has been widely studied in traditional controller design, its potential application within learning-based controller remains relatively untapped.",
+          "reference": false,
+          "source_image": "figs/p001-014-source.png",
+          "zh": "与此同时，关于高能效足式机器人控制的研究提出了学习步态模式 [16]、使用顺应性强化学习 [17] 以及优化质心轨迹 [18]。尽管端到端深度强化学习已经实现了最先进的运动性能 [19–21]，但基于强化学习的控制器设计在其框架内尚未充分探索将双足运动的被动动力学纳入其中。虽然被动动力学在传统控制器设计中已得到广泛研究，但其在基于学习的控制器中的潜在应用仍相对未被充分发掘。"
+        },
+        {
+          "id": "p1-b15",
+          "kind": "text",
+          "bbox": [
+            313,
+            710,
+            559,
+            734
+          ],
+          "en": "In this paper, we aim to enhance the energy efficiency of humanoids through an early exploration of utilizing passive",
+          "reference": false,
+          "source_image": "figs/p001-015-source.png",
+          "zh": "在本文中，我们旨在通过初步探索在端到端强化学习框架中利用被动"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "blocks": [
+        {
+          "id": "p2-b0",
+          "kind": "text",
+          "bbox": [
+            53,
+            55,
+            299,
+            161
+          ],
+          "en": "dynamics in the end-to-end reinforcement learning framework. Our key idea is to explicitly modulate the joint torques to switch between passive and active control during policy learning. The simulation result shows that our passive policy can achieve up to a \\(50\\%\\) increase in energy efficiency at low-speed walking (\\(<0.5\\mathrm{m/s}\\)) compared to a baseline RL policy. We validate the effectiveness of our passive action policy by deploying it on our physical platform, showing a \\(31\\%\\) increase in energy efficiency.",
+          "reference": false,
+          "source_image": "figs/p002-000-source.png",
+          "zh": "动力学，来提高人形机器人的能量效率。我们的核心思想是在策略学习过程中显式调节关节力矩，从而在被动控制和主动控制之间切换。仿真结果表明，与基线 RL 策略相比，我们的被动策略在低速行走（\\(<0.5\\mathrm{m/s}\\)）时能量效率最高可提升 \\(50\\%\\)。我们通过将该被动动作策略部署到物理平台上验证了其有效性，结果显示能量效率提升了 \\(31\\%\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p2-b1",
+          "kind": "text",
+          "bbox": [
+            53,
+            162,
+            299,
+            221
+          ],
+          "en": "Our main contributions are twofold: (1) we present an open-source humanoid platform for dynamic locomotion research, and (2) we demonstrate that the use of passive dynamics in the end-to-end reinforcement learning framework leads to enhanced energy efficiency in bipedal locomotion.",
+          "reference": false,
+          "source_image": "figs/p002-001-source.png",
+          "zh": "我们的主要贡献有两个方面：(1) 我们提出了一个用于动态运动研究的开源人形机器人平台；(2) 我们证明了在端到端强化学习框架中利用被动动力学可以提高双足运动的能量效率。"
+        },
+        {
+          "id": "p2-b2",
+          "kind": "section-header",
+          "bbox": [
+            133,
+            228,
+            220,
+            236
+          ],
+          "en": "II. RELATED WORK",
+          "reference": false,
+          "source_image": "figs/p002-002-source.png",
+          "zh": "II. 相关工作"
+        },
+        {
+          "id": "p2-b3",
+          "kind": "section-header",
+          "bbox": [
+            53,
+            243,
+            153,
+            253
+          ],
+          "en": "A. Humanoid Platforms",
+          "reference": false,
+          "source_image": "figs/p002-003-source.png",
+          "zh": "A. 人形机器人平台"
+        },
+        {
+          "id": "p2-b4",
+          "kind": "text",
+          "bbox": [
+            53,
+            258,
+            299,
+            412
+          ],
+          "en": "The robotics industry offers several humanoid platforms of various scales [1–4]. However, commercial humanoids often have limited customizability and accessibility due to closedsource hardware. This lack of openness makes it difficult for researchers to modify or experiment with the robot’s low-level systems, limiting opportunities for fundamental research. We address this limitation by offering an opensource platform. Academic labs have developed humanoids for research purposes [5, 6, 8, 22–27]. While these robots may not be as polished or robust as their commercial counterparts, they offer more flexibility in customizing hardware and control, enabling researchers to push the boundaries of hardware and algorithm designs.",
+          "reference": false,
+          "source_image": "figs/p002-004-source.png",
+          "zh": "机器人行业提供了几种不同规模的人形机器人平台 [1–4]。然而，由于硬件闭源，商用人形机器人通常可定制性和可访问性有限。这种开放性的缺乏使研究人员难以对机器人的底层系统进行修改或实验，从而限制了开展基础研究的机会。我们通过提供一个开源平台来解决这一局限。学术实验室也开发了用于研究目的的人形机器人 [5, 6, 8, 22–27]。虽然这些机器人可能不如商用同类产品完善或稳健，但它们在定制硬件和控制方面提供了更大的灵活性，使研究人员能够突破硬件和算法设计的界限。"
+        },
+        {
+          "id": "p2-b5",
+          "kind": "text",
+          "bbox": [
+            53,
+            413,
+            299,
+            615
+          ],
+          "en": "Mid-sized humanoids strike a balance between functionality and cost. Compared to adult-sized robots, they are easier to design, manufacture, and handle. While miniature robots offer cost advantages, their size limits their ability to fully replicate human locomotion. Table I compares key parameters of several mid-sized industrial and academic humanoids. Among them, our platform is open-source in both hardware and software. Our design features 0 . 5 m legs, tall enough to access standard workbenches and tables. Similar to previous efforts [6, 23], we limit the ankle’s degrees of freedom (DoF) to one (plantar flexion/dorsiflexion) to reduce leg mass and inertia, allowing the motor to handle higher payloads while providing sufficient mobility for dynamic walking. Additionally, our humanoid provides a maximum torque surpassing that of most mid-sized humanoids, making it suitable for dynamic locomotion with higher torque and payload demands.",
+          "reference": false,
+          "source_image": "figs/p002-005-source.png",
+          "zh": "中型人形机器人在功能和成本之间取得了平衡。与成年人体型机器人相比，它们更易于设计、制造和操作。微型机器人虽然具有成本优势，但其尺寸限制了其完全复现人类运动的能力。表 I 比较了几种中型工业和学术界人形机器人的关键参数。在这些平台中，我们的平台在硬件和软件两方面均实现了开源。我们的设计具有 0.5 m 的腿长，足够高以触及标准工作台和桌子。与以往的工作 [6, 23] 类似，我们将踝关节的自由度（DoF）限制为一个（跖屈/背屈），以减少腿部质量和惯量，使电机能够承受更高的负载，同时为动态行走提供充足的灵活性。此外，我们的人形机器人提供的最大力矩超过了大多数中型人形机器人，使其适用于对力矩和负载要求更高的动态运动。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p2-b6",
+          "kind": "section-header",
+          "bbox": [
+            54,
+            623,
+            253,
+            633
+          ],
+          "en": "B. Control Strategies for Humanoid Locomotion",
+          "reference": false,
+          "source_image": "figs/p002-006-source.png",
+          "zh": "B. 人形机器人运动控制策略"
+        },
+        {
+          "id": "p2-b7",
+          "kind": "text",
+          "bbox": [
+            53,
+            640,
+            299,
+            734
+          ],
+          "en": "Model-Based Control Model-based control approaches like Zero-Moment Point (ZMP) [28] ensure stability by maintaining the center of pressure within the support polygon. Model predictive control (MPC) [29] optimizes future trajectories and control actions based on a dynamic model of the robot. Whole-body control (WBC) [30] coordinates the robot’s entire body motion while accounting for its dynamics and constraints. Although highly successful, model-based control",
+          "reference": false,
+          "source_image": "figs/p002-007-source.png",
+          "zh": "基于模型的控制 诸如零力矩点（ZMP）[28] 之类的基于模型的控制方法通过将压力中心保持在支撑多边形内来确保稳定性。模型预测控制（MPC）[29] 基于机器人的动力学模型优化未来的轨迹和控制动作。全身控制（WBC）[30] 在考虑机器人动力学和约束的同时协调机器人的全身运动。尽管基于模型的控制非常成功，但它"
+        },
+        {
+          "id": "p2-b8",
+          "kind": "table",
+          "bbox": [
+            321.0,
+            52.0,
+            550.0,
+            149.0
+          ],
+          "en": "|Robot Symmetry*|Leg length [m]|Leg DoF|Mass [kg]|Max HFE [N·m]|Max KFE [N·m]| |---|---|---|---|---|---| |MIT [23]|0.55|5|24|68|136| |Berkeley [5]|0.4|6|16|63|81| |Unitree G1 [3]|0.6|6|35|88|120| |HECTOR [6]|0.44|5|16|33.5|51.9| |iCub [9]|0.4|6|24|40|40| |COMAN [22]|0.44|6|55|55|40| |Ours ✓|0.5|5|30|264|238|",
+          "reference": false,
+          "image": "figs/p002-008.png",
+          "labels": [],
+          "original_bbox": [
+            323.0,
+            54.0,
+            548.0,
+            147.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 687,
+          "image_height": 291
+        },
+        {
+          "id": "p2-b9",
+          "kind": "text",
+          "bbox": [
+            313,
+            157,
+            523,
+            165
+          ],
+          "en": "Symmetry*: hip arrangement symmetry across the frontal plane",
+          "reference": false,
+          "source_image": "figs/p002-009-source.png",
+          "zh": "Symmetry*：髋关节在额状面上的布局对称性"
+        },
+        {
+          "id": "p2-b10",
+          "kind": "text",
+          "bbox": [
+            313,
+            169,
+            559,
+            189
+          ],
+          "en": "TABLE I: Comparison of key parameters for mid-sized academics and industrial humanoids.",
+          "reference": false,
+          "source_image": "figs/p002-010-source.png",
+          "zh": "表 I：学术界和工业界中型人形机器人关键参数的比较。"
+        },
+        {
+          "id": "p2-b11",
+          "kind": "text",
+          "bbox": [
+            313,
+            200,
+            559,
+            236
+          ],
+          "en": "requires extensive modeling of the specific robot and often relies on numerous assumptions about its dynamics, limiting transferability to other humanoids without expert knowledge.",
+          "reference": false,
+          "source_image": "figs/p002-011-source.png",
+          "zh": "需要对特定机器人进行大量建模，并且通常依赖于对其动力学的大量假设，在没有专家知识的情况下限制了向其他人形机器人的迁移能力。"
+        },
+        {
+          "id": "p2-b12",
+          "kind": "text",
+          "bbox": [
+            313,
+            241,
+            559,
+            418
+          ],
+          "en": "Learning-Based Control Learning-based control [31–34] has gained popularity due to its ability to operate with less prior knowledge of specific robots. One approach is to use imitation learning, which directly learns from expert gait demonstrations. However, this method requires access to expensive motion capture data and is prone to errors when the policy encounters situations that differ from the expert demonstrations. Another promising strategy is to use RL to learn control policies through trial and error by maximizing reward signals. We build our control framework based on this formulation due to its flexibility and minimal requirement of prior knowledge or expert demonstrations. When coupled with the recent development of massively parallel RL simulations [35, 36], this allows us to achieve effective control policies with rapid convergence.",
+          "reference": false,
+          "source_image": "figs/p002-012-source.png",
+          "zh": "基于学习的控制 基于学习的控制 [31–34] 因其能够在对特定机器人的先验知识要求较少的情况下运行而受到欢迎。一种方法是使用模仿学习，它直接从专家步态演示中学习。然而，该方法需要获取昂贵的动作捕捉数据，并且当策略遇到不同于专家演示的情况时容易出错。另一种有前景的策略是使用 RL，通过最大化奖励信号进行试错学习来获得控制策略。基于这一公式的灵活性以及对先验知识或专家演示的最低要求，我们构建了我们的控制框架。结合近期大规模并行 RL 仿真技术的发展 [35, 36]，这使我们能够获得具有快速收敛性的有效控制策略。"
+        },
+        {
+          "id": "p2-b13",
+          "kind": "section-header",
+          "bbox": [
+            313,
+            428,
+            502,
+            438
+          ],
+          "en": "C. Strategies for Energy-Efficient Locomotion",
+          "reference": false,
+          "source_image": "figs/p002-013-source.png",
+          "zh": "C. 高能效运动策略"
+        },
+        {
+          "id": "p2-b14",
+          "kind": "text",
+          "bbox": [
+            313,
+            446,
+            559,
+            624
+          ],
+          "en": "Hardware Strategies As discussed by Garcia et al. [12], hardware designs for passive dynamic walking often benefit from straight-knee configurations to enable efficient walking without active control. A key design requirement for passive walking is maintaining static equilibrium when standing on flat ground, which can be achieved by fully locking the stance leg while allowing the swing leg’s knee to slightly unlock. Various studies [13–15, 37] have demonstrated the effectiveness of straight-knee designs in achieving fully or mostly passive walking. Additionally, incorporating energy exchange components can enhance energy transmission. For instance, the DURUS robot [38] employs compression springs in the ankles, while the COMAN robot [22] uses compliant joints in the hip, knee, and ankle to store and release energy during locomotion.",
+          "reference": false,
+          "source_image": "figs/p002-014-source.png",
+          "zh": "硬件策略 正如 Garcia 等人 [12] 所讨论的，被动动态行走的硬件设计通常得益于直膝配置，从而在没有主动控制的情况下实现高效行走。被动行走的一个关键设计要求是在平坦地面上站立时保持静态平衡，这可以通过完全锁定支撑腿，同时允许摆动腿的膝盖轻微解锁来实现。多项研究 [13–15, 37] 证明了直膝设计在实现完全或大部分被动行走方面的有效性。此外，结合能量交换组件可以增强能量传递。例如，DURUS 机器人 [38] 在踝关节中采用压缩弹簧，而 COMAN 机器人 [22] 则在髋部、膝部和踝部使用顺应性关节，以便在运动过程中储存和释放能量。"
+        },
+        {
+          "id": "p2-b15",
+          "kind": "text",
+          "bbox": [
+            313,
+            626,
+            559,
+            699
+          ],
+          "en": "Control Strategies Energy-efficient control strategies have also been explored. By removing the velocity tracking reward during post-disturbance training, a compliant reinforcement learning policy [17] leads to more energy-efficient push recovery. Similarly, COMAN [18] uses RL to optimize its center-of-mass trajectory for better energy efficiency.",
+          "reference": false,
+          "source_image": "figs/p002-015-source.png",
+          "zh": "控制策略 高能效控制策略也得到了探索。通过在受扰动后的训练中移除速度跟踪奖励，顺应性强化学习策略 [17] 带来了更高能效的抗推扰恢复能力。类似地，COMAN [18] 使用 RL 优化其质心轨迹以获得更佳的能量效率。"
+        },
+        {
+          "id": "p2-b16",
+          "kind": "text",
+          "bbox": [
+            313,
+            700,
+            559,
+            734
+          ],
+          "en": "Our work develops both hardware and software strategies to achieve energy-efficient locomotion. Our design features a near-symmetrical hip arrangement (front and back) with",
+          "reference": false,
+          "source_image": "figs/p002-016-source.png",
+          "zh": "我们的工作同时开发了硬件和软件策略来实现高能效运动。我们的设计特点是具有（前后）近乎对称的髋关节布局以及"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "blocks": [
+        {
+          "id": "p3-b0",
+          "kind": "picture",
+          "bbox": [
+            52.0,
+            48.0,
+            295.0,
+            208.76156616210938
+          ],
+          "en": "Space for HR onboard power and computing HFE KFE motor Motor KFE joint controllers IMU HAA KFE Ankle Ankle motor Ankle joint a) b) c) 0.142 m 0.175 m 0.365 m 1.00 m 0.285 m 0.235 m",
+          "reference": false,
+          "image": "figs/p003-000.png",
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            50.0,
+            293.0,
+            210.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 729,
+          "image_height": 483
+        },
+        {
+          "id": "p3-b1",
+          "kind": "caption",
+          "bbox": [
+            54,
+            211,
+            299,
+            245
+          ],
+          "en": "Fig. 2: Mechanical Design Overview: a) Major dimensions and the extensible body design. b) All joints in the left leg. c) Two parallel linkages in the knee and ankle.",
+          "reference": false,
+          "source_image": "figs/p003-001-source.png",
+          "zh": "图 2: 机械设计概述：a) 主要尺寸和可扩展的身体设计。b) 左腿的所有关节。c) 膝部和踝部的两个平行四杆连杆机构。"
+        },
+        {
+          "id": "p3-b2",
+          "kind": "text",
+          "bbox": [
+            54,
+            252,
+            299,
+            301
+          ],
+          "en": "straight knees, which satisfies the static standing requirement for passive walking. Furthermore, we explore directly optimizing passivity within an end-to-end deep reinforcement learning framework to improve energy efficiency.",
+          "reference": false,
+          "source_image": "figs/p003-002-source.png",
+          "zh": "直膝，满足了被动行走的静态站立要求。此外，我们探索了在端到端深度强化学习框架内直接优化被动性，以提高能量效率。"
+        },
+        {
+          "id": "p3-b3",
+          "kind": "section-header",
+          "bbox": [
+            147,
+            309,
+            206,
+            317
+          ],
+          "en": "III. METHOD",
+          "reference": false,
+          "source_image": "figs/p003-003-source.png",
+          "zh": "III. 方法"
+        },
+        {
+          "id": "p3-b4",
+          "kind": "section-header",
+          "bbox": [
+            54,
+            324,
+            140,
+            334
+          ],
+          "en": "A. Hardware Design",
+          "reference": false,
+          "source_image": "figs/p003-004-source.png",
+          "zh": "A. 硬件设计"
+        },
+        {
+          "id": "p3-b5",
+          "kind": "text",
+          "bbox": [
+            53,
+            339,
+            299,
+            456
+          ],
+          "en": "The Duke Humanoid (Fig. 2) is a child-sized, opensource bipedal robot designed for dynamic locomotion. Standing 1 m from shoulder to foot and weighing 30 kg, it approximately matches the size of an average 8-year-old child [39]. This size was selected for two reasons: first, it allows the robot to interact comfortably with human-centric environment surfaces while standing, enabling future object manipulation tasks; second, its mid-size balances functionality, affordability, and customizability, especially given the high cost of commercially available geared motors.",
+          "reference": false,
+          "source_image": "figs/p003-005-source.png",
+          "zh": "Duke Humanoid（图 2）是一款儿童体型的开源双足机器人，专为动态运动而设计。从肩部到脚部高 1 m，重 30 kg，其尺寸大致相当于普通 8 岁儿童 [39]。选择该尺寸有两个原因：首先，它使机器人站立时能与以人为中心的环境表面自如交互，从而支持未来的物体操作任务；其次，考虑到市售减速电机的高昂成本，其中型尺寸在功能性、经济性和可定制性之间取得了平衡。"
+        },
+        {
+          "id": "p3-b6",
+          "kind": "text",
+          "bbox": [
+            53,
+            458,
+            299,
+            538
+          ],
+          "en": "Following a co-design philosophy for complex robotic platforms [40], we iteratively tuned and selected the mechanical design and actuators based on simulations. We designed preliminary humanoid models in Isaac Gym and trained walking policies via reinforcement learning, using the resulting joint torque and velocity data to guide actuator selection.",
+          "reference": false,
+          "source_image": "figs/p003-006-source.png",
+          "zh": "遵循复杂机器人平台的协同设计理念 [40]，我们基于仿真反复迭代调整并选择了机械设计和执行器。我们在 Isaac Gym 中设计了初步的人形机器人模型，并通过强化学习训练行走策略，利用所得的关节力矩和速度数据来指导执行器的选型。"
+        },
+        {
+          "id": "p3-b7",
+          "kind": "text",
+          "bbox": [
+            53,
+            545,
+            299,
+            639
+          ],
+          "en": "Mechanical Design Our robot features 10 degrees of freedom (DoFs), with 5 DoFs in each leg: 3 in the hip, 1 for knee flexion and extension (KFE), and 1 for ankle plantar flexion and dorsiflexion. The DoFs for the hip include hip rotation (HR), hip flexion and extension (HFE), and hip abduction and adduction (HAA). The center of mass of the hip is aligned in the frontal plane, allowing the robot to maintain balance and walk with straight knees.",
+          "reference": false,
+          "source_image": "figs/p003-007-source.png",
+          "zh": "机械设计 我们的机器人具有 10 个自由度（DoF），每条腿有 5 个自由度：髋部 3 个，膝关节屈伸（KFE）1 个，踝关节跖屈与背屈 1 个。髋部的自由度包括髋关节旋转（HR）、髋关节屈伸（HFE）以及髋关节外展与内收（HAA）。髋部的质心在额状面上对齐，使机器人能够保持平衡并以直膝行走。"
+        },
+        {
+          "id": "p3-b8",
+          "kind": "text",
+          "bbox": [
+            53,
+            641,
+            299,
+            710
+          ],
+          "en": "The proportions of our leg design anatomically match that of a real human. The tibia measures 0 . 235 m, and the femur measures 0 . 285 m, resulting in a tibia-to-femur ratio of 0.825, which is comparable to the average human ratio of 0.78 [41]. In addition, the range of motion of our leg joints largely covers that of a real human, as shown in Table II.",
+          "reference": false,
+          "source_image": "figs/p003-008-source.png",
+          "zh": "我们腿部设计的比例在解剖学上与真实人体相匹配。胫骨长 0.235 m，股骨长 0.285 m，胫骨与股骨的长度比为 0.825，与人类平均比例 0.78 相当 [41]。此外，如表 II 所示，我们腿部关节的运动范围在很大程度上覆盖了真实人体的运动范围。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p3-b9",
+          "kind": "text",
+          "bbox": [
+            53,
+            712,
+            299,
+            734
+          ],
+          "en": "The KFE joint is actuated by a motor via a parallel linkage. Similarly, the ankle motor, positioned at the KFE joint,",
+          "reference": false,
+          "source_image": "figs/p003-009-source.png",
+          "zh": "KFE 关节由电机通过平行四杆连杆机构驱动。类似地，位于 KFE 关节处的踝关节电机，"
+        },
+        {
+          "id": "p3-b10",
+          "kind": "table",
+          "bbox": [
+            316.0,
+            52.0,
+            555.0,
+            96.0
+          ],
+          "en": "|Joint|HR|HAA|HFE|KFE|Ankle| |---|---|---|---|---|---| |Human [deg]|[-50,40]|[-40,20]|[-30,110]|[0,150]|[-20,50]| |Ours [deg]|[-90,60]|[-40,40]|[-90,90]|[0,110]|[-45,45]| |Coverage|100%|100%|85%|73%|95%|",
+          "reference": false,
+          "image": "figs/p003-010.png",
+          "labels": [],
+          "original_bbox": [
+            318.0,
+            54.0,
+            553.0,
+            94.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 717,
+          "image_height": 132
+        },
+        {
+          "id": "p3-b11",
+          "kind": "text",
+          "bbox": [
+            313,
+            104,
+            559,
+            126
+          ],
+          "en": "TABLE II: Range of Motion: Our design mostly covers the range of motion of human leg joints [5].",
+          "reference": false,
+          "source_image": "figs/p003-011-source.png",
+          "zh": "表 II：运动范围：我们的设计基本覆盖了人腿关节的运动范围 [5]。"
+        },
+        {
+          "id": "p3-b12",
+          "kind": "text",
+          "bbox": [
+            313,
+            138,
+            559,
+            267
+          ],
+          "en": "connects to the ankle through another parallel linkage. As a result, the ankle joint is actuated in conjunction with the KFE and ankle motors, with a linear relationship between their movements. The parallel linkages relocate the motors higher in the leg, raising the leg’s center of mass and reducing the lower leg’s inertia, thereby reducing the torque required to actuate the KFE and hip motors. To save weight and simplify the design, the ankle does not include the inversion and eversion DoF. To compensate this DoF, the foot is designed with a linear contact surface to ensure consistent contact regardless of the roll angle.",
+          "reference": false,
+          "source_image": "figs/p003-012-source.png",
+          "zh": "通过另一个平行连杆连接到踝关节。因此，踝关节由KFE电机与踝关节电机协同驱动，其运动之间呈线性关系。平行连杆将电机布置在腿部更高位置，提高了腿部的质心并降低了小腿的转动惯量，从而减少了驱动KFE和髋部电机所需的扭矩。为了减轻重量并简化设计，踝关节没有包含内翻和外翻自由度。为了弥补这一自由度的缺失，足部被设计为线接触面，以确保无论横滚角如何都能保持一致的接触。"
+        },
+        {
+          "id": "p3-b13",
+          "kind": "text",
+          "bbox": [
+            313,
+            272,
+            559,
+            462
+          ],
+          "en": "Actuators Each joint is powered by a brushless DC motor with a planetary gearbox from Motorevo. The joint position is measured by a single-turn encoder at the back of the motor shaft. To simplify the design, the same brushless DC motor is used throughout, and varying reduction ratios are employed to satisfy the torque and velocity demands of each joint. Specifically, The HR, HAA, and KFE joints use 18:1 motors, providing \\(72\\,\\mathrm{N}\\mathrm{m}\\) rated torque and 20 rad / s maximum velocity; the HFE joints use 20:1 motors, providing \\(80\\,\\mathrm{N}\\mathrm{m}\\) rated torque and 18 rad / s max velocity; the ankles are powered by 10:1 motors, providing \\(40\\,\\mathrm{N}\\mathrm{m}\\) rated torques and 36 rad / s max velocity. This uniform motor selection provides flexibility, as the motors share identical rotors and mounting configurations, making them interchangeable. Motion control is achieved through EtherCAT communication at 2000 Hz to minimize latency.",
+          "reference": false,
+          "source_image": "figs/p003-013-source.png",
+          "zh": "执行器 每个关节均由带Motorevo行星齿轮箱的无刷直流电机驱动。关节位置通过电机轴后方的单圈编码器进行测量。为了简化设计，全机采用同款无刷直流电机，并通过不同的减速比来满足各个关节的扭矩和速度需求。具体而言，HR、HAA和KFE关节采用18:1的电机，提供\\(72\\,\\mathrm{N}\\mathrm{m}\\)额定扭矩和20 rad / s最大速度；HFE关节采用20:1的电机，提供\\(80\\,\\mathrm{N}\\mathrm{m}\\)额定扭矩和18 rad / s最大速度；踝关节由10:1的电机驱动，提供\\(40\\,\\mathrm{N}\\mathrm{m}\\)额定扭矩和36 rad / s最大速度。这种统一的电机选型提供了灵活性，因为各电机具有相同的转子和安装结构，使其具备互换性。运动控制通过2000 Hz的EtherCAT通信实现，以将延迟降至最低。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p3-b14",
+          "kind": "text",
+          "bbox": [
+            313,
+            467,
+            559,
+            596
+          ],
+          "en": "Manufacturing The outer frame of the upper body is built using off-the-shelf aluminum extrusions, while the body plates and legs are custom-machined from aluminum 6061. This modular design allows for easy modifications. The upper body has enough space (\\(250 \\times 120 \\times 200\\,mm\\)) reserved for future onboard power and computing to accommodate outdoor experiments. The body plates feature a grid of screw holes, allowing the attachment of custom 3D-printed electronic mounts. Additionally, the leg motors are covered with 3D-printed thermoplastic polyurethane (TPU) parts to protect against collisions.",
+          "reference": false,
+          "source_image": "figs/p003-014-source.png",
+          "zh": "制造 上半身的外框采用市售标准铝型材构建，而机身板件和腿部则由6061铝合金定制加工而成。这种模块化设计便于修改调整。上半身预留了足够的空间（\\(250 \\times 120 \\times 200\\,mm\\)），用于未来搭载机载电源和计算设备以适应户外实验。机身板件设有网格螺栓孔，便于安装定制的3D打印电子支架。此外，腿部电机表面覆盖有3D打印的热塑性聚氨酯（TPU）零件，以防止碰撞损坏。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p3-b15",
+          "kind": "text",
+          "bbox": [
+            313,
+            601,
+            559,
+            671
+          ],
+          "en": "Sensors An IMU (MicroStrain 3DM-CV7-AHRS), mounted on the base plate, provides angular velocity and orientation data. Two load cells are included at the toes, and two load cells are included at the heels. A Teesny 4.0 microcontroller interfaces with the IMU and the load cells and transmits the data to a computer through a serial connection.",
+          "reference": false,
+          "source_image": "figs/p003-015-source.png",
+          "zh": "传感器 安装在底板上的IMU（MicroStrain 3DM-CV7-AHRS）提供角速度和姿态数据。脚尖处装有两个称重传感器，脚跟处也装有两个称重传感器。Teensy 4.0微控制器与IMU和称重传感器接口相连，并通过串口连接将数据传输至计算机。"
+        },
+        {
+          "id": "p3-b16",
+          "kind": "section-header",
+          "bbox": [
+            313,
+            682,
+            526,
+            692
+          ],
+          "en": "B. Reinforcement Learning for Bipedal Locomotion",
+          "reference": false,
+          "source_image": "figs/p003-016-source.png",
+          "zh": "B. 双足运动的强化学习"
+        },
+        {
+          "id": "p3-b17",
+          "kind": "text",
+          "bbox": [
+            313,
+            700,
+            559,
+            734
+          ],
+          "en": "Task and Observation To demonstrate the locomotion capability of our platform, we develop a baseline control policy using RL. The task is to train the robot to follow",
+          "reference": false,
+          "source_image": "figs/p003-017-source.png",
+          "zh": "任务与观测 为了展示我们平台的运动能力，我们使用RL开发了一个基线控制策略。任务是训练机器人跟随"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "blocks": [
+        {
+          "id": "p4-b0",
+          "kind": "table",
+          "bbox": [
+            59.0,
+            50.0,
+            291.0,
+            227.0
+          ],
+          "en": "|Reward Terms|Definition|Weight| |---|---|---| |Linear velocity|ϕ � v∗ b −vb, −4∗[1, 1, 0.1] � |1| |Angular velocity|ϕ � ω∗ b −ωb, −8∗[0.1, 0.1, 1] � |0.5| |Base height|ϕ � h∗ b −hb, −2000 � |0.1| |Orientation|max ���gb,xy ��2,0.1 �|−20| |Joint acceleration|ϕ �¨q, −10−4� |0.1| |Joint torque|exp � G−1∥τ∥1 � |0.05| |Joint limit|∥q−CLIP(q,qmin,qmax)∥2|−100| |Feet air time|�nf i=0(tair,i −0.3) |1| |Contact pattern|1−nf −1∥c∗−c∥1 |0.5| |Feet orientation|ϕ � gf,xy, −8 � |0.1| |Feet forward|ϕ � ff,xy, −8 � |0.1| |Feet position|ϕ � p∗ f −pf, [−1000, −1000, 0] �|0.1| |Feet step height|∥max � hf, h∗ f � ∥1|0.5|",
+          "reference": false,
+          "image": "figs/p004-000.png",
+          "labels": [],
+          "original_bbox": [
+            61.0,
+            52.0,
+            289.0,
+            225.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 696,
+          "image_height": 531
+        },
+        {
+          "id": "p4-b1",
+          "kind": "text",
+          "bbox": [
+            74,
+            234,
+            279,
+            244
+          ],
+          "en": "TABLE III: Baseline RL policy reward functions.",
+          "reference": false,
+          "source_image": "figs/p004-001-source.png",
+          "zh": "表 III：基线RL策略奖励函数。"
+        },
+        {
+          "id": "p4-b2",
+          "kind": "text",
+          "bbox": [
+            53,
+            264,
+            299,
+            348
+          ],
+          "en": "a desired linear velocity \\(\\mathbf{v}^*\\) and angular velocity \\(\\mathbf{\\omega}^*\\). Our policy observation includes the base angular velocity \\(\\mathbf{v}_b\\), the base gravity vector \\(\\mathbf{g}\\) projected onto the robot’s base frame \\(\\mathbf{g}_b\\), joint positions \\(\\mathbf{q}\\), joint velocities \\(\\dot{\\mathbf{q}}\\), and target body velocity commands, consisting of the linear velocities in the xy-plane and angular velocity around the z-axis, \\([\\mathbf{v}_{b,x}^*, \\mathbf{v}_{b,y}^*, \\mathbf{\\omega}_{b,z}^*]\\).",
+          "reference": false,
+          "source_image": "figs/p004-002-source.png",
+          "zh": "期望线速度 \\(\\mathbf{v}^*\\) 和角速度 \\(\\mathbf{\\omega}^*\\)。我们的策略观测包括基座角速度 \\(\\mathbf{v}_b\\)、投影到机器人基座坐标系上的基座重力向量 \\(\\mathbf{g}_b\\)（来自重力向量 \\(\\mathbf{g}\\)）、关节位置 \\(\\mathbf{q}\\)、关节速度 \\(\\dot{\\mathbf{q}}\\)，以及由xy平面内的线速度和绕z轴的角速度组成的目标机体速度指令 \\([\\mathbf{v}_{b,x}^*, \\mathbf{v}_{b,y}^*, \\mathbf{\\omega}_{b,z}^*]\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p4-b3",
+          "kind": "text",
+          "bbox": [
+            53,
+            353,
+            299,
+            459
+          ],
+          "en": "Observations Additionally, the observation also includes a periodic phase signal \\(\\mathbf{\\phi}\\) encoded as \\([\\sin \\mathbf{\\phi}, \\cos \\mathbf{\\phi}]\\), and a desired foot contact pattern \\(c^*\\) derived from the periodic phase signal. We employ an asymmetric actor-critic architecture [42], where the critic network receives additional privileged information such as linear velocity (\\(\\mathbf{v}_b\\)) and actual foot contact indicator (\\(c\\)). The actor and critic networks consist of three fully connected layers with hidden sizes of \\([512, 256, 128]\\) with ELU activation functions [43].",
+          "reference": false,
+          "source_image": "figs/p004-003-source.png",
+          "zh": "观测 此外，观测还包括编码为 \\([\\sin \\mathbf{\\phi}, \\cos \\mathbf{\\phi}]\\) 的周期性相位信号 \\(\\mathbf{\\phi}\\)，以及从该周期性相位信号推导出的期望足底接触模式 \\(c^*\\) 。我们采用不对称Actor-Critic架构[42]，其中Critic网络接收额外的特权信息，例如线速度（\\(\\mathbf{v}_b\\)）和实际足底接触指示符（\\(c\\)）。Actor和Critic网络均由三层全连接层组成，隐藏层大小为 \\([512, 256, 128]\\)，并采用ELU激活函数[43]。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p4-b4",
+          "kind": "text",
+          "bbox": [
+            53,
+            467,
+            299,
+            583
+          ],
+          "en": "Actions Our RL policy outputs \\(\\mathbf{a}_q\\) which is converted to target joint positions (\\(\\mathbf{q}^* = \\mathbf{q}_0 + k_q\\mathbf{a}_q\\)) at 50 Hz. Where \\(\\mathbf{q}_0\\) are the default joint positions, \\(k_q\\) is a scaling factor for the action. The positions are smoothed with a firstorder exponential low-pass filter before being converted to torques via a position PD controller, which operates at 200 Hz in simulation. In the real robot, the position PD controller runs at 2000 Hz to ensure smooth control. The PD gains are empirically determined to be \\(60\\text{ N}\\cdot\\text{m}\\cdot\\text{rad}^{-1}\\) and \\(5\\text{ N}\\cdot\\text{m}\\cdot\\text{s}\\cdot\\text{rad}^{-1}\\).",
+          "reference": false,
+          "source_image": "figs/p004-004-source.png",
+          "zh": "动作 我们的RL策略以50 Hz输出动作 \\(\\mathbf{a}_q\\) ，并将其转换为目标关节位置（\\(\\mathbf{q}^* = \\mathbf{q}_0 + k_q\\mathbf{a}_q\\)）。其中 \\(\\mathbf{q}_0\\) 为默认关节位置， \\(k_q\\) 为动作缩放因子。这些位置在通过位置PD控制器转换为扭矩之前，先经过一阶指数低通滤波器进行平滑处理；在仿真中，该PD控制器以200 Hz运行。在实体机器人中，位置PD控制器以2000 Hz运行以确保平滑控制。PD增益经经验确定为 \\(60\\text{ N}\\cdot\\text{m}\\cdot\\text{rad}^{-1}\\) 和 \\(5\\text{ N}\\cdot\\text{m}\\cdot\\text{s}\\cdot\\text{rad}^{-1}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p4-b5",
+          "kind": "text",
+          "bbox": [
+            53,
+            593,
+            299,
+            736
+          ],
+          "en": "Reward The reward function (Table III) includes terms for tracking and regularization (body, joint, and gait). Here, \\(\\phi(\\psi, w) := \\exp(\\sum_{i=1}^n w_i\\psi_i^2)\\)representstheexponentialof the sum of the squared quantity \\(\\psi\\) weighted by \\(w\\). \\(\\mathbf{v}_b\\), \\(\\mathbf{\\omega}_b\\), \\(h_b\\), and \\(\\mathbf{g}_b\\) represent the base linear velocity, angular velocity, height, and projected gravity. \\(\\mathbf{q}_{\\min}\\) and \\(\\mathbf{q}_{\\max}\\) represent the minimum and maximum joint position limits. \\(\\mathbf{\\tau}\\) refers to joint actuation torque, \\(\\ddot{\\mathbf{q}}\\) to joint accelerations, and \\(G\\) to the robot’s total gravity. \\(t_{\\text{air}}\\) is the duration the feet remain airborne, and \\(n_f = 2\\) is the number of feet. Finally, \\(\\mathbf{g}_f\\) and \\(\\mathbf{f}_f\\) are the feet’s gravity and forward direction vectors, while \\(\\mathbf{p}_f\\) and \\(\\mathbf{p}_f^*\\)aretheactualanddesiredfeetpositions,and\\(h_f\\)and\\(h_f^*\\)",
+          "reference": false,
+          "source_image": "figs/p004-005-source.png",
+          "zh": "奖励 奖励函数（表 III）包括跟踪项和正则化项（机体、关节和步态）。此处， \\(\\phi(\\psi, w) := \\exp(\\sum_{i=1}^n w_i\\psi_i^2)\\) 表示由 \\(w\\) 加权的平方量 \\(\\psi\\) 之和的指数。 \\(\\mathbf{v}_b\\) 、 \\(\\mathbf{\\omega}_b\\) 、 \\(h_b\\) 和 \\(\\mathbf{g}_b\\) 分别代表基座线速度、角速度、高度和投影重力。 \\(\\mathbf{q}_{\\min}\\) 和 \\(\\mathbf{q}_{\\max}\\) 代表最小和最大关节位置限制。 \\(\\mathbf{\\tau}\\) 表示关节驱动扭矩， \\(\\ddot{\\mathbf{q}}\\) 表示关节加速度， \\(G\\) 表示机器人的总重力。 \\(t_{\\text{air}}\\) 为足部保持悬空的时间， \\(n_f = 2\\) 为足部数量。最后， \\(\\mathbf{g}_f\\) 和 \\(\\mathbf{f}_f\\) 分别为足部的重力方向向量和前向向量，而 \\(\\mathbf{p}_f\\) 和 \\(\\mathbf{p}_f^*\\) 为实际和期望的足部位置， \\(h_f\\) 和 \\(h_f^*\\)",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p4-b6",
+          "kind": "text",
+          "bbox": [
+            313,
+            55,
+            488,
+            65
+          ],
+          "en": "denote the actual and desired step heights.",
+          "reference": false,
+          "source_image": "figs/p004-006-source.png",
+          "zh": "表示实际和期望的迈步高度。"
+        },
+        {
+          "id": "p4-b7",
+          "kind": "text",
+          "bbox": [
+            313,
+            70,
+            559,
+            92
+          ],
+          "en": "Training We trained 4096 parallel environments with Isaac Gym [44] for 30 min on a single NVIDIA RTX 4090 GPU.",
+          "reference": false,
+          "source_image": "figs/p004-007-source.png",
+          "zh": "训练 我们使用Isaac Gym [44]在单张NVIDIA RTX 4090 GPU上训练了4096个并行环境，历时30分钟。"
+        },
+        {
+          "id": "p4-b8",
+          "kind": "section-header",
+          "bbox": [
+            313,
+            101,
+            481,
+            111
+          ],
+          "en": "C. Policy for energy-efficient locomotion",
+          "reference": false,
+          "source_image": "figs/p004-008-source.png",
+          "zh": "C. 高能效运动策略"
+        },
+        {
+          "id": "p4-b9",
+          "kind": "text",
+          "bbox": [
+            313,
+            114,
+            559,
+            282
+          ],
+          "en": "Energy efficiency in humanoid locomotion is important because the majority of the energy is used to actuate the joint during locomotion. Thus, in addition to our baseline RL policy, we integrate passive dynamics into the endto-end reinforcement learning framework. We hypothesize that encouraging passive control in locomotion can enable a more energy-efficient controller. To achieve this, we propose explicitly modulating the joint torques to switch between passive and active modes. Specifically, we introduce a perjoint torque activation parameter, \\(\\mathbf{\\alpha}\\) , which scales existing position-based PD control. When \\(\\mathbf{\\alpha} = 0\\), the joint torque will be scaled to zero, making the joint completely passive, allowing its movement to be governed by passive dynamics. The modified control is expressed as:",
+          "reference": false,
+          "source_image": "figs/p004-009-source.png",
+          "zh": "能效在人形机器人运动中至关重要，因为在运动过程中大部分能量都消耗在驱动关节上。因此，除了基线RL策略外，我们还将被动动力学融入到端到端强化学习框架中。我们假设在运动中鼓励被动控制可以实现更高能效的控制器。为实现这一点，我们提出显式调节关节扭矩以在被动和主动模式之间切换。具体来说，我们引入了一个逐关节扭矩激活参数 \\(\\mathbf{\\alpha}\\) ，用于缩放现有的基于位置的PD控制。当 \\(\\mathbf{\\alpha} = 0\\) 时，关节扭矩被缩放为零，使关节完全处于被动状态，允许其运动由被动动力学主导。修改后的控制形式表示为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p4-b10",
+          "kind": "formula",
+          "bbox": [
+            363.0,
+            288.0,
+            508.0,
+            307.5121765136719
+          ],
+          "en": "τ = α ( kp ( q ∗ − q ) + kd ( ˙ q ∗ − q ˙ ))",
+          "reference": false,
+          "image": "figs/p004-010.png",
+          "labels": [],
+          "original_bbox": [
+            365.0,
+            290.0,
+            506.0,
+            301.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 435,
+          "image_height": 59
+        },
+        {
+          "id": "p4-b11",
+          "kind": "text",
+          "bbox": [
+            313,
+            310,
+            559,
+            391
+          ],
+          "en": "where \\(k_p\\) and \\(k_d\\) are stiffness and damping factors. \\(\\mathbf{q}\\) and \\(\\mathbf{q}^*\\) are the desired and actual joint position. \\(\\dot{\\mathbf{q}}^* = 0\\) is the desired joint velocity (always 0), and \\(\\dot{\\mathbf{q}}\\) is the actual joint velocity. The output of the new actor network is \\([\\mathbf{a}_q, \\mathbf{a}_\\alpha] \\in \\mathbb{R}^{2 \\times \\text{DoF}}\\) . A sigmoid function constrains \\(\\mathbf{a}_\\alpha \\in [0, 1]\\) , where the constant \\(k\\) is empirically set to 10. \\(\\mathbf{\\alpha}_0 \\in [0, 1]\\) is a constant that controls the minimum activeness of the scaling factor:",
+          "reference": false,
+          "source_image": "figs/p004-011-source.png",
+          "zh": "其中 \\(k_p\\) 和 \\(k_d\\) 分别是刚度与阻尼系数。 \\(\\mathbf{q}\\) 和 \\(\\mathbf{q}^*\\) 为期望与实际关节位置。 \\(\\dot{\\mathbf{q}}^* = 0\\) 为期望关节速度（恒为0）， \\(\\dot{\\mathbf{q}}\\) 为实际关节速度。新Actor网络的输出为 \\([\\mathbf{a}_q, \\mathbf{a}_\\alpha] \\in \\mathbb{R}^{2 \\times \\text{DoF}}\\) 。Sigmoid函数将 \\(\\mathbf{a}_\\alpha\\) 约束在 \\([0, 1]\\) 范围内，其中常数 \\(k\\) 经经验设置为10。 \\(\\mathbf{\\alpha}_0 \\in [0, 1]\\) 是控制缩放因子最低激活度的常数：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p4-b12",
+          "kind": "formula",
+          "bbox": [
+            321.0,
+            395.0,
+            550.0,
+            422.0
+          ],
+          "en": "α = α 0 + (1 − α 0) · sigmoid ( k a α ) = α 0 + (1 − α 0) 1 + e −k a α",
+          "reference": false,
+          "image": "figs/p004-012.png",
+          "labels": [],
+          "original_bbox": [
+            323.0,
+            397.0,
+            548.0,
+            420.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 687,
+          "image_height": 81
+        },
+        {
+          "id": "p4-b13",
+          "kind": "text",
+          "bbox": [
+            313,
+            426,
+            559,
+            484
+          ],
+          "en": "To encourage the use of passive actions, we introduce a passive action reward, defined as \\(r_{\\mathbf{a}_\\alpha} = \\|1 - \\mathbf{a}_\\alpha\\|_1\\), scaled by \\(0.005\\). In addition, to prevent the policy from getting stuck at small \\(\\alpha\\) values, we implement a linear curriculum for \\(\\alpha_0\\) to decay initially from \\(\\alpha_0 = 0.5\\) to \\(\\alpha_0 = 0\\).",
+          "reference": false,
+          "source_image": "figs/p004-013-source.png",
+          "zh": "为了鼓励使用被动动作，我们引入了被动动作奖励，定义为 \\(r_{\\mathbf{a}_\\alpha} = \\|1 - \\mathbf{a}_\\alpha\\|_1\\) ，缩放系数为 \\(0.005\\) 。此外，为了防止策略陷入极小的 \\(\\alpha\\) 值，我们对 \\(\\alpha_0\\) 实施线性课程学习，使其初始从 \\(\\alpha_0 = 0.5\\) 逐渐衰减至 \\(\\alpha_0 = 0\\) 。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p4-b14",
+          "kind": "section-header",
+          "bbox": [
+            313,
+            494,
+            451,
+            503
+          ],
+          "en": "D. Bridging the Sim-to-Real Gap",
+          "reference": false,
+          "source_image": "figs/p004-014-source.png",
+          "zh": "D. 弥合虚实差距（Sim-to-Real Gap）"
+        },
+        {
+          "id": "p4-b15",
+          "kind": "text",
+          "bbox": [
+            313,
+            509,
+            559,
+            603
+          ],
+          "en": "Transferring trained RL policies from simulation to the real robot, particularly for complex platforms such as humanoids, remains challenging. Several factors contribute to the sim-to-real gap: Motor backlash can cause discontinuities in actuation, sensor noise introduces uncertainty in observations, and dynamics mismatches, such as differences in joint friction, link mass, and inertia, can change the underlying transition probabilities.",
+          "reference": false,
+          "source_image": "figs/p004-015-source.png",
+          "zh": "将训练好的RL策略从仿真迁移到真实机器人（尤其是人形机器人等复杂平台）仍然极具挑战性。导致虚实差距的因素有几个：电机侧隙（backlash）可能导致驱动的不连续性，传感器噪声引入了观测的不确定性，而动力学不匹配（例如关节摩擦力、连杆质量和转动惯量的差异）则可能改变底层的状态转移概率。"
+        },
+        {
+          "id": "p4-b16",
+          "kind": "text",
+          "bbox": [
+            313,
+            602,
+            559,
+            708
+          ],
+          "en": "To bridge these gaps, we first identified critical joint dynamics parameters that are tunable in simulation, including damping, friction, and armature. For each joint, we conducted control frequency sweeps between 1.5-3 Hz to reduce discrepancies between simulation and real-world performance, specifically focusing on joint position, velocity, target position, and torque. This identification process enabled a closer match between the robot’s simulated and real-world behavior.",
+          "reference": false,
+          "source_image": "figs/p004-016-source.png",
+          "zh": "为了弥合这些差距，我们首先辨识了仿真中可调的关键关节动力学参数，包括阻尼、摩擦力和电枢惯量（armature）。针对每个关节，我们在1.5-3 Hz之间进行了控制频率扫描，以减少仿真与真实世界性能之间的差异，重点关注关节位置、速度、目标位置和扭矩。该辨识过程使机器人在仿真与现实世界中的行为更加吻合。"
+        },
+        {
+          "id": "p4-b17",
+          "kind": "text",
+          "bbox": [
+            313,
+            712,
+            559,
+            734
+          ],
+          "en": "We also applied domain randomization to increase the robustness of the simulation policy for real-world transfer.",
+          "reference": false,
+          "source_image": "figs/p004-017-source.png",
+          "zh": "我们还应用了域随机化（domain randomization），以提高仿真策略在向真实世界迁移时的鲁棒性。"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "blocks": [
+        {
+          "id": "p5-b0",
+          "kind": "table",
+          "bbox": [
+            77.0,
+            52.0,
+            276.0,
+            178.0
+          ],
+          "en": "|Parameter|Unit|Range|Operator| |---|---|---|---| |Base COM|m|[−0.02,0.02]|additive| |Base mass|kg|[−0.5,5]|additive| |Link mass|kg |[0.95,1.05]|scaling| |Link inertia|kg·m2|[0.95,1.05]|scaling| |Joint offset|rad|[−0.02,0.02]|additive| |Joint position|rad|[−0.03,0.03]|additive| |Joint velocity|rad/s|[−1.5,1.5]|additive| |Motor strength|-|[0.98,1.02]|scaling| |Observation delay|ms |[0,20] |-| |Angular velocity|rad/s|[−0.2,0.2]|additive| |Gravity vector|-|[−0.05,0.05]|additive| |Friction|-|[0.2,1.2]|-|",
+          "reference": false,
+          "image": "figs/p005-000.png",
+          "labels": [],
+          "original_bbox": [
+            79.0,
+            54.0,
+            274.0,
+            176.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 597,
+          "image_height": 378
+        },
+        {
+          "id": "p5-b1",
+          "kind": "caption",
+          "bbox": [
+            79,
+            186,
+            274,
+            196
+          ],
+          "en": "TABLE IV: Domain randomization parameters.",
+          "reference": false,
+          "source_image": "figs/p005-001-source.png",
+          "zh": "表 IV：域随机化参数。"
+        },
+        {
+          "id": "p5-b2",
+          "kind": "picture",
+          "bbox": [
+            76.0,
+            202.0,
+            277.0,
+            287.0
+          ],
+          "en": "",
+          "reference": false,
+          "image": "figs/p005-002.png",
+          "labels": [],
+          "original_bbox": [
+            78.0,
+            204.0,
+            275.0,
+            285.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 603,
+          "image_height": 255
+        },
+        {
+          "id": "p5-b3",
+          "kind": "caption",
+          "bbox": [
+            54,
+            292,
+            299,
+            314
+          ],
+          "en": "Fig. 3: Chronophotograph showing the Duke Humanoid walking using the baseline RL policy.",
+          "reference": false,
+          "source_image": "figs/p005-003-source.png",
+          "zh": "图 3：展示Duke人形机器人使用基线RL策略行走的连拍照片（Chronophotograph）。"
+        },
+        {
+          "id": "p5-b4",
+          "kind": "text",
+          "bbox": [
+            54,
+            326,
+            299,
+            442
+          ],
+          "en": "Table IV outlines the key parameters. Mass and inertia randomizations compensate for inconsistencies introduced by moving cables, electronics, loads, and mechanical model inaccuracies. Joint offset randomizations address variations in default joint positions after power-up and calibration. Position, velocity, and motor strength randomizations mitigate the effects of motor backlash, encoder noise, and actuation inconsistencies. Additionally, angular velocity and gravity vector randomizations simulate IMU noise, and friction randomizations consider locomotion on different surfaces.",
+          "reference": false,
+          "source_image": "figs/p005-004-source.png",
+          "zh": "表 IV列出了关键参数。质量和转动惯量随机化用于弥补由运动线缆、电子器件、负载以及机械模型不精确所带来的不一致性。关节偏置随机化用于解决上电和标定后默认关节位置的变化。位置、速度和电机出力强度随机化减轻了电机侧隙、编码器噪声和驱动不一致性的影响。此外，角速度和重力向量随机化用于模拟IMU噪声，摩擦力随机化则考虑了在不同地面上的运动。"
+        },
+        {
+          "id": "p5-b5",
+          "kind": "section-header",
+          "bbox": [
+            105,
+            455,
+            248,
+            463
+          ],
+          "en": "IV. EXPERIMENTS AND RESULTS",
+          "reference": false,
+          "source_image": "figs/p005-005-source.png",
+          "zh": "IV. 实验与结果"
+        },
+        {
+          "id": "p5-b6",
+          "kind": "text",
+          "bbox": [
+            54,
+            472,
+            299,
+            553
+          ],
+          "en": "This section demonstrates the performance of our baseline locomotion policy in a zero-shot sim-to-real setup on our humanoid platform. Additionally, we evaluate the realworld performance of our passive walking policy. To further validate the effectiveness of our passive walking policy, we compare its energy efficiency and gait characteristics against the baseline policy in simulation and reality.",
+          "reference": false,
+          "source_image": "figs/p005-006-source.png",
+          "zh": "本节展示了基线运动策略在我们的人形机器人平台上进行零样本（zero-shot）虚实迁移的性能。此外，我们评估了被动行走策略在真实世界中的表现。为了进一步验证被动行走策略的有效性，我们在仿真和实物中对比了其与基线策略的能效及步态特征。"
+        },
+        {
+          "id": "p5-b7",
+          "kind": "section-header",
+          "bbox": [
+            54,
+            564,
+            164,
+            572
+          ],
+          "en": "A. Locomotion in the Real",
+          "reference": false,
+          "source_image": "figs/p005-007-source.png",
+          "zh": "A. 真实环境中的运动"
+        },
+        {
+          "id": "p5-b8",
+          "kind": "text",
+          "bbox": [
+            54,
+            580,
+            299,
+            627
+          ],
+          "en": "We deployed our baseline policy zero-shot to our humanoid hardware. Fig. 3 shows a chronophotograph of the robot walking forward on a flat carpeted surface at a command velocity of \\(0.3\\text{ m/s}\\).",
+          "reference": false,
+          "source_image": "figs/p005-008-source.png",
+          "zh": "我们将基线策略零样本部署到人形机器人硬件上。图 3 展示了机器人在平整地毯表面以 \\(0.3\\text{ m/s}\\) 的指令速度向前行走的连拍照片。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p5-b9",
+          "kind": "text",
+          "bbox": [
+            54,
+            629,
+            299,
+            734
+          ],
+          "en": "As shown in Fig. 4, we quantitatively compared the target joint positions, the actual joint positions, and the joint velocities of the HFE and KFE joints between simulation and real-world performance. We chose to focus on these joints because they are critical for forward movements. We aligned the first steps of the simulation with the real data and compared the relative target joint positions. The maximum difference in the target joint position is \\(0.1\\text{ rad}\\) for HFE and \\(0.15\\text{ rad}\\) for KFE, indicating that the policy produces similar",
+          "reference": false,
+          "source_image": "figs/p005-009-source.png",
+          "zh": "如图 4 所示，我们在仿真与现实性能之间定量对比了HFE和KFE关节的目标关节位置、实际关节位置以及关节速度。我们选择重点关注这些关节，因为它们对向前运动至关重要。我们将仿真的前几步与真实数据对齐，并比较了相对目标关节位置。HFE的目标关节位置最大差异为 \\(0.1\\text{ rad}\\) ，KFE为 \\(0.15\\text{ rad}\\) ，表明该策略在仿真与现实世界中产生了相似的",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p5-b10",
+          "kind": "picture",
+          "bbox": [
+            313.0,
+            52.0,
+            557.0,
+            208.0
+          ],
+          "en": "0 . 6 0 . 4 0 . 4 1 0 . 3 0 . 2 0 0 . 2 0 . 0 − 1 0 . 1 1 . 0 2 0 . 8 0 . 8 0 . 6 0 . 7 0 0 . 4 0 . 6 − 2 0 . 2 0 . 5 0 2 4 0 2 4 0 2 4 Time [s] Time [s] Time [s] real sim HFE position [rad] HFE velocity [rad/s] HFE target position [rad] KFE position [rad] KFE velocity [rad/s] KFE target position [rad]",
+          "reference": false,
+          "image": "figs/p005-010.png",
+          "labels": [],
+          "original_bbox": [
+            315.0,
+            54.0,
+            555.0,
+            206.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 732,
+          "image_height": 468
+        },
+        {
+          "id": "p5-b11",
+          "kind": "caption",
+          "bbox": [
+            313,
+            210,
+            559,
+            244
+          ],
+          "en": "Fig. 4: Comparison of Simulated and Real-World Baseline Walking : Target joint positions (from RL policy), actual joint positions, and joint velocities for the HFE and KFE joints.",
+          "reference": false,
+          "source_image": "figs/p005-011-source.png",
+          "zh": "图 4：仿真与真实世界基线行走的对比：HFE和KFE关节的目标关节位置（来自RL策略）、实际关节位置和关节速度。"
+        },
+        {
+          "id": "p5-b12",
+          "kind": "picture",
+          "bbox": [
+            312.0,
+            252.0,
+            557.0,
+            406.0
+          ],
+          "en": "0 . 6 0 . 4 1 0 . 4 0 . 3 0 0 . 2 0 . 2 0 . 1 − 1 0 . 0 0 . 0 − 2 1 . 0 1 . 00 2 0 . 8 0 . 75 0 0 . 50 0 . 6 0 . 25 0 . 4 − 2 0 . 00 0 2 4 0 2 4 0 2 4 Time [s] Time [s] Time [s] real sim HFE position [rad] HFE velocity [rad/s] HFE target position [rad] KFE position [rad] KFE velocity [rad/s] KFE target position [rad]",
+          "reference": false,
+          "image": "figs/p005-012.png",
+          "labels": [],
+          "original_bbox": [
+            314.0,
+            254.0,
+            555.0,
+            404.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 735,
+          "image_height": 462
+        },
+        {
+          "id": "p5-b13",
+          "kind": "caption",
+          "bbox": [
+            313,
+            408,
+            559,
+            442
+          ],
+          "en": "Fig. 5: Comparison of Simulated and Real-World Passive Walking : Target joint positions (from RL policy), actual joint positions, and joint velocities for the HFE and KFE joints.",
+          "reference": false,
+          "source_image": "figs/p005-013-source.png",
+          "zh": "图 5：仿真与真实世界被动行走的对比：HFE和KFE关节的目标关节位置（来自RL策略）、实际关节位置和关节速度。"
+        },
+        {
+          "id": "p5-b14",
+          "kind": "text",
+          "bbox": [
+            313,
+            454,
+            559,
+            523
+          ],
+          "en": "actions in the simulation and the real world. For the actual joint positions, the maximum error is 0 . 1 rad for HFE and 0 . 2 rad for KFE, which is only significant during half of the gait cycle. Overall, the differences between the target joint positions and joint velocities are bounded, resulting in a similar behavior between the simulation and the real system.",
+          "reference": false,
+          "source_image": "figs/p005-014-source.png",
+          "zh": "动作。对于实际关节位置，HFE的最大误差为 0 . 1 rad ，KFE为 0 . 2 rad ，且仅在步态周期的半程较为显著。总体而言，目标关节位置与关节速度之间的差异是有界的，使得仿真与真实系统之间表现出相似的行为。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p5-b15",
+          "kind": "section-header",
+          "bbox": [
+            313,
+            534,
+            519,
+            544
+          ],
+          "en": "B. Passive Policy for Energy-Efficient Locomotion",
+          "reference": false,
+          "source_image": "figs/p005-015-source.png",
+          "zh": "B. 用于高能效运动的被动策略"
+        },
+        {
+          "id": "p5-b16",
+          "kind": "text",
+          "bbox": [
+            313,
+            550,
+            559,
+            596
+          ],
+          "en": "The trained passive policy behaves visually differently compared to the baseline policy at zero velocity. The baseline policy actively steps in place, whereas the passive policy remains motionless, enhancing energy efficiency.",
+          "reference": false,
+          "source_image": "figs/p005-016-source.png",
+          "zh": "在零速度下，训练得到的被动策略在视觉表现上与基线策略明显不同。基线策略会主动原地踏步，而被动策略则保持静止不动，从而提升了能效。"
+        },
+        {
+          "id": "p5-b17",
+          "kind": "text",
+          "bbox": [
+            313,
+            601,
+            559,
+            670
+          ],
+          "en": "Energy Efficiency A key metric for quantifying the energy efficiency of robot locomotion is the Cost of Transport (CoT). A lower CoT translates to higher energy efficiency. CoT is defined as the energy required for locomotion, normalized by the distance traveled and the robot weight [45]:",
+          "reference": false,
+          "source_image": "figs/p005-017-source.png",
+          "zh": "能效 量化机器人运动能效的一个关键指标是运输成本（Cost of Transport, CoT）。更低的CoT意味着更高的能效。CoT定义为运动所需能量经行进距离和机器人重量归一化后的值[45]："
+        },
+        {
+          "id": "p5-b18",
+          "kind": "formula",
+          "bbox": [
+            312.70001220703125,
+            646.7584838867188,
+            558.5046997070312,
+            735.8204956054688
+          ],
+          "en": "CoT = Winput m · g · d",
+          "reference": false,
+          "image": "figs/p005-018.png",
+          "labels": [],
+          "original_bbox": [
+            401.0,
+            670.0,
+            470.0,
+            693.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v2",
+          "image_width": 738,
+          "image_height": 268
+        },
+        {
+          "id": "p5-b19",
+          "kind": "text",
+          "bbox": [
+            313,
+            700,
+            559,
+            735
+          ],
+          "en": "where \\(m\\cdot g\\) is the robot’s total gravity, \\(W_{input}\\) is the energy input, and \\(d\\) is the measured distance traveled. Ideally, the \\(W_{input}\\) is obtained by measuring the electrical power usage",
+          "reference": false,
+          "source_image": "figs/p005-019-source.png",
+          "zh": "其中 \\(m\\cdot g\\) 为机器人的总重力， \\(W_{input}\\) 为输入能量， \\(d\\) 为测得的行进距离。理想情况下， \\(W_{input}\\) 是通过测量电源的电功消耗获得的，",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "blocks": [
+        {
+          "id": "p6-b0",
+          "kind": "text",
+          "bbox": [
+            54,
+            55,
+            299,
+            113
+          ],
+          "en": "at the power supply, however, this term cannot be directly measured in simulation. In the context of legged robots, the majority of the power comes from joint actuation. Therefore, we approximate the energy input by integrating the motor’s mechanical power.",
+          "reference": false,
+          "source_image": "figs/p006-000-source.png",
+          "zh": "然而该项在仿真中无法直接测量。在足式机器人的场景下，大部分功率消耗来自于关节驱动。因此，我们通过对电机的机械功率进行积分来近似输入能量。"
+        },
+        {
+          "id": "p6-b1",
+          "kind": "text",
+          "bbox": [
+            53,
+            114,
+            299,
+            375
+          ],
+          "en": "To evaluate the effectiveness of our passive control algorithm, we trained a passive policy for walking (stance ratio of \\(0.6\\)) and running (stance ratio of \\(0.38\\)) in the simulation. We then compared the passive policy with its active counterpart across a range of command velocities, from 0 . 1 m / s to 1 m / s. As shown in Fig. 6, at low walking speeds, from 0 . 1 m / s to 0 . 5 m / s, the passive policy outperforms the baseline in CoT, achieving up to a \\(50\\%\\) reduction at 0 . 1 m / s. The range of motion for both HFE and KFE is lower under the passive policy at low velocities. Base height (the IMU’s distance from the ground) and foot heights are similar between the baseline and passive policies, indicating comparable gait patterns. The passive policy exhibits a larger base orientation error for walking, averaging 0 . 01 rad, suggesting that the robot maintains a forward tilt to take advantage of passive dynamics. For running, as shown in Fig. 7, the passive policy also outperforms the active baseline in running, albeit by a smaller margin of \\(10\\%\\). The range of motion for HFE is reduced compared to the baseline policy; the base height variability is increased, suggesting a shift in the center of mass. Other metrics remain comparable between the passive and baseline policy.",
+          "reference": false,
+          "source_image": "figs/p006-001-source.png",
+          "zh": "为了评估我们被动控制算法的有效性，我们在仿真中训练了用于行走（支撑相占比 \\(0.6\\) ）和跑步（支撑相占比 \\(0.38\\) ）的被动策略。随后，我们在 0 . 1 m / s 到 1 m / s 的一系列指令速度下，将被动策略与其主动对照策略进行了对比。如图 6 所示，在低速行走时（从 0 . 1 m / s 到 0 . 5 m / s ），被动策略在CoT指标上优于基线策略，在 0 . 1 m / s 时降低了多达\\(50\\%\\)。在低速下，被动策略对应的HFE和KFE关节活动范围均较小。基座高度（IMU离地距离）和足部高度在基线策略与被动策略之间基本一致，表明二者具有可比的步态模式。在行走时，被动策略表现出稍大的基座姿态误差，平均为 0 . 01 rad ，这表明机器人保持前倾以利用被动动力学。对于跑步，如图 7 所示，被动策略在跑步中同样优于主动基线策略，尽管提升幅度较小，约为\\(10\\%\\)。与基线策略相比，HFE的活动范围有所减小；基座高度的变化幅度有所增加，表明质心发生了转移。其他指标在被动策略与基线策略之间保持相当。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p6-b2",
+          "kind": "text",
+          "bbox": [
+            53,
+            380,
+            299,
+            558
+          ],
+          "en": "Robustness We evaluated the robustness of the learned policy by measuring the success rate of push recovery in simulation. In each trial, a random horizontal force sampled uniformly within a disk of 300 N is applied to the humanoid base body between 2-3 s for a duration of 0 . 1 s. Push recovery is considered successful if the robot does not fall or self-collide for 5 s. Fig. 8 compares the push recovery success rates of the baseline and passive policies trained for walking and running. The passive walking policy achieves similar success rates in push recovery as the baseline walking policy, while the passive running policy performs at a slightly reduced success rate at lower push magnitude, and slightly better in higher magnitude push recovery. The result indicates that the robustness of the control policy remains mostly unchanged with the addition of passive actions.",
+          "reference": false,
+          "source_image": "figs/p006-002-source.png",
+          "zh": "鲁棒性 我们通过测量仿真中的抗推恢复（push recovery）成功率来评估学习所得策略的鲁棒性。在每次试验中，在2-3 s之间对人形机器人基座机体施加一个在300 N圆盘内均匀采样的随机水平力，持续时间为 0 . 1 s 。如果机器人在5 s内未摔倒或发生自碰撞，则认为抗推恢复成功。图 8 对比了针对行走和跑步训练的基线策略与被动策略的抗推恢复成功率。被动行走策略在抗推恢复方面取得了与基线行走策略相近的成功率，而被动跑步策略在较小推力幅度下的成功率略有下降，但在较大推力幅度下的抗推恢复表现略好。结果表明，加入被动动作后，控制策略的鲁棒性基本保持不变。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p6-b3",
+          "kind": "section-header",
+          "bbox": [
+            53,
+            566,
+            198,
+            574
+          ],
+          "en": "C. Passive Locomotion in the Real",
+          "reference": false,
+          "source_image": "figs/p006-003-source.png",
+          "zh": "C. 真实环境中的被动运动"
+        },
+        {
+          "id": "p6-b4",
+          "kind": "text",
+          "bbox": [
+            53,
+            581,
+            299,
+            674
+          ],
+          "en": "We deployed the passive control policy zero-shot on our humanoid platform. The supplementary video provides a visual comparison of the walking performance baseline and passive policies. As shown in Fig. 5, the target and actual joint positions and velocities for the HFE and KFE joints suggest a reasonable agreement between simulation and realworld execution. This observation aligns with the sim-to-real performance observed for the active baseline (Fig. 4).",
+          "reference": false,
+          "source_image": "figs/p006-004-source.png",
+          "zh": "我们在我们的人形机器人平台上零样本部署了被动控制策略。补充视频提供了基线策略与被动策略在行走性能上的直观对比。如图 5 所示，HFE 和 KFE 关节的目标与实际关节位置及速度表明，仿真与现实世界执行之间具有合理的一致性。该观察结果与主动基线策略所展现的仿真到现实（sim-to-real）性能（图 4）相吻合。"
+        },
+        {
+          "id": "p6-b5",
+          "kind": "text",
+          "bbox": [
+            53,
+            676,
+            299,
+            734
+          ],
+          "en": "To visualize the joint actuation pattern, we show the single (left) leg dynamics of controlled joint activation and absolute torque during passive walking (Fig. 9). At a command velocity of 0 . 3 m / s, all hip joints exhibit periodic activation patterns. The KFE deactivates during leg swing, suggesting",
+          "reference": false,
+          "source_image": "figs/p006-005-source.png",
+          "zh": "为了可视化关节驱动模式，我们展示了被动行走过程中受控关节激活和绝对力矩的单（左）腿动力学（图 9）。在 0.3 m/s 的指令速度下，所有髋关节均表现出周期性的激活模式。KFE 在摆动腿期间停用，这表明",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        },
+        {
+          "id": "p6-b6",
+          "kind": "picture",
+          "bbox": [
+            311.0,
+            52.0,
+            560.0,
+            188.56356811523438
+          ],
+          "en": "1 . 50 passive passive 1 . 0 passive baseline 0 . 50 baseline baseline 1 . 25 0 . 8 1 . 00 0 . 25 0 . 6 0 . 00 0 . 4 0 . 75 − 0 . 25 0 . 2 0 . 50 0 . 0 0 . 1 0 . 4 0 . 7 1 . 0 0 . 1 0 . 4 0 . 7 1 . 0 0 . 1 0 . 4 0 . 7 1 . 0 0 . 03 passivebaseline 0 . 06 passivebaseline 0 . 64 0 . 63 0 . 02 0 . 04 0 . 62 0 . 01 0 . 02 0 . 61 passive 0 . 60 baseline 0 . 00 0 . 00 0 . 1 0 . 4 0 . 7 1 . 0 0 . 1 0 . 4 0 . 7 1 . 0 0 . 1 0 . 4 0 . 7 1 . 0 Command velocity [m/s] Command velocity [m/s] Command velocity [m/s] Cost of transport HFE position [rad] KFE position [rad] Foot height [m] Base height [m] Base orientation error [rad]",
+          "reference": false,
+          "image": "figs/p006-006.png",
+          "labels": [],
+          "original_bbox": [
+            313.0,
+            54.0,
+            558.0,
+            188.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 747,
+          "image_height": 410
+        },
+        {
+          "id": "p6-b7",
+          "kind": "caption",
+          "bbox": [
+            313,
+            191,
+            559,
+            249
+          ],
+          "en": "Fig. 6: Comparison of baseline vs. passive policy for walking in simulation : Red/grey shaded regions represent the 95% confidence interval. The passive policy exhibits up to 50% better energy efficiency at low speed, with reduced KFE and HFE positions, indicating less action in walking.",
+          "reference": false,
+          "source_image": "figs/p006-007-source.png",
+          "zh": "图 6：仿真中行走任务下基线策略与被动策略的对比：红/灰阴影区域表示 95% 置信区间。被动策略在低速下表现出高达 50% 的更优能量效率，且具有更小的 KFE 和 HFE 位置变化，表明行走时的动作幅度更小。"
+        },
+        {
+          "id": "p6-b8",
+          "kind": "picture",
+          "bbox": [
+            312.0,
+            249.5885772705078,
+            559.0,
+            381.0
+          ],
+          "en": "1 . 50 passive 0 . 6 passive 1 . 00 passive baseline baseline baseline 1 . 25 0 . 4 0 . 75 1 . 00 0 . 2 0 . 50 0 . 75 0 . 0 0 . 25 − 0 . 2 0 . 50 − 0 . 4 0 . 00 0 . 1 0 . 4 0 . 7 1 . 0 0 . 1 0 . 4 0 . 7 1 . 0 0 . 1 0 . 4 0 . 7 1 . 0 0 . 04 passive 0 . 06 passive 0 . 64 0 . 03 baseline baseline 0 . 04 0 . 63 0 . 02 0 . 02 0 . 62 0 . 01 passive 0 . 61 baseline 0 . 00 0 . 00 0 . 1 0 . 4 0 . 7 1 . 0 0 . 1 0 . 4 0 . 7 1 . 0 0 . 1 0 . 4 0 . 7 1 . 0 Command velocity [m/s] Command velocity [m/s] Command velocity [m/s] Cost of transport HFE position [rad] KFE position [rad] Foot height [m] Base height [m] Base orientation error [rad]",
+          "reference": false,
+          "image": "figs/p006-008.png",
+          "labels": [],
+          "original_bbox": [
+            314.0,
+            249.0,
+            557.0,
+            379.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 741,
+          "image_height": 395
+        },
+        {
+          "id": "p6-b9",
+          "kind": "caption",
+          "bbox": [
+            313,
+            384,
+            559,
+            442
+          ],
+          "en": "Fig. 7: Comparison of baseline vs. passive policy for running in simulation : Red/grey shaded regions represent the 95% confidence interval. The passive policy generally outperforms the baseline by 10% and exhibits a lower HFE position.",
+          "reference": false,
+          "source_image": "figs/p006-009-source.png",
+          "zh": "图 7：仿真中跑步任务下基线策略与被动策略的对比：红/灰阴影区域表示 95% 置信区间。被动策略总体上优于基线策略 10%，并表现出更低的 HFE 位置。"
+        },
+        {
+          "id": "p6-b10",
+          "kind": "picture",
+          "bbox": [
+            313.20001220703125,
+            429.9835205078125,
+            545.0,
+            507.2925720214844
+          ],
+          "en": "1 . 00 1 . 00 Baseline (walk) Baseline (run) 0 . 75 0 . 75 Passive (walk) Passive (run) 0 . 50 0 . 50 0 . 25 0 . 25 0 . 00 0 . 00 0 100 200 300 0 100 200 300 Push force magnitude [N] Push force magnitude [N] Success rate Success rate",
+          "reference": false,
+          "image": "figs/p006-010.png",
+          "labels": [],
+          "original_bbox": [
+            325.0,
+            443.0,
+            543.0,
+            506.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 696,
+          "image_height": 233
+        },
+        {
+          "id": "p6-b11",
+          "kind": "caption",
+          "bbox": [
+            313,
+            510,
+            558,
+            532
+          ],
+          "en": "Fig. 8: Push recovery comparison : baseline vs. passive policy for walking (left) and running (right) in simulation.",
+          "reference": false,
+          "source_image": "figs/p006-011-source.png",
+          "zh": "图 8：抗推扰恢复对比：仿真中行走（左）和跑步（右）任务下的基线策略与被动策略对比。"
+        },
+        {
+          "id": "p6-b12",
+          "kind": "text",
+          "bbox": [
+            313,
+            544,
+            559,
+            636
+          ],
+          "en": "the use of passive dynamics for leg swing. The ankle joint does not display a significant periodic activation pattern, likely because high joint friction reduces the lower leg’s tendency to passively rotate. We confirmed similar periodic patterns for the right leg. Note that the joint actuation pattern does not exactly match the human pattern because the humanoid does not exactly match human morphology such as mass distribution.",
+          "reference": false,
+          "source_image": "figs/p006-012-source.png",
+          "zh": "摆腿过程中利用了被动动力学。踝关节并未表现出明显的周期性激活模式，这可能是由于较大的关节摩擦降低了小腿被动旋转的趋势。我们确认了右腿具有类似的周期性模式。需要注意的是，关节驱动模式与人体模式并不完全一致，因为人形机器人在质量分布等形态特征上与人体并不完全一致。"
+        },
+        {
+          "id": "p6-b13",
+          "kind": "text",
+          "bbox": [
+            313,
+            641,
+            559,
+            734
+          ],
+          "en": "We compared the real-world CoT of the passive policy with the baseline policy in three repeated trials at a command forward velocity of 0 . 3 m / s. The baseline policy achieved an average CoT of \\(1.13 \\pm 0.1\\), and the passive policy improved the CoT to \\(0.77\\pm0.1\\), resulting in a \\(31\\%\\) CoT reduction. Both simulation (Fig. 6) and real-world results show that the passive policy outperforms the baseline in energy efficiency during low-speed walking.",
+          "reference": false,
+          "source_image": "figs/p006-013-source.png",
+          "zh": "我们在 0.3 m/s 的指令前向速度下进行了三次重复试验，对比了现实世界中被动策略与基线策略的 CoT。基线策略的平均 CoT 为 \\(1.13 \\pm 0.1\\)，而被动策略将 CoT 改善至 \\(0.77\\pm0.1\\)，使 CoT 降低了 \\(31\\%\\)。仿真（图 6）与现实世界结果均表明，在低速行走过程中，被动策略在能量效率方面优于基线策略。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "blocks": [
+        {
+          "id": "p7-b0",
+          "kind": "picture",
+          "bbox": [
+            51.5,
+            52.5,
+            301.5,
+            258.0245361328125
+          ],
+          "en": "1 5 0 0 1 25 0 0 1 25 0 0 1 50 0 0 1 50 0 0 0 . 0 0 . 5 1 . 0 1 . 5 2 . 0 2 . 5 3 . 0 3 . 5 4 . 0 time [s] (baseline) Joint torque [N · m] Left stance Double support (passive) Joint torque [N · m] Left swing Joint activation ( α ) HR HFE HAA KFE Ankle",
+          "reference": false,
+          "image": "figs/p007-000.png",
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            55.0,
+            299.0,
+            235.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v2",
+          "image_width": 751,
+          "image_height": 618
+        },
+        {
+          "id": "p7-b1",
+          "kind": "caption",
+          "bbox": [
+            54,
+            236,
+            299,
+            294
+          ],
+          "en": "Fig. 9: Comparison of left leg absolute joint torque for real-world baseline vs. passive walking : KFE deactivation during swing in passive walking demonstrates the utilization of passive dynamics, contrasting with the generally higher torque of the baseline policy.",
+          "reference": false,
+          "source_image": "figs/p007-001-source.png",
+          "zh": "图 9：现实世界中基线与被动行走时左腿绝对关节力矩的对比：被动行走中摆动相期间 KFE 的停用展示了对被动动力学的利用，这与基线策略普遍较高的力矩形成了对比。"
+        },
+        {
+          "id": "p7-b2",
+          "kind": "section-header",
+          "bbox": [
+            66,
+            306,
+            287,
+            315
+          ],
+          "en": "V. CONCLUSION, LIMITATION, AND FUTURE WORK",
+          "reference": false,
+          "source_image": "figs/p007-002-source.png",
+          "zh": "V. 结论、局限性与未来工作"
+        },
+        {
+          "id": "p7-b3",
+          "kind": "text",
+          "bbox": [
+            53,
+            324,
+            299,
+            442
+          ],
+          "en": "We introduce the Duke Humanoid v1.0, an open-source hardware and software research platform for studying humanoid locomotion. This paper details our design choices and the development of a baseline reinforcement learning policy for bipedal locomotion. Furthermore, we explore directly modulating joint activation within the end-to-end reinforcement learning framework to leverage passive dynamics for energy-efficient humanoid walking. Preliminary realworld experiments demonstrate that our approach achieved a 31% reduction in the cost of transport.",
+          "reference": false,
+          "source_image": "figs/p007-003-source.png",
+          "zh": "我们推出了 Duke Humanoid v1.0，这是一个用于研究人形机器人运动的开源软硬件研究平台。本文详细介绍了我们的设计选择，以及用于双足运动的基线强化学习策略的开发。此外，我们探索了在端到端强化学习框架内直接调节关节激活程度，以利用被动动力学实现高能效的人形机器人行走。初步的现实世界实验表明，我们的方法使运输成本（cost of transport）降低了 31%。"
+        },
+        {
+          "id": "p7-b4",
+          "kind": "text",
+          "bbox": [
+            53,
+            444,
+            299,
+            514
+          ],
+          "en": "However, our platform currently lacks arms, limiting our ability to study whole-body control and mobile manipulation. In the future, we plan to equip the robot with arms and dexterous hands. Our robot is currently tethered, limiting its mobility. We plan on implementing onboard power to study more dynamic motions, such as running and jumping.",
+          "reference": false,
+          "source_image": "figs/p007-004-source.png",
+          "zh": "然而，我们的平台目前缺少双臂，这限制了我们研究全身控制和移动操作的能力。未来，我们计划为机器人配备手臂和灵巧手。目前我们的机器人采用系缆供电（tethered），限制了其机动性。我们计划实现机载供电，以研究诸如跑步和跳跃等更具动态性的运动。"
+        },
+        {
+          "id": "p7-b5",
+          "kind": "section-header",
+          "bbox": [
+            148,
+            527,
+            205,
+            535
+          ],
+          "en": "REFERENCES",
+          "reference": true,
+          "source_image": "figs/p007-005-source.png",
+          "zh": "REFERENCES"
+        },
+        {
+          "id": "p7-b6",
+          "kind": "list-item",
+          "bbox": [
+            58,
+            545,
+            299,
+            567
+          ],
+          "en": "- [1] B. Dynamics. (2024) Boston dynamics atlas. [Online]. Available: https://bostondynamics.com/atlas",
+          "reference": true,
+          "source_image": "figs/p007-006-source.png",
+          "zh": "- [1] B. Dynamics. (2024) Boston dynamics atlas. [Online]. Available: https://bostondynamics.com/atlas"
+        },
+        {
+          "id": "p7-b7",
+          "kind": "list-item",
+          "bbox": [
+            58,
+            569,
+            299,
+            591
+          ],
+          "en": "- [2] Agility. (2024) Agility digit robot. [Online]. Available: https://agilityrobotics.com",
+          "reference": true,
+          "source_image": "figs/p007-007-source.png",
+          "zh": "- [2] Agility. (2024) Agility digit robot. [Online]. Available: https://agilityrobotics.com"
+        },
+        {
+          "id": "p7-b8",
+          "kind": "list-item",
+          "bbox": [
+            58,
+            593,
+            299,
+            615
+          ],
+          "en": "- [3] Unitree. (2024) Unitree g1. [Online]. Available: https://www.unitree.com/g1",
+          "reference": true,
+          "source_image": "figs/p007-008-source.png",
+          "zh": "- [3] Unitree. (2024) Unitree g1. [Online]. Available: https://www.unitree.com/g1"
+        },
+        {
+          "id": "p7-b9",
+          "kind": "list-item",
+          "bbox": [
+            58,
+            617,
+            299,
+            637
+          ],
+          "en": "- [4] Tesla. (2024) Tesla bot. [Online]. Available: https: //www.tesla.com/AI",
+          "reference": true,
+          "source_image": "figs/p007-009-source.png",
+          "zh": "- [4] Tesla. (2024) Tesla bot. [Online]. Available: https: //www.tesla.com/AI"
+        },
+        {
+          "id": "p7-b10",
+          "kind": "list-item",
+          "bbox": [
+            58,
+            640,
+            299,
+            686
+          ],
+          "en": "- [5] Q. Liao, B. Zhang, X. Huang, X. Huang, Z. Li, and K. Sreenath, “Berkeley humanoid: A research platform for learning-based control,” arXiv preprint arXiv:2407.21781 , 2024.",
+          "reference": true,
+          "source_image": "figs/p007-010-source.png",
+          "zh": "- [5] Q. Liao, B. Zhang, X. Huang, X. Huang, Z. Li, and K. Sreenath, “Berkeley humanoid: A research platform for learning-based control,” arXiv preprint arXiv:2407.21781 , 2024."
+        },
+        {
+          "id": "p7-b11",
+          "kind": "list-item",
+          "bbox": [
+            58,
+            688,
+            299,
+            734
+          ],
+          "en": "- [6] J. Li, J. Ma, O. Kolt, M. Shah, and Q. Nguyen, “Dynamic loco-manipulation on hector: Humanoid for enhanced control and open-source research,” arXiv preprint arXiv:2312.11868 , 2023.",
+          "reference": true,
+          "source_image": "figs/p007-011-source.png",
+          "zh": "- [6] J. Li, J. Ma, O. Kolt, M. Shah, and Q. Nguyen, “Dynamic loco-manipulation on hector: Humanoid for enhanced control and open-source research,” arXiv preprint arXiv:2312.11868 , 2023."
+        },
+        {
+          "id": "p7-b12",
+          "kind": "list-item",
+          "bbox": [
+            318,
+            55,
+            559,
+            113
+          ],
+          "en": "- [7] M. Lapeyre, P. Rouanet, J. Grizou, S. Nguyen, F. Depraetre, A. Le Falher, and P.-Y. Oudeyer, “Poppy project: open-source fabrication of 3d printed humanoid robot for science, education and art,” in Digital Intelligence 2014 , 2014, p. 6.",
+          "reference": true,
+          "source_image": "figs/p007-012-source.png",
+          "zh": "- [7] M. Lapeyre, P. Rouanet, J. Grizou, S. Nguyen, F. Depraetre, A. Le Falher, and P.-Y. Oudeyer, “Poppy project: open-source fabrication of 3d printed humanoid robot for science, education and art,” in Digital Intelligence 2014 , 2014, p. 6."
+        },
+        {
+          "id": "p7-b13",
+          "kind": "list-item",
+          "bbox": [
+            318,
+            115,
+            559,
+            184
+          ],
+          "en": "- [8] G. Ficht, H. Farazi, A. Brandenburger, D. Rodriguez, D. Pavlichenko, P. Allgeuer, M. Hosseini, and S. Behnke, “Nimbro-op2x: Adult-sized open-source 3d printed humanoid robot,” in 2018 IEEE-RAS 18th International Conference on Humanoid Robots (Humanoids) . IEEE, 2018, pp. 1–9.",
+          "reference": true,
+          "source_image": "figs/p007-013-source.png",
+          "zh": "- [8] G. Ficht, H. Farazi, A. Brandenburger, D. Rodriguez, D. Pavlichenko, P. Allgeuer, M. Hosseini, and S. Behnke, “Nimbro-op2x: Adult-sized open-source 3d printed humanoid robot,” in 2018 IEEE-RAS 18th International Conference on Humanoid Robots (Humanoids) . IEEE, 2018, pp. 1–9."
+        },
+        {
+          "id": "p7-b14",
+          "kind": "list-item",
+          "bbox": [
+            318,
+            186,
+            559,
+            255
+          ],
+          "en": "- [9] G. Metta, L. Natale, F. Nori, G. Sandini, D. Vernon, L. Fadiga, C. Von Hofsten, K. Rosander, M. Lopes, J. Santos-Victor et al. , “The icub humanoid robot: An open-systems platform for research in cognitive development,” Neural networks , vol. 23, no. 8-9, pp. 1125–1134, 2010.",
+          "reference": true,
+          "source_image": "figs/p007-014-source.png",
+          "zh": "- [9] G. Metta, L. Natale, F. Nori, G. Sandini, D. Vernon, L. Fadiga, C. Von Hofsten, K. Rosander, M. Lopes, J. Santos-Victor et al. , “The icub humanoid robot: An open-systems platform for research in cognitive development,” Neural networks , vol. 23, no. 8-9, pp. 1125–1134, 2010."
+        },
+        {
+          "id": "p7-b15",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            258,
+            559,
+            303
+          ],
+          "en": "- [10] A. D. Kuo, “The six determinants of gait and the inverted pendulum analogy: A dynamic walking perspective,” Human movement science , vol. 26, no. 4, pp. 617–656, 2007.",
+          "reference": true,
+          "source_image": "figs/p007-015-source.png",
+          "zh": "- [10] A. D. Kuo, “The six determinants of gait and the inverted pendulum analogy: A dynamic walking perspective,” Human movement science , vol. 26, no. 4, pp. 617–656, 2007."
+        },
+        {
+          "id": "p7-b16",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            306,
+            559,
+            350
+          ],
+          "en": "- [11] G. A. Cavagna, H. Thys, and A. Zamboni, “The sources of external work in level walking and running.” The Journal of physiology , vol. 262, no. 3, pp. 639–657, 1976.",
+          "reference": true,
+          "source_image": "figs/p007-016-source.png",
+          "zh": "- [11] G. A. Cavagna, H. Thys, and A. Zamboni, “The sources of external work in level walking and running.” The Journal of physiology , vol. 262, no. 3, pp. 639–657, 1976."
+        },
+        {
+          "id": "p7-b17",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            351,
+            559,
+            399
+          ],
+          "en": "- [12] M. Garcia, A. Chatterjee, and A. Ruina, “Efficiency, speed, and scaling of two-dimensional passive-dynamic walking,” Dynamics and Stability of Systems , vol. 15, no. 2, pp. 75–99, 2000.",
+          "reference": true,
+          "source_image": "figs/p007-017-source.png",
+          "zh": "- [12] M. Garcia, A. Chatterjee, and A. Ruina, “Efficiency, speed, and scaling of two-dimensional passive-dynamic walking,” Dynamics and Stability of Systems , vol. 15, no. 2, pp. 75–99, 2000."
+        },
+        {
+          "id": "p7-b18",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            401,
+            559,
+            447
+          ],
+          "en": "- [13] H. Ohta, M. Yamakita, and K. Furuta, “From passive to active dynamic walking,” International Journal of Robust and Nonlinear Control: IFAC-Affiliated Journal , vol. 11, no. 3, pp. 287–303, 2001.",
+          "reference": true,
+          "source_image": "figs/p007-018-source.png",
+          "zh": "- [13] H. Ohta, M. Yamakita, and K. Furuta, “From passive to active dynamic walking,” International Journal of Robust and Nonlinear Control: IFAC-Affiliated Journal , vol. 11, no. 3, pp. 287–303, 2001."
+        },
+        {
+          "id": "p7-b19",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            449,
+            559,
+            483
+          ],
+          "en": "- [14] S. Collins, A. Ruina, R. Tedrake, and M. Wisse, “Efficient bipedal robots based on passive-dynamic walkers,” Science , vol. 307, no. 5712, pp. 1082–1085, 2005.",
+          "reference": true,
+          "source_image": "figs/p007-019-source.png",
+          "zh": "- [14] S. Collins, A. Ruina, R. Tedrake, and M. Wisse, “Efficient bipedal robots based on passive-dynamic walkers,” Science , vol. 307, no. 5712, pp. 1082–1085, 2005."
+        },
+        {
+          "id": "p7-b20",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            485,
+            559,
+            531
+          ],
+          "en": "- [15] M. Wisse and J. Van Frankenhuyzen, “Design and construction of mike; a 2-d autonomous biped based on passive dynamic walking,” in Adaptive motion of animals and machines . Springer, 2006, pp. 143–154.",
+          "reference": true,
+          "source_image": "figs/p007-020-source.png",
+          "zh": "- [15] M. Wisse and J. Van Frankenhuyzen, “Design and construction of mike; a 2-d autonomous biped based on passive dynamic walking,” in Adaptive motion of animals and machines . Springer, 2006, pp. 143–154."
+        },
+        {
+          "id": "p7-b21",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            533,
+            559,
+            579
+          ],
+          "en": "- [16] Y. Yang, T. Zhang, E. Coumans, J. Tan, and B. Boots, “Fast and efficient locomotion via learned gait transitions,” in Conference on robot learning . PMLR, 2022, pp. 773–783.",
+          "reference": true,
+          "source_image": "figs/p007-021-source.png",
+          "zh": "- [16] Y. Yang, T. Zhang, E. Coumans, J. Tan, and B. Boots, “Fast and efficient locomotion via learned gait transitions,” in Conference on robot learning . PMLR, 2022, pp. 773–783."
+        },
+        {
+          "id": "p7-b22",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            581,
+            559,
+            684
+          ],
+          "en": "- [17] A. Hartmann, D. Kang, F. Zargarbashi, M. Zamora, and S. Coros, “Deep compliant control for legged robots,” in 2024 IEEE International Conference on Robotics and Automation (ICRA) . IEEE, 2024, pp. 11 421–11 427. - [18] P. Kormushev, B. Ugurlu, D. G. Caldwell, and N. G. Tsagarakis, “Learning to exploit passive compliance for energy-efficient gait generation on a compliant humanoid,” Autonomous Robots , vol. 43, pp. 79–95, 2019.",
+          "reference": true,
+          "source_image": "figs/p007-022-source.png",
+          "zh": "- [17] A. Hartmann, D. Kang, F. Zargarbashi, M. Zamora, and S. Coros, “Deep compliant control for legged robots,” in 2024 IEEE International Conference on Robotics and Automation (ICRA) . IEEE, 2024, pp. 11 421–11 427. - [18] P. Kormushev, B. Ugurlu, D. G. Caldwell, and N. G. Tsagarakis, “Learning to exploit passive compliance for energy-efficient gait generation on a compliant humanoid,” Autonomous Robots , vol. 43, pp. 79–95, 2019."
+        },
+        {
+          "id": "p7-b23",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            688,
+            559,
+            734
+          ],
+          "en": "- [19] J. Hwangbo, J. Lee, A. Dosovitskiy, D. Bellicoso, V. Tsounis, V. Koltun, and M. Hutter, “Learning agile and dynamic motor skills for legged robots,” Science Robotics , vol. 4, no. 26, p. eaau5872, 2019.",
+          "reference": true,
+          "source_image": "figs/p007-023-source.png",
+          "zh": "- [19] J. Hwangbo, J. Lee, A. Dosovitskiy, D. Bellicoso, V. Tsounis, V. Koltun, and M. Hutter, “Learning agile and dynamic motor skills for legged robots,” Science Robotics , vol. 4, no. 26, p. eaau5872, 2019."
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "blocks": [
+        {
+          "id": "p8-b0",
+          "kind": "list-item",
+          "bbox": [
+            54,
+            55,
+            299,
+            101
+          ],
+          "en": "- [20] T. Miki, J. Lee, J. Hwangbo, L. Wellhausen, V. Koltun, and M. Hutter, “Learning robust perceptive locomotion for quadrupedal robots in the wild,” Science Robotics , vol. 7, no. 62, p. eabk2822, 2022.",
+          "reference": true,
+          "source_image": "figs/p008-000-source.png",
+          "zh": "- [20] T. Miki, J. Lee, J. Hwangbo, L. Wellhausen, V. Koltun, and M. Hutter, “Learning robust perceptive locomotion for quadrupedal robots in the wild,” Science Robotics , vol. 7, no. 62, p. eabk2822, 2022."
+        },
+        {
+          "id": "p8-b1",
+          "kind": "list-item",
+          "bbox": [
+            53,
+            103,
+            299,
+            148
+          ],
+          "en": "- [21] J. Lee, J. Hwangbo, L. Wellhausen, V. Koltun, and M. Hutter, “Learning quadrupedal locomotion over challenging terrain,” Science robotics , vol. 5, no. 47, p. eabc5986, 2020.",
+          "reference": true,
+          "source_image": "figs/p008-001-source.png",
+          "zh": "- [21] J. Lee, J. Hwangbo, L. Wellhausen, V. Koltun, and M. Hutter, “Learning quadrupedal locomotion over challenging terrain,” Science robotics , vol. 5, no. 47, p. eabc5986, 2020."
+        },
+        {
+          "id": "p8-b2",
+          "kind": "list-item",
+          "bbox": [
+            54,
+            150,
+            299,
+            208
+          ],
+          "en": "- [22] N. G. Tsagarakis, S. Morfey, G. M. Cerda, L. Zhibin, and D. G. Caldwell, “Compliant humanoid coman: Optimal joint stiffness tuning for modal frequency control,” in 2013 IEEE International Conference on Robotics and Automation . IEEE, 2013, pp. 673–678.",
+          "reference": true,
+          "source_image": "figs/p008-002-source.png",
+          "zh": "- [22] N. G. Tsagarakis, S. Morfey, G. M. Cerda, L. Zhibin, and D. G. Caldwell, “Compliant humanoid coman: Optimal joint stiffness tuning for modal frequency control,” in 2013 IEEE International Conference on Robotics and Automation . IEEE, 2013, pp. 673–678."
+        },
+        {
+          "id": "p8-b3",
+          "kind": "list-item",
+          "bbox": [
+            54,
+            210,
+            299,
+            268
+          ],
+          "en": "- [23] A. SaLoutos, E. Stanger-Joncs, Y. Ding, M. Chignoli, and S. Kim, “Design and development of the mit humanoid: A dynamic and robust research platform,” in 2023 IEEE-RAS 22nd International Conference on Humanoid Robots (Humanoids) . IEEE, 2023.",
+          "reference": true,
+          "source_image": "figs/p008-003-source.png",
+          "zh": "- [23] A. SaLoutos, E. Stanger-Joncs, Y. Ding, M. Chignoli, and S. Kim, “Design and development of the mit humanoid: A dynamic and robust research platform,” in 2023 IEEE-RAS 22nd International Conference on Humanoid Robots (Humanoids) . IEEE, 2023."
+        },
+        {
+          "id": "p8-b4",
+          "kind": "list-item",
+          "bbox": [
+            54,
+            270,
+            299,
+            304
+          ],
+          "en": "- [24] J. Carpentier and P.-B. Wieber, “Recent progress in legged robots locomotion control,” Current Robotics Reports , vol. 2, no. 3, pp. 231–238, 2021.",
+          "reference": true,
+          "source_image": "figs/p008-004-source.png",
+          "zh": "- [24] J. Carpentier and P.-B. Wieber, “Recent progress in legged robots locomotion control,” Current Robotics Reports , vol. 2, no. 3, pp. 231–238, 2021."
+        },
+        {
+          "id": "p8-b5",
+          "kind": "list-item",
+          "bbox": [
+            54,
+            306,
+            299,
+            374
+          ],
+          "en": "- [25] J. Englsberger, A. Werner, C. Ott, B. Henze, M. A. Roa, G. Garofalo, R. Burger, A. Beyer, O. Eiberger, K. Schmid et al. , “Overview of the torque-controlled humanoid robot toro,” in 2014 IEEE-RAS International Conference on Humanoid Robots . IEEE, 2014, pp. 916–923.",
+          "reference": true,
+          "source_image": "figs/p008-005-source.png",
+          "zh": "- [25] J. Englsberger, A. Werner, C. Ott, B. Henze, M. A. Roa, G. Garofalo, R. Burger, A. Beyer, O. Eiberger, K. Schmid et al. , “Overview of the torque-controlled humanoid robot toro,” in 2014 IEEE-RAS International Conference on Humanoid Robots . IEEE, 2014, pp. 916–923."
+        },
+        {
+          "id": "p8-b6",
+          "kind": "list-item",
+          "bbox": [
+            54,
+            378,
+            299,
+            459
+          ],
+          "en": "- [26] Y. Asano, T. Kozuki, S. Ookubo, M. Kawamura, S. Nakashima, T. Katayama, I. Yanokura, T. Hirose, K. Kawaharazuka, S. Makino et al. , “Human mimetic musculoskeletal humanoid kengoro toward real world physically interactive actions,” in 2016 IEEE-RAS 16th International Conference on Humanoid Robots (Humanoids) . IEEE, 2016, pp. 876–883.",
+          "reference": true,
+          "source_image": "figs/p008-006-source.png",
+          "zh": "- [26] Y. Asano, T. Kozuki, S. Ookubo, M. Kawamura, S. Nakashima, T. Katayama, I. Yanokura, T. Hirose, K. Kawaharazuka, S. Makino et al. , “Human mimetic musculoskeletal humanoid kengoro toward real world physically interactive actions,” in 2016 IEEE-RAS 16th International Conference on Humanoid Robots (Humanoids) . IEEE, 2016, pp. 876–883."
+        },
+        {
+          "id": "p8-b7",
+          "kind": "list-item",
+          "bbox": [
+            54,
+            461,
+            299,
+            507
+          ],
+          "en": "- [27] M. S. Ahn, Development and Real-Time Optimizationbased Control of a Full-sized Humanoid for Dynamic Walking and Running . University of California, Los Angeles, 2023.",
+          "reference": true,
+          "source_image": "figs/p008-007-source.png",
+          "zh": "- [27] M. S. Ahn, Development and Real-Time Optimizationbased Control of a Full-sized Humanoid for Dynamic Walking and Running . University of California, Los Angeles, 2023."
+        },
+        {
+          "id": "p8-b8",
+          "kind": "list-item",
+          "bbox": [
+            54,
+            509,
+            299,
+            579
+          ],
+          "en": "- [28] T. Sugihara, Y. Nakamura, and H. Inoue, “Real-time humanoid motion generation through zmp manipulation based on inverted pendulum control,” in Proceedings 2002 IEEE International Conference on Robotics and Automation (Cat. No. 02CH37292) , vol. 2. IEEE, 2002, pp. 1404–1409.",
+          "reference": true,
+          "source_image": "figs/p008-008-source.png",
+          "zh": "- [28] T. Sugihara, Y. Nakamura, and H. Inoue, “Real-time humanoid motion generation through zmp manipulation based on inverted pendulum control,” in Proceedings 2002 IEEE International Conference on Robotics and Automation (Cat. No. 02CH37292) , vol. 2. IEEE, 2002, pp. 1404–1409."
+        },
+        {
+          "id": "p8-b9",
+          "kind": "list-item",
+          "bbox": [
+            54,
+            581,
+            299,
+            627
+          ],
+          "en": "- [29] N. Scianca, D. De Simone, L. Lanari, and G. Oriolo, “Mpc for humanoid gait generation: Stability and feasibility,” IEEE Transactions on Robotics , vol. 36, no. 4, pp. 1171–1188, 2020.",
+          "reference": true,
+          "source_image": "figs/p008-009-source.png",
+          "zh": "- [29] N. Scianca, D. De Simone, L. Lanari, and G. Oriolo, “Mpc for humanoid gait generation: Stability and feasibility,” IEEE Transactions on Robotics , vol. 36, no. 4, pp. 1171–1188, 2020."
+        },
+        {
+          "id": "p8-b10",
+          "kind": "list-item",
+          "bbox": [
+            54,
+            629,
+            299,
+            686
+          ],
+          "en": "- [30] L. Sentis and O. Khatib, “A whole-body control framework for humanoids operating in human environments,” in Proceedings 2006 IEEE International Conference on Robotics and Automation, 2006. ICRA 2006. IEEE, 2006, pp. 2641–2648.",
+          "reference": true,
+          "source_image": "figs/p008-010-source.png",
+          "zh": "- [30] L. Sentis and O. Khatib, “A whole-body control framework for humanoids operating in human environments,” in Proceedings 2006 IEEE International Conference on Robotics and Automation, 2006. ICRA 2006. IEEE, 2006, pp. 2641–2648."
+        },
+        {
+          "id": "p8-b11",
+          "kind": "list-item",
+          "bbox": [
+            54,
+            688,
+            299,
+            734
+          ],
+          "en": "- [31] I. Radosavovic, T. Xiao, B. Zhang, T. Darrell, J. Malik, and K. Sreenath, “Real-world humanoid locomotion with reinforcement learning,” Science Robotics , vol. 9, no. 89, p. eadi9579, 2024.",
+          "reference": true,
+          "source_image": "figs/p008-011-source.png",
+          "zh": "- [31] I. Radosavovic, T. Xiao, B. Zhang, T. Darrell, J. Malik, and K. Sreenath, “Real-world humanoid locomotion with reinforcement learning,” Science Robotics , vol. 9, no. 89, p. eadi9579, 2024."
+        },
+        {
+          "id": "p8-b12",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            55,
+            559,
+            101
+          ],
+          "en": "- [32] X. Gu, Y.-J. Wang, X. Zhu, C. Shi, Y. Guo, Y. Liu, and J. Chen, “Advancing humanoid locomotion: Mastering challenging terrains with denoising world model learning,” arXiv preprint arXiv:2408.14472 , 2024.",
+          "reference": true,
+          "source_image": "figs/p008-012-source.png",
+          "zh": "- [32] X. Gu, Y.-J. Wang, X. Zhu, C. Shi, Y. Guo, Y. Liu, and J. Chen, “Advancing humanoid locomotion: Mastering challenging terrains with denoising world model learning,” arXiv preprint arXiv:2408.14472 , 2024."
+        },
+        {
+          "id": "p8-b13",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            103,
+            559,
+            232
+          ],
+          "en": "- [33] M. Seo, S. Han, K. Sim, S. H. Bang, C. Gonzalez, L. Sentis, and Y. Zhu, “Deep imitation learning for humanoid loco-manipulation through human teleoperation,” in 2023 IEEE-RAS 22nd International Conference on Humanoid Robots (Humanoids) . IEEE, 2023. - [34] X. B. Peng, P. Abbeel, S. Levine, and M. van de Panne, “Deepmimic: Example-guided deep reinforcement learning of physics-based character skills,” ACM Trans. Graph. , vol. 37, no. 4, pp. 143:1–143:14, Jul. 2018. [Online]. Available: http://doi.acm.org/10.1145/3197517.3201311",
+          "reference": true,
+          "source_image": "figs/p008-013-source.png",
+          "zh": "- [33] M. Seo, S. Han, K. Sim, S. H. Bang, C. Gonzalez, L. Sentis, and Y. Zhu, “Deep imitation learning for humanoid loco-manipulation through human teleoperation,” in 2023 IEEE-RAS 22nd International Conference on Humanoid Robots (Humanoids) . IEEE, 2023. - [34] X. B. Peng, P. Abbeel, S. Levine, and M. van de Panne, “Deepmimic: Example-guided deep reinforcement learning of physics-based character skills,” ACM Trans. Graph. , vol. 37, no. 4, pp. 143:1–143:14, Jul. 2018. [Online]. Available: http://doi.acm.org/10.1145/3197517.3201311"
+        },
+        {
+          "id": "p8-b14",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            234,
+            559,
+            268
+          ],
+          "en": "- [35] D. Makoviichuk and V. Makoviychuk, “rl-games: A high-performance framework for reinforcement learning,” https://github.com/Denys88/rl ~~g~~ ames, May 2021.",
+          "reference": true,
+          "source_image": "figs/p008-014-source.png",
+          "zh": "- [35] D. Makoviichuk and V. Makoviychuk, “rl-games: A high-performance framework for reinforcement learning,” https://github.com/Denys88/rl ~~g~~ ames, May 2021."
+        },
+        {
+          "id": "p8-b15",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            270,
+            559,
+            328
+          ],
+          "en": "- [36] V. Makoviychuk, L. Wawrzyniak, Y. Guo, M. Lu, K. Storey, M. Macklin, D. Hoeller, N. Rudin, A. Allshire, A. Handa et al. , “Isaac gym: High performance gpu-based physics simulation for robot learning,” arXiv preprint arXiv:2108.10470 , 2021.",
+          "reference": true,
+          "source_image": "figs/p008-015-source.png",
+          "zh": "- [36] V. Makoviychuk, L. Wawrzyniak, Y. Guo, M. Lu, K. Storey, M. Macklin, D. Hoeller, N. Rudin, A. Allshire, A. Handa et al. , “Isaac gym: High performance gpu-based physics simulation for robot learning,” arXiv preprint arXiv:2108.10470 , 2021."
+        },
+        {
+          "id": "p8-b16",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            330,
+            559,
+            364
+          ],
+          "en": "- [37] Y. I. K. Y. A. S. H. Fujimoto. (2008) A study of the legswing motion of passive walking. [Online]. Available: https://ieeexplore.ieee.org/abstract/document/4543428",
+          "reference": true,
+          "source_image": "figs/p008-016-source.png",
+          "zh": "- [37] Y. I. K. Y. A. S. H. Fujimoto. (2008) A study of the legswing motion of passive walking. [Online]. Available: https://ieeexplore.ieee.org/abstract/document/4543428"
+        },
+        {
+          "id": "p8-b17",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            366,
+            559,
+            423
+          ],
+          "en": "- [38] J. Reher, E. A. Cousineau, A. Hereid, C. M. Hubicki, and A. D. Ames, “Realizing dynamic and efficient bipedal locomotion on the humanoid robot durus,” in 2016 IEEE International Conference on Robotics and Automation (ICRA) . IEEE, 2016, pp. 1794–1801.",
+          "reference": true,
+          "source_image": "figs/p008-017-source.png",
+          "zh": "- [38] J. Reher, E. A. Cousineau, A. Hereid, C. M. Hubicki, and A. D. Ames, “Realizing dynamic and efficient bipedal locomotion on the humanoid robot durus,” in 2016 IEEE International Conference on Robotics and Automation (ICRA) . IEEE, 2016, pp. 1794–1801."
+        },
+        {
+          "id": "p8-b18",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            425,
+            559,
+            459
+          ],
+          "en": "- [39] U. C. for Disease Control and Prevention. (2017) Clinical growth charts. [Online]. Available: https: //www.cdc.gov/growthcharts/clinical ~~c~~ harts.htm",
+          "reference": true,
+          "source_image": "figs/p008-018-source.png",
+          "zh": "- [39] U. C. for Disease Control and Prevention. (2017) Clinical growth charts. [Online]. Available: https: //www.cdc.gov/growthcharts/clinical ~~c~~ harts.htm"
+        },
+        {
+          "id": "p8-b19",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            461,
+            559,
+            531
+          ],
+          "en": "- [40] Q. Li, W. Zhang, and L. Chen, “Design for control-a concurrent engineering approach for mechatronic systems design,” IEEE/ASME Transactions on Mechatronics , vol. 6, no. 2, pp. 161–169, Jun. 2001. [Online]. Available: https://ieeexplore.ieee.org/abstract/document/928731",
+          "reference": true,
+          "source_image": "figs/p008-019-source.png",
+          "zh": "- [40] Q. Li, W. Zhang, and L. Chen, “Design for control-a concurrent engineering approach for mechatronic systems design,” IEEE/ASME Transactions on Mechatronics , vol. 6, no. 2, pp. 161–169, Jun. 2001. [Online]. Available: https://ieeexplore.ieee.org/abstract/document/928731"
+        },
+        {
+          "id": "p8-b20",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            533,
+            559,
+            578
+          ],
+          "en": "- [41] S. Aitken, “Normative values for femoral length, tibial length, and the femorotibial ratio in adults using standing full-length radiography,” Osteology , vol. 1, pp. 86– 91, 05 2021.",
+          "reference": true,
+          "source_image": "figs/p008-020-source.png",
+          "zh": "- [41] S. Aitken, “Normative values for femoral length, tibial length, and the femorotibial ratio in adults using standing full-length radiography,” Osteology , vol. 1, pp. 86– 91, 05 2021."
+        },
+        {
+          "id": "p8-b21",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            581,
+            559,
+            615
+          ],
+          "en": "- [42] D. Chen, B. Zhou, V. Koltun, and P. Kr¨ahenb¨uhl, “Learning by cheating,” in Conference on Robot Learning . PMLR, 2020, pp. 66–75.",
+          "reference": true,
+          "source_image": "figs/p008-021-source.png",
+          "zh": "- [42] D. Chen, B. Zhou, V. Koltun, and P. Kr¨ahenb¨uhl, “Learning by cheating,” in Conference on Robot Learning . PMLR, 2020, pp. 66–75."
+        },
+        {
+          "id": "p8-b22",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            617,
+            559,
+            650
+          ],
+          "en": "- [43] D.-A. Clevert, “Fast and accurate deep network learning by exponential linear units (elus),” arXiv preprint arXiv:1511.07289 , 2015.",
+          "reference": true,
+          "source_image": "figs/p008-022-source.png",
+          "zh": "- [43] D.-A. Clevert, “Fast and accurate deep network learning by exponential linear units (elus),” arXiv preprint arXiv:1511.07289 , 2015."
+        },
+        {
+          "id": "p8-b23",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            652,
+            559,
+            686
+          ],
+          "en": "- [44] N. Rudin, D. Hoeller, P. Reist, and M. Hutter, “Learning to walk in minutes using massively parallel deep reinforcement learning,” 2021.",
+          "reference": true,
+          "source_image": "figs/p008-023-source.png",
+          "zh": "- [44] N. Rudin, D. Hoeller, P. Reist, and M. Hutter, “Learning to walk in minutes using massively parallel deep reinforcement learning,” 2021."
+        },
+        {
+          "id": "p8-b24",
+          "kind": "list-item",
+          "bbox": [
+            313,
+            688,
+            559,
+            734
+          ],
+          "en": "- [45] D. Zarrouk and R. S. Fearing, “Cost of locomotion of a dynamic hexapedal robot,” in 2013 IEEE International Conference on Robotics and Automation . IEEE, 2013, pp. 2548–2553.",
+          "reference": true,
+          "source_image": "figs/p008-024-source.png",
+          "zh": "- [45] D. Zarrouk and R. S. Fearing, “Cost of locomotion of a dynamic hexapedal robot,” in 2013 IEEE International Conference on Robotics and Automation . IEEE, 2013, pp. 2548–2553."
+        }
+      ]
+    }
+  ],
+  "page_count": 8
+}

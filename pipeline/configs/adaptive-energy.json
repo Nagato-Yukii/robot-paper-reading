@@ -1,0 +1,41 @@
+{
+  "id": "adaptive-energy",
+  "brand": "Adaptive Energy Regularization",
+  "zh_title": "面向自主步态切换与高能效四足运动的自适应能量正则化",
+  "category": "足式运动 · 能效",
+  "sha256": "abddefe8b11e9b4f50f8210e40a7a3926a7900831d8589cd67026ae6edba6079",
+  "pdf": "sources/adaptive-energy.pdf",
+  "title": "面向自主步态切换与高能效四足运动的自适应能量正则化 · 中英对照",
+  "brand_sub": "Adaptive Energy Regularization for Autonomous Gait Transition and Energy-Efficient Quadruped Locomotion",
+  "out": "site/adaptive-energy",
+  "imported": true,
+  "source_language": "en",
+  "math": true,
+  "source_aliases": [
+    "https://arxiv.org/abs/2403.20001"
+  ],
+  "source_url": "https://arxiv.org/abs/2403.20001",
+  "source_version": "2403.20001v2",
+  "source_license": "CC BY 4.0",
+  "source_license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_authors": "Boyuan Liang, Lingfeng Sun, Xinghao Zhu, Bike Zhang, Ziyin Xiong, Yixiao Wang, Chenran Li, Koushil Sreenath, Masayoshi Tomizuka",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "translation_kind": "direct-translation",
+  "translation_credit": "译文：Gemini3.8 Flash medium",
+  "translation": "Gemini 3.8 Flash (Medium), translated directly from English via local Antigravity CLI",
+  "translation_review": "gemini-translated-awaiting-human-review",
+  "polished_paragraphs": 111,
+  "polished_at": "2026-10-20T13:58:01.640555+00:00",
+  "validation": {
+    "equations": {
+      "1": "p3-b6",
+      "2": "p3-b10",
+      "3": "p3-b13",
+      "4": "p3-b16"
+    },
+    "equation_references": 14,
+    "paragraphs": 112
+  }
+}

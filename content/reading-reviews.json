@@ -2,13 +2,233 @@
   "scale": 5,
   "basis": "所有评分由用户自行填写；默认未评分。",
   "papers": {
+    "active-inference-process-theory": {
+      "en_title": "Active Inference: A Process Theory",
+      "comment": "把信念更新、策略选择和神经动态连接到自由能最小化，适合对照强化学习理解主动推断的统一建模思路。",
+      "cover": {
+        "src": "active-inference-process-theory/figs/cover.png",
+        "alt": "原论文图 2：脑区间的状态估计、策略评估、精度调节与预测动作流程"
+      },
+      "publication_year": 2017,
+      "publication_year_basis": "Neural Computation 正式卷期为 2017 年；在线先行发表于 2016-11-21。",
+      "publication_year_source": "https://pubmed.ncbi.nlm.nih.gov/27870614/",
+      "publication_venue": "Neural Computation 2017",
+      "publication_venue_source": "https://doi.org/10.1162/NECO_a_00912",
+      "publication_venue_verified_at": "2026-10-29",
+      "publication_venue_note": "Neural Computation 29(1):1–49，2017 年 1 月；DOI 10.1162/NECO_a_00912。"
+    },
+    "controlvae": {
+      "en_title": "ControlVAE: Model-Based Learning of Generative Controllers for Physics-Based Characters",
+      "comment": "用世界模型训练可复用的动作潜空间，适合参考技能生成、分层控制与下游任务适配。",
+      "cover": {
+        "src": "controlvae/figs/cover.png",
+        "alt": "ControlVAE 原论文图 1：物理角色连续起身、行走、跳跃与奔跑"
+      },
+      "publication_year": 2022,
+      "publication_year_basis": "SIGGRAPH Asia 2022 Journal Track；ACM Transactions on Graphics 41(6), Article 183, December 2022。",
+      "publication_year_source": "https://arxiv.org/abs/2210.06063",
+      "publication_venue": "SIGGRAPH Asia 2022",
+      "publication_venue_source": "https://arxiv.org/abs/2210.06063",
+      "publication_venue_verified_at": "2026-10-23",
+      "publication_venue_note": "SIGGRAPH Asia 2022 Journal Track；ACM Transactions on Graphics 41(6), Article 183, December 2022。"
+    },
+    "supertrack": {
+      "en_title": "SuperTrack: Motion Tracking for Physically Simulated Characters using Supervised Learning",
+      "comment": "通过可学习世界模型直接反传动作跟踪误差，适合对照 PPO 理解监督式控制的效率与局限。",
+      "cover": {
+        "src": "supertrack/figs/cover.png",
+        "alt": "SuperTrack 原论文图 1：世界模型预测的物理角色动作轨迹"
+      },
+      "publication_year": 2021,
+      "publication_year_basis": "Ubisoft La Forge 官方出版列表标注 SIGGRAPH Asia 2021；论文刊于 ACM Transactions on Graphics 40(6), December 2021。",
+      "publication_year_source": "https://www.ubisoft.com/en-ca/studio/laforge/publications",
+      "publication_venue": "SIGGRAPH Asia 2021",
+      "publication_venue_source": "https://www.ubisoft.com/en-ca/studio/laforge/publications",
+      "publication_venue_verified_at": "2026-10-23",
+      "publication_venue_note": "Ubisoft La Forge 官方出版列表标注 SIGGRAPH Asia 2021；论文刊于 ACM Transactions on Graphics 40(6), December 2021。"
+    },
+    "dreamer": {
+      "en_title": "Dream to Control: Learning Behaviors by Latent Imagination",
+      "comment": "在潜空间想象中反传价值梯度，是理解世界模型如何连接表征学习与长期行为优化的基础。",
+      "cover": {
+        "src": "dreamer/figs/cover.png",
+        "alt": "Dreamer 原论文图 3：从经验学习动力学、在想象中学习行为并与环境交互"
+      },
+      "publication_year": 2020,
+      "publication_year_basis": "正式发表为 ICLR 2020；arXiv 首发于 2019 年，采用含附录的 2020-03-17 v3 修订稿。",
+      "publication_year_source": "https://openreview.net/forum?id=S1lOTC4tDS",
+      "publication_venue": "ICLR 2020",
+      "publication_venue_source": "https://openreview.net/forum?id=S1lOTC4tDS",
+      "publication_venue_verified_at": "2026-10-23",
+      "publication_venue_note": "正式发表为 ICLR 2020；arXiv 首发于 2019 年，采用含附录的 2020-03-17 v3 修订稿。"
+    },
+    "gae": {
+      "en_title": "High-Dimensional Continuous Control Using Generalized Advantage Estimation",
+      "comment": "把优势估计的偏差与方差权衡讲透，是理解 PPO 训练稳定性与调参的基础。",
+      "cover": {
+        "src": "gae/figs/cover.png",
+        "alt": "GAE 原论文图 1：三维双足、四足机器人及学习到的步态"
+      },
+      "publication_year": 2016,
+      "publication_year_basis": "原文页眉注明 Published as a conference paper at ICLR 2016；采用 arXiv v6 修订稿。",
+      "publication_year_source": "https://arxiv.org/abs/1506.02438",
+      "publication_venue": "ICLR 2016",
+      "publication_venue_source": "https://arxiv.org/abs/1506.02438",
+      "publication_venue_verified_at": "2026-10-23",
+      "publication_venue_note": "原文页眉注明 Published as a conference paper at ICLR 2016；采用 arXiv v6 修订稿。"
+    },
+    "ppo": {
+      "en_title": "Proximal Policy Optimization Algorithms",
+      "comment": "用裁剪目标限制策略更新幅度，是理解机器人强化学习训练流程与常见实现细节的核心论文。",
+      "cover": {
+        "src": "ppo/figs/cover.png",
+        "alt": "PPO 原论文图 5：人形机器人追踪目标、转向并继续奔跑"
+      },
+      "publication_year": 2017,
+      "publication_year_basis": "arXiv 首次公开于 2017-07-20；采用 2017-08-28 的 v2。",
+      "publication_year_source": "https://arxiv.org/abs/1707.06347",
+      "publication_venue": "arXiv",
+      "publication_venue_source": "https://arxiv.org/abs/1707.06347",
+      "publication_venue_verified_at": "2026-10-23",
+      "publication_venue_note": "arXiv 首次公开于 2017-07-20；采用 2017-08-28 的 v2。"
+    },
+    "supermimic": {
+      "en_title": "SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model",
+      "comment": "以可微分世界模型复用跨动作动力学，适合参考低算力运动跟踪与解析策略梯度的训练设计。",
+      "cover": {
+        "src": "supermimic/figs/cover.png",
+        "alt": "SuperMimic 原论文图 1：人形机器人运动与 GPU 训练开销对比"
+      },
+      "publication_year": 2026,
+      "publication_year_basis": "CoRL 2026 Oral 已接收；会议尚未召开",
+      "publication_year_source": "https://arxiv.org/abs/2610.28480",
+      "publication_venue": "CoRL 2026 Oral · 已接收",
+      "publication_venue_source": "https://arxiv.org/abs/2610.28480",
+      "publication_venue_verified_at": "2026-10-22",
+      "publication_venue_note": "arXiv 注释确认 CoRL 2026 Oral；会议于 2026-11-09 至 11-12 在 Austin 举行。",
+      "publication_month": 11,
+      "publication_month_source": "https://2026.corl.org/",
+      "publication_month_basis": "会议月份；已接收，计划 2026-11-09 至 11-12 举行"
+    },
+    "energy-gaits": {
+      "comment": "从机械能最小化出发研究步态涌现，适合参考简洁的奖励设计与速度相关的步态变化。",
+      "en_title": "Minimizing Energy Consumption Leads to the Emergence of Gaits in Legged Robots",
+      "cover": {
+        "src": "energy-gaits/figs/p002-000.png",
+        "alt": "最小化能耗后涌现的行走、小跑、弹跳及复杂地形非结构化步态"
+      },
+      "publication_year": 2022,
+      "publication_year_basis": "PMLR 164, proceedings publication",
+      "publication_year_source": "https://proceedings.mlr.press/v164/fu22a.html",
+      "publication_venue": "CoRL 2021 · PMLR 2022",
+      "publication_venue_source": "https://proceedings.mlr.press/v164/fu22a.html",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "CoRL 2021 会议论文；论文集于 2022 年由 PMLR 正式出版。"
+    },
+    "adaptive-energy": {
+      "comment": "通过随速度调整的能量正则化学习步态切换，适合参考能效与速度跟踪之间的权衡。",
+      "en_title": "Adaptive Energy Regularization for Autonomous Gait Transition and Energy-Efficient Quadruped Locomotion",
+      "cover": {
+        "src": "adaptive-energy/figs/p002-000.png",
+        "alt": "四足机器人随速度从四拍行走切换到小跑与飞行小跑"
+      },
+      "publication_year": 2025,
+      "publication_year_basis": "ICRA 2025",
+      "publication_year_source": "https://arxiv.org/abs/2403.20001",
+      "publication_venue": "ICRA 2025",
+      "publication_venue_source": "https://arxiv.org/abs/2403.20001",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": ""
+    },
+    "duke-humanoid": {
+      "comment": "把机械设计、被动动力学与强化学习结合，适合参考人形机器人节能行走的软硬件协同。",
+      "en_title": "The Duke Humanoid: Design and Control For Energy Efficient Bipedal Locomotion Using Passive Dynamics",
+      "cover": {
+        "src": "duke-humanoid/figs/p001-010.png",
+        "alt": "Duke Humanoid 实体机器人及被动动力学机械结构"
+      },
+      "publication_year": 2025,
+      "publication_year_basis": "IROS 2025",
+      "publication_year_source": "https://boxixia.github.io/publications/2025-duke-humanoid/",
+      "publication_venue": "IROS 2025",
+      "publication_venue_source": "https://boxixia.github.io/publications/2025-duke-humanoid/",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "IROS 2025；会议日期：2025-10-19 至 10-25",
+      "publication_month": 10,
+      "publication_month_source": "https://2025.ieee-iros.org/",
+      "publication_month_basis": "会议日期：2025-10-19 至 10-25"
+    },
+    "eco": {
+      "comment": "将能量指标从奖励中分离为显式约束，适合参考可解释的能耗限制与约束强化学习设计。",
+      "en_title": "ECO: Energy-Constrained Optimization with Reinforcement Learning for Humanoid Walking",
+      "cover": {
+        "src": "eco/figs/p001-007.png",
+        "alt": "ECO 与 MPC、PPO 的人形机器人行走姿态对比"
+      },
+      "publication_year": 2026,
+      "publication_year_basis": "IEEE T-ASE, accepted February 2026; preprint 2026",
+      "publication_year_source": "https://arxiv.org/abs/2602.06445",
+      "publication_venue": "IEEE T-ASE · 已接收",
+      "publication_venue_source": "https://arxiv.org/abs/2602.06445",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "原文及 arXiv 注释注明已被 IEEE T-ASE 接收。；IEEE T-ASE 接收月份；尚未核实正式出版日期",
+      "publication_month": 2,
+      "publication_month_source": "https://arxiv.org/abs/2602.06445",
+      "publication_month_basis": "IEEE T-ASE 接收月份；尚未核实正式出版日期"
+    },
+    "blind-dexterity": {
+      "comment": "仅凭本体感知探索全身操作，适合参考柔顺接触、主动感知与隐式状态推断。",
+      "en_title": "Blind Dexterity: Whole-Body Humanoid Manipulation via Pure Proprioception",
+      "cover": {
+        "src": "blind-dexterity/figs/p001-007.png",
+        "alt": "蒙眼的人形机器人登上滑板并抓住箱子把手提起箱子的连续演示"
+      },
+      "publication_year": 2026,
+      "publication_year_basis": "arXiv first publication",
+      "publication_year_source": "https://arxiv.org/abs/2608.29487",
+      "publication_venue": "arXiv",
+      "publication_venue_source": "https://arxiv.org/abs/2608.29487",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "arXiv 首次提交：2026-08-30",
+      "publication_month": 8,
+      "publication_month_source": "https://arxiv.org/abs/2608.29487",
+      "publication_month_basis": "arXiv 首次提交：2026-08-30"
+    },
+    "blind-precise-assembly": {
+      "comment": "仅凭关节本体感知完成精密插孔，适合参考接触推断、装配几何建模与零样本迁移。",
+      "en_title": "Blind Precise Assembly: Proprioceptive Sim-to-Real Peg-in-Hole for Diverse Parts",
+      "cover": {
+        "src": "blind-precise-assembly/figs/p002-001.png",
+        "alt": "机器人仅用关节编码器将多种形状的零件插入对应孔位"
+      },
+      "publication_year": 2026,
+      "publication_year_basis": "arXiv first publication",
+      "publication_year_source": "https://arxiv.org/abs/2610.23849",
+      "publication_venue": "arXiv",
+      "publication_venue_source": "https://arxiv.org/abs/2610.23849",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "arXiv 首次提交：2026-10-16",
+      "publication_month": 10,
+      "publication_month_source": "https://arxiv.org/abs/2610.23849",
+      "publication_month_basis": "arXiv 首次提交：2026-10-16"
+    },
     "rax": {
       "comment": "把在线探索用于自动编写机器人控制程序，适合参考跨本体任务组织与评测设计。",
       "cover": {
         "src": "rax/figs/figure01_p01.jpg",
         "alt": "RAX 在不同机器人上的操作任务与探索演示"
       },
-      "en_title": "Scaling Online Exploration for Robot Agents"
+      "en_title": "Scaling Online Exploration for Robot Agents",
+      "publication_year": 2026,
+      "publication_year_basis": "arXiv first publication",
+      "publication_year_source": "https://arxiv.org/abs/2610.22496",
+      "publication_venue": "arXiv",
+      "publication_venue_source": "https://arxiv.org/abs/2610.22496",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "arXiv 首次提交：2026-10-15",
+      "publication_month": 10,
+      "publication_month_source": "https://arxiv.org/abs/2610.22496",
+      "publication_month_basis": "arXiv 首次提交：2026-10-15"
     },
     "bcg": {
       "comment": "用局部平滑缓解接触梯度不稳定，为可微分仿真到真机提供了值得借鉴的路径。",
@@ -16,7 +236,17 @@
         "src": "bcg/figs/fig1.jpg",
         "alt": "接触梯度平滑示意与人形机器人动作演示"
       },
-      "en_title": "Bundled Contact Gradients: Stabilizing Differentiable Simulation for Deployable Dynamic Tasks"
+      "en_title": "Bundled Contact Gradients: Stabilizing Differentiable Simulation for Deployable Dynamic Tasks",
+      "publication_year": 2026,
+      "publication_year_basis": "arXiv first publication",
+      "publication_year_source": "https://arxiv.org/abs/2609.30951",
+      "publication_venue": "arXiv",
+      "publication_venue_source": "https://arxiv.org/abs/2609.30951",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "arXiv 首次提交：2026-09-25",
+      "publication_month": 9,
+      "publication_month_source": "https://arxiv.org/abs/2609.30951",
+      "publication_month_basis": "arXiv 首次提交：2026-09-25"
     },
     "vla-transfer": {
       "comment": "将动作统一为文本 token，把视觉语言预训练接入机器人控制，值得作为 VLA 入门主线。",
@@ -24,7 +254,14 @@
         "src": "vla-transfer/figs/p005-002.png",
         "alt": "RT-2 根据语义指令完成物体操作的实例"
       },
-      "en_title": "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control"
+      "en_title": "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control",
+      "publication_year": 2023,
+      "publication_year_basis": "PMLR 229, CoRL proceedings",
+      "publication_year_source": "https://proceedings.mlr.press/v229/zitkovich23a.html",
+      "publication_venue": "CoRL 2023",
+      "publication_venue_source": "https://proceedings.mlr.press/v229/zitkovich23a.html",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": ""
     },
     "lswm": {
       "comment": "结合长短历史重建与未来预测，适合参考双足运动中的状态表征设计。",
@@ -32,7 +269,17 @@
         "src": "lswm/figs/p010-010.png",
         "alt": "双足机器人在室外和复杂地形中的实机运动"
       },
-      "en_title": "LSWM: A Long–Short History World Model for Bipedal Locomotion via Reinforcement Learning"
+      "en_title": "LSWM: A Long–Short History World Model for Bipedal Locomotion via Reinforcement Learning",
+      "publication_year": 2026,
+      "publication_year_basis": "Biomimetics 2026, 11, 40; published 2026-01-05",
+      "publication_year_source": "sources/lswm.pdf#page=1",
+      "publication_venue": "Biomimetics",
+      "publication_venue_source": "https://doi.org/10.3390/biomimetics11010040",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "期刊发表：2026-01-05",
+      "publication_month": 1,
+      "publication_month_source": "https://doi.org/10.3390/biomimetics11010040",
+      "publication_month_basis": "期刊发表：2026-01-05"
     },
     "rl-pd-control": {
       "comment": "把强化学习动作与关节 PD 控制的关系讲清楚，适合补齐控制接口的基础概念。",
@@ -40,7 +287,14 @@
         "src": "rl-pd-control/figs/p001-014.png",
         "alt": "机器人关节 PD 控制的信号与反馈结构"
       },
-      "en_title": "Robot Reinforcement Learning and Joint PD Control"
+      "en_title": "Robot Reinforcement Learning and Joint PD Control",
+      "publication_year": null,
+      "publication_year_basis": "Original publication date unverified; local PDF only gives edited-at date 2026-05-26, which is not used as publication date",
+      "publication_year_source": "https://zhuanlan.zhihu.com/p/1990213475369255309",
+      "publication_venue": "知乎",
+      "publication_venue_source": "https://zhuanlan.zhihu.com/p/1990213475369255309",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "中文技术文章，原始发表年份尚未核实。"
     },
     "gvhmr": {
       "comment": "借助重力视角坐标恢复世界系人体运动，适合作为视频动作数据处理的参考。",
@@ -48,7 +302,14 @@
         "src": "gvhmr/figs/p001-004.png",
         "alt": "由视频恢复世界坐标系人体运动与轨迹的效果"
       },
-      "en_title": "World-Grounded Human Motion Recovery via Gravity-View Coordinates"
+      "en_title": "World-Grounded Human Motion Recovery via Gravity-View Coordinates",
+      "publication_year": 2024,
+      "publication_year_basis": "SIGGRAPH Asia 2024 Conference Papers",
+      "publication_year_source": "sources/gvhmr.pdf#page=1",
+      "publication_venue": "SIGGRAPH Asia 2024",
+      "publication_venue_source": "https://zju3dv.github.io/gvhmr/",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": ""
     },
     "wham": {
       "comment": "融合视觉、运动上下文与接触约束恢复全局人体轨迹，适合参考动作重建流程。",
@@ -56,7 +317,14 @@
         "src": "wham/figs/p001-003.png",
         "alt": "WHAM 全局人体轨迹与接触恢复效果对比"
       },
-      "en_title": "WHAM: World-grounded Humans with Accurate Motion"
+      "en_title": "WHAM: World-grounded Humans with Accurate Motion",
+      "publication_year": 2024,
+      "publication_year_basis": "CVPR 2024",
+      "publication_year_source": "https://openaccess.thecvf.com/content/CVPR2024/html/Shin_WHAM_Reconstructing_World-grounded_Humans_with_Accurate_3D_Motion_CVPR_2024_paper.html",
+      "publication_venue": "CVPR 2024",
+      "publication_venue_source": "https://openaccess.thecvf.com/content/CVPR2024/html/Shin_WHAM_Reconstructing_World-grounded_Humans_with_Accurate_3D_Motion_CVPR_2024_paper.html",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": ""
     },
     "exbody": {
       "comment": "拆分上身动作模仿与下身移动控制，适合参考实用的人形全身控制结构。",
@@ -64,7 +332,14 @@
         "src": "exbody/figs/p001-009.png",
         "alt": "人形机器人在海边日落场景下展示全身动作"
       },
-      "en_title": "Expressive Whole-Body Control for Humanoid Robots"
+      "en_title": "Expressive Whole-Body Control for Humanoid Robots",
+      "publication_year": 2024,
+      "publication_year_basis": "RSS 2024",
+      "publication_year_source": "https://roboticsproceedings.org/rss20/p107.pdf",
+      "publication_venue": "RSS 2024",
+      "publication_venue_source": "https://roboticsproceedings.org/rss20/p107.pdf",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": ""
     },
     "kungfubot2": {
       "comment": "通过混合跟踪目标与专家结构整合多种动作，适合参考单策略多技能学习。",
@@ -72,7 +347,17 @@
         "src": "kungfubot2/figs/p001-003.png",
         "alt": "人形机器人执行多样化动作与技能的真机演示"
       },
-      "en_title": "KungfuBot2: Learning Versatile Motion Skills for Humanoid Whole-Body Control"
+      "en_title": "KungfuBot2: Learning Versatile Motion Skills for Humanoid Whole-Body Control",
+      "publication_year": 2026,
+      "publication_year_basis": "ICRA 2026",
+      "publication_year_source": "https://kungfubot2-humanoid.github.io/",
+      "publication_venue": "ICRA 2026",
+      "publication_venue_source": "https://kungfubot2-humanoid.github.io/",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "会议日期：2026-06-01 至 06-05",
+      "publication_month": 6,
+      "publication_month_source": "https://2026.ieee-icra.org/",
+      "publication_month_basis": "会议日期：2026-06-01 至 06-05"
     },
     "kungfubot": {
       "comment": "把动作处理和自适应跟踪课程串起来，适合参考高动态技能的训练细节。",
@@ -80,7 +365,17 @@
         "src": "kungfubot/figs/p009-000.png",
         "alt": "人形机器人执行功夫与高动态动作的连续画面"
       },
-      "en_title": "KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills"
+      "en_title": "KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills",
+      "publication_year": 2025,
+      "publication_year_basis": "NeurIPS 2025",
+      "publication_year_source": "https://github.com/TeleHuman/PBHC",
+      "publication_venue": "NeurIPS 2025",
+      "publication_venue_source": "https://kungfubot.github.io/",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "会议主会日期：2025-12-03 至 12-05",
+      "publication_month": 12,
+      "publication_month_source": "https://neurips.cc/Conferences/2025/Dates",
+      "publication_month_basis": "会议主会日期：2025-12-03 至 12-05"
     },
     "asap": {
       "comment": "用真实轨迹学习仿真修正模型，适合研究高动态动作中的仿真到现实差距。",
@@ -88,7 +383,14 @@
         "src": "asap/figs/p001-003.png",
         "alt": "人形机器人复现多组高动态人体动作"
       },
-      "en_title": "ASAP: Aligning Simulation and Real-World Physics for Learning Agile Humanoid Whole-Body Skills"
+      "en_title": "ASAP: Aligning Simulation and Real-World Physics for Learning Agile Humanoid Whole-Body Skills",
+      "publication_year": 2025,
+      "publication_year_basis": "RSS 2025",
+      "publication_year_source": "https://www.roboticsproceedings.org/rss21/p066.pdf",
+      "publication_venue": "RSS 2025",
+      "publication_venue_source": "https://agile.human2humanoid.com/",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": ""
     },
     "robust-walking": {
       "comment": "以随机地形训练和自适应步频提升真机行走鲁棒性，适合参考简洁的训练课程。",
@@ -96,7 +398,14 @@
         "src": "robust-walking/figs/p001-017.png",
         "alt": "人形机器人及其在不同地面上的足部接触"
       },
-      "en_title": "Robust Humanoid Walking on Compliant and Uneven Terrain with Deep Reinforcement Learning"
+      "en_title": "Robust Humanoid Walking on Compliant and Uneven Terrain with Deep Reinforcement Learning",
+      "publication_year": 2024,
+      "publication_year_basis": "Humanoids 2024",
+      "publication_year_source": "https://arxiv.org/abs/2504.13619",
+      "publication_venue": "Humanoids 2024",
+      "publication_venue_source": "https://arxiv.org/abs/2504.13619",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": ""
     },
     "bridging-gap": {
       "comment": "从执行器到整机逐层校准动力学，适合参考跨平台迁移与能效验证的工程方法。",
@@ -104,7 +413,17 @@
         "src": "bridging-gap/figs/p004-004.png",
         "alt": "系统化仿真到现实迁移所覆盖的多种足式机器人"
       },
-      "en_title": "Towards bridging the gap: Systematic sim-to-real transfer for diverse legged robots"
+      "en_title": "Towards bridging the gap: Systematic sim-to-real transfer for diverse legged robots",
+      "publication_year": 2026,
+      "publication_year_basis": "The International Journal of Robotics Research, 2026",
+      "publication_year_source": "https://arxiv.org/abs/2509.06342",
+      "publication_venue": "IJRR",
+      "publication_venue_source": "https://arxiv.org/abs/2509.06342",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "期刊首次在线发表：2026-07-31；Crossref 出版方元数据",
+      "publication_month": 7,
+      "publication_month_source": "https://doi.org/10.1177/02783649261459628",
+      "publication_month_basis": "期刊首次在线发表：2026-07-31；Crossref 出版方元数据"
     },
     "beyondmimic": {
       "comment": "将高质量动作跟踪与引导扩散连接起来，适合参考从模仿到通用控制的完整流程。",
@@ -112,7 +431,17 @@
         "src": "beyondmimic/figs/p001-004.png",
         "alt": "动作跟踪、扩散策略与引导控制的整体示意"
       },
-      "en_title": "BeyondMimic: From Motion Tracking to Versatile Humanoid Control via Guided Diffusion"
+      "en_title": "BeyondMimic: From Motion Tracking to Versatile Humanoid Control via Guided Diffusion",
+      "publication_year": 2026,
+      "publication_year_basis": "Science Robotics 11(117):eadx8924; published 2026-08-26",
+      "publication_year_source": "https://pubmed.ncbi.nlm.nih.gov/42647590/",
+      "publication_venue": "Science Robotics",
+      "publication_venue_source": "https://doi.org/10.1126/scirobotics.adx8924",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "期刊发表：2026-08-26",
+      "publication_month": 8,
+      "publication_month_source": "https://pubmed.ncbi.nlm.nih.gov/42647590/",
+      "publication_month_basis": "期刊发表：2026-08-26"
     },
     "almi": {
       "comment": "让上下身策略在相互扰动中学习协调，适合参考移动稳定性与动作保真的权衡。",
@@ -120,7 +449,17 @@
         "src": "almi/figs/p020-007.png",
         "alt": "人形机器人动作与对抗扰动分布的可视化"
       },
-      "en_title": "Adversarial Locomotion and Motion Imitation for Humanoid Policy Learning"
+      "en_title": "Adversarial Locomotion and Motion Imitation for Humanoid Policy Learning",
+      "publication_year": 2025,
+      "publication_year_basis": "NeurIPS 2025",
+      "publication_year_source": "https://arxiv.org/abs/2504.14305",
+      "publication_venue": "NeurIPS 2025",
+      "publication_venue_source": "https://almi-humanoid.github.io/",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "会议主会日期：2025-12-03 至 12-05",
+      "publication_month": 12,
+      "publication_month_source": "https://neurips.cc/Conferences/2025/Dates",
+      "publication_month_basis": "会议主会日期：2025-12-03 至 12-05"
     },
     "learning-failures": {
       "comment": "显式记忆失败状态以减少重复试错，适合参考可接入现有强化学习流程的改进。",
@@ -128,7 +467,17 @@
         "src": "learning-failures/figs/p001-008.png",
         "alt": "通过失败记忆减少重复跌倒并延长有效轨迹"
       },
-      "en_title": "Learning From Failures: Efficient Reinforcement Learning Control with Episodic Memory"
+      "en_title": "Learning From Failures: Efficient Reinforcement Learning Control with Episodic Memory",
+      "publication_year": 2026,
+      "publication_year_basis": "arXiv first publication",
+      "publication_year_source": "https://arxiv.org/abs/2603.07110",
+      "publication_venue": "arXiv",
+      "publication_venue_source": "https://arxiv.org/abs/2603.07110",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "arXiv 首次提交：2026-03-07",
+      "publication_month": 3,
+      "publication_month_source": "https://arxiv.org/abs/2603.07110",
+      "publication_month_basis": "arXiv 首次提交：2026-03-07"
     },
     "hiking": {
       "comment": "以深度感知和落脚安全机制支持复杂地形通行，适合参考端到端感知运动控制。",
@@ -136,7 +485,17 @@
         "src": "hiking/figs/p001-005.png",
         "alt": "人形机器人在野外、台阶和障碍地形中穿行"
       },
-      "en_title": "Hiking in the Wild: A Scalable Perceptive Parkour Framework for Humanoids"
+      "en_title": "Hiking in the Wild: A Scalable Perceptive Parkour Framework for Humanoids",
+      "publication_year": 2026,
+      "publication_year_basis": "CoRL 2026 / arXiv 2026",
+      "publication_year_source": "https://project-instinct.github.io/hiking-in-the-wild/",
+      "publication_venue": "CoRL 2026 · 已接收",
+      "publication_venue_source": "https://project-instinct.github.io/hiking-in-the-wild/",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "已接收；计划会议日期：2026-11-09 至 11-12",
+      "publication_month": 11,
+      "publication_month_source": "https://2026.corl.org/",
+      "publication_month_basis": "已接收；计划会议日期：2026-11-09 至 11-12"
     },
     "ase": {
       "comment": "把动作库压缩为可复用的技能嵌入，适合建立分层控制与运动先验的基础认识。",
@@ -144,7 +503,14 @@
         "src": "ase/figs/p001-003.png",
         "alt": "物理角色展现多种连续运动技能"
       },
-      "en_title": "ASE: Large-Scale Reusable Adversarial Skill Embeddings for Physically Simulated Characters"
+      "en_title": "ASE: Large-Scale Reusable Adversarial Skill Embeddings for Physically Simulated Characters",
+      "publication_year": 2022,
+      "publication_year_basis": "ACM Transactions on Graphics 41(4), July 2022",
+      "publication_year_source": "sources/ase.pdf#page=1",
+      "publication_venue": "SIGGRAPH 2022 · ACM TOG",
+      "publication_venue_source": "https://xbpeng.github.io/projects/ASE/index.html",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": ""
     },
     "zest": {
       "comment": "用精简模仿流程跨数据源和机器人部署动态技能，适合参考执行器建模与训练课程。",
@@ -152,7 +518,17 @@
         "src": "zest/figs/p004-006.png",
         "alt": "Atlas 人形机器人在真实场景中执行动态技能"
       },
-      "en_title": "ZEST: Zero-shot Embodied Skill Transfer for Athletic Robot Control"
+      "en_title": "ZEST: Zero-shot Embodied Skill Transfer for Athletic Robot Control",
+      "publication_year": 2026,
+      "publication_year_basis": "arXiv first publication",
+      "publication_year_source": "https://arxiv.org/abs/2602.00401",
+      "publication_venue": "arXiv",
+      "publication_venue_source": "https://arxiv.org/abs/2602.00401",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "arXiv 首次提交：2026-01-30；以实际日期而非编号月份为准",
+      "publication_month": 1,
+      "publication_month_source": "https://arxiv.org/abs/2602.00401",
+      "publication_month_basis": "arXiv 首次提交：2026-01-30；以实际日期而非编号月份为准"
     },
     "h-infinity": {
       "comment": "将鲁棒控制思想接入对抗强化学习，适合参考扰动强度与控制性能的显式约束。",
@@ -160,7 +536,14 @@
         "src": "h-infinity/figs/p001-003.png",
         "alt": "四足机器人在斜坡、楼梯和外力扰动下运动"
       },
-      "en_title": "Learning H-Infinity Locomotion Control"
+      "en_title": "Learning H-Infinity Locomotion Control",
+      "publication_year": 2025,
+      "publication_year_basis": "PMLR 270, proceedings publication; conference held in 2024",
+      "publication_year_source": "https://proceedings.mlr.press/v270/long25a.html",
+      "publication_venue": "CoRL 2024 · PMLR 2025",
+      "publication_venue_source": "https://proceedings.mlr.press/v270/long25a.html",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "CoRL 2024 会议论文；论文集于 2025 年由 PMLR 正式出版。"
     },
     "rt1": {
       "comment": "系统研究机器人数据规模与模型泛化，适合参考大规模多任务策略的设计和评测。",
@@ -168,7 +551,14 @@
         "src": "rt1/figs/p005-001.png",
         "alt": "RT-1 机器人的真实操作环境与多样化任务物体"
       },
-      "en_title": "RT-1: Robotics Transformer for Real-World Control at Scale"
+      "en_title": "RT-1: Robotics Transformer for Real-World Control at Scale",
+      "publication_year": 2023,
+      "publication_year_basis": "RSS 2023",
+      "publication_year_source": "https://roboticsproceedings.org/rss19/p025.html",
+      "publication_venue": "RSS 2023",
+      "publication_venue_source": "https://roboticsproceedings.org/rss19/p025.html",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": ""
     },
     "dagger": {
       "comment": "用交互式数据聚合缓解模仿学习的分布偏移，理论清楚且容易迁移到新任务。",
@@ -176,7 +566,14 @@
         "src": "dagger/figs/p006-006.png",
         "alt": "DAgger 模仿学习实验中的 Super Tux Kart 赛车场景"
       },
-      "en_title": "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning"
+      "en_title": "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning",
+      "publication_year": 2011,
+      "publication_year_basis": "AISTATS 2011",
+      "publication_year_source": "sources/dagger.pdf#page=1",
+      "publication_venue": "AISTATS 2011",
+      "publication_venue_source": "https://proceedings.mlr.press/v15/ross11a.html",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": ""
     },
     "visualmimic": {
       "comment": "将视觉高层策略连接到通用动作跟踪器，适合参考人形移动操作的分层接口。",
@@ -184,7 +581,14 @@
         "src": "visualmimic/figs/p001-003.png",
         "alt": "人形机器人在室外拱廊中执行视觉移动操作"
       },
-      "en_title": "VisualMimic: Visual Humanoid Loco-Manipulation via Motion Tracking and Generation"
+      "en_title": "VisualMimic: Visual Humanoid Loco-Manipulation via Motion Tracking and Generation",
+      "publication_year": 2025,
+      "publication_year_basis": "arXiv 2025; author publication list still identifies it as preprint",
+      "publication_year_source": "https://yanjieze.com/",
+      "publication_venue": "arXiv",
+      "publication_venue_source": "https://arxiv.org/abs/2509.20322",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": ""
     },
     "him": {
       "comment": "用显式速度与隐式稳定性表征学习机器人响应，适合参考轻量的本体感知控制。",
@@ -192,7 +596,14 @@
         "src": "him/figs/p001-003.png",
         "alt": "混合内部模型与真实四足机器人复杂地形演示"
       },
-      "en_title": "Hybrid Internal Model: Learning Agile Legged Locomotion with Simulated Robot Response"
+      "en_title": "Hybrid Internal Model: Learning Agile Legged Locomotion with Simulated Robot Response",
+      "publication_year": 2024,
+      "publication_year_basis": "ICLR 2024",
+      "publication_year_source": "https://proceedings.iclr.cc/paper_files/paper/2024/hash/3c6bd2021c10462c5164638d22f3d5d8-Abstract-Conference.html",
+      "publication_venue": "ICLR 2024",
+      "publication_venue_source": "https://proceedings.iclr.cc/paper_files/paper/2024/hash/3c6bd2021c10462c5164638d22f3d5d8-Abstract-Conference.html",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": ""
     },
     "dreamwaq": {
       "comment": "通过隐式地形表征支持无视觉四足运动，适合参考状态估计与策略学习的联合设计。",
@@ -200,7 +611,14 @@
         "src": "dreamwaq/figs/p001-004.png",
         "alt": "DreamWaQ 的隐式地形想象训练与真机迁移示意"
       },
-      "en_title": "DreamWaQ: Learning Robust Quadrupedal Locomotion With Implicit Terrain Imagination via Deep Reinforcement Learning"
+      "en_title": "DreamWaQ: Learning Robust Quadrupedal Locomotion With Implicit Terrain Imagination via Deep Reinforcement Learning",
+      "publication_year": 2023,
+      "publication_year_basis": "ICRA 2023",
+      "publication_year_source": "https://arxiv.org/abs/2301.10602",
+      "publication_venue": "ICRA 2023",
+      "publication_venue_source": "https://arxiv.org/abs/2301.10602",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": ""
     },
     "any2track": {
       "comment": "将动力学适应作为额外能力训练，适合参考多种扰动下的鲁棒动作跟踪。",
@@ -208,7 +626,17 @@
         "src": "any2track/figs/p001-003.png",
         "alt": "人形机器人在不同地形和外力干扰下跟踪动作"
       },
-      "en_title": "Track Any Motions under Any Disturbances"
+      "en_title": "Track Any Motions under Any Disturbances",
+      "publication_year": 2026,
+      "publication_year_basis": "ICRA 2026",
+      "publication_year_source": "https://jiangranlv.github.io/",
+      "publication_venue": "ICRA 2026",
+      "publication_venue_source": "https://jiangranlv.github.io/",
+      "publication_venue_verified_at": "2026-10-20",
+      "publication_venue_note": "会议日期：2026-06-01 至 06-05",
+      "publication_month": 6,
+      "publication_month_source": "https://2026.ieee-icra.org/",
+      "publication_month_basis": "会议日期：2026-06-01 至 06-05"
     }
   }
 }

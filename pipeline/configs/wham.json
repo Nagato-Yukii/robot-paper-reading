@@ -10,7 +10,7 @@
   "out": "site/wham",
   "imported": true,
   "source_language": "en",
-  "math": false,
+  "math": true,
   "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
   "source_aliases": [
     "new_papers/WHAM.pdf",

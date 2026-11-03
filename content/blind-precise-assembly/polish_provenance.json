@@ -1,0 +1,58 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "operation": "direct-translation",
+  "completed_at": "2026-10-20T07:15:36.450813+00:00",
+  "paragraphs": 105,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "blind-precise-assembly-001",
+      "conversation_id": "b1a3b975-a780-4232-86e1-cef6eadcea20",
+      "receipt_sha256": "e556d38771667ad680136edd6485061cba75b893089ec67c9411ae9c0c98c25c",
+      "usage": {
+        "input_tokens": 13008,
+        "output_tokens": 22124,
+        "thinking_tokens": 17473,
+        "cache_read_tokens": 0,
+        "total_tokens": 35132
+      },
+      "elapsed_seconds": 129.26
+    },
+    {
+      "job_id": "blind-precise-assembly-002",
+      "conversation_id": "5f91788d-8cb2-4a7d-a8cc-ef8d30229945",
+      "receipt_sha256": "310cfb111311f8d3a4fc9cdc85c53e8baa2cd02d6ba0411ae8a7a124241d35e6",
+      "usage": {
+        "input_tokens": 12259,
+        "output_tokens": 15970,
+        "thinking_tokens": 12290,
+        "cache_read_tokens": 0,
+        "total_tokens": 28229
+      },
+      "elapsed_seconds": 112.15
+    },
+    {
+      "job_id": "blind-precise-assembly-003",
+      "conversation_id": "ff7cf091-9de0-4ea1-99e1-cf82e71f5f99",
+      "receipt_sha256": "d52873ac45d3feb9d20324a58df14de5ce52c6a31ff09513807f25de1332641f",
+      "usage": {
+        "input_tokens": 13508,
+        "output_tokens": 36288,
+        "thinking_tokens": 30804,
+        "cache_read_tokens": 0,
+        "total_tokens": 49796
+      },
+      "elapsed_seconds": 201.62
+    }
+  ],
+  "usage": {
+    "input_tokens": 38775,
+    "output_tokens": 74382,
+    "thinking_tokens": 60567,
+    "cache_read_tokens": 0,
+    "total_tokens": 113157
+  }
+}

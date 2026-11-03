@@ -156,7 +156,8 @@
           "en": "∗ Equal Contribution † Correspondence to: Chenjia Bai (baicj@chinatelecom.cn)",
           "reference": false,
           "source_image": "figs/p001-011-source.png",
-          "zh": "∗ 同等贡献 † 通讯作者：Chenjia Bai (baicj@chinatelecom.cn)"
+          "zh": "∗ 同等贡献 † 通讯作者：Chenjia Bai (baicj@chinatelecom.cn)",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -242,10 +243,11 @@
             506,
             627
           ],
-          "en": "In our work, we adopt an adversarial training framework for the policy learning of both the upper and lower bodies. Specifically, we consider an MDP M = ( S, Al , Au , T, γ, rl , ru , P ), where the lower and upper bodies share the same state space S while having different action space, that is, Al and Au , respectively. rl is the command-following reward for the locomotion policy (i.e., the lower body), and ru is the tracking reward for motion-imitation policy (i.e., the upper body). P ( s′ |s, al , au ) is the transition probability function that denotes the probability of transitioning to the next state s′ given the current state and the actions of both players. We aim to learn two policies, i.e., πl and πu , that control different actions for the lower and upper bodies, respectively.",
+          "en": "In our work, we adopt an adversarial training framework for the policy learning of both the upper and lower bodies. Specifically, we consider an MDP \\(\\mathcal{M}=(\\mathcal{S},\\mathcal{A}^l,\\mathcal{A}^u,T,\\gamma,r^l,r^u,P)\\), where the lower and upper bodies share the same state space \\(\\mathcal{S}\\) while having different action space, that is, \\(\\mathcal{A}^l\\) and \\(\\mathcal{A}^u\\), respectively. \\(r^l\\) is the command-following reward for the locomotion policy (i.e., the lower body), and \\(r^u\\) is the tracking reward for motion-imitation policy (i.e., the upper body). \\(P(s'|s,a^l,a^u)\\) is the transition probability function that denotes the probability of transitioning to the next state \\(s'\\) given the current state and the actions of both players. We aim to learn two policies, i.e., \\(\\pi^{l}\\) and \\(\\pi^{u}\\), that control different actions for the lower and upper bodies, respectively.",
           "reference": false,
           "source_image": "figs/p002-005-source.png",
-          "zh": "在本文工作中，我们采用对抗训练框架来进行上半身和下半身的策略学习。具体而言，我们考虑一个马尔可夫决策过程（MDP）M = ( S, Al , Au , T, γ, rl , ru , P )，其中下半身与上半身共享相同的状态空间 S，但拥有不同的动作空间，分别记为 Al 和 Au。rl 是移动策略（即下半身）的指令跟踪奖励，ru 是动作模仿策略（即上半身）的跟踪奖励。P ( s′ |s, al , au ) 为状态转移概率函数，表示在给定当前状态以及博弈双方动作的前提下转移到下一状态 s′ 的概率。我们的目标是学习两个策略，即 πl 和 πu，分别控制下半身和上半身的不同动作。"
+          "zh": "在本文工作中，我们采用对抗训练框架来进行上半身和下半身的策略学习。具体而言，我们考虑一个马尔可夫决策过程（MDP）\\(\\mathcal{M}=(\\mathcal{S},\\mathcal{A}^l,\\mathcal{A}^u,T,\\gamma,r^l,r^u,P)\\)，其中下半身与上半身共享相同的状态空间 \\(\\mathcal{S}\\)，但拥有不同的动作空间，分别记为 \\(\\mathcal{A}^l\\) 和 \\(\\mathcal{A}^u\\)。\\(r^l\\) 是移动策略（即下半身）的指令跟踪奖励，\\(r^u\\) 是动作模仿策略（即上半身）的跟踪奖励。\\(P(s'|s,a^l,a^u)\\) 为状态转移概率函数，表示在给定当前状态以及博弈双方动作的前提下转移到下一状态 \\(s'\\) 的概率。我们的目标是学习两个策略，即 \\(\\pi^l\\) 和 \\(\\pi^u\\)，分别控制下半身和上半身的不同动作。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b6",
@@ -256,10 +258,11 @@
             506,
             723
           ],
-          "en": "We adopted the full-sized Unitree H1-2 robot in our work, which has 27 DoFs in total, and the policy controls 21 DoFs, excluding the 3 DoFs in each wrist of the hands. The state space is defined as s = ( sprop t , cl , ϕ t, gu ), where sprop t = [ q t, q ˙ t, ω t, gv t, al t− 1] is the proprioception of the robot, cl = [ˆ vx,t, ˆ vy,t, ˆ ω yaw ,t ] is the the velocity command for the lower-body, and ϕ t ∈ R2 is the phase parameter at each time step, and gu ∈ R9 is the reference joint position for the upper body. In proprioception, the notation q t ∈ R21 , q ˙ t ∈ R21 , ω t ∈ R3 , gv t ∈ R3 , al t− 1∈R12isthejoint position, the joint velocity, the angular velocity of the base, the projected gravity of the base, and the last action of the lower body, respectively.",
+          "en": "We adopted the full-sized Unitree H1-2 robot in our work, which has 27 DoFs in total, and the policy controls 21 DoFs, excluding the 3 DoFs in each wrist of the hands. The state space is defined as \\(\\boldsymbol s=(\\boldsymbol s_t^{\\rm prop},\\boldsymbol c^l, \\boldsymbol \\phi_t, \\boldsymbol g^u)\\), where \\(\\boldsymbol s_t^{\\rm prop}=[\\boldsymbol q_t,\\dot{\\boldsymbol q}_t,\\boldsymbol \\omega_t,\\boldsymbol {gv}_t,\\boldsymbol a_{t-1}^l]\\) is the proprioception of the robot, \\(\\boldsymbol c^l=[\\hat{v}_{x,t},\\hat{v}_{y,t},\\hat{\\omega}_{\\text{yaw},t}]\\) is the the velocity command for the lower-body, and \\(\\boldsymbol \\phi_t \\in \\mathbb{R}^{2}\\) is the phase parameter at each time step, and \\(\\boldsymbol g^u\\in\\mathbb{R}^9\\) is the reference joint position for the upper body. In proprioception, the notation \\(\\boldsymbol q_t\\in \\mathbb{R}^{21},\\dot{\\boldsymbol q}_t\\in \\mathbb{R}^{21},\\boldsymbol \\omega_t\\in \\mathbb{R}^{3},\\boldsymbol {gv}_t\\in \\mathbb{R}^{3}\\), \\(\\boldsymbol a^l_{t-1}\\in \\mathbb{R}^{12}\\) is the joint position, the joint velocity, the angular velocity of the base, the projected gravity of the base, and the last action of the lower body, respectively.",
           "reference": false,
           "source_image": "figs/p002-006-source.png",
-          "zh": "我们在工作中采用了全尺寸 Unitree H1-2 机器人，该机器人共有 27 个自由度（DoF），策略控制其中的 21 个自由度（不包括双手手腕各自的 3 个自由度）。状态空间定义为 s = ( sprop t , cl , ϕ t, gu )，其中 sprop t = [ q t, q ˙ t, ω t, gv t, al t− 1] 为机器人的本体感受状态，cl = [ˆ vx,t, ˆ vy,t, ˆ ω yaw ,t ] 为下半身的速度指令，ϕ t ∈ R2 为每个时间步的相位参数，gu ∈ R9 为上半身的参考关节位置。在本体感受状态中，记号 q t ∈ R21、q ˙ t ∈ R21、ω t ∈ R3、gv t ∈ R3、al t− 1∈R12 分别表示关节位置、关节速度、基体角速度、基体投影重力以及下半身上一时刻的动作。"
+          "zh": "我们在工作中采用了全尺寸 Unitree H1-2 机器人，该机器人共有 27 个自由度（DoF），策略控制其中的 21 个自由度（不包括双手手腕各自的 3 个自由度）。状态空间定义为 \\(\\boldsymbol s=(\\boldsymbol s_t^{\\rm prop},\\boldsymbol c^l, \\boldsymbol \\phi_t, \\boldsymbol g^u)\\)，其中 \\(\\boldsymbol s_t^{\\rm prop}=[\\boldsymbol q_t,\\dot{\\boldsymbol q}_t,\\boldsymbol \\omega_t,\\boldsymbol {gv}_t,\\boldsymbol a_{t-1}^l]\\) 为机器人的本体感受状态，\\(\\boldsymbol c^l=[\\hat{v}_{x,t},\\hat{v}_{y,t},\\hat{\\omega}_{\\text{yaw},t}]\\) 为下半身的速度指令，\\(\\boldsymbol \\phi_t \\in \\mathbb{R}^{2}\\) 为每个时间步的相位参数，\\(\\boldsymbol g^u\\in\\mathbb{R}^9\\) 为上半身的参考关节位置。在本体感受状态中，记号 \\(\\boldsymbol q_t\\in \\mathbb{R}^{21}\\)、\\(\\dot{\\boldsymbol q}_t\\in \\mathbb{R}^{21}\\)、\\(\\boldsymbol \\omega_t\\in \\mathbb{R}^{3}\\)、\\(\\boldsymbol {gv}_t\\in \\mathbb{R}^{3}\\)、\\(\\boldsymbol a^l_{t-1}\\in \\mathbb{R}^{12}\\) 分别表示关节位置、关节速度、基体角速度、基体投影重力以及下半身上一时刻的动作。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -275,10 +278,11 @@
             505,
             150
           ],
-          "en": "For the lower body, the policy πl gives an action al ∈ R12 representing target joint positions of the lower body according to the proprioception, commands, and phase variables at each step, which are fed into the PD controller to calculate the joint torques. For the upper body, policy πu takes proprioception and reference joint position as input, and the action al ∈ R9 includes target positions of the 3 shoulder joints and 1 elbow joint per arm, along with the waist yaw joint. As a result, the two policies ( πu and πl ) control distinct action spaces of the robot, and the sharing the same state space by masking the irrelevant commands for the different policy.",
+          "en": "For the lower body, the policy \\(\\pi^l\\) gives an action \\(\\boldsymbol a^l\\in\\mathbb{R}^{12}\\) representing target joint positions of the lower body according to the proprioception, commands, and phase variables at each step, which are fed into the PD controller to calculate the joint torques. For the upper body, policy \\(\\pi^{u}\\) takes proprioception and reference joint position as input, and the action \\(\\boldsymbol a^l\\in\\mathbb{R}^{9}\\) includes target positions of the 3 shoulder joints and 1 elbow joint per arm, along with the waist yaw joint. As a result, the two policies (\\(\\pi^u\\) and \\(\\pi^l\\)) control distinct action spaces of the robot, and the sharing the same state space by masking the irrelevant commands for the different policy.",
           "reference": false,
           "source_image": "figs/p003-000-source.png",
-          "zh": "对于下半身，策略 πl 根据每个时间步的本体感受、指令和相位变量输出动作 al ∈ R12，代表下半身的目标关节位置，这些位置被输入到 PD 控制器中以计算关节力矩。对于上半身，策略 πu 接收本体感受和参考关节位置作为输入，其动作 al ∈ R9 包括每条手臂的 3 个肩关节和 1 个肘关节、以及腰部偏航（yaw）关节的目标位置。因此，这两个策略（πu 和 πl）控制着机器人互不重叠的动作空间，并通过为不同策略掩蔽无关指令来共享相同的状态空间。"
+          "zh": "对于下半身，策略 \\(\\pi^l\\) 根据每个时间步的本体感受、指令和相位变量输出动作 \\(\\boldsymbol a^l\\in\\mathbb{R}^{12}\\)，代表下半身的目标关节位置，这些位置被输入到 PD 控制器中以计算关节力矩。对于上半身，策略 \\(\\pi^u\\) 接收本体感受和参考关节位置作为输入，其动作 \\(\\boldsymbol a^l\\in\\mathbb{R}^{9}\\) 包括每条手臂的 3 个肩关节和 1 个肘关节、以及腰部偏航（yaw）关节的目标位置。因此，这两个策略（\\(\\pi^u\\) 和 \\(\\pi^l\\)）控制着机器人互不重叠的动作空间，并通过为不同策略掩蔽无关指令来共享相同的状态空间。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b1",
@@ -331,42 +335,61 @@
             505,
             307
           ],
-          "en": "Problem Formulation for learning πl . We consider a two-player zero-sum Markov game [8, 9] to learn a robust lower-body policy πl . At each time step, the two players (i.e., πl and πl ) choose different actions ( au and al ), and the humanoid robot executes both actions to obtain the reward and the next state. In learning πl , we consider the lower body as agent , and the upper body is adversary that causes adversarial disturbances to the locomotion policy. Thus, the lower-body policy receives the command-following reward as rl ( s, al , au ), and the upper-body policy obtains a negative reward −rl ( s, al , au ). Formally, the value function Vl ( πl , πu ) is defined as",
+          "en": "Problem Formulation for learning \\(\\pi^l\\). We consider a two-player zero-sum Markov game [8, 9] to learn a robust lower-body policy \\(\\pi^l\\). At each time step, the two players (i.e., \\(\\pi^l\\) and \\(\\pi^l\\)) choose different actions (\\(a^u\\) and \\(a^l\\)), and the humanoid robot executes both actions to obtain the reward and the next state. In learning \\(\\pi^l\\), we consider the lower body as agent , and the upper body is adversary that causes adversarial disturbances to the locomotion policy. Thus, the lower-body policy receives the command-following reward as \\(r^l(s,a^l,a^u)\\), and the upper-body policy obtains a negative reward \\(-r^l(s,a^l,a^u)\\). Formally, the value function \\(V^l(\\pi^l,\\pi^u)\\) is defined as",
           "reference": false,
           "source_image": "figs/p003-004-source.png",
-          "zh": "学习 πl 的问题形式化。我们考虑一个二人零和马尔可夫博弈 [8, 9] 来学习鲁棒的下半身策略 πl。在每个时间步，博弈双方（即 πl 与 πl ）选择不同的动作（au 与 al），人形机器人执行这两个动作以获得奖励和下一状态。在学习 πl 的过程中，我们将下半身视为智能体（agent），上半身为对手（adversary），对移动策略施加对抗性扰动。因此，下半身策略获得指令跟踪奖励 rl ( s, al , au )，而上半身策略获得负奖励 −rl ( s, al , au )。形式上，价值函数 Vl ( πl , πu ) 定义为"
+          "zh": "学习 \\(\\pi^l\\) 的问题形式化。我们考虑一个二人零和马尔可夫博弈 [8, 9] 来学习鲁棒的下半身策略 \\(\\pi^l\\)。在每个时间步，博弈双方（即 \\(\\pi^l\\) 与 \\(\\pi^l\\)）选择不同的动作（\\(a^u\\) 与 \\(a^l\\)），人形机器人执行这两个动作以获得奖励和下一状态。在学习 \\(\\pi^l\\) 的过程中，我们将下半身视为智能体（agent），上半身为对手（adversary），对移动策略施加对抗性扰动。因此，下半身策略获得指令跟踪奖励 \\(r^l(s,a^l,a^u)\\)，而上半身策略获得负奖励 \\(-r^l(s,a^l,a^u)\\)。形式上，价值函数 \\(V^l(\\pi^l,\\pi^u)\\) 定义为",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b5",
           "kind": "formula",
           "bbox": [
-            194,
-            311,
-            505,
-            336
+            192.0,
+            309.0,
+            507.0,
+            338.0
           ],
           "en": "V l ( s, π l , π u ) := E πl,πu t =0 rl ( st, al, au ) �� s 0 = s , (1) �� T �",
           "reference": false,
           "image": "figs/p003-005.png",
           "labels": [
             "1"
-          ]
+          ],
+          "original_bbox": [
+            194.0,
+            311.0,
+            505.0,
+            336.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 945,
+          "image_height": 87
         },
         {
           "id": "p3-b6-eq-2",
           "kind": "formula",
           "bbox": [
-            230.99700927734375,
-            414.2835693359375,
-            504.6673889160156,
-            432.4833984375
+            228.99700927734375,
+            412.2835693359375,
+            506.6673889160156,
+            434.4833984375
           ],
           "en": "(2)",
           "image": "figs/p3-b6-eq-2.png",
           "labels": [
             "2"
           ],
-          "recovered": true
+          "recovered": true,
+          "original_bbox": [
+            230.99700927734375,
+            414.2835693359375,
+            504.6673889160156,
+            432.4833984375
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 835,
+          "image_height": 68
         },
         {
           "id": "p3-b6",
@@ -377,26 +400,36 @@
             506,
             525
           ],
-          "en": "where E πl,πu is the under the trajectory distribution induced by πl and πu . Then we have the value function as Vρl(πl, πu) = Es∼ρ[Vl(s, πl, πu)], which is defined by the expectation of accumulated locomotion reward rl . Then the locomotion policy πl is learned to maximize the value function to better follow commands in locomotion, while the upper body policy tries to minimize the value function, aiming to provide an effective disturbance to help learn a robust locomotion policy. Formally, the two players form a Markov game and there exists a Nash equilibrium such have Vρl(πl∗, πu∗) = max πlmin πuV ρl(πl, πu). (2) To solve this max-min problem, we adopt an independent RL optimization process for both players. Specifically, the agent obtains [( s 0 , al 0, r 0l), . . . ,(sT, al T, r Tl)],andadversarialobtains [( s 0 , au 0, r 0u), . . . ,(sT, au T, r Tu)] by executing each policy in the game to sample a trajectory, where each player is oblivious to the actions of the other player. The two players optimize their policies independently with policy gradients using their own experiences. Then the following theorem holds. Theorem 3.1. Given ϵ > 0 , suppose each policy has ε-greedy exploration scheme with factors of εx ≍ ϵ and εx ≍ ϵ2 , under a specific two-timescale rule of the two players’ learning-rate following the independent policy gradient, we have",
+          "en": "where \\(\\mathbb{E}_{\\pi^l,\\pi^u}\\) is the under the trajectory distribution induced by \\(\\pi^l\\) and \\(\\pi^u\\). Then we have the value function as \\(V^l_\\rho(\\pi^l,\\pi^u)=\\mathbb{E}_{s\\sim \\rho}[V^l(s,\\pi^l,\\pi^u)]\\), which is defined by the expectation of accumulated locomotion reward \\(r^l\\). Then the locomotion policy \\(\\pi^l\\) is learned to maximize the value function to better follow commands in locomotion, while the upper body policy tries to minimize the value function, aiming to provide an effective disturbance to help learn a robust locomotion policy. Formally, the two players form a Markov game and there exists a Nash equilibrium such have \\(V^l_\\rho(\\pi^{l_*},\\pi^{u_*}) = \\max_{\\pi^l} \\min_{\\pi^u} V^l_{\\rho} (\\pi^l,\\pi^u)\\). (2) To solve this max-min problem, we adopt an independent RL optimization process for both players. Specifically, the agent obtains \\([(s_0,a^l_0,r^l_0),\\ldots,(s_T,a^l_T,r^l_T)]\\), and adversarial obtains \\([(s_0,a^u_0,r^u_0),\\ldots,(s_T,a^u_T,r^u_T)]\\) by executing each policy in the game to sample a trajectory, where each player is oblivious to the actions of the other player. The two players optimize their policies independently with policy gradients using their own experiences. Then the following theorem holds. Theorem 3.1. Given \\(\\epsilon>0\\), suppose each policy has \\(\\varepsilon\\)-greedy exploration scheme with factors of \\(\\varepsilon_x \\asymp \\epsilon\\) and \\(\\varepsilon_x \\asymp \\epsilon^2\\), under a specific two-timescale rule of the two players’ learning-rate following the independent policy gradient, we have",
           "reference": false,
           "source_image": "figs/p003-006-source.png",
-          "zh": "其中 E πl,πu 表示在由 πl 和 πu 诱导的轨迹分布下的期望。由此我们得到价值函数 Vρl(πl, πu) = Es∼ρ[Vl(s, πl, πu)]，其定义为累计移动奖励 rl 的期望。移动策略 πl 通过学习最大化该价值函数，以在移动中更好地跟踪指令；而上半身策略则试图最小化该价值函数，旨在提供有效的扰动以助力学习鲁棒的移动策略。形式上，博弈双方构成一个马尔可夫博弈，且存在纳什均衡满足 Vρl(πl∗, πu∗) = max πlmin πuV ρl(πl, πu)。(2) 为了求解这一极大极小问题，我们对博弈双方采用独立的强化学习优化过程。具体而言，智能体通过在博弈中执行各自策略采样一条轨迹以获得 [( s 0 , al 0, r 0l), . . . ,(sT, al T, r Tl)]，对手获得 [( s 0 , au 0, r 0u), . . . ,(sT, au T, r Tu)]，其中每一方都不知晓另一方的动作。双方利用各自的经验，通过策略梯度独立地优化各自的策略。此时以下定理成立。定理 3.1。给定 ϵ > 0，假设每个策略均具有参数满足 εx ≍ ϵ 和 εx ≍ ϵ2 的 ε-贪心探索机制，在遵循独立策略梯度的博弈双方学习率满足特定双时间尺度规则的前提下，我们有"
+          "zh": "其中 \\(\\mathbb{E}_{\\pi^l,\\pi^u}\\) 表示在由 \\(\\pi^l\\) 和 \\(\\pi^u\\) 诱导的轨迹分布下的期望。由此我们得到价值函数 \\(V^l_\\rho(\\pi^l,\\pi^u)=\\mathbb{E}_{s\\sim \\rho}[V^l(s,\\pi^l,\\pi^u)]\\)，其定义为累计移动奖励 \\(r^l\\) 的期望。移动策略 \\(\\pi^l\\) 通过学习最大化该价值函数，以在移动中更好地跟踪指令；而上半身策略则试图最小化该价值函数，旨在提供有效的扰动以助力学习鲁棒的移动策略。形式上，博弈双方构成一个马尔可夫博弈，且存在纳什均衡满足 \\(V^l_\\rho(\\pi^{l_*},\\pi^{u_*}) = \\max_{\\pi^l} \\min_{\\pi^u} V^l_{\\rho} (\\pi^l,\\pi^u)\\)。(2) 为了求解这一极大极小问题，我们对博弈双方采用独立的强化学习优化过程。具体而言，智能体通过在博弈中执行各自策略采样一条轨迹以获得 \\([(s_0,a^l_0,r^l_0),\\ldots,(s_T,a^l_T,r^l_T)]\\)，对手获得 \\([(s_0,a^u_0,r^u_0),\\ldots,(s_T,a^u_T,r^u_T)]\\)，其中每一方都不知晓另一方的动作。双方利用各自的经验，通过策略梯度独立地优化各自的策略。此时以下定理成立。定理 3.1。给定 \\(\\epsilon>0\\)，假设每个策略均具有参数满足 \\(\\varepsilon_x \\asymp \\epsilon\\) 和 \\(\\varepsilon_x \\asymp \\epsilon^2\\) 的 \\(\\varepsilon\\)-贪心探索机制，在遵循独立策略梯度的博弈双方学习率满足特定双时间尺度规则的前提下，我们有",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b7",
           "kind": "formula",
           "bbox": [
-            184,
-            529,
-            505,
-            554
+            108.0,
+            515.8340454101562,
+            507.0,
+            556.0
           ],
           "en": "max π l min π u Vρ ( πl, πu ) − E � N 1 � Ni =1 min π u Vρ ( πu, πl ( i )) � ≤ ϵ (3)",
           "reference": false,
           "image": "figs/p003-007.png",
           "labels": [
             "3"
-          ]
+          ],
+          "original_bbox": [
+            184.0,
+            529.0,
+            505.0,
+            554.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1197,
+          "image_height": 121
         },
         {
           "id": "p3-b8",
@@ -407,10 +440,11 @@
             385,
             568
           ],
-          "en": "after N episodes, which results in a ϵ-approximate Nash equilibrium.",
+          "en": "after \\(N\\) episodes, which results in a \\(\\epsilon\\)-approximate Nash equilibrium.",
           "reference": false,
           "source_image": "figs/p003-008-source.png",
-          "zh": "在 N 个 episode 之后成立，从而收敛至 ϵ-近似纳什均衡。"
+          "zh": "在 \\(N\\) 个 episode 之后成立，从而收敛至 \\(\\epsilon\\)-近似纳什均衡。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b9",
@@ -421,26 +455,36 @@
             506,
             707
           ],
-          "en": "Intuitively, the max-min game for the lower and upper bodies leads to a robust locomotion policy (by maximizing Vρlin the outer loop) even when the upper-body movements significantly disrupt the whole-body balance (by minimizing Vρlin the inner loop).This adversarial learning process is guaranteed to converge to a ϵ -approximate Nash equilibrium according to Theorem 3.1. Problem Formulation for learning πu . Learning a precise motion imitation policy πu follows a similar process by considering πu as the agent and πl as the adversary . In the Markov game, the upper body receives a motion tracking reward ru ( s, al , au ) and the lower body receives −ru ( s, al , au ), which aims to give adversarial disturbances for motion tracking. Then we define Vu ( s, πl , πu ) := E πl,πu �� tT =0ru(st, al, au) �� s 0 = s � and Vρu(πl, πu)=Es∼ρ[Vu(s, πl, πu)].ThentheMarkov game is formulated as",
+          "en": "Intuitively, the max-min game for the lower and upper bodies leads to a robust locomotion policy (by maximizing \\(V_\\rho^l\\) in the outer loop) even when the upper-body movements significantly disrupt the whole-body balance (by minimizing \\(V_\\rho^l\\) in the inner loop). This adversarial learning process is guaranteed to converge to a \\(\\epsilon\\)-approximate Nash equilibrium according to Theorem 3.1. Problem Formulation for learning \\(\\pi^u\\). Learning a precise motion imitation policy \\(\\pi^u\\) follows a similar process by considering \\(\\pi^u\\) as the agent and \\(\\pi^l\\) as the adversary . In the Markov game, the upper body receives a motion tracking reward \\(r^u(s,a^l,a^u)\\) and the lower body receives \\(-r^u(s,a^l,a^u)\\), which aims to give adversarial disturbances for motion tracking. Then we define \\(V^u(s,\\pi^l,\\pi^u):=\\mathbb{E}_{\\pi^l,\\pi^u}\\left[\\sum\\nolimits_{t=0}^T r^u(s_t,a^l,a^u)\\big |s_0=s\\right]\\) and \\(V^u_\\rho(\\pi^l,\\pi^u)=\\mathbb{E}_{s\\sim \\rho}[V^u(s,\\pi^l,\\pi^u)]\\). Then the Markov game is formulated as",
           "reference": false,
           "source_image": "figs/p003-009-source.png",
-          "zh": "直观上，针对下半身与上半身的极大极小博弈能够得到鲁棒的移动策略（通过在外循环中最大化 Vρl），即便上半身运动会严重破坏全身平衡（通过在内循环中最小化 Vρl）。根据定理 3.1，该对抗学习过程保证能够收敛至 ϵ-近似纳什均衡。学习 πu 的问题形式化。学习精准动作模仿策略 πu 的过程与此类似，只需将 πu 视为智能体，将 πl 视为对手。在该马尔可夫博弈中，上半身获得动作跟踪奖励 ru ( s, al , au )，而下半身获得 −ru ( s, al , au )，旨在为动作跟踪施加对抗性扰动。接着我们定义 Vu ( s, πl , πu ) := 〔行内公式见原版〕 以及 Vρu(πl, πu)=Es∼ρ[Vu(s, πl, πu)]。此时马尔可夫博弈形式化为"
+          "zh": "直观上，针对下半身与上半身的极大极小博弈能够得到鲁棒的移动策略（通过在外循环中最大化 \\(V_\\rho^l\\)），即便上半身运动会严重破坏全身平衡（通过在内循环中最小化 \\(V_\\rho^l\\)）。根据定理 3.1，该对抗学习过程保证能够收敛至 \\(\\epsilon\\)-近似纳什均衡。学习 \\(\\pi^u\\) 的问题形式化。学习精准动作模仿策略 \\(\\pi^u\\) 的过程与此类似，只需将 \\(\\pi^u\\) 视为智能体，将 \\(\\pi^l\\) 视为对手。在该马尔可夫博弈中，上半身获得动作跟踪奖励 \\(r^u(s,a^l,a^u)\\)，而下半身获得 \\(-r^u(s,a^l,a^u)\\)，旨在为动作跟踪施加对抗性扰动。接着我们定义 \\(V^u(s,\\pi^l,\\pi^u):=\\mathbb{E}_{\\pi^l,\\pi^u}\\left[\\sum\\nolimits_{t=0}^T r^u(s_t,a^l,a^u)\\big |s_0=s\\right]\\) 以及 \\(V^u_\\rho(\\pi^l,\\pi^u)=\\mathbb{E}_{s\\sim \\rho}[V^u(s,\\pi^l,\\pi^u)]\\)。此时马尔可夫博弈形式化为",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b10",
           "kind": "formula",
           "bbox": [
-            228,
-            707,
-            505,
-            725
+            226.0,
+            705.0,
+            507.0,
+            727.0
           ],
           "en": "Vρ u ( πl∗ , πu∗ ) = max π u min π l V ρ u ( πl, πu ) . (4)",
           "reference": false,
           "image": "figs/p003-010.png",
           "labels": [
             "4"
-          ]
+          ],
+          "original_bbox": [
+            228.0,
+            707.0,
+            505.0,
+            725.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 843,
+          "image_height": 66
         }
       ]
     },
@@ -451,15 +495,24 @@
           "id": "p4-b0",
           "kind": "picture",
           "bbox": [
-            108,
-            71,
-            505,
-            175
+            106.0,
+            69.0,
+            507.0,
+            177.0
           ],
           "en": "Isaac simulation Privilege Info Value 𝑉 𝑢 update policy w. PPO Upper body (9 DoF) 𝜋 𝑢 (𝒂 𝑢 |𝒔prop𝑡 , 𝒈𝑢) ProprioceptionCommand interact (𝒂 𝒖 , 𝒂𝑙adv) 𝜋 𝑢 (𝒂 𝑢 |𝒔 prop𝑡 , 𝒈 𝑢 ) motion adversarial Reward 𝑟 𝑢 adversarial motion 𝒈𝑢adv interact command 𝒄𝑙adv velocity command 𝜋 𝑙 (𝒂 𝑙 |𝒔 prop𝑡 , 𝒄 𝑙 ,⋅) (𝒂 𝑙 , 𝒂𝑢adv) Privilege InfoProprioception 𝜋 𝑙 (𝒂 𝑙 |𝒔prop𝑡 , 𝒄𝑙,⋅) Value 𝑉 𝑙 Command Lower body (12 DoF) update policy w. PPO Reward 𝑟 𝑙 Isaac simulation (a) Learning the upper-body policy Iterative updates (b) Learning the lower-body policy",
           "reference": false,
           "image": "figs/p004-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            71.0,
+            505.0,
+            175.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1203,
+          "image_height": 324
         },
         {
           "id": "p4-b1",
@@ -470,10 +523,11 @@
             506,
             240
           ],
-          "en": "Figure 1: The overview of ALMI. (a) In updating the upper-body policy πu , we sample adversarial velocity command cl advand obtainsal adv.Then we use (au,al adv) to interact with the environment to collect experiences, which are used to update πu via PPO algorithm [10]. (b) Similarly, in updating the lower-body policy, we sample adversarial motion g advuand obtainsau adv.Then we use (al,au adv) to interact and update πl . The two policies ( πl , πu ) finally converge via multiple mutual iterations.",
+          "en": "Figure 1: The overview of ALMI. (a) In updating the upper-body policy \\(\\pi^u\\), we sample adversarial velocity command \\(\\boldsymbol c^l_{\\rm adv}\\) and obtains \\(\\boldsymbol a^l_{\\rm adv}\\). Then we use \\((\\boldsymbol a^u, \\boldsymbol a^l_{\\rm adv})\\) to interact with the environment to collect experiences, which are used to update \\(\\pi^u\\) via PPO algorithm [10]. (b) Similarly, in updating the lower-body policy, we sample adversarial motion \\(\\boldsymbol g^u_{\\rm adv}\\) and obtains \\(\\boldsymbol a^u_{\\rm adv}\\). Then we use \\((\\boldsymbol a^l, \\boldsymbol a^u_{\\rm adv})\\) to interact and update \\(\\pi^l\\). The two policies \\((\\pi^l,\\pi^u)\\) finally converge via multiple mutual iterations.",
           "reference": false,
           "source_image": "figs/p004-001-source.png",
-          "zh": "图 1：ALMI 概览。(a) 在更新上半身策略 πu 时，我们采样对抗性速度指令 cl adv 并获得 al adv。随后我们利用 (au,al adv) 与环境交互收集经验，并通过 PPO 算法 [10] 更新 πu。(b) 类似地，在更新下半身策略时，我们采样对抗性动作 g adv u 并获得 au adv。随后我们利用 (al,au adv) 进行交互并更新 πl。两个策略 ( πl , πu ) 最终通过多轮相互迭代实现收敛。"
+          "zh": "图 1：ALMI 概览。(a) 在更新上半身策略 \\(\\pi^u\\) 时，我们采样对抗性速度指令 \\(\\boldsymbol c^l_{\\rm adv}\\) 并获得 \\(\\boldsymbol a^l_{\\rm adv}\\)。随后我们利用 \\((\\boldsymbol a^u, \\boldsymbol a^l_{\\rm adv})\\) 与环境交互收集经验，并通过 PPO 算法 [10] 更新 \\(\\pi^u\\)。(b) 类似地，在更新下半身策略时，我们采样对抗性动作 \\(\\boldsymbol g^u_{\\rm adv}\\) 并获得 \\(\\boldsymbol a^u_{\\rm adv}\\)。随后我们利用 \\((\\boldsymbol a^l, \\boldsymbol a^u_{\\rm adv})\\) 进行交互并更新 \\(\\pi^l\\)。两个策略 \\((\\pi^l,\\pi^u)\\) 最终通过多轮相互迭代实现收敛。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b2",
@@ -484,10 +538,11 @@
             505,
             275
           ],
-          "en": "By performing independent policy gradient optimization for the two players, we can prove that such a process also results in a ϵ -approximate Nash equilibrium.",
+          "en": "By performing independent policy gradient optimization for the two players, we can prove that such a process also results in a \\(\\epsilon\\)-approximate Nash equilibrium.",
           "reference": false,
           "source_image": "figs/p004-002-source.png",
-          "zh": "通过对博弈双方执行独立策略梯度优化，我们可以证明该过程同样能收敛至 ϵ-近似纳什均衡。"
+          "zh": "通过对博弈双方执行独立策略梯度优化，我们可以证明该过程同样能收敛至 \\(\\epsilon\\)-近似纳什均衡。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b3",
@@ -498,10 +553,11 @@
             506,
             425
           ],
-          "en": "Simplified Formulation. According to Eq. (2) and (4), we require two pairs of ( πl , πu ) to optimize Vl and Vu since they are defined by the opposite max-min problem, which could be computationally expensive. To address this, we propose a simplified framework by learning a single paired policy ( πl , πu ). Specifically, (i) in learning the locomotion policy πl , we optimize the parameters of πl while keeping the upper-body policy πu fixed. However, we sample an adversarial motions with a designed curriculum from the motion dataset, and set the corresponding reference joint position g advu as the condition of πu ( ·| sprop t , g advu) to generate adversarial actionsa advu.Similarly, (ii) in learning the motion imitation policy πu , we only update πu and keep the lower-body policy πl fixed. Then, we sample an adversarial command cl with the curriculum for the locomotion policy πl ( ·| sprop t , cl , · ) to generate al adv.To conclude, we change the inner-loop optimization of the max-min problem (in Eq. (2) and (4)) from the parameter space to the command space (i.e., by sampling g advuandcl adv), which leads to a practical efficient algorithm. Fig. 1 gives an overview of our method.",
+          "en": "Simplified Formulation. According to Eq. (2) and (4), we require two pairs of \\((\\pi^l,\\pi^u)\\) to optimize \\(V^l\\) and \\(V^u\\) since they are defined by the opposite max-min problem, which could be computationally expensive. To address this, we propose a simplified framework by learning a single paired policy \\((\\pi^l,\\pi^u)\\). Specifically, (i) in learning the locomotion policy \\(\\pi^l\\), we optimize the parameters of \\(\\pi^l\\) while keeping the upper-body policy \\(\\pi^u\\) fixed. However, we sample an adversarial motions with a designed curriculum from the motion dataset, and set the corresponding reference joint position \\(\\boldsymbol g^u_{\\rm adv}\\) as the condition of \\(\\pi^u(\\cdot|\\boldsymbol s_t^{\\rm prop}, \\boldsymbol g^u_{\\rm adv})\\) to generate adversarial actions \\(\\boldsymbol a^u_{\\rm adv}\\). Similarly, (ii) in learning the motion imitation policy \\(\\pi^u\\), we only update \\(\\pi^u\\) and keep the lower-body policy \\(\\pi^l\\) fixed. Then, we sample an adversarial command \\(\\boldsymbol c^l\\) with the curriculum for the locomotion policy \\(\\pi^l(\\cdot|\\boldsymbol s_t^{\\rm prop}, \\boldsymbol c^l, \\cdot)\\) to generate \\(\\boldsymbol a^l_{\\rm adv}\\). To conclude, we change the inner-loop optimization of the max-min problem (in Eq. (2) and (4)) from the parameter space to the command space (i.e., by sampling \\(\\boldsymbol g^u_{\\rm adv}\\) and \\(\\boldsymbol c^l_{\\rm adv}\\)), which leads to a practical efficient algorithm. Fig. 1 gives an overview of our method.",
           "reference": false,
           "source_image": "figs/p004-003-source.png",
-          "zh": "简化形式。根据式 (2) 和 (4)，由于 Vl 和 Vu 是由相反的极大极小问题定义的，我们需要两对 ( πl , πu ) 来分别优化它们，而这在计算上可能非常昂贵。为了解决这个问题，我们提出了一个简化框架，通过学习单一配对策略 ( πl , πu ) 来实现。具体而言：(i) 在学习运动策略 πl 时，我们优化 πl 的参数，同时保持上半身策略 πu 固定。然而，我们基于设计的课程从动作数据集中采样对抗性动作，并将对应的参考关节位置 g advu 作为 πu ( ·| sprop t , g advu) 的条件，以生成对抗性动作 a advu。(ii) 类似地，在学习动作模仿策略 πu 时，我们仅更新 πu 并保持下半身策略 πl 固定。随后，我们利用针对运动策略 πl ( ·| sprop t , cl , · ) 的课程采样对抗性指令 cl，以生成 al adv。总的来说，我们将极大极小问题（式 (2) 和 (4) 中）的内循环优化从参数空间转变为指令空间（即通过采样 g advu 和 cl adv），从而带来了一种实用高效的算法。图 1 给出了我们方法的概览。"
+          "zh": "简化形式。根据式 (2) 和 (4)，由于 \\(V^l\\) 和 \\(V^u\\) 是由相反的极大极小问题定义的，我们需要两对 \\((\\pi^l,\\pi^u)\\) 来分别优化它们，而这在计算上可能非常昂贵。为了解决这个问题，我们提出了一个简化框架，通过学习单一配对策略 \\((\\pi^l,\\pi^u)\\) 来实现。具体而言：(i) 在学习运动策略 \\(\\pi^l\\) 时，我们优化 \\(\\pi^l\\) 的参数，同时保持上半身策略 \\(\\pi^u\\) 固定。然而，我们基于设计的课程从动作数据集中采样对抗性动作，并将对应的参考关节位置 \\(\\boldsymbol g^u_{\\rm adv}\\) 作为 \\(\\pi^u(\\cdot|\\boldsymbol s_t^{\\rm prop}, \\boldsymbol g^u_{\\rm adv})\\) 的条件，以生成对抗性动作 \\(\\boldsymbol a^u_{\\rm adv}\\)。(ii) 类似地，在学习动作模仿策略 \\(\\pi^u\\) 时，我们仅更新 \\(\\pi^u\\) 并保持下半身策略 \\(\\pi^l\\) 固定。随后，我们利用针对运动策略 \\(\\pi^l(\\cdot|\\boldsymbol s_t^{\\rm prop}, \\boldsymbol c^l, \\cdot)\\) 的课程采样对抗性指令 \\(\\boldsymbol c^l\\)，以生成 \\(\\boldsymbol a^l_{\\rm adv}\\)。总的来说，我们将极大极小问题（式 (2) 和 (4) 中）的内循环优化从参数空间转变为指令空间（即通过采样 \\(\\boldsymbol g^u_{\\rm adv}\\) 和 \\(\\boldsymbol c^l_{\\rm adv}\\)），从而带来了一种实用高效的算法。图 1 给出了我们方法的概览。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b4",
@@ -540,10 +596,11 @@
             505,
             674
           ],
-          "en": "Motivation of Curriculum. In learning a robust locomotion policy, an adversarial upper body component is essential to generate perturbations. However, directly training such an adversary is challenging. Empirical results show that without constraints, the upper body can terminate episodes early or collide with the lower body to minimize its reward. Manually designing constraints is labor intensive, and the lower body can exploit flaws in the reward function, leading to poor real-world performance. Thus, as we discussed in §3.1, we simplify the original problem by sampling adversarial motions without updating the upper-body policy. Although aggressive sampling of highly dynamic motions can reduce the locomotion policy’s value function (i.e. Vl ) as in Eq. (2), this strategy cannot adequately teach the locomotion policy how to resist disturbances when the policy is relatively weak, resulting in slow convergence. To overcome this, we introduce a novel curriculum mechanism that starts with moderate disturbances and gradually increases their intensity as the lower body’s robustness improves, ensuring efficient learning and robustness improvement throughout training.",
+          "en": "Motivation of Curriculum. In learning a robust locomotion policy, an adversarial upper body component is essential to generate perturbations. However, directly training such an adversary is challenging. Empirical results show that without constraints, the upper body can terminate episodes early or collide with the lower body to minimize its reward. Manually designing constraints is labor intensive, and the lower body can exploit flaws in the reward function, leading to poor real-world performance. Thus, as we discussed in §3.1, we simplify the original problem by sampling adversarial motions without updating the upper-body policy. Although aggressive sampling of highly dynamic motions can reduce the locomotion policy’s value function (i.e. \\(V^l\\)) as in Eq. (2), this strategy cannot adequately teach the locomotion policy how to resist disturbances when the policy is relatively weak, resulting in slow convergence. To overcome this, we introduce a novel curriculum mechanism that starts with moderate disturbances and gradually increases their intensity as the lower body’s robustness improves, ensuring efficient learning and robustness improvement throughout training.",
           "reference": false,
           "source_image": "figs/p004-006-source.png",
-          "zh": "课程设计的动机。在学习鲁棒运动策略时，对抗性上半身模块对于产生扰动至关重要。然而，直接训练这样一个对抗模块极具挑战性。经验结果表明，在缺乏约束的情况下，上半身可能会通过提前终止回合或与下半身发生碰撞来最小化其奖励。人工设计约束费时费力，且下半身可能会利用奖励函数中的漏洞，导致较差的现实世界表现。因此，正如我们在 §3.1 中所讨论的，我们通过采样对抗性动作而不更新上半身策略来简化原始问题。尽管激进地采样高动态动作可以像式 (2) 中那样降低运动策略的价值函数（即 Vl ），但当该策略相对较弱时，这种策略无法充分教会运动策略如何抵御扰动，从而导致收敛缓慢。为了克服这一问题，我们引入了一种新颖的课程机制，该机制从中等强度的扰动开始，并随着下半身鲁棒性的提高逐步增加扰动强度，确保在整个训练过程中实现高效学习和鲁棒性提升。"
+          "zh": "课程设计的动机。在学习鲁棒运动策略时，对抗性上半身模块对于产生扰动至关重要。然而，直接训练这样一个对抗模块极具挑战性。经验结果表明，在缺乏约束的情况下，上半身可能会通过提前终止回合或与下半身发生碰撞来最小化其奖励。人工设计约束费时费力，且下半身可能会利用奖励函数中的漏洞，导致较差的现实世界表现。因此，正如我们在 §3.1 中所讨论的，我们通过采样对抗性动作而不更新上半身策略来简化原始问题。尽管激进地采样高动态动作可以像式 (2) 中那样降低运动策略的价值函数（即 \\(V^l\\) ），但当该策略相对较弱时，这种策略无法充分教会运动策略如何抵御扰动，从而导致收敛缓慢。为了克服这一问题，我们引入了一种新颖的课程机制，该机制从中等强度的扰动开始，并随着下半身鲁棒性的提高逐步增加扰动强度，确保在整个训练过程中实现高效学习和鲁棒性提升。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b7",
@@ -554,10 +611,11 @@
             506,
             723
           ],
-          "en": "Dual Curriculum Mechanism. We propose a novel dual curriculum mechanism for adversarial motion sampling by scoring upper-body motions based on their impact on the lower-body’s stability. Specifically, we initially train a basic locomotion policy π 0lwithout any upper body intervention. Then we use a PD controller (in the first round) or πu to control the upper-body to track motions from",
+          "en": "Dual Curriculum Mechanism. We propose a novel dual curriculum mechanism for adversarial motion sampling by scoring upper-body motions based on their impact on the lower-body’s stability. Specifically, we initially train a basic locomotion policy \\(\\pi_0^l\\) without any upper body intervention. Then we use a PD controller (in the first round) or \\(\\pi^u\\) to control the upper-body to track motions from",
           "reference": false,
           "source_image": "figs/p004-007-source.png",
-          "zh": "双重课程机制。我们提出了一种新颖的对抗性动作采样双重课程机制，通过根据上半身动作对下半身稳定性的影响对其进行评分。具体而言，我们最初在没有任何上半身干预的情况下训练一个基础运动策略 π 0l。随后，我们使用 PD 控制器（在第一轮中）或 πu 控制上半身跟踪来自"
+          "zh": "双重课程机制。我们提出了一种新颖的对抗性动作采样双重课程机制，通过根据上半身动作对下半身稳定性的影响对其进行评分。具体而言，我们最初在没有任何上半身干预的情况下训练一个基础运动策略 \\(\\pi_0^l\\)。随后，我们使用 PD 控制器（在第一轮中）或 \\(\\pi^u\\) 控制上半身跟踪来自",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -573,26 +631,36 @@
             506,
             130
           ],
-          "en": "the re-targeted AMASS [7] dataset in simulation, while the lower body follows the basic velocity commands. The robot inevitably falls initially due to upper body perturbations, and we record survival length (denoted as lsl ∈ [0 , l maxsl]) as the primary metric for motion difficulty.Then, motions are sorted into a list M = [ M 1 , . . . , M| M | ] by increasing difficulty based on survival length. Further, we introduce a factor, motion scale αs ∈ [0 , 1], to scale the target joint positions of the upper body as",
+          "en": "the re-targeted AMASS [7] dataset in simulation, while the lower body follows the basic velocity commands. The robot inevitably falls initially due to upper body perturbations, and we record survival length (denoted as \\(l^{\\rm sl}\\in[0,l^{\\rm sl}_{\\rm max}]\\)) as the primary metric for motion difficulty. Then, motions are sorted into a list \\(\\mathbf{M}=[M_1,\\ldots,M_{|\\mathbf{M}|}]\\) by increasing difficulty based on survival length. Further, we introduce a factor, motion scale \\(\\alpha_s\\in[0,1]\\), to scale the target joint positions of the upper body as",
           "reference": false,
           "source_image": "figs/p005-000-source.png",
-          "zh": "仿真中重定向的 AMASS [7] 数据集的动作，同时下半身遵循基础速度指令。在初始阶段，机器人不可避免地会因上半身扰动而摔倒，我们记录存活时长（记为 lsl ∈ [0 , l maxsl]）作为动作难度的主要衡量指标。随后，根据存活时长将动作按难度递增排序为一个列表 M = [ M 1 , . . . , M| M | ]。此外，我们引入了一个因子——动作缩放因子 αs ∈ [0 , 1]，将上半身的目标关节位置缩放为"
+          "zh": "仿真中重定向的 AMASS [7] 数据集的动作，同时下半身遵循基础速度指令。在初始阶段，机器人不可避免地会因上半身扰动而摔倒，我们记录存活时长（记为 \\(l^{\\rm sl}\\in[0,l^{\\rm sl}_{\\rm max}]\\)) 作为动作难度的主要衡量指标。随后，根据存活时长将动作按难度递增排序为一个列表 \\(\\mathbf{M}=[M_1,\\ldots,M_{|\\mathbf{M}|}]\\) 。此外，我们引入了一个因子——动作缩放因子 \\(\\alpha_s\\in[0,1]\\)，将上半身的目标关节位置缩放为",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b1",
           "kind": "formula",
           "bbox": [
-            249,
-            136,
-            505,
-            150
+            247.0,
+            134.0,
+            507.0,
+            152.0
           ],
           "en": "q target i = q 0 i + αs ( q ref i − q 0 i ) . (5)",
           "reference": false,
           "image": "figs/p005-001.png",
           "labels": [
             "5"
-          ]
+          ],
+          "original_bbox": [
+            249.0,
+            136.0,
+            505.0,
+            150.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 780,
+          "image_height": 54
         },
         {
           "id": "p5-b2",
@@ -603,26 +671,36 @@
             505,
             232
           ],
-          "en": "For each iteration, the robot is assigned a window of motions [ Mαd, Mαd + w ] from M , where w is the window size and αd = 1 at the start. These motions, scaled by αs , are used to control the upper body to provide disturbances. The lower-body policy π 0lis updated toπ 1l←π 0lthrough an RL optimization process with locomotion-related rewards detailed in Appendix B.2. To adaptively adjust the difficulty of sampled motions, we calculate mean survival length (denoted as lmsl ) of the sampled motions as a metric to update αd and αs , which progressively increases motion difficulty based on the current policy’s anti-disturbance capability. Formally,",
+          "en": "For each iteration, the robot is assigned a window of motions \\([M_{\\alpha_d},M_{\\alpha_d+w}]\\) from \\(\\mathbf{M}\\), where \\(w\\) is the window size and \\(\\alpha_d=1\\) at the start. These motions, scaled by \\(\\alpha_s\\), are used to control the upper body to provide disturbances. The lower-body policy \\(\\pi^l_0\\) is updated to \\(\\pi^l_1\\leftarrow \\pi^l_0\\) through an RL optimization process with locomotion-related rewards detailed in Appendix B.2. To adaptively adjust the difficulty of sampled motions, we calculate mean survival length (denoted as \\(l^{\\rm msl}\\)) of the sampled motions as a metric to update \\(\\alpha_d\\) and \\(\\alpha_s\\), which progressively increases motion difficulty based on the current policy’s anti-disturbance capability. Formally,",
           "reference": false,
           "source_image": "figs/p005-002-source.png",
-          "zh": "在每次迭代中，机器人被分配来自 M 的一个动作窗口 [ Mαd, Mαd + w ]，其中 w 为窗口大小，初始时 αd = 1。这些经 αs 缩放的动作被用于控制上半身以提供扰动。下半身策略 π 0l 通过强化学习优化过程更新为 π 1l←π 0l，其运动相关奖励详见附录 B.2。为了自适应地调整采样动作的难度，我们计算采样动作的平均存活时长（记为 lmsl）作为更新 αd 和 αs 的指标，从而根据当前策略的抗扰动能力逐步提升动作难度。形式化地，"
+          "zh": "在每次迭代中，机器人被分配来自 \\(\\mathbf{M}\\) 的一个动作窗口 \\([M_{\\alpha_d},M_{\\alpha_d+w}]\\)，其中 \\(w\\) 为窗口大小，初始时 \\(\\alpha_d = 1\\)。这些经 \\(\\alpha_s\\) 缩放的动作被用于控制上半身以提供扰动。下半身策略 \\(\\pi^l_0\\) 通过强化学习优化过程更新为 \\(\\pi^l_1\\leftarrow \\pi^l_0\\)，其运动相关奖励详见附录 B.2。为了自适应地调整采样动作的难度，我们计算采样动作的平均存活时长（记为 \\(l^{\\rm msl}\\)）作为更新 \\(\\alpha_d\\) 和 \\(\\alpha_s\\) 的指标，从而根据当前策略的抗扰动能力逐步提升动作难度。形式化地，",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b3",
           "kind": "formula",
           "bbox": [
-            189,
-            239,
-            505,
-            264
+            187.0,
+            236.63912963867188,
+            507.0,
+            266.0
           ],
           "en": "αd ← �min(max( ααdd + − w, 2 w, | M 0) | −, w ) , otherwiseif l msl ≥ 0 . 8 ∗ l max sl , (6)",
           "reference": false,
           "image": "figs/p005-003.png",
           "labels": [
             "6"
-          ]
+          ],
+          "original_bbox": [
+            189.0,
+            239.0,
+            505.0,
+            264.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 960,
+          "image_height": 89
         },
         {
           "id": "p5-b4",
@@ -633,26 +711,36 @@
             506,
             294
           ],
-          "en": "which increases the difficulty if πl can effectively resist the interference caused by sampled motions, and decreases the difficulty otherwise. The update of motion scale follows a similar process as",
+          "en": "which increases the difficulty if \\(\\pi^l\\) can effectively resist the interference caused by sampled motions, and decreases the difficulty otherwise. The update of motion scale follows a similar process as",
           "reference": false,
           "source_image": "figs/p005-004-source.png",
-          "zh": "如果 πl 能够有效抵御采样动作所引起的干扰，则增加难度，反之则降低难度。动作缩放因子的更新遵循类似的过程："
+          "zh": "如果 \\(\\pi^l\\) 能够有效抵御采样动作所引起的干扰，则增加难度，反之则降低难度。动作缩放因子的更新遵循类似的过程：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b5",
           "kind": "formula",
           "bbox": [
-            211,
-            301,
-            505,
-            326
+            209.0,
+            299.0,
+            507.0,
+            328.0
           ],
           "en": "αd = | M | − w αs ← �max(min( ααss + 0 − 0 .. 0501 ,, 1) 0) ,, αd = 0 , (7)",
           "reference": false,
           "image": "figs/p005-005.png",
           "labels": [
             "7"
-          ]
+          ],
+          "original_bbox": [
+            211.0,
+            301.0,
+            505.0,
+            326.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 894,
+          "image_height": 87
         },
         {
           "id": "p5-b6",
@@ -663,10 +751,11 @@
             505,
             398
           ],
-          "en": "which signifies that the motion scale αs increases after all motions at the current scale are successfully managed. However, increasing αs typically decreases lmsl , potentially causing αd to decrease and resulting in motion sampling that reverts to previous entries in M . This triggers a new cycle of policy updates with adjusted motions and scales. To maintain relevance, the motion list M is periodically re-sorted to ensure alignment with the evolving robustness of the locomotion policy. The Algorithm 1 in Appendix B.2 gives a training process for the locomotion policy.",
+          "en": "which signifies that the motion scale \\(\\alpha_s\\) increases after all motions at the current scale are successfully managed. However, increasing \\(\\alpha_s\\) typically decreases \\(l^{\\rm msl}\\), potentially causing \\(\\alpha_d\\) to decrease and resulting in motion sampling that reverts to previous entries in \\(\\mathbf{M}\\). This triggers a new cycle of policy updates with adjusted motions and scales. To maintain relevance, the motion list \\(\\mathbf{M}\\) is periodically re-sorted to ensure alignment with the evolving robustness of the locomotion policy. The Algorithm 1 in Appendix B.2 gives a training process for the locomotion policy.",
           "reference": false,
           "source_image": "figs/p005-006-source.png",
-          "zh": "这表明在当前尺度下的所有动作都被成功应对后，动作缩放因子 αs 才会增加。然而，增大 αs 通常会降低 lmsl，这可能导致 αd 减小，从而使动作采样回退到 M 中的前序条目。这会触发新一轮使用调整后的动作和尺度的策略更新周期。为了保持适用性，动作列表 M 会被定期重新排序，以确保与运动策略不断发展的鲁棒性保持一致。附录 B.2 中的算法 1 给出了运动策略的训练流程。"
+          "zh": "这表明在当前尺度下的所有动作都被成功应对后，动作缩放因子 \\(\\alpha_s\\) 才会增加。然而，增大 \\(\\alpha_s\\) 通常会降低 \\(l^{\\rm msl}\\)，这可能导致 \\(\\alpha_d\\) 减小，从而使动作采样回退到 \\(\\mathbf{M}\\) 中的前序条目。这会触发新一轮使用调整后的动作和尺度的策略更新周期。为了保持适用性，动作列表 \\(\\mathbf{M}\\) 会被定期重新排序，以确保与运动策略不断发展的鲁棒性保持一致。附录 B.2 中的算法 1 给出了运动策略的训练流程。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b7",
@@ -691,10 +780,11 @@
             505,
             475
           ],
-          "en": "The upper-body policy πu aims to track various motions under disturbances from lower-body movements with adversarial commands. Before motion tracking, we follow the process proposed by PHC [11] to re-target the human motion from AMASS [7] dataset to humanoid robot. To enhance motion smoothness, we applied low-pass filtering to the re-targeted motion data.",
+          "en": "The upper-body policy \\(\\pi^u\\) aims to track various motions under disturbances from lower-body movements with adversarial commands. Before motion tracking, we follow the process proposed by PHC [11] to re-target the human motion from AMASS [7] dataset to humanoid robot. To enhance motion smoothness, we applied low-pass filtering to the re-targeted motion data.",
           "reference": false,
           "source_image": "figs/p005-008-source.png",
-          "zh": "上半身策略 πu 旨在抵御来自具有对抗性指令的下半身运动所产生的扰动，并跟踪各种动作。在动作跟踪之前，我们遵循 PHC [11] 提出的流程，将来自 AMASS [7] 数据集的人体动作重定向到人形机器人上。为了增强动作的平滑度，我们对重定向后的动作数据应用了低通滤波。"
+          "zh": "上半身策略 \\(\\pi^u\\) 旨在抵御来自具有对抗性指令的下半身运动所产生的扰动，并跟踪各种动作。在动作跟踪之前，我们遵循 PHC [11] 提出的流程，将来自 AMASS [7] 数据集的人体动作重定向到人形机器人上。为了增强动作的平滑度，我们对重定向后的动作数据应用了低通滤波。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b9",
@@ -705,10 +795,11 @@
             506,
             579
           ],
-          "en": "In the adversarial training process, we use the locomotion policy πl in the current round to control the lower body, and the upper-body policy is learned by maximizing the motion tracking reward. Different from §3.2 that requires delicate curriculum mechanism, the curriculum for adversarial πl can be relatively simple since the command cl only contains velocity commands. Specifically, cl is sampled from a range of [ cl min,c maxl], and we adjust the value ofcl minandc maxlaccording to the tracking error or motions in the upper body, which is affected by the movement of the lower body. In training πu , the lower-body command gradually increase its difficulty based on the tracking error of the upper body. The detailed curriculum mechanism and reward design in learning the upper-body policy is given in Appendix B.3.",
+          "en": "In the adversarial training process, we use the locomotion policy \\(\\pi^l\\) in the current round to control the lower body, and the upper-body policy is learned by maximizing the motion tracking reward. Different from §3.2 that requires delicate curriculum mechanism, the curriculum for adversarial \\(\\pi^l\\) can be relatively simple since the command \\(\\mathbf{c}^l\\) only contains velocity commands. Specifically, \\(\\mathbf{c}^l\\) is sampled from a range of \\([\\boldsymbol{c}^l_{\\text{min}},\\boldsymbol{c}^l_{\\text{max}}]\\), and we adjust the value of \\(\\boldsymbol{c}^l_{\\text{min}}\\) and \\(\\boldsymbol{c}^l_{\\text{max}}\\) according to the tracking error or motions in the upper body, which is affected by the movement of the lower body. In training \\(\\pi^u\\), the lower-body command gradually increase its difficulty based on the tracking error of the upper body. The detailed curriculum mechanism and reward design in learning the upper-body policy is given in Appendix B.3.",
           "reference": false,
           "source_image": "figs/p005-009-source.png",
-          "zh": "在对抗性训练过程中，我们使用当前轮次的运动策略 πl 来控制下半身，并通过最大化动作跟踪奖励来学习上半身策略。与 §3.2 中需要精细课程机制不同，对抗性 πl 的课程可以相对简单，因为指令 cl 仅包含速度指令。具体而言，cl 是从范围 [ cl min,c maxl] 中采样的，并且我们根据受下半身运动影响的上半身跟踪误差或动作来调整 cl min 和 c maxl 的取值。在训练 πu 时，下半身指令根据上半身的跟踪误差逐步增加其难度。学习上半身策略的详细课程机制和奖励设计在附录 B.3 中给出。"
+          "zh": "在对抗性训练过程中，我们使用当前轮次的运动策略 \\(\\pi^l\\) 来控制下半身，并通过最大化动作跟踪奖励来学习上半身策略。与 §3.2 中需要精细课程机制不同，对抗性 \\(\\pi^l\\) 的课程可以相对简单，因为指令 \\(\\mathbf{c}^l\\) 仅包含速度指令。具体而言，\\(\\mathbf{c}^l\\) 是从范围 \\([\\boldsymbol{c}^l_{\\text{min}},\\boldsymbol{c}^l_{\\text{max}}]\\) 中采样的，并且我们根据受下半身运动影响的上半身跟踪误差或动作来调整 \\(\\boldsymbol{c}^l_{\\text{min}}\\) 和 \\(\\boldsymbol{c}^l_{\\text{max}}\\) 的取值。在训练 \\(\\pi^u\\) 时，下半身指令根据上半身的跟踪误差逐步增加其难度。学习上半身策略的详细课程机制和奖励设计在附录 B.3 中给出。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b10",
@@ -747,10 +838,11 @@
             506,
             722
           ],
-          "en": "Dataset Construction. We collect ALMI-X dataset in MuJoCo simulation by running the trained ALMI policy, which consists of the final policy πl and πu . In this simulation, we combine a diverse range of upper-body motions with omnidirectional lower-body commands, and employ a pre-defined paradigm to generate corresponding linguistic descriptions for each combination. (i) For the upperbody, we collect data using our upper-body policy to track various motions from a subset of the AMASS dataset [7], where we remove entries with indistinct movements or those that could not",
+          "en": "Dataset Construction. We collect ALMI-X dataset in MuJoCo simulation by running the trained ALMI policy, which consists of the final policy \\(\\pi^l\\) and \\(\\pi^u\\). In this simulation, we combine a diverse range of upper-body motions with omnidirectional lower-body commands, and employ a pre-defined paradigm to generate corresponding linguistic descriptions for each combination. (i) For the upperbody, we collect data using our upper-body policy to track various motions from a subset of the AMASS dataset [7], where we remove entries with indistinct movements or those that could not",
           "reference": false,
           "source_image": "figs/p005-012-source.png",
-          "zh": "数据集构建。我们通过在 MuJoCo 仿真中运行训练好的 ALMI 策略（由最终策略 πl 和 πu 组成）来收集 ALMI-X 数据集。在该仿真中，我们将丰富多样的上半身动作与全向的下半身指令相结合，并采用预定义的范式为每种组合生成相应的语言描述。(i) 对于上半身，我们使用上半身策略收集数据，以跟踪来自 AMASS 数据集 [7] 子集的各种动作，其中我们移除了动作模糊或无法"
+          "zh": "数据集构建。我们通过在 MuJoCo 仿真中运行训练好的 ALMI 策略（由最终策略 \\(\\pi^l\\) 和 \\(\\pi^u\\) 组成）来收集 ALMI-X 数据集。在该仿真中，我们将丰富多样的上半身动作与全向的下半身指令相结合，并采用预定义的范式为每种组合生成相应的语言描述。(i) 对于上半身，我们使用上半身策略收集数据，以跟踪来自 AMASS 数据集 [7] 子集的各种动作，其中我们移除了动作模糊或无法",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -761,15 +853,24 @@
           "id": "p6-b0",
           "kind": "picture",
           "bbox": [
-            127,
-            71,
-            485,
-            207
+            125.0,
+            69.0,
+            487.0,
+            209.0
           ],
           "en": "A L M I - X Current Text Command State-Action CLIP Pair Vectors Language Description Data Motion Selection Upper Collection Causal Self-Attention -body Policy observed Predict Next state State-Action executed Pair Vectors action Command Selection Lower execute action Lv.3 -body Policy Lv.2 Lv.1 (a) ALMI-X Collection (b) Transformer-based Foundation Policy",
           "reference": false,
           "image": "figs/p006-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            127.0,
+            71.0,
+            485.0,
+            207.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1086,
+          "image_height": 420
         },
         {
           "id": "p6-b1",
@@ -780,10 +881,11 @@
             506,
             260
           ],
-          "en": "Figure 2: ALMI-X dataset and foundation model training. (a) ALMI-X features motion target and velocity command for the learned policies, combining with language description. (b) The foundation model learns P (ˆ ai +1 |s≤i, a≤i, T ) from a segment of state-action pairs via causal attention. In inference, the the last action is executed based on the history and obtains the true state for next steps.",
+          "en": "Figure 2: ALMI-X dataset and foundation model training. (a) ALMI-X features motion target and velocity command for the learned policies, combining with language description. (b) The foundation model learns \\(P(\\hat{a}_{i+1}|s_{\\leq i},a_{\\leq i},\\mathcal{T})\\) from a segment of state-action pairs via causal attention. In inference, the the last action is executed based on the history and obtains the true state for next steps.",
           "reference": false,
           "source_image": "figs/p006-001-source.png",
-          "zh": "图 2：ALMI-X 数据集与基础模型训练。(a) ALMI-X 具有用于已学习策略的动作目标和速度指令，并与语言描述相结合。(b) 基础模型通过因果注意力从一段状态-动作对中学习 P (ˆ ai +1 |s≤i, a≤i, T )。在推理时，基于历史信息执行最后一个动作，并获取用于后续步骤的真实状态。"
+          "zh": "图 2：ALMI-X 数据集与基础模型训练。(a) ALMI-X 具有用于已学习策略的动作目标和速度指令，并与语言描述相结合。(b) 基础模型通过因果注意力从一段状态-动作对中学习 \\(P(\\hat{a}_{i+1}|s_{\\leq i},a_{\\leq i},\\mathcal{T})\\)。在推理时，基于历史信息执行最后一个动作，并获取用于后续步骤的真实状态。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b2",
@@ -794,10 +896,11 @@
             506,
             426
           ],
-          "en": "be matched with the lower-body commands, such as push from behind . (ii) For the lower-body, we first categorize command directions into several types according to different combination of linear and angular velocity command and define 3 difficulty levels for command magnitudes, then the lower-body command is set by combining direction types and difficulty levels. Overall, each upper-body motion from the AMASS subset is paired with a specific direction type and a difficulty level serving as the inputs of πu and πl to control the robot. In addition, trajectories in which the lower body keep standing while the upper body tracks motions are also incorporated into the dataset. Each language description T in ALMI-X is organized as \"${movement mode} ${direction} ${velocity level} and ${motion}\" , each of which corresponds to the data collected from a trajectory lasting on average 4 seconds with 200 steps. For each T , we run two policies (i.e., πu , πl ) based on the commands obtained from the aforementioned combinations to achieve humanoid whole-body control. We record the trajectory information such as the the robot states τs = ( s 0 , s 1 , ..., sT ) and actions τa = ( a 0 , a 1 , ..., aT ). Our data exhibits high executability, and the details are discussed in Appendix C.",
+          "en": "be matched with the lower-body commands, such as push from behind . (ii) For the lower-body, we first categorize command directions into several types according to different combination of linear and angular velocity command and define 3 difficulty levels for command magnitudes, then the lower-body command is set by combining direction types and difficulty levels. Overall, each upper-body motion from the AMASS subset is paired with a specific direction type and a difficulty level serving as the inputs of \\(\\pi^u\\) and \\(\\pi^l\\) to control the robot. In addition, trajectories in which the lower body keep standing while the upper body tracks motions are also incorporated into the dataset. Each language description \\(\\mathcal{T}\\) in ALMI-X is organized as \"${movement mode} ${direction} ${velocity level} and ${motion}\" , each of which corresponds to the data collected from a trajectory lasting on average 4 seconds with 200 steps. For each \\(\\mathcal{T}\\) , we run two policies (i.e., \\(\\pi^u\\) , \\(\\pi^l\\) ) based on the commands obtained from the aforementioned combinations to achieve humanoid whole-body control. We record the trajectory information such as the the robot states \\(\\tau_s=(s_0, s_1, ..., s_T)\\) and actions \\(\\tau_a=(a_0, a_1, ..., a_T)\\). Our data exhibits high executability, and the details are discussed in Appendix C.",
           "reference": false,
           "source_image": "figs/p006-002-source.png",
-          "zh": "与下半身指令相匹配的条目，例如“从后方推”（push from behind）。(ii) 对于下半身，我们首先根据线速度与角速度指令的不同组合将指令方向划分为几种类型，并为指令幅度定义了 3 个难度等级，然后通过组合方向类型与难度等级来设定下半身指令。总体而言，来自 AMASS 子集的每个上半身动作都与特定的方向类型和难度等级相配对，作为 πu 和 πl 的输入以控制机器人。此外，下半身保持站立而上半身跟踪动作的轨迹也被纳入数据集中。ALMI-X 中的每个语言描述 T 均组织为“${movement mode} ${direction} ${velocity level} and ${motion}”，其中每个描述对应于从平均持续 4 秒、包含 200 步的轨迹中收集的数据。对于每个 T，我们根据从上述组合中获得的指令运行两个策略（即 πu , πl）以实现人形机器人的全身控制。我们记录轨迹信息，例如机器人状态 τs = ( s 0 , s 1 , ..., sT ) 和动作 τa = ( a 0 , a 1 , ..., aT )。我们的数据展现出高度的可执行性，具体细节在附录 C 中讨论。"
+          "zh": "与下半身指令相匹配的条目，例如“从后方推”（push from behind）。(ii) 对于下半身，我们首先根据线速度与角速度指令的不同组合将指令方向划分为几种类型，并为指令幅度定义了 3 个难度等级，然后通过组合方向类型与难度等级来设定下半身指令。总体而言，来自 AMASS 子集的每个上半身动作都与特定的方向类型和难度等级相配对，作为 \\(\\pi^u\\) 和 \\(\\pi^l\\) 的输入以控制机器人。此外，下半身保持站立而上半身跟踪动作的轨迹也被纳入数据集中。ALMI-X 中的每个语言描述 \\(\\mathcal{T}\\) 均组织为“${movement mode} ${direction} ${velocity level} and ${motion}”，其中每个描述对应于从平均持续 4 秒、包含 200 步的轨迹中收集的数据。对于每个 \\(\\mathcal{T}\\)，我们根据从上述组合中获得的指令运行两个策略（即 \\(\\pi^u\\) , \\(\\pi^l\\)）以实现人形机器人的全身控制。我们记录轨迹信息，例如机器人状态 \\(\\tau_s=(s_0, s_1, ..., s_T)\\) 和动作 \\(\\tau_a=(a_0, a_1, ..., a_T)\\)。我们的数据展现出高度的可执行性，具体细节在附录 C 中讨论。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b3",
@@ -883,10 +986,11 @@
             506,
             336
           ],
-          "en": "Foundation Model for Robotics. Our work is also related to the learning of foundation models for robotics. Previous works mainly focus on building vision-language-action models for end-to-end manipulation, such as MT-Diff [47], RT-1 [48], Octo [49], OpenVLA [50], RDT [51], π 0 [52], GO-1 [53], and BRS [54]. They rely on large-scale datasets collected by humans, such as RH20T [55], Bridge Data [56], RoboMIND [57], Open-X [58], and AgiBot Data [53]. However, these datasets focus mainly on arm manipulation with a fixed or wheeled platform. In contrast, our dataset (i.e., ALMI-X) targets whole-body control in humanoid robots, which involves controlling more DoFs than manipulation tasks. UH-1 [12] is closely related to ALMI, but learns a mapping from text descriptions to keypoints, and low-level actions are found to be unexecutable in real robots.",
+          "en": "Foundation Model for Robotics. Our work is also related to the learning of foundation models for robotics. Previous works mainly focus on building vision-language-action models for end-to-end manipulation, such as MT-Diff [47], RT-1 [48], Octo [49], OpenVLA [50], RDT [51], \\(\\pi_0\\) [52], GO-1 [53], and BRS [54]. They rely on large-scale datasets collected by humans, such as RH20T [55], Bridge Data [56], RoboMIND [57], Open-X [58], and AgiBot Data [53]. However, these datasets focus mainly on arm manipulation with a fixed or wheeled platform. In contrast, our dataset (i.e., ALMI-X) targets whole-body control in humanoid robots, which involves controlling more DoFs than manipulation tasks. UH-1 [12] is closely related to ALMI, but learns a mapping from text descriptions to keypoints, and low-level actions are found to be unexecutable in real robots.",
           "reference": false,
           "source_image": "figs/p007-002-source.png",
-          "zh": "机器人基础模型。我们的工作还与用于机器人领域的基础模型学习相关。以往的工作主要侧重于构建用于端到端操作的视觉-语言-动作模型，例如 MT-Diff [47]、RT-1 [48]、Octo [49]、OpenVLA [50]、RDT [51]、π 0 [52]、GO-1 [53] 以及 BRS [54]。它们依赖于人类采集的大规模数据集，例如 RH20T [55]、Bridge Data [56]、RoboMIND [57]、Open-X [58] 和 AgiBot Data [53]。然而，这些数据集主要集中于基于固定基座或轮式平台的手臂操作。相比之下，我们的数据集（即 ALMI-X）针对的是人形机器人的全身控制，这比操作任务涉及控制更多的自由度（DoF）。UH-1 [12] 与 ALMI 密切相关，但它学习的是从文本描述到关键点的映射，且其低层动作被发现在真实机器人上无法执行。"
+          "zh": "机器人基础模型。我们的工作还与用于机器人领域的基础模型学习相关。以往的工作主要侧重于构建用于端到端操作的视觉-语言-动作模型，例如 MT-Diff [47]、RT-1 [48]、Octo [49]、OpenVLA [50]、RDT [51]、\\(\\pi_0\\) [52]、GO-1 [53] 以及 BRS [54]。它们依赖于人类采集的大规模数据集，例如 RH20T [55]、Bridge Data [56]、RoboMIND [57]、Open-X [58] 和 AgiBot Data [53]。然而，这些数据集主要集中于基于固定基座或轮式平台的手臂操作。相比之下，我们的数据集（即 ALMI-X）针对的是人形机器人的全身控制，这比操作任务涉及控制更多的自由度（DoF）。UH-1 [12] 与 ALMI 密切相关，但它学习的是从文本描述到关键点的映射，且其低层动作被发现在真实机器人上无法执行。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b3",
@@ -939,10 +1043,11 @@
             506,
             595
           ],
-          "en": "Evaluation Metrics. For simulated evaluation, we adopt the high-quality CMU dataset [59] with 1122 motion clips (denoted as D cmu) to evaluate different metrics in IsaacGym [25]. The metrics include (i) the mean linear velocity error E vel(m / s) and the mean angular velocity error E ang(rad / s) that evaluate the command tracking accuracy; (ii) the joints position error E jpeupper (m) and upper body key points error E kpeupper (m) that evaluates the motion tracking accuracy; (iii) the joint difference for both parts E actionupper(rad),E actionlower(rad); (iv) and theprojected gravity Egevaluate the stability of policy. (v) We also statistically analyze survival rate to assess the robustness of the policy.",
+          "en": "Evaluation Metrics. For simulated evaluation, we adopt the high-quality CMU dataset [59] with 1122 motion clips (denoted as \\(\\mathcal{D}_{\\rm cmu}\\)) to evaluate different metrics in IsaacGym [25]. The metrics include (i) the mean linear velocity error \\(E_{\\rm vel} \\rm (m/s)\\) and the mean angular velocity error \\(E_{\\rm ang}\\rm  (rad/s)\\) that evaluate the command tracking accuracy; (ii) the joints position error \\(E^{\\rm upper}_{\\rm jpe} \\rm (m)\\) and upper body key points error \\(E^{\\rm upper}_{\\rm kpe} \\rm (m)\\) that evaluates the motion tracking accuracy; (iii) the joint difference for both parts \\(E^{\\rm upper}_{\\rm action} \\rm (rad)\\), \\(E^{\\rm lower}_{\\rm action} \\rm (rad)\\); (iv) and theprojected gravity \\(E_{\\rm g}\\) evaluate the stability of policy. (v) We also statistically analyze survival rate to assess the robustness of the policy.",
           "reference": false,
           "source_image": "figs/p007-006-source.png",
-          "zh": "评估指标。在仿真评估中，我们采用包含 1122 个动作片段的高质量 CMU 数据集 [59]（记为 D cmu），在 IsaacGym [25] 中评估各项指标。这些指标包括：(i) 用于评估指令跟踪精度的平均线速度误差 E vel(m / s) 与平均角速度误差 E ang(rad / s)；(ii) 用于评估动作跟踪精度的关节位置误差 E jpeupper (m) 与上半身关键点误差 E kpeupper (m)；(iii) 两部分的关节差异 E actionupper(rad)、E actionlower(rad)；(iv) 以及用于评估策略稳定性的投影重力误差 Eg。(v) 我们还统计分析了存活率，以评估策略的鲁棒性。"
+          "zh": "评估指标。在仿真评估中，我们采用包含 1122 个动作片段的高质量 CMU 数据集 [59]（记为 \\(\\mathcal{D}_{\\rm cmu}\\)），在 IsaacGym [25] 中评估各项指标。这些指标包括：(i) 用于评估指令跟踪精度的平均线速度误差 \\(E_{\\rm vel} \\rm (m/s)\\) 与平均角速度误差 \\(E_{\\rm ang}\\rm  (rad/s)\\)；(ii) 用于评估动作跟踪精度的关节位置误差 \\(E^{\\rm upper}_{\\rm jpe} \\rm (m)\\) 与上半身关键点误差 \\(E^{\\rm upper}_{\\rm kpe} \\rm (m)\\)；(iii) 两部分的关节差异 \\(E^{\\rm upper}_{\\rm action} \\rm (rad)\\)、\\(E^{\\rm lower}_{\\rm action} \\rm (rad)\\)；(iv) 以及用于评估策略稳定性的投影重力误差 \\(E_{\\rm g}\\)。(v) 我们还统计分析了存活率，以评估策略的鲁棒性。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b7",
@@ -953,10 +1058,11 @@
             505,
             677
           ],
-          "en": "Baselines. Our baselines are as follows: (i) Exbody [6], which employs a unified policy to control whole-body joints, tracking upper-body movements from motion data and lower-body root motion via command sampling. (ii) ALMI (whole) , which uses a single policy to control the upper and lower bodies, with identical reward functions for training each part as in ALMI. (iii) ALMI (w/o curriculum) . An ablation study that omits the arm curriculum, where the policy loads the motion randomly and the motion scale αs is set to 1. (iv) ALMI (w/o adv. learning) . This study evaluates the impact of our iterative adversarial training by testing policies from the first and second rounds.",
+          "en": "Baselines. Our baselines are as follows: (i) Exbody [6], which employs a unified policy to control whole-body joints, tracking upper-body movements from motion data and lower-body root motion via command sampling. (ii) ALMI (whole) , which uses a single policy to control the upper and lower bodies, with identical reward functions for training each part as in ALMI. (iii) ALMI (w/o curriculum) . An ablation study that omits the arm curriculum, where the policy loads the motion randomly and the motion scale \\(\\alpha_{s}\\) is set to 1. (iv) ALMI (w/o adv. learning) . This study evaluates the impact of our iterative adversarial training by testing policies from the first and second rounds.",
           "reference": false,
           "source_image": "figs/p007-007-source.png",
-          "zh": "基线方法。我们的基线方法如下：(i) Exbody [6]，该方法采用统一策略控制全身关节，通过动作数据跟踪上半身运动，并通过指令采样跟踪下半身根节点运动。(ii) ALMI (whole)，使用单一策略控制上半身和下半身，各部分训练采用与 ALMI 相同的奖励函数。(iii) ALMI (w/o curriculum)，去除了手臂课程的消融研究，其中策略随机加载动作，且动作尺度 αs 设为 1。(iv) ALMI (w/o adv. learning)，该消融研究通过测试第一轮和第二轮的策略，以评估我们迭代对抗训练的影响。"
+          "zh": "基线方法。我们的基线方法如下：(i) Exbody [6]，该方法采用统一策略控制全身关节，通过动作数据跟踪上半身运动，并通过指令采样跟踪下半身根节点运动。(ii) ALMI (whole)，使用单一策略控制上半身和下半身，各部分训练采用与 ALMI 相同的奖励函数。(iii) ALMI (w/o curriculum)，去除了手臂课程的消融研究，其中策略随机加载动作，且动作尺度 \\(\\alpha_{s}\\) 设为 1。(iv) ALMI (w/o adv. learning)，该消融研究通过测试第一轮和第二轮的策略，以评估我们迭代对抗训练的影响。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b8",
@@ -981,10 +1087,11 @@
             506,
             723
           ],
-          "en": "To evaluate locomotion and motion tracking capabilities, we calculate metrics in D cmu using commands in the lower body categorized into difficulty levels easy , medium , and hard , as described",
+          "en": "To evaluate locomotion and motion tracking capabilities, we calculate metrics in \\(\\mathcal{D}_{\\rm cmu}\\) using commands in the lower body categorized into difficulty levels easy , medium , and hard , as described",
           "reference": false,
           "source_image": "figs/p007-009-source.png",
-          "zh": "为了评估移动与动作跟踪能力，我们将下半身指令划分为简单（easy）、中等（medium）和困难（hard）三个难度级别，并在 D cmu 上计算各项指标，具体如"
+          "zh": "为了评估移动与动作跟踪能力，我们将下半身指令划分为简单（easy）、中等（medium）和困难（hard）三个难度级别，并在 \\(\\mathcal{D}_{\\rm cmu}\\) 上计算各项指标，具体如",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1000,10 +1107,11 @@
             506,
             117
           ],
-          "en": "in Table 1. These levels encompass linear velocities in the x and y directions, angular velocity in the yaw direction, terrain level in the Isaac Gym and the presence of external forces. To control variables and facilitate analysis, we assess linear and angular velocities separately (setting the other to zero during testing) and report the average metrics.",
+          "en": "in Table 1. These levels encompass linear velocities in the \\(x\\) and \\(y\\) directions, angular velocity in the yaw direction, terrain level in the Isaac Gym and the presence of external forces. To control variables and facilitate analysis, we assess linear and angular velocities separately (setting the other to zero during testing) and report the average metrics.",
           "reference": false,
           "source_image": "figs/p008-000-source.png",
-          "zh": "表 1 所述。这些级别涵盖了 x 和 y 方向的线速度、偏航（yaw）方向的角速度、Isaac Gym 中的地形等级以及是否存在外力。为了控制变量并便于分析，我们分别评估线速度和角速度（测试时将另一项设为零），并报告平均指标。"
+          "zh": "表 1 所述。这些级别涵盖了 \\(x\\) 和 \\(y\\) 方向的线速度、偏航（yaw）方向的角速度、Isaac Gym 中的地形等级以及是否存在外力。为了控制变量并便于分析，我们分别评估线速度和角速度（测试时将另一项设为零），并报告平均指标。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p8-b1",
@@ -1037,15 +1145,24 @@
           "id": "p8-b3",
           "kind": "table",
           "bbox": [
-            280,
-            141,
-            486,
-            190
+            278.0,
+            139.0,
+            488.0,
+            192.0
           ],
           "en": "|||C|ommand|& Environmen|t| |---|---|---|---|---|---| |Level|ˆvx,t|ˆvy,t|ˆωyaw,t|terrain level|push robot| |easy|0.7|0.0|0.2|0|✗| |medium|1.0|0.3|0.4|3|✓| |hard|1.3|0.6|0.6|6|✓|",
           "reference": false,
           "image": "figs/p008-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            280.0,
+            141.0,
+            486.0,
+            190.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 630,
+          "image_height": 159
         },
         {
           "id": "p8-b4",
@@ -1121,15 +1238,24 @@
           "id": "p8-b9",
           "kind": "table",
           "bbox": [
-            119,
-            566,
-            491,
-            717
+            117.0,
+            564.0,
+            493.0,
+            719.0
           ],
           "en": "|||||M|etrics|||| |---|---|---|---|---|---|---|---|---| |Method|Evel ↓|Eang ↓|Eupper jpe ↓|Eupper kpe ↓|Eupper action ↓|Elower action ↓|Eg ↓|Survival↑| |Easy||||||||| |ALMI|0.1135|0.2647|0.1931|0.0460|0.0462|0.0170|0.6919|1.0000| |ALMI(whole)|0.1386|0.5433|0.5756|0.0704|0.0800|3.0356|0.9675|0.9991| |Exbody|0.2383|0.4056|0.3559|0.0995|1.7813|1.8152|0.9693|0.8912| |Medium||||||||| |ALMI |0.2192|0.3520 |0.2007 |0.0450 |0.0598|0.0172 |0.7604 |0.9852 | |ALMI(whole)|0.2380|0.5563|0.6734|0.0637|0.0409|2.9225|1.0750|0.9763| |Exbody|0.3063|0.5087|0.3658|0.1233|1.7683|1.8019|1.0166|0.8845| |Hard||||||||| |ALMI|0.2202|0.4812|0.2116|0.0458|0.0600|0.0175|0.8551|0.9723| |ALMI(whole)|0.3178|0.7224|0.7022|0.0635|0.0519|2.9317|1.1656|0.9491| |Exbody|0.4838|0.5753|0.3758|0.1269|1.7352|1.7689|1.0243|0.8778|",
           "reference": false,
           "image": "figs/p008-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            119.0,
+            566.0,
+            491.0,
+            717.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1128,
+          "image_height": 465
         }
       ]
     },
@@ -1154,15 +1280,24 @@
           "id": "p9-b1",
           "kind": "table",
           "bbox": [
-            113,
-            92,
-            502,
-            350
+            111.0,
+            90.0,
+            504.0,
+            352.0
           ],
           "en": "|||||Met|rics|||| |---|---|---|---|---|---|---|---|---| |Method|Evel ↓|Eang ↓|Eupper jpe ↓ |Eupper kpe ↓|Eupper action ↓|Elower action|↓ Eg ↓|Survice↑| |Easy||||||||| |lower-3 + upper-2 lower-2 + upper-2 lower-1 + upper-2 w/o arm curriculum|0.1135 0.1164 0.1271 0.1411|0.2647 0.2669 0.2738 0.2726|0.1931 0.1955 0.1928 0.1924|0.0460 0.0452 0.0526 0.0504|0.0462 0.0475 0.0642 0.0618|0.0170 0.0171 0.0171 0.0172|0.6919 0.7121 0.7052 0.7472|1.0000 1.0000 1.0000 0.9995| |Medium||||||||| |lower-3 + upper-2 lower-2 + upper-2|0.2192 0.2213|0.3520 0.3571|0.2007 0.2032|0.0450 0.0458|0.0598 0.0607|0.0172 0.0172|0.7604 0.7748|0.9852 0.9772| | lower-1 + upper-2 w/o arm curriculum|0.2262 0.2571|0.3872 0.4348|0.2173 0.2068|0.0492 0.0476|0.0604 0.0601|0.0175 0.0173|0.7730 1.0587|0.9273 0.9652| |Hard||||||||| |lower-3 + upper-2 lower-2 + upper-2|0.2202 0.2892|0.4812 0.5395|0.2116 0.2231|0.0458 0.0482|0.0600 0.0645|0.0175 0.0178|0.8551 0.9479|0.9723 0.9233| | lower-1 + upper-2 w/o arm curriculum|0.2566 0.3658|0.5172 0.6398|0.2451 0.2394|0.0537 0.0461|0.0777 0.0726|0.0179 0.0180|0.9462 1.2042|0.8743 0.8480| |(a) Salute||(b)|Wave|(c)|Shake hand||(d) P|unch|",
           "reference": false,
           "image": "figs/p009-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            113.0,
+            92.0,
+            502.0,
+            350.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1179,
+          "image_height": 786
         },
         {
           "id": "p9-b2",
@@ -1215,10 +1350,11 @@
             506,
             509
           ],
-          "en": "To answer Q4 , we deploy ALMI on the Unitree H1-2 robot to evaluate real-world performance. For lower-body control, we use a joystick-mounted remote controller to send velocity commands to πl , which controls the robot to achieve omnidirectional movement. For upper body control, we can adopt open-loop controller or ALMI policy to track various motions, as well as using VR devices to support dexterous control in loco-manipulation tasks. The details are given in Appendix E.",
+          "en": "To answer Q4 , we deploy ALMI on the Unitree H1-2 robot to evaluate real-world performance. For lower-body control, we use a joystick-mounted remote controller to send velocity commands to \\(\\pi^l\\) , which controls the robot to achieve omnidirectional movement. For upper body control, we can adopt open-loop controller or ALMI policy to track various motions, as well as using VR devices to support dexterous control in loco-manipulation tasks. The details are given in Appendix E.",
           "reference": false,
           "source_image": "figs/p009-005-source.png",
-          "zh": "为了回答 Q4，我们将 ALMI 部署在 Unitree H1-2 机器人上以评估真实世界性能。对于下半身控制，我们使用带摇杆的遥控器向 πl 发送速度指令，由其控制机器人实现全向移动。对于上半身控制，我们可以采用开环控制器或 ALMI 策略来跟踪各种动作，并可以使用 VR 设备支持移动操作任务中的灵巧控制。详细信息见附录 E。"
+          "zh": "为了回答 Q4，我们将 ALMI 部署在 Unitree H1-2 机器人上以评估真实世界性能。对于下半身控制，我们使用带摇杆的遥控器向 \\(\\pi^l\\) 发送速度指令，由其控制机器人实现全向移动。对于上半身控制，我们可以采用开环控制器或 ALMI 策略来跟踪各种动作，并可以使用 VR 设备支持移动操作任务中的灵巧控制。详细信息见附录 E。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b6",
@@ -2374,26 +2510,36 @@
             505,
             163
           ],
-          "en": "In this section, we provide more theoretical analysis for the Markov game in our method. We give the analysis of the zero-sum game to learn the locomotion policy πl , and a similar analysis can be derived for learning πu . Recall that in learning πl , we consider the lower body as agent , and the upper body is adversary that causes adversarial disturbances to the locomotion policy. Thus, the lower-body policy receives the command-following reward as rl ( s, al , au ), and the upper-body policy obtains a negative reward −rl ( s, al , au ). Formally, the value function Vl ( πl , πu ) is defined as",
+          "en": "In this section, we provide more theoretical analysis for the Markov game in our method. We give the analysis of the zero-sum game to learn the locomotion policy \\(\\pi^l\\) , and a similar analysis can be derived for learning \\(\\pi^u\\) . Recall that in learning \\(\\pi^l\\) , we consider the lower body as agent , and the upper body is adversary that causes adversarial disturbances to the locomotion policy. Thus, the lower-body policy receives the command-following reward as \\(r^l(s,a^l,a^u)\\), and the upper-body policy obtains a negative reward \\(-r^l(s,a^l,a^u)\\). Formally, the value function \\(V^l(\\pi^l,\\pi^u)\\) is defined as",
           "reference": false,
           "source_image": "figs/p014-001-source.png",
-          "zh": "在本节中，我们对我们方法中的马尔可夫博弈提供更详细的理论分析。我们给出了用于学习运动策略 πl 的零和博弈分析，对于学习 πu 也可以推导得出类似的分析。回顾在学习 πl 时，我们将下半身视为智能体（agent），而上半身是对抗者（adversary），会对运动策略产生对抗性扰动。因此，下半身策略获得指令跟随奖励 rl ( s, al , au )，而上半身策略获得负奖励 −rl ( s, al , au )。形式上，值函数 Vl ( πl , πu ) 定义为"
+          "zh": "在本节中，我们对我们方法中的马尔可夫博弈提供更详细的理论分析。我们给出了用于学习运动策略 \\(\\pi^l\\) 的零和博弈分析，对于学习 \\(\\pi^u\\) 也可以推导得出类似的分析。回顾在学习 \\(\\pi^l\\) 时，我们将下半身视为智能体（agent），而上半身是对抗者（adversary），会对运动策略产生对抗性扰动。因此，下半身策略获得指令跟随奖励 \\(r^l(s,a^l,a^u)\\)，而上半身策略获得负奖励 \\(-r^l(s,a^l,a^u)\\)。形式上，值函数 \\(V^l(\\pi^l,\\pi^u)\\) 定义为",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b2",
           "kind": "formula",
           "bbox": [
-            202,
-            169,
-            505,
-            187
+            200.0,
+            167.0,
+            507.0,
+            189.0
           ],
           "en": "V l ( s, π l , π u ) := E πl,πu �� tT =0 rl ( st, al, au ) �� s 0 = s � , (8)",
           "reference": false,
           "image": "figs/p014-002.png",
           "labels": [
             "8"
-          ]
+          ],
+          "original_bbox": [
+            202.0,
+            169.0,
+            505.0,
+            187.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 921,
+          "image_height": 66
         },
         {
           "id": "p14-b3",
@@ -2404,26 +2550,36 @@
             505,
             226
           ],
-          "en": "Then we have the value function as Vρl(πl, πu) = E s∼ρ[Vl(s, πl, πu)], which is defined by the expectation of accumulated locomotion reward rl . According to the theory of stochastic game [60], for any game G , there exists a Nash equilibrium ( π 1⋆, π 2⋆) such thatV ρ(π 1⋆, π 2)≤V ρ(π 1⋆, π 2⋆)≤V ρ(π 1, π 2⋆).Then we have",
+          "en": "Then we have the value function as \\(V^l_\\rho(\\pi^l,\\pi^u)=\\mathbb{E}_{s\\sim \\rho}[V^l(s,\\pi^l,\\pi^u)]\\), which is defined by the expectation of accumulated locomotion reward \\(r^l\\) . According to the theory of stochastic game [60], for any game \\(\\mathcal{G}\\) , there exists a Nash equilibrium \\((\\pi^{\\star}_1,\\pi^{\\star}_2)\\) such that\\(V_\\rho(\\pi^{\\star}_1,\\pi_2) \\leq V_\\rho(\\pi^{\\star}_1,\\pi^{\\star}_2) \\leq V_\\rho(\\pi_1, \\pi^{\\star}_2)\\).Then we have",
           "reference": false,
           "source_image": "figs/p014-003-source.png",
-          "zh": "随后，我们得到值函数 Vρl(πl, πu) = E s∼ρ[Vl(s, πl, πu)]，它被定义为累积运动奖励 rl 的期望。根据随机博弈理论 [60]，对于任意博弈 G，存在纳什均衡 ( π 1⋆, π 2⋆)，使得 V ρ(π 1⋆, π 2)≤V ρ(π 1⋆, π 2⋆)≤V ρ(π 1, π 2⋆)。于是我们有"
+          "zh": "随后，我们得到值函数 \\(V^l_\\rho(\\pi^l,\\pi^u)=\\mathbb{E}_{s\\sim \\rho}[V^l(s,\\pi^l,\\pi^u)]\\)，它被定义为累积运动奖励 \\(r^l\\) 的期望。根据随机博弈理论 [60]，对于任意博弈 \\(\\mathcal{G}\\)，存在纳什均衡 \\((\\pi^{\\star}_1,\\pi^{\\star}_2)\\)，使得 \\(V_\\rho(\\pi^{\\star}_1,\\pi_2) \\leq V_\\rho(\\pi^{\\star}_1,\\pi^{\\star}_2) \\leq V_\\rho(\\pi_1, \\pi^{\\star}_2)\\)。于是我们有",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b4",
           "kind": "formula",
           "bbox": [
-            194,
-            232,
-            505,
-            244
+            192.0,
+            230.0,
+            507.0,
+            246.0
           ],
           "en": "Vρ ( π l , π u⋆ ) ≤ Vρ ( π l⋆ , π u⋆ ) ≤ Vρ ( π l⋆ , π u ) , for all π l , π u , (9)",
           "reference": false,
           "image": "figs/p014-004.png",
           "labels": [
             "9"
-          ]
+          ],
+          "original_bbox": [
+            194.0,
+            232.0,
+            505.0,
+            244.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 945,
+          "image_height": 48
         },
         {
           "id": "p14-b5",
@@ -2443,17 +2599,26 @@
           "id": "p14-b6",
           "kind": "formula",
           "bbox": [
-            177,
-            266,
-            505,
-            283
+            175.0,
+            264.0,
+            507.0,
+            285.0
           ],
           "en": "Vρ l⋆ := Vρ l ( πl∗ , πu∗ ) = max π l min π u V ρ l ( πl, πu ) = min π u max π l V ρ l ( πl, πu ) , (10)",
           "reference": false,
           "image": "figs/p014-006.png",
           "labels": [
             "10"
-          ]
+          ],
+          "original_bbox": [
+            177.0,
+            266.0,
+            505.0,
+            283.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 996,
+          "image_height": 63
         },
         {
           "id": "p14-b7",
@@ -2464,26 +2629,36 @@
             506,
             331
           ],
-          "en": "which signifies that πl is learned to maximize the value function to better follow commands in locomotion, while πu tries to minimize the value function, aiming to provide an effective disturbance to help learn a robust locomotion policy. Our goal in this setting is to develop algorithms to find ε -approximate Nash equilibrium, i.e. to find πl such that",
+          "en": "which signifies that \\(\\pi^l\\) is learned to maximize the value function to better follow commands in locomotion, while \\(\\pi^u\\) tries to minimize the value function, aiming to provide an effective disturbance to help learn a robust locomotion policy. Our goal in this setting is to develop algorithms to find \\(\\varepsilon\\) -approximate Nash equilibrium, i.e. to find \\(\\pi^l\\) such that",
           "reference": false,
           "source_image": "figs/p014-007-source.png",
-          "zh": "这表明学习 πl 旨在最大化值函数以在运动中更好地跟随指令，而 πu 则试图最小化值函数，旨在提供有效扰动以帮助学习鲁棒的运动策略。在此设定下，我们的目标是开发算法以找到 ε-近似纳什均衡，即找到满足如下条件的 πl："
+          "zh": "这表明学习 \\(\\pi^l\\) 旨在最大化值函数以在运动中更好地跟随指令，而 \\(\\pi^u\\) 则试图最小化值函数，旨在提供有效扰动以帮助学习鲁棒的运动策略。在此设定下，我们的目标是开发算法以找到 \\(\\varepsilon\\)-近似纳什均衡，即找到满足如下条件的 \\(\\pi^l\\)：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b8",
           "kind": "formula",
           "bbox": [
-            234,
-            329,
-            505,
-            344
+            232.0,
+            327.0,
+            507.0,
+            346.0
           ],
           "en": "�� min π u Vρ ( πl, πu ) − V ρ l ( πl⋆ , πu⋆ ) �� ≤ ε, (11)",
           "reference": false,
           "image": "figs/p014-008.png",
           "labels": [
             "11"
-          ]
+          ],
+          "original_bbox": [
+            234.0,
+            329.0,
+            505.0,
+            344.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 825,
+          "image_height": 57
         },
         {
           "id": "p14-b9",
@@ -2494,26 +2669,36 @@
             505,
             423
           ],
-          "en": "To solve this min-max problem in Eq. (10), we adopt an independent RL optimization process for both players. Specifically, the agent obtains [( s 0 , a 0l, r 0l), . . . ,(s T, a Tl, r Tl)],andadversarialobtains [( s 0 , a 0u, r 0u), . . . ,(s T, a Tu, r Tu)] by executing each policy in the game to sample a trajectory, where each player is oblivious to the actions of the other player. In our analysis, we adopt continuous policy parameterizations x �→ πu , and y �→ πl , where x ∈X ⊆ Rd1 , y ∈Y ⊆ Rd2 are parameter vectors. Each player simply treats Vρl(x, y)�→V ρl(πu, πl) as a continuous optimization objective, and updates their policy using REINFORCE gradient estimator [61]. For episode i , the two players update their policies with stochastic gradient descent, as",
+          "en": "To solve this min-max problem in Eq. (10), we adopt an independent RL optimization process for both players. Specifically, the agent obtains \\([(s_0,a^l_0,r^l_0),\\ldots,(s_T,a^l_T,r^l_T)]\\),andadversarialobtains \\([(s_0,a^u_0,r^u_0),\\ldots,(s_T,a^u_T,r^u_T)]\\) by executing each policy in the game to sample a trajectory, where each player is oblivious to the actions of the other player. In our analysis, we adopt continuous policy parameterizations \\(x\\mapsto\\pi^u\\) , and \\(y\\mapsto\\pi^l\\) , where \\(x\\in\\mathcal{X}\\subseteq\\mathbb{R}^{d_1}\\) , \\(y\\in\\mathcal{Y}\\subseteq\\mathbb{R}^{d_2}\\) are parameter vectors. Each player simply treats \\(V_{\\rho}^l(x,y)\\mapsto V_\\rho^l(\\pi^u,\\pi^l)\\) as a continuous optimization objective, and updates their policy using REINFORCE gradient estimator [61]. For episode \\(i\\) , the two players update their policies with stochastic gradient descent, as",
           "reference": false,
           "source_image": "figs/p014-009-source.png",
-          "zh": "为了解决式 (10) 中的这一极小极大问题，我们对博弈双方采用独立的强化学习优化过程。具体而言，智能体与对抗者在博弈中分别执行各自策略以采样一条轨迹，智能体获得 [( s 0 , a 0l, r 0l), . . . ,(s T, a Tl, r Tl)]，对抗者获得 [( s 0 , a 0u, r 0u), . . . ,(s T, a Tu, r Tu)]，其中每个参与者都无从知晓另一方的动作。在我们的分析中，我们采用连续策略参数化〔行内公式见原版〕以及〔行内公式见原版〕，其中 x ∈X ⊆ Rd1，y ∈Y ⊆ Rd2 为参数向量。每个参与者只需将〔行内公式见原版〕视为连续优化目标，并使用 REINFORCE 梯度估计器 [61] 更新其策略。对于第 i 个回合，博弈双方通过随机梯度下降更新各自的策略，形式如下："
+          "zh": "为了解决式 (10) 中的这一极小极大问题，我们对博弈双方采用独立的强化学习优化过程。具体而言，智能体与对抗者在博弈中分别执行各自策略以采样一条轨迹，智能体获得 \\([(s_0,a^l_0,r^l_0),\\ldots,(s_T,a^l_T,r^l_T)]\\)，对抗者获得 \\([(s_0,a^u_0,r^u_0),\\ldots,(s_T,a^u_T,r^u_T)]\\)，其中每个参与者都无从知晓另一方的动作。在我们的分析中，我们采用连续策略参数化\\(x\\mapsto\\pi^u\\)以及\\(y\\mapsto\\pi^l\\)，其中 \\(x\\in\\mathcal{X}\\subseteq\\mathbb{R}^{d_1}\\)，\\(y\\in\\mathcal{Y}\\subseteq\\mathbb{R}^{d_2}\\) 为参数向量。每个参与者只需将\\(V_{\\rho}^l(x,y)\\mapsto V_\\rho^l(\\pi^u,\\pi^l)\\)视为连续优化目标，并使用 REINFORCE 梯度估计器 [61] 更新其策略。对于第 \\(i\\) 个回合，博弈双方通过随机梯度下降更新各自的策略，形式如下：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b10",
           "kind": "formula",
           "bbox": [
-            191,
-            429,
-            505,
-            442
+            189.0,
+            427.0,
+            507.0,
+            444.9068603515625
           ],
           "en": "( i ) ( i ) x ( i +1) ←PX ( x ( i ) − ηx � ∇x ) , y ( i +1) ←PY ( y ( i ) + ηy � ∇y ) , (12)",
           "reference": false,
           "image": "figs/p014-010.png",
           "labels": [
             "12"
-          ]
+          ],
+          "original_bbox": [
+            191.0,
+            429.0,
+            505.0,
+            442.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 954,
+          "image_height": 54
         },
         {
           "id": "p14-b11",
@@ -2524,26 +2709,36 @@
             352,
             457
           ],
-          "en": "where PX denotes euclidean projection onto the convex set X , with",
+          "en": "where \\(\\mathcal{P}_{\\mathcal{X}}\\) denotes euclidean projection onto the convex set \\(\\mathcal{X}\\) , with",
           "reference": false,
           "source_image": "figs/p014-011-source.png",
-          "zh": "其中 PX 表示到凸集 X 上的欧氏投影，满足"
+          "zh": "其中 \\(\\mathcal{P}_{\\mathcal{X}}\\) 表示到凸集 \\(\\mathcal{X}\\) 上的欧氏投影，满足",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b12",
           "kind": "formula",
           "bbox": [
-            158,
-            464,
-            505,
-            491
+            156.0,
+            462.0,
+            507.0,
+            493.0
           ],
           "en": "T T ∇ � ( xi ) �→ R T ( i ) � ∇ log π u ( at u ( i ) | s ( ti ) ) , ∇ � ( yi ) �→ RT ( i ) � ∇ log π l ( at l ( i ) | s ( ti ) ) , (13) t =0 t =0",
           "reference": false,
           "image": "figs/p014-012.png",
           "labels": [
             "13"
-          ]
+          ],
+          "original_bbox": [
+            158.0,
+            464.0,
+            505.0,
+            491.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1053,
+          "image_height": 93
         },
         {
           "id": "p14-b13",
@@ -2554,10 +2749,11 @@
             505,
             589
           ],
-          "en": "where RT ( i )�→�T t =0r tl(i) . This process is independent for two players, as they optimize policies independently with policy gradients using their own experiences. Here, it is well-known that if players update their policies independently using online gradient descent/ascent with the same learning rate, the resulting dynamics may cycle, leading to poor guarantees [62, 63]. However, previous studies show that two-timescale rules help policy converge in simple minimax optimization settings [64, 65]. As a result, we follow recent studies in the Min-Max game [66] and use two-timescale updates for the two players, which is a simple modification of the usual gradient descent-ascent scheme for Min-Max optimization, in which the Min player uses a much smaller step size than the Max player. Next, to ensure that the variance of the REINFORCE estimator remains bounded, we require that both players use ε -greedy exploration in conjunction with the basic policy gradient updates.",
+          "en": "where \\(R_T^{{\\scriptscriptstyle(i)}}\\mapsto\\sum_{t=0}^{T}r_t^{l(i)}\\) . This process is independent for two players, as they optimize policies independently with policy gradients using their own experiences. Here, it is well-known that if players update their policies independently using online gradient descent/ascent with the same learning rate, the resulting dynamics may cycle, leading to poor guarantees [62, 63]. However, previous studies show that two-timescale rules help policy converge in simple minimax optimization settings [64, 65]. As a result, we follow recent studies in the Min-Max game [66] and use two-timescale updates for the two players, which is a simple modification of the usual gradient descent-ascent scheme for Min-Max optimization, in which the Min player uses a much smaller step size than the Max player. Next, to ensure that the variance of the REINFORCE estimator remains bounded, we require that both players use \\(\\varepsilon\\) -greedy exploration in conjunction with the basic policy gradient updates.",
           "reference": false,
           "source_image": "figs/p014-013-source.png",
-          "zh": "其中〔行内公式见原版〕。该过程对两个参与者而言是独立的，因为他们利用各自的经验通过策略梯度独立地优化策略。在此，众所周知的是，如果参与者使用相同的学习率通过在线梯度下降/上升独立更新策略，产生的动态过程可能会出现循环振荡，从而导致较弱的理论保证 [62, 63]。然而，先前的研究表明，双时间尺度规则有助于策略在简单的极小极大优化设定中实现收敛 [64, 65]。因此，我们参考极小极大博弈中的近期研究 [66]，对两个参与者采用双时间尺度更新，这是对极小极大优化中常见梯度下降-上升方案的一种简单修正，其中 Min 参与者采用比 Max 参与者小得多的步长。接下来，为了确保 REINFORCE 估计器的方差保持有界，我们要求博弈双方在进行基础策略梯度更新的同时结合使用 ε-贪婪探索。"
+          "zh": "其中\\(R_T^{{\\scriptscriptstyle(i)}}\\mapsto\\sum_{t=0}^{T}r_t^{l(i)}\\)。该过程对两个参与者而言是独立的，因为他们利用各自的经验通过策略梯度独立地优化策略。在此，众所周知的是，如果参与者使用相同的学习率通过在线梯度下降/上升独立更新策略，产生的动态过程可能会出现循环振荡，从而导致较弱的理论保证 [62, 63]。然而，先前的研究表明，双时间尺度规则有助于策略在简单的极小极大优化设定中实现收敛 [64, 65]。因此，我们参考极小极大博弈中的近期研究 [66]，对两个参与者采用双时间尺度更新，这是对极小极大优化中常见梯度下降-上升方案的一种简单修正，其中 Min 参与者采用比 Max 参与者小得多的步长。接下来，为了确保 REINFORCE 估计器的方差保持有界，我们要求博弈双方在进行基础策略梯度更新的同时结合使用 \\(\\varepsilon\\)-贪婪探索。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b14",
@@ -2568,10 +2764,11 @@
             504,
             625
           ],
-          "en": "Assumption A.1. Both players follow direct parameterization with ε -greedy exploration, as πu ( au | s ) = (1 − εx )1 s,au + εx/|Au | and πl ( al | s ) = (1 − εy )1 s,al + εy/|Al | , where εx, εy ∈ [0 , 1] are the exploration factors .",
+          "en": "Assumption A.1. Both players follow direct parameterization with \\(\\varepsilon\\) -greedy exploration, as \\(\\pi^u(a^u\\mid{}s) = (1-\\varepsilon_x)\\mathbb{1}_{s,a^u} + \\varepsilon_x/|\\mathcal{A}^u|\\) and \\(\\pi^l(a^l\\mid{}s) = (1-\\varepsilon_y)\\mathbb{1}_{s,a^l} + \\varepsilon_y/|\\mathcal{A}^l|\\) , where \\(\\varepsilon_x,\\varepsilon_y\\in [0,1]\\) are the exploration factors .",
           "reference": false,
           "source_image": "figs/p014-014-source.png",
-          "zh": "假设 A.1。两个参与者均采用带有 ε-贪婪探索的直接参数化形式，即 πu ( au | s ) = (1 − εx )1 s,au + εx/|Au | 以及 πl ( al | s ) = (1 − εy )1 s,al + εy/|Al |，其中 εx, εy ∈ [0 , 1] 为探索因子。"
+          "zh": "假设 A.1。两个参与者均采用带有 \\(\\varepsilon\\)-贪婪探索的直接参数化形式，即 \\(\\pi^u(a^u\\mid{}s) = (1-\\varepsilon_x)\\mathbb{1}_{s,a^u} + \\varepsilon_x/|\\mathcal{A}^u|\\) 以及 \\(\\pi^l(a^l\\mid{}s) = (1-\\varepsilon_y)\\mathbb{1}_{s,a^l} + \\varepsilon_y/|\\mathcal{A}^l|\\)，其中 \\(\\varepsilon_x,\\varepsilon_y\\in [0,1]\\) 为探索因子。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b15",
@@ -2596,26 +2793,36 @@
             505,
             678
           ],
-          "en": "Theorem A.2 (Restate of Theorem 3.1) . Given ϵ > 0 , suppose each policy has ε-greedy exploration scheme with factors of εx ≍ ϵ and εx ≍ ϵ2 , under a specific two-timescale rule of the two players’ learning-rate following the independent policy gradient, we have",
+          "en": "Theorem A.2 (Restate of Theorem 3.1) . Given \\(\\epsilon>0\\), suppose each policy has \\(\\varepsilon\\)-greedy exploration scheme with factors of \\(\\varepsilon_x \\asymp \\epsilon\\) and \\(\\varepsilon_x \\asymp \\epsilon^2\\), under a specific two-timescale rule of the two players’ learning-rate following the independent policy gradient, we have",
           "reference": false,
           "source_image": "figs/p014-016-source.png",
-          "zh": "定理 A.2（重述定理 3.1）。给定 ϵ > 0，假设每个策略均采用 ε-贪婪探索机制，且因子满足 εx ≍ ϵ 与 εx ≍ ϵ2，在博弈双方遵循独立策略梯度的学习率特定双时间尺度规则下，我们有"
+          "zh": "定理 A.2（重述定理 3.1）。给定 \\(\\epsilon>0\\)，假设每个策略均采用 \\(\\varepsilon\\)-贪婪探索机制，且因子满足 \\(\\varepsilon_x \\asymp \\epsilon\\) 与 \\(\\varepsilon_x \\asymp \\epsilon^2\\)，在博弈双方遵循独立策略梯度的学习率特定双时间尺度规则下，我们有",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b17",
           "kind": "formula",
           "bbox": [
-            193,
-            685,
-            505,
-            707
+            191.0,
+            679.245361328125,
+            507.0,
+            709.0
           ],
           "en": "max π l min π u Vρ ( πl, πu ) − E � N 1 � Ni =1 min π u Vρ ( πu, πl ( i )) � ≤ ϵ (14)",
           "reference": false,
           "image": "figs/p014-017.png",
           "labels": [
             "14"
-          ]
+          ],
+          "original_bbox": [
+            193.0,
+            685.0,
+            505.0,
+            707.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 948,
+          "image_height": 90
         },
         {
           "id": "p14-b18",
@@ -2626,10 +2833,11 @@
             358,
             722
           ],
-          "en": "after N episodes, which results in a ϵ-approximate Nash equilibrium.",
+          "en": "after \\(N\\) episodes, which results in a \\(\\epsilon\\)-approximate Nash equilibrium.",
           "reference": false,
           "source_image": "figs/p014-018-source.png",
-          "zh": "在 N 个回合之后，这将得到一个 ϵ-近似纳什均衡。"
+          "zh": "在 \\(N\\) 个回合之后，这将得到一个 \\(\\epsilon\\)-近似纳什均衡。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -2645,26 +2853,36 @@
             505,
             104
           ],
-          "en": "Proof. This proof basically follows Appendix A.2 of Daskalakis et al. [66], which proves that the Max player leads to the ϵ -approximate Nash equilibrium. We can follow a similar process to prove that the Min player also has the same property. According to [66], by following the REINFORCE gradient estimator, we have",
+          "en": "Proof. This proof basically follows Appendix A.2 of Daskalakis et al. [66], which proves that the Max player leads to the \\(\\epsilon\\)-approximate Nash equilibrium. We can follow a similar process to prove that the Min player also has the same property. According to [66], by following the REINFORCE gradient estimator, we have",
           "reference": false,
           "source_image": "figs/p015-000-source.png",
-          "zh": "证明。本证明基本遵循 Daskalakis et al. [66] 的附录 A.2，该附录证明了 Max 参与者可收敛至 ϵ-近似纳什均衡。我们可以遵循类似的过程证明 Min 参与者也具备相同的性质。根据 [66]，采用 REINFORCE 梯度估计器，我们有"
+          "zh": "证明。本证明基本遵循 Daskalakis et al. [66] 的附录 A.2，该附录证明了 Max 参与者可收敛至 \\(\\epsilon\\)-近似纳什均衡。我们可以遵循类似的过程证明 Min 参与者也具备相同的性质。根据 [66]，采用 REINFORCE 梯度估计器，我们有",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p15-b1",
           "kind": "formula",
           "bbox": [
-            136,
-            111,
-            505,
-            134
+            134.0,
+            109.0,
+            507.0,
+            136.0
           ],
           "en": "E πu,πl ∥∇ � x −∇xVρ l ( x, y ) ∥ 2 ≤ 24 |Au| 2 and E πx,πy ∥∇ � y −∇yVρ l ( x, y ) ∥ 2 ≤ 24 |Al| 2 (15) εxζ 4 , εyζ 4 ,",
           "reference": false,
           "image": "figs/p015-001.png",
           "labels": [
             "15"
-          ]
+          ],
+          "original_bbox": [
+            136.0,
+            111.0,
+            505.0,
+            134.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1119,
+          "image_height": 81
         },
         {
           "id": "p15-b2",
@@ -2675,35 +2893,45 @@
             504,
             159
           ],
-          "en": "where ζ is the stopping probability of the Markov game. Then according to the performance difference lemma [67], we have",
+          "en": "where \\(\\zeta\\) is the stopping probability of the Markov game. Then according to the performance difference lemma [67], we have",
           "reference": false,
           "source_image": "figs/p015-002-source.png",
-          "zh": "其中 ζ 为马尔可夫博弈的终止概率。根据性能差距引理 [67]，我们有"
+          "zh": "其中 \\(\\zeta\\) 为马尔可夫博弈的终止概率。根据性能差距引理 [67]，我们有",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p15-b3",
           "kind": "formula",
           "bbox": [
-            155,
-            166,
-            505,
-            191
+            153.0,
+            164.0,
+            507.0,
+            193.0
           ],
           "en": "Vρ ( π u , π l ) − Vρ ( π u′ , π l ) = � d ˜ π ρ u,πl ( s )E a∼πu ( ·|s )E b∼πl ( ·|s ) A πu′ ,πl ( s, a, b ) (16) s∈S � �",
           "reference": false,
           "image": "figs/p015-003.png",
           "labels": [
             "16"
-          ]
+          ],
+          "original_bbox": [
+            155.0,
+            166.0,
+            505.0,
+            191.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1062,
+          "image_height": 87
         },
         {
           "id": "p15-b4",
           "kind": "formula",
           "bbox": [
-            107,
-            204,
-            505,
-            334
+            105.0,
+            202.0,
+            507.0,
+            336.0
           ],
           "en": "Then, for a policy π , let π 1 ⋆ ( πl ) ∈ Π 1 ⋆ ( πl ) denote a policy minimizing ∥ d π ρ 1 ρ ,πl ∥∞ , then we have Vρ l ( x, y ) − min x ′ Vρ ( x′, y ) ≤ Vρ ( πu, πl ) − Vρ ( π 1 ∗ ( πl ) , πl ) (17) = � d ˜ πρ 1 ⋆ ( πl ) ,πl ( s ) π 1 ⋆ ( πl )( a | s )E b∼π l ( ·|s ) [ −Aπu,πl ( s, a, b )] (18) s,a ≤ � d ˜ πρ 1 ⋆ ( πl ) ,πl ( s ) max a E b∼πl ( ·|s )[ −A πu,πl ( s, a, b )] (19) s ≤ ��� d ˜ πρπ 1 ⋆u ( π ,π ll ) ,πl ��� ∞ � d ˜ π ρ u,πl ( s ) max a E b∼πl ( ·|s )[ −A πu,πl ( s, a, b )] . (20) d ˜ ρ ( s ) s",
           "reference": false,
@@ -2713,7 +2941,16 @@
             "18",
             "19",
             "20"
-          ]
+          ],
+          "original_bbox": [
+            107.0,
+            204.0,
+            505.0,
+            334.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1206,
+          "image_height": 402
         },
         {
           "id": "p15-b5",
@@ -2724,26 +2961,36 @@
             505,
             403
           ],
-          "en": "We observe that ��� d ˜ πρd ˜ ρ 1⋆ π(πlu ,π),πll ��� ∞≤ ζ1 ��� dρπ 1⋆(πl ρ),πl ��� ∞≤ ζ1CG, whereCGis the minimax mismatch coefficient for the game G . Then we have � d ˜π ρu,πl ( s ) max a E b∼πl ( ·|s )[ −Aπu,πl ( s, a, b )] s,a",
+          "en": "We observe that \\(\\Big\\|\\frac{\\tilde d_\\rho^{\\pi^\\star_1(\\pi^l),\\pi^l}}{\\tilde d_\\rho^{\\pi^u,\\pi^l}}\\Big\\|_{\\infty}\\leq{}\\frac{1}{\\zeta} \\Big\\|\\frac{ d_\\rho^{\\pi^\\star_1(\\pi^l),\\pi^l}}{\\rho} \\Big\\|_{\\infty}\\leq{}\\frac{1}{\\zeta}C_{\\mathcal{G}}\\), where \\(C_{\\mathcal{G}}\\) is the minimax mismatch coefficient for the game \\(\\mathcal{G}\\). Then we have \\(\\sum_{s,a}\\tilde d_\\rho^{\\pi^u,\\pi^l}(s)\\max_{a}\\mathbb{E}_{b\\sim{}\\pi^l(\\cdot\\mid{}s)}[-A^{\\pi^u,\\pi^l}(s,a,b)]\\)",
           "reference": false,
           "source_image": "figs/p015-005-source.png",
-          "zh": "我们观察到〔行内公式见原版〕，其中 CG 是博弈 G 的极小极大失配系数。然后我们有〔行内公式见原版〕"
+          "zh": "我们观察到\\(\\Big\\|\\frac{\\tilde d_\\rho^{\\pi^\\star_1(\\pi^l),\\pi^l}}{\\tilde d_\\rho^{\\pi^u,\\pi^l}}\\Big\\|_{\\infty}\\leq{}\\frac{1}{\\zeta} \\Big\\|\\frac{ d_\\rho^{\\pi^\\star_1(\\pi^l),\\pi^l}}{\\rho} \\Big\\|_{\\infty}\\leq{}\\frac{1}{\\zeta}C_{\\mathcal{G}}\\)，其中 \\(C_{\\mathcal{G}}\\) 是博弈 \\(\\mathcal{G}\\) 的极小极大失配系数。然后我们有\\(\\sum_{s,a}\\tilde d_\\rho^{\\pi^u,\\pi^l}(s)\\max_{a}\\mathbb{E}_{b\\sim{}\\pi^l(\\cdot\\mid{}s)}[-A^{\\pi^u,\\pi^l}(s,a,b)]\\)",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p15-b6",
           "kind": "formula",
           "bbox": [
-            113,
-            407,
-            505,
-            563
+            111.0,
+            405.0,
+            507.0,
+            565.0
           ],
           "en": "= max � d ˜ π ρ u,πl ( s )¯ xs,a E b∼πl ( ·|s )[ −A πu,πl ( s, a, b )] x ¯ ∈ ∆( A u ) |S| s,a = x ¯ ∈ ∆(max A u ) |S | � s,a d ˜ π ρ u,πl ( s )( π u ( a | s ) − x ¯ s,a )E b∼πl ( ·|s )[ Q πu,πl ( s, a, b )] = max � d ˜ π ρ u,πl ( s )((1 − εx ) xs,a + εxA − 1 − x ¯ s,a )E b∼πl ( ·|s )[ Q πu,πl ( s, a, b )] , x ¯ ∈ ∆( A u ) |S| s,a ≤ max � d ˜ π ρ u,πl ( s )((1 − εx ) xs,a + εxA − 1 − εxx ¯ s,a − (1 − εx )¯ xs,a )E b∼πl ( ·|s )[ Q πu,πl ( s, a, b )] x ¯ ∈ ∆( A u ) |S| s,a ≤ (1 − εx ) max � d ˜ π ρ u,πl ( s )( xs,a − x ¯ s,a )E b∼πl ( ·|s )[ Q πu,πl ( s, a, b )] + 2 εx x ¯ ∈ ∆( A u ) |S | s,a ζ 2 = max (21) x ¯ ∈ ∆( A u ) |S|⟨∇xVρ ( x, y ) , x − x ¯ ⟩ + 2 ζ ε 2 x ,",
           "reference": false,
           "image": "figs/p015-006.png",
           "labels": [
             "21"
-          ]
+          ],
+          "original_bbox": [
+            113.0,
+            407.0,
+            505.0,
+            563.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1188,
+          "image_height": 480
         },
         {
           "id": "p15-b7",
@@ -2754,19 +3001,20 @@
             453,
             582
           ],
-          "en": "where the last equation holds since Pr [ T ≥ t ] ≤ (1 − ζ )t for any t ≥ 0 that for any ρ ∈ ∆( S ),",
+          "en": "where the last equation holds since \\(Pr[T \\geq t] \\leq (1-\\zeta)^t\\) for any \\(t \\geq 0\\) that for any \\(\\rho \\in \\Delta(\\mathcal{S})\\),",
           "reference": false,
           "source_image": "figs/p015-007-source.png",
-          "zh": "其中最后一个等式成立，是因为对于任意 t ≥ 0，均有 Pr [ T ≥ t ] ≤ (1 − ζ )t，因此对于任意 ρ ∈ ∆( S )，"
+          "zh": "其中最后一个等式成立，是因为对于任意 \\(t \\geq 0\\)，均有 \\(Pr[T \\geq t] \\leq (1-\\zeta)^t\\)，因此对于任意 \\(\\rho \\in \\Delta(\\mathcal{S})\\)，",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p15-b8",
           "kind": "formula",
           "bbox": [
-            147,
-            589,
-            505,
-            643
+            145.0,
+            585.8645629882812,
+            507.0,
+            645.0
           ],
           "en": "∇xVρ ( x, y ) = E τ ∼P r π x ,π y ( ·|s 0) �( ∇x log πx ( at|st )) Q πx,πy ( st, at, bt ) (22) � t =0 T � = � E a∼πx ( ·|s )E b∼πy ( ·|s ) � d ˜ πρ x,πy ( s )( ∇x log πx ( a|s )) Q πx,πy ( s, a, b )� . (23) s∈S",
           "reference": false,
@@ -2774,7 +3022,16 @@
           "labels": [
             "22",
             "23"
-          ]
+          ],
+          "original_bbox": [
+            147.0,
+            589.0,
+            505.0,
+            643.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1086,
+          "image_height": 178
         },
         {
           "id": "p15-b9",
@@ -2785,24 +3042,34 @@
             242,
             659
           ],
-          "en": "Thus, for any s ∈S, a ∈A , we have",
+          "en": "Thus, for any \\(s \\in \\mathcal{S}, a \\in \\mathcal{A}\\), we have",
           "reference": false,
           "source_image": "figs/p015-009-source.png",
-          "zh": "因此，对于任意 s ∈S, a ∈A，我们有"
+          "zh": "因此，对于任意 \\(s \\in \\mathcal{S}, a \\in \\mathcal{A}\\)，我们有",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p15-b11",
           "kind": "formula",
           "bbox": [
-            194,
-            666,
-            419,
-            726
+            192.0,
+            664.0,
+            421.0,
+            728.0
           ],
           "en": "∂Vρ ( x, y ) = (1 − εx ) d ˜ πρ x,πy ( s )E b∼πy ( ·|s ) [ Q πx,πy ( s, a, b )] , ∂xs,a ∂Vρ ( x, y ) πρ x,πy ( s ) ��E b∼πy ( ·|s ) [ Qπx,πy ( s, a, b )]�� . ���� ∂xs,a ���� ≤ d ζ",
           "reference": false,
           "image": "figs/p015-011.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            194.0,
+            666.0,
+            419.0,
+            726.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 687,
+          "image_height": 192
         },
         {
           "id": "p15-b10",
@@ -2841,17 +3108,26 @@
           "id": "p16-b1",
           "kind": "formula",
           "bbox": [
-            112,
-            91,
-            505,
-            128
+            110.0,
+            89.0,
+            507.0,
+            130.0
           ],
           "en": "Vρ ( π u , π l ) − min x ′ Vρ ( x′, πl ) ≤ π 1 ∈ minΠ ∗ 1 ( πl ) ����� d π ρ 1 ρ ,πl ����� ∞ � ζ 1 x ¯ ∈ ∆(max A u ) |S| � ∇xVρ ( π u , π l ) , π u − x ¯� + 2 ζ ε 3 x � , (24)",
           "reference": false,
           "image": "figs/p016-001.png",
           "labels": [
             "24"
-          ]
+          ],
+          "original_bbox": [
+            112.0,
+            91.0,
+            505.0,
+            128.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1191,
+          "image_height": 123
         },
         {
           "id": "p16-b2",
@@ -2862,26 +3138,36 @@
             504,
             180
           ],
-          "en": "The term in the right side can be bounded by O � ϵCζ g � according to the gradient dominance condition in Lemma 1a of [66]. Then, according to Theorem 2a of [66], suppose each policy has ε -greedy exploration scheme with factors of εx ≍ ϵ and εx ≍ ϵ2 , the average performance difference can be bounded. Specifically, under a specific two-timescale rule of the two players’ learning-rate, we have",
+          "en": "The term in the right side can be bounded by \\(O\\left( \\frac{\\epsilon C_g}{\\zeta} \\right)\\) according to the gradient dominance condition in Lemma 1a of [66]. Then, according to Theorem 2a of [66], suppose each policy has \\(\\varepsilon\\)-greedy exploration scheme with factors of \\(\\varepsilon_x \\asymp \\epsilon\\) and \\(\\varepsilon_x \\asymp \\epsilon^2\\), the average performance difference can be bounded. Specifically, under a specific two-timescale rule of the two players’ learning-rate, we have",
           "reference": false,
           "source_image": "figs/p016-002-source.png",
-          "zh": "根据文献 [66] 中引理 1a 的梯度占优条件，右侧项可由〔行内公式见原版〕界定。随后，根据文献 [66] 的定理 2a，假设每个策略均采用因子满足 εx ≍ ϵ 和 εx ≍ ϵ2 的 ε-greedy 探索机制，则平均性能差异是有界的。具体而言，在两博弈方学习率满足特定的双时间尺度规则下，我们有"
+          "zh": "根据文献 [66] 中引理 1a 的梯度占优条件，右侧项可由 \\(O\\left( \\frac{\\epsilon C_g}{\\zeta} \\right)\\) 界定。随后，根据文献 [66] 的定理 2a，假设每个策略均采用因子满足 \\(\\varepsilon_x \\asymp \\epsilon\\) 和 \\(\\varepsilon_x \\asymp \\epsilon^2\\) 的 \\(\\varepsilon\\)-greedy 探索机制，则平均性能差异是有界的。具体而言，在两博弈方学习率满足特定的双时间尺度规则下，我们有",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p16-b3",
           "kind": "formula",
           "bbox": [
-            173,
-            186,
-            505,
-            208
+            171.0,
+            180.53530883789062,
+            507.0,
+            210.0
           ],
           "en": "max π l min π u Vρ ( πl, πu ) − E � N 1 � Ni =1 min π u Vρ ( πu, πl ( i )) � ≤ O � ϵCζ g � , (25)",
           "reference": false,
           "image": "figs/p016-003.png",
           "labels": [
             "25"
-          ]
+          ],
+          "original_bbox": [
+            173.0,
+            186.0,
+            505.0,
+            208.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1008,
+          "image_height": 89
         },
         {
           "id": "p16-b4",
@@ -2957,15 +3243,24 @@
           "id": "p16-b9",
           "kind": "table",
           "bbox": [
-            181,
-            346,
-            429,
-            427
+            179.0,
+            344.0,
+            431.0,
+            429.0
           ],
           "en": "|State Term|Lower dim.|Upper dim.|Whole dim.| |---|---|---|---| |Base angular velocity|3|3|3| | Base gravity|3|3|3| | Commands|3 (velocity)|9 (motion)|12 (velocity+motion)| |DoF position| 21|21| 21| |DoF velocity|21|21|21| |Actions|12 (lower)|9 (upper)|21 (whole)| |Periodic phase|2| 2|2| |Total dim|65|68|83|",
           "reference": false,
           "image": "figs/p016-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            181.0,
+            346.0,
+            429.0,
+            427.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 756,
+          "image_height": 255
         },
         {
           "id": "p16-b10",
@@ -3018,42 +3313,61 @@
             505,
             605
           ],
-          "en": "Implementation Details To enable the robot to exhibit a regular gait during movement and remain stationary when the velocity command is zero, we design a gait phase parameter ϕ t = ( ϕt, left , ϕt, right) as an observation term, which is updated as:",
+          "en": "Implementation Details To enable the robot to exhibit a regular gait during movement and remain stationary when the velocity command is zero, we design a gait phase parameter \\(\\boldsymbol \\phi_t = (\\phi_{t,\\text{left}},\\phi_{t,\\text{right}})\\) as an observation term, which is updated as:",
           "reference": false,
           "source_image": "figs/p016-013-source.png",
-          "zh": "实现细节 为使机器人在运动过程中表现出规整的步态，并在速度指令为零时保持静止，我们设计了步态相位参数 ϕ t = ( ϕt, left , ϕt, right) 作为观测项，其更新方式为："
+          "zh": "实现细节 为使机器人在运动过程中表现出规整的步态，并在速度指令为零时保持静止，我们设计了步态相位参数 \\(\\boldsymbol \\phi_t = (\\phi_{t,\\text{left}},\\phi_{t,\\text{right}})\\) 作为观测项，其更新方式为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p16-b14",
           "kind": "formula",
           "bbox": [
-            258,
-            612,
-            505,
-            622
+            256.0,
+            610.0,
+            507.0,
+            624.0
           ],
           "en": "ϕt +1 , left = ϕt, left + f × d t, (26)",
           "reference": false,
           "image": "figs/p016-014.png",
           "labels": [
             "26"
-          ]
+          ],
+          "original_bbox": [
+            258.0,
+            612.0,
+            505.0,
+            622.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 753,
+          "image_height": 42
         },
         {
           "id": "p16-b15",
           "kind": "formula",
           "bbox": [
-            255,
-            625,
-            505,
-            635
+            253.0,
+            623.0,
+            507.0,
+            637.0
           ],
           "en": "ϕt +1 , right = ϕt +1 , left + ψ, (27)",
           "reference": false,
           "image": "figs/p016-015.png",
           "labels": [
             "27"
-          ]
+          ],
+          "original_bbox": [
+            255.0,
+            625.0,
+            505.0,
+            635.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 762,
+          "image_height": 42
         },
         {
           "id": "p16-b16",
@@ -3064,10 +3378,11 @@
             505,
             691
           ],
-          "en": "where f, d t , ψ are gait frequency, time step and gait offset, respectively. We use PPO to train the policy and employ an asymmetric actor-critic architecture, where the critic is granted access to the base linear velocity v t as privileged information. For the first iteration, we apply an open-loop controller to control the upper-body to track the reference motion trajectory. In subsequent iterations, we employ the trained upper-body policy as the upper-body controller.",
+          "en": "where \\(f, d\\text{t}, \\psi\\) are gait frequency, time step and gait offset, respectively. We use PPO to train the policy and employ an asymmetric actor-critic architecture, where the critic is granted access to the base linear velocity \\(\\boldsymbol{v}_t\\) as privileged information. For the first iteration, we apply an open-loop controller to control the upper-body to track the reference motion trajectory. In subsequent iterations, we employ the trained upper-body policy as the upper-body controller.",
           "reference": false,
           "source_image": "figs/p016-016-source.png",
-          "zh": "其中 f、d t、ψ 分别为步态频率、时间步长和步态偏移量。我们使用 PPO 训练策略并采用非对称 actor-critic 架构，其中 critic 被赋予访问基座线速度 v t 的权限以作为特权信息。在第一次迭代中，我们应用开环控制器控制上半身跟踪参考运动轨迹。在后续迭代中，我们采用训练好的上半身策略作为上半身控制器。"
+          "zh": "其中 \\(f\\)、\\(d\\text{t}\\)、\\(\\psi\\) 分别为步态频率、时间步长和步态偏移量。我们使用 PPO 训练策略并采用非对称 actor-critic 架构，其中 critic 被赋予访问基座线速度 \\(\\boldsymbol{v}_t\\) 的权限以作为特权信息。在第一次迭代中，我们应用开环控制器控制上半身跟踪参考运动轨迹。在后续迭代中，我们采用训练好的上半身策略作为上半身控制器。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p16-b17",
@@ -3111,10 +3426,11 @@
             298,
             110
           ],
-          "en": "Require: max iterations N , max episode length l maxsl 1: Initialize policy πθl, value functionV ϕl",
+          "en": "Require: max iterations \\(N\\), max episode length \\(l^{\\text{sl}}_\\text{max}\\) 1: Initialize policy \\(\\pi^l_\\theta\\), value function \\(V^l_\\phi\\)",
           "reference": false,
           "source_image": "figs/p017-001-source.png",
-          "zh": "要求：最大迭代次数 N，最大回合长度 l maxsl 1: 初始化策略 πθl，价值函数 V ϕl"
+          "zh": "要求：最大迭代次数 \\(N\\)，最大回合长度 \\(l^{\\text{sl}}_\\text{max}\\) 1: 初始化策略 \\(\\pi^l_\\theta\\)，价值函数 \\(V^l_\\phi\\)",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p17-b2",
@@ -3125,10 +3441,11 @@
             349,
             128
           ],
-          "en": "- 2: for iteration = 1 , . . . , N do 3: Collect trajectories by running policy πθlin the environment",
+          "en": "- 2: for iteration \\(= 1, \\dots, N\\) do 3: Collect trajectories by running policy \\(\\pi^l_\\theta\\) in the environment",
           "reference": false,
           "source_image": "figs/p017-002-source.png",
-          "zh": "- 2: for iteration = 1 , . . . , N do 3: 在环境中运行策略 πθl 收集轨迹"
+          "zh": "- 2: for iteration \\(= 1, \\dots, N\\) do 3: 在环境中运行策略 \\(\\pi^l_\\theta\\) 收集轨迹",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p17-b3",
@@ -3139,10 +3456,11 @@
             290,
             178
           ],
-          "en": "- 4: // Update curriculum at episode termination 5: if lmsl > 0 . 8 × l maxslthen 6: αd ← min( αd + w, ∥M∥− w ) 7: else 8: αd ← max( αd − 2 w, 0)",
+          "en": "- 4: // Update curriculum at episode termination 5: if \\(l^{\\text{msl}} > 0.8\\times l^{\\text{sl}}_\\text{max}\\) then 6: \\(\\alpha_d \\gets \\min(\\alpha_d + w, \\|\\mathcal{M}\\|-w)\\) 7: else 8: \\(\\alpha_d \\gets \\max(\\alpha_d - 2w, 0)\\)",
           "reference": false,
           "source_image": "figs/p017-003-source.png",
-          "zh": "- 4: // 在回合终止时更新课程 5: if lmsl > 0 . 8 × l maxsl then 6: αd ← min( αd + w, ∥M∥− w ) 7: else 8: αd ← max( αd − 2 w, 0)"
+          "zh": "- 4: // 在回合终止时更新课程 5: if \\(l^{\\text{msl}} > 0.8\\times l^{\\text{sl}}_\\text{max}\\) then 6: \\(\\alpha_d \\gets \\min(\\alpha_d + w, \\|\\mathcal{M}\\|-w)\\) 7: else 8: \\(\\alpha_d \\gets \\max(\\alpha_d - 2w, 0)\\)",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p17-b4",
@@ -3153,10 +3471,11 @@
             271,
             217
           ],
-          "en": "- 9: end if - 10: if αd == ∥M∥− w then 11: αs ← min( αs + 0 . 05 , 1) , αd ← 0 12: else if αd == 0 then",
+          "en": "9: end if; 10: if \\(\\alpha_d == \\|\\mathcal{M}\\|-w\\) then; 11: \\(\\alpha_s\\gets\\min(\\alpha_s+0.05,1),\\;\\alpha_d\\gets0\\); 12: else if \\(\\alpha_d==0\\) then",
           "reference": false,
           "source_image": "figs/p017-004-source.png",
-          "zh": "- 9: end if - 10: if αd == ∥M∥− w then 11: αs ← min( αs + 0 . 05 , 1) , αd ← 0 12: else if αd == 0 then"
+          "zh": "9: 结束条件分支；10: 若 \\(\\alpha_d == \\|\\mathcal{M}\\|-w\\)，则 11: \\(\\alpha_s\\gets\\min(\\alpha_s+0.05,1),\\;\\alpha_d\\gets0\\)；12: 否则若 \\(\\alpha_d==0\\)，则",
+          "math_repair": "exact-author-latex-fragment-recovery"
         },
         {
           "id": "p17-b5",
@@ -3167,10 +3486,11 @@
             239,
             228
           ],
-          "en": "- 13: αs ← max( αs − 0 . 01 , 0)",
+          "en": "13: \\(\\alpha_s\\gets\\max(\\alpha_s-0.01,0)\\)",
           "reference": false,
           "source_image": "figs/p017-005-source.png",
-          "zh": "- 13: αs ← max( αs − 0 . 01 , 0)"
+          "zh": "13: \\(\\alpha_s\\gets\\max(\\alpha_s-0.01,0)\\)",
+          "math_repair": "exact-author-latex-fragment-recovery"
         },
         {
           "id": "p17-b6",
@@ -3223,10 +3543,11 @@
             217,
             268
           ],
-          "en": "- 17: return Trained policy πθ",
+          "en": "- 17: return Trained policy \\(\\pi_\\theta\\)",
           "reference": false,
           "source_image": "figs/p017-009-source.png",
-          "zh": "- 17: return 训练好的策略 πθ"
+          "zh": "- 17: return 训练好的策略 \\(\\pi_\\theta\\)",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p17-b10",
@@ -3260,15 +3581,24 @@
           "id": "p17-b12",
           "kind": "table",
           "bbox": [
-            159,
-            344,
-            451,
-            621
+            157.0,
+            342.0,
+            453.0,
+            623.0
           ],
           "en": "|Term|Expression|Weight| |---|---|---| ||Penalty|| |DoF position limits Alive|I(ql /∈[ql min,ql max]) I(robot stays alive) Regularization|-5.0 0.15| |Linear velocity of Z axis|∥vz∥2 2|-2| | Angular velocity of X&Y axis|∥wxy∥2 2|-0.5| |Orientation|∥groot xy ∥2 2|-1| |Torque|∥τ l∥2 2|-1e-5| |Base Height|∥h −htarget∥2 2|-10.0| |DoF acceleration|∥¨ql∥2 2|-2.5e-7| |DoF velocity|∥˙ql∥2 2|-1e-3| |Lower body action rate|∥al t −al t−1∥2 2|-0.01| |Hip DoF position|∥qhip roll&yaw∥2 2|-1| |Slippage|∥vfeet xy ∥2 2 × I(∥F feet∥2 ≥1)|-0.2| |Feet swing height|∥qfeet z −0.08∥2 2 × I(∥F feet∥2 |-20| |Feet Contact|�Nfeet i=1 ¬(I(∥F feet z,i ∥2 > 1)⊕I(ϕi .55)) |0.18| |Feet distance|exp(−100× dout of range feet ) |0.5| |Knee distance|exp(−100× dout of range knee )|0.4| |Stand still|∥ql t −ql t−1∥2 2 × I(∥cl∥2 .1)|-2| |Ankle torque|∥τ ankle∥2 2|-5e-5| |Ankle action rate|∥aankle t −aankle t−1 ∥2 2|-0.02| |Stance base velocity| ∥v∥2 2 × I(∥cl∥2 .1)|-1| |Feet contact forces| min(∥F feet −100∥2 2, 0) Task|-0.01| |Linear velocity|exp(−4∥cxy −vxy∥2 2) |2| |Angular velocity|exp(−4∥cyaw −vyaw∥2 2)|1|",
           "reference": false,
           "image": "figs/p017-012.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            159.0,
+            344.0,
+            451.0,
+            621.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 888,
+          "image_height": 843
         },
         {
           "id": "p17-b13",
@@ -3293,10 +3623,11 @@
             505,
             722
           ],
-          "en": "Algorithm Description During the training of the upper-body motion tracking policy, we use the pre-trained lower-body policy πl to execute the locomotion command and simultaneously introduce disturbance to the upper-body. We begin by sampling the locomotion velocity commands from a narrow range and compute the tracking error of the motion-tracking task. At each episode termination, if the tracking error is smaller than a threshold, the command sampling range will be extended to generate more intensive disturbance to the upper-body. We use PPO to train the motion tracking policy to simply follow the refenence DoF position",
+          "en": "Algorithm Description During the training of the upper-body motion tracking policy, we use the pre-trained lower-body policy \\(\\pi^l\\) to execute the locomotion command and simultaneously introduce disturbance to the upper-body. We begin by sampling the locomotion velocity commands from a narrow range and compute the tracking error of the motion-tracking task. At each episode termination, if the tracking error is smaller than a threshold, the command sampling range will be extended to generate more intensive disturbance to the upper-body. We use PPO to train the motion tracking policy to simply follow the refenence DoF position",
           "reference": false,
           "source_image": "figs/p017-014-source.png",
-          "zh": "算法描述 在上半身动作跟踪策略的训练过程中，我们使用预训练好的下半身策略 πl 来执行运动指令，同时对上半身引入扰动。我们首先从较窄的范围内采样运动速度指令，并计算动作跟踪任务的跟踪误差。在每个回合结束时，若跟踪误差小于阈值，则扩大指令采样范围，从而对上半身产生更强烈的扰动。我们使用 PPO 训练动作跟踪策略以直接跟踪从数据集中采样的参考 DoF 位置"
+          "zh": "算法描述 在上半身动作跟踪策略的训练过程中，我们使用预训练好的下半身策略 \\(\\pi^l\\) 来执行运动指令，同时对上半身引入扰动。我们首先从较窄的范围内采样运动速度指令，并计算动作跟踪任务的跟踪误差。在每个回合结束时，若跟踪误差小于阈值，则扩大指令采样范围，从而对上半身产生更强烈的扰动。我们使用 PPO 训练动作跟踪策略以直接跟踪从数据集中采样的参考 DoF 位置",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -3335,10 +3666,10 @@
           "id": "p18-b2",
           "kind": "formula",
           "bbox": [
-            183,
-            145,
-            505,
-            204
+            181.0,
+            143.0,
+            507.0,
+            206.0
           ],
           "en": "max( c min l − 0 . 1 , C min l ) , exp( − 0 . 5 ∥ q ˆ u − q u ∥ 2 2 ) > du c l min ← �max( c min l + 0 . 1 , C min l ) , otherwise , (28) min( c max l + 0 . 1 , C max l ) , exp( − 0 . 5 ∥ q ˆ u − q u ∥ 2 2 ) > du c l max ← �min( c max l − 0 . 1 , C max l ) , otherwise , (29)",
           "reference": false,
@@ -3346,7 +3677,16 @@
           "labels": [
             "28",
             "29"
-          ]
+          ],
+          "original_bbox": [
+            183.0,
+            145.0,
+            505.0,
+            204.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 978,
+          "image_height": 189
         },
         {
           "id": "p18-b3",
@@ -3357,10 +3697,11 @@
             505,
             253
           ],
-          "en": "where cl min,cl maxare the lower and upper bound of the current command range,clis sampled from[c minl,cl max] during training. [ C minl,C maxl] is the range limit of pre-defined commands. qˆu , qu and du are the reference upper body joint position, upper body joint position and the threshold of motion tracking error, respectively. The related terms and values are given in Table 6.",
+          "en": "where \\(\\boldsymbol{c}^l_{\\text{min}},\\boldsymbol{c}^l_{\\text{max}}\\) are the lower and upper bound of the current command range, \\(\\boldsymbol{c}^l\\) is sampled from\\([\\boldsymbol{c}^l_{\\text{min}},\\boldsymbol{c}^l_{\\text{max}}]\\) during training. \\([\\boldsymbol{C}^l_{\\text{min}}, \\boldsymbol{C}^l_{\\text{max}}]\\) is the range limit of pre-defined commands. \\(\\hat{\\boldsymbol{q}^{\\rm u}}, \\boldsymbol{q}^{\\rm u}\\) and \\(d^u\\) are the reference upper body joint position, upper body joint position and the threshold of motion tracking error, respectively. The related terms and values are given in Table 6.",
           "reference": false,
           "source_image": "figs/p018-003-source.png",
-          "zh": "其中 cl min、cl max 分别是当前指令范围的下界与上界，训练期间 cl 从 [c minl, cl max] 中采样。[ C minl, C maxl] 是预定义指令的范围限值。qˆu、qu 和 du 分别是参考上半身关节位置、上半身关节位置以及动作跟踪误差的阈值。相关项及其取值见表 6。"
+          "zh": "其中 \\(\\boldsymbol{c}^l_{\\text{min}}\\)、\\(\\boldsymbol{c}^l_{\\text{max}}\\) 分别是当前指令范围的下界与上界，训练期间 \\(\\boldsymbol{c}^l\\) 从 \\([\\boldsymbol{c}^l_{\\text{min}}, \\boldsymbol{c}^l_{\\text{max}}]\\) 中采样。\\([\\boldsymbol{C}^l_{\\text{min}}, \\boldsymbol{C}^l_{\\text{max}}]\\) 是预定义指令的范围限值。\\(\\hat{\\boldsymbol{q}^{\\rm u}}\\)、\\(\\boldsymbol{q}^{\\rm u}\\) 和 \\(d^u\\) 分别是参考上半身关节位置、上半身关节位置以及动作跟踪误差的阈值。相关项及其取值见表 6。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b4",
@@ -3380,15 +3721,24 @@
           "id": "p18-b5",
           "kind": "formula",
           "bbox": [
-            254,
-            287,
-            356,
-            331
+            252.0,
+            285.0,
+            358.0,
+            333.0
           ],
           "en": "Term Value C min l [-0.7, -0.5, -0.5] C max l [0.7, 0.5, 0.5] d u 0.9",
           "reference": false,
           "image": "figs/p018-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            254.0,
+            287.0,
+            356.0,
+            331.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 318,
+          "image_height": 144
         },
         {
           "id": "p18-b6",
@@ -3422,15 +3772,24 @@
           "id": "p18-b8",
           "kind": "table",
           "bbox": [
-            203,
-            417,
-            407,
-            544
+            201.0,
+            415.0,
+            409.0,
+            546.0
           ],
           "en": "|Term|Expression|Weight| |---|---|---| ||Penalty|| |DoF position limits Alive|I(qu /∈[qu min,qu max]) I(robot stays alive)|-5.0 0.15| ||Regularization|| |Orientation Torque|∥groot xy ∥2 2 ∥τ u∥2 2|-1 -1e-5| |Upper DoF acceleration|∥¨qu∥2 2 |-2.5e-7| |Upper DoF velocity|∥˙qu∥2 2 |-1e-3| |Upper body action rate|∥au t −au t−1∥2 2 Task|-0.01| |Upper DoF position|exp(−0.5∥ˆ qu −qu∥2 2)|10|",
           "reference": false,
           "image": "figs/p018-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            203.0,
+            417.0,
+            407.0,
+            544.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 624,
+          "image_height": 393
         },
         {
           "id": "p18-b9",
@@ -3464,17 +3823,26 @@
           "id": "p18-b11",
           "kind": "formula",
           "bbox": [
-            238,
-            607,
-            505,
-            617
+            236.0,
+            605.0,
+            507.0,
+            619.0
           ],
           "en": "L total = L policy + wvL value − wsS, (30)",
           "reference": false,
           "image": "figs/p018-011.png",
           "labels": [
             "30"
-          ]
+          ],
+          "original_bbox": [
+            238.0,
+            607.0,
+            505.0,
+            617.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 813,
+          "image_height": 42
         },
         {
           "id": "p18-b12",
@@ -3494,10 +3862,10 @@
           "id": "p18-b13",
           "kind": "formula",
           "bbox": [
-            199,
-            640,
-            505,
-            680
+            197.0,
+            638.0,
+            507.0,
+            682.0
           ],
           "en": "L policy = − E[min( ri ( θ ) A ˆ i, clip( ri ( θ ) , 1 − ϵ, 1 + ϵ ) A ˆ i )] , (31) L value = E[( V ( si ) − Ri ) 2 ] , (32) S = E[ −πθ ( a|s ) log πθ ( a|s )] , (33)",
           "reference": false,
@@ -3506,7 +3874,16 @@
             "31",
             "32",
             "33"
-          ]
+          ],
+          "original_bbox": [
+            199.0,
+            640.0,
+            505.0,
+            680.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 930,
+          "image_height": 132
         },
         {
           "id": "p18-b14",
@@ -3517,10 +3894,11 @@
             505,
             721
           ],
-          "en": "where ri ( θ ) = πθoldπθ ( a ( ia|is|is ) i )andAˆiis the estimated advantage.wvandwsare value loss coefficient and entropy term coefficient, respectively. The hyperparameters of the PPO algorithm and the information of the network backbone are listed in Table 9.",
+          "en": "where \\(r_i(\\theta) = \\frac{\\pi_\\theta(a_i|s_i)}{\\pi_{\\theta_{old}}(a_i|s_i)}\\) and \\(\\hat{A}_i\\) is the estimated advantage. \\(w_v\\) and \\(w_s\\) are value loss coefficient and entropy term coefficient, respectively. The hyperparameters of the PPO algorithm and the information of the network backbone are listed in Table 9.",
           "reference": false,
           "source_image": "figs/p018-014-source.png",
-          "zh": "其中 ri ( θ ) = 〔行内公式见原版〕，Aˆi 为估计的优势。wv 和 ws 分别为价值损失系数和熵项系数。PPO 算法的超参数与网络骨干信息列于表 9 中。"
+          "zh": "其中 \\(r_i(\\theta) = \\frac{\\pi_\\theta(a_i|s_i)}{\\pi_{\\theta_{old}}(a_i|s_i)}\\)，\\(\\hat{A}_i\\) 为估计的优势。\\(w_v\\) 和 \\(w_s\\) 分别为价值损失系数和熵项系数。PPO 算法的超参数与网络骨干信息列于表 9 中。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -3573,15 +3951,24 @@
           "id": "p19-b3",
           "kind": "table",
           "bbox": [
-            114,
-            185,
-            280,
-            350
+            112.0,
+            183.0,
+            282.0,
+            352.0
           ],
           "en": "|Term Value| |---| |Dynamics Randomization| |Friction U(0.1,1.25) | |Base mass U(−3,5) kg | |Link mass U(0.9,1.1)×default kg | |Base CoM U(−0.1,0.1) m Control delay U(0,40) ms| |External Perturbation| |Push robot interval = 10s,vxy = 1m/s| |Randomized Terrain| |Terrain type trimesh, level from 0 to 10| |Velocity Command| |Linear x velocity U(−1.0,1.0)| |Linear y velocity U(−0.3,0.3) | |Angular yaw velocity U(−0.5,0.5)|",
           "reference": false,
           "image": "figs/p019-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            114.0,
+            185.0,
+            280.0,
+            350.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 510,
+          "image_height": 507
         },
         {
           "id": "p19-b6",
@@ -3615,15 +4002,24 @@
           "id": "p19-b5",
           "kind": "table",
           "bbox": [
-            340,
-            183,
-            487,
-            340
+            338.0,
+            181.0,
+            489.0,
+            342.0
           ],
           "en": "|Hyperparameter|Default Value| |---|---| |Actor lstm size |[64] | |Actor MLP size |[64, 32] | |Critic MLP size |[64, 32] | |Optimizer |Adam | |Batch size|4096| |Mini Batches|4| |Learning epoches |8 | |Activation|elu| |Entropy coef(ws)|0.01| |Value loss coef(wv) |1.0 | |Clip param|0.2| |Max grad norm |1.0| |Init noise std |0.8| |Learning rate|1e-3| |Desired KL |0.01 | |GAE decay factor(λ) |0.95 | |GAE discount factor(γ) |0.998| |Curriculum window size(w)|40|",
           "reference": false,
           "image": "figs/p019-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            340.0,
+            183.0,
+            487.0,
+            340.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 453,
+          "image_height": 483
         },
         {
           "id": "p19-b7",
@@ -3634,10 +4030,11 @@
             505,
             467
           ],
-          "en": "Dataset Overview The ALMI-X dataset contains 1989 motions combined with 41 commands, resulting 81,549 trajectories totally. Each trajectory is organized as τ = {τst, τ t a, τ t dofpos, τ t trans, τ t rot} tT =1, respectively representing robot states, actions, joint angles, global position and global orientation, where the global position and global orientation are usually considered as privilege information that is missing in the state space. The statistical results shown in Fig. 4, Fig. 5 and Fig. 6 demonstrate the advantages of ALMI-X, and the experimental results of Appendix D further indicate that our dataset is higher quality and more suitable for foundation model training. The dataset is released at `https://huggingface.co/datasets/TeleEmbodied/ALMI-X` .",
+          "en": "Dataset Overview The ALMI-X dataset contains 1989 motions combined with 41 commands, resulting 81,549 trajectories totally. Each trajectory is organized as \\(\\tau = \\{ \\tau_s^t, \\tau_a^t, \\tau_{\\rm dof\\_pos}^t, \\tau_{\\rm trans}^t, \\tau_{\\rm rot}^t \\}_{t=1}^{T}\\), respectively representing robot states, actions, joint angles, global position and global orientation, where the global position and global orientation are usually considered as privilege information that is missing in the state space. The statistical results shown in Fig. 4, Fig. 5 and Fig. 6 demonstrate the advantages of ALMI-X, and the experimental results of Appendix D further indicate that our dataset is higher quality and more suitable for foundation model training. The dataset is released at `https://huggingface.co/datasets/TeleEmbodied/ALMI-X` .",
           "reference": false,
           "source_image": "figs/p019-007-source.png",
-          "zh": "数据集概览 ALMI-X 数据集包含 1989 个动作，并与 41 种指令相结合，总共生成了 81,549 条轨迹。每条轨迹组织为〔行内公式见原版〕，分别表示机器人状态、动作、关节角度、全局位置和全局朝向，其中全局位置和全局朝向通常被视为状态空间中缺失的特权信息。Fig. 4、Fig. 5 和 Fig. 6 中展示的统计结果证明了 ALMI-X 的优势，附录 D 的实验结果进一步表明我们的数据集质量更高，更适合基础模型训练。该数据集已在 `https://huggingface.co/datasets/TeleEmbodied/ALMI-X` 开源发布。"
+          "zh": "数据集概览 ALMI-X 数据集包含 1989 个动作，并与 41 种指令相结合，总共生成了 81,549 条轨迹。每条轨迹组织为 \\(\\tau = \\{ \\tau_s^t, \\tau_a^t, \\tau_{\\rm dof\\_pos}^t, \\tau_{\\rm trans}^t, \\tau_{\\rm rot}^t \\}_{t=1}^{T}\\)，分别表示机器人状态、动作、关节角度、全局位置和全局朝向，其中全局位置和全局朝向通常被视为状态空间中缺失的特权信息。Fig. 4、Fig. 5 和 Fig. 6 中展示的统计结果证明了 ALMI-X 的优势，附录 D 的实验结果进一步表明我们的数据集质量更高，更适合基础模型训练。该数据集已在 `https://huggingface.co/datasets/TeleEmbodied/ALMI-X` 开源发布。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p19-b8",
@@ -3671,15 +4068,24 @@
           "id": "p19-b10",
           "kind": "table",
           "bbox": [
-            342,
-            494,
-            486,
-            552
+            340.0,
+            492.0,
+            488.0,
+            554.0
           ],
           "en": "|||Command|| |---|---|---|---| |Level|ˆvx,t|ˆvy,t|ˆωyaw,t| |easy|[0.2,0.4]|[0.2,0.3]|[0.2,0.3]| |medium|[0.4,0.5]|[0.3,0.4]|[0.3,0.4]| |hard|[0.5,0.7]|[0.4,0.5]|[0.4,0.5]| |fix|0.4|0.4|0.4|",
           "reference": false,
           "image": "figs/p019-010.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            342.0,
+            494.0,
+            486.0,
+            552.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 444,
+          "image_height": 186
         },
         {
           "id": "p19-b11",
@@ -3699,15 +4105,24 @@
           "id": "p19-b12",
           "kind": "picture",
           "bbox": [
-            108,
-            595,
-            504,
-            700
+            106.0,
+            593.0,
+            506.0,
+            702.0
           ],
           "en": "wave open arm pour and mix take of t-shirt stretch out arm take book from shelf stir clap hand violin play golf wipe punch expand guitar cup 151,262 steps 388,112 steps drink make a bow with hand shower throw hand to head shake hand cut cast wash high five draw circle make the stop sign dry arm chop tennis salute",
           "reference": false,
           "image": "figs/p019-012.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            595.0,
+            504.0,
+            700.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1200,
+          "image_height": 327
         },
         {
           "id": "p19-b13",
@@ -3732,15 +4147,24 @@
           "id": "p20-b0",
           "kind": "picture",
           "bbox": [
-            167,
-            71,
-            445,
-            229
+            165.0,
+            69.0,
+            447.0,
+            231.0
           ],
           "en": "6 go forward 4 go left go backward 2 go right go forward to the right 0 go forward to the left go backward to the left 2 go backward to the right turn left 4 turn right keep standing 6 7.5 5.0 2.5 0.0 2.5 5.0 7.5 X axis (m) Y axis (m)",
           "reference": false,
           "image": "figs/p020-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            167.0,
+            71.0,
+            445.0,
+            229.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 846,
+          "image_height": 486
         },
         {
           "id": "p20-b1",
@@ -3751,10 +4175,11 @@
             504,
             259
           ],
-          "en": "Figure 5: The visualization of x − y coordinates of the robot for each step in the dataset. We down-sample the data for visualization.",
+          "en": "Figure 5: The visualization of \\(x-y\\) coordinates of the robot for each step in the dataset. We down-sample the data for visualization.",
           "reference": false,
           "source_image": "figs/p020-001-source.png",
-          "zh": "Figure 5: 数据集中每个步骤机器人 x − y 坐标的可视化。我们对数据进行了下采样以用于可视化。"
+          "zh": "Figure 5: 数据集中每个步骤机器人 \\(x-y\\) 坐标的可视化。我们对数据进行了下采样以用于可视化。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p20-b2",
@@ -3802,43 +4227,70 @@
           "id": "p20-b5",
           "kind": "picture",
           "bbox": [
-            107,
-            529,
-            181,
-            670
+            105.0,
+            527.0,
+            183.0,
+            672.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p020-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            107.0,
+            529.0,
+            181.0,
+            670.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 234,
+          "image_height": 435
         },
         {
           "id": "p20-b6",
           "kind": "picture",
           "bbox": [
-            217,
-            530,
-            327,
-            669
+            215.0,
+            528.0,
+            329.0,
+            671.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p020-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            217.0,
+            530.0,
+            327.0,
+            669.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 342,
+          "image_height": 429
         },
         {
           "id": "p20-b7",
           "kind": "picture",
           "bbox": [
-            342,
-            515,
-            505,
-            670
+            340.0,
+            513.0,
+            507.0,
+            672.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p020-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            342.0,
+            515.0,
+            505.0,
+            670.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 501,
+          "image_height": 477
         },
         {
           "id": "p20-b8",
@@ -3924,42 +4376,61 @@
             505,
             355
           ],
-          "en": "Architecture Details During the training process, we first extract a segment of states and actions with fixed length H and its corresponding language description T , then concatenate the state and action for the same frame resulting in a new sequence { ( si, ai ) , ( si +1 , ai +1) , ..., ( si + H− 1 , ai + H− 1) } , each of which is projected onto an embedding vector xi = `Linear` ( oi, ai ). We use CLIP [69] and a linear layer process the language description T into a vector of the same dimension x text = `Linear` ( `CLIP` ( T )) These vectors serve as input to the transformer decoder, which predicts the subsequent actions corresponding to each input. The computation process of the l -th transformer decoder layer and the output layer can be represented as follows:",
+          "en": "Architecture Details During the training process, we first extract a segment of states and actions with fixed length \\(H\\) and its corresponding language description \\(\\mathcal{T}\\), then concatenate the state and action for the same frame resulting in a new sequence \\(\\{(s_i, a_i), (s_{i+1},a_{i+1}), ..., (s_{i+H-1},a_{i+H-1})\\}\\), each of which is projected onto an embedding vector \\(x_i=\\texttt{Linear}(o_i, a_i)\\). We use CLIP [69] and a linear layer process the language description \\(\\mathcal{T}\\) into a vector of the same dimension \\(x_{\\rm text} = \\texttt{Linear}(\\texttt{CLIP}(\\mathcal{T}))\\) These vectors serve as input to the transformer decoder, which predicts the subsequent actions corresponding to each input. The computation process of the \\(l\\)-th transformer decoder layer and the output layer can be represented as follows:",
           "reference": false,
           "source_image": "figs/p021-004-source.png",
-          "zh": "架构细节 在训练过程中，我们首先提取一段固定长度为 H 的状态和动作片段及其对应的语言描述 T，然后将同一帧的状态和动作进行拼接，得到一个新的序列 { ( si, ai ) , ( si +1 , ai +1) , ..., ( si + H− 1 , ai + H− 1) }，其中每一项都被投影为一个嵌入向量 xi = `Linear` ( oi, ai )。我们使用 CLIP [69] 和一个线性层将语言描述 T 处理为相同维度的向量 x text = `Linear` ( `CLIP` ( T ))。这些向量作为 Transformer 解码器的输入，解码器预测与每个输入对应的后续动作。第 l 层 Transformer 解码器层和输出层的计算过程可以表示如下："
+          "zh": "架构细节 在训练过程中，我们首先提取一段固定长度为 \\(H\\) 的状态和动作片段及其对应的语言描述 \\(\\mathcal{T}\\)，然后将同一帧的状态和动作进行拼接，得到一个新的序列 \\(\\{(s_i, a_i), (s_{i+1},a_{i+1}), ..., (s_{i+H-1},a_{i+H-1})\\}\\)，其中每一项都被投影为一个嵌入向量 \\(x_i=\\texttt{Linear}(o_i, a_i)\\)。我们使用 CLIP [69] 和一个线性层将语言描述 \\(\\mathcal{T}\\) 处理为相同维度的向量 \\(x_{\\rm text} = \\texttt{Linear}(\\texttt{CLIP}(\\mathcal{T}))\\)。这些向量作为 Transformer 解码器的输入，解码器预测与每个输入对应的后续动作。第 \\(l\\) 层 Transformer 解码器层和输出层的计算过程可以表示如下：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p21-b5",
           "kind": "formula",
           "bbox": [
-            194,
-            371,
-            505,
-            384
+            192.0,
+            369.0,
+            507.0,
+            386.0
           ],
           "en": "x l text , xl i , ..., xl i + H− 1 = CausalSA ( x text l− 1 , xl i − 1 , ..., xi l− + 1 H− 1 ) , (34)",
           "reference": false,
           "image": "figs/p021-005.png",
           "labels": [
             "34"
-          ]
+          ],
+          "original_bbox": [
+            194.0,
+            371.0,
+            505.0,
+            384.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 945,
+          "image_height": 51
         },
         {
           "id": "p21-b6",
           "kind": "formula",
           "bbox": [
-            210,
-            392,
-            505,
-            404
+            208.0,
+            390.0,
+            507.0,
+            406.0
           ],
           "en": "{a ˆ i +1 , ..., ˆ ai + H } = Linear ( x text N , xN i , ..., xN i + H− 1 ) (35)",
           "reference": false,
           "image": "figs/p021-006.png",
           "labels": [
             "35"
-          ]
+          ],
+          "original_bbox": [
+            210.0,
+            392.0,
+            505.0,
+            404.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 897,
+          "image_height": 48
         },
         {
           "id": "p21-b7",
@@ -3970,10 +4441,11 @@
             505,
             444
           ],
-          "en": "where N is the number of transformer decoder layers. a ˆ j , where i + 1 ≤ j ≤ i + H + 1, represent the predict action integrating text command information and historical state-action pairs. Mean square errors between predict and ground truth actions are used for policy update.",
+          "en": "where \\(N\\) is the number of transformer decoder layers. \\(\\hat{a}_j\\), where \\(i+1 \\leq j \\leq i+H+1\\), represent the predict action integrating text command information and historical state-action pairs. Mean square errors between predict and ground truth actions are used for policy update.",
           "reference": false,
           "source_image": "figs/p021-007-source.png",
-          "zh": "其中 N 是 Transformer 解码器层的数量。a ˆ j（其中 i + 1 ≤ j ≤ i + H + 1）表示融合了文本指令信息与历史状态-动作对的预测动作。预测动作与真实（ground truth）动作之间的均方误差用于策略更新。"
+          "zh": "其中 \\(N\\) 是 Transformer 解码器层的数量。\\(\\hat{a}_j\\)（其中 \\(i+1 \\leq j \\leq i+H+1\\)）表示融合了文本指令信息与历史状态-动作对的预测动作。预测动作与真实（ground truth）动作之间的均方误差用于策略更新。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p21-b8",
@@ -3993,15 +4465,24 @@
           "id": "p21-b9",
           "kind": "table",
           "bbox": [
-            124,
-            501,
-            268,
-            694
+            122.0,
+            499.0,
+            270.0,
+            696.0
           ],
           "en": "|Aver|age Velo|city| |---|---|---| |Text commands w.r.t. lower body ¯vx|¯vy|¯ωyaw| |CL-20sl||| |forward fast 0.48|0.18|0.08| |left fast 0.07|0.28|0.00| |backward to left slowly -0.19|0.21|0.00| |turn left slowly 0.02|0.02|0.08| |go right fast -0.11|-0.37|-0.07| |keep standing 0.00|0.00|0.01| |CL-400sl||| |forward fast 0.87|-0.05|-0.10| |left fast 0.53|0.42|-0.07| |backward to left slowly 0.35|0.30|-0.01| |turn left slowly 0.53|0.16|0.2| |go right fast 0.47|-0.50|-0.10| |keep standing 0.22|0.08|0.00|",
           "reference": false,
           "image": "figs/p021-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            124.0,
+            501.0,
+            268.0,
+            694.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 444,
+          "image_height": 591
         },
         {
           "id": "p21-b10",
@@ -4012,24 +4493,34 @@
             505,
             487
           ],
-          "en": "Table 12: Survival duration ( SD ) and success rates of upper-body( SR up)/lower-body( SR low) with different text commands.",
+          "en": "Table 12: Survival duration (\\(SD\\)) and success rates of upper-body(\\(SR_{\\rm up}\\))/lower-body(\\(SR_{\\rm low}\\)) with different text commands.",
           "reference": false,
           "source_image": "figs/p021-010-source.png",
-          "zh": "Table 12: 不同文本指令下的存活时长（SD）以及上半身成功率（SR up）/下半身成功率（SR low）。"
+          "zh": "Table 12: 不同文本指令下的存活时长（\\(SD\\)）以及上半身成功率（\\(SR_{\\rm up}\\)）/下半身成功率（\\(SR_{\\rm low}\\)）。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p21-b11",
           "kind": "table",
           "bbox": [
-            321,
-            498,
-            493,
-            707
+            319.0,
+            496.0,
+            495.0,
+            709.0
           ],
           "en": "|||Metrics|| |---|---|---|---| |Text commands|SRlow|SRup|SD| |CL-2|0sl||| |go forward slowly and wave left.|1.00|0.20|8.0| |go backward moderately and wave right.|1.00|0.20|8.0| |go right fast and wave both.|1.00|0.40|8.0| |CL-40|0sl||| |go forward slowly and wave left.|1.00|1.00|2.14| |go backward moderately and wave right.|1.00|1.00|2.54| |go right fast and wave both.|0.00|1.00|3.57| |OL|||| |go forward slowly and wave left.|0.00|1.00|0.31| |go backward moderately and wave right.|0.00|1.00|0.29| |go right fast and wave both.|0.00|1.00|0.32|",
           "reference": false,
           "image": "figs/p021-011.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            321.0,
+            498.0,
+            493.0,
+            707.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 528,
+          "image_height": 639
         }
       ]
     },
@@ -4045,10 +4536,11 @@
             505,
             134
           ],
-          "en": "Model Inference In inference, the input text vector t text remains constant throughout the execution of the task. The robot executes the action decoded from the last vectors of the policy output. It is then concatenated with the newly acquired state, which is then computed into an embedding vector and serve as the last vector of the input for the policy to predict the next action. In the initial stage, when the length h of the historical state-action pairs is less than H , the robot will execute the action decoded using the vector corresponding to the latest state-action pair rather than the last one.",
+          "en": "Model Inference In inference, the input text vector \\(t_{\\rm text}\\) remains constant throughout the execution of the task. The robot executes the action decoded from the last vectors of the policy output. It is then concatenated with the newly acquired state, which is then computed into an embedding vector and serve as the last vector of the input for the policy to predict the next action. In the initial stage, when the length \\(h\\) of the historical state-action pairs is less than \\(H\\), the robot will execute the action decoded using the vector corresponding to the latest state-action pair rather than the last one.",
           "reference": false,
           "source_image": "figs/p022-000-source.png",
-          "zh": "模型推理 在推理阶段，输入文本向量 t text 在整个任务执行过程中保持不变。机器人执行从策略输出的最后一个向量解码得到的动作。随后该动作与新获取的状态进行拼接，计算为一个嵌入向量，并作为策略输入的最后一个向量以预测下一个动作。在初始阶段，当历史状态-动作对的长度 h 小于 H 时，机器人将执行利用与最新状态-动作对相对应的向量解码得到的动作，而不是最后一个向量。"
+          "zh": "模型推理 在推理阶段，输入文本向量 \\(t_{\\rm text}\\) 在整个任务执行过程中保持不变。机器人执行从策略输出的最后一个向量解码得到的动作。随后该动作与新获取的状态进行拼接，计算为一个嵌入向量，并作为策略输入的最后一个向量以预测下一个动作。在初始阶段，当历史状态-动作对的长度 \\(h\\) 小于 \\(H\\) 时，机器人将执行利用与最新状态-动作对相对应的向量解码得到的动作，而不是最后一个向量。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p22-b1",
@@ -4073,10 +4565,11 @@
             506,
             376
           ],
-          "en": "Evaluation Metrics Since training a foundation model to follow all text commands in ALMI-X is quite challenging, we conduct preliminary investigations using only wave-relative motion. We evaluate the models using different control approaches and input sequence lengths with different text commands in MuJoCo simulation, repeating each command 5 times with each test lasting 8 seconds. we adopt the following notation: CL − x sl denotes the closed-loop control approach without tokenization, where x represents the input sequence length (e.g., CL − 20sl). OL indicates the open-loop control approach with tokenization, which predicts and executes the entire motion sequence in a single forward pass. We evaluated several metrics, including robot survival time (up to 8 seconds), velocity during test time, and success rate of lower-body and upper-body. We consider the lower-body successful if the robot’s movement direction matches the text command, and the upper-body successful if the robot waves the correct hand.",
+          "en": "Evaluation Metrics Since training a foundation model to follow all text commands in ALMI-X is quite challenging, we conduct preliminary investigations using only wave-relative motion. We evaluate the models using different control approaches and input sequence lengths with different text commands in MuJoCo simulation, repeating each command 5 times with each test lasting 8 seconds. we adopt the following notation: \\({\\rm CL}-x{\\rm sl}\\) denotes the closed-loop control approach without tokenization, where \\(x\\) represents the input sequence length (e.g., \\({\\rm CL}-20{\\rm sl}\\)). \\({\\rm OL}\\) indicates the open-loop control approach with tokenization, which predicts and executes the entire motion sequence in a single forward pass. We evaluated several metrics, including robot survival time (up to 8 seconds), velocity during test time, and success rate of lower-body and upper-body. We consider the lower-body successful if the robot’s movement direction matches the text command, and the upper-body successful if the robot waves the correct hand.",
           "reference": false,
           "source_image": "figs/p022-002-source.png",
-          "zh": "评估指标 由于训练一个遵循 ALMI-X 中所有文本指令的基础模型极具挑战性，我们仅使用与挥手相关的动作进行初步探究。我们在 MuJoCo 仿真中使用不同的文本指令，对采用不同控制方法和输入序列长度的模型进行评估，每个指令重复 5 次，每次测试持续 8 秒。我们采用以下记号：CL − x sl 表示未分词的闭环控制方法，其中 x 代表输入序列长度（例如 CL − 20sl）。OL 表示进行了分词的开环控制方法，该方法在单次前向传播中预测并执行整个动作序列。我们评估了多项指标，包括机器人存活时间（最长 8 秒）、测试期间的速度，以及下半身和上半身的成功率。如果机器人的运动方向与文本指令相匹配，我们认为下半身成功；如果机器人挥动了正确的手，则认为上半身成功。"
+          "zh": "评估指标 由于训练一个遵循 ALMI-X 中所有文本指令的基础模型极具挑战性，我们仅使用与挥手相关的动作进行初步探究。我们在 MuJoCo 仿真中使用不同的文本指令，对采用不同控制方法和输入序列长度的模型进行评估，每个指令重复 5 次，每次测试持续 8 秒。我们采用以下记号：\\({\\rm CL}-x{\\rm sl}\\) 表示未分词的闭环控制方法，其中 \\(x\\) 代表输入序列长度（例如 \\({\\rm CL}-20{\\rm sl}\\)）。\\({\\rm OL}\\) 表示进行了分词的开环控制方法，该方法在单次前向传播中预测并执行整个动作序列。我们评估了多项指标，包括机器人存活时间（最长 8 秒）、测试期间的速度，以及下半身和上半身的成功率。如果机器人的运动方向与文本指令相匹配，我们认为下半身成功；如果机器人挥动了正确的手，则认为上半身成功。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p22-b3",
@@ -4087,24 +4580,34 @@
             505,
             507
           ],
-          "en": "Experiment Results Results in Table 12 demonstrate that the open-loop control approach, which predicts and executes the entire action sequence based on a single text command, fails to maintain the robot’s balance and leads to an extremely low survival time. In contrast, the closed-loop control method exhibits more robust locomotion and superior lower-body text-following performance. Table 11 demonstrates that the closed-loop approach with a short input sequence length enables robot’s movement direction adapts to commands such as forward and right and its velocity adjusts to modifiers like fast and slowly , aligning more accurately with the sampled velocity commands as shown in Table 10. However, the approach with a longer sequence length results in poorer lower-body motion performance in both movement direction and velocity. It can be inferred that the long input sequence length plays a crucial role in the upper-body success rate, since OL and CL − 400sl achieve much better upper-body compliance with text commands, and focusing the model exclusively on short-term historical information brings locomotion stability and better command performance of the lower body. These experimental results indicate that training a humanoid foundation control model using supervised learning and a",
+          "en": "Experiment Results Results in Table 12 demonstrate that the open-loop control approach, which predicts and executes the entire action sequence based on a single text command, fails to maintain the robot’s balance and leads to an extremely low survival time. In contrast, the closed-loop control method exhibits more robust locomotion and superior lower-body text-following performance. Table 11 demonstrates that the closed-loop approach with a short input sequence length enables robot’s movement direction adapts to commands such as \\({forward}\\) and \\({right}\\) and its velocity adjusts to modifiers like \\({fast}\\) and \\({slowly}\\), aligning more accurately with the sampled velocity commands as shown in Table 10. However, the approach with a longer sequence length results in poorer lower-body motion performance in both movement direction and velocity. It can be inferred that the long input sequence length plays a crucial role in the upper-body success rate, since \\({\\rm OL}\\) and \\({\\rm CL}-400{\\rm sl}\\) achieve much better upper-body compliance with text commands, and focusing the model exclusively on short-term historical information brings locomotion stability and better command performance of the lower body. These experimental results indicate that training a humanoid foundation control model using supervised learning and a",
           "reference": false,
           "source_image": "figs/p022-003-source.png",
-          "zh": "实验结果 Table 12 中的结果表明，基于单个文本指令预测并执行整个动作序列的开环控制方法无法保持机器人的平衡，并导致极低的存活时间。相比之下，闭环控制方法展现出更鲁棒的运动性能以及更优异的下半身文本遵循能力。Table 11 表明，具有短输入序列长度的闭环方法能够使机器人的运动方向适应诸如“前进（forward）”和“向右（right）”等指令，且其速度能够根据“快速（fast）”和“缓慢（slowly）”等修饰语进行调整，从而更准确地与 Table 10 所示的采样速度指令保持一致。然而，序列长度较长的方法会导致下半身在运动方向和速度两方面的运动性能均较差。由此可以推断，长输入序列长度在上半身成功率中起着至关重要的作用，因为 OL 和 CL − 400sl 在上半身对文本指令的顺从度上表现要好得多，而使模型仅聚焦于短期历史信息则能为下半身带来运动稳定性和更好的指令响应性能。这些实验结果表明，利用监督学习和"
+          "zh": "实验结果 Table 12 中的结果表明，基于单个文本指令预测并执行整个动作序列的开环控制方法无法保持机器人的平衡，并导致极低的存活时间。相比之下，闭环控制方法展现出更鲁棒的运动性能以及更优异的下半身文本遵循能力。Table 11 表明，具有短输入序列长度的闭环方法能够使机器人的运动方向适应诸如“前进（\\({forward}\\)）”和“向右（\\({right}\\)）”等指令，且其速度能够根据“快速（\\({fast}\\)）”和“缓慢（\\({slowly}\\)）”等修饰语进行调整，从而更准确地与 Table 10 所示的采样速度指令保持一致。然而，序列长度较长的方法会导致下半身在运动方向和速度两方面的运动性能均较差。由此可以推断，长输入序列长度在上半身成功率中起着至关重要的作用，因为 \\({\\rm OL}\\) 和 \\({\\rm CL}-400{\\rm sl}\\) 在上半身对文本指令的顺从度上表现要好得多，而使模型仅聚焦于短期历史信息则能为下半身带来运动稳定性和更好的指令响应性能。这些实验结果表明，利用监督学习和",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p22-b4",
           "kind": "picture",
           "bbox": [
-            107,
-            526,
-            504,
-            657
+            105.0,
+            524.0,
+            506.0,
+            659.0
           ],
           "en": "switch control mode Deployment router VR Motion Dataset inverse kinematics retarget upper body joint position Proprioception lower body ( vx, vy, ω yaw) joint position",
           "reference": false,
           "image": "figs/p022-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            107.0,
+            526.0,
+            504.0,
+            657.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1203,
+          "image_height": 405
         },
         {
           "id": "p22-b5",
@@ -4129,15 +4632,24 @@
           "id": "p23-b0",
           "kind": "picture",
           "bbox": [
-            127,
-            71,
-            485,
-            356
+            125.0,
+            69.0,
+            487.0,
+            358.0
           ],
           "en": "(a) Salute (b) High five (c) Swing tennis racket",
           "reference": false,
           "image": "figs/p023-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            127.0,
+            71.0,
+            485.0,
+            356.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1086,
+          "image_height": 867
         },
         {
           "id": "p23-b1",
@@ -4190,10 +4702,11 @@
             506,
             640
           ],
-          "en": "Hardware and Deployment We conduct experiments using the Unitree-H1-2 robot equipped with the ROBOTERA XHAND robotic hand, applying ALMI-trained policies to the lower body control and various interfaces (i.e., open-loop controller, ALMI policy, and VR device) for the upper body control, as shown in Fig. 7. Specifically, (i) we can use an open-loop controller that sends the target joint positions of the pre-loaded motions; (ii) we can obtain actions of the upper body via the policy πu , which uses the reference joint positions of the preloaded motion as input. In real-world experiments, we find that open-loop control has higher tracking accuracy when the robot remains standing, but the learned policy shows better stability during movement. (iii) The other one is combining with teleoperation systems, which enable the robot to perform loco-manipulation tasks. Specifically, the upper-body follows wrist poses of humans and the relative positions between the robot end-effectors and the robot head are expected to match those between the human wrists and head, then the arm actions are obtained from inverse kinematics. The finger movements are also captured by VR simultaneously to control the dexterous hands for loco-manipulation tasks. Benefiting from the superiority of the training method and the use of domain randomization, our policy does not require additional sim-to-real techniques and can be deployed directly on the NVIDIA Jetson Orin NX onboard the robot for inference. The action output frequency of the policy is 50Hz.",
+          "en": "Hardware and Deployment We conduct experiments using the Unitree-H1-2 robot equipped with the ROBOTERA XHAND robotic hand, applying ALMI-trained policies to the lower body control and various interfaces (i.e., open-loop controller, ALMI policy, and VR device) for the upper body control, as shown in Fig. 7. Specifically, (i) we can use an open-loop controller that sends the target joint positions of the pre-loaded motions; (ii) we can obtain actions of the upper body via the policy \\(\\pi^u\\), which uses the reference joint positions of the preloaded motion as input. In real-world experiments, we find that open-loop control has higher tracking accuracy when the robot remains standing, but the learned policy shows better stability during movement. (iii) The other one is combining with teleoperation systems, which enable the robot to perform loco-manipulation tasks. Specifically, the upper-body follows wrist poses of humans and the relative positions between the robot end-effectors and the robot head are expected to match those between the human wrists and head, then the arm actions are obtained from inverse kinematics. The finger movements are also captured by VR simultaneously to control the dexterous hands for loco-manipulation tasks. Benefiting from the superiority of the training method and the use of domain randomization, our policy does not require additional sim-to-real techniques and can be deployed directly on the NVIDIA Jetson Orin NX onboard the robot for inference. The action output frequency of the policy is 50Hz.",
           "reference": false,
           "source_image": "figs/p023-004-source.png",
-          "zh": "硬件与部署 如图 7 所示，我们使用配备了 ROBOTERA XHAND 机械手的 Unitree-H1-2 机器人进行实验，将 ALMI 训练的策略应用于下半身控制，并使用多种接口（即开环控制器、ALMI 策略和 VR 设备）进行上半身控制。具体而言：(i) 我们可以使用开环控制器发送预加载动作的目标关节位置；(ii) 我们可以通过策略 πu 获取上半身的动作，该策略以预加载动作的参考关节位置作为输入。在真实世界实验中，我们发现当机器人保持站立时，开环控制具有更高的跟踪精度，但学习到的策略在移动过程中表现出更好的稳定性。(iii) 另一种方式是与遥操作系统相结合，使机器人能够执行移动操作（loco-manipulation）任务。具体来说，上半身跟随人类的手腕姿态，且机器人末端执行器与机器人头部之间的相对位置应与人类手腕和头部之间的相对位置相匹配，然后通过逆运动学计算获得手臂动作。手指运动也由 VR 同步捕获，以控制灵巧手执行移动操作任务。得益于训练方法的优越性以及域随机化的使用，我们的策略不需要额外的仿真到现实迁移（sim-to-real）技术，可以直接部署在机器人机载的 NVIDIA Jetson Orin NX 上进行推理。该策略的动作输出频率为 50Hz。"
+          "zh": "硬件与部署 如图 7 所示，我们使用配备了 ROBOTERA XHAND 机械手的 Unitree-H1-2 机器人进行实验，将 ALMI 训练的策略应用于下半身控制，并使用多种接口（即开环控制器、ALMI 策略和 VR 设备）进行上半身控制。具体而言：(i) 我们可以使用开环控制器发送预加载动作的目标关节位置；(ii) 我们可以通过策略 \\(\\pi^u\\) 获取上半身的动作，该策略以预加载动作的参考关节位置作为输入。在真实世界实验中，我们发现当机器人保持站立时，开环控制具有更高的跟踪精度，但学习到的策略在移动过程中表现出更好的稳定性。(iii) 另一种方式是与遥操作系统相结合，使机器人能够执行移动操作（loco-manipulation）任务。具体来说，上半身跟随人类的手腕姿态，且机器人末端执行器与机器人头部之间的相对位置应与人类手腕和头部之间的相对位置相匹配，然后通过逆运动学计算获得手臂动作。手指运动也由 VR 同步捕获，以控制灵巧手执行移动操作任务。得益于训练方法的优越性以及域随机化的使用，我们的策略不需要额外的仿真到现实迁移（sim-to-real）技术，可以直接部署在机器人机载的 NVIDIA Jetson Orin NX 上进行推理。该策略的动作输出频率为 50Hz。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p23-b5",
@@ -4260,15 +4773,24 @@
           "id": "p24-b3",
           "kind": "picture",
           "bbox": [
-            108,
-            258,
-            504,
-            308
+            106.0,
+            256.0,
+            506.0,
+            310.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p024-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            258.0,
+            504.0,
+            308.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1200,
+          "image_height": 162
         },
         {
           "id": "p24-b4",
@@ -4288,15 +4810,24 @@
           "id": "p24-b5",
           "kind": "picture",
           "bbox": [
-            147,
-            346,
-            465,
-            434
+            145.0,
+            344.0,
+            467.0,
+            436.0
           ],
           "en": "(a) Carry box (b) Vacuum floor",
           "reference": false,
           "image": "figs/p024-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            147.0,
+            346.0,
+            465.0,
+            434.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 966,
+          "image_height": 276
         },
         {
           "id": "p24-b6",

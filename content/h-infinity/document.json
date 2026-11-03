@@ -36,15 +36,24 @@
           "id": "p1-b3",
           "kind": "picture",
           "bbox": [
-            108,
-            190,
-            504,
-            382
+            106.0,
+            188.0,
+            506.0,
+            384.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            190.0,
+            504.0,
+            382.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1200,
+          "image_height": 588
         },
         {
           "id": "p1-b4",
@@ -69,10 +78,11 @@
             469,
             624
           ],
-          "en": "Abstract: Stable locomotion in precipitous environments is an essential task for quadruped robots, requiring the ability to resist various external disturbances. Recent neural policies enhance robustness against disturbances by learning to resist external forces sampled from a fixed distribution in the simulated environment. However, the force generation process doesn’t consider the robot’s current state, making it difficult to identify the most effective direction and magnitude that can push the robot to the most unstable but recoverable state. Thus, challenging cases in the buffer are insufficient to optimize robustness. In this paper, we propose to model the robust locomotion learning process as an adversarial interaction between the locomotion policy and a learnable disturbance that is conditioned on the robot state to generate appropriate external forces. To make the joint optimization stable, our novel H 8 constraint mandates the bound of the ratio between the cost and the intensity of the external forces. We verify the robustness of our approach in both simulated environments and real-world deployment, on quadrupedal locomotion tasks and a more challenging task where the quadruped performs locomotion merely on hind legs. Training and deployment code will be made public.",
+          "en": "Abstract: Stable locomotion in precipitous environments is an essential task for quadruped robots, requiring the ability to resist various external disturbances. Recent neural policies enhance robustness against disturbances by learning to resist external forces sampled from a fixed distribution in the simulated environment. However, the force generation process doesn’t consider the robot’s current state, making it difficult to identify the most effective direction and magnitude that can push the robot to the most unstable but recoverable state. Thus, challenging cases in the buffer are insufficient to optimize robustness. In this paper, we propose to model the robust locomotion learning process as an adversarial interaction between the locomotion policy and a learnable disturbance that is conditioned on the robot state to generate appropriate external forces. To make the joint optimization stable, our novel \\(H_{\\infty}\\) constraint mandates the bound of the ratio between the cost and the intensity of the external forces. We verify the robustness of our approach in both simulated environments and real-world deployment, on quadrupedal locomotion tasks and a more challenging task where the quadruped performs locomotion merely on hind legs. Training and deployment code will be made public.",
           "reference": false,
           "source_image": "figs/p001-005-source.png",
-          "zh": "摘要：在险峻环境中实现稳定运动是四足机器人的一项核心任务，需要具备抵御各种外部扰动的能力。近期的神经网络策略通过在仿真环境中学习抵御从固定分布中采样的外力来提升抗扰动鲁棒性。然而，该力的生成过程并未考虑机器人的当前状态，导致难以确定最有效的方向与大小以将机器人推至最不稳定但仍可恢复的状态。因此，缓冲区中具有挑战性的样本不足以充分优化鲁棒性。在本文中，我们提出将鲁棒运动学习过程建模为运动策略与可学习扰动之间的对抗性交互，该扰动以机器人状态为条件来生成适当的外力。为保证联合优化的稳定性，我们新颖的 H 8 约束限定了代价与外力强度之比的有界性。我们在仿真环境和真实世界部署中，在四足运动任务以及四足机器人仅靠后腿运动的更具挑战性任务上验证了本方法的鲁棒性。训练和部署代码将予以开源。"
+          "zh": "摘要：在险峻环境中实现稳定运动是四足机器人的一项核心任务，需要具备抵御各种外部扰动的能力。近期的神经网络策略通过在仿真环境中学习抵御从固定分布中采样的外力来提升抗扰动鲁棒性。然而，该力的生成过程并未考虑机器人的当前状态，导致难以确定最有效的方向与大小以将机器人推至最不稳定但仍可恢复的状态。因此，缓冲区中具有挑战性的样本不足以充分优化鲁棒性。在本文中，我们提出将鲁棒运动学习过程建模为运动策略与可学习扰动之间的对抗性交互，该扰动以机器人状态为条件来生成适当的外力。为保证联合优化的稳定性，我们新颖的 \\(H_{\\infty}\\) 约束限定了代价与外力强度之比的有界性。我们在仿真环境和真实世界部署中，在四足运动任务以及四足机器人仅靠后腿运动的更具挑战性任务上验证了本方法的鲁棒性。训练和部署代码将予以开源。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b6",
@@ -130,10 +140,11 @@
             505,
             329
           ],
-          "en": "For generating more effective training samples, an ideal external force sampler is supposed to affect the policy to the extent that the agent experiences an obvious performance drop but is still able to recover from the disturbance, which guarantees not only the training feasibility but the weakness of the policy is attacked precisely. To this end, we introduce a disturber network conditioned on the current states of the robot to generate adaptive external forces. Compared to the actor that aims to maximize the cumulative discounted overall reward, the disturber is modeled as a separate learnable module to maximize the cumulative discounted error between the task reward and its oracle, i.e., “cost” in each iteration. To ensure stable optimization between the actor and the disturber, we implement an additional learning objective derived from the constraint inspired by the classical H 8 theory [25, 26, 27], which mandates the bound of the ratio between the cost and the intensity of external forces generated by the disturber. Following this constraint, we naturally derive an upper bound for the cost function with respect to a certain intensity of external forces, which is equivalent to a performance lower bound for the actor with a theoretical guarantee.",
+          "en": "For generating more effective training samples, an ideal external force sampler is supposed to affect the policy to the extent that the agent experiences an obvious performance drop but is still able to recover from the disturbance, which guarantees not only the training feasibility but the weakness of the policy is attacked precisely. To this end, we introduce a disturber network conditioned on the current states of the robot to generate adaptive external forces. Compared to the actor that aims to maximize the cumulative discounted overall reward, the disturber is modeled as a separate learnable module to maximize the cumulative discounted error between the task reward and its oracle, i.e., “cost” in each iteration. To ensure stable optimization between the actor and the disturber, we implement an additional learning objective derived from the constraint inspired by the classical \\(H_{\\infty}\\) theory [25, 26, 27], which mandates the bound of the ratio between the cost and the intensity of external forces generated by the disturber. Following this constraint, we naturally derive an upper bound for the cost function with respect to a certain intensity of external forces, which is equivalent to a performance lower bound for the actor with a theoretical guarantee.",
           "reference": false,
           "source_image": "figs/p002-001-source.png",
-          "zh": "为了生成更有效的训练样本，理想的外力采样器应当在一定程度上影响策略，使智能体经历明显的性能下降但仍能从扰动中恢复过来，这不仅保证了训练的可行性，还能够精准攻击策略的薄弱环节。为此，我们引入了一个以机器人当前状态为条件的扰动器网络，用以生成自适应外力。与旨在最大化累计折扣总奖励的 actor 相比，扰动器被建模为一个独立的可学习模块，旨在最大化每次迭代中任务奖励与其理论最优值（oracle）之间的累计折扣误差，即“代价”（cost）。为了确保 actor 与扰动器之间的稳定优化，我们根据经典 H 8 理论 [25, 26, 27] 启发下的约束，引入了一个额外的学习目标，该约束限定了扰动器所产生外力的代价与强度之比的界限。基于这一约束，我们自然地推导出了在特定外力强度下代价函数的上限，这在理论上等价于为 actor 提供了具有理论保证的性能下界。"
+          "zh": "为了生成更有效的训练样本，理想的外力采样器应当在一定程度上影响策略，使智能体经历明显的性能下降但仍能从扰动中恢复过来，这不仅保证了训练的可行性，还能够精准攻击策略的薄弱环节。为此，我们引入了一个以机器人当前状态为条件的扰动器网络，用以生成自适应外力。与旨在最大化累计折扣总奖励的 actor 相比，扰动器被建模为一个独立的可学习模块，旨在最大化每次迭代中任务奖励与其理论最优值（oracle）之间的累计折扣误差，即“代价”（cost）。为了确保 actor 与扰动器之间的稳定优化，我们根据经典 \\(H_{\\infty}\\) 理论 [25, 26, 27] 启发下的约束，引入了一个额外的学习目标，该约束限定了扰动器所产生外力的代价与强度之比的界限。基于这一约束，我们自然地推导出了在特定外力强度下代价函数的上限，这在理论上等价于为 actor 提供了具有理论保证的性能下界。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b2",
@@ -205,10 +216,11 @@
             505,
             144
           ],
-          "en": "In light of that, we introduce a novel training framework for quadruped locomotion by modeling an external disturber explicitly, which is the first attempt to do so as far as we are concerned. Based on the classic H 8 method from control theory [25, 26, 27], we devise a brand-new training pipeline where the external disturber and the actor of the robot can be jointly optimized in an adversarial manner. With more experience of physical disturbance in training, quadruped robots acquire more robustness against external forces in real-world deployment.",
+          "en": "In light of that, we introduce a novel training framework for quadruped locomotion by modeling an external disturber explicitly, which is the first attempt to do so as far as we are concerned. Based on the classic \\(H_{\\infty}\\) method from control theory [25, 26, 27], we devise a brand-new training pipeline where the external disturber and the actor of the robot can be jointly optimized in an adversarial manner. With more experience of physical disturbance in training, quadruped robots acquire more robustness against external forces in real-world deployment.",
           "reference": false,
           "source_image": "figs/p003-000-source.png",
-          "zh": "鉴于此，我们通过显式建模外部扰动器，提出了一种新颖的四足运动训练框架，据我们所知这是首次进行此类尝试。基于控制理论中的经典 H 8 方法 [25, 26, 27]，我们设计了一套全新的训练流程，使外部扰动器与机器人的 actor 能够以对抗方式进行联合优化。通过在训练中获得更多面对物理扰动的经验，四足机器人在真实世界部署中获得了针对外力的更强鲁棒性。"
+          "zh": "鉴于此，我们通过显式建模外部扰动器，提出了一种新颖的四足运动训练框架，据我们所知这是首次进行此类尝试。基于控制理论中的经典 \\(H_{\\infty}\\) 方法 [25, 26, 27]，我们设计了一套全新的训练流程，使外部扰动器与机器人的 actor 能够以对抗方式进行联合优化。通过在训练中获得更多面对物理扰动的经验，四足机器人在真实世界部署中获得了针对外力的更强鲁棒性。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b1",
@@ -233,26 +245,36 @@
             505,
             256
           ],
-          "en": "Classic H 8 control [33] deals with a system involved with disturbance, where we denote G as the plant, K as the controller, u as the control input, y as the measurement available to the controller, w as an unknown disturbance, and z as the error output which is expected to be minimized. In general, we wish the controller to stabilize the closed-loop system based on a model of the plant G . The goal of H 8 control is to design a controller K that minimizes the error z while minimizing the H 8 norm of the closed-loop transfer function Tzw from the disturbance w to the error z :",
+          "en": "Classic \\(H_{\\infty}\\) control [33] deals with a system involved with disturbance, where we denote \\(G\\) as the plant, \\(K\\) as the controller, \\(u\\) as the control input, \\(y\\) as the measurement available to the controller, \\(w\\) as an unknown disturbance, and \\(z\\) as the error output which is expected to be minimized. In general, we wish the controller to stabilize the closed-loop system based on a model of the plant \\(G\\). The goal of \\(H_{\\infty}\\) control is to design a controller \\(K\\) that minimizes the error \\(z\\) while minimizing the \\(H_{\\infty}\\) norm of the closed-loop transfer function \\(T_{zw}\\) from the disturbance \\(w\\) to the error \\(z\\):",
           "reference": false,
           "source_image": "figs/p003-002-source.png",
-          "zh": "经典 H 8 控制 [33] 处理包含扰动的系统，其中我们用 G 表示被控对象，K 表示控制器，u 表示控制输入，y 表示控制器可用的测量值，w 表示未知扰动，z 表示期望被最小化的误差输出。一般来说，我们希望控制器基于被控对象 G 的模型来使闭环系统稳定。H 8 控制的目标是设计一个控制器 K，在最小化误差 z 的同时，最小化从扰动 w 到误差 z 的闭环传递函数 Tzw 的 H 8 范数："
+          "zh": "经典 \\(H_{\\infty}\\) 控制 [33] 处理包含扰动的系统，其中我们用 \\(G\\) 表示被控对象，\\(K\\) 表示控制器，\\(u\\) 表示控制输入，\\(y\\) 表示控制器可用的测量值，\\(w\\) 表示未知扰动，\\(z\\) 表示期望被最小化的误差输出。一般来说，我们希望控制器基于被控对象 \\(G\\) 的模型来使闭环系统稳定。\\(H_{\\infty}\\) 控制的目标是设计一个控制器 \\(K\\)，在最小化误差 \\(z\\) 的同时，最小化从扰动 \\(w\\) 到误差 \\(z\\) 的闭环传递函数 \\(T_{zw}\\) 的 \\(H_{\\infty}\\) 范数：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b3",
           "kind": "formula",
           "bbox": [
-            261,
-            260,
-            505,
-            285
+            259.0,
+            258.0,
+            507.0,
+            287.0
           ],
           "en": "} z }2 } Tzw }8 “ sup . (1) w ‰0 } w }2",
           "reference": false,
           "image": "figs/p003-003.png",
           "labels": [
             "1"
-          ]
+          ],
+          "original_bbox": [
+            261.0,
+            260.0,
+            505.0,
+            285.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 744,
+          "image_height": 87
         },
         {
           "id": "p3-b4",
@@ -263,10 +285,11 @@
             505,
             356
           ],
-          "en": "However, minimizing } Tzw }8 is usually challenging. In practical implementation, we instead wish to find an acceptable η ą 0 and a controller K satisfying } Tzw }8 ă η , which is called suboptimal H 8 control. We denote this as η -optimal in this paper. According to Morimoto and Doya [25], if } Tzw }8 ă η , it is guaranteed that the system will remain stabilized for any disturbance mapping d : z ÞÑ w with } d }8 ă η1.",
+          "en": "However, minimizing \\(\\|T_{zw}\\|_{\\infty}\\) is usually challenging. In practical implementation, we instead wish to find an acceptable \\(\\eta > 0\\) and a controller \\(K\\) satisfying \\(\\|T_{zw}\\|_{\\infty} < \\eta\\), which is called suboptimal \\(H_{\\infty}\\) control. We denote this as \\(\\eta\\)-optimal in this paper. According to Morimoto and Doya [25], if \\(\\|T_{zw}\\|_{\\infty} < \\eta\\), it is guaranteed that the system will remain stabilized for any disturbance mapping \\(\\mathbf{d}: z \\mapsto w\\) with \\(\\|\\mathbf{d}\\|_{\\infty} < \\frac{1}{\\eta}\\).",
           "reference": false,
           "source_image": "figs/p003-004-source.png",
-          "zh": "然而，最小化 } Tzw }8 通常极具挑战性。在实际实现中，我们转而希望找到一个可接受的 η ą 0 以及满足 } Tzw }8 ă η 的控制器 K，这被称为次优 H 8 控制（suboptimal H 8 control）。在本文中，我们将其记为 η -optimal。根据 Morimoto 和 Doya [25]，如果 } Tzw }8 ă η，则可保证系统对于任意满足 } d }8 ă η1 的扰动映射 d : z ÞÑ w 均保持稳定。"
+          "zh": "然而，最小化 \\(\\|T_{zw}\\|_{\\infty}\\) 通常极具挑战性。在实际实现中，我们转而希望找到一个可接受的 \\(\\eta > 0\\) 以及满足 \\(\\|T_{zw}\\|_{\\infty} < \\eta\\) 的控制器 \\(K\\)，这被称为次优 \\(H_{\\infty}\\) 控制（suboptimal \\(H_{\\infty}\\) control）。在本文中，我们将其记为 \\(\\eta\\)-optimal。根据 Morimoto 和 Doya [25]，如果 \\(\\|T_{zw}\\|_{\\infty} < \\eta\\)，则可保证系统对于任意满足 \\(\\|\\mathbf{d}\\|_{\\infty} < \\frac{1}{\\eta}\\) 的扰动映射 \\(\\mathbf{d}: z \\mapsto w\\) 均保持稳定。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b5",
@@ -277,26 +300,36 @@
             468,
             371
           ],
-          "en": "The H 8 control problem can be considered as finding a controller that satisfies constraint:",
+          "en": "The \\(H_{\\infty}\\) control problem can be considered as finding a controller that satisfies constraint:",
           "reference": false,
           "source_image": "figs/p003-005-source.png",
-          "zh": "H 8 控制问题可以被视为寻找一个满足以下约束的控制器："
+          "zh": "\\(H_{\\infty}\\) 控制问题可以被视为寻找一个满足以下约束的控制器：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b6",
           "kind": "formula",
           "bbox": [
-            250,
-            375,
-            505,
-            401
+            248.0,
+            373.0,
+            507.0,
+            403.0
           ],
           "en": "} z }2 2 } Tzw } 2 8 “ sup ă η 2 , (2) w } w } 2 2",
           "reference": false,
           "image": "figs/p003-006.png",
           "labels": [
             "2"
-          ]
+          ],
+          "original_bbox": [
+            250.0,
+            375.0,
+            505.0,
+            401.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 777,
+          "image_height": 90
         },
         {
           "id": "p3-b7",
@@ -316,17 +349,26 @@
           "id": "p3-b8",
           "kind": "formula",
           "bbox": [
-            215,
-            420,
-            505,
-            444
+            213.0,
+            416.9490051269531,
+            507.0,
+            446.0
           ],
           "en": "V “ p z T p t q z p t q ´ η 2 w T p t q w p t qq dt ă 0 , (3) ż08",
           "reference": false,
           "image": "figs/p003-008.png",
           "labels": [
             "3"
-          ]
+          ],
+          "original_bbox": [
+            215.0,
+            420.0,
+            505.0,
+            444.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 882,
+          "image_height": 88
         },
         {
           "id": "p3-b9",
@@ -337,26 +379,36 @@
             504,
             471
           ],
-          "en": "where w is any possible disturbance with w p0q “ 0 . By solving the following min-max game, we can find the best control input u while the worst disturbance w is chosen to maximize V :",
+          "en": "where \\(\\mathbf{w}\\) is any possible disturbance with \\(\\mathbf{w}(0) = \\mathbf{0}\\). By solving the following min-max game, we can find the best control input \\(\\mathbf{u}\\) while the worst disturbance \\(\\mathbf{w}\\) is chosen to maximize \\(V\\):",
           "reference": false,
           "source_image": "figs/p003-009-source.png",
-          "zh": "其中 w 为满足 w p0q “ 0 的任意可能扰动。通过求解以下极小极大博弈（min-max game），我们可以在选择使 V 最大化的最恶劣扰动 w 的同时，找到最优控制输入 u："
+          "zh": "其中 \\(\\mathbf{w}\\) 为满足 \\(\\mathbf{w}(0) = \\mathbf{0}\\) 的任意可能扰动。通过求解以下极小极大博弈（min-max game），我们可以在选择使 \\(V\\) 最大化的最恶劣扰动 \\(\\mathbf{w}\\) 的同时，找到最优控制输入 \\(\\mathbf{u}\\)：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b10",
           "kind": "formula",
           "bbox": [
-            194,
-            476,
-            505,
-            501
+            192.0,
+            473.0799865722656,
+            507.0,
+            503.0
           ],
           "en": "V ˚ “ min p z T p t q z p t q ´ η 2 w T p t q w p t qq dt ă 0 . (4) u max w ż08",
           "reference": false,
           "image": "figs/p003-010.png",
           "labels": [
             "4"
-          ]
+          ],
+          "original_bbox": [
+            194.0,
+            476.0,
+            505.0,
+            501.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 945,
+          "image_height": 90
         },
         {
           "id": "p3-b11",
@@ -367,10 +419,11 @@
             301,
             526
           ],
-          "en": "4 Learning H 8 Locomotion Control",
+          "en": "4 Learning \\(H_\\infty\\) Locomotion Control",
           "reference": false,
           "source_image": "figs/p003-011-source.png",
-          "zh": "4 学习 H 8 运动控制"
+          "zh": "4 学习 \\(H_\\infty\\) 运动控制",
+          "math_repair": "exact-author-latex-fragment-recovery"
         },
         {
           "id": "p3-b12",
@@ -409,26 +462,36 @@
             505,
             690
           ],
-          "en": "As described in former sections, we wish the disturber to learn more effective disturbances. We model it as a one-step decision problem. Given a Markov Decision Process (MDP) M “ t S, A, T, R, γ u, we define the disturbance policy to be a function d : S Ñ D Ă R3 , which maps observations to forces. Let C : S ˆ A ˆ D Ñ R` be a cost function that measures the errors from commands, expected orientation and base height. Additionally, Cd πpsq”E p a,d q„p π p s q , d p s qqCps, a, dq denotes the gap between expected performance and actual performance given policy π and disturber d . With these definitions, we wish to find a policy π such that:",
+          "en": "As described in former sections, we wish the disturber to learn more effective disturbances. We model it as a one-step decision problem. Given a Markov Decision Process (MDP) \\(\\mathcal{M}=\\{S, A, T, R, \\gamma\\}\\), we define the disturbance policy to be a function \\(\\mathbf{d}: \\mathbf{S} \\to \\mathbf{D} \\subset \\mathbf{R}^3\\), which maps observations to forces. Let \\(\\mathbf{C}: \\mathbf{S} \\times \\mathbf{A} \\times \\mathbf{D} \\to \\mathbf{R}^{+}\\) be a cost function that measures the errors from commands, expected orientation and base height. Additionally, \\(\\mathbf{C}_{\\mathbf{\\pi}}^{\\mathbf{d}}(s) \\equiv \\mathbb{E}_{(a, d) \\sim (\\pi(s), \\mathbf{d}(s))} \\mathbf{C}(s, a, d)\\) denotes the gap between expected performance and actual performance given policy \\(\\mathbf{\\pi}\\) and disturber \\(\\mathbf{d}\\). With these definitions, we wish to find a policy \\(\\mathbf{\\pi}\\) such that:",
           "reference": false,
           "source_image": "figs/p003-014-source.png",
-          "zh": "如前文所述，我们希望扰动器能够学习更有效的扰动。我们将其建模为一个单步决策问题。给定马尔可夫决策过程（MDP）M “ t S, A, T, R, γ u，我们将扰动策略定义为函数 d : S Ñ D Ă R3，该函数将观测映射为外力。设 C : S ˆ A ˆ D Ñ R` 为度量来自指令、期望朝向和机身高度误差的代价函数。此外，Cd πpsq”E p a,d q„p π p s q , d p s qqCps, a, dq 表示在给定策略 π 和扰动器 d 时期望性能与实际性能之间的差距。基于这些定义，我们希望找到一个策略 π，使得："
+          "zh": "如前文所述，我们希望扰动器能够学习更有效的扰动。我们将其建模为一个单步决策问题。给定马尔可夫决策过程（MDP）\\(\\mathcal{M}=\\{S, A, T, R, \\gamma\\}\\)，我们将扰动策略定义为函数 \\(\\mathbf{d}: \\mathbf{S} \\to \\mathbf{D} \\subset \\mathbf{R}^3\\)，该函数将观测映射为外力。设 \\(\\mathbf{C}: \\mathbf{S} \\times \\mathbf{A} \\times \\mathbf{D} \\to \\mathbf{R}^{+}\\) 为度量来自指令、期望朝向和机身高度误差的代价函数。此外，\\(\\mathbf{C}_{\\mathbf{\\pi}}^{\\mathbf{d}}(s) \\equiv \\mathbb{E}_{(a, d) \\sim (\\pi(s), \\mathbf{d}(s))} \\mathbf{C}(s, a, d)\\) 表示在给定策略 \\(\\mathbf{\\pi}\\) 和扰动器 \\(\\mathbf{d}\\) 时期望性能与实际性能之间的差距。基于这些定义，我们希望找到一个策略 \\(\\mathbf{\\pi}\\)，使得：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b15",
           "kind": "formula",
           "bbox": [
-            222,
-            696,
-            504,
-            725
+            220.0,
+            694.0,
+            506.0,
+            727.0
           ],
           "en": "T lim Ñ8 ÿ T E st p C π d p st q ´ η ˚} d p st q}2q ă 0 , (5) t “0",
           "reference": false,
           "image": "figs/p003-015.png",
           "labels": [
             "5"
-          ]
+          ],
+          "original_bbox": [
+            222.0,
+            696.0,
+            504.0,
+            725.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 858,
+          "image_height": 99
         }
       ]
     },
@@ -439,15 +502,24 @@
           "id": "p4-b0",
           "kind": "picture",
           "bbox": [
-            108,
-            72,
-            505,
-            208
+            106.0,
+            70.0,
+            507.0,
+            210.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p004-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            72.0,
+            505.0,
+            208.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1203,
+          "image_height": 420
         },
         {
           "id": "p4-b1",
@@ -458,10 +530,11 @@
             505,
             285
           ],
-          "en": "Figure 2: Overview of H 8 locomotion control method. At every time step during the training process, we perform a simulation step based on the robot’s action and the external force generated by the disturber. The agent thus moves towards the rewarded direction and resists the disturbance. During the optimization process, values are calculated for batched training samples and carry out H 8 policy gradient by optimizing the PPO loss of the actor while taking into consideration the novel constraint LHinf . Value estimators (Critic) are also updated to approximate the state value.",
+          "en": "Figure 2: Overview of \\(H_{\\infty}\\) locomotion control method. At every time step during the training process, we perform a simulation step based on the robot’s action and the external force generated by the disturber. The agent thus moves towards the rewarded direction and resists the disturbance. During the optimization process, values are calculated for batched training samples and carry out \\(H_{\\infty}\\) policy gradient by optimizing the PPO loss of the actor while taking into consideration the novel constraint \\(L^{H_{inf}}\\). Value estimators (Critic) are also updated to approximate the state value.",
           "reference": false,
           "source_image": "figs/p004-001-source.png",
-          "zh": "图 2：H 8 运动控制方法概览。在训练过程中的每个时间步，我们根据机器人的动作以及扰动器生成的外力执行一次仿真步。智能体由此向获得奖励的方向移动并抵御扰动。在优化过程中，我们对成批训练样本计算价值，并在考虑新颖的 LHinf 约束的同时，通过优化 actor 的 PPO 损失来执行 H 8 策略梯度。价值估计器（Critic）也同步更新以近似状态价值。"
+          "zh": "图 2：\\(H_{\\infty}\\) 运动控制方法概览。在训练过程中的每个时间步，我们根据机器人的动作以及扰动器生成的外力执行一次仿真步。智能体由此向获得奖励的方向移动并抵御扰动。在优化过程中，我们对成批训练样本计算价值，并在考虑新颖的 \\(L^{H_{inf}}\\) 约束的同时，通过优化 actor 的 PPO 损失来执行 \\(H_{\\infty}\\) 策略梯度。价值估计器（Critic）也同步更新以近似状态价值。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b2",
@@ -472,26 +545,36 @@
             240,
             316
           ],
-          "en": "where η˚ is the optimal value of:",
+          "en": "where \\(\\eta^{*}\\) is the optimal value of:",
           "reference": false,
           "source_image": "figs/p004-002-source.png",
-          "zh": "其中 η˚ 为以下问题的最优值："
+          "zh": "其中 \\(\\eta^{*}\\) 为以下问题的最优值：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b3",
           "kind": "formula",
           "bbox": [
-            233,
-            320,
-            505,
-            347
+            231.0,
+            318.0,
+            507.0,
+            349.0
           ],
           "en": "ř8 t “0 E st C π d p st q } T p π q}8 “ sup . (6) d ‰0 ř8 t “0 E s t } d p st q}2",
           "reference": false,
           "image": "figs/p004-003.png",
           "labels": [
             "6"
-          ]
+          ],
+          "original_bbox": [
+            233.0,
+            320.0,
+            505.0,
+            347.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 828,
+          "image_height": 93
         },
         {
           "id": "p4-b4",
@@ -502,26 +585,36 @@
             505,
             374
           ],
-          "en": "However, this problem is hard to solve. We alternatively solve the sub-optimal problem: for a given η ą 0, we wish to find an admissible policy π such that",
+          "en": "However, this problem is hard to solve. We alternatively solve the sub-optimal problem: for a given \\(\\eta > 0\\), we wish to find an admissible policy \\(\\pi\\) such that",
           "reference": false,
           "source_image": "figs/p004-004-source.png",
-          "zh": "然而，该问题难以求解。我们转而求解其次优问题：对于给定的 η ą 0，我们希望找到一个容许策略 π，使得"
+          "zh": "然而，该问题难以求解。我们转而求解其次优问题：对于给定的 \\(\\eta > 0\\)，我们希望找到一个容许策略 \\(\\pi\\)，使得",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b5",
           "kind": "formula",
           "bbox": [
-            224,
-            379,
-            505,
-            408
+            222.0,
+            377.0,
+            507.0,
+            410.0
           ],
           "en": "T lim Ñ8 ÿ T E st p C π d p st q ´ η } d p st q}2q ă 0 , (7) t “0",
           "reference": false,
           "image": "figs/p004-005.png",
           "labels": [
             "7"
-          ]
+          ],
+          "original_bbox": [
+            224.0,
+            379.0,
+            505.0,
+            408.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 855,
+          "image_height": 99
         },
         {
           "id": "p4-b6",
@@ -532,26 +625,36 @@
             505,
             460
           ],
-          "en": "We define a policy π satisfying the above condition as η -optimal. More intuitively, if a policy is η -optimal, then an external force f can get a performance decay up to η } f }2. Additionally, we wish the disturbances to be effective, which means that it can maximize the cost of policy with limited intensity. Therefore, for a policy π , and a discount factor 0 ď γ 2 ă 1, the target of d is to maximize:",
+          "en": "We define a policy \\(\\pi\\) satisfying the above condition as \\(\\eta\\)-optimal. More intuitively, if a policy is \\(\\eta\\)-optimal, then an external force \\(f\\) can get a performance decay up to \\(\\eta \\|f\\|_2\\). Additionally, we wish the disturbances to be effective, which means that it can maximize the cost of policy with limited intensity. Therefore, for a policy \\(\\pi\\), and a discount factor \\(0\\leq \\gamma_2 < 1\\), the target of \\(\\mathbf{d}\\) is to maximize:",
           "reference": false,
           "source_image": "figs/p004-006-source.png",
-          "zh": "我们将满足上述条件的策略 π 定义为 η -optimal。更直观地，如果一个策略是 η -optimal 的，那么外力 f 造成的性能衰减至多为 η } f }2。此外，我们希望扰动是有效的，这意味着它能够在有限强度下最大化策略的代价。因此，对于策略 π 和折扣因子 0 ď γ 2 ă 1，d 的目标是最大化："
+          "zh": "我们将满足上述条件的策略 \\(\\pi\\) 定义为 \\(\\eta\\)-optimal。更直观地，如果一个策略是 \\(\\eta\\)-optimal 的，那么外力 \\(f\\) 造成的性能衰减至多为 \\(\\eta \\|f\\|_2\\)。此外，我们希望扰动是有效的，这意味着它能够在有限强度下最大化策略的代价。因此，对于策略 \\(\\pi\\) 和折扣因子 \\(0\\leq \\gamma_2 < 1\\)，\\(\\mathbf{d}\\) 的目标是最大化：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b7",
           "kind": "formula",
           "bbox": [
-            239,
-            465,
-            505,
-            493
+            237.0,
+            463.0,
+            507.0,
+            495.0
           ],
           "en": "8 E d r ÿ γ 2 t p Cd π p st q ´ η } d p st q}2qs (8) t “0",
           "reference": false,
           "image": "figs/p004-007.png",
           "labels": [
             "8"
-          ]
+          ],
+          "original_bbox": [
+            239.0,
+            465.0,
+            505.0,
+            493.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 810,
+          "image_height": 96
         },
         {
           "id": "p4-b8",
@@ -590,26 +693,36 @@
             505,
             680
           ],
-          "en": "Now we denote the rewards from each part as task rewards Rtask and auxiliary rewards Raux respectively, and the overall reward as R . Firstly, we assume that the task reward has an upper bound Rmaxtask,andthecostcanbeformulatedasC“R maxtask´Rtask.WithRandC,wecangetvalue functions for overall reward and cost, denoted as V and Vcost . We adopt PPO [34] as our basic policy optimization method. Then the goal of the actor is to solve:",
+          "en": "Now we denote the rewards from each part as task rewards \\(R^{task}\\) and auxiliary rewards \\(R^{aux}\\) respectively, and the overall reward as \\(R\\). Firstly, we assume that the task reward has an upper bound \\(R^{task}_{max}\\), and the cost can be formulated as \\(\\mathbf{C} = R^{task}_{max} - R^{task}\\). With \\(R\\) and \\(C\\), we can get value functions for overall reward and cost, denoted as \\(V\\) and \\(V^{cost}\\). We adopt PPO [34] as our basic policy optimization method. Then the goal of the actor is to solve:",
           "reference": false,
           "source_image": "figs/p004-010-source.png",
-          "zh": "现在我们将各部分的奖励分别记为任务奖励 Rtask 和辅助奖励 Raux，总奖励记为 R。首先，我们假设任务奖励存在上限 Rmaxtask，且代价可以表示为 C“R maxtask´Rtask。有了 R 和 C，我们便可以得到总奖励和代价的价值函数，分别记为 V 和 Vcost。我们采用 PPO [34] 作为基础策略优化方法。那么 actor 的目标就是求解："
+          "zh": "现在我们将各部分的奖励分别记为任务奖励 \\(R^{task}\\) 和辅助奖励 \\(R^{aux}\\)，总奖励记为 \\(R\\)。首先，我们假设任务奖励存在上限 \\(R^{task}_{max}\\)，且代价可以表示为 \\(\\mathbf{C} = R^{task}_{max} - R^{task}\\)。有了 \\(R\\) 和 \\(C\\)，我们便可以得到总奖励和代价的价值函数，分别记为 \\(V\\) 和 \\(V^{cost}\\)。我们采用 PPO [34] 作为基础策略优化方法。那么 actor 的目标就是求解：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b11",
           "kind": "formula",
           "bbox": [
-            206,
-            684,
-            505,
-            725
+            204.0,
+            682.0,
+            507.0,
+            727.0
           ],
           "en": "π p at | st q maximize π E t ” π old p at | st q A p st q ı (9) subject to E t rKL r π old p¨ | st q , π p¨ | st qss ď δ E t r η } d p st q}2 ´ C π p st qs ą 0 ,",
           "reference": false,
           "image": "figs/p004-011.png",
           "labels": [
             "9"
-          ]
+          ],
+          "original_bbox": [
+            206.0,
+            684.0,
+            505.0,
+            725.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 909,
+          "image_height": 135
         }
       ]
     },
@@ -625,26 +738,36 @@
             493,
             85
           ],
-          "en": "where A is the advantage with respect to overall reward, and the goal of the disturber is to solve:",
+          "en": "where \\(A\\) is the advantage with respect to overall reward, and the goal of the disturber is to solve:",
           "reference": false,
           "source_image": "figs/p005-000-source.png",
-          "zh": "其中 A 为关于总奖励的优势函数，而扰动器的目标是求解："
+          "zh": "其中 \\(A\\) 为关于总奖励的优势函数，而扰动器的目标是求解：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b1",
           "kind": "formula",
           "bbox": [
-            204,
-            90,
-            504,
-            120
+            202.0,
+            88.0,
+            506.0,
+            122.0
           ],
           "en": "d p dt | st q maximize d E t ” d old p dt | st q p C π p st q ´ η } d p st q}2q ı (10) subject to E t rKL r d old p¨ | st q , d p¨ | st qss ď δ.",
           "reference": false,
           "image": "figs/p005-001.png",
           "labels": [
             "10"
-          ]
+          ],
+          "original_bbox": [
+            204.0,
+            90.0,
+            504.0,
+            120.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 912,
+          "image_height": 102
         },
         {
           "id": "p5-b2",
@@ -655,26 +778,36 @@
             505,
             153
           ],
-          "en": "However, requiring a high-frequency controller to be strictly robust in every time step is unpractical, so we replace the constraint E t r η } d p st q}2 ´ C π p st qs ą 0 with a more flexible substitute:",
+          "en": "However, requiring a high-frequency controller to be strictly robust in every time step is unpractical, so we replace the constraint \\(\\mathbb{E}_t \\left[\\eta \\|\\mathbf{d}(s_t)\\|_2 - \\mathbf{C_{\\pi}}(s_t)\\right] > 0\\) with a more flexible substitute:",
           "reference": false,
           "source_image": "figs/p005-002-source.png",
-          "zh": "然而，要求高频控制器在每个时间步都严格鲁棒是不切实际的，因此我们用一个更灵活的替代形式来替换约束 E t r η } d p st q}2 ´ C π p st qs ą 0："
+          "zh": "然而，要求高频控制器在每个时间步都严格鲁棒是不切实际的，因此我们用一个更灵活的替代形式来替换约束 \\(\\mathbb{E}_t \\left[\\eta \\|\\mathbf{d}(s_t)\\|_2 - \\mathbf{C_{\\pi}}(s_t)\\right] > 0\\)：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b3",
           "kind": "formula",
           "bbox": [
-            188,
-            158,
-            504,
-            171
+            186.0,
+            156.0,
+            506.0,
+            173.0
           ],
           "en": "E t “ η } d p st q}2 ´ C π p st q ` V cost p st q ´ V cost p st `1q‰ ą 0 , (11)",
           "reference": false,
           "image": "figs/p005-003.png",
           "labels": [
             "11"
-          ]
+          ],
+          "original_bbox": [
+            188.0,
+            158.0,
+            504.0,
+            171.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 960,
+          "image_height": 51
         },
         {
           "id": "p5-b4",
@@ -685,10 +818,11 @@
             505,
             211
           ],
-          "en": "where Vcost is the value function of the disturber. Intuitively, if the policy guides the robot to a better state, the constraint will be slackened, otherwise the constraint will be tightened. We will show that using this constraint, the actor is also guaranteed to be η -optimal.",
+          "en": "where \\(V^{cost}\\) is the value function of the disturber. Intuitively, if the policy guides the robot to a better state, the constraint will be slackened, otherwise the constraint will be tightened. We will show that using this constraint, the actor is also guaranteed to be \\(\\eta\\)-optimal.",
           "reference": false,
           "source_image": "figs/p005-004-source.png",
-          "zh": "其中 Vcost 为扰动器的价值函数。直观上讲，如果策略引导机器人进入更好的状态，该约束就会被放宽；反之，约束则会被收紧。我们将证明，使用这一约束，actor 同样能够保证达到 η -optimal。"
+          "zh": "其中 \\(V^{cost}\\) 为扰动器的价值函数。直观上讲，如果策略引导机器人进入更好的状态，该约束就会被放宽；反之，约束则会被收紧。我们将证明，使用这一约束，actor 同样能够保证达到 \\(\\eta\\)-optimal。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b5",
@@ -699,26 +833,36 @@
             505,
             253
           ],
-          "en": "We follow PPO to deal with the KL divergence part and use dual gradient decent method [29] to deal with the extra constraint, denoted as LHinf p π q fi E t r η } d p st q}2 ´ C π p st q ` Vcost p st q ´ Vcost p st `1qs ą 0, then the update process of policy can be described as:",
+          "en": "We follow PPO to deal with the KL divergence part and use dual gradient decent method [29] to deal with the extra constraint, denoted as \\(L^{Hinf}(\\pi) \\triangleq \\mathbb{E}_t[\\eta \\|\\mathbf{d}(s_t)\\|_2 - \\mathbf{C_{\\pi}}(s_t) + V^{cost}(s_t) - V^{cost}(s_{t+1})] > 0\\), then the update process of policy can be described as:",
           "reference": false,
           "source_image": "figs/p005-005-source.png",
-          "zh": "我们遵循 PPO 处理 KL 散度部分，并使用对偶梯度下降法 [29] 来处理额外约束，记为 LHinf p π q fi E t r η } d p st q}2 ´ C π p st q ` Vcost p st q ´ Vcost p st `1qs ą 0，则策略的更新过程可描述为："
+          "zh": "我们遵循 PPO 处理 KL 散度部分，并使用对偶梯度下降法 [29] 来处理额外约束，记为 \\(L^{Hinf}(\\pi) \\triangleq \\mathbb{E}_t[\\eta \\|\\mathbf{d}(s_t)\\|_2 - \\mathbf{C_{\\pi}}(s_t) + V^{cost}(s_t) - V^{cost}(s_{t+1})] > 0\\)，则策略的更新过程可描述为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b6",
           "kind": "formula",
           "bbox": [
-            226,
-            258,
-            504,
-            313
+            224.0,
+            256.0,
+            506.0,
+            315.0
           ],
           "en": "π “ argmax L P P O actor p π q ` λ ˚ LHinf p π q π d “ argmax Ldisturber p d q (12) d λ “ λ ´ α ˚ L Hinf p π q ,",
           "reference": false,
           "image": "figs/p005-006.png",
           "labels": [
             "12"
-          ]
+          ],
+          "original_bbox": [
+            226.0,
+            258.0,
+            504.0,
+            313.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 846,
+          "image_height": 177
         },
         {
           "id": "p5-b7",
@@ -729,10 +873,11 @@
             505,
             366
           ],
-          "en": "where LP P O actorpπq is the PPO objective function for the actor,Ldisturberpdq is the objective function for disturber with a similar form as PPO objective function but replacing the advantage with C π p s q´ η } d p s q}2, λ is the Lagrangian multiplier of the proposed constraint, and α is the step-size of updating λ . We present an overview of our method in Fig. 2.",
+          "en": "where \\(L^{PPO}_{actor}(\\pi)\\) is the PPO objective function for the actor, \\(L_{disturber}(\\mathbf{d})\\) is the objective function for disturber with a similar form as PPO objective function but replacing the advantage with \\(\\mathbf{C_{\\pi}}(s) - \\eta \\|\\mathbf{d}(s)\\|_2\\), \\(\\lambda\\) is the Lagrangian multiplier of the proposed constraint, and \\(\\alpha\\) is the step-size of updating \\(\\lambda\\). We present an overview of our method in Fig. 2.",
           "reference": false,
           "source_image": "figs/p005-007-source.png",
-          "zh": "其中 LP P O actorpπq 是 actor 的 PPO 目标函数，Ldisturberpdq 是扰动器的目标函数，其形式与 PPO 目标函数类似，但将优势函数替换为 C π p s q´ η } d p s q}2，λ 是所提出约束的拉格朗日乘子，α 是更新 λ 的步长。我们在图 2 中给出了我们方法的概览。"
+          "zh": "其中 \\(L^{PPO}_{actor}(\\pi)\\) 是 actor 的 PPO 目标函数，\\(L_{disturber}(\\mathbf{d})\\) 是扰动器的目标函数，其形式与 PPO 目标函数类似，但将优势函数替换为 \\(\\mathbf{C_{\\pi}}(s) - \\eta \\|\\mathbf{d}(s)\\|_2\\)，\\(\\lambda\\) 是所提出约束的拉格朗日乘子，\\(\\alpha\\) 是更新 \\(\\lambda\\) 的步长。我们在图 2 中给出了我们方法的概览。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b8",
@@ -743,10 +888,11 @@
             183,
             390
           ],
-          "en": "4.3 η -optimality",
+          "en": "4.3 \\(\\eta\\)-optimality",
           "reference": false,
           "source_image": "figs/p005-008-source.png",
-          "zh": "4.3 η -最优性"
+          "zh": "4.3 \\(\\eta\\)-最优性",
+          "math_repair": "exact-author-latex-fragment-recovery"
         },
         {
           "id": "p5-b9",
@@ -757,10 +903,11 @@
             505,
             459
           ],
-          "en": "We assume that 0 ď C p s, a q ď Cmax where Cmax ă 8 is a constant. We also assume that there exists a value function Vπcost such that 0 ď Vπcost p s q ď VmaxcostforanysPS,whereV maxcostă8. Besides, we denote βπtpsq “Ppst“s|s0, πq, wheres0is sampled from initial states, assuming that the limit of distribution under policy π is βπ p s q “ lim t Ñ8 βπtpsqanditexists.Thenwehavethe following theorem:",
+          "en": "We assume that \\(0 \\leq \\mathbf{C}(s, a) \\leq C_{max}\\) where \\(C_{max} < \\infty\\) is a constant. We also assume that there exists a value function \\(V_{\\pi}^{cost}\\) such that \\(0 \\leq V_{\\pi}^{cost}(s) \\leq V_{max}^{cost}\\) for any \\(s \\in \\mathbf{S}\\), where \\(V_{max}^{cost} < \\infty\\). Besides, we denote \\(\\beta_{\\pi}^{t}(s) = P(s_t = s|s_0, \\pi)\\), where \\(s_{0}\\) is sampled from initial states, assuming that the limit of distribution under policy \\(\\pi\\) is \\(\\beta_{\\pi}(s) = \\lim_{t \\to \\infty} \\beta_{\\pi}^{t}(s)\\) and it exists. Then we have the following theorem:",
           "reference": false,
           "source_image": "figs/p005-009-source.png",
-          "zh": "我们假设 0 ď C p s, a q ď Cmax，其中 Cmax ă 8 为常数。我们还假设存在一个价值函数 Vπcost，使得对于任意 s P S 均有 0 ď Vπcost p s q ď VmaxcostforanysPS,whereV maxcostă8。此外，我们用 βπtpsq “Ppst“s|s0, πq 表示状态分布，其中 s0 从初始状态中采样，并假设策略 π 下的极限分布为 βπ p s q “ lim t Ñ8 βπtpsqanditexists 且存在。由此我们得到以下定理："
+          "zh": "我们假设 \\(0 \\leq \\mathbf{C}(s, a) \\leq C_{max}\\)，其中 \\(C_{max} < \\infty\\) 为常数。我们还假设存在一个价值函数 \\(V_{\\pi}^{cost}\\)，使得对于任意 \\(s \\in \\mathbf{S}\\) 均有 \\(0 \\leq V_{\\pi}^{cost}(s) \\leq V_{max}^{cost}\\)，其中 \\(V_{max}^{cost} < \\infty\\)。此外，我们用 \\(\\beta_{\\pi}^{t}(s) = P(s_t = s|s_0, \\pi)\\) 表示状态分布，其中 \\(s_{0}\\) 从初始状态中采样，并假设策略 \\(\\pi\\) 下的极限分布为 \\(\\beta_{\\pi}(s) = \\lim_{t \\to \\infty} \\beta_{\\pi}^{t}(s)\\) 且存在。由此我们得到以下定理：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b10",
@@ -771,10 +918,11 @@
             504,
             486
           ],
-          "en": "Theorem 1. If C π p s q ´ η } d p s q}2 ă E s 1„ P p¨| π,s qp Vπcost p s q ´ Vπcost p s1 qq for s P S with βπ p s q ą 0 , the policy π is η-optimal.",
+          "en": "Theorem 1. If \\(\\mathbf{C}_{\\pi}(s) - \\eta\\|\\mathbf{d}(s)\\|_2 < \\mathbb{E}_{s' \\sim P(\\cdot|\\pi, s)}(V_{\\pi}^{cost}(s) - V_{\\pi}^{cost}(s'))\\) for \\(s \\in \\mathbf{S}\\) with \\(\\beta_{\\pi}(s) > 0\\), the policy \\(\\pi\\) is \\(\\eta\\)-optimal.",
           "reference": false,
           "source_image": "figs/p005-010-source.png",
-          "zh": "定理 1. 若对于满足 βπ p s q ą 0 的 s P S，有 C π p s q ´ η } d p s q}2 ă E s 1„ P p¨| π,s qp Vπcost p s q ´ Vπcost p s1 qq，则策略 π 是 η-optimal 的。"
+          "zh": "定理 1. 若对于满足 \\(\\beta_{\\pi}(s) > 0\\) 的 \\(s \\in \\mathbf{S}\\)，有 \\(\\mathbf{C}_{\\pi}(s) - \\eta\\|\\mathbf{d}(s)\\|_2 < \\mathbb{E}_{s' \\sim P(\\cdot|\\pi, s)}(V_{\\pi}^{cost}(s) - V_{\\pi}^{cost}(s'))\\)，则策略 \\(\\pi\\) 是 \\(\\eta\\)-optimal 的。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b11",
@@ -981,15 +1129,24 @@
           "id": "p6-b7",
           "kind": "picture",
           "bbox": [
-            108,
-            356,
-            504,
-            503
+            106.0,
+            354.0,
+            506.0,
+            505.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p006-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            356.0,
+            504.0,
+            503.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1200,
+          "image_height": 453
         },
         {
           "id": "p6-b8",
@@ -1056,15 +1213,24 @@
           "id": "p7-b0",
           "kind": "picture",
           "bbox": [
-            108,
-            72,
-            504,
-            218
+            106.0,
+            70.0,
+            506.0,
+            220.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            72.0,
+            504.0,
+            218.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1200,
+          "image_height": 450
         },
         {
           "id": "p7-b1",
@@ -1112,15 +1278,24 @@
           "id": "p7-b4",
           "kind": "picture",
           "bbox": [
-            108,
-            364,
-            504,
-            511
+            106.0,
+            362.0,
+            506.0,
+            513.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            364.0,
+            504.0,
+            511.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1200,
+          "image_height": 453
         },
         {
           "id": "p7-b5",
@@ -1187,15 +1362,24 @@
           "id": "p8-b1",
           "kind": "picture",
           "bbox": [
-            266,
-            65,
-            504,
-            187
+            264.0,
+            63.0,
+            506.0,
+            189.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            266.0,
+            65.0,
+            504.0,
+            187.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 726,
+          "image_height": 378
         },
         {
           "id": "p8-b0",
@@ -1234,10 +1418,11 @@
             505,
             312
           ],
-          "en": "from 0N to 50N. To evaluate the performance of both methods, we count the total times of falls in one episode when external forces are exerted. Each evaluation episode lasts 20 seconds. Every 5 seconds, the robot receives a large external force with an intensity of 100N to 150N that lasts 0.2 seconds. We carry out two different experiments where the directions of the forces are set to x, y axes respectively. For each method, the evaluation runs 32 times repeatedly and we report the average number of falls. As shown in Fig. 6, our method outperforms the baseline policy by a large margin no matter the force comes from x or y axes.",
+          "en": "from 0N to 50N. To evaluate the performance of both methods, we count the total times of falls in one episode when external forces are exerted. Each evaluation episode lasts 20 seconds. Every 5 seconds, the robot receives a large external force with an intensity of 100N to 150N that lasts 0.2 seconds. We carry out two different experiments where the directions of the forces are set to \\(x, y\\) axes respectively. For each method, the evaluation runs 32 times repeatedly and we report the average number of falls. As shown in Fig. 6, our method outperforms the baseline policy by a large margin no matter the force comes from \\(x\\) or \\(y\\) axes.",
           "reference": false,
           "source_image": "figs/p008-003-source.png",
-          "zh": "0 N 到 50 N。为评估这两种方法的性能，我们统计了施加外力时一个回合内的总跌倒次数。每个评估回合持续 20 秒。每隔 5 秒，机器人会承受一次持续 0.2 秒、强度为 100 N 至 150 N 的大外力。我们进行了两项不同的实验，力的方向分别设定在 x 轴和 y 轴。对于每种方法，评估均重复进行 32 次，并报告平均跌倒次数。如图 6 所示，无论外力来自 x 轴还是 y 轴，我们的方法均大幅优于基线策略。"
+          "zh": "0 N 到 50 N。为评估这两种方法的性能，我们统计了施加外力时一个回合内的总跌倒次数。每个评估回合持续 20 秒。每隔 5 秒，机器人会承受一次持续 0.2 秒、强度为 100 N 至 150 N 的大外力。我们进行了两项不同的实验，力的方向分别设定在 \\(x\\) 轴和 \\(y\\) 轴。对于每种方法，评估均重复进行 32 次，并报告平均跌倒次数。如图 6 所示，无论外力来自 \\(x\\) 轴还是 \\(y\\) 轴，我们的方法均大幅优于基线策略。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p8-b4",
@@ -1290,10 +1475,11 @@
             505,
             601
           ],
-          "en": "In this work, we propose H 8 learning framework for quadruped locomotion control. Unlike previous works that simply draw the external forces from a fixed distribution, we design a novel training procedure where an actor and a disturber interact in an adversarial manner. To ensure the stability of the entire learning process, we introduce a novel H 8 constraint to policy optimization, providing a guarantee for the actor’s performance lower bound in face of external forces with a certain intensity. In this fashion, the disturber learns to adapt to the current performance of the actor, and the actor learns to accomplish its tasks against intentional physical interruptions. We demonstrate our method achieves notable improvement in robustness in both locomotion and standing tasks and can be deployed in real-world settings. We hope that our work will inspire further research on improving the robustness of quadruped robots and other robotic systems.",
+          "en": "In this work, we propose \\(H_{\\infty}\\) learning framework for quadruped locomotion control. Unlike previous works that simply draw the external forces from a fixed distribution, we design a novel training procedure where an actor and a disturber interact in an adversarial manner. To ensure the stability of the entire learning process, we introduce a novel \\(H_{\\infty}\\) constraint to policy optimization, providing a guarantee for the actor’s performance lower bound in face of external forces with a certain intensity. In this fashion, the disturber learns to adapt to the current performance of the actor, and the actor learns to accomplish its tasks against intentional physical interruptions. We demonstrate our method achieves notable improvement in robustness in both locomotion and standing tasks and can be deployed in real-world settings. We hope that our work will inspire further research on improving the robustness of quadruped robots and other robotic systems.",
           "reference": false,
           "source_image": "figs/p008-007-source.png",
-          "zh": "在这项工作中，我们提出了用于四足机器人运动控制的 H 8 学习框架。与以往仅从固定分布中采样外力的方法不同，我们设计了一种新颖的训练流程，使 actor 与扰动器以对抗方式相互作用。为确保整个学习过程的稳定性，我们在策略优化中引入了一种新型 H 8 约束，为面对特定强度外力时 actor 的性能下界提供了保证。通过这种方式，扰动器学会适应 actor 当前的性能，而 actor 则学会在面对蓄意物理干扰时完成任务。我们证明了我们的方法在运动和站立任务中均实现了鲁棒性的显著提升，并能部署于真实世界环境中。我们希望我们的工作能为提升四足机器人及其他机器人系统的鲁棒性启发后续研究。"
+          "zh": "在这项工作中，我们提出了用于四足机器人运动控制的 \\(H_{\\infty}\\) 学习框架。与以往仅从固定分布中采样外力的方法不同，我们设计了一种新颖的训练流程，使 actor 与扰动器以对抗方式相互作用。为确保整个学习过程的稳定性，我们在策略优化中引入了一种新型 \\(H_{\\infty}\\) 约束，为面对特定强度外力时 actor 的性能下界提供了保证。通过这种方式，扰动器学会适应 actor 当前的性能，而 actor 则学会在面对蓄意物理干扰时完成任务。我们证明了我们的方法在运动和站立任务中均实现了鲁棒性的显著提升，并能部署于真实世界环境中。我们希望我们的工作能为提升四足机器人及其他机器人系统的鲁棒性启发后续研究。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1851,10 +2037,11 @@
             336,
             340
           ],
-          "en": "To verify the necessity of having an adaptive disturber, we conduct a preliminary experiment. The most common disturber for legged locomotion randomly samples external forces from r0 , 30s N [28]. We increase the upper bound of the uniform distribution to 100 N and get the Baseline method. As shown in Fig. 7, the training of Baseline collapses under external forces with the extremely large upper bound (100 N ). Although another method, Baseline-C , overcomes this by curriculum learning where the upper bound of the forces linearly increases throughout the training, the trained policy fails to achieve comparable final performance against our method, as the training samples generated may be not challenging enough in the late training stage in terms of not only the magnitude but the direction of the force. However, our method keeps optimizing for better adversarial performance and producing valid training samples throughout the training.",
+          "en": "To verify the necessity of having an adaptive disturber, we conduct a preliminary experiment. The most common disturber for legged locomotion randomly samples external forces from \\([0, 30]\\) N [28]. We increase the upper bound of the uniform distribution to 100 N and get the Baseline method. As shown in Fig. 7, the training of Baseline collapses under external forces with the extremely large upper bound (100 N ). Although another method, Baseline-C , overcomes this by curriculum learning where the upper bound of the forces linearly increases throughout the training, the trained policy fails to achieve comparable final performance against our method, as the training samples generated may be not challenging enough in the late training stage in terms of not only the magnitude but the direction of the force. However, our method keeps optimizing for better adversarial performance and producing valid training samples throughout the training.",
           "reference": false,
           "source_image": "figs/p011-002-source.png",
-          "zh": "为了验证引入自适应扰动器的必要性，我们进行了一项初步实验。足式机器人运动中最常用的扰动器是从 r0 , 30s N [28] 中随机采样外力。我们将均匀分布的上限提高到 100 N，从而得到 Baseline 方法。如图 7 所示，在上限极高（100 N）的外力作用下，Baseline 的训练发生了崩溃。尽管另一种方法 Baseline-C 通过课程学习（外力上限在整个训练过程中线性增加）克服了这一问题，但所训练出的策略最终性能仍无法与我们的方法相媲美，因为在训练后期生成的训练样本不仅在幅值上、而且在外力方向上可能都不够具有挑战性。然而，我们的方法在整个训练过程中持续优化以追求更优的对抗性能，并不断生成有效的训练样本。"
+          "zh": "为了验证引入自适应扰动器的必要性，我们进行了一项初步实验。足式机器人运动中最常用的扰动器是从 \\([0, 30]\\) N [28] 中随机采样外力。我们将均匀分布的上限提高到 100 N，从而得到 Baseline 方法。如图 7 所示，在上限极高（100 N）的外力作用下，Baseline 的训练发生了崩溃。尽管另一种方法 Baseline-C 通过课程学习（外力上限在整个训练过程中线性增加）克服了这一问题，但所训练出的策略最终性能仍无法与我们的方法相媲美，因为在训练后期生成的训练样本不仅在幅值上、而且在外力方向上可能都不够具有挑战性。然而，我们的方法在整个训练过程中持续优化以追求更优的对抗性能，并不断生成有效的训练样本。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p11-b5",
@@ -1888,15 +2075,24 @@
           "id": "p11-b3",
           "kind": "picture",
           "bbox": [
-            345,
-            123,
-            505,
-            296
+            343.0,
+            121.0,
+            507.0,
+            298.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p011-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            345.0,
+            123.0,
+            505.0,
+            296.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 492,
+          "image_height": 531
         },
         {
           "id": "p11-b4",
@@ -1916,15 +2112,24 @@
           "id": "p11-b7",
           "kind": "formula",
           "bbox": [
-            182,
-            397,
-            430,
-            725
+            180.0,
+            395.0,
+            432.0,
+            727.0
           ],
           "en": "1 T lim Ñ8 T ÿ T E st p C π p st q ´ η } d p st q}2q t “0 1 ă T lim Ñ8 T ÿ T E st pE st `1„ P p¨| π,st qp Vπ cost p st q ´ Vπ cost p st `1qqq t “0 1 “ T lim Ñ8 T t ÿ“ T 0 ż S βπ t p st q P p st `1| st, π qp Vπ cost p st q ´ Vπ cost p st `1qq dst `1 dst ż S 1 “ T lim Ñ8 T t ÿ“ T 0 ż S βπ t p st q V π cost p st q dst ´ βπ t p st q P p st `1| st, π q Vπ cost p st `1q dst `1 dst ż S ż S 1 “ T lim Ñ8 T ÿ T pE stVπ cost p st q t “0 ´ βπ t p st q P p st `1| st, π q dstV π cost p st `1q dst `1q ż S ż S 1 “ T lim Ñ8 T ÿ T pE stVπ cost p st q ´ E st `1 Vπ cost p st `1qq t “0 1 “ lim π p s 0q ´ E sT `1 Vπ cost p sT `1qq T Ñ8 T pE s 0 V cost 1 ď lim max ´ 0q “ 0 T Ñ8 T p V cost",
           "reference": false,
           "image": "figs/p011-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            182.0,
+            397.0,
+            430.0,
+            725.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 756,
+          "image_height": 996
         }
       ]
     },
@@ -1949,15 +2154,24 @@
           "id": "p12-b1",
           "kind": "table",
           "bbox": [
-            107,
-            94,
-            387,
-            310
+            105.0,
+            92.0,
+            389.0,
+            312.0
           ],
           "en": "|Term (˚ indicatesRtask)|Calculation|Scale| |---|---|---| |linear velocity tracking˚|expp´}vxy´vcmd xy }2{σtrackqrori|1.0| |angular velocity tracking˚|expp´}ωz ´ωcmd z }2{σtrackqrori|0.5| |joint velocities|}9q}2|´2e´4| |joint accelerations|}:q}2 |´2.5e´7| |action rate|}at`1´at}2|´0.01| |joint position limits|1rq R pqmin, qmaxqs|´10.0| |joint velocity limits|1r9q R p9qmin, 9qmaxqs|´10.0| |torque limits|1rτ R pτmin, τmaxqs|´10.0| |collision|ř jPP jcontact{|P||´1.0| |extra collision|ř jPEp jcontact{|Ep||´1.0| |front feet contact|1rř fPrF L,F Rs f contact ““ 0s|1.0| |orientationrori|p0.5˚cospvf ¨ˆv˚q `0.5q2|1.0| |root height|minpeh,0.55q|1.0|",
           "reference": false,
           "image": "figs/p012-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            107.0,
+            94.0,
+            387.0,
+            310.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 852,
+          "image_height": 660
         },
         {
           "id": "p12-b2",
@@ -1968,26 +2182,36 @@
             505,
             368
           ],
-          "en": "Therefore we obtain T lim Ñ8 T 1 t ř“ T 0 E st p C π p st q ´ η } d p st q}2q ă 0, and thus, the following inequality is derived:",
+          "en": "Therefore we obtain \\(\\lim\\limits_{T \\to \\infty} \\frac{1}{T}\\sum\\limits_{t=0}^{T}\\mathbb{E}_{s_t}({\\mathbf{C}_{\\pi}(s_t) - \\eta}\\|\\mathbf{d}(s_t)\\|_2) < 0\\), and thus, the following inequality is derived:",
           "reference": false,
           "source_image": "figs/p012-002-source.png",
-          "zh": "因此我们得到〔行内公式见原版〕，由此推导出如下不等式："
+          "zh": "因此我们得到\\(\\lim\\limits_{T \\to \\infty} \\frac{1}{T}\\sum\\limits_{t=0}^{T}\\mathbb{E}_{s_t}({\\mathbf{C}_{\\pi}(s_t) - \\eta}\\|\\mathbf{d}(s_t)\\|_2) < 0\\)，由此推导出如下不等式：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p12-b3",
           "kind": "formula",
           "bbox": [
-            225,
-            369,
-            504,
-            398
+            223.0,
+            367.0,
+            506.0,
+            400.0
           ],
           "en": "T lim Ñ8 ÿ T E st p C π p st q ´ η } d p st q}2q ă 0 (13) t “0",
           "reference": false,
           "image": "figs/p012-003.png",
           "labels": [
             "13"
-          ]
+          ],
+          "original_bbox": [
+            225.0,
+            369.0,
+            504.0,
+            398.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 849,
+          "image_height": 99
         },
         {
           "id": "p12-b4",
@@ -2026,10 +2250,11 @@
             505,
             602
           ],
-          "en": "Detailed reward functions are shown in Table 1 and Table 2. To clarify the meaning of some symbols used in the reward functions, P denotes the set of all joints whose collisions with the ground are penalized, and Ep denotes the set of joints with stronger penalization. fcontact stands for whether foot f has contact with the ground. Moreover, g denotes the projection of gravity onto the local frame of the robot, and h denotes the base height of the robot. In the standing task particularly, we define an ideal orientation v˚ for the robot base, which we assign the value v˚ “ p0 . 2 , 0 . 0 , 1 . 0q, and accordingly define the unit ideal orientation v ˆ˚ “ } vv˚˚ }.Weexpectthelocalx´axisofthe robot, which we denote as vf , to be aligned to v ˆ˚ , and thus adopt cosine similarity as a metric for the orientation reward. Besides, we scale the tracking rewards by the orientation reward rori in the standing task because we expect the robot to stabilize itself in a standing pose before going on to follow tracking commands.",
+          "en": "Detailed reward functions are shown in Table 1 and Table 2. To clarify the meaning of some symbols used in the reward functions, \\(P\\) denotes the set of all joints whose collisions with the ground are penalized, and \\(E_p\\) denotes the set of joints with stronger penalization. \\(f^{contact}\\) stands for whether foot \\(f\\) has contact with the ground. Moreover, \\(g\\) denotes the projection of gravity onto the local frame of the robot, and \\(h\\) denotes the base height of the robot. In the standing task particularly, we define an ideal orientation \\(v^{*}\\) for the robot base, which we assign the value \\(v^{*}=(0.2, 0.0, 1.0)\\), and accordingly define the unit ideal orientation \\(\\hat{v}^{*} = \\frac{v^{*}}{\\|v^{*}\\|}\\).Weexpectthelocalx´axisofthe robot, which we denote as \\(v_f\\) , to be aligned to \\(\\hat{v}^{*}\\) , and thus adopt cosine similarity as a metric for the orientation reward. Besides, we scale the tracking rewards by the orientation reward \\(r_{ori}\\) in the standing task because we expect the robot to stabilize itself in a standing pose before going on to follow tracking commands.",
           "reference": false,
           "source_image": "figs/p012-006-source.png",
-          "zh": "详细的奖励函数见表 1 和表 2。为了明确奖励函数中使用的部分符号的含义，P 表示与地面发生碰撞会受到惩罚的所有关节的集合，Ep 表示受到更强惩罚的关节集合。fcontact 表示足部 f 是否与地面接触。此外，g 表示重力在机器人局部坐标系下的投影，h 表示机器人的机身高度。特别是在站立任务中，我们为机器人机身定义了一个理想朝向 v˚，我们为其赋值为〔行内公式见原版〕，并相应地定义单位理想朝向〔行内公式见原版〕。我们期望机器人的局部 x 轴（记为 vf）与 v ˆ˚ 对齐，因此采用余弦相似度作为朝向奖励的度量指标。此外，在站立任务中，我们利用朝向奖励 rori 对跟踪奖励进行缩放，因为我们期望机器人在继续执行跟踪指令之前，先将自身稳定在站立姿态中。"
+          "zh": "详细的奖励函数见表 1 和表 2。为了明确奖励函数中使用的部分符号的含义，\\(P\\) 表示与地面发生碰撞会受到惩罚的所有关节的集合，\\(E_p\\) 表示受到更强惩罚的关节集合。\\(f^{contact}\\) 表示足部 \\(f\\) 是否与地面接触。此外，\\(g\\) 表示重力在机器人局部坐标系下的投影，\\(h\\) 表示机器人的机身高度。特别是在站立任务中，我们为机器人机身定义了一个理想朝向 \\(v^{*}\\)，我们为其赋值为\\(v^{*}=(0.2, 0.0, 1.0)\\)，并相应地定义单位理想朝向\\(\\hat{v}^{*} = \\frac{v^{*}}{\\|v^{*}\\|}\\)。我们期望机器人的局部 x 轴（记为 \\(v_f\\)）与 \\(\\hat{v}^{*}\\) 对齐，因此采用余弦相似度作为朝向奖励的度量指标。此外，在站立任务中，我们利用朝向奖励 \\(r_{ori}\\) 对跟踪奖励进行缩放，因为我们期望机器人在继续执行跟踪指令之前，先将自身稳定在站立姿态中。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p12-b7",
@@ -2068,10 +2293,11 @@
             301,
             719
           ],
-          "en": "- C.3 Pseudo code for H 8 locomotion control",
+          "en": "- C.3 Pseudo code for \\(H_{\\infty}\\) locomotion control",
           "reference": false,
           "source_image": "figs/p012-009-source.png",
-          "zh": "- C.3 H 8 运动控制伪代码"
+          "zh": "- C.3 \\(H_{\\infty}\\) 运动控制伪代码",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -2096,15 +2322,24 @@
           "id": "p13-b1",
           "kind": "table",
           "bbox": [
-            111,
-            123,
-            479,
-            510
+            109.0,
+            121.0,
+            481.0,
+            512.0
           ],
           "en": "|Term (˚ indicatesRtask)|Calculation|Scale|| |---|---|---|---| |linear velocity tracking˚|expp´}vxy´vcmd xy }2{σtrackq|1.0|| |angular velocity tracking˚ z-axis linear velocity|expp´}ωz ´ωcmd z }2{σtrackq v2 z|0.5 ´2.0|| |roll-pitch angular velocity|}ωxy}2|´0.05|| |joint power|ř|τ| d |9q||´2e´5|| |joint power distribution|Varr|τ| d |9q|s|´1e´5|| |joint accelerations|}:q}2|´2.5e´7|| |action rate|}at´at´1}2|´0.01|| |smoothness|}at´2at´1`at´2}2|´0.01|| |joint position limits|1rq R pqmin, qmaxqs|´5.0|| |joint velocity limits|1r9q R p9qmin, 9qmaxqs|´5.0|| |torque limits|1rτ R pτmin, τmaxqs|´5.0|| |orientation|}gxy}2|´0.2|| |base height|}h´htarget}2|´1.0|| |(a) Slopes|(b) Stairs|(c) Di i|screte height fields|",
           "reference": false,
           "image": "figs/p013-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            111.0,
+            123.0,
+            479.0,
+            510.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1116,
+          "image_height": 1173
         },
         {
           "id": "p13-b2",
@@ -2138,15 +2373,24 @@
           "id": "p13-b4",
           "kind": "table",
           "bbox": [
-            188,
-            617,
-            421,
-            688
+            186.0,
+            615.0,
+            423.0,
+            690.0
           ],
           "en": "|Parameters|Range[Min, Max]|Unit| |---|---|---| |Ground Friction|r0.2,2.75s |-| |Ground Restitution|r0.0,1.0s|-| |JointKp|r0.8,1.2s ˆ20|-| |JointKd|r0.8,1.2s ˆ0.5|-| |Initial Joint Positions|r0.5,1.5sˆnominal value|rad|",
           "reference": false,
           "image": "figs/p013-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            188.0,
+            617.0,
+            421.0,
+            688.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 711,
+          "image_height": 225
         }
       ]
     },
@@ -2157,15 +2401,24 @@
           "id": "p14-b0",
           "kind": "table",
           "bbox": [
-            108,
-            300,
-            490,
-            489
+            106.0,
+            298.0,
+            492.0,
+            491.0
           ],
           "en": "|Algorithm 1:LearningH8Locomotion Control| |---| |Input: Initial actorπ0, disturberd0, overall value functionV0, task value functionV cost 0 , initial guessη0, initial multiplierβ0, upper bound of task rewardRcost max Output: policyπ, disturberd πold “π0,dold “d0,Vold “V0,V cost old “V cost 0 foriteration =1,2,¨ ¨ ¨ , max iterationdo Run policyπoldin environment forT time steps Compute values of each states withVold Compute cost values of each states withV cost old Compute costsCt “Rtask max ´Rt Compute advantage estimationAt OptimizeπwithLP P O actor `λ ˚LHinf OptimizedwithLdisturber λ“λ´α˚LHinf η “0.9˚η`0.1˚ řT t“1 Ct řT t“1 }dold}2 πold “π end|",
           "reference": false,
           "image": "figs/p014-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            300.0,
+            490.0,
+            489.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1158,
+          "image_height": 579
         }
       ]
     }

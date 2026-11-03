@@ -10,7 +10,7 @@
   "out": "site/rl-pd-control",
   "imported": true,
   "source_language": "zh",
-  "math": false,
+  "math": true,
   "translation": "Original Chinese",
   "source_aliases": [
     "new_papers/zhihu_机器人强化学习与关节PD控制.pdf",

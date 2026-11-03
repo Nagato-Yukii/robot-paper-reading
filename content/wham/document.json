@@ -22,15 +22,24 @@
           "id": "p1-b3",
           "kind": "picture",
           "bbox": [
-            50,
-            173,
-            546,
-            336
+            48.0,
+            171.0,
+            548.0,
+            338.0
           ],
           "en": "GT trajectory TRACE SLAHMR WHAM (Ours) P436.png",
           "reference": false,
           "image": "figs/p001-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            50.0,
+            173.0,
+            546.0,
+            336.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1500,
+          "image_height": 501
         },
         {
           "id": "p1-b4",
@@ -72,7 +81,8 @@
           "en": "The estimation of 3D human motion from video has progressed rapidly but current methods still have several key limitations. First, most methods estimate the human in camera coordinates. Second, prior work on estimating humans in global coordinates often assumes a flat ground plane and produces foot sliding. Third, the most accurate methods rely on computationally expensive optimization pipelines, limiting their use to offline applications. Finally, existing videobased methods are surprisingly less accurate than singleframe methods. We address these limitations with WHAM (World-grounded Humans with Accurate Motion), which accurately and efficiently reconstructs 3D human motion in a global coordinate system from video. WHAM learns to lift 2D keypoint sequences to 3D using motion capture data and fuses this with video features, integrating motion context and visual information. WHAM exploits camera angular velocity estimated from a SLAM method together with human motion to estimate the body’s global trajectory. We combine this with a contact-aware trajectory refinement method that lets WHAM capture human motion in diverse conditions, such as climbing stairs. WHAM outperforms all existing 3D human motion recovery methods across multiple in-the-",
           "reference": false,
           "source_image": "figs/p001-006-source.png",
-          "zh": "从视频中估计 3D 人体运动发展迅速，但现有方法仍存在若干关键局限。首先，大多数方法是在相机坐标系下估计人体。其次，以往在全局坐标系中估计人体的工作通常假设地面平坦，并会导致脚部滑动。第三，最精确的方法依赖于计算成本高昂的优化流程，限制了其在离线场景中的应用。最后，现有的基于视频的方法精度反而出人意料地低于单帧方法。我们通过 WHAM（World-grounded Humans with Accurate Motion）解决了这些局限，该方法能够从视频中准确且高效地重建全局坐标系下的 3D 人体运动。WHAM 利用动作捕捉数据学习将 2D 关键点序列提升至 3D，并将其与视频特征融合，从而整合了运动上下文与视觉信息。WHAM 利用从 SLAM 方法估计出的相机角速度以及人体运动来估计身体的全局轨迹。我们将此与一种接触感知的轨迹细化方法相结合，使 WHAM 能够在攀爬楼梯等多种复杂条件下捕捉人体运动。WHAM 在多个真实场景（in-the-"
+          "zh": "从视频中估计 3D 人体运动发展迅速，但现有方法仍存在若干关键局限。首先，大多数方法是在相机坐标系下估计人体。其次，以往在全局坐标系中估计人体的工作通常假设地面平坦，并会导致脚部滑动。第三，最精确的方法依赖于计算成本高昂的优化流程，限制了其在离线场景中的应用。最后，现有的基于视频的方法精度反而出人意料地低于单帧方法。我们通过 WHAM（World-grounded Humans with Accurate Motion）解决了这些局限，该方法能够从视频中准确且高效地重建全局坐标系下的 3D 人体运动。WHAM 利用动作捕捉数据学习将 2D 关键点序列提升至 3D，并将其与视频特征融合，从而整合了运动上下文与视觉信息。WHAM 利用从 SLAM 方法估计出的相机角速度以及人体运动来估计身体的全局轨迹。我们将此与一种接触感知的轨迹细化方法相结合，使 WHAM 能够在攀爬楼梯等多种复杂条件下捕捉人体运动。WHAM 在多个真实场景（in-the-",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b7",
@@ -401,10 +411,11 @@
             547,
             649
           ],
-          "en": "An overview of our World-grounded Human with Accurate Motion (WHAM) framework is illustrated in Fig. 2. The input to WHAM is a raw video data {I(t) }T t =0, captured by a camera with possibly unknown motion. Our goal is to predict the corresponding sequence of the SMPL model parameters { Θ(t) }T t =0,aswellastherootorientation{Γ(t)}T t =0and translation {τ(t) }T t =0, expressed in the world coordinate sys- tem. We use ViTPose [54] to detect 2D keypoints {x( 2t D)} tT =0 from which we obtain motion features {ϕ( mt)}T t =0using the motion encoder. Additionally, we use a pretrained image encoder [7, 21, 25] to extract static image features {ϕ( it)} tT =0 and integrate them with {ϕ( mt)}T t =0to obtain fine-grained mo- tion features {ϕˆ( mt)}T t =0from which we regress 3D human motion in the world coordinate system.",
+          "en": "An overview of our World-grounded Human with Accurate Motion (WHAM) framework is illustrated in Fig. 2. The input to WHAM is a raw video data \\(\\{I^{(t)}\\}_{t=0}^{T}\\), captured by a camera with possibly unknown motion. Our goal is to predict the corresponding sequence of the SMPL model parameters \\(\\{ \\Theta^{(t)} \\}_{t=0}^{T}\\),aswellastherootorientation\\(\\{\\Gamma^{(t)}\\}_{t=0}^{T}\\)and translation \\(\\{\\tau^{(t)}\\}_{t=0}^{T}\\), expressed in the world coordinate sys- tem. We use ViTPose [54] to detect 2D keypoints \\(\\{x^{(t)}_{2D}\\}_{t=0}^{T}\\) from which we obtain motion features \\(\\{\\phi_m^{(t)}\\}_{t=0}^{T}\\)using the motion encoder. Additionally, we use a pretrained image encoder [7, 21, 25] to extract static image features \\(\\{\\phi_i^{(t)}\\}_{t=0}^{T}\\) and integrate them with \\(\\{\\phi_m^{(t)}\\}_{t=0}^{T}\\)to obtain fine-grained mo- tion features \\(\\{\\hat{\\phi}_m^{(t)}\\}_{t=0}^{T}\\)from which we regress 3D human motion in the world coordinate system.",
           "reference": false,
           "source_image": "figs/p003-007-source.png",
-          "zh": "WHAM（World-grounded Humans with Accurate Motion）框架的概述如图 2 所示。WHAM 的输入是由相机捕获的原始视频数据〔行内公式见原版〕，该相机的运动可能未知。我们的目标是预测相应的 SMPL 模型参数序列〔行内公式见原版〕，以及在世界坐标系下表示的根节点朝向〔行内公式见原版〕和平移〔行内公式见原版〕。我们使用 ViTPose [54] 检测 2D 关键点〔行内公式见原版〕，并利用运动编码器从中获取运动特征〔行内公式见原版〕。此外，我们使用预训练的图像编码器 [7, 21, 25] 提取静态图像特征〔行内公式见原版〕，并将其与〔行内公式见原版〕整合以获得细粒度的运动特征〔行内公式见原版〕，我们据此在世界坐标系中回归 3D 人体运动。"
+          "zh": "WHAM（World-grounded Humans with Accurate Motion）框架的概述如图 2 所示。WHAM 的输入是由相机捕获的原始视频数据\\(\\{I^{(t)}\\}_{t=0}^{T}\\)，该相机的运动可能未知。我们的目标是预测相应的 SMPL 模型参数序列\\(\\{ \\Theta^{(t)} \\}_{t=0}^{T}\\)，以及在世界坐标系下表示的根节点朝向\\(\\{\\Gamma^{(t)}\\}_{t=0}^{T}\\)和平移\\(\\{\\tau^{(t)}\\}_{t=0}^{T}\\)。我们使用 ViTPose [54] 检测 2D 关键点\\(\\{x^{(t)}_{2D}\\}_{t=0}^{T}\\)，并利用运动编码器从中获取运动特征\\(\\{\\phi_m^{(t)}\\}_{t=0}^{T}\\)。此外，我们使用预训练的图像编码器 [7, 21, 25] 提取静态图像特征\\(\\{\\phi_i^{(t)}\\}_{t=0}^{T}\\)，并将其与\\(\\{\\phi_m^{(t)}\\}_{t=0}^{T}\\)整合以获得细粒度的运动特征\\(\\{\\hat{\\phi}_m^{(t)}\\}_{t=0}^{T}\\)，我们据此在世界坐标系中回归 3D 人体运动。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b8",
@@ -443,15 +454,24 @@
           "id": "p4-b0",
           "kind": "picture",
           "bbox": [
-            74,
-            71,
-            521,
-            214
+            72.0,
+            69.0,
+            523.0,
+            216.0
           ],
           "en": "SMPL parameters Camera Coordinates 𝐼! EncoderImage 𝑬𝑰 image feature𝜙! \" Feature updated feature DecoderMotion 𝑫𝑴 𝜃camera\"𝑐, 𝛽\" \" 𝐼\" Integrator 𝜙 $ #\" 𝑭𝑰 contact probability EncoderMotion motion feature𝜙#\" 𝑝 \" 𝑬𝑴 World Coordinates Trajectory initial trajectory Trajectory global trajectory 𝐼#$\" Decoder Γ$\" , 𝑣$\" Refiner Γ \" , 𝜏 \" 𝑫𝑻 𝑹𝑻 𝐼# GyroscopeSLAM or camera angular velocity 𝜔 \" RNN layers MLP layers CNN / ViT layers High contact probability Input Video ⋯ 2D Detection",
           "reference": false,
           "image": "figs/p004-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            74.0,
+            71.0,
+            521.0,
+            214.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1353,
+          "image_height": 441
         },
         {
           "id": "p4-b1",
@@ -476,24 +496,34 @@
             288,
             359
           ],
-          "en": "neural networks (RNN) for the motion encoder and decoder, making WHAM suitable for online inference. The objective of the motion encoder, EM , is to extract the motion context, ϕm(t), from the current and previous sequence of 2D keypoints and the initial hidden state, h(0) E:",
+          "en": "neural networks (RNN) for the motion encoder and decoder, making WHAM suitable for online inference. The objective of the motion encoder, \\(E_M\\), is to extract the motion context, \\(\\phi_m^{(t)}\\), from the current and previous sequence of 2D keypoints and the initial hidden state, \\(h_E^{(0)}\\):",
           "reference": false,
           "source_image": "figs/p004-002-source.png",
-          "zh": "运动编码器和解码器采用神经网络（RNN），这使 WHAM 适合进行在线推理。运动编码器 EM 的目标是从当前和先前的 2D 关键点序列以及初始隐藏状态 h(0) E 中提取运动上下文 ϕm(t)："
+          "zh": "运动编码器和解码器采用神经网络（RNN），这使 WHAM 适合进行在线推理。运动编码器 \\(E_M\\) 的目标是从当前和先前的 2D 关键点序列以及初始隐藏状态 \\(h_E^{(0)}\\) 中提取运动上下文 \\(\\phi_m^{(t)}\\)：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b3",
           "kind": "formula",
           "bbox": [
-            93,
-            368,
-            243,
-            383
+            91.0,
+            366.0,
+            245.0,
+            385.0
           ],
           "en": "ϕ ( m t ) = EM � x (0) 2 D , x (1) 2 D , ..., x ( 2 t D ) |h (0) E � .",
           "reference": false,
           "image": "figs/p004-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            93.0,
+            368.0,
+            243.0,
+            383.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 462,
+          "image_height": 57
         },
         {
           "id": "p4-b4",
@@ -504,24 +534,34 @@
             288,
             462
           ],
-          "en": "We normalize keypoints to a bounding box around the person and concatenate the box’s center and scale to the keypoints, similar to CLIFF [25]. The role of the motion decoder, DM , is to recover SMPL parameters, ( θ, β ), weak-perspective camera translation, c , and foot-ground contact probability, p , from the motion feature history:",
+          "en": "We normalize keypoints to a bounding box around the person and concatenate the box’s center and scale to the keypoints, similar to CLIFF [25]. The role of the motion decoder, \\(D_M\\), is to recover SMPL parameters, \\((\\theta, \\beta)\\), weak-perspective camera translation, \\(c\\), and foot-ground contact probability, \\(p\\), from the motion feature history:",
           "reference": false,
           "source_image": "figs/p004-004-source.png",
-          "zh": "与 CLIFF [25] 类似，我们将关键点归一化到人体周围的边界框，并将边界框的中心和尺度与关键点进行拼接。运动解码器 DM 的作用是从运动特征历史中恢复 SMPL 参数 ( θ, β )、弱透视相机平移量 c 以及脚地接触概率 p："
+          "zh": "与 CLIFF [25] 类似，我们将关键点归一化到人体周围的边界框，并将边界框的中心和尺度与关键点进行拼接。运动解码器 \\(D_M\\) 的作用是从运动特征历史中恢复 SMPL 参数 \\((\\theta, \\beta)\\)、弱透视相机平移量 \\(c\\) 以及脚地接触概率 \\(p\\)：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b5",
           "kind": "formula",
           "bbox": [
-            71,
-            470,
-            265,
-            485
+            69.0,
+            468.0,
+            267.0,
+            487.0
           ],
           "en": "� θ ( t ) , β ( t ) , c ( t ) , p ( t )� = DM � ϕ ˆ m (0) , ..., ˆ ϕ m ( t ) |h (0) D � .",
           "reference": false,
           "image": "figs/p004-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            71.0,
+            470.0,
+            265.0,
+            485.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 594,
+          "image_height": 57
         },
         {
           "id": "p4-b6",
@@ -532,10 +572,11 @@
             289,
             654
           ],
-          "en": "Here, ϕˆ( mt)is the motion feature integrated with the image feature ϕ( it) (described below). During pretraining on synthetic data, the image feature is not available and we set ϕ ˆ m(t)=ϕ m(t).Astheencoderanddecoderaretaskedwith reconstructing a dense 3D representation Θ from a sparse 2D input signal x 2 D , we design an intermediate task to predict the 3D keypoints x 3 D and use them as the intermediate motion representation. This cascaded approach guides ϕm to represent the implicit context of motion and the 3D spatial structure of the body. Similar to PIP [57], we use Neural Initialization that uses MLP to initialize the hidden state of the motion encoder and decoder, � h(0) E, h(0) D �; see section 4.3 and Sup. Mat. for details.",
+          "en": "Here, \\(\\hat{\\phi}_m^{(t)}\\)is the motion feature integrated with the image feature \\(\\phi_i^{(t)}\\) (described below). During pretraining on synthetic data, the image feature is not available and we set \\(\\hat{\\phi}_m^{(t)} = \\phi_m^{(t)}\\).Astheencoderanddecoderaretaskedwith reconstructing a dense 3D representation \\(\\Theta\\) from a sparse 2D input signal \\(x_{2D}\\), we design an intermediate task to predict the 3D keypoints \\(x_{3D}\\) and use them as the intermediate motion representation. This cascaded approach guides \\(\\phi_m\\) to represent the implicit context of motion and the 3D spatial structure of the body. Similar to PIP [57], we use Neural Initialization that uses MLP to initialize the hidden state of the motion encoder and decoder, \\(\\big(h_E^{(0)}, h_D^{(0)}\\big)\\); see section 4.3 and Sup. Mat. for details.",
           "reference": false,
           "source_image": "figs/p004-006-source.png",
-          "zh": "此处，ϕˆ( mt) 是与图像特征 ϕ( it) 整合后的运动特征（下文详述）。在合成数据预训练期间，图像特征不可用，我们令 ϕ ˆ m(t)=ϕ m(t)。由于编码器和解码器的任务是从稀疏 2D 输入信号 x 2 D 重建稠密 3D 表示 Θ，我们设计了一个预测 3D 关键点 x 3 D 的中间任务，并将其用作中间运动表示。这种级联方法引导 ϕm 表征动作的隐式上下文和人体的 3D 空间结构。与 PIP [57] 类似，我们采用神经初始化（Neural Initialization），使用 MLP 初始化运动编码器和解码器的隐藏状态〔行内公式见原版〕；详情见第 4.3 节和补充材料（Sup. Mat.）。"
+          "zh": "此处，\\(\\hat{\\phi}_m^{(t)}\\) 是与图像特征 \\(\\phi_i^{(t)}\\) 整合后的运动特征（下文详述）。在合成数据预训练期间，图像特征不可用，我们令 \\(\\hat{\\phi}_m^{(t)} = \\phi_m^{(t)}\\)。由于编码器和解码器的任务是从稀疏 2D 输入信号 \\(x_{2D}\\) 重建稠密 3D 表示 \\(\\Theta\\)，我们设计了一个预测 3D 关键点 \\(x_{3D}\\) 的中间任务，并将其用作中间运动表示。这种级联方法引导 \\(\\phi_m\\) 表征动作的隐式上下文和人体的 3D 空间结构。与 PIP [57] 类似，我们采用神经初始化（Neural Initialization），使用 MLP 初始化运动编码器和解码器的隐藏状态\\(\\big(h_E^{(0)}, h_D^{(0)}\\big)\\)；详情见第 4.3 节和补充材料（Sup. Mat.）。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b7",
@@ -560,24 +601,34 @@
             547,
             429
           ],
-          "en": "truth 3D pose and shape. Although we leverage the temporal human motion context, lifting 2D keypoints to 3D meshes is an ambiguous task. A key idea is to augment this 2D keypoint information with image cues that can help disambiguate the 3D pose. Specifically, we use an image encoder [1, 7, 21, 25], pretrained on the human mesh recovery task, to extract image features ϕi , which contain dense visual contextual information related to the 3D human pose and shape. We then train a feature integrator network, FI , to combine ϕm with ϕi , integrating motion and visual context. The feature integrator uses a simple yet effective residual connection:",
+          "en": "truth 3D pose and shape. Although we leverage the temporal human motion context, lifting 2D keypoints to 3D meshes is an ambiguous task. A key idea is to augment this 2D keypoint information with image cues that can help disambiguate the 3D pose. Specifically, we use an image encoder [1, 7, 21, 25], pretrained on the human mesh recovery task, to extract image features \\(\\phi_i\\), which contain dense visual contextual information related to the 3D human pose and shape. We then train a feature integrator network, \\(F_I\\), to combine \\(\\phi_m\\) with \\(\\phi_i\\), integrating motion and visual context. The feature integrator uses a simple yet effective residual connection:",
           "reference": false,
           "source_image": "figs/p004-008-source.png",
-          "zh": "值 3D 姿态与体型的现有视频数据集。尽管我们利用了时序人体动作上下文，但将 2D 关键点提升到 3D 网格是一个多义性任务。一个关键构想是用有助于消除 3D 姿态多义性的图像线索来增强该 2D 关键点信息。具体而言，我们使用在人体网格恢复任务上预训练的图像编码器 [1, 7, 21, 25] 来提取图像特征 ϕi，其中包含与 3D 人体姿态和体型相关的稠密视觉上下文信息。然后，我们训练特征整合器网络 FI，将 ϕm 与 ϕi 相结合，从而整合运动与视觉上下文。该特征整合器采用了简单而有效的残差连接："
+          "zh": "值 3D 姿态与体型的现有视频数据集。尽管我们利用了时序人体动作上下文，但将 2D 关键点提升到 3D 网格是一个多义性任务。一个关键构想是用有助于消除 3D 姿态多义性的图像线索来增强该 2D 关键点信息。具体而言，我们使用在人体网格恢复任务上预训练的图像编码器 [1, 7, 21, 25] 来提取图像特征 \\(\\phi_i\\)，其中包含与 3D 人体姿态和体型相关的稠密视觉上下文信息。然后，我们训练特征整合器网络 \\(F_I\\)，将 \\(\\phi_m\\) 与 \\(\\phi_i\\) 相结合，从而整合运动与视觉上下文。该特征整合器采用了简单而有效的残差连接：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b9",
           "kind": "formula",
           "bbox": [
-            350,
-            437,
-            504,
-            456
+            348.0,
+            435.0,
+            506.0,
+            458.0
           ],
           "en": "ϕ ˆ ( m t ) = ϕ ( m t ) + FI �concat� ϕ ( m t ) , ϕ ( i t ) � � .",
           "reference": false,
           "image": "figs/p004-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            350.0,
+            437.0,
+            504.0,
+            456.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 474,
+          "image_height": 69
         },
         {
           "id": "p4-b10",
@@ -602,24 +653,34 @@
             547,
             671
           ],
-          "en": "Global Trajectory Decoder. We design an additional decoder, DT , to predict the rough global root orientation Γ0(t) and root velocity v 0(t) from the motion feature ϕ( mt). Sinceϕ m is derived from the input signals in the camera coordinates, it is highly challenging to decouple the human and camera motion from it. To address this ambiguity, we append the angular velocity of the camera, ω(t) , to the motion feature, ϕ( mt), to create a camera-agnostic motion context. This design choice makes WHAM compatible with both off-the-shelf SLAM algorithms [46, 47] and gyroscope measurements that are widely available from modern digital cameras. We recursively predict global orientation, Γ( 0t),usingtheuni- directional RNN.",
+          "en": "Global Trajectory Decoder. We design an additional decoder, \\(D_T\\), to predict the rough global root orientation \\(\\Gamma_0^{(t)}\\) and root velocity \\(v_0^{(t)}\\) from the motion feature \\(\\phi_m^{(t)}\\). Since\\(\\phi_m\\) is derived from the input signals in the camera coordinates, it is highly challenging to decouple the human and camera motion from it. To address this ambiguity, we append the angular velocity of the camera, \\(\\omega^{(t)}\\), to the motion feature, \\(\\phi_m^{(t)}\\), to create a camera-agnostic motion context. This design choice makes WHAM compatible with both off-the-shelf SLAM algorithms [46, 47] and gyroscope measurements that are widely available from modern digital cameras. We recursively predict global orientation, \\(\\Gamma_0^{(t)}\\),usingtheuni- directional RNN.",
           "reference": false,
           "source_image": "figs/p004-011-source.png",
-          "zh": "全局轨迹解码器。我们设计了一个额外的解码器 DT，用于根据运动特征 ϕ( mt) 预测粗略的全局根关节朝向 Γ0(t) 和根关节速度 v 0(t)。由于 ϕm 是由相机坐标系下的输入信号推导而来的，因此从中解耦人体运动和相机运动极具挑战性。为了解决这一多义性，我们将相机的角速度 ω(t) 拼接到运动特征 ϕ( mt) 中，以构建相机无关的运动上下文。这一设计选择使得 WHAM 既能兼容现成的 SLAM 算法 [46, 47]，也能兼容现代数码相机广泛提供的陀螺仪测量数据。我们使用单向 RNN 递归地预测全局朝向 Γ( 0t)。"
+          "zh": "全局轨迹解码器。我们设计了一个额外的解码器 \\(D_T\\)，用于根据运动特征 \\(\\phi_m^{(t)}\\) 预测粗略的全局根关节朝向 \\(\\Gamma_0^{(t)}\\) 和根关节速度 \\(v_0^{(t)}\\)。由于 \\(\\phi_m\\) 是由相机坐标系下的输入信号推导而来的，因此从中解耦人体运动和相机运动极具挑战性。为了解决这一多义性，我们将相机的角速度 \\(\\omega^{(t)}\\) 拼接到运动特征 \\(\\phi_m^{(t)}\\) 中，以构建相机无关的运动上下文。这一设计选择使得 WHAM 既能兼容现成的 SLAM 算法 [46, 47]，也能兼容现代数码相机广泛提供的陀螺仪测量数据。我们使用单向 RNN 递归地预测全局朝向 \\(\\Gamma_0^{(t)}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b12",
           "kind": "formula",
           "bbox": [
-            338,
-            680,
-            515,
-            695
+            336.0,
+            678.0,
+            517.0,
+            697.0
           ],
           "en": "�Γ ( 0 t ) , v 0 ( t ) � = DT � ϕ (0) m , ω (0) , ..., ϕ ( m t ) , ω ( t )� .",
           "reference": false,
           "image": "figs/p004-012.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            338.0,
+            680.0,
+            515.0,
+            695.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 543,
+          "image_height": 57
         },
         {
           "id": "p4-b13",
@@ -644,15 +705,24 @@
           "id": "p5-b0",
           "kind": "picture",
           "bbox": [
-            50,
-            72,
-            287,
-            202
+            48.0,
+            70.0,
+            289.0,
+            204.0
           ],
           "en": "Motion Decoder Motion Encoder Trajectory synthetic data generation Decoder EncoderImage IntegratorFeature DecoderMotion Keypoints Motion Trajectory Detector Encoder Decoder Pretraining on AMASS Finetuning on Video Data",
           "reference": false,
           "image": "figs/p005-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            50.0,
+            72.0,
+            287.0,
+            202.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 723,
+          "image_height": 402
         },
         {
           "id": "p5-b1",
@@ -677,24 +747,34 @@
             289,
             442
           ],
-          "en": "in world coordinates in most scenarios implies accurate footground contact without sliding. We want WHAM to generalize beyond flat ground planes, which are typically assumed in prior work. Specifically, our new trajectory refiner aims to resolve foot sliding and enables WHAM to generalize well to diverse motions, including climbing stairs. The refinement involves two stages. First, we adjust the ego-centric root velocity to ˜ v(t) to minimize foot sliding, based on the footground contact probability p(t) , estimated from the motion decoder DM :",
+          "en": "in world coordinates in most scenarios implies accurate footground contact without sliding. We want WHAM to generalize beyond flat ground planes, which are typically assumed in prior work. Specifically, our new trajectory refiner aims to resolve foot sliding and enables WHAM to generalize well to diverse motions, including climbing stairs. The refinement involves two stages. First, we adjust the ego-centric root velocity to \\(\\tilde{v}^{(t)}\\) to minimize foot sliding, based on the footground contact probability \\(p^{(t)}\\), estimated from the motion decoder \\(D_M\\):",
           "reference": false,
           "source_image": "figs/p005-002-source.png",
-          "zh": "在世界坐标系下意味着准确且无滑动的脚地接触。我们希望 WHAM 能够泛化到先前工作通常假设的平坦地面之外。具体而言，我们提出的全新轨迹细化器旨在消除脚部滑动，使 WHAM 能够很好地泛化到各种动作中（包括爬楼梯）。该细化过程包含两个阶段。首先，我们基于运动解码器 DM 估计的脚地接触概率 p(t)，将自身中心根关节速度调整为 ˜ v(t)，以最大程度减少脚部滑动："
+          "zh": "在世界坐标系下意味着准确且无滑动的脚地接触。我们希望 WHAM 能够泛化到先前工作通常假设的平坦地面之外。具体而言，我们提出的全新轨迹细化器旨在消除脚部滑动，使 WHAM 能够很好地泛化到各种动作中（包括爬楼梯）。该细化过程包含两个阶段。首先，我们基于运动解码器 \\(D_M\\) 估计的脚地接触概率 \\(p^{(t)}\\)，将自身中心根关节速度调整为 \\(\\tilde{v}^{(t)}\\)，以最大程度减少脚部滑动：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b3",
           "kind": "formula",
           "bbox": [
-            113,
-            456,
-            223,
-            472
+            111.0,
+            454.0,
+            225.0,
+            474.0
           ],
           "en": "v ˜ ( t ) = v 0 ( t ) − �Γ ( 0 t ) � − 1 v ¯ f ( t ) ,",
           "reference": false,
           "image": "figs/p005-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            113.0,
+            456.0,
+            223.0,
+            472.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 342,
+          "image_height": 60
         },
         {
           "id": "p5-b4",
@@ -705,24 +785,34 @@
             288,
             598
           ],
-          "en": "where v ¯ f(t) is the averaged velocity of the toes and heels in world coordinates when their contact probability, p(t) , is higher than a threshold. However, this velocity adjustment often introduces noisy translation when the contact and pose estimation is inaccurate. Therefore, we propose a simple learning mechanism in which a trajectory refining network, RT , updates the root orientation and velocity to address this issue. Finally, the global translation is computed through a roll-out operation:",
+          "en": "where \\(\\bar{v}_f^{(t)}\\) is the averaged velocity of the toes and heels in world coordinates when their contact probability, \\(p^{(t)}\\), is higher than a threshold. However, this velocity adjustment often introduces noisy translation when the contact and pose estimation is inaccurate. Therefore, we propose a simple learning mechanism in which a trajectory refining network, \\(R_T\\), updates the root orientation and velocity to address this issue. Finally, the global translation is computed through a roll-out operation:",
           "reference": false,
           "source_image": "figs/p005-004-source.png",
-          "zh": "其中 v ¯ f(t) 是当脚趾和脚后跟的接触概率 p(t) 高于阈值时，它们在世界坐标系下的平均速度。然而，当接触和姿态估计不准确时，这种速度调整往往会引入带有噪声的平移。因此，我们提出了一种简单的学习机制，通过轨迹细化网络 RT 更新根关节朝向和速度来解决此问题。最后，通过 rollout/轨迹展开操作计算出全局平移量："
+          "zh": "其中 \\(\\bar{v}_f^{(t)}\\) 是当脚趾和脚后跟的接触概率 \\(p^{(t)}\\) 高于阈值时，它们在世界坐标系下的平均速度。然而，当接触和姿态估计不准确时，这种速度调整往往会引入带有噪声的平移。因此，我们提出了一种简单的学习机制，通过轨迹细化网络 \\(R_T\\) 更新根关节朝向和速度来解决此问题。最后，通过 rollout/轨迹展开操作计算出全局平移量：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b5",
           "kind": "formula",
           "bbox": [
-            53,
-            613,
-            282,
-            662
+            51.0,
+            611.0,
+            284.0,
+            664.0
           ],
           "en": "�Γ ( t ) , v ( t )� = RT � ϕ (0) m , Γ(0) 0 , ˜ v (0) , ..., ϕ m ( t ) , Γ( 0 t ) , ˜ v ( t )� , t− 1 τ ( t ) = � Γ ( i ) v ( i ) . i =0",
           "reference": false,
           "image": "figs/p005-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            53.0,
+            613.0,
+            282.0,
+            662.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 699,
+          "image_height": 159
         },
         {
           "id": "p5-b6",
@@ -803,10 +893,11 @@
             547,
             714
           ],
-          "en": "The fine-tuning has two objectives: 1) exposing the network to real 2D keypoints, instead of training it solely on synthetic data, and 2) training the feature integrator network to aggregate motion and image features. To achieve these goals, we jointly train the entire network on the video datasets while setting a smaller learning rate on the pretrained modules (see Fig. 3). Consistent with prior work [6, 17, 30, 43, 52], we employ a pretrained and fixed-weight image encoder [21] to extract image features. However, to leverage recent network architectures and training strategies, we also experiment with different types of encoders [1, 7, 25] in the following section. Implementation Details. For the pretraining stage, we train WHAM on AMASS for 80 epochs with the learning rate of 5 × 10−4 . Then we finetune WHAM on 3DPW, MPI-INF3DHP, Human3.6M, and InstaVariety for 30 epochs. We use a learning rate of 1 × 10−4 for the feature integrator and 1 × 10−5 for the pretrained components during finetuning. During training, we use the Adam optimizer and a batch size",
+          "en": "The fine-tuning has two objectives: 1) exposing the network to real 2D keypoints, instead of training it solely on synthetic data, and 2) training the feature integrator network to aggregate motion and image features. To achieve these goals, we jointly train the entire network on the video datasets while setting a smaller learning rate on the pretrained modules (see Fig. 3). Consistent with prior work [6, 17, 30, 43, 52], we employ a pretrained and fixed-weight image encoder [21] to extract image features. However, to leverage recent network architectures and training strategies, we also experiment with different types of encoders [1, 7, 25] in the following section. Implementation Details. For the pretraining stage, we train WHAM on AMASS for 80 epochs with the learning rate of \\(5\\times 10^{-4}\\). Then we finetune WHAM on 3DPW, MPI-INF3DHP, Human3.6M, and InstaVariety for 30 epochs. We use a learning rate of \\(1\\times 10^{-4}\\) for the feature integrator and \\(1\\times 10^{-5}\\) for the pretrained components during finetuning. During training, we use the Adam optimizer and a batch size",
           "reference": false,
           "source_image": "figs/p005-011-source.png",
-          "zh": "微调有两个目标：1）让网络接触真实的 2D 关键点，而非仅在合成数据上训练；2）训练特征整合器网络以聚合运动与图像特征。为了实现这些目标，我们在视频数据集上联合训练整个网络，同时对预训练模块设置较小的学习率（见图 3）。与先前的工作 [6, 17, 30, 43, 52] 一致，我们采用预训练且固定权重的图像编码器 [21] 来提取图像特征。然而，为了利用近期的网络架构和训练策略，我们还在后文中尝试了不同类型的编码器 [1, 7, 25]。实现细节。在预训练阶段，我们在 AMASS 上训练 WHAM 80 个 epoch，学习率为 5 × 10−4。随后，我们在 3DPW、MPI-INF3DHP、Human3.6M 和 InstaVariety 上微调 WHAM 30 个 epoch。在微调期间，特征整合器的学习率设为 1 × 10−4，预训练组件的学习率设为 1 × 10−5。在训练期间，我们使用 Adam 优化器，批大小"
+          "zh": "微调有两个目标：1）让网络接触真实的 2D 关键点，而非仅在合成数据上训练；2）训练特征整合器网络以聚合运动与图像特征。为了实现这些目标，我们在视频数据集上联合训练整个网络，同时对预训练模块设置较小的学习率（见图 3）。与先前的工作 [6, 17, 30, 43, 52] 一致，我们采用预训练且固定权重的图像编码器 [21] 来提取图像特征。然而，为了利用近期的网络架构和训练策略，我们还在后文中尝试了不同类型的编码器 [1, 7, 25]。实现细节。在预训练阶段，我们在 AMASS 上训练 WHAM 80 个 epoch，学习率为 \\(5\\times 10^{-4}\\)。随后，我们在 3DPW、MPI-INF3DHP、Human3.6M 和 InstaVariety 上微调 WHAM 30 个 epoch。在微调期间，特征整合器的学习率设为 \\(1\\times 10^{-4}\\)，预训练组件的学习率设为 \\(1\\times 10^{-5}\\)。在训练期间，我们使用 Adam 优化器，批大小",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -864,10 +955,11 @@
             289,
             460
           ],
-          "en": "Evaluation metrics. To evaluate the accuracy of 3D human pose and shape estimation, we compute Mean Per Joint Position Error (MPJPE), Procrustes-aligned MPJPE (PA-MPJPE), and Per Vertex Error (PVE) measured in millimeters ( mm ). We compute Acceleration error (Accel, in m/s2 )1 to measure the inter-frame smoothness of the reconstructed motion. We also evaluate the motion reconstruction and trajectory estimation accuracy in the world-frame. Following previous work [20, 55], we split sequences into smaller segments of 100 frames and align each output segment with the ground-truth data using the first two frames (W-MPJPE100) or the entire segment (WA-MPJPE100) in mm . These previous metrics give an unrealistic picture of 3D performance as they do not measure drift over long sequences. Therefore, we also evaluate the error over the entire trajectory after the rigid alignment and measure Root Translation Error (RTE in %) normalized by the actual displacement of the person. We also assess the jitter of the motion in the world coordinate system in 10 m/s3 and foot sliding during the contact (FS in mm ).",
+          "en": "Evaluation metrics. To evaluate the accuracy of 3D human pose and shape estimation, we compute Mean Per Joint Position Error (MPJPE), Procrustes-aligned MPJPE (PA-MPJPE), and Per Vertex Error (PVE) measured in millimeters \\((mm)\\). We compute Acceleration error (Accel, in \\(m/s^2\\))1 to measure the inter-frame smoothness of the reconstructed motion. We also evaluate the motion reconstruction and trajectory estimation accuracy in the world-frame. Following previous work [20, 55], we split sequences into smaller segments of 100 frames and align each output segment with the ground-truth data using the first two frames (W-MPJPE\\(_{100}\\)) or the entire segment (WA-MPJPE\\(_{100}\\)) in \\(mm\\). These previous metrics give an unrealistic picture of 3D performance as they do not measure drift over long sequences. Therefore, we also evaluate the error over the entire trajectory after the rigid alignment and measure Root Translation Error (RTE in %) normalized by the actual displacement of the person. We also assess the jitter of the motion in the world coordinate system in \\(10m/s^3\\) and foot sliding during the contact (FS in \\(mm\\)).",
           "reference": false,
           "source_image": "figs/p006-003-source.png",
-          "zh": "评估指标。为了评估 3D 人体姿态与体型估计的准确性，我们计算以毫米（mm）为单位测量的每关节平均位置误差（MPJPE）、Procrustes 对齐后的 MPJPE（PA-MPJPE）以及每顶点误差（PVE）。我们计算加速度误差（Accel，单位为 m/s2）1 以衡量重建动作的帧间平滑度。我们还在世界坐标系下评估动作重建和轨迹估计的准确性。遵循先前的工作 [20, 55]，我们将序列划分为 100 帧的较短片段，并使用前两帧（W-MPJPE100）或整个片段（WA-MPJPE100）将每个输出片段与真值数据进行对齐（以 mm 为单位）。这些以往的指标无法衡量长序列上的漂移，因而给出了不切实际的 3D 性能表现。因此，我们还在刚性对齐后评估整个轨迹上的误差，并测量通过人体实际位移进行归一化后的根关节平移误差（RTE，以 % 为单位）。我们还评估了世界坐标系下的动作抖动（单位为 10 m/s3）以及接触期间的脚部滑动（FS，以 mm 为单位）。"
+          "zh": "评估指标。为了评估 3D 人体姿态与体型估计的准确性，我们计算以毫米（\\(mm\\)）为单位测量的每关节平均位置误差（MPJPE）、Procrustes 对齐后的 MPJPE（PA-MPJPE）以及每顶点误差（PVE）。我们计算加速度误差（Accel，单位为 \\(m/s^2\\)）1 以衡量重建动作的帧间平滑度。我们还在世界坐标系下评估动作重建和轨迹估计的准确性。遵循先前的工作 [20, 55]，我们将序列划分为 100 帧的较短片段，并使用前两帧（W-MPJPE\\(_{100}\\)）或整个片段（WA-MPJPE\\(_{100}\\)）将每个输出片段与真值数据进行对齐（以 \\(mm\\) 为单位）。这些以往的指标无法衡量长序列上的漂移，因而给出了不切实际的 3D 性能表现。因此，我们还在刚性对齐后评估整个轨迹上的误差，并测量通过人体实际位移进行归一化后的根关节平移误差（RTE，以 % 为单位）。我们还评估了世界坐标系下的动作抖动（单位为 \\(10m/s^3\\)）以及接触期间的脚部滑动（FS，以 \\(mm\\) 为单位）。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b4",
@@ -906,24 +998,34 @@
             287,
             713
           ],
-          "en": "1Previous work follows [15] in reporting Accel in mm/ frame2. To remove the dependency on frame rate, we convert all previous results to m/s2 .",
+          "en": "1Previous work follows [15] in reporting Accel in \\(mm/\\mathrm{frame}^2\\). To remove the dependency on frame rate, we convert all previous results to \\(m/s^2\\).",
           "reference": false,
           "source_image": "figs/p006-006-source.png",
-          "zh": "1 先前的工作遵循 [15] 以 mm/frame2 报告 Accel。为了消除对帧率的依赖，我们将以往的所有结果转换为 m/s2。"
+          "zh": "1 先前的工作遵循 [15] 以 \\(mm/\\mathrm{frame}^2\\) 报告 Accel。为了消除对帧率的依赖，我们将以往的所有结果转换为 \\(m/s^2\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b7",
           "kind": "picture",
           "bbox": [
-            314,
-            71,
-            540,
-            250
+            312.0,
+            69.0,
+            542.0,
+            252.0
           ],
           "en": "𝑡! 𝑡\" GT TCMR GLoT WHAM 𝑡! 𝑡\" Left Knee Flexion (°)",
           "reference": false,
           "image": "figs/p006-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            314.0,
+            71.0,
+            540.0,
+            250.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 690,
+          "image_height": 549
         },
         {
           "id": "p6-b8",
@@ -1032,15 +1134,24 @@
           "id": "p7-b0",
           "kind": "table",
           "bbox": [
-            103,
-            79,
-            490,
-            324
+            101.0,
+            77.0,
+            492.0,
+            326.0
           ],
           "en": "||||3DPW (|14)|||RICH (|24)|||EMDB|(24)|| |---|---|---|---|---|---|---|---|---|---|---|---|---|---| ||Models|PA-MPJPE|MPJPE|PVE|Accel|PA-MPJPE|MPJPE|PVE|Accel|PA-MPJPE|MPJPE|PVE|Accel| ||SPIN [21]|59.2|96.9|112.8|31.4|69.7|122.9|144.2|35.2|87.1|140.7|166.1|41.3| |e|PARE∗[18]|46.5|74.5|88.6|–|60.7|109.2|123.5|–|72.2|113.9|133.2|–| |ram|CLIFF∗[25]|43.0|69.0|81.2|22.5|56.6|102.6|115.0|22.4|68.3|103.5|123.7|24.5| |er-f|HybrIK∗[23]|41.8|71.6|82.3|–|56.4|96.8|110.4|–|65.6|103.0|122.2|–| |p|HMR2.0 [7]|44.4|69.8|82.2|18.1|48.1|96.0|110.9|18.8|60.7|98.3|120.8|19.9| ||ReFit∗[51]|40.5|65.3|75.1|18.5|47.9|80.7|92.9|17.1|58.6|88.0|104.5|20.7| ||TCMR∗[6]|52.7|86.5|101.4|6.0|65.6|119.1|137.7|5.0|79.8|127.7|150.2|5.3| ||VIBE∗[17]|51.9|82.9|98.4|18.5|68.4|120.5|140.2|21.8|81.6|126.1|149.9|26.5| ||MPS-Net∗[52]|52.1|84.3|99.0|6.5|67.1|118.2|136.7|5.8|81.4|123.3|143.9|6.2| ||GLoT∗[43]|50.6|80.7|96.4|6.0|65.6|114.3|132.7|5.2|79.1|119.9|140.8|5.4| |ral|GLAMR [58]|51.1|–|–|8.0|79.9|–|–|107.7|73.8|113.8|134.9|33.0| |mpo|TRACE∗[45]|50.9|79.1|95.4|28.6|–|–|–|–|71.5|110.0|129.6|25.5| |te|SLAHMR [55]|55.9|–|–|–|52.5|–|–|9.4|69.7|93.7|111.3|7.1| ||PACE [20]|–|–|–|–|49.3|–|–|8.8|–|–|–|–| ||WHAM (Res)∗|40.2|62.7|75.1|6.3|51.8|89.5|103.2|5.0|57.8|84.0|99.7|5.2| ||WHAM (HR)∗|39.0|62.6|74.8|6.4|49.1|84.6|96.4|5.2|57.1|85.7|103.2|5.6| ||WHAM (ViT)∗|35.9|57.8|68.7|6.6|44.3|80.0|91.2|5.3|50.4|79.7|94.4|5.3|",
           "reference": false,
           "image": "figs/p007-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            103.0,
+            79.0,
+            490.0,
+            324.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1173,
+          "image_height": 747
         },
         {
           "id": "p7-b1",
@@ -1051,24 +1162,34 @@
             546,
             379
           ],
-          "en": "Table 1. Quantitative comparison of state-of-the-art models on the 3DPW [49], RICH [10], and EMDB [16] datasets. Ordering of per-frame and temporal methods is done separately by descending MPJPE on EMDB (except for PACE). For testing on EMDB, we follow the protocol of EMDB 1 [16]. Parenthesis denotes the number of body joints used to compute MPJPE and PA-MPJPE, and∗ denotes models trained with the 3DPW training set. Bold numbers denote the most accurate method in each column. Accel is in m/s2 , all other errors are in mm .",
+          "en": "Table 1. Quantitative comparison of state-of-the-art models on the 3DPW [49], RICH [10], and EMDB [16] datasets. Ordering of per-frame and temporal methods is done separately by descending MPJPE on EMDB (except for PACE). For testing on EMDB, we follow the protocol of EMDB 1 [16]. Parenthesis denotes the number of body joints used to compute MPJPE and PA-MPJPE, and \\(^*\\) denotes models trained with the 3DPW training set. Bold numbers denote the most accurate method in each column. Accel is in \\(m/s^2\\), all other errors are in \\(mm\\).",
           "reference": false,
           "source_image": "figs/p007-001-source.png",
-          "zh": "表 1. 最先进模型在 3DPW [49]、RICH [10] 和 EMDB [16] 数据集上的定量对比。逐帧方法和时序方法按 EMDB 上的 MPJPE 降序分别排序（PACE 除外）。在 EMDB 上的测试中，我们遵循 EMDB 1 [16] 的评测协议。括号表示用于计算 MPJPE 和 PA-MPJPE 的人体关节点数量，∗ 表示使用 3DPW 训练集训练的模型。粗体数字表示各列中最准确的方法。Accel 的单位为 m/s2，所有其他误差的单位均为 mm。"
+          "zh": "表 1. 最先进模型在 3DPW [49]、RICH [10] 和 EMDB [16] 数据集上的定量对比。逐帧方法和时序方法按 EMDB 上的 MPJPE 降序分别排序（PACE 除外）。在 EMDB 上的测试中，我们遵循 EMDB 1 [16] 的评测协议。括号表示用于计算 MPJPE 和 PA-MPJPE 的人体关节点数量，\\(^*\\) 表示使用 3DPW 训练集训练的模型。粗体数字表示各列中最准确的方法。Accel 的单位为 \\(m/s^2\\)，所有其他误差的单位均为 \\(mm\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b2",
           "kind": "table",
           "bbox": [
-            71,
-            404,
-            263,
-            492
+            69.0,
+            402.0,
+            265.0,
+            494.0
           ],
           "en": "|||3|DPW (1|4)|| |---|---|---|---|---|---| |Models|Dataset|PA-MPJPE|MPJPE|PVE|Accel| |CLIFF [125]|R|43.6|68.8|82.1|19.2| |,|R+B|43.0|66.9|78.5|31.0| |RFit51|R|40.5|65.3|75.1|18.5| |e []|R+B|38.2|57.6|67.6|21.4| |WHAM ViT|R|35.9|57.8|68.7|6.6| |()|R+B|35.7|56.9|67.4|6.7|",
           "reference": false,
           "image": "figs/p007-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            71.0,
+            404.0,
+            263.0,
+            492.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 588,
+          "image_height": 276
         },
         {
           "id": "p7-b3",
@@ -1088,15 +1209,24 @@
           "id": "p7-b4",
           "kind": "table",
           "bbox": [
-            54,
-            542,
-            278,
-            626
+            52.0,
+            540.0,
+            280.0,
+            628.0
           ],
           "en": "|||EMDB 2|||| |---|---|---|---|---|---| |Models|WA-MPJPE100|W–MPJPE100|RTE|Jitter|FS| |DPVO (+ HMR2.0) [7,47]|647.8|2231.4|15.8|537.3|107.6| |GLAMR [58]|280.8|726.6|11.4|46.3|20.7| |TRACE [45]|529.0|1702.3|17.7|2987.6|370.7| |SLAHMR [55]|326.9|776.1|10.2|31.3|14.5| |WHAM (w/DPVO [47])|135.6|354.8|6.0|22.5|4.4| |WHAM (w/DROID [46])|133.3|343.9|4.6|21.5|4.4| |WHAM (w/ GT gyro)|131.1|335.3|4.1|21.0|4.4|",
           "reference": false,
           "image": "figs/p007-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            542.0,
+            278.0,
+            626.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 684,
+          "image_height": 264
         },
         {
           "id": "p7-b5",
@@ -1163,10 +1293,11 @@
             547,
             714
           ],
-          "en": "To provide further insight into our approach, we conduct ablation studies to analyze the contribution of each component to the performance. As shown in Table 4, our entire system (WHAM) outperforms the different variants of WHAM that ablate a single component. To be specific, we first observe that adding feature integration improves both motion and global trajectory estimation accuracy when compared with an ablated version without feature integration (w/o FI ). Similarly, the removal of the pretraining on the 2D-to-3D lifting task using AMASS [32] (w/o lifting) shows significant performance degradation. WHAM also outperforms the ablation of the Neural Initialization (w/o NI), particularly in the MPJPE metric. In addition, we experiment with WHAM to decode trajectory solely based on the motion context without using the estimated camera angular velocity",
+          "en": "To provide further insight into our approach, we conduct ablation studies to analyze the contribution of each component to the performance. As shown in Table 4, our entire system (WHAM) outperforms the different variants of WHAM that ablate a single component. To be specific, we first observe that adding feature integration improves both motion and global trajectory estimation accuracy when compared with an ablated version without feature integration (w/o \\(F_I\\)). Similarly, the removal of the pretraining on the 2D-to-3D lifting task using AMASS [32] (w/o lifting) shows significant performance degradation. WHAM also outperforms the ablation of the Neural Initialization (w/o NI), particularly in the MPJPE metric. In addition, we experiment with WHAM to decode trajectory solely based on the motion context without using the estimated camera angular velocity",
           "reference": false,
           "source_image": "figs/p007-009-source.png",
-          "zh": "为了更深入地理解我们的方法，我们进行了消融实验，以分析各个组件对性能的贡献。如表 4 所示，我们的完整系统（WHAM）性能优于消融了单个组件的各个 WHAM 变体。具体而言，我们首先观察到，与未进行特征集成的消融版本（w/o FI）相比，加入特征集成同时提高了动作与全局轨迹估计的精度。同样，移除在 AMASS [32] 上基于 2D 到 3D 提升任务的预训练（w/o lifting）会导致性能显著下降。WHAM 也优于移除神经初始化（Neural Initialization）的消融变体（w/o NI），在 MPJPE 指标上尤为明显。此外，我们还测试了仅基于动作上下文解码轨迹、而不使用估计相机角速度的 WHAM 变体"
+          "zh": "为了更深入地理解我们的方法，我们进行了消融实验，以分析各个组件对性能的贡献。如表 4 所示，我们的完整系统（WHAM）性能优于消融了单个组件的各个 WHAM 变体。具体而言，我们首先观察到，与未进行特征集成的消融版本（w/o \\(F_I\\)）相比，加入特征集成同时提高了动作与全局轨迹估计的精度。同样，移除在 AMASS [32] 上基于 2D 到 3D 提升任务的预训练（w/o lifting）会导致性能显著下降。WHAM 也优于移除神经初始化（Neural Initialization）的消融变体（w/o NI），在 MPJPE 指标上尤为明显。此外，我们还测试了仅基于动作上下文解码轨迹、而不使用估计相机角速度的 WHAM 变体",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1177,15 +1308,24 @@
           "id": "p8-b0",
           "kind": "picture",
           "bbox": [
-            53,
-            71,
-            283,
-            316
+            51.0,
+            69.0,
+            285.0,
+            318.0
           ],
           "en": "Screenshot from 2023-10-30 04-02-50.png TRACE SLAHMR WHAM (Ours)",
           "reference": false,
           "image": "figs/p008-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            53.0,
+            71.0,
+            283.0,
+            316.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 702,
+          "image_height": 747
         },
         {
           "id": "p8-b1",
@@ -1205,15 +1345,24 @@
           "id": "p8-b2",
           "kind": "picture",
           "bbox": [
-            50,
-            360,
-            287,
-            427
+            48.0,
+            358.0,
+            289.0,
+            429.0
           ],
           "en": "Ground truth GLAMR TRACE SLAHMR WHAM (w/ DROID) WHAM (w/ GT gyro)",
           "reference": false,
           "image": "figs/p008-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            50.0,
+            360.0,
+            287.0,
+            427.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 723,
+          "image_height": 213
         },
         {
           "id": "p8-b3",
@@ -1233,15 +1382,24 @@
           "id": "p8-b4",
           "kind": "table",
           "bbox": [
-            53,
-            481,
-            283,
-            549
+            51.0,
+            479.0,
+            285.0,
+            551.0
           ],
           "en": "||||EMDB|2||| |---|---|---|---|---|---|---| |Models|PA–MPJPE|MPJPE|WA–MPJPE100|W–MPJPE100|RTE|Jitter FS| |w/oFI|44.2|69.0|147.6|377.9|6.3|23.1 5.5| |w/o lifting|60.3|83.0|238.0|693.0|11.5|24.5 5.0| |w/oNI|40.4|66.3|142.7|368.1|6.8|22.3 4.6| |w/oω|39.1|62.0|156.5|422.0|10.1|22.1 5.0| |w/o traj. ref.|38.2|59.3|154.7|407.5|6.3|18.8 6.5| |WHAM(Ours)|38.2|59.3|135.6|354.8|6.0|22.5 4.4|",
           "reference": false,
           "image": "figs/p008-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            53.0,
+            481.0,
+            283.0,
+            549.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 702,
+          "image_height": 216
         },
         {
           "id": "p8-b5",
@@ -1266,10 +1424,11 @@
             289,
             712
           ],
-          "en": "(w/o ω ). Although this version shows similar performance in predicting 3D human pose, it suffers from the entanglement of camera and human motion, resulting in significantly high overall trajectory error (RTE). Last, we observe that WHAM without the trajectory refinement (w/o traj. ref.) gives larger global trajectory and foot sliding errors in return for less jitter, indicating that our approach contributes to the global trajectory accuracy and helps reduce foot sliding. Core details are presented here; see Sup. Mat. for more details and information on run-time cost.",
+          "en": "(w/o \\(\\omega\\)). Although this version shows similar performance in predicting 3D human pose, it suffers from the entanglement of camera and human motion, resulting in significantly high overall trajectory error (RTE). Last, we observe that WHAM without the trajectory refinement (w/o traj. ref.) gives larger global trajectory and foot sliding errors in return for less jitter, indicating that our approach contributes to the global trajectory accuracy and helps reduce foot sliding. Core details are presented here; see Sup. Mat. for more details and information on run-time cost.",
           "reference": false,
           "source_image": "figs/p008-006-source.png",
-          "zh": "（w/o ω）。尽管该版本在预测 3D 人体姿态时表现出相近的性能，但它饱受相机运动与人体运动相互纠缠的困扰，导致整体轨迹误差（RTE）显著偏高。最后，我们观察到未包含轨迹细化模块的 WHAM（w/o traj. ref.）虽然减少了抖动，但带来了更大的全局轨迹误差和脚部滑动误差，这表明我们的方法提升了全局轨迹精度并有助于减少脚部滑动。核心细节已在此呈现；更多细节以及关于运行时间开销的信息请参阅补充材料（Sup. Mat.）。"
+          "zh": "（w/o \\(\\omega\\)）。尽管该版本在预测 3D 人体姿态时表现出相近的性能，但它饱受相机运动与人体运动相互纠缠的困扰，导致整体轨迹误差（RTE）显著偏高。最后，我们观察到未包含轨迹细化模块的 WHAM（w/o traj. ref.）虽然减少了抖动，但带来了更大的全局轨迹误差和脚部滑动误差，这表明我们的方法提升了全局轨迹精度并有助于减少脚部滑动。核心细节已在此呈现；更多细节以及关于运行时间开销的信息请参阅补充材料（Sup. Mat.）。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p8-b7",
@@ -2350,10 +2509,11 @@
             289,
             417
           ],
-          "en": "2D keypoint sequence synthesis. During training, we sample sequences of SMPL poses of length L = 81 from AMASS. Then, similar to MEVA [30], we uniformly upsample or downsample the frames to speed up or down the motion by up to 50% of the original speed. Furthermore, we apply a random root rotation ∆Γ ∼U (0◦ , 360◦ ) to the axis that is vertical to the ground plane and Gaussian noise to the shape parameter ∆ β ∼N (0 , 0 . 1). Given the augmented SMPL sequence, we extract 3D keypoints that correspond to the MS-COCO keypoints and add 3D noise modeled following previous work [44]. Finally, we apply a random mask with the average probability of p = 0 . 15 to the 3D keypoints and project them onto the virtual camera as described below.",
+          "en": "2D keypoint sequence synthesis. During training, we sample sequences of SMPL poses of length \\(L=81\\) from AMASS. Then, similar to MEVA [30], we uniformly upsample or downsample the frames to speed up or down the motion by up to 50% of the original speed. Furthermore, we apply a random root rotation \\(\\Delta \\Gamma \\sim \\mathcal{U}(0^\\circ, 360^\\circ)\\) to the axis that is vertical to the ground plane and Gaussian noise to the shape parameter \\(\\Delta\\beta \\sim \\mathcal{N}(0, 0.1)\\). Given the augmented SMPL sequence, we extract 3D keypoints that correspond to the MS-COCO keypoints and add 3D noise modeled following previous work [44]. Finally, we apply a random mask with the average probability of \\(p=0.15\\) to the 3D keypoints and project them onto the virtual camera as described below.",
           "reference": false,
           "source_image": "figs/p012-003-source.png",
-          "zh": "2D 关键点序列合成。在训练期间，我们从 AMASS 中采样长度为 L = 81 的 SMPL 姿态序列。随后，类似于 MEVA [30]，我们对帧进行均匀上采样或下采样，以在原始速度的基础上加快或减慢动作最高达 50%。此外，我们绕垂直于地平面的轴施加随机根关节旋转 ∆Γ ∼U (0◦ , 360◦ )，并对形状参数添加高斯噪声 ∆ β ∼N (0 , 0 . 1)。在得到增强后的 SMPL 序列后，我们提取出对应于 MS-COCO 关键点的 3D 关键点，并依照先前工作 [44] 建模并添加 3D 噪声。最后，我们以平均概率 p = 0 . 15 对这些 3D 关键点应用随机掩码，并按照下文所述将它们投影到虚拟相机中。"
+          "zh": "2D 关键点序列合成。在训练期间，我们从 AMASS 中采样长度为 \\(L=81\\) 的 SMPL 姿态序列。随后，类似于 MEVA [30]，我们对帧进行均匀上采样或下采样，以在原始速度的基础上加快或减慢动作最高达 50%。此外，我们绕垂直于地平面的轴施加随机根关节旋转 \\(\\Delta \\Gamma \\sim \\mathcal{U}(0^\\circ, 360^\\circ)\\)，并对形状参数添加高斯噪声 \\(\\Delta\\beta \\sim \\mathcal{N}(0, 0.1)\\)。在得到增强后的 SMPL 序列后，我们提取出对应于 MS-COCO 关键点的 3D 关键点，并依照先前工作 [44] 建模并添加 3D 噪声。最后，我们以平均概率 \\(p=0.15\\) 对这些 3D 关键点应用随机掩码，并按照下文所述将它们投影到虚拟相机中。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p12-b4",
@@ -2373,15 +2533,24 @@
           "id": "p12-b5",
           "kind": "formula",
           "bbox": [
-            115,
-            560,
-            221,
-            583
+            113.0,
+            558.0,
+            223.0,
+            585.0
           ],
           "en": "1 p ˆ ( t ) = 1 + e α ( v ( t ) −vt ) /vt .",
           "reference": false,
           "image": "figs/p012-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            115.0,
+            560.0,
+            221.0,
+            583.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 330,
+          "image_height": 81
         },
         {
           "id": "p12-b6",
@@ -2392,10 +2561,11 @@
             289,
             615
           ],
-          "en": "We set the threshold velocity vt = 1cm / frame and the coefficient α = 5.",
+          "en": "We set the threshold velocity \\(v_t = 1\\text{cm}/\\text{frame}\\) and the coefficient \\(\\alpha=5\\).",
           "reference": false,
           "source_image": "figs/p012-006-source.png",
-          "zh": "我们将阈值速度设为 vt = 1cm / frame，系数设为 α = 5。"
+          "zh": "我们将阈值速度设为 \\(v_t = 1\\text{cm}/\\text{frame}\\)，系数设为 \\(\\alpha=5\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p12-b7",
@@ -2415,15 +2585,24 @@
           "id": "p12-b8",
           "kind": "formula",
           "bbox": [
-            111,
-            686,
-            225,
-            715
+            109.0,
+            684.0,
+            227.0,
+            717.0
           ],
           "en": "∼ γr (0) N (0 ◦ , (5 ◦ ) 2 ) , ∼ γp (0) N (5 ◦ , (22 . 5 ◦ ) 2 ) .",
           "reference": false,
           "image": "figs/p012-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            111.0,
+            686.0,
+            225.0,
+            715.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 354,
+          "image_height": 99
         },
         {
           "id": "p12-b9",
@@ -2457,15 +2636,24 @@
           "id": "p12-b11",
           "kind": "formula",
           "bbox": [
-            341,
-            140,
-            512,
-            190
+            339.0,
+            138.0,
+            514.0,
+            192.0
           ],
           "en": "Tz (0) ∼ U (2 m, (12m) 2 ) − �R (0) t (0)� z , Tx (0) ∼ N (0 , 0 . 25 2 ) d − � R (0) t (0)� x , Ty (0) ∼ N (0 , 0 . 25 2 ) d − � R (0) t (0)� y .",
           "reference": false,
           "image": "figs/p012-011.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            341.0,
+            140.0,
+            512.0,
+            190.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 525,
+          "image_height": 162
         },
         {
           "id": "p12-b12",
@@ -2476,24 +2664,34 @@
             547,
             266
           ],
-          "en": "Here, d = w · Tz/ 2 f is the maximum displacement of the camera to capture the 3D keypoints within the field of view, R(0) is the initial camera pose, t(0) is the initial human translation, w is the image size, and f is the focal length. Next, we sample the magnitude of change in the camera’s extrinsics with the Gaussian distributions:",
+          "en": "Here, \\(d = w \\cdot T_z / 2f\\) is the maximum displacement of the camera to capture the 3D keypoints within the field of view, \\(R^{(0)}\\) is the initial camera pose, \\(t^{(0)}\\) is the initial human translation, \\(w\\) is the image size, and \\(f\\) is the focal length. Next, we sample the magnitude of change in the camera’s extrinsics with the Gaussian distributions:",
           "reference": false,
           "source_image": "figs/p012-012-source.png",
-          "zh": "在此，d = w · Tz/ 2 f 是相机为了在视场内捕获 3D 关键点所允许的最大位移，R(0) 是相机初始位姿，t(0) 是人体初始平移，w 是图像尺寸，f 是焦距。接下来，我们使用高斯分布对相机外参的变化幅度进行采样："
+          "zh": "在此，\\(d = w \\cdot T_z / 2f\\) 是相机为了在视场内捕获 3D 关键点所允许的最大位移，\\(R^{(0)}\\) 是相机初始位姿，\\(t^{(0)}\\) 是人体初始平移，\\(w\\) 是图像尺寸，\\(f\\) 是焦距。接下来，我们使用高斯分布对相机外参的变化幅度进行采样：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p12-b13",
           "kind": "formula",
           "bbox": [
-            345,
-            276,
-            508,
-            318
+            343.0,
+            274.0,
+            510.0,
+            320.0
           ],
           "en": "∼ ∆ γy N (0 ◦ , (45 ◦ ) 2 ) , ∼ ∆ γr, ∆ γp N (0 ◦ , (22 . 5 ◦ ) 2 ) , ∼ ∆ Tx, ∆ Ty, ∆ Tz N (0 m, (1 m ) 2 ) .",
           "reference": false,
           "image": "figs/p012-013.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            345.0,
+            276.0,
+            508.0,
+            318.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 501,
+          "image_height": 138
         },
         {
           "id": "p12-b14",
@@ -2686,15 +2884,24 @@
           "id": "p13-b5",
           "kind": "formula",
           "bbox": [
-            61,
-            382,
-            275,
-            435
+            59.0,
+            380.0,
+            277.0,
+            437.0
           ],
           "en": "motion reconstruction � �� � L total = L smpl + L verts + L 3D + L 2D + L casc + trajectory reconstruction � �� � L root + L contact + Lω + L cam + L fs .",
           "reference": false,
           "image": "figs/p013-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            61.0,
+            382.0,
+            275.0,
+            435.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 654,
+          "image_height": 171
         },
         {
           "id": "p13-b6",
@@ -2705,24 +2912,34 @@
             287,
             475
           ],
-          "en": "To be specific, we supervise WHAM directly on SMPL parameters and vertices when we have the labels, θ∗ , β∗ and V∗ :",
+          "en": "To be specific, we supervise WHAM directly on SMPL parameters and vertices when we have the labels, \\(\\theta^*\\), \\(\\beta^*\\) and \\(V^*\\):",
           "reference": false,
           "source_image": "figs/p013-006-source.png",
-          "zh": "具体而言，当我们拥有真值标签 θ∗、β∗ 和 V∗ 时，我们直接在 SMPL 参数和顶点上对 WHAM 进行监督："
+          "zh": "具体而言，当我们拥有真值标签 \\(\\theta^*\\)、\\(\\beta^*\\) 和 \\(V^*\\) 时，我们直接在 SMPL 参数和顶点上对 WHAM 进行监督：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p13-b7",
           "kind": "formula",
           "bbox": [
-            50,
-            482,
-            293,
-            547
+            48.0,
+            480.0,
+            295.0,
+            549.0
           ],
           "en": "T L smpl = � � λθ||θ ( t ) − θ ∗ ( t ) || 2 + λβ||β ( t ) − β ∗ ( t ) || 2� , t =0 T L verts = � λ verts ||V ( t ) − V ∗ ( t ) || 1 . t =0",
           "reference": false,
           "image": "figs/p013-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            50.0,
+            482.0,
+            293.0,
+            547.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 741,
+          "image_height": 207
         },
         {
           "id": "p13-b8",
@@ -2733,24 +2950,34 @@
             288,
             601
           ],
-          "en": "When the 3D keypoints annotations ( x∗ 3 D) are available, we follow the standard MSE loss on 3D keypoints directly regressed from the Motion Encoder ( x 3 D ) and extracted from the predicted SMPL mesh (ˆ x 3D):",
+          "en": "When the 3D keypoints annotations \\((x_{3D}^*)\\) are available, we follow the standard MSE loss on 3D keypoints directly regressed from the Motion Encoder \\((x_{3D})\\) and extracted from the predicted SMPL mesh \\((\\hat{x}_{\\rm{3D}})\\):",
           "reference": false,
           "source_image": "figs/p013-008-source.png",
-          "zh": "当 3D 关键点标注（x∗ 3 D）可用时，我们对直接从 Motion Encoder 回归得到的 3D 关键点（x 3 D）以及从预测的 SMPL 网格中提取的 3D 关键点（ˆ x 3D）应用标准的 MSE 损失："
+          "zh": "当 3D 关键点标注（\\(x_{3D}^*\\)）可用时，我们对直接从 Motion Encoder 回归得到的 3D 关键点（\\(x_{3D}\\)）以及从预测的 SMPL 网格中提取的 3D 关键点（\\(\\hat{x}_{\\rm{3D}}\\)）应用标准的 MSE 损失：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p13-b9",
           "kind": "formula",
           "bbox": [
-            50,
-            608,
-            270,
-            638
+            48.0,
+            606.0,
+            272.0,
+            640.0
           ],
           "en": "T L 3D = � λ 3D � ||x ( 3D t ) − x∗ 3D ( t ) || 2 + ||x ˆ( 3D t ) − x∗ 3D ( t ) || 2 � . t =0",
           "reference": false,
           "image": "figs/p013-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            50.0,
+            608.0,
+            270.0,
+            638.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 672,
+          "image_height": 102
         },
         {
           "id": "p13-b10",
@@ -2761,24 +2988,34 @@
             287,
             679
           ],
-          "en": "Since WHAM reconstructs full-body mesh in a cascaded manner, we use cascade loss L casc to supervise the difference between x 3D and x ˆ3D:",
+          "en": "Since WHAM reconstructs full-body mesh in a cascaded manner, we use cascade loss \\(L_{\\textrm{casc}}\\) to supervise the difference between \\(x_{\\rm{3D}}\\) and \\(\\hat{x}_{\\rm{3D}}\\):",
           "reference": false,
           "source_image": "figs/p013-010-source.png",
-          "zh": "由于 WHAM 以级联方式重建全身网格，我们使用级联损失 L casc 来监督 x 3D 与 x ˆ3D 之间的差异："
+          "zh": "由于 WHAM 以级联方式重建全身网格，我们使用级联损失 \\(L_{\\textrm{casc}}\\) 来监督 \\(x_{\\rm{3D}}\\) 与 \\(\\hat{x}_{\\rm{3D}}\\) 之间的差异：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p13-b11",
           "kind": "formula",
           "bbox": [
-            91,
-            686,
-            226,
-            716
+            89.0,
+            684.0,
+            228.0,
+            718.0
           ],
           "en": "T L casc = � λ casc ||x ( 3D t ) − x ˆ3D || 2 . t =0",
           "reference": false,
           "image": "figs/p013-011.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            91.0,
+            686.0,
+            226.0,
+            716.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 417,
+          "image_height": 102
         },
         {
           "id": "p13-b12",
@@ -2798,15 +3035,24 @@
           "id": "p13-b13",
           "kind": "formula",
           "bbox": [
-            345,
-            133,
-            509,
-            163
+            343.0,
+            131.0,
+            511.0,
+            165.0
           ],
           "en": "T L 2D = � λ 2D ||π � x ˆ ( 3D t ) � − x ∗ 2D ( t ) || 2 , t =0",
           "reference": false,
           "image": "figs/p013-013.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            345.0,
+            133.0,
+            509.0,
+            163.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 504,
+          "image_height": 102
         },
         {
           "id": "p13-b14",
@@ -2817,10 +3063,11 @@
             544,
             187
           ],
-          "en": "where π ( · ) denotes the operation of perspective projection.",
+          "en": "where \\(\\pi(\\cdot)\\) denotes the operation of perspective projection.",
           "reference": false,
           "source_image": "figs/p013-014-source.png",
-          "zh": "其中 π( · ) 表示透视投影操作。"
+          "zh": "其中 \\(\\pi(\\cdot)\\) 表示透视投影操作。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p13-b15",
@@ -2840,15 +3087,24 @@
           "id": "p13-b16",
           "kind": "formula",
           "bbox": [
-            308,
-            247,
-            560,
-            347
+            306.0,
+            245.0,
+            562.0,
+            349.0
           ],
           "en": "T L root = � λ Γ � || Γ ( 0 t ) − Γ ∗ ( t ) || 2 + || Γ ( t ) − Γ ∗ ( t ) || 2� + t =0 T � λv � ||v 0 ( t ) − v ∗ ( t ) || 2 + ||v ( t ) − v ∗ ( t ) || 2� , t =0 T L contact = � λp||p ( t ) − p ∗ ( t ) || 2 . t =0",
           "reference": false,
           "image": "figs/p013-016.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            308.0,
+            247.0,
+            560.0,
+            347.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 768,
+          "image_height": 312
         },
         {
           "id": "p13-b17",
@@ -2868,15 +3124,24 @@
           "id": "p13-b18",
           "kind": "formula",
           "bbox": [
-            376,
-            405,
-            478,
-            427
+            374.0,
+            403.0,
+            480.0,
+            429.0
           ],
           "en": "R ( t ) = Γ ( c t ) , �Γ ( t )� ⊤",
           "reference": false,
           "image": "figs/p013-018.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            376.0,
+            405.0,
+            478.0,
+            427.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 318,
+          "image_height": 78
         },
         {
           "id": "p13-b19",
@@ -2887,24 +3152,34 @@
             546,
             472
           ],
-          "en": "where Γ c is the predicted root orientation in the camera coordinate system. As a result, we can construct novel losses based on camera pose and angular velocity:",
+          "en": "where \\(\\Gamma_c\\) is the predicted root orientation in the camera coordinate system. As a result, we can construct novel losses based on camera pose and angular velocity:",
           "reference": false,
           "source_image": "figs/p013-019-source.png",
-          "zh": "其中 Γ c 是相机坐标系下预测的根方向。因此，我们可以基于相机姿态和角速度构建新的损失："
+          "zh": "其中 \\(\\Gamma_c\\) 是相机坐标系下预测的根方向。因此，我们可以基于相机姿态和角速度构建新的损失：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p13-b20",
           "kind": "formula",
           "bbox": [
-            349,
-            485,
-            505,
-            550
+            347.0,
+            483.0,
+            507.0,
+            552.0
           ],
           "en": "T Lω = � λω||ω ( t ) − ω ∗ ( t ) || 2 , t =0 T L cam = � λ cam ||R ( t ) − R ∗ ( t ) || 2 , t =0",
           "reference": false,
           "image": "figs/p013-020.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            349.0,
+            485.0,
+            505.0,
+            550.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 480,
+          "image_height": 207
         },
         {
           "id": "p13-b21",
@@ -2915,10 +3190,11 @@
             546,
             583
           ],
-          "en": "where ω is the reconstructed camera angular velocities from R .",
+          "en": "where \\(\\omega\\) is the reconstructed camera angular velocities from \\(R\\).",
           "reference": false,
           "source_image": "figs/p013-021-source.png",
-          "zh": "其中 ω 是由 R 重建出的相机角速度。"
+          "zh": "其中 \\(\\omega\\) 是由 \\(R\\) 重建出的相机角速度。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p13-b22",
@@ -2938,15 +3214,24 @@
           "id": "p13-b23",
           "kind": "formula",
           "bbox": [
-            360,
-            633,
-            494,
-            663
+            358.0,
+            631.0,
+            496.0,
+            665.0
           ],
           "en": "T L fs = � λ fs ||p ∗ ( t ) ⊙ vf ( t ) || 2 . t =0",
           "reference": false,
           "image": "figs/p013-023.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            360.0,
+            633.0,
+            494.0,
+            663.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 414,
+          "image_height": 102
         },
         {
           "id": "p13-b24",
@@ -2957,10 +3242,11 @@
             547,
             714
           ],
-          "en": "Here, vf(t) is the world-coordinate foot velocity, and ⊙ denotes the masking operation of foot contact based on the ground truth contact probability p∗(t) .",
+          "en": "Here, \\(v_{f}^{(t)}\\) is the world-coordinate foot velocity, and \\(\\odot\\) denotes the masking operation of foot contact based on the ground truth contact probability \\(p^{*(t)}\\).",
           "reference": false,
           "source_image": "figs/p013-024-source.png",
-          "zh": "在此，vf(t) 是世界坐标系下的足部速度，⊙ 表示基于接触概率真值 p∗(t) 对足部接触进行的掩码操作。"
+          "zh": "在此，\\(v_{f}^{(t)}\\) 是世界坐标系下的足部速度，\\(\\odot\\) 表示基于接触概率真值 \\(p^{*(t)}\\) 对足部接触进行的掩码操作。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -2990,24 +3276,34 @@
             289,
             284
           ],
-          "en": "Uni-directional RNNs introduce the challenge of differing learning objectives between the initial frames and subsequent ones due to the initialization state. Specifically, in traditional RNNs, the initialization state is typically padded with zeros, resulting in the first frame primarily relying on the input signal. In contrast, the subsequent frames are trained to capitalize on both the input signal and information transferred from the past. To resolve the disparity in learning objectives, we use a neural initialization network, as proposed by [57], to predict h 0 ,E and h 0 ,D from the 0-th frame pose, instead of using zero-padding. During the training, we use pseudoground-truth 3D pose [35] for the video datasets that do not have the SMPL parameter annotation [11, 15, 33]. Note that we do not supervise our network on the pseudo labels. At test time, we use the pose and shape predicted by a single-frame regressor as the initial state.",
+          "en": "Uni-directional RNNs introduce the challenge of differing learning objectives between the initial frames and subsequent ones due to the initialization state. Specifically, in traditional RNNs, the initialization state is typically padded with zeros, resulting in the first frame primarily relying on the input signal. In contrast, the subsequent frames are trained to capitalize on both the input signal and information transferred from the past. To resolve the disparity in learning objectives, we use a neural initialization network, as proposed by [57], to predict \\(h_{0, E}\\) and \\(h_{0, D}\\) from the 0-th frame pose, instead of using zero-padding. During the training, we use pseudoground-truth 3D pose [35] for the video datasets that do not have the SMPL parameter annotation [11, 15, 33]. Note that we do not supervise our network on the pseudo labels. At test time, we use the pose and shape predicted by a single-frame regressor as the initial state.",
           "reference": false,
           "source_image": "figs/p014-001-source.png",
-          "zh": "由于初始化状态的存在，单向 RNN 会在初始帧与后续各帧之间引入学习目标不同的挑战。具体而言，在传统 RNN 中，初始化状态通常以零填充，导致第一帧主要依赖于输入信号。相比之下，后续各帧在训练中则同时利用输入信号和过去传递的信息。为了解决这种学习目标上的差异，我们采用 [57] 提出的神经初始化网络，根据第 0 帧姿态来预测 h 0 ,E 和 h 0 ,D，而不是使用零填充。在训练期间，对于没有 SMPL 参数标注的视频数据集 [11, 15, 33]，我们使用伪真值 3D 姿态 [35]。需要注意的是，我们并未在伪标签上监督我们的网络。在测试时，我们使用单帧回归器预测的姿态和体型作为初始状态。"
+          "zh": "由于初始化状态的存在，单向 RNN 会在初始帧与后续各帧之间引入学习目标不同的挑战。具体而言，在传统 RNN 中，初始化状态通常以零填充，导致第一帧主要依赖于输入信号。相比之下，后续各帧在训练中则同时利用输入信号和过去传递的信息。为了解决这种学习目标上的差异，我们采用 [57] 提出的神经初始化网络，根据第 0 帧姿态来预测 \\(h_{0, E}\\) 和 \\(h_{0, D}\\)，而不是使用零填充。在训练期间，对于没有 SMPL 参数标注的视频数据集 [11, 15, 33]，我们使用伪真值 3D 姿态 [35]。需要注意的是，我们并未在伪标签上监督我们的网络。在测试时，我们使用单帧回归器预测的姿态和体型作为初始状态。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b2",
           "kind": "picture",
           "bbox": [
-            61,
-            296,
-            275,
-            565
+            59.0,
+            294.0,
+            277.0,
+            567.0
           ],
           "en": "w/o traj. ref. WHAM (Ours)",
           "reference": false,
           "image": "figs/p014-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            61.0,
+            296.0,
+            275.0,
+            565.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 654,
+          "image_height": 819
         },
         {
           "id": "p14-b3",
@@ -3055,15 +3351,24 @@
           "id": "p14-b6",
           "kind": "table",
           "bbox": [
-            314,
-            78,
-            541,
-            187
+            312.0,
+            76.0,
+            543.0,
+            189.0
           ],
           "en": "||Runtime:|fps (ms)| |---|---|---| |Methods|batch size = 1|batch size = 64| |Bounding box detection|70 (14.3ms)|265 (3.8ms)| |Bounding box tracking|7189 (0.1ms)|7189 (0.1ms)| |2D keypoints detection|12.1 (82.6ms)|88 (11.4ms)| |Image feature extraction|66 (15.2ms)|237 (4.3ms)| |Rest of the framework|926 (1.1ms)|1431 (0.7ms)| |Total|8.8 (113.3ms)|49.3 (20.3ms)|",
           "reference": false,
           "image": "figs/p014-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            314.0,
+            78.0,
+            541.0,
+            187.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 693,
+          "image_height": 339
         },
         {
           "id": "p14-b7",
@@ -3074,10 +3379,11 @@
             546,
             235
           ],
-          "en": "Table 5. Per-frame computation time (running time) of each module in WHAM. We present this both as frames per second (fps) and milliseconds ( ms ).",
+          "en": "Table 5. Per-frame computation time (running time) of each module in WHAM. We present this both as frames per second (fps) and milliseconds (\\(ms\\)).",
           "reference": false,
           "source_image": "figs/p014-007-source.png",
-          "zh": "表 5. WHAM 中各模块的单帧计算时间（运行时间）。我们同时以每秒帧数（fps）和毫秒（ms）呈现该结果。"
+          "zh": "表 5. WHAM 中各模块的单帧计算时间（运行时间）。我们同时以每秒帧数（fps）和毫秒（\\(ms\\)）呈现该结果。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b8",
@@ -3102,10 +3408,11 @@
             547,
             514
           ],
-          "en": "While the core WHAM network presented here runs at 200fps, it relies on the input of several other methods. Here we compute the run time of each module required by our framework on the EMDB dataset [16]. The inference speed of all methods was computed on a single A100 GPU. We exclude running SLAM in this analysis as it can be obviated if we use gyroscope data (though real-time SLAM methods exist). As shown in Table 5, our full method, with preprocessing steps, runs at around 9 fps with online inference (i.e., a batch size of 1 and no lag), and around 50 fps when run in batch mode (with resulting lag). We compare the core runtime of WHAM with SLAHMR [55], excluding bounding box detection, person identification, and keypoints detection, for which there are real-time solutions. In this condition, WHAM takes 5 seconds (202 fps) for 1000 frames. Specifically, WHAM takes 4.3 seconds (237 fps) for image feature extraction and 0.7 seconds (1431 fps) to regress the motion and global trajectory. This is significantly faster than SLAHMR which takes 260 minutes ( < 0.1 fps) per 1000 frames.",
+          "en": "While the core WHAM network presented here runs at 200fps, it relies on the input of several other methods. Here we compute the run time of each module required by our framework on the EMDB dataset [16]. The inference speed of all methods was computed on a single A100 GPU. We exclude running SLAM in this analysis as it can be obviated if we use gyroscope data (though real-time SLAM methods exist). As shown in Table 5, our full method, with preprocessing steps, runs at around 9 fps with online inference (i.e., a batch size of 1 and no lag), and around 50 fps when run in batch mode (with resulting lag). We compare the core runtime of WHAM with SLAHMR [55], excluding bounding box detection, person identification, and keypoints detection, for which there are real-time solutions. In this condition, WHAM takes 5 seconds (202 fps) for 1000 frames. Specifically, WHAM takes 4.3 seconds (237 fps) for image feature extraction and 0.7 seconds (1431 fps) to regress the motion and global trajectory. This is significantly faster than SLAHMR which takes 260 minutes (\\(<\\) 0.1 fps) per 1000 frames.",
           "reference": false,
           "source_image": "figs/p014-009-source.png",
-          "zh": "尽管此处介绍的 WHAM 核心网络运行速度达 200 fps，但它依赖于其他若干方法的输入。在此，我们在 EMDB 数据集 [16] 上计算了我们框架所需的各个模块的运行时间。所有方法的推理速度均在单张 A100 GPU 上测得。在本分析中我们排除了运行 SLAM，因为如果使用陀螺仪数据则可以省去 SLAM（尽管现存实时的 SLAM 方法）。如表 5 所示，包含预处理步骤的完整方法在在线推理模式下（即批大小为 1 且无延迟）运行速度约为 9 fps，而在批处理模式下（会产生相应延迟）运行速度约为 50 fps。我们将 WHAM 的核心运行时与 SLAHMR [55] 进行了对比（不包括边界框检测、人体识别和关键点检测，因为这些环节已有实时解决方案）。在此条件下，处理 1000 帧时 WHAM 仅耗时 5 秒（202 fps）。具体而言，WHAM 用于图像特征提取耗时 4.3 秒（237 fps），回归动作和全局轨迹耗时 0.7 秒（1431 fps）。这显著快于 SLAHMR 每 1000 帧需要 260 分钟（< 0.1 fps）的运行速度。"
+          "zh": "尽管此处介绍的 WHAM 核心网络运行速度达 200 fps，但它依赖于其他若干方法的输入。在此，我们在 EMDB 数据集 [16] 上计算了我们框架所需的各个模块的运行时间。所有方法的推理速度均在单张 A100 GPU 上测得。在本分析中我们排除了运行 SLAM，因为如果使用陀螺仪数据则可以省去 SLAM（尽管现存实时的 SLAM 方法）。如表 5 所示，包含预处理步骤的完整方法在在线推理模式下（即批大小为 1 且无延迟）运行速度约为 9 fps，而在批处理模式下（会产生相应延迟）运行速度约为 50 fps。我们将 WHAM 的核心运行时与 SLAHMR [55] 进行了对比（不包括边界框检测、人体识别和关键点检测，因为这些环节已有实时解决方案）。在此条件下，处理 1000 帧时 WHAM 仅耗时 5 秒（202 fps）。具体而言，WHAM 用于图像特征提取耗时 4.3 秒（237 fps），回归动作和全局轨迹耗时 0.7 秒（1431 fps）。这显著快于 SLAHMR 每 1000 帧需要 260 分钟（\\(<\\) 0.1 fps）的运行速度。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b10",
@@ -3144,15 +3451,24 @@
           "id": "p15-b0",
           "kind": "picture",
           "bbox": [
-            74,
-            71,
-            521,
-            195
+            72.0,
+            69.0,
+            523.0,
+            197.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p015-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            74.0,
+            71.0,
+            521.0,
+            195.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1353,
+          "image_height": 384
         },
         {
           "id": "p15-b1",

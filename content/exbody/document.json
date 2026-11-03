@@ -30,7 +30,8 @@
           "en": "Xuxin Cheng∗ , Yandong Ji∗ , Junming Chen, Ruihan Yang, Ge Yang, Xiaolong Wang",
           "reference": false,
           "source_image": "figs/p001-002-source.png",
-          "zh": "Xuxin Cheng∗ , Yandong Ji∗ , Junming Chen, Ruihan Yang, Ge Yang, Xiaolong Wang"
+          "zh": "Xuxin Cheng∗ , Yandong Ji∗ , Junming Chen, Ruihan Yang, Ge Yang, Xiaolong Wang",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b3",
@@ -50,225 +51,369 @@
           "id": "p1-b7",
           "kind": "picture",
           "bbox": [
-            260,
-            191,
-            358,
-            295
+            258.0,
+            189.0,
+            360.0,
+            297.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            260.0,
+            191.0,
+            358.0,
+            295.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 306,
+          "image_height": 324
         },
         {
           "id": "p1-b5",
           "kind": "picture",
           "bbox": [
-            49,
-            191,
-            150,
-            295
+            47.0,
+            189.0,
+            152.0,
+            297.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            49.0,
+            191.0,
+            150.0,
+            295.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 315,
+          "image_height": 324
         },
         {
           "id": "p1-b6",
           "kind": "picture",
           "bbox": [
-            151,
-            191,
-            259,
-            295
+            149.0,
+            189.0,
+            261.0,
+            297.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            151.0,
+            191.0,
+            259.0,
+            295.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 336,
+          "image_height": 324
         },
         {
           "id": "p1-b9",
           "kind": "picture",
           "bbox": [
-            49,
-            295,
-            176,
-            399
+            47.0,
+            293.0,
+            178.0,
+            401.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            49.0,
+            295.0,
+            176.0,
+            399.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 393,
+          "image_height": 324
         },
         {
           "id": "p1-b10",
           "kind": "picture",
           "bbox": [
-            176,
-            296,
-            278,
-            399
+            174.0,
+            294.0,
+            280.0,
+            401.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-010.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            176.0,
+            296.0,
+            278.0,
+            399.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 318,
+          "image_height": 321
         },
         {
           "id": "p1-b14",
           "kind": "picture",
           "bbox": [
-            48,
-            399,
-            115,
-            503
+            46.0,
+            397.0,
+            117.0,
+            505.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-014.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            399.0,
+            115.0,
+            503.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 213,
+          "image_height": 324
         },
         {
           "id": "p1-b15",
           "kind": "picture",
           "bbox": [
-            113,
-            400,
-            181,
-            503
+            111.0,
+            398.0,
+            183.0,
+            505.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-015.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            113.0,
+            400.0,
+            181.0,
+            503.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 216,
+          "image_height": 321
         },
         {
           "id": "p1-b16",
           "kind": "picture",
           "bbox": [
-            179,
-            400,
-            247,
-            504
+            177.0,
+            398.0,
+            249.0,
+            506.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-016.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            179.0,
+            400.0,
+            247.0,
+            504.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 216,
+          "image_height": 324
         },
         {
           "id": "p1-b18",
           "kind": "picture",
           "bbox": [
-            245,
-            400,
-            313,
-            504
+            243.0,
+            398.0,
+            315.0,
+            506.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-018.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            245.0,
+            400.0,
+            313.0,
+            504.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 216,
+          "image_height": 324
         },
         {
           "id": "p1-b4",
           "kind": "picture",
           "bbox": [
-            359,
-            191,
-            466,
-            295
+            357.0,
+            189.0,
+            468.0,
+            297.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            359.0,
+            191.0,
+            466.0,
+            295.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 333,
+          "image_height": 324
         },
         {
           "id": "p1-b8",
           "kind": "picture",
           "bbox": [
-            467,
-            191,
-            563,
-            295
+            465.0,
+            189.0,
+            565.0,
+            297.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            467.0,
+            191.0,
+            563.0,
+            295.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 300,
+          "image_height": 324
         },
         {
           "id": "p1-b11",
           "kind": "picture",
           "bbox": [
-            279,
-            296,
-            379,
-            399
+            277.0,
+            294.0,
+            381.0,
+            401.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-011.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            279.0,
+            296.0,
+            379.0,
+            399.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 312,
+          "image_height": 321
         },
         {
           "id": "p1-b12",
           "kind": "picture",
           "bbox": [
-            380,
-            296,
-            453,
-            399
+            378.0,
+            294.0,
+            455.0,
+            401.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-012.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            380.0,
+            296.0,
+            453.0,
+            399.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 231,
+          "image_height": 321
         },
         {
           "id": "p1-b13",
           "kind": "picture",
           "bbox": [
-            453,
-            296,
-            563,
-            399
+            451.0,
+            294.0,
+            565.0,
+            401.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-013.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            453.0,
+            296.0,
+            563.0,
+            399.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 342,
+          "image_height": 321
         },
         {
           "id": "p1-b17",
           "kind": "picture",
           "bbox": [
-            437,
-            400,
-            564,
-            504
+            435.0,
+            398.0,
+            566.0,
+            506.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-017.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            437.0,
+            400.0,
+            564.0,
+            504.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 393,
+          "image_height": 324
         },
         {
           "id": "p1-b19",
           "kind": "picture",
           "bbox": [
-            314,
-            400,
-            436,
-            504
+            312.0,
+            398.0,
+            438.0,
+            506.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-019.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            314.0,
+            400.0,
+            436.0,
+            504.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 378,
+          "image_height": 324
         },
         {
           "id": "p1-b20",
@@ -349,15 +494,24 @@
           "id": "p2-b0",
           "kind": "picture",
           "bbox": [
-            48,
-            54,
-            564,
-            201
+            46.0,
+            52.0,
+            566.0,
+            203.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p002-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            54.0,
+            564.0,
+            201.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1560,
+          "image_height": 453
         },
         {
           "id": "p2-b1",
@@ -368,10 +522,11 @@
             564,
             266
           ],
-          "en": "Fig. 2: Overview of our framework. Our framework is able to train on data from various sources such as static human motion datasets, generative models, video to pose models that are widely available. After motion retargeting, we acquire a repertoire of motion clips that are compatible with our robot’s kinematic structure. We extract expression goal ge and root movement goal gm from the rich features from retargeted motion clips as the goal of our goal-conditioned RL objective. The root movement goal gm can also be intuitively given by joystick commands, enabling convenient deployment in the real world.",
+          "en": "Fig. 2: Overview of our framework. Our framework is able to train on data from various sources such as static human motion datasets, generative models, video to pose models that are widely available. After motion retargeting, we acquire a repertoire of motion clips that are compatible with our robot’s kinematic structure. We extract expression goal \\(\\mathcal{\\mathbf{g}}^e\\) and root movement goal \\(\\mathcal{\\mathbf{g}}^m\\) from the rich features from retargeted motion clips as the goal of our goal-conditioned RL objective. The root movement goal \\(\\mathcal{\\mathbf{g}}^m\\) can also be intuitively given by joystick commands, enabling convenient deployment in the real world.",
           "reference": false,
           "source_image": "figs/p002-001-source.png",
-          "zh": "图 2：我们框架的概述。我们的框架能够使用来自各种来源的数据进行训练，例如现成可用的静态人体动作数据集、生成模型以及视频到姿态估计模型。经过动作重定向后，我们获得了一组与机器人运动学结构兼容的动作片段库。我们从重定向动作片段的丰富特征中提取出表现目标 ge 和根部运动目标 gm，作为目标条件强化学习目标。根部运动目标 gm 也可以通过手柄摇杆指令直观给出，从而便于在真实世界中进行部署。"
+          "zh": "图 2：我们框架的概述。我们的框架能够使用来自各种来源的数据进行训练，例如现成可用的静态人体动作数据集、生成模型以及视频到姿态估计模型。经过动作重定向后，我们获得了一组与机器人运动学结构兼容的动作片段库。我们从重定向动作片段的丰富特征中提取出表现目标 \\(\\mathcal{\\mathbf{g}}^e\\) 和根部运动目标 \\(\\mathcal{\\mathbf{g}}^m\\)，作为目标条件强化学习目标。根部运动目标 \\(\\mathcal{\\mathbf{g}}^m\\) 也可以通过手柄摇杆指令直观给出，从而便于在真实世界中进行部署。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b2",
@@ -466,85 +621,139 @@
           "id": "p3-b0",
           "kind": "picture",
           "bbox": [
-            51,
-            54,
-            175,
-            150
+            49.0,
+            52.0,
+            177.0,
+            152.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p003-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            51.0,
+            54.0,
+            175.0,
+            150.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 384,
+          "image_height": 300
         },
         {
           "id": "p3-b2",
           "kind": "picture",
           "bbox": [
-            178,
-            55,
-            307,
-            150
+            176.0,
+            53.0,
+            309.0,
+            152.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p003-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            178.0,
+            55.0,
+            307.0,
+            150.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 399,
+          "image_height": 297
         },
         {
           "id": "p3-b3",
           "kind": "picture",
           "bbox": [
-            310,
-            56,
-            434,
-            150
+            308.0,
+            54.0,
+            436.0,
+            152.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p003-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            310.0,
+            56.0,
+            434.0,
+            150.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 384,
+          "image_height": 294
         },
         {
           "id": "p3-b4",
           "kind": "picture",
           "bbox": [
-            437,
-            56,
-            561,
-            150
+            435.0,
+            54.0,
+            563.0,
+            152.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p003-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            437.0,
+            56.0,
+            561.0,
+            150.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 384,
+          "image_height": 294
         },
         {
           "id": "p3-b5",
           "kind": "picture",
           "bbox": [
-            237,
-            155,
-            505,
-            164
+            235.0,
+            153.0,
+            507.0,
+            166.0
           ],
           "en": "(b) (c) (d)",
           "reference": false,
           "image": "figs/p003-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            237.0,
+            155.0,
+            505.0,
+            164.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 816,
+          "image_height": 39
         },
         {
           "id": "p3-b1",
           "kind": "picture",
           "bbox": [
-            108,
-            155,
-            119,
-            164
+            106.0,
+            153.0,
+            121.0,
+            166.0
           ],
           "en": "(a)",
           "reference": false,
           "image": "figs/p003-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            155.0,
+            119.0,
+            164.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 45,
+          "image_height": 39
         },
         {
           "id": "p3-b6",
@@ -578,15 +787,24 @@
           "id": "p3-b8",
           "kind": "table",
           "bbox": [
-            54,
-            294,
-            305,
-            379
+            52.0,
+            292.0,
+            307.0,
+            381.0
           ],
           "en": "|Metrics|Mimic WBC(Ours)|PHC [35]|ASE [46]| |---|---|---|---| |DoFs|19|69|37| |Number of Motion Clips|780|11000|187| |Total Time of Motions (h)|3.7|40|0.5| |Real Robot|✓|×|×| |Single Network|✓|×|✓| |Linear Velocities Obs|×|✓|✓| |Keypoint Positions Obs|×|✓|✓| |Robot Height Obs|×|×|✓|",
           "reference": false,
           "image": "figs/p003-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            294.0,
+            305.0,
+            379.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 765,
+          "image_height": 267
         },
         {
           "id": "p3-b9",
@@ -625,10 +843,11 @@
             301,
             582
           ],
-          "en": "We consider humanoid motion control as learning a goalconditioned motor policy π : G ×S �→A , where G is the goal space that specifies the behavior, S is the observation space, and A is the action space that contains the joint positions and torque. We assume in the rest of this paper, without loss of generality, that the observation and action space are given by the H1 humanoid robot design. However, our proposed approach should generalize to similar body forms that differ in the exact number of actuated degrees of freedom.",
+          "en": "We consider humanoid motion control as learning a goalconditioned motor policy \\(\\pi: \\mathcal G \\times \\mathcal S \\mapsto \\mathcal A\\), where \\(\\mathcal G\\) is the goal space that specifies the behavior, \\(\\mathcal S\\) is the observation space, and \\(\\mathcal A\\) is the action space that contains the joint positions and torque. We assume in the rest of this paper, without loss of generality, that the observation and action space are given by the H1 humanoid robot design. However, our proposed approach should generalize to similar body forms that differ in the exact number of actuated degrees of freedom.",
           "reference": false,
           "source_image": "figs/p003-011-source.png",
-          "zh": "我们将人形机器人运动控制视为学习一个目标条件运动策略〔行内公式见原版〕，其中 G 是指定期望行为的目标空间，S 是观测空间，A 是包含关节位置和力矩的动作空间。在本文后续部分中，我们在不失一般性的前提下，假设观测空间与动作空间均由 H1 人形机器人设计给出。然而，我们提出的方法应当能够推广到受驱动自由度具体数量有所不同的类似身体构型上。"
+          "zh": "我们将人形机器人运动控制视为学习一个目标条件运动策略 \\(\\pi: \\mathcal G \\times \\mathcal S \\mapsto \\mathcal A\\)，其中 \\(\\mathcal G\\) 是指定期望行为的目标空间，\\(\\mathcal S\\) 是观测空间，\\(\\mathcal A\\) 是包含关节位置和力矩的动作空间。在本文后续部分中，我们在不失一般性的前提下，假设观测空间与动作空间均由 H1 人形机器人设计给出。然而，我们提出的方法应当能够推广到受驱动自由度具体数量有所不同的类似身体构型上。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b12",
@@ -639,10 +858,11 @@
             301,
             726
           ],
-          "en": "a) Command-conditioned Locomotion Control: We aim to produce a robust control policy for the Unitree H1 hardware that can be commanded by the linear velocity v ∈ R3 , body pose in terms of row/pitch/yaw rpy ∈ R3 and the body height h measured at the root link. Formally, the goal space for root movement control Gm = ⟨ v , rpy, h⟩ . The observation S includes the robot’s current proprioception information st = [ ωt, rt, pt, ∆ y, qt, q ˙ t, a t− 1]T . ωt is the robot root’s angular velocity, rt, pt is roll and pitch. Note that the policy does not observe the current velocity v , and the absolute body height h and the current yaw angle yt because these are privileged information for the real robot (see Tab. I). We let the policy",
+          "en": "a) Command-conditioned Locomotion Control: We aim to produce a robust control policy for the Unitree H1 hardware that can be commanded by the linear velocity \\(\\mathbf v \\in \\mathbb R^3\\), body pose in terms of row/pitch/yaw \\(rpy \\in \\mathbb R^3\\) and the body height \\(h\\) measured at the root link. Formally, the goal space for root movement control \\(\\mathcal G^m = \\langle \\mathbf{v}, rpy, h \\rangle\\). The observation \\(\\mathcal S\\) includes the robot’s current proprioception information \\(s_t=[ \\omega_{t}, r_t, p_t, \\Delta y, q_t, \\dot{q}_t, \\mathbf{a}_{t-1}]^T\\). \\(\\omega_t\\) is the robot root’s angular velocity, \\(r_t, p_t\\) is roll and pitch. Note that the policy does not observe the current velocity \\(\\mathbf{v}\\), and the absolute body height \\(h\\) and the current yaw angle \\(y_t\\) because these are privileged information for the real robot (see Tab. I). We let the policy",
           "reference": false,
           "source_image": "figs/p003-012-source.png",
-          "zh": "a) 基于指令条件的运动控制：我们的目标是为 Unitree H1 硬件构建一个稳健的控制策略，该策略可通过线速度 v ∈ R3、以横滚/俯仰/偏航角表示的机体姿态 rpy ∈ R3 以及在根部连杆处测得的机体高度 h 进行指挥。形式上，根部运动控制的目标空间为 Gm = ⟨ v , rpy, h⟩。观测 S 包含机器人当前的本体感觉信息 st = [ ωt, rt, pt, ∆ y, qt, q ˙ t, a t− 1]T。其中 ωt 为机器人根部的角速度，rt, pt 为横滚角和俯仰角。需要注意的是，策略并不直接观测当前速度 v、绝对机体高度 h 以及当前偏航角 yt，因为对于真实机器人而言，这些属于特权信息（参见表 I）。我们让策略"
+          "zh": "a) 基于指令条件的运动控制：我们的目标是为 Unitree H1 硬件构建一个稳健的控制策略，该策略可通过线速度 \\(\\mathbf v \\in \\mathbb R^3\\)、以横滚/俯仰/偏航角表示的机体姿态 \\(rpy \\in \\mathbb R^3\\) 以及在根部连杆处测得的机体高度 \\(h\\) 进行指挥。形式上，根部运动控制的目标空间为 \\(\\mathcal G^m = \\langle \\mathbf{v}, rpy, h \\rangle\\)。观测 \\(\\mathcal S\\) 包含机器人当前的本体感觉信息 \\(s_t=[ \\omega_{t}, r_t, p_t, \\Delta y, q_t, \\dot{q}_t, \\mathbf{a}_{t-1}]^T\\)。其中 \\(\\omega_t\\) 为机器人根部的角速度，\\(r_t, p_t\\) 为横滚角和俯仰角。需要注意的是，策略并不直接观测当前速度 \\(\\mathbf{v}\\)、绝对机体高度 \\(h\\) 以及当前偏航角 \\(y_t\\)，因为对于真实机器人而言，这些属于特权信息（参见表 I）。我们让策略",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b13",
@@ -653,10 +873,11 @@
             564,
             314
           ],
-          "en": "observe the difference between current and desired yaw angle ∆ y = yt−y to convert the global quantity to a local frame that can be intuitively commanded at deployment time. The actions a t ∈ R19 is the target position of joint-level proportionalderivative (PD) controllers. The PD controllers compute the torque for each motor with the specified PD gains kpiand damping coefficient kdi.",
+          "en": "observe the difference between current and desired yaw angle \\(\\Delta y = y_t - y\\) to convert the global quantity to a local frame that can be intuitively commanded at deployment time. The actions \\(\\mathbf{a}_t\\in\\mathbb{R}^{19}\\) is the target position of joint-level proportionalderivative (PD) controllers. The PD controllers compute the torque for each motor with the specified PD gains \\(k^i_p\\) and damping coefficient \\(k^i_d\\).",
           "reference": false,
           "source_image": "figs/p003-013-source.png",
-          "zh": "观测当前偏航角与期望偏航角之差 ∆ y = yt−y，从而将全局量转换为在部署时可直观下达指令的局部坐标系量。动作 a t ∈ R19 是关节级比例-微分（PD）控制器的目标位置。PD 控制器利用指定的 PD 增益 kpi 和阻尼系数 kdi 计算每个电机的力矩。"
+          "zh": "观测当前偏航角与期望偏航角之差 \\(\\Delta y = y_t - y\\)，从而将全局量转换为在部署时可直观下达指令的局部坐标系量。动作 \\(\\mathbf{a}_t\\in\\mathbb{R}^{19}\\) 是关节级比例-微分（PD）控制器的目标位置。PD 控制器利用指定的 PD 增益 \\(k^i_p\\) 和阻尼系数 \\(k^i_d\\) 计算每个电机的力矩。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b14",
@@ -667,10 +888,11 @@
             564,
             397
           ],
-          "en": "b) Ex pressive Whole- Body Control: We extend the command-conditioned locomotion control to include descriptions of the robot’s movement that are not captured by root pose and velocity in Gm . We formulate this as the more general goal space G = Ge ×Gm , where the expression target ge ∼Ge includes the desired joint angles and various 3D keypoint locations of the body.",
+          "en": "b) Ex pressive Whole- Body Control: We extend the command-conditioned locomotion control to include descriptions of the robot’s movement that are not captured by root pose and velocity in \\(\\mathcal G^m\\). We formulate this as the more general goal space \\(\\mathcal G = \\mathcal{G}^e \\times \\mathcal G^m\\), where the expression target \\(\\mathbf{g}^e \\sim \\mathcal G^e\\) includes the desired joint angles and various 3D keypoint locations of the body.",
           "reference": false,
           "source_image": "figs/p003-014-source.png",
-          "zh": "b) 富有表现力的全身控制：我们对基于指令条件的运动控制进行了扩展，以包含 Gm 中的根部姿态和速度所无法捕捉的机器人运动描述。我们将这一问题形式化为更通用的目标空间 G = Ge ×Gm，其中表现目标 ge ∼Ge 包含了机体的期望关节角以及各类三维关键点位置。"
+          "zh": "b) 富有表现力的全身控制：我们对基于指令条件的运动控制进行了扩展，以包含 \\(\\mathcal G^m\\) 中的根部姿态和速度所无法捕捉的机器人运动描述。我们将这一问题形式化为更通用的目标空间 \\(\\mathcal G = \\mathcal{G}^e \\times \\mathcal G^m\\)，其中表现目标 \\(\\mathbf{g}^e \\sim \\mathcal G^e\\) 包含了机体的期望关节角以及各类三维关键点位置。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b15",
@@ -681,10 +903,11 @@
             564,
             564
           ],
-          "en": "Specifically, in this work, we work with a relaxed problem where we exclude the joints and key points from the lower half of the body from Ge . This is because the robot has a different body plan from humans, and including these low-body features from human motion capture data tends to over-constrain the problem and lead to brittle, and poorly performing control policies. Formally, for the rest of this paper, we work with Ge = ⟨ q , p ⟩ , where q ∈ R9 are the joint positions of the nine actuators of the upper body, and p ∈ R18 are the 3D key points of the two shoulders, two elbows, and the left and right hands. The goal of expressive whole-body control (ExBody) is to simultaneously track both the root movement goal (for the whole body) gm ∼Gm , as well as the target expression goal (for upper body) ge ∼Ge .",
+          "en": "Specifically, in this work, we work with a relaxed problem where we exclude the joints and key points from the lower half of the body from \\(\\mathcal G^e\\). This is because the robot has a different body plan from humans, and including these low-body features from human motion capture data tends to over-constrain the problem and lead to brittle, and poorly performing control policies. Formally, for the rest of this paper, we work with \\(\\mathcal G^e = \\langle \\mathbf q, \\mathbf p \\rangle\\), where \\(\\mathbf q \\in \\mathbb R^9\\) are the joint positions of the nine actuators of the upper body, and \\(\\mathbf p \\in \\mathbb R^{18}\\) are the 3D key points of the two shoulders, two elbows, and the left and right hands. The goal of expressive whole-body control (ExBody) is to simultaneously track both the root movement goal (for the whole body) \\(\\mathbf g^m\\sim \\mathcal G^m\\), as well as the target expression goal (for upper body) \\(\\mathbf g^e\\sim \\mathcal G^e\\).",
           "reference": false,
           "source_image": "figs/p003-015-source.png",
-          "zh": "具体而言，在这项工作中，我们处理的是一个松弛化的问题，即从 Ge 中排除了下半身的关节与关键点。这是因为机器人的身体构型与人类不同，若强行纳入人体动作捕捉数据中的这些下半身特征，往往会对问题施加过度约束，进而导致控制策略脆弱且性能欠佳。形式上，在本文后续部分中，我们定义 Ge = ⟨ q , p ⟩，其中 q ∈ R9 为上半身 9 个执行器的关节位置，p ∈ R18 为双肩、双肘以及左右手的 3D 关键点。富有表现力的全身控制（ExBody）的目标，是同时跟踪（针对整个身体的）根部运动目标 gm ∼Gm 以及（针对上半身的）目标表现目标 ge ∼Ge。"
+          "zh": "具体而言，在这项工作中，我们处理的是一个松弛化的问题，即从 \\(\\mathcal G^e\\) 中排除了下半身的关节与关键点。这是因为机器人的身体构型与人类不同，若强行纳入人体动作捕捉数据中的这些下半身特征，往往会对问题施加过度约束，进而导致控制策略脆弱且性能欠佳。形式上，在本文后续部分中，我们定义 \\(\\mathcal G^e = \\langle \\mathbf q, \\mathbf p \\rangle\\)，其中 \\(\\mathbf q \\in \\mathbb R^9\\) 为上半身 9 个执行器的关节位置，\\(\\mathbf p \\in \\mathbb R^{18}\\) 为双肩、双肘以及左右手的 3D 关键点。富有表现力的全身控制（ExBody）的目标，是同时跟踪（针对整个身体的）根部运动目标 \\(\\mathbf g^m\\sim \\mathcal G^m\\) 以及（针对上半身的）目标表现目标 \\(\\mathbf g^e\\sim \\mathcal G^e\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b16",
@@ -751,15 +974,24 @@
           "id": "p4-b0",
           "kind": "picture",
           "bbox": [
-            74,
-            54,
-            538,
-            321
+            72.0,
+            52.0,
+            540.0,
+            323.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p004-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            74.0,
+            54.0,
+            538.0,
+            321.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1404,
+          "image_height": 813
         },
         {
           "id": "p4-b1",
@@ -793,15 +1025,24 @@
           "id": "p4-b3",
           "kind": "table",
           "bbox": [
-            61,
-            460,
-            288,
-            680
+            59.0,
+            458.0,
+            290.0,
+            682.0
           ],
           "en": "||Category|Clips|Length (s)| |---|---|---|---| ||Walk|546|9076.6| ||Dance|78|1552.3| |Training|Basketball Punch|36 20|766.1 800.0| ||Others|100|1188.0| ||Total|780|13383.0| ||Punch|1|18.9| ||Wave Hello|1|5.0| ||Mummy Walk|1|22.5| ||Zombie Walk|1|13.0| ||Walk, Exaggerated Stride|1|2.5| ||High Five|1|3.3| |Real-World Test|Basketball Signals|1|32.6| ||Adjust Hair|1|9.6| ||Drinking from Bottle|1|15.2| ||Direct Traffic|1|39.3| ||Hand Signal|1|32.2| ||Russian Dance|1|8.2| ||Total|11|202.3| |Additional|Boxing|1|4.0| |Realworld Test|Hug|1|4.0| |(Diffusion [54])|Shake Hands|1|4.0|",
           "reference": false,
           "image": "figs/p004-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            61.0,
+            460.0,
+            288.0,
+            680.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 693,
+          "image_height": 672
         },
         {
           "id": "p4-b4",
@@ -826,10 +1067,11 @@
             564,
             706
           ],
-          "en": "We plot the distribution of root movement goal ge in Fig. 3. The yaw angle in the world frame does not have too much meaning because during training all our observations are in the robot’s local frame. So we visualize the yaw angular velocity instead. From Fig. 3a, we can observe that the motions we choose cover walking forward, backward, and sideways, and are biased towards walking forward and symmetrical on walking sideways. From Fig. 3b, we observe a chestnut-shaped distribution with minimal movement along the roll angle, because humans do not usually incline the body sideways. However, in terms of pitch, it is biased toward bending forward instead of bending backward. And as the pitch angle gets larger the roll angle gets smaller in distribution, which resonates with human bias. From Fig. 3c, we observe that the robot’s height is narrowly centered around its nominal height and has small variations. From Fig. 3d we can see that our turning motion is pretty balanced and there are turning left and right motions. Unlike [13], which randomly samples points using a spherical coordinate frame, and then checks if the points are under the ground or have a collision with the robot itself, our approach from large human data naturally has samples that generally do not violate such constraints. Even if there are some collisions with the robot itself after retargeting, the RL will avoid it via collision penalization. We show in Sec. IV that this prior distribution actually helps with policy learning a lot compared with manually designed sample space.",
+          "en": "We plot the distribution of root movement goal \\(\\mathbf{g}^e\\) in Fig. 3. The yaw angle in the world frame does not have too much meaning because during training all our observations are in the robot’s local frame. So we visualize the yaw angular velocity instead. From Fig. 3a, we can observe that the motions we choose cover walking forward, backward, and sideways, and are biased towards walking forward and symmetrical on walking sideways. From Fig. 3b, we observe a chestnut-shaped distribution with minimal movement along the roll angle, because humans do not usually incline the body sideways. However, in terms of pitch, it is biased toward bending forward instead of bending backward. And as the pitch angle gets larger the roll angle gets smaller in distribution, which resonates with human bias. From Fig. 3c, we observe that the robot’s height is narrowly centered around its nominal height and has small variations. From Fig. 3d we can see that our turning motion is pretty balanced and there are turning left and right motions. Unlike [13], which randomly samples points using a spherical coordinate frame, and then checks if the points are under the ground or have a collision with the robot itself, our approach from large human data naturally has samples that generally do not violate such constraints. Even if there are some collisions with the robot itself after retargeting, the RL will avoid it via collision penalization. We show in Sec. IV that this prior distribution actually helps with policy learning a lot compared with manually designed sample space.",
           "reference": false,
           "source_image": "figs/p004-005-source.png",
-          "zh": "我们在图 3 中绘制了根部运动目标 ge 的分布。世界坐标系下的偏航角意义不大，因为在训练过程中我们所有的观测均处于机器人的局部坐标系中。因此，我们改为可视化偏航角速度。从图 3a 可以看出，我们所选的动作涵盖向前走、向后走以及侧向移动，且整体偏向向前走，在侧向移动上呈对称分布。从图 3b 中，我们观察到呈现栗子状的分布，在横滚角方向的运动极小，因为人类通常不会侧向倾斜身体。然而在俯仰角方面，分布偏向向前弯曲而不是向后仰。随着俯仰角增大，横滚角的分布范围逐渐缩小，这与人体的生理习惯相吻合。从图 3c 可以看出，机器人的高度紧密集中在名义高度附近，变化幅度很小。从图 3d 可以看出，我们的转向动作相当均衡，同时包含左转和右转动作。与文献 [13] 使用球坐标系随机采样点然后再检查点是否位于地下或与机器人自身发生碰撞的做法不同，我们基于大规模人体数据的方法天然具备大体上不会违反此类约束的样本。即使在重定向后与机器人自身存在某些碰撞，强化学习也会通过碰撞惩罚来规避碰撞。我们在第 IV 节中表明，与人工设计的采样空间相比，这种先验分布实际上对策略学习大有裨益。"
+          "zh": "我们在图 3 中绘制了根部运动目标 \\(\\mathbf{g}^e\\) 的分布。世界坐标系下的偏航角意义不大，因为在训练过程中我们所有的观测均处于机器人的局部坐标系中。因此，我们改为可视化偏航角速度。从图 3a 可以看出，我们所选的动作涵盖向前走、向后走以及侧向移动，且整体偏向向前走，在侧向移动上呈对称分布。从图 3b 中，我们观察到呈现栗子状的分布，在横滚角方向的运动极小，因为人类通常不会侧向倾斜身体。然而在俯仰角方面，分布偏向向前弯曲而不是向后仰。随着俯仰角增大，横滚角的分布范围逐渐缩小，这与人体的生理习惯相吻合。从图 3c 可以看出，机器人的高度紧密集中在名义高度附近，变化幅度很小。从图 3d 可以看出，我们的转向动作相当均衡，同时包含左转和右转动作。与文献 [13] 使用球坐标系随机采样点然后再检查点是否位于地下或与机器人自身发生碰撞的做法不同，我们基于大规模人体数据的方法天然具备大体上不会违反此类约束的样本。即使在重定向后与机器人自身存在某些碰撞，强化学习也会通过碰撞惩罚来规避碰撞。我们在第 IV 节中表明，与人工设计的采样空间相比，这种先验分布实际上对策略学习大有裨益。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -859,24 +1101,34 @@
             301,
             263
           ],
-          "en": "In consideration of the distinct morphological differences between the H1 robot and humans, we adapt the human motion data to the robot’s framework by straightforwardly mapping local joint rotations onto the robot’s skeleton. We use the Unitree H1 robot[3] as our platform with a total mass of around 51 . 5 kg and a height of around 1 . 8 m . The Unitree H1 robot has 19 DoFs. The shoulder and hip joints have 3 revolute joint motors connected perpendicularly, thus equivalent to a spherical joint usually used in human motion datasets [36, 18]. During retargeting, we consider the 3 hip or shoulder joints as 1 spherical joint. After retargeting, we remap the spherical joint which is represented by a normalized quaternion qi m= (qx, qy, qz, qw)totheoriginaljointangleof 3 revolute joints m = [ m 1 , m 2 , m 3] ∈ R3 by exponential mapping. To achieve this we first convert the quaternion q to the form of axis angle:",
+          "en": "In consideration of the distinct morphological differences between the H1 robot and humans, we adapt the human motion data to the robot’s framework by straightforwardly mapping local joint rotations onto the robot’s skeleton. We use the Unitree H1 robot[3] as our platform with a total mass of around 51 . 5 kg and a height of around 1 . 8 m . The Unitree H1 robot has 19 DoFs. The shoulder and hip joints have 3 revolute joint motors connected perpendicularly, thus equivalent to a spherical joint usually used in human motion datasets [36, 18]. During retargeting, we consider the 3 hip or shoulder joints as 1 spherical joint. After retargeting, we remap the spherical joint which is represented by a normalized quaternion \\(\\mathbf{q^i_m} = (q_x, q_y, q_z, q_w)\\)totheoriginaljointangleof 3 revolute joints \\(\\mathbf{m}=[m_1, m_2, m_3]\\in \\mathbb{R}^3\\) by exponential mapping. To achieve this we first convert the quaternion \\(\\mathbf{q}\\) to the form of axis angle:",
           "reference": false,
           "source_image": "figs/p005-001-source.png",
-          "zh": "考虑到 H1 机器人与人类之间显著的形态学差异，我们通过将局部关节旋转直接映射到机器人骨架上，使人类动作数据适配机器人的结构。我们采用 Unitree H1 机器人 [3] 作为实验平台，其总质量约为 51 . 5 kg，高度约为 1 . 8 m。Unitree H1 机器人拥有 19 个 DoF。其肩关节和髋关节各由 3 个相互正交相连的旋转关节电机组成，因此等效于人类动作数据集中常用的球关节 [36, 18]。在重定向过程中，我们将这 3 个髋关节或肩关节视为 1 个球关节。重定向完成后，我们通过指数映射，将以归一化四元数 qi m= (qx, qy, qz, qw) 表示的球关节重新映射回 3 个旋转关节的原始关节角 m = [ m 1 , m 2 , m 3] ∈ R3。为此，我们首先将四元数 q 转换为轴角形式："
+          "zh": "考虑到 H1 机器人与人类之间显著的形态学差异，我们通过将局部关节旋转直接映射到机器人骨架上，使人类动作数据适配机器人的结构。我们采用 Unitree H1 机器人 [3] 作为实验平台，其总质量约为 51 . 5 kg，高度约为 1 . 8 m。Unitree H1 机器人拥有 19 个 DoF。其肩关节和髋关节各由 3 个相互正交相连的旋转关节电机组成，因此等效于人类动作数据集中常用的球关节 [36, 18]。在重定向过程中，我们将这 3 个髋关节或肩关节视为 1 个球关节。重定向完成后，我们通过指数映射，将以归一化四元数 \\(\\mathbf{q^i_m} = (q_x, q_y, q_z, q_w)\\) 表示的球关节重新映射回 3 个旋转关节的原始关节角 \\(\\mathbf{m}=[m_1, m_2, m_3]\\in \\mathbb{R}^3\\)。为此，我们首先将四元数 \\(\\mathbf{q}\\) 转换为轴角形式：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b2",
           "kind": "formula",
           "bbox": [
-            91,
-            267,
-            258,
-            303
+            89.0,
+            265.0,
+            260.0,
+            305.0
           ],
           "en": "qx 1   θ = 2 arccos( qw ) , a = qy � 1 − qw 2  qz ",
           "reference": false,
           "image": "figs/p005-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            91.0,
+            267.0,
+            258.0,
+            303.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 513,
+          "image_height": 120
         },
         {
           "id": "p5-b3",
@@ -887,10 +1139,11 @@
             301,
             435
           ],
-          "en": "where a is the rotation axis and θ is the rotation angle. For small angles, the last axis is used if ~~�~~ 1 − qw2 is close to zero. Then the mapped angle is just simply m = θ a , where m = [ qi , qj , qk ] is 3 corresponding DoFs in q . For 1D joints, namely the elbow, torso, knee, and ankle, we take the rotation angle projected onto the corresponding rotation axis of the 1D joints. In Fig. 4, we show the diverse motions both for the original dataset and the retargeted ones. We can see that although the retargeted data loses some DoFs with hardware constraints, it is still able to keep the important expressions from the original data.",
+          "en": "where \\(\\mathbf{a}\\) is the rotation axis and \\(\\theta\\) is the rotation angle. For small angles, the last axis is used if \\(\\sqrt{1 - q_w^2}\\) is close to zero. Then the mapped angle is just simply \\(\\mathbf{m} = \\theta \\mathbf{a}\\) , where \\(\\mathbf{m}=[q^i, q^j, q^k]\\) is 3 corresponding DoFs in \\(\\mathbf{q}\\) . For 1D joints, namely the elbow, torso, knee, and ankle, we take the rotation angle projected onto the corresponding rotation axis of the 1D joints. In Fig. 4, we show the diverse motions both for the original dataset and the retargeted ones. We can see that although the retargeted data loses some DoFs with hardware constraints, it is still able to keep the important expressions from the original data.",
           "reference": false,
           "source_image": "figs/p005-003-source.png",
-          "zh": "其中 a 为旋转轴，θ 为旋转角度。对于小角度，若〔行内公式见原版〕接近于零，则使用最后一个轴。那么映射后的角度就是简单的 m = θ a，其中 m = [ qi , qj , qk ] 是 q 中对应的 3 个自由度（DoF）。对于一维关节，即肘部、躯干、膝关节和踝关节，我们取投影到该一维关节对应旋转轴上的旋转角。在图 4 中，我们展示了原始数据集和重定向后数据集的多样化动作。可以看出，尽管受硬件约束重定向数据损失了部分自由度，但它仍然能够保留原始数据中重要的表达动作。"
+          "zh": "其中 \\(\\mathbf{a}\\) 为旋转轴，\\(\\theta\\) 为旋转角度。对于小角度，若\\(\\sqrt{1 - q_w^2}\\)接近于零，则使用最后一个轴。那么映射后的角度就是简单的 \\(\\mathbf{m} = \\theta \\mathbf{a}\\)，其中 \\(\\mathbf{m}=[q^i, q^j, q^k]\\) 是 \\(\\mathbf{q}\\) 中对应的 3 个自由度（DoF）。对于一维关节，即肘部、躯干、膝关节和踝关节，我们取投影到该一维关节对应旋转轴上的旋转角。在图 4 中，我们展示了原始数据集和重定向后数据集的多样化动作。可以看出，尽管受硬件约束重定向数据损失了部分自由度，但它仍然能够保留原始数据中重要的表达动作。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b4",
@@ -915,10 +1168,11 @@
             301,
             528
           ],
-          "en": "We use massively parallel simulation to train our RL policy with Isaac Gym [37, 47]. We randomly sample an initial state g = [ ge , gm ] from the motion dataset for each environment in simulation and set its state to the sampled state during initialization or resetting. We show by extensive experiments how this random initialization helps with policy learning.",
+          "en": "We use massively parallel simulation to train our RL policy with Isaac Gym [37, 47]. We randomly sample an initial state \\(\\mathbf{g}=[\\mathbf{g}^e, \\mathbf{g}^m]\\) from the motion dataset for each environment in simulation and set its state to the sampled state during initialization or resetting. We show by extensive experiments how this random initialization helps with policy learning.",
           "reference": false,
           "source_image": "figs/p005-005-source.png",
-          "zh": "我们使用 Isaac Gym [37, 47] 进行大规模并行仿真来训练我们的强化学习策略。在仿真中，我们为每个环境从动作数据集中随机采样一个初始状态 g = [ ge , gm ]，并在初始化或重置时将其状态设置为该采样状态。我们通过大量实验展示了这种随机初始化如何有助于策略学习。"
+          "zh": "我们使用 Isaac Gym [37, 47] 进行大规模并行仿真来训练我们的强化学习策略。在仿真中，我们为每个环境从动作数据集中随机采样一个初始状态 \\(\\mathbf{g}=[\\mathbf{g}^e, \\mathbf{g}^m]\\)，并在初始化或重置时将其状态设置为该采样状态。我们通过大量实验展示了这种随机初始化如何有助于策略学习。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b6",
@@ -957,24 +1211,34 @@
             301,
             726
           ],
-          "en": "In each step, the reward from the environment consists of expression goal, root movement goal tracking, and regularization terms derived from [47]. Imitation rewards are detailed in Tab. III, where q ref ∈ R9 is reference position of the upper body joints, p ref ∈ R18 is reference position of the upper body keypoints, v ref is reference body velocity, Ωϕθ ref and Ωϕθ are reference and actual body roll and pitch. Refer to supplementary for regularization rewards.",
+          "en": "In each step, the reward from the environment consists of expression goal, root movement goal tracking, and regularization terms derived from [47]. Imitation rewards are detailed in Tab. III, where \\(\\mathbf{q}_\\text{ref} \\in \\mathbb{R}^9\\) is reference position of the upper body joints, \\(\\mathbf{p}_\\text{ref} \\in \\mathbb{R}^{18}\\) is reference position of the upper body keypoints, \\(\\mathbf{v}_\\text{ref}\\) is reference body velocity, \\(\\boldsymbol{\\Omega}_\\text{ref}^{\\phi\\theta}\\) and \\(\\boldsymbol{\\Omega}^{\\phi\\theta}\\) are reference and actual body roll and pitch. Refer to supplementary for regularization rewards.",
           "reference": false,
           "source_image": "figs/p005-008-source.png",
-          "zh": "在每个时间步中，来自环境的奖励由表达目标跟踪、根部运动目标跟踪以及源自 [47] 的正则化项组成。模仿奖励详见表 III，其中 q ref ∈ R9 为上半身关节的参考位置，p ref ∈ R18 为上半身关键点的参考位置，v ref 为参考机体速度，Ωϕθ ref 与 Ωϕθ 分别为参考和实际的机体横滚角与俯仰角。关于正则化奖励请参见补充材料。"
+          "zh": "在每个时间步中，来自环境的奖励由表达目标跟踪、根部运动目标跟踪以及源自 [47] 的正则化项组成。模仿奖励详见表 III，其中 \\(\\mathbf{q}_\\text{ref} \\in \\mathbb{R}^9\\) 为上半身关节的参考位置，\\(\\mathbf{p}_\\text{ref} \\in \\mathbb{R}^{18}\\) 为上半身关键点的参考位置，\\(\\mathbf{v}_\\text{ref}\\) 为参考机体速度，\\(\\boldsymbol{\\Omega}_\\text{ref}^{\\phi\\theta}\\) 与 \\(\\boldsymbol{\\Omega}^{\\phi\\theta}\\) 分别为参考和实际的机体横滚角与俯仰角。关于正则化奖励请参见补充材料。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b9",
           "kind": "table",
           "bbox": [
-            333,
-            59,
-            542,
-            175
+            331.0,
+            57.0,
+            544.0,
+            177.0
           ],
           "en": "|Term Expression|Weight| |---|---| |Expression Goal Ge|| |DoF Position exp(−0.7|qref−q|)|3.0| |Keypoint Position exp(−|pref−p||2.0| |Root Movement Goal Gm|| |Linear Velocity exp(−4.0|vref−v|)|6.0| |Roll & Pitch exp(−|Ωϕθ ref −Ωϕθ|)|1.0| |Yaw exp(−|∆y|)|1.0|",
           "reference": false,
           "image": "figs/p005-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            333.0,
+            59.0,
+            542.0,
+            175.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 639,
+          "image_height": 360
         },
         {
           "id": "p5-b10",
@@ -1027,10 +1291,11 @@
             564,
             261
           ],
-          "en": "- How well does ExBody perform on tracking ge and gm ?",
+          "en": "- How well does ExBody perform on tracking \\(\\mathbf{g}^e\\) and \\(\\mathbf{g}^m\\) ?",
           "reference": false,
           "source_image": "figs/p005-013-source.png",
-          "zh": "- ExBody 在跟踪 ge 和 gm 方面的表现如何？"
+          "zh": "- ExBody 在跟踪 \\(\\mathbf{g}^e\\) 和 \\(\\mathbf{g}^m\\) 方面的表现如何？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b14",
@@ -1044,7 +1309,8 @@
           "en": "- How does learning from large datasets help policy exploration and robustness?",
           "reference": false,
           "source_image": "figs/p005-014-source.png",
-          "zh": "- 从大型数据集中学习如何有助于策略探索和鲁棒性？"
+          "zh": "- 从大型数据集中学习如何有助于策略探索和鲁棒性？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b15",
@@ -1058,7 +1324,8 @@
           "en": "- Why do the state of the art approaches in computer graphics for physics based character control not work well in the real robot case and why do we need ExBody?",
           "reference": false,
           "source_image": "figs/p005-015-source.png",
-          "zh": "- 为什么计算机图形学中用于基于物理的角色控制的最先进方法在真实机器人场景中表现不佳，以及为什么我们需要 ExBody？"
+          "zh": "- 为什么计算机图形学中用于基于物理的角色控制的最先进方法在真实机器人场景中表现不佳，以及为什么我们需要 ExBody？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b16",
@@ -1086,7 +1353,8 @@
           "en": "- ExBody + AMP : This baseline uses an AMP reward to encourage the policy’s transitions to be similar to those in the retargeted dataset.",
           "reference": false,
           "source_image": "figs/p005-017-source.png",
-          "zh": "- ExBody + AMP：该基线采用 AMP 奖励来促使策略的状态转移与重定向数据集中的状态转移相似。"
+          "zh": "- ExBody + AMP：该基线采用 AMP 奖励来促使策略的状态转移与重定向数据集中的状态转移相似。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b18",
@@ -1100,7 +1368,8 @@
           "en": "- ExBody +AMP NoReg : We remove the regularization terms in our reward formulations and see if AMP reward itself is able to handle the regularization of the imitation learning problem with such a large dataset.",
           "reference": false,
           "source_image": "figs/p005-018-source.png",
-          "zh": "- ExBody +AMP NoReg：我们去除了奖励函数公式中的正则化项，以检验在如此庞大的数据集下，AMP 奖励本身是否能够处理模仿学习问题的正则化。"
+          "zh": "- ExBody +AMP NoReg：我们去除了奖励函数公式中的正则化项，以检验在如此庞大的数据集下，AMP 奖励本身是否能够处理模仿学习问题的正则化。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b19",
@@ -1111,10 +1380,11 @@
             564,
             445
           ],
-          "en": "- Random Sample : Randomly sample root movement goals gm with the range shown in Fig. 5b.",
+          "en": "- Random Sample : Randomly sample root movement goals \\(\\mathbf{g}^m\\) with the range shown in Fig. 5b.",
           "reference": false,
           "source_image": "figs/p005-019-source.png",
-          "zh": "- Random Sample：在图 5b 所示的范围内随机采样根部运动目标 gm。"
+          "zh": "- Random Sample：在图 5b 所示的范围内随机采样根部运动目标 \\(\\mathbf{g}^m\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b20",
@@ -1128,7 +1398,8 @@
           "en": "- No RSI : Initialize the environment with default DoF positions and root states instead of sampling from the motion dataset.",
           "reference": false,
           "source_image": "figs/p005-020-source.png",
-          "zh": "- No RSI：使用默认的自由度（DoF）位置和根部状态初始化环境，而不是从动作数据集中采样。"
+          "zh": "- No RSI：使用默认的自由度（DoF）位置和根部状态初始化环境，而不是从动作数据集中采样。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b21",
@@ -1139,10 +1410,11 @@
             564,
             526
           ],
-          "en": "- Full body tracking : Instead of tracking only the upper body with Ge , the objective is to track the joint angles and 3D key points for the entire body including hips, knees, and ankles.",
+          "en": "- Full body tracking : Instead of tracking only the upper body with \\(\\mathcal{G}^e\\), the objective is to track the joint angles and 3D key points for the entire body including hips, knees, and ankles.",
           "reference": false,
           "source_image": "figs/p005-021-source.png",
-          "zh": "- Full body tracking：其目标不再是仅用 Ge 跟踪上半身，而是跟踪包括髋关节、膝关节和踝关节在内的全身关节角度和 3D 关键点。"
+          "zh": "- Full body tracking：其目标不再是仅用 \\(\\mathcal{G}^e\\) 跟踪上半身，而是跟踪包括髋关节、膝关节和踝关节在内的全身关节角度和 3D 关键点。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b22",
@@ -1170,7 +1442,8 @@
           "en": "- Mean Episode Linear Velocity Tracking Reward (MELV)",
           "reference": false,
           "source_image": "figs/p005-023-source.png",
-          "zh": "- 回合平均线速度跟踪奖励（MELV）"
+          "zh": "- 回合平均线速度跟踪奖励（MELV）",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b24",
@@ -1184,7 +1457,8 @@
           "en": "- Mean episode roll pitch tracking reward (MERP)",
           "reference": false,
           "source_image": "figs/p005-024-source.png",
-          "zh": "- 回合平均横滚俯仰跟踪奖励（MERP）"
+          "zh": "- 回合平均横滚俯仰跟踪奖励（MERP）",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b25",
@@ -1198,7 +1472,8 @@
           "en": "- Mean episode lengths (MEL)",
           "reference": false,
           "source_image": "figs/p005-025-source.png",
-          "zh": "- 平均回合长度（MEL）"
+          "zh": "- 平均回合长度（MEL）",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b26",
@@ -1212,7 +1487,8 @@
           "en": "- Mean episode key body tracking reward (MEK)",
           "reference": false,
           "source_image": "figs/p005-026-source.png",
-          "zh": "- 回合平均关键身体部位跟踪奖励（MEK）"
+          "zh": "- 回合平均关键身体部位跟踪奖励（MEK）",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b27",
@@ -1223,10 +1499,11 @@
             564,
             726
           ],
-          "en": "How well does ExBody perform on tracking gm ? In Fig. 5a, we show that our trained ExBody can produce similar root movement state distribution as shown in the training dataset in Fig. 3. The other way to put it, the policy successfully learned to map a few intuitive root movement commands to appropriate motor commands, and executing these motor commands in a physical world will result in tracking the root movement commands. However, our ExBody is trained on motion clips, which have temporal correlations in terms of the goal state g . That is to say, the robot is commanded",
+          "en": "How well does ExBody perform on tracking \\({\\mathbf{g}}^m\\) ? In Fig. 5a, we show that our trained ExBody can produce similar root movement state distribution as shown in the training dataset in Fig. 3. The other way to put it, the policy successfully learned to map a few intuitive root movement commands to appropriate motor commands, and executing these motor commands in a physical world will result in tracking the root movement commands. However, our ExBody is trained on motion clips, which have temporal correlations in terms of the goal state \\(\\mathbf{g}\\) . That is to say, the robot is commanded",
           "reference": false,
           "source_image": "figs/p005-027-source.png",
-          "zh": "ExBody 在跟踪 gm 方面的表现如何？在图 5a 中，我们展示了训练好的 ExBody 能够产生与图 3 训练数据集中相似的根部运动状态分布。换句话说，该策略成功学会了将少量直观的根部运动指令映射为适当的电机指令，而在物理世界中执行这些电机指令将实现对根部运动指令的跟踪。然而，我们的 ExBody 是在运动片段上进行训练的，这些片段在目标状态 g 上具有时间相关性。也就是说，机器人被指令"
+          "zh": "ExBody 在跟踪 \\({\\mathbf{g}}^m\\) 方面的表现如何？在图 5a 中，我们展示了训练好的 ExBody 能够产生与图 3 训练数据集中相似的根部运动状态分布。换句话说，该策略成功学会了将少量直观的根部运动指令映射为适当的电机指令，而在物理世界中执行这些电机指令将实现对根部运动指令的跟踪。然而，我们的 ExBody 是在运动片段上进行训练的，这些片段在目标状态 \\(\\mathbf{g}\\) 上具有时间相关性。也就是说，机器人被指令",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1237,29 +1514,47 @@
           "id": "p6-b0",
           "kind": "picture",
           "bbox": [
-            48,
-            53,
-            564,
-            154
+            46.0,
+            51.0,
+            566.0,
+            156.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p006-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            53.0,
+            564.0,
+            154.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1560,
+          "image_height": 315
         },
         {
           "id": "p6-b1",
           "kind": "picture",
           "bbox": [
-            48,
-            160,
-            564,
-            285
+            46.0,
+            158.0,
+            566.0,
+            287.0
           ],
           "en": "(a) Dataset sampling g m (b) Random sampling g m",
           "reference": false,
           "image": "figs/p006-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            160.0,
+            564.0,
+            285.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1560,
+          "image_height": 387
         },
         {
           "id": "p6-b2",
@@ -1270,10 +1565,11 @@
             564,
             350
           ],
-          "en": "Fig. 5: Policy’s state distribution under different sampling strategies. The green dots are the policy rollout’s states. For dataset sampling, we record 20 data points for 4096 environments with randomly sampled arm trajectories from our training set. For random sampling, he red shade represents the randomly sampled gm range. For yaw velocity, we do not sample the command, because the policy observes the difference between the desired and actual yaw, and does not explicitly track the angular velocity. The second peak in root height is the initialization bias.",
+          "en": "Fig. 5: Policy’s state distribution under different sampling strategies. The green dots are the policy rollout’s states. For dataset sampling, we record 20 data points for 4096 environments with randomly sampled arm trajectories from our training set. For random sampling, he red shade represents the randomly sampled \\({\\mathbf{g}}^m\\) range. For yaw velocity, we do not sample the command, because the policy observes the difference between the desired and actual yaw, and does not explicitly track the angular velocity. The second peak in root height is the initialization bias.",
           "reference": false,
           "source_image": "figs/p006-002-source.png",
-          "zh": "图 5：不同采样策略下的策略状态分布。绿点为策略 rollout 的状态。对于数据集采样，我们在 4096 个环境中记录了 20 个数据点，其中的手臂轨迹随机采样自我们的训练集。对于随机采样，红色阴影表示随机采样的 gm 范围。对于偏航角速度，我们不对该指令进行采样，因为策略观测的是期望偏航角与实际偏航角之间的差值，并不显式跟踪角速度。根部高度的第二个峰值为初始化偏差。"
+          "zh": "图 5：不同采样策略下的策略状态分布。绿点为策略 rollout 的状态。对于数据集采样，我们在 4096 个环境中记录了 20 个数据点，其中的手臂轨迹随机采样自我们的训练集。对于随机采样，红色阴影表示随机采样的 \\({\\mathbf{g}}^m\\) 范围。对于偏航角速度，我们不对该指令进行采样，因为策略观测的是期望偏航角与实际偏航角之间的差值，并不显式跟踪角速度。根部高度的第二个峰值为初始化偏差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b3",
@@ -1298,10 +1594,11 @@
             301,
             615
           ],
-          "en": "How well does ExBody perform on tracking ge ? Similarly, we render the samples of end-effectors (hands) positions relative to the robot to show a nearly identical distribution of reference motion and learned policy as shown in Fig. 6.",
+          "en": "How well does ExBody perform on tracking \\({\\mathbf{g}}^e\\) ? Similarly, we render the samples of end-effectors (hands) positions relative to the robot to show a nearly identical distribution of reference motion and learned policy as shown in Fig. 6.",
           "reference": false,
           "source_image": "figs/p006-004-source.png",
-          "zh": "ExBody 在跟踪 ge 方面的表现如何？类似地，我们渲染了相对于机器人的末端执行器（手部）位置样本，如图 6 所示，表明参考运动与学得策略具有几乎完全相同的分布。"
+          "zh": "ExBody 在跟踪 \\({\\mathbf{g}}^e\\) 方面的表现如何？类似地，我们渲染了相对于机器人的末端执行器（手部）位置样本，如图 6 所示，表明参考运动与学得策略具有几乎完全相同的分布。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b5",
@@ -1321,15 +1618,24 @@
           "id": "p6-b6",
           "kind": "picture",
           "bbox": [
-            349,
-            356,
-            526,
-            466
+            347.0,
+            354.0,
+            528.0,
+            468.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p006-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            349.0,
+            356.0,
+            526.0,
+            466.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 543,
+          "image_height": 342
         },
         {
           "id": "p6-b7",
@@ -1354,10 +1660,11 @@
             564,
             726
           ],
-          "en": "comes from RSI, where we initialize the robot to different states that encourage exploration. No RSI is not able to discover proper positive reward states before learning to suicide as soon as possible to avoid negative rewards in simulation. The Random Sample baseline’s behavior is a kneel-down motion for all the goals as shown in Fig. 8, taking advantage of the environment. It gives up gm completely and focuses on ge . It has a similar MEL score with the motion sample and a higher MEL score with the Random Sample (the training distribution), meaning that kneeling on the ground is more robust. We speculate that the motion dataset offers a more advantageous distribution of Gm , which in turn facilitates the policy learning process. For example, many motions started from standing in place and gradually started to walking, creating a natural curriculum for the policy to learn. Why does not ExBody do full DoF tracking? Due to the",
+          "en": "comes from RSI, where we initialize the robot to different states that encourage exploration. No RSI is not able to discover proper positive reward states before learning to suicide as soon as possible to avoid negative rewards in simulation. The Random Sample baseline’s behavior is a kneel-down motion for all the goals as shown in Fig. 8, taking advantage of the environment. It gives up \\({\\mathbf{g}}^m\\) completely and focuses on \\({\\mathbf{g}}^e\\) . It has a similar MEL score with the motion sample and a higher MEL score with the Random Sample (the training distribution), meaning that kneeling on the ground is more robust. We speculate that the motion dataset offers a more advantageous distribution of \\({\\mathcal{G}}^m\\) , which in turn facilitates the policy learning process. For example, many motions started from standing in place and gradually started to walking, creating a natural curriculum for the policy to learn. Why does not ExBody do full DoF tracking? Due to the",
           "reference": false,
           "source_image": "figs/p006-008-source.png",
-          "zh": "源于参考状态初始化（RSI），在此过程中我们将机器人初始化为促进探索的不同状态。在仿真中，No RSI 尚未发现适宜的正奖励状态，就已学会尽快“自杀”以规避负奖励。如图 8 所示，Random Sample 基线利用环境机制，对所有目标都表现为下跪动作。它完全放弃了 gm，专注于跟踪 ge。它与运动采样（Motion Sample）拥有相近的 MEL 得分，并在随机采样（Random Sample，即其训练分布）下取得了更高的 MEL 得分，这意味着跪在地上更加稳固。我们推测，动作数据集提供了更有利的 Gm 分布，从而促进了策略学习过程。例如，许多动作均从原地站立开始，并逐渐过渡到行走，为策略学习创造了一个自然的课程。为什么 ExBody 不进行全自由度（DoF）跟踪？这是由于"
+          "zh": "源于参考状态初始化（RSI），在此过程中我们将机器人初始化为促进探索的不同状态。在仿真中，No RSI 尚未发现适宜的正奖励状态，就已学会尽快“自杀”以规避负奖励。如图 8 所示，Random Sample 基线利用环境机制，对所有目标都表现为下跪动作。它完全放弃了 \\({\\mathbf{g}}^m\\)，专注于跟踪 \\({\\mathbf{g}}^e\\)。它与运动采样（Motion Sample）拥有相近的 MEL 得分，并在随机采样（Random Sample，即其训练分布）下取得了更高的 MEL 得分，这意味着跪在地上更加稳固。我们推测，动作数据集提供了更有利的 \\({\\mathcal{G}}^m\\) 分布，从而促进了策略学习过程。例如，许多动作均从原地站立开始，并逐渐过渡到行走，为策略学习创造了一个自然的课程。为什么 ExBody 不进行全自由度（DoF）跟踪？这是由于",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1368,15 +1675,24 @@
           "id": "p7-b0",
           "kind": "table",
           "bbox": [
-            54,
-            59,
-            549,
-            163
+            52.0,
+            57.0,
+            551.0,
+            165.0
           ],
           "en": "|Baselines||Motion|Sample|||Rando|m Sample|| |---|---|---|---|---|---|---|---|---| ||MEL↑|MELV↑|MERP↑|MEK↑|MEL|MELV|MERP|MEK| |ExBody (Ours)|16.87|318.67|754.92|659.78|13.51|132.14|523.79|483.67| |ExBody + AMP|17.28|205.60|765.85|635.51|15.59|95.11|583.82|544.59| |ExBody + AMP NoReg|16.16|87.83|714.74|561.56|15.40|36.76|584.23|515.53| |No RSI|0.23|0.63|10.09|7.25|0.22|0.10|7.41|7.15| |Random Sample|16.50|181.85|704.73|326.66|16.37|38.51|586.83|324.10| |Full Body Tracking|13.28|246.11|584.40|397.25|10.76|76.46|407.88|284.69|",
           "reference": false,
           "image": "figs/p007-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            59.0,
+            549.0,
+            163.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1497,
+          "image_height": 324
         },
         {
           "id": "p7-b1",
@@ -1387,24 +1703,34 @@
             564,
             207
           ],
-          "en": "TABLE IV: Comparisons with baselines. We sample 10,000 trajectories with 4096 environments in simulation and report their mean episode metrics. Motion Sample means we sample gm from retargeted motions. Random Sample means we uniformly sample gm in Fig. 3.",
+          "en": "TABLE IV: Comparisons with baselines. We sample 10,000 trajectories with 4096 environments in simulation and report their mean episode metrics. Motion Sample means we sample \\(\\mathcal{\\mathbf{g}}^m\\) from retargeted motions. Random Sample means we uniformly sample \\(\\mathcal{\\mathbf{g}}^m\\) in Fig. 3.",
           "reference": false,
           "source_image": "figs/p007-001-source.png",
-          "zh": "表 IV：与基线方法的对比。我们在仿真中使用 4096 个环境采样了 10,000 条轨迹，并汇报其回合平均指标。Motion Sample 表示我们从重定向动作中采样 gm。Random Sample 表示我们在图 3 所示范围内均匀采样 gm。"
+          "zh": "表 IV：与基线方法的对比。我们在仿真中使用 4096 个环境采样了 10,000 条轨迹，并汇报其回合平均指标。Motion Sample 表示我们从重定向动作中采样 \\(\\mathcal{\\mathbf{g}}^m\\)。Random Sample 表示我们在图 3 所示范围内均匀采样 \\(\\mathcal{\\mathbf{g}}^m\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b2",
           "kind": "picture",
           "bbox": [
-            48,
-            213,
-            301,
-            395
+            46.0,
+            211.0,
+            303.0,
+            397.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            213.0,
+            301.0,
+            395.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 771,
+          "image_height": 558
         },
         {
           "id": "p7-b3",
@@ -1429,10 +1755,11 @@
             301,
             569
           ],
-          "en": "limited torque, DoFs of the real robot, we design ExBody to only mimic the arm motions ge ∼Ge while the wholebody’s objective is to track root movement goals gm ∼Gm . We show in Tab. IV that tracking the Whole-Body expressions will result in reduced performance with all metrics. The robot’s lower body movements exhibit numerous artifacts, notably that while the reference motion is designed for a single step, the robot executes multiple steps in an attempt to stabilize.",
+          "en": "limited torque, DoFs of the real robot, we design ExBody to only mimic the arm motions \\(\\mathbf{g}^e\\sim \\mathcal{G}^e\\) while the wholebody’s objective is to track root movement goals \\(\\mathbf{g}^m\\sim \\mathcal{G}^m\\). We show in Tab. IV that tracking the Whole-Body expressions will result in reduced performance with all metrics. The robot’s lower body movements exhibit numerous artifacts, notably that while the reference motion is designed for a single step, the robot executes multiple steps in an attempt to stabilize.",
           "reference": false,
           "source_image": "figs/p007-004-source.png",
-          "zh": "真实机器人的力矩和自由度（DoF）有限，因此我们将 ExBody 设计为仅模仿手臂动作 ge ∼Ge，而全身的目标则是跟踪根部运动目标 gm ∼Gm。如表 IV 所示，跟踪全身表达动作会导致所有评估指标的性能下降。机器人的下半身运动表现出诸多伪影（异常形态），尤其值得注意的是，虽然参考动作设计为单步行走，但机器人为了保持平衡会执行多个碎步。"
+          "zh": "真实机器人的力矩和自由度（DoF）有限，因此我们将 ExBody 设计为仅模仿手臂动作 \\(\\mathbf{g}^e\\sim \\mathcal{G}^e\\)，而全身的目标则是跟踪根部运动目标 \\(\\mathbf{g}^m\\sim \\mathcal{G}^m\\)。如表 IV 所示，跟踪全身表达动作会导致所有评估指标的性能下降。机器人的下半身运动表现出诸多伪影（异常形态），尤其值得注意的是，虽然参考动作设计为单步行走，但机器人为了保持平衡会执行多个碎步。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b5",
@@ -1443,24 +1770,34 @@
             301,
             726
           ],
-          "en": "Comparisons with adversarial methods. We also compare with the adversarial methods that can serve as a regularizer on top of our method [35, 34, 12]. Our method plus an AMP regularizer demonstrates better results in terms of MEL and MERP . But just like the Random Sample baseline, it is at a great cost of linear velocity tracking ( MELV ). The policy generated by AMP often results in a gait with less knee flexion and inadequate foot clearance, leading to toes that tilt non-horizontally and a tendency to stumble while walking, as illustrated in Fig. 7. These characteristics could pose challenges for sim-to-real transfer. We also tested a series of motions in the real world as shown in Tab. V and recorded their roll and pitch variations as an indicator of how stable",
+          "en": "Comparisons with adversarial methods. We also compare with the adversarial methods that can serve as a regularizer on top of our method [35, 34, 12]. Our method plus an AMP regularizer demonstrates better results in terms of \\(MEL\\) and \\(MERP\\). But just like the Random Sample baseline, it is at a great cost of linear velocity tracking (\\(MELV\\)). The policy generated by AMP often results in a gait with less knee flexion and inadequate foot clearance, leading to toes that tilt non-horizontally and a tendency to stumble while walking, as illustrated in Fig. 7. These characteristics could pose challenges for sim-to-real transfer. We also tested a series of motions in the real world as shown in Tab. V and recorded their roll and pitch variations as an indicator of how stable",
           "reference": false,
           "source_image": "figs/p007-005-source.png",
-          "zh": "与对抗性方法的对比。我们还与可以在我们方法之上作为正则化项的对抗性方法进行了对比 [35, 34, 12]。我们的方法加上 AMP 正则化项在 MEL 和 MERP 方面表现出更好的结果。但就像 Random Sample 基线一样，这是以大幅牺牲线速度跟踪（MELV）为代价的。由 AMP 生成的策略往往会导致膝关节屈曲较少且足部离地间隙不足的步态，从而导致脚趾非水平倾斜并在行走时容易绊倒，如图 7 所示。这些特征可能会给仿真到现实迁移带来挑战。我们还在现实世界中测试了一系列动作，如表 V 所示，并记录了它们的横滚角和俯仰角变化，以此作为策略稳定性的"
+          "zh": "与对抗性方法的对比。我们还与可以在我们方法之上作为正则化项的对抗性方法进行了对比 [35, 34, 12]。我们的方法加上 AMP 正则化项在 \\(MEL\\) 和 \\(MERP\\) 方面表现出更好的结果。但就像 Random Sample 基线一样，这是以大幅牺牲线速度跟踪（\\(MELV\\)）为代价的。由 AMP 生成的策略往往会导致膝关节屈曲较少且足部离地间隙不足的步态，从而导致脚趾非水平倾斜并在行走时容易绊倒，如图 7 所示。这些特征可能会给仿真到现实迁移带来挑战。我们还在现实世界中测试了一系列动作，如表 V 所示，并记录了它们的横滚角和俯仰角变化，以此作为策略稳定性的",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b6",
           "kind": "picture",
           "bbox": [
-            311,
-            213,
-            564,
-            297
+            309.0,
+            211.0,
+            566.0,
+            299.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            311.0,
+            213.0,
+            564.0,
+            297.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 771,
+          "image_height": 264
         },
         {
           "id": "p7-b7",
@@ -1471,10 +1808,11 @@
             564,
             350
           ],
-          "en": "Fig. 8: Random Sampling gm results in a behavior that the policy immediately kneels down after initialization, trying to be as stable as possible while ignoring the root movement goal gm .",
+          "en": "Fig. 8: Random Sampling \\(\\mathcal{\\mathbf{g}}^m\\) results in a behavior that the policy immediately kneels down after initialization, trying to be as stable as possible while ignoring the root movement goal \\(\\mathbf{g}^m\\).",
           "reference": false,
           "source_image": "figs/p007-007-source.png",
-          "zh": "图 8：随机采样 gm 会导致策略在初始化后立即下跪，在试图保持尽可能稳定的同时完全忽略了根部运动目标 gm。"
+          "zh": "图 8：随机采样 \\(\\mathcal{\\mathbf{g}}^m\\) 会导致策略在初始化后立即下跪，在试图保持尽可能稳定的同时完全忽略了根部运动目标 \\(\\mathbf{g}^m\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b8",
@@ -1541,113 +1879,185 @@
           "id": "p8-b0",
           "kind": "picture",
           "bbox": [
-            55,
-            53,
-            292,
-            121
+            53.0,
+            51.0,
+            294.0,
+            123.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            55.0,
+            53.0,
+            292.0,
+            121.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 723,
+          "image_height": 216
         },
         {
           "id": "p8-b1",
           "kind": "picture",
           "bbox": [
-            191,
-            124,
-            228,
-            193
+            189.0,
+            122.0,
+            230.0,
+            195.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            191.0,
+            124.0,
+            228.0,
+            193.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 123,
+          "image_height": 219
         },
         {
           "id": "p8-b2",
           "kind": "picture",
           "bbox": [
-            156,
-            124,
-            192,
-            193
+            154.0,
+            122.0,
+            194.0,
+            195.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            156.0,
+            124.0,
+            192.0,
+            193.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 120,
+          "image_height": 219
         },
         {
           "id": "p8-b3",
           "kind": "picture",
           "bbox": [
-            84,
-            124,
-            122,
-            193
+            82.0,
+            122.0,
+            124.0,
+            195.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            84.0,
+            124.0,
+            122.0,
+            193.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 126,
+          "image_height": 219
         },
         {
           "id": "p8-b4",
           "kind": "picture",
           "bbox": [
-            121,
-            124,
-            157,
-            193
+            119.0,
+            122.0,
+            159.0,
+            195.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            121.0,
+            124.0,
+            157.0,
+            193.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 120,
+          "image_height": 219
         },
         {
           "id": "p8-b5",
           "kind": "picture",
           "bbox": [
-            48,
-            124,
-            85,
-            193
+            46.0,
+            122.0,
+            87.0,
+            195.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            124.0,
+            85.0,
+            193.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 123,
+          "image_height": 219
         },
         {
           "id": "p8-b6",
           "kind": "picture",
           "bbox": [
-            263,
-            124,
-            301,
-            193
+            261.0,
+            122.0,
+            303.0,
+            195.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            263.0,
+            124.0,
+            301.0,
+            193.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 126,
+          "image_height": 219
         },
         {
           "id": "p8-b7",
           "kind": "picture",
           "bbox": [
-            227,
-            124,
-            264,
-            193
+            225.0,
+            122.0,
+            266.0,
+            195.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            227.0,
+            124.0,
+            264.0,
+            193.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 123,
+          "image_height": 219
         },
         {
           "id": "p8-b8",
@@ -1709,15 +2119,24 @@
           "id": "p8-b12",
           "kind": "table",
           "bbox": [
-            353,
-            58,
-            522,
-            215
+            351.0,
+            56.0,
+            524.0,
+            217.0
           ],
           "en": "|Motions|Ours|Ours+AMP| |---|---|---| |Walk, Exaggerated Stride|0.054|0.087| |Zombie Walk|0.072|0.11| |Wave Hello|0.062|0.095| |Walk Happily|0.037|0.074| |Punch|0.052|0.055| |Direct Traffic, Wave, Point|0.037|0.094| |Highfive|0.04|0.084| |Basketball Signals|0.045|0.081| |Adjust Hair Walk|0.042|0.09| |Russian Dance|0.063|0.1| |Mummy Walk|0.064|0.086| |Boxing|0.075|0.068| |Hug|0.037|0.086| |Shake Hand|0.036|0.099| |Mean|0.051|0.087|",
           "reference": false,
           "image": "figs/p008-012.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            353.0,
+            58.0,
+            522.0,
+            215.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 519,
+          "image_height": 483
         },
         {
           "id": "p8-b13",
@@ -2784,24 +3203,34 @@
             301,
             441
           ],
-          "en": "Rewards Expression and root movement goal rewards are specified in Tab. III. Regularization reward items are listed in Tab. VI, where h feet is feet height, tair i indicates the duration each foot remains airborne, 1new contact represents new foot contact with ground, Fxy i and Fizareforfootcontactforcein horizontal plane and along the z-axis respectively, with F th is the contact force threshold. q ¨ is joint acceleration, a t is action at timestep t , 1collision indicates self-collision, q max and q min are limits for joint positions, g xy is gravity vector projected on horizontal plane. We specifically add feet related reward items to make sure the feet are comfortably lifted high enough and having a reasonable contact force with the ground when putting down.",
+          "en": "Rewards Expression and root movement goal rewards are specified in Tab. III. Regularization reward items are listed in Tab. VI, where \\(h_\\text{feet}\\) is feet height, \\(t_\\textit{i}^\\text{air}\\) indicates the duration each foot remains airborne, \\(\\mathbb{1}_\\text{new contact}\\) represents new foot contact with ground, \\(\\mathbf{F}_\\textit{i}^\\textit{xy}\\) and \\(F_\\textit{i}^\\textit{z}\\) are for foot contact force in horizontal plane and along the z-axis respectively, with \\(F_\\text{th}\\) is the contact force threshold. \\(\\ddot{\\mathbf{q}}\\) is joint acceleration, \\(\\mathbf{a_\\textit{t}}\\) is action at timestep \\(t\\), \\(\\mathbb{1}_\\text{collision}\\) indicates self-collision, \\(q_\\text{max}\\) and \\(q_\\text{min}\\) are limits for joint positions, \\(\\mathbf{g}_\\text{xy}\\) is gravity vector projected on horizontal plane. We specifically add feet related reward items to make sure the feet are comfortably lifted high enough and having a reasonable contact force with the ground when putting down.",
           "reference": false,
           "source_image": "figs/p012-006-source.png",
-          "zh": "奖励 表现力与根部运动目标奖励在 Tab. III 中给出。正则化奖励项列于 Tab. VI，其中 h feet 为足部高度，tair i 表示每只脚保持悬空的时长，1new contact 表示足部与地面的新接触，Fxy i 与 Fiz 分别表示水平面内以及沿 z 轴方向的足部接触力，其中 F th 为接触力阈值。q ¨ 为关节加速度，a t 为时间步 t 的动作，1collision 表示自身碰撞，q max 与 q min 为关节位置限值，g xy 为投影在水平面上的重力向量。我们专门添加了与足部相关的奖励项，以确保双脚能够自然抬起到足够的高度，并在着地时与地面产生合理的接触力。"
+          "zh": "奖励 表现力与根部运动目标奖励在 Tab. III 中给出。正则化奖励项列于 Tab. VI，其中 \\(h_\\text{feet}\\) 为足部高度，\\(t_\\textit{i}^\\text{air}\\) 表示每只脚保持悬空的时长，\\(\\mathbb{1}_\\text{new contact}\\) 表示足部与地面的新接触，\\(\\mathbf{F}_\\textit{i}^\\textit{xy}\\) 与 \\(F_\\textit{i}^\\textit{z}\\) 分别表示水平面内以及沿 z 轴方向的足部接触力，其中 \\(F_\\text{th}\\) 为接触力阈值。\\(\\ddot{\\mathbf{q}}\\) 为关节加速度，\\(\\mathbf{a_\\textit{t}}\\) 为时间步 \\(t\\) 的动作，\\(\\mathbb{1}_\\text{collision}\\) 表示自身碰撞，\\(q_\\text{max}\\) 与 \\(q_\\text{min}\\) 为关节位置限值，\\(\\mathbf{g}_\\text{xy}\\) 为投影在水平面上的重力向量。我们专门添加了与足部相关的奖励项，以确保双脚能够自然抬起到足够的高度，并在着地时与地面产生合理的接触力。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p12-b7",
           "kind": "table",
           "bbox": [
-            56,
-            456,
-            293,
-            635
+            54.0,
+            454.0,
+            295.0,
+            637.0
           ],
           "en": "|Term|Expression|Weight| |---|---|---| ||Feet Related|| |Height|max(|hfeet| −0.2,0) |2.0| |Time in Air|�tair i ∗1new contact |10.0| |Drag|�|vfoot i |∗∼1new contact |-0.1| |Contact Force|1 � |Fz i| ≥Fth � ∗(|Fz i| −Fth) |-3e-3| |Stumble|1 � ∃i, |Fxy i | > 4|F z i | �|-2.0| ||Other Items|| |DoF Acceleration||¨q|2|-3e-7| |Action Rate||at−1−at||-0.1| |Energy||¨q|2|-1e-3| |Collision|1collision|-0.1| |DoF Limit Violation|1qi>qmax||qilow default −qlow|2|-10.0| |Vertical Linear Velocity| v2 z|-1.0| |Horizontal Angular Velocity||ωxy|2 |-0.4| |Projected Gravity||gxy|2|-2.0|",
           "reference": false,
           "image": "figs/p012-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            56.0,
+            456.0,
+            293.0,
+            635.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 723,
+          "image_height": 549
         },
         {
           "id": "p12-b14",
@@ -2863,15 +3292,24 @@
           "id": "p12-b4",
           "kind": "table",
           "bbox": [
-            367,
-            109,
-            505,
-            267
+            365.0,
+            107.0,
+            507.0,
+            269.0
           ],
           "en": "|Hyperparameter|Value| |---|---| |Discount Factor|0.99| |GAE Parameter|0.95| |Timesteps per Rollout|21| |Epochs per Rollout|5| |Minibatches per Epoch|4| |Entropy Bonus (α2)|0.01| |Value Loss Coefficient (α1)|1.0| |Clip Range|0.2| |Reward Normalization|yes| |Learning Rate|1e−3| |# Environments|4096| |Optimizer|Adam|",
           "reference": false,
           "image": "figs/p012-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            367.0,
+            109.0,
+            505.0,
+            267.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 426,
+          "image_height": 486
         },
         {
           "id": "p12-b8",
@@ -2891,15 +3329,24 @@
           "id": "p12-b9",
           "kind": "table",
           "bbox": [
-            347,
-            318,
-            524,
-            429
+            345.0,
+            316.0,
+            526.0,
+            431.0
           ],
           "en": "|Hyperparameter|Value| |---|---| |Discriminator Hidden Layer Dim|[1024,512]| |Replay Buffer Size|1000000| |Demo Buffer Size|200000| |Demo Fetch Batch Size|512| |Learning Batch Size|4096| |Learning Rate|1e −4| |Reward Coefficient|4.0| |Gradient Penalty Coefficient|1.0|",
           "reference": false,
           "image": "figs/p012-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            347.0,
+            318.0,
+            524.0,
+            429.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 543,
+          "image_height": 345
         },
         {
           "id": "p12-b10",
@@ -2966,155 +3413,254 @@
           "id": "p13-b0",
           "kind": "picture",
           "bbox": [
-            48,
-            59,
-            100,
-            135
+            46.0,
+            57.0,
+            102.0,
+            137.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            59.0,
+            100.0,
+            135.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 168,
+          "image_height": 240
         },
         {
           "id": "p13-b1",
           "kind": "picture",
           "bbox": [
-            99,
-            60,
-            151,
-            135
+            97.0,
+            58.0,
+            197.3720245361328,
+            146.4297332763672
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            99.0,
+            60.0,
+            151.0,
+            135.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 302,
+          "image_height": 266
         },
         {
           "id": "p13-b2",
           "kind": "picture",
           "bbox": [
-            150,
-            60,
-            202,
-            135
+            148.0,
+            58.0,
+            204.0,
+            146.4297332763672
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            150.0,
+            60.0,
+            202.0,
+            135.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 168,
+          "image_height": 266
         },
         {
           "id": "p13-b3",
           "kind": "picture",
           "bbox": [
-            201,
-            60,
-            252,
-            135
+            199.0,
+            58.0,
+            254.0,
+            137.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            201.0,
+            60.0,
+            252.0,
+            135.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 165,
+          "image_height": 237
         },
         {
           "id": "p13-b4",
           "kind": "picture",
           "bbox": [
-            251,
-            60,
-            303,
-            135
+            249.0,
+            58.0,
+            305.0,
+            137.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            251.0,
+            60.0,
+            303.0,
+            135.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 168,
+          "image_height": 237
         },
         {
           "id": "p13-b5",
           "kind": "picture",
           "bbox": [
-            506,
-            60,
-            559,
-            136
+            504.0,
+            58.0,
+            561.0,
+            138.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            506.0,
+            60.0,
+            559.0,
+            136.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 171,
+          "image_height": 240
         },
         {
           "id": "p13-b6",
           "kind": "picture",
           "bbox": [
-            305,
-            60,
-            357,
-            136
+            303.0,
+            58.0,
+            359.0,
+            138.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            305.0,
+            60.0,
+            357.0,
+            136.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 168,
+          "image_height": 240
         },
         {
           "id": "p13-b7",
           "kind": "picture",
           "bbox": [
-            355,
-            60,
-            407,
-            136
+            353.0,
+            58.0,
+            453.0792236328125,
+            146.7764129638672
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            355.0,
+            60.0,
+            407.0,
+            136.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 301,
+          "image_height": 267
         },
         {
           "id": "p13-b8",
           "kind": "picture",
           "bbox": [
-            405,
-            60,
-            457,
-            136
+            403.0,
+            58.0,
+            459.0,
+            146.7764129638672
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            405.0,
+            60.0,
+            457.0,
+            136.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 168,
+          "image_height": 267
         },
         {
           "id": "p13-b9",
           "kind": "picture",
           "bbox": [
-            456,
-            60,
-            508,
-            136
+            454.0,
+            58.0,
+            510.0,
+            138.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            456.0,
+            60.0,
+            508.0,
+            136.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 168,
+          "image_height": 240
         },
         {
           "id": "p13-b10",
           "kind": "picture",
           "bbox": [
-            48,
-            138,
-            560,
-            589
+            46.0,
+            136.0,
+            562.0,
+            591.0
           ],
           "en": "(a) Wave hello (b) Stride walk (c) High five (d) Direct traffic, wave (e) Adjust hair (f) Signal Palming (g) Mummy walk (h) Russian dance (i) Signal double dribbling (j) Direct traffic at crossroads (k) Shake hand (l) Hug",
           "reference": false,
           "image": "figs/p013-010.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            138.0,
+            560.0,
+            589.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1548,
+          "image_height": 1365
         },
         {
           "id": "p13-b11",

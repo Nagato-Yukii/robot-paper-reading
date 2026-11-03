@@ -1,0 +1,46 @@
+{
+  "id": "ppo",
+  "sha256": "e78feadadbdbb0b601b3c2bcc81404722cd431a489b307545f9b7bea1e8c4f5b",
+  "brand": "PPO",
+  "zh_title": "近端策略优化算法",
+  "category": "强化学习 · 策略优化",
+  "pdf": "sources/ppo.pdf",
+  "title": "近端策略优化算法 · 中英对照",
+  "brand_sub": "Proximal Policy Optimization Algorithms",
+  "out": "site/ppo",
+  "imported": true,
+  "source_language": "en",
+  "math": true,
+  "source_url": "https://arxiv.org/abs/1707.06347",
+  "source_aliases": [
+    "https://arxiv.org/pdf/1707.06347"
+  ],
+  "source_version": "1707.06347v2",
+  "translation": "GPT-6 Astra (High), translated against the original PDF via local Codex CLI",
+  "translation_engine": "codex",
+  "translation_model": "gpt-6-astra",
+  "translation_effort": "high",
+  "translation_credit": "译文翻译：GPT-6 Astra High",
+  "translation_notice": "中文由 GPT-6 Astra（High）逐段翻译，覆盖正文、题注及附录，尚未经过逐段人工校对。正文数学记号已结合原 PDF 页面图像恢复。图表内文字及编号公式按原 PDF 保留，参考文献保留原文。",
+  "translation_review": "astra-translated-awaiting-human-review",
+  "polished_paragraphs": 85,
+  "polished_at": "2026-10-23T15:20:20.739083+00:00",
+  "validation": {
+    "equations": {
+      "1": "p2-b3",
+      "2": "p2-b5",
+      "3": "p2-b9",
+      "4": "p2-b9",
+      "5": "p2-b12",
+      "6": "p3-b2",
+      "7": "p3-b5",
+      "8": "p4-b6",
+      "9": "p5-b1",
+      "10": "p5-b3",
+      "11": "p5-b5",
+      "12": "p5-b6"
+    },
+    "equation_references": 4,
+    "paragraphs": 86
+  }
+}

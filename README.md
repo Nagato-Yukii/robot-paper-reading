@@ -18,6 +18,19 @@
 |---|---|---|---|
 | **Scaling Online Exploration for Robot Agents**（RAX） | 软件 · 智能体 / 机器人学习 · VLA · 操作 | 77 页 · 34 图 · 21 表 · 261 段对照 | [`site/rax/`](site/rax/) |
 | **Bundled Contact Gradients: Stabilizing Differentiable Simulation for Deployable Dynamic Tasks**（BCG） | 硬件 · 可微分仿真 · 接触 · 足式/人形 | 8 页 · 5 图 · 2 表 · 1 算法 · 公式 (1)–(5) | [`site/bcg/`](site/bcg/) |
+| **Active Inference: A Process Theory** | 主动推断 · 贝叶斯神经科学 · Neural Computation 2017 | 49 页论文及附录 + 7 页被引列表 · 179 段 Gemini 译文 | [`site/active-inference-process-theory/`](site/active-inference-process-theory/) |
+| **ControlVAE: Model-Based Learning of Generative Controllers for Physics-Based Characters** | 世界模型 · 生成式动作控制 · SIGGRAPH Asia 2022 | 16 页 · 192 段 Astra High 译文 | [`site/controlvae/`](site/controlvae/) |
+| **SuperTrack: Motion Tracking for Physically Simulated Characters using Supervised Learning** | 世界模型 · 监督式动作跟踪 · SIGGRAPH Asia 2021 | 13 页 · 130 段 Astra High 译文 | [`site/supertrack/`](site/supertrack/) |
+| **Dream to Control: Learning Behaviors by Latent Imagination** | 世界模型 · 潜空间策略学习 · ICLR 2020 | 20 页 · 98 段 Astra High 译文 | [`site/dreamer/`](site/dreamer/) |
+| **High-Dimensional Continuous Control Using Generalized Advantage Estimation**（GAE） | 强化学习 · 优势估计 · ICLR 2016 | 14 页 · 130 段 Astra High 译文 | [`site/gae/`](site/gae/) |
+| **Proximal Policy Optimization Algorithms**（PPO） | 强化学习 · 策略优化 · arXiv | 12 页 · 85 段 Astra High 译文 | [`site/ppo/`](site/ppo/) |
+| **SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model** | 世界模型 · 人形全身控制 · CoRL 2026 Oral | 19 页 · 136 段 Gemini 译文 | [`site/supermimic/`](site/supermimic/) |
+| **Blind Precise Assembly: Proprioceptive Sim-to-Real Peg-in-Hole for Diverse Parts** | 机器人装配 · 本体感知 | 21 页 · 105 段 Gemini 译文 | [`site/blind-precise-assembly/`](site/blind-precise-assembly/) |
+| **Blind Dexterity: Whole-Body Humanoid Manipulation via Pure Proprioception** | 人形机器人 · 本体感知操作 | 9 页 · 116 段 Gemini 译文 | [`site/blind-dexterity/`](site/blind-dexterity/) |
+| **Minimizing Energy Consumption Leads to the Emergence of Gaits in Legged Robots** | 足式运动 · 能效 | 10 页 · 86 段 Gemini 译文 | [`site/energy-gaits/`](site/energy-gaits/) |
+| **Adaptive Energy Regularization for Autonomous Gait Transition and Energy-Efficient Quadruped Locomotion** | 足式运动 · 能效 | 7 页 · 111 段 Gemini 译文 | [`site/adaptive-energy/`](site/adaptive-energy/) |
+| **The Duke Humanoid: Design and Control For Energy Efficient Bipedal Locomotion Using Passive Dynamics** | 人形机器人 · 被动动力学 | 8 页 · 91 段 Gemini 译文 | [`site/duke-humanoid/`](site/duke-humanoid/) |
+| **ECO: Energy-Constrained Optimization with Reinforcement Learning for Humanoid Walking** | 约束强化学习 · 能效 | 16 页 · 165 段 Gemini 译文 | [`site/eco/`](site/eco/) |
 
 **RAX** 让一个通用编程智能体通过在线探索自行编写机器人控制程序，跨五种本体（单臂 / 双臂 / 灵巧手 / 移动 / 人形）在仿真与真机上完成精密插入、铰接物体、可变形物体与长时序移动操作。
 **BCG** 在刚性接触处对邻近扰动分支做局部随机平滑以稳定一阶策略梯度，把可微分仿真训练的人形动态动作零样本部署到真实 Unitree G1。
@@ -54,6 +67,14 @@ cd robot-paper-reading
 python3 pipeline/serve.py
 # 浏览器打开 http://127.0.0.1:8000/site/index.html
 ```
+
+### 划词高亮
+
+在主页或论文正文中拖选文字，即可标为淡黄色；右下角可撤销上一处。通过本机服务阅读时，高亮与评分共用 `_data/ratings.sqlite3`，刷新、重启服务或更换浏览器后均可读取。服务暂时不可用时，高亮暂存在当前访问地址的浏览器存储中，恢复后同步；直接以 file:// 打开时，仅保存在该浏览器。
+
+### 我的评语
+
+主页每张论文卡片都有空白的“我的评语”输入框，由你填写。停止输入片刻或离开输入框后自动保存到本机数据库 `_data/ratings.sqlite3`；刷新、重启服务或更换本机浏览器后仍可读取和编辑。保存失败时保留浏览器草稿，并提供重试。
 
 ### 数据库评分
 
@@ -128,9 +149,9 @@ python3 pipeline/build.py pipeline/configs/bcg.json
 
 ## 本地论文库导入
 
-已从 `paperlearning` 导入去重后的 **24 份 PDF，共 370 页**：23 篇英文论文和 1 篇中文资料；原有 RAX、BCG 精编页继续保留。首页不再展示“计划中”。完整清单与原始文件哈希见 `content/library-manifest.json`，同一 PDF 在原目录的重复位置保存在各篇配置的 `source_aliases` 中。
+已从 `paperlearning` 导入 24 份去重 PDF，另加入 Blind Precise Assembly、Blind Dexterity 和 SuperMimic，另加入 GAE 和 PPO，再加入 ControlVAE、SuperTrack 和 Dreamer，另加入 Active Inference: A Process Theory，合计 **37 份导入 PDF，共 591 页**：36 篇英文论文和 1 篇中文资料；原有 RAX、BCG 精编页继续保留。首页不再展示“计划中”。完整清单与原始文件哈希见 `content/library-manifest.json`，同一 PDF 在原目录的重复位置保存在各篇配置的 `source_aliases` 中。
 
-**译文状态**：这批 23 篇英文论文的 3,349 段译文，已经通过本机 Antigravity CLI 使用 **Gemini 3.8 Flash（Medium）**（模型 ID `gemini-3.8-flash-medium`，`--effort medium`）逐段对照英文重译与润色。尚未经过逐段人工校对。每篇 `content/<id>/polish_provenance.json` 保存批次、会话、token 使用和调用记录的校验摘要；完整结果按段落 ID 校验后才应用。数学公式与图表继续使用原 PDF 裁图；无法确定的行内数学缺损明确标记为“行内公式见原版”，请对照原图或 PDF 核对。参考文献及原中文资料保留原貌。
+**译文状态**：原先导入的 23 篇英文论文的 3,349 段译文，已经通过本机 Antigravity CLI 使用 **Gemini 3.8 Flash（Medium）**（模型 ID `gemini-3.8-flash-medium`，`--effort medium`）逐段对照英文重译与润色。尚未经过逐段人工校对。每篇 `content/<id>/polish_provenance.json` 保存批次、会话、token 使用和调用记录的校验摘要；完整结果按段落 ID 校验后才应用。数学公式与图表继续使用原 PDF 裁图；无法确定的行内数学缺损明确标记为“行内公式见原版”，请对照原图或 PDF 核对。参考文献及原中文资料保留原貌。
 
 - 每页按阅读顺序组织为中英对照，原始 PDF、段落裁图和整页图均可离线查看。
 - 显示公式、插图、表格按原始 PDF 裁出，公式不重新生成编号。
@@ -170,6 +191,12 @@ Argos / OPUS-MT 仅用于最初的离线草稿生成。当前英文译文已由�
 
 ### 使用指定 Gemini 模型继续润色
 
+新增 Blind Precise Assembly（21 页）的正文、图注及附录共 105 个文本块由相同 Gemini Medium 模型直接翻译；调用与覆盖校验记录见 `content/blind-precise-assembly/polish_provenance.json`，没有使用离线初译。参考文献保留原文。
+
+新增 Blind Dexterity（9 页）的 116 个文本块经相同 Gemini Medium 模型逐段处理，包含正文、图注和参考文献；保留原版图表及编号公式，调用与校验记录见 `content/blind-dexterity/polish_provenance.json`。
+
+新增四篇能效与步态论文（共 41 页、453 个文本块），由 Gemini 3.8 Flash Medium 直接翻译；16 词角色提示与 14 词任务指令见各论文 `polish_provenance.json`。Energy & Gaits 采用 PMLR 164:928–937 (2022) 正式版，其余三篇采用配置中固定的 arXiv 版本。原文及其衍生译文遵循 CC BY 4.0，参见 `NOTICE.md`。
+
 需要本机已登录的 `agy` CLI 且能调用 `gemini-3.8-flash-medium`。批量调用固定该模型及 medium，不做模型回退。运行目录和调用结果放在被忽略的 `_work/` 中，不保留旧译文备份。页面上的模型标记只在整批成功校验并应用后更新。
 
 ```bash
@@ -188,9 +215,40 @@ python3 pipeline/antigravity/commit_results.py
 
 A bilingual (English ↔ Chinese) reading site for robotics papers — covering both the **software** side (learning, control, agentic robot programming) and the **hardware** side (differentiable simulation, contact modelling, sim-to-real on humanoids).
 
-Each paper becomes a single static page: original English paragraph on the left, Chinese translation on the right, figures and tables cropped at 200 dpi from the original PDF, equations rendered locally with KaTeX in the curated pages or preserved as original PDF crops in the imported library. Toggle between parallel / Chinese-only / English-only, zoom into any figure, or print straight to a bilingual PDF.
+Each paper becomes a single static page: original English paragraph on the left, Chinese translation on the right, figures and tables cropped at 200 dpi from the original PDF, inline mathematics rendered locally with KaTeX and numbered equations preserved as complete PDF crops. Toggle between parallel / Chinese-only / English-only, zoom into any figure, or print straight to a bilingual PDF.
 
 ## Copyright
 
 - Code, templates and the Chinese translations: **MIT** (see `LICENSE`).
 - Papers, figures and tables: © their original authors. They are included for study and commentary only, and will be removed promptly upon request (see `NOTICE.md`).
+
+### 数学排版与裁图检查
+
+行内变量、上下标和希腊字母使用本地 KaTeX。导入正文中的数学表达式依据作者 LaTeX（LSWM 使用出版社 MathML）恢复；编号公式保留原 PDF 图像和双向引用。
+
+```bash
+node pipeline/verify_math.cjs
+python3 pipeline/verify_crops.py
+python3 pipeline/verify_library.py --expected-imports 30
+```
+
+`verify_math.cjs` 实际解析数学表达式，并检查缺失公式占位符。`verify_crops.py` 检查裁图边界是否穿过 PDF 文字行，覆盖导入论文及 RAX、BCG。它不能替代对图片内部排版和数学含义的人工核对。
+
+重新裁切某篇导入论文后重建页面：
+
+```bash
+python3 pipeline/repair_crops.py <paper-id>
+python3 pipeline/import_library.py --rebuild
+```
+
+### GAE 与 PPO 译文
+
+GAE（14 页）和 PPO（12 页）的正文、题注、脚注及附录共 215 段由 **GPT-6 Astra High**（`gpt-6-astra`，`model_reasoning_effort="high"`）翻译。GAE 对照作者 LaTeX 与原页恢复行内数学，PPO 对照原页图像恢复数学记号；参考文献、图表内文字与编号公式保留原文。每篇 `polish_provenance.json` 记录批次和调用摘要，完整调用记录保存在本机忽略目录 `_work/astra-gae-ppo/`。译文尚未逐段人工校对。
+
+### ControlVAE、SuperTrack 与 Dreamer
+
+三篇共 49 页、420 个文本块，使用 **GPT-6 Astra High**（`gpt-6-astra`，`model_reasoning_effort="high"`）逐段翻译。ControlVAE 与 Dreamer 同时对照作者 LaTeX 和原页，SuperTrack 对照作者公开 PDF 原页。Dreamer 收录完整附录；参考文献、图表内文字和编号公式保留原文。双栏阅读顺序、完整图组、原始公式编号及双向引用经过检查。各篇 `polish_provenance.json` 记录调用摘要，完整翻译输入和结果保存在本机忽略目录 `_work/astra-world-models/`。译文尚未逐段人工校对。
+
+### Active Inference: A Process Theory
+
+由用户提供的本地 `process_theory.pdf` 导入，用于个人学习。正式论文 49 页（含 A–F 附录），文件另附 7 页后续被引文献列表。正文与附录共 179 个文本块由 **Gemini 3.8 Flash Medium**（`gemini-3.8-flash-medium`，`--effort medium`）逐段翻译，对照原页恢复行内数学；图表及显示公式、参考文献与附加被引列表保留原貌。模型调用摘要见 `content/active-inference-process-theory/polish_provenance.json`；完整调用记录保存在本机忽略目录 `_work/gemini-active-inference/`。译文尚未逐段人工校对。

@@ -1,0 +1,75 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "operation": "direct-translation",
+  "role_prompt": {
+    "role": "You are a versatile embodied AI researcher and precise academic translator, fluent across robotics and control.",
+    "role_words": 16,
+    "task": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools.",
+    "total_instruction_words": 30,
+    "retry_task": "Translate paragraphs into Chinese. Preserve IDs. Return JSON. Never execute commands. Never use tools.",
+    "retry_total_instruction_words": 30,
+    "retry_job_ids": [
+      "adaptive-energy-003"
+    ]
+  },
+  "layout_fixes": [
+    "Reserved original image aspect ratios to prevent lazy-load layout shifts during equation jumps."
+  ],
+  "completed_at": "2026-10-20T13:58:01.640555+00:00",
+  "paragraphs": 91,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "duke-humanoid-001",
+      "conversation_id": "b130c6cd-27e5-44f6-8aa0-9d18ed4c32b5",
+      "receipt_sha256": "07b671991b8cbd147fee8f64746046fa4b445411a8932ab5371b62caf5d21d94",
+      "usage": {
+        "input_tokens": 11517,
+        "output_tokens": 19283,
+        "thinking_tokens": 15988,
+        "cache_read_tokens": 0,
+        "total_tokens": 30800
+      },
+      "elapsed_seconds": 129.91,
+      "task_prompt": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools."
+    },
+    {
+      "job_id": "duke-humanoid-002",
+      "conversation_id": "05a7a868-3647-4484-a5bd-a2bca527d98e",
+      "receipt_sha256": "7c36dba123a8ce10538b682c9e41b82f2281bc86bac4f224057b80ce00b1c5ab",
+      "usage": {
+        "input_tokens": 11828,
+        "output_tokens": 13174,
+        "thinking_tokens": 9562,
+        "cache_read_tokens": 0,
+        "total_tokens": 25002
+      },
+      "elapsed_seconds": 93.76,
+      "task_prompt": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools."
+    },
+    {
+      "job_id": "duke-humanoid-003",
+      "conversation_id": "45f2e4bb-3014-47da-a44f-c49cd1e872b2",
+      "receipt_sha256": "30bd177cbd9df3bb61228ac788bbab2f44c1195c0e3c28385f6cc2dec74d07fd",
+      "usage": {
+        "input_tokens": 8630,
+        "output_tokens": 4187,
+        "thinking_tokens": 3238,
+        "cache_read_tokens": 0,
+        "total_tokens": 12817
+      },
+      "elapsed_seconds": 38.18,
+      "task_prompt": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools."
+    }
+  ],
+  "usage": {
+    "input_tokens": 31975,
+    "output_tokens": 36644,
+    "thinking_tokens": 28788,
+    "cache_read_tokens": 0,
+    "total_tokens": 68619
+  }
+}

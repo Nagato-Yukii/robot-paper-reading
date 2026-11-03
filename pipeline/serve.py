@@ -3,10 +3,11 @@
 import argparse
 import json
 import sqlite3
+import uuid
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import unquote, urlsplit
+from urllib.parse import parse_qs, unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 METRICS = {'influence', 'experiments', 'reference'}
@@ -23,6 +24,15 @@ class RatingStore:
                 value INTEGER NOT NULL CHECK(value BETWEEN 0 AND 5),
                 updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
                 PRIMARY KEY(paper, metric))''')
+            db.execute('''CREATE TABLE IF NOT EXISTS highlights (
+                page TEXT NOT NULL, id TEXT NOT NULL,
+                start INTEGER NOT NULL, end INTEGER NOT NULL,
+                quote TEXT NOT NULL, prefix TEXT NOT NULL, suffix TEXT NOT NULL,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                PRIMARY KEY(page, id))''')
+            db.execute('''CREATE TABLE IF NOT EXISTS comments (
+                paper TEXT PRIMARY KEY, text TEXT NOT NULL,
+                updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP)''')
 
     def connect(self):
         return sqlite3.connect(self.path, timeout=10)
@@ -62,6 +72,63 @@ class RatingStore:
             db.executemany('INSERT OR IGNORE INTO ratings(paper,metric,value) VALUES(?,?,?)', values)
         return self.read()
 
+    def read_comments(self):
+        with self.connect() as db:
+            return {'comments': dict(db.execute('SELECT paper,text FROM comments'))}
+
+    def write_comment(self, entry):
+        if not isinstance(entry, dict):
+            raise ValueError('评语格式错误')
+        paper, text = entry.get('paper'), entry.get('text')
+        if not isinstance(paper, str) or paper not in self.papers:
+            raise ValueError('未知论文')
+        if not isinstance(text, str) or len(text) > 5000:
+            raise ValueError('评语限 5000 字')
+        with self.connect() as db:
+            db.execute('''INSERT INTO comments(paper,text) VALUES(?,?)
+                ON CONFLICT(paper) DO UPDATE SET
+                text=excluded.text, updated_at=CURRENT_TIMESTAMP''', (paper, text))
+        return {'saved': True, 'paper': paper, 'text': text}
+
+    def validate_highlight_page(self, page):
+        if not isinstance(page, str) or page not in self.papers | {'library'}:
+            raise ValueError('未知阅读页')
+        return page
+
+    def read_highlights(self, page):
+        self.validate_highlight_page(page)
+        with self.connect() as db:
+            db.row_factory = sqlite3.Row
+            rows = db.execute('SELECT id,start,end,quote,prefix,suffix FROM highlights WHERE page=? ORDER BY created_at,rowid', (page,))
+            return {'highlights': [dict(row) for row in rows]}
+
+    def write_highlight(self, entry):
+        if not isinstance(entry, dict):
+            raise ValueError('标记格式错误')
+        page = self.validate_highlight_page(entry.get('page'))
+        ident = str(uuid.UUID(entry.get('id', '')))
+        start, end, quote = (entry.get(k) for k in ('start', 'end', 'quote'))
+        prefix, suffix = entry.get('prefix'), entry.get('suffix')
+        if (type(start) is not int or type(end) is not int or not 0 <= start < end <= 10000000
+                or not isinstance(quote, str) or not quote.strip() or len(quote) > 20000
+                or len(quote.encode('utf-16-le')) // 2 != end - start
+                or not isinstance(prefix, str) or not isinstance(suffix, str)
+                or len(prefix) > 40 or len(suffix) > 40):
+            raise ValueError('标记范围或文本无效')
+        with self.connect() as db:
+            db.execute('INSERT OR IGNORE INTO highlights(page,id,start,end,quote,prefix,suffix) VALUES(?,?,?,?,?,?,?)',
+                       (page, ident, start, end, quote, prefix, suffix))
+        return {'saved': True, 'id': ident}
+
+    def delete_highlight(self, entry):
+        if not isinstance(entry, dict):
+            raise ValueError('标记格式错误')
+        page = self.validate_highlight_page(entry.get('page'))
+        ident = str(uuid.UUID(entry.get('id', '')))
+        with self.connect() as db:
+            db.execute('DELETE FROM highlights WHERE page=? AND id=?', (page, ident))
+        return {'deleted': True, 'id': ident}
+
 
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, store, **kwargs):
@@ -96,6 +163,19 @@ class Handler(SimpleHTTPRequestHandler):
         if not self.valid_host():
             return self.json_response(403, {'error': '仅允许本机访问'})
         path = urlsplit(self.path).path
+        if path == '/api/comments':
+            try:
+                return self.json_response(200, self.store.read_comments())
+            except sqlite3.Error:
+                return self.json_response(500, {'error': '评语读取失败'})
+        if path == '/api/highlights':
+            page = parse_qs(urlsplit(self.path).query).get('page', [''])[0]
+            try:
+                return self.json_response(200, self.store.read_highlights(page))
+            except ValueError:
+                return self.json_response(400, {'error': '未知阅读页'})
+            except sqlite3.Error:
+                return self.json_response(500, {'error': '数据库读取失败'})
         if path == '/api/ratings':
             try:
                 return self.json_response(200, self.store.read())
@@ -140,11 +220,59 @@ class Handler(SimpleHTTPRequestHandler):
             return self.json_response(500, {'error': '数据库写入失败，评分未保存'})
         return self.json_response(200, result)
 
+    def comment_mutation(self):
+        if not self.valid_host():
+            return self.json_response(403, {'error': '仅允许本机访问'})
+        origin = self.headers.get('Origin')
+        if origin and origin != 'http://' + self.headers['Host']:
+            return self.json_response(403, {'error': '不允许跨站修改评语'})
+        if self.headers.get('Content-Type', '').split(';')[0] != 'application/json':
+            return self.json_response(415, {'error': '请求需要使用 JSON 格式'})
+        try:
+            length = int(self.headers.get('Content-Length', '0'))
+            if not 0 < length <= 65536:
+                raise ValueError('请求大小错误')
+            result = self.store.write_comment(json.loads(self.rfile.read(length)))
+        except (ValueError, UnicodeError):
+            return self.json_response(400, {'error': '评语无效，请使用已有论文和不超过 5000 字的文本'})
+        except sqlite3.Error:
+            return self.json_response(500, {'error': '数据库写入失败，评语未保存'})
+        return self.json_response(200, result)
+
     def do_PUT(self):
+        if urlsplit(self.path).path == '/api/comments':
+            return self.comment_mutation()
         self.mutation()
 
+    def highlight_mutation(self, deleting=False):
+        if not self.valid_host():
+            return self.json_response(403, {'error': '仅允许本机访问'})
+        origin = self.headers.get('Origin')
+        if origin and origin != 'http://' + self.headers['Host']:
+            return self.json_response(403, {'error': '不允许跨站修改标记'})
+        if urlsplit(self.path).path != '/api/highlights':
+            return self.json_response(404, {'error': '未找到接口'})
+        if self.headers.get('Content-Type', '').split(';')[0] != 'application/json':
+            return self.json_response(415, {'error': '请求需要使用 JSON 格式'})
+        try:
+            length = int(self.headers.get('Content-Length', '0'))
+            if not 0 < length <= 65536:
+                raise ValueError('请求大小错误')
+            data = json.loads(self.rfile.read(length))
+            result = self.store.delete_highlight(data) if deleting else self.store.write_highlight(data)
+        except (ValueError, TypeError, AttributeError, UnicodeError):
+            return self.json_response(400, {'error': '文字标记格式无效'})
+        except sqlite3.Error:
+            return self.json_response(500, {'error': '数据库写入失败，标记未保存'})
+        return self.json_response(200, result)
+
     def do_POST(self):
+        if urlsplit(self.path).path == '/api/highlights':
+            return self.highlight_mutation()
         self.mutation(importing=True)
+
+    def do_DELETE(self):
+        self.highlight_mutation(deleting=True)
 
 
 def main():

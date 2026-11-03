@@ -1,0 +1,36 @@
+{
+  "id": "duke-humanoid",
+  "brand": "The Duke Humanoid",
+  "zh_title": "杜克人形机器人：利用被动动力学实现高能效双足运动的设计与控制",
+  "category": "人形机器人 · 被动动力学",
+  "sha256": "42cc624f6b01d2c3f5434d94f49a2ff4cdc48365c527f9cec0eb52b81d4c0228",
+  "pdf": "sources/duke-humanoid.pdf",
+  "title": "杜克人形机器人：利用被动动力学实现高能效双足运动的设计与控制 · 中英对照",
+  "brand_sub": "The Duke Humanoid: Design and Control For Energy Efficient Bipedal Locomotion Using Passive Dynamics",
+  "out": "site/duke-humanoid",
+  "imported": true,
+  "source_language": "en",
+  "math": true,
+  "source_aliases": [
+    "https://arxiv.org/abs/2409.19795"
+  ],
+  "source_url": "https://arxiv.org/abs/2409.19795",
+  "source_version": "2409.19795v2",
+  "source_license": "CC BY 4.0",
+  "source_license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_authors": "Boxi Xia, Bokuan Li, Jacob Lee, Michael Scutari, Boyuan Chen",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "translation_kind": "direct-translation",
+  "translation_credit": "译文：Gemini3.8 Flash medium",
+  "translation": "Gemini 3.8 Flash (Medium), translated directly from English via local Antigravity CLI",
+  "translation_review": "gemini-translated-awaiting-human-review",
+  "polished_paragraphs": 91,
+  "polished_at": "2026-10-20T13:58:01.640555+00:00",
+  "validation": {
+    "equations": {},
+    "equation_references": 0,
+    "paragraphs": 135
+  }
+}

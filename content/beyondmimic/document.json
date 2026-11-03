@@ -27,10 +27,11 @@
             549,
             139
           ],
-          "en": "Qiayuan Liao∗1 , Takara E. Truong∗2 , Xiaoyu Huang∗1 , Guy Tevet2 , Koushil Sreenath†1 and C. Karen Liu†2",
+          "en": "Qiayuan Liao\\(^{*1}\\) , Takara E. Truong\\(^{*2}\\) , Xiaoyu Huang\\(^{*1}\\) , Guy Tevet\\(^{2}\\) , Koushil Sreenath\\(^{\\dagger 1}\\) and C. Karen Liu\\(^{\\dagger 2}\\)",
           "reference": false,
           "source_image": "figs/p001-002-source.png",
-          "zh": "Qiayuan Liao∗1 , Takara E. Truong∗2 , Xiaoyu Huang∗1 , Guy Tevet2 , Koushil Sreenath†1 and C. Karen Liu†2"
+          "zh": "Qiayuan Liao\\(^{*1}\\) , Takara E. Truong\\(^{*2}\\) , Xiaoyu Huang\\(^{*1}\\) , Guy Tevet\\(^{2}\\) , Koushil Sreenath\\(^{\\dagger 1}\\) and C. Karen Liu\\(^{\\dagger 2}\\)",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b3",
@@ -97,10 +98,11 @@
             224,
             661
           ],
-          "en": "∗ Equal contribution; order decided by coin toss.",
+          "en": "\\(^{*}\\) Equal contribution; order decided by coin toss.",
           "reference": false,
           "source_image": "figs/p001-009-source.png",
-          "zh": "∗ 同等贡献；排名顺序由抛硬币决定。"
+          "zh": "\\(^{*}\\) 同等贡献；排名顺序由抛硬币决定。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b10",
@@ -111,10 +113,11 @@
             299,
             678
           ],
-          "en": "† Equal advising; order mirrors the coin toss, with the other lab listed last.",
+          "en": "\\(^{\\dagger}\\) Equal advising; order mirrors the coin toss, with the other lab listed last.",
           "reference": false,
           "source_image": "figs/p001-010-source.png",
-          "zh": "† 共同指导；顺序与抛硬币结果对应，另一个实验室列在最后。"
+          "zh": "\\(^{\\dagger}\\) 共同指导；顺序与抛硬币结果对应，另一个实验室列在最后。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b11",
@@ -125,10 +128,11 @@
             299,
             707
           ],
-          "en": "1Q. Liao, X. Huang, and K. Sreenath are with the University of California, Berkeley, CA 94720, USA. { qiayuanl, haytham.huang, koushils } @berkeley.edu.",
+          "en": "\\(^{1}\\)Q. Liao, X. Huang, and K. Sreenath are with the University of California, Berkeley, CA 94720, USA. { qiayuanl, haytham.huang, koushils } @berkeley.edu.",
           "reference": false,
           "source_image": "figs/p001-011-source.png",
-          "zh": "1Q. Liao、X. Huang 和 K. Sreenath 供职于加利福尼亚大学伯克利分校，CA 94720, USA。{ qiayuanl, haytham.huang, koushils } @berkeley.edu。"
+          "zh": "\\(^{1}\\)Q. Liao、X. Huang 和 K. Sreenath 供职于加利福尼亚大学伯克利分校，CA 94720, USA。{ qiayuanl, haytham.huang, koushils } @berkeley.edu。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b12",
@@ -139,24 +143,34 @@
             299,
             734
           ],
-          "en": "2T.E. Truong, G. Tevet, and C. K. Liu are with Stanford University, Stanford, CA 94305, USA. { takarat, guytevet, ckliu } @stanford.edu.",
+          "en": "\\(^{2}\\)T.E. Truong, G. Tevet, and C. K. Liu are with Stanford University, Stanford, CA 94305, USA. { takarat, guytevet, ckliu } @stanford.edu.",
           "reference": false,
           "source_image": "figs/p001-012-source.png",
-          "zh": "2T.E. Truong、G. Tevet 和 C. K. Liu 供职于斯坦福大学，Stanford, CA 94305, USA。{ takarat, guytevet, ckliu } @stanford.edu。"
+          "zh": "\\(^{2}\\)T.E. Truong、G. Tevet 和 C. K. Liu 供职于斯坦福大学，Stanford, CA 94305, USA。{ takarat, guytevet, ckliu } @stanford.edu。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b4",
           "kind": "picture",
           "bbox": [
-            313,
-            157,
-            554,
-            329
+            311.0,
+            155.0,
+            556.0,
+            331.0
           ],
           "en": "Train Mo t ion Tracking Policies π1 π2 π3 Robus t O ff line Dis t illa t ion S t a t e -A c t ion Di ff usion Model Guidance Desired Yaw Vel Desired Linear Vel Waypoin t Obs t acle",
           "reference": false,
           "image": "figs/p001-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            313.0,
+            157.0,
+            554.0,
+            329.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 735,
+          "image_height": 528
         },
         {
           "id": "p1-b5",
@@ -167,10 +181,11 @@
             559,
             385
           ],
-          "en": "Fig. 1. Overview of BeyondMimic: We train robust motion tracking policies π for effective sim-to-real transfer, then perform offline distillation to learn a state-action diffusion model, and finally deploy the distilled policy on downstream tasks using guidance including waypoint navigation with obstacle avoidance (left) and joystick-based velocity control (right).",
+          "en": "Fig. 1. Overview of BeyondMimic: We train robust motion tracking policies \\(\\pi\\) for effective sim-to-real transfer, then perform offline distillation to learn a state-action diffusion model, and finally deploy the distilled policy on downstream tasks using guidance including waypoint navigation with obstacle avoidance (left) and joystick-based velocity control (right).",
           "reference": false,
           "source_image": "figs/p001-005-source.png",
-          "zh": "图 1. BeyondMimic 概述：我们训练鲁棒的动作跟踪策略 π 以实现有效的仿真到现实迁移，随后进行离线蒸馏以学习状态-动作扩散模型，最后通过引导将蒸馏得到的策略部署到下游任务中，包括带避障的路径点导航（左）和基于摇杆的速度控制（右）。"
+          "zh": "图 1. BeyondMimic 概述：我们训练鲁棒的动作跟踪策略 \\(\\pi\\) 以实现有效的仿真到现实迁移，随后进行离线蒸馏以学习状态-动作扩散模型，最后通过引导将蒸馏得到的策略部署到下游任务中，包括带避障的路径点导航（左）和基于摇杆的速度控制（右）。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b13",
@@ -245,7 +260,8 @@
           "en": "- Scalable Motion Tracking : An open-source framework for training robust, high-quality, and highly dynamic motion tracking policies on real hardware, using a unified MDP and a single set of hyperparameters.",
           "reference": false,
           "source_image": "figs/p002-001-source.png",
-          "zh": "- 可扩展动作跟踪：一个开源框架，使用统一的 MDP 和单单一组超参数，在真实硬件上训练鲁棒、高质量且高动态的动作跟踪策略。"
+          "zh": "- 可扩展动作跟踪：一个开源框架，使用统一的 MDP 和单单一组超参数，在真实硬件上训练鲁棒、高质量且高动态的动作跟踪策略。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b2",
@@ -259,7 +275,8 @@
           "en": "- Guided Diffusion for Humanoids : Demonstrating loss-guided diffusion for real-world humanoid wholebody control, enabling diverse downstream tasks via simple loss functions at test time, a capability not previously achievable with existing methods..",
           "reference": false,
           "source_image": "figs/p002-002-source.png",
-          "zh": "- 面向人形机器人的引导扩散：展示了用于真实世界人形机器人全身控制的损失引导扩散，在测试阶段通过简单的损失函数赋能多样化的下游任务，这是现有方法此前无法实现的能力。"
+          "zh": "- 面向人形机器人的引导扩散：展示了用于真实世界人形机器人全身控制的损失引导扩散，在测试阶段通过简单的损失函数赋能多样化的下游任务，这是现有方法此前无法实现的能力。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b3",
@@ -273,7 +290,8 @@
           "en": "- End-to-End Framework : A complete pipeline from raw motion capture to hardware deployment, including motion tracking, diffusion distillation, and real-world deployment, as shown in Fig 1.",
           "reference": false,
           "source_image": "figs/p002-003-source.png",
-          "zh": "- 端到端框架：一个从原始动作捕捉到硬件部署的完整流程，包括动作跟踪、扩散蒸馏和真实世界部署，如图 1 所示。"
+          "zh": "- 端到端框架：一个从原始动作捕捉到硬件部署的完整流程，包括动作跟踪、扩散蒸馏和真实世界部署，如图 1 所示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b4",
@@ -471,10 +489,11 @@
             299,
             290
           ],
-          "en": "In this section, we detail the scalable pipeline for training motion-tracking policies. Using the same MDP and hyperparameters, the pipeline produces high-quality sim-toreal policies from minutes-long reference motions, demonstrating scalability across diverse motions. Note that since our tracking framework does not have a history, we omit timestep t in the formulation for clarity. We use the subscript m to denote quantities from the reference motion. Unless otherwise stated, all amounts in this section are expressed in the world frame.",
+          "en": "In this section, we detail the scalable pipeline for training motion-tracking policies. Using the same MDP and hyperparameters, the pipeline produces high-quality sim-toreal policies from minutes-long reference motions, demonstrating scalability across diverse motions. Note that since our tracking framework does not have a history, we omit timestep \\(t\\) in the formulation for clarity. We use the subscript \\(\\text{m}\\) to denote quantities from the reference motion. Unless otherwise stated, all amounts in this section are expressed in the world frame.",
           "reference": false,
           "source_image": "figs/p003-002-source.png",
-          "zh": "在本节中，我们详细介绍了用于训练动作跟踪策略的可扩展流程。使用相同的 MDP 和超参数，该流程能够从数分钟长的参考动作中生成高质量的仿真到现实迁移策略，展现了在多样化动作上的可扩展性。需要注意的是，由于我们的跟踪框架不包含历史信息，为清晰起见，我们在公式表达中省略了时间步 t。我们使用下标 m 表示来自参考动作的物理量。除非另有说明，本节中的所有量均在世界坐标系下表示。"
+          "zh": "在本节中，我们详细介绍了用于训练动作跟踪策略的可扩展流程。使用相同的 MDP 和超参数，该流程能够从数分钟长的参考动作中生成高质量的仿真到现实迁移策略，展现了在多样化动作上的可扩展性。需要注意的是，由于我们的跟踪框架不包含历史信息，为清晰起见，我们在公式表达中省略了时间步 \\(t\\)。我们使用下标 \\(\\text{m}\\) 表示来自参考动作的物理量。除非另有说明，本节中的所有量均在世界坐标系下表示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b3",
@@ -499,10 +518,11 @@
             299,
             387
           ],
-          "en": "We start from the retargeted reference motion, represented as keyframes ( q m , v m) of generalized positions and velocities. Using forward kinematics, we obtain for each body b ∈B its pose Tb, m and twist Vb, m, where B is the set of all robot bodies. The goal is to reproduce the reference motion on hardware with high fidelity in global coordinates.",
+          "en": "We start from the retargeted reference motion, represented as keyframes \\((\\mathbf{q}_{\\text{m}}, \\mathbf{v}_{\\text{m}})\\) of generalized positions and velocities. Using forward kinematics, we obtain for each body \\(b \\in \\mathcal{B}\\) its pose \\(T_{b,\\text{m}}\\) and twist \\(\\mathcal{V}_{b,\\text{m}}\\), where \\(\\mathcal{B}\\) is the set of all robot bodies. The goal is to reproduce the reference motion on hardware with high fidelity in global coordinates.",
           "reference": false,
           "source_image": "figs/p003-004-source.png",
-          "zh": "我们从重定向后的参考动作出发，该动作表示为广义位置与广义速度的关键帧 ( q m , v m)。利用正运动学，我们针对每个刚体 b ∈B 计算其位姿 Tb, m 和空间速度 Vb, m，其中 B 为机器人所有刚体的集合。目标是以高保真度在硬件上的全局坐标系中复现该参考动作。"
+          "zh": "我们从重定向后的参考动作出发，该动作表示为广义位置与广义速度的关键帧 \\((\\mathbf{q}_{\\text{m}}, \\mathbf{v}_{\\text{m}})\\)。利用正运动学，我们针对每个刚体 \\(b \\in \\mathcal{B}\\) 计算其位姿 \\(T_{b,\\text{m}}\\) 和空间速度 \\(\\mathcal{V}_{b,\\text{m}}\\)，其中 \\(\\mathcal{B}\\) 为机器人所有刚体的集合。目标是以高保真度在硬件上的全局坐标系中复现该参考动作。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b5",
@@ -527,10 +547,11 @@
             299,
             591
           ],
-          "en": "Therefore, we select an anchor body b anchor ∈B , typically the root or torso, and anchor the motion reference to the desired tracking objective as follows: For the anchor body, use the reference motion directly: Tˆ b anchor = Tb anchor , m. For non-anchor bodies b ∈B \\ {b anchor } , the desired pose is computed as Tˆ b = T ∆ Tb− anchor1 , mTb,m,whereTbanchor,misthe pose of the anchor body in reference motion, and T ∆ = ( p ∆ , R ∆) with p ∆ = [ pb anchor .x, pb anchor .y, pb anchor .z, m] and R ∆ = Rz (yaw( Rb anchor Rb⊤ anchor , m)).Thishybridtransform shifts the motion into the robot’s local frame by preserving height, aligning yaw, and translating the xy origin under the robot. Finally, the desired twists remain unchanged, i.e., V ˆ b = Vb, m , ∀b ∈B .",
+          "en": "Therefore, we select an anchor body \\(b_\\text{anchor} \\in \\mathcal{B}\\), typically the root or torso, and anchor the motion reference to the desired tracking objective as follows: For the anchor body, use the reference motion directly: \\(\\hat{T}_{b_\\text{anchor}}=T_{b_\\text{anchor},\\text{m}}\\). For non-anchor bodies \\(b\\in \\mathcal{B}\\setminus \\{b_\\text{anchor}\\}\\), the desired pose is computed as \\(\\hat{T}_{b} = T_\\Delta\\,T^{-1}_{b_\\text{anchor},\\text{m}}\\,T_{b,\\text{m}}\\), where \\(T_{b_\\text{anchor}, \\text{m}}\\) is the pose of the anchor body in reference motion, and \\(T_\\Delta = (p_\\Delta, R_\\Delta)\\) with \\(p_\\Delta = [p_{b_\\text{anchor}.x},\\ p_{b_\\text{anchor}.y},\\ p_{b_\\text{anchor}.z,\\text{m}}]\\) and \\(R_\\Delta = R_z(\\operatorname{yaw}(R_{b_\\text{anchor}} R^\\top_{b_\\text{anchor},\\text{m}}))\\). This hybrid transform shifts the motion into the robot’s local frame by preserving height, aligning yaw, and translating the \\(xy\\) origin under the robot. Finally, the desired twists remain unchanged, i.e., \\(\\hat{\\mathcal{V}}_{b} = \\mathcal{V}_{b,\\text{m}},\\ \\forall b\\in \\mathcal{B}\\).",
           "reference": false,
           "source_image": "figs/p003-006-source.png",
-          "zh": "因此，我们选择一个锚定刚体 b anchor ∈B，通常为根节点或躯干，并将动作参考锚定到所期望的跟踪目标上，具体如下：对于锚定刚体，直接使用参考动作：Tˆ b anchor = Tb anchor , m。对于非锚定刚体 b ∈B \\ {b anchor }，期望位姿计算为 Tˆ b = 〔行内公式见原版〕，其中 Tb anchor, m 是参考动作中锚定刚体的位姿，且 T ∆ = ( p ∆ , R ∆)，其中 p ∆ = [ pb anchor .x, pb anchor .y, pb anchor .z, m]，且 R ∆ = Rz (yaw( Rb anchor Rb⊤ anchor , m))。这种混合变换通过保持高度、对齐偏航角并将 xy 原点平移至机器人下方，将动作转换到机器人的局部坐标系中。最后，期望空间速度保持不变，即 V ˆ b = Vb, m , ∀b ∈B 。"
+          "zh": "因此，我们选择一个锚定刚体 \\(b_\\text{anchor} \\in \\mathcal{B}\\)，通常为根节点或躯干，并将动作参考锚定到所期望的跟踪目标上，具体如下：对于锚定刚体，直接使用参考动作：\\(\\hat{T}_{b_\\text{anchor}}=T_{b_\\text{anchor},\\text{m}}\\)。对于非锚定刚体 \\(b\\in \\mathcal{B}\\setminus \\{b_\\text{anchor}\\}\\)，期望位姿计算为 \\(\\hat{T}_{b} = T_\\Delta\\,T^{-1}_{b_\\text{anchor},\\text{m}}\\,T_{b,\\text{m}}\\)，其中 \\(T_{b_\\text{anchor}, \\text{m}}\\) 是参考动作中锚定刚体的位姿，且 \\(T_\\Delta = (p_\\Delta, R_\\Delta)\\)，其中 \\(p_\\Delta = [p_{b_\\text{anchor}.x},\\ p_{b_\\text{anchor}.y},\\ p_{b_\\text{anchor}.z,\\text{m}}]\\)，且 \\(R_\\Delta = R_z(\\operatorname{yaw}(R_{b_\\text{anchor}} R^\\top_{b_\\text{anchor},\\text{m}}))\\)。这种混合变换通过保持高度、对齐偏航角并将 \\(xy\\) 原点平移至机器人下方，将动作转换到机器人的局部坐标系中。最后，期望空间速度保持不变，即 \\(\\hat{\\mathcal{V}}_{b} = \\mathcal{V}_{b,\\text{m}},\\ \\forall b\\in \\mathcal{B}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b7",
@@ -541,10 +562,11 @@
             299,
             652
           ],
-          "en": "Robots often have many closely spaced bodies. Tracking all of them is therefore inefficient and often unnecessary. Instead, we select a subset of target bodies B target ⊆ = B , forming the motion tracking objective as g tracking ( Tˆ b anchor , Tˆ b, Vˆ b ) , ∀b ∈B target.",
+          "en": "Robots often have many closely spaced bodies. Tracking all of them is therefore inefficient and often unnecessary. Instead, we select a subset of target bodies \\(\\mathcal{B}_\\text{target} \\subseteq \\mathcal{B}\\), forming the motion tracking objective as \\(g_{\\text{tracking}} = (\\hat{T}_{b_\\text{anchor}}, \\hat{T}_{b}, \\hat{\\mathcal{V}}_{b}),\\ \\forall b \\in \\mathcal{B}_\\text{target}\\).",
           "reference": false,
           "source_image": "figs/p003-007-source.png",
-          "zh": "机器人通常具有许多间距很近的刚体。因此，跟踪所有刚体效率低下且往往没有必要。相反，我们选择目标刚体的一个子集 B target ⊆ = B，将动作跟踪目标构建为 g tracking ( Tˆ b anchor , Tˆ b, Vˆ b ) , ∀b ∈B target。"
+          "zh": "机器人通常具有许多间距很近的刚体。因此，跟踪所有刚体效率低下且往往没有必要。相反，我们选择目标刚体的一个子集 \\(\\mathcal{B}_\\text{target} \\subseteq \\mathcal{B}\\)，将动作跟踪目标构建为 \\(g_{\\text{tracking}} = (\\hat{T}_{b_\\text{anchor}}, \\hat{T}_{b}, \\hat{\\mathcal{V}}_{b}),\\ \\forall b \\in \\mathcal{B}_\\text{target}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b8",
@@ -569,10 +591,11 @@
             299,
             734
           ],
-          "en": "We formulate the policy observation space as a singletimestep vector comprising three components. (1) Reference phase. We include the joint positions and velocities from the reference motion, c = [ q joint,m , v joint,m], serving solely as phase information; the policy is not intended to track these",
+          "en": "We formulate the policy observation space as a singletimestep vector comprising three components. (1) Reference phase. We include the joint positions and velocities from the reference motion, \\(\\mathbf{c} = [\\mathbf{q}_{\\text{joint,m}}, \\mathbf{v}_{\\text{joint,m}}]\\), serving solely as phase information; the policy is not intended to track these",
           "reference": false,
           "source_image": "figs/p003-009-source.png",
-          "zh": "我们将策略观测空间构建为由三个组件组成的单时间步向量。(1) 参考相位：我们包含了来自参考动作的关节位置和关节速度 c = [ q joint,m , v joint,m]，仅用于提供相位信息；策略并非旨在跟踪这些"
+          "zh": "我们将策略观测空间构建为由三个组件组成的单时间步向量。(1) 参考相位：我们包含了来自参考动作的关节位置和关节速度 \\(\\mathbf{c} = [\\mathbf{q}_{\\text{joint,m}}, \\mathbf{v}_{\\text{joint,m}}]\\)，仅用于提供相位信息；策略并非旨在跟踪这些",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b10",
@@ -583,10 +606,11 @@
             559,
             172
           ],
-          "en": "joint values directly. (2) Anchor pose-tracking error. We include the pose tracking error of the anchor body, ξb anchor ∈ R9 , which consists of the three-dimensional position error and the first two columns of the rotation error matrix [38]. Since the reference motion is predefined in the world frame, this term implicitly provides orientation for balancing and global position for correcting drift. (3) Other Proprioceptions. We include the robot’s root twist expressed in the root frame b root Vb root, joint positions q joint and velocities v joint, and the previous action a last.",
+          "en": "joint values directly. (2) Anchor pose-tracking error. We include the pose tracking error of the anchor body, \\(\\xi_{b_\\text{anchor}} \\in \\mathbb{R}^9\\), which consists of the three-dimensional position error and the first two columns of the rotation error matrix [38]. Since the reference motion is predefined in the world frame, this term implicitly provides orientation for balancing and global position for correcting drift. (3) Other Proprioceptions. We include the robot’s root twist expressed in the root frame \\({}^{b_\\text{root}}\\!\\mathcal{V}_{b_\\text{root}}\\), joint positions \\(\\mathbf{q}_{\\text{joint}}\\) and velocities \\(\\mathbf{v}_{\\text{joint}}\\), and the previous action \\(\\mathbf{a}_{\\text{last}}\\).",
           "reference": false,
           "source_image": "figs/p003-010-source.png",
-          "zh": "直接输入关节值。(2) 锚点位姿跟踪误差。我们引入了锚刚体的位姿跟踪误差 ξb anchor ∈ R9，它由三维位置误差以及旋转误差矩阵的前两列组成 [38]。由于参考动作是在世界坐标系中预先定义的，因此该项隐式提供了用于保持平衡的朝向信息以及用于消除漂移的全局位置信息。(3) 其他本体感觉信息。我们包含了在根坐标系下表示的机器人根部旋量 b root Vb root、关节位置 q joint 与速度 v joint，以及上一拍动作 a last。"
+          "zh": "直接输入关节值。(2) 锚点位姿跟踪误差。我们引入了锚刚体的位姿跟踪误差 \\(\\xi_{b_\\text{anchor}} \\in \\mathbb{R}^9\\)，它由三维位置误差以及旋转误差矩阵的前两列组成 [38]。由于参考动作是在世界坐标系中预先定义的，因此该项隐式提供了用于保持平衡的朝向信息以及用于消除漂移的全局位置信息。(3) 其他本体感觉信息。我们包含了在根坐标系下表示的机器人根部旋量 \\({}^{b_\\text{root}}\\!\\mathcal{V}_{b_\\text{root}}\\)、关节位置 \\(\\mathbf{q}_{\\text{joint}}\\) 与速度 \\(\\mathbf{v}_{\\text{joint}}\\)，以及上一拍动作 \\(\\mathbf{a}_{\\text{last}}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b11",
@@ -597,10 +621,11 @@
             559,
             245
           ],
-          "en": "The complete observation space is then o = [ c , ξb anchor ,broot Vb root , q joint , v joint , a last]. Note that when position drift compensation is unnecessary or reliable state estimation is unavailable, the linear components may be omitted (i.e., the translational part of ξb anchor and the linear component of b root Vb root).",
+          "en": "The complete observation space is then \\(\\mathbf{o} = [\\mathbf{c}, \\xi_{b_\\text{anchor}}, {}^{b_\\text{root}}\\!\\mathcal{V}_{b_\\text{root}}, \\mathbf{q}_{\\text{joint}}, \\mathbf{v}_{\\text{joint}}, \\mathbf{a}_{\\text{last}}]\\). Note that when position drift compensation is unnecessary or reliable state estimation is unavailable, the linear components may be omitted (i.e., the translational part of \\(\\xi_{b_\\text{anchor}}\\) and the linear component of \\({}^{b_\\text{root}}\\!\\mathcal{V}_{b_\\text{root}}\\)).",
           "reference": false,
           "source_image": "figs/p003-011-source.png",
-          "zh": "完整的观测空间即为 o = [ c , ξb anchor ,broot Vb root , q joint , v joint , a last]。需要注意的是，当无需进行位置漂移补偿或无法获取可靠的状态估计时，可以省略其中的线量成分（即 ξb anchor 的平移部分以及 b root Vb root 的线速度成分）。"
+          "zh": "完整的观测空间即为 \\(\\mathbf{o} = [\\mathbf{c}, \\xi_{b_\\text{anchor}}, {}^{b_\\text{root}}\\!\\mathcal{V}_{b_\\text{root}}, \\mathbf{q}_{\\text{joint}}, \\mathbf{v}_{\\text{joint}}, \\mathbf{a}_{\\text{last}}]\\)。需要注意的是，当无需进行位置漂移补偿或无法获取可靠的状态估计时，可以省略其中的线量成分（即 \\(\\xi_{b_\\text{anchor}}\\) 的平移部分以及 \\({}^{b_\\text{root}}\\!\\mathcal{V}_{b_\\text{root}}\\) 的线速度成分）。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b12",
@@ -611,10 +636,11 @@
             559,
             304
           ],
-          "en": "We use asymmetric actor–critics to boost training efficiency. In addition to the policy observation, the critic also receives per-body relative poses w.r.t. the anchor, Tb− anchor1Tb,∀b ∈B, enabling it to estimate body-wise tracking errors directly in Cartesian space.",
+          "en": "We use asymmetric actor–critics to boost training efficiency. In addition to the policy observation, the critic also receives per-body relative poses w.r.t. the anchor, \\(T^{-1}_{b_\\text{anchor}}\\,T_{b},\\ \\forall b \\in \\mathcal{B}\\), enabling it to estimate body-wise tracking errors directly in Cartesian space.",
           "reference": false,
           "source_image": "figs/p003-012-source.png",
-          "zh": "我们采用非对称 Actor-Critic 结构来提升训练效率。除策略观测外，Critic 还会接收各刚体相对于锚点的相对位姿 Tb− anchor1Tb,∀b ∈B，使其能够直接在笛卡尔空间中估计各个刚体的跟踪误差。"
+          "zh": "我们采用非对称 Actor-Critic 结构来提升训练效率。除策略观测外，Critic 还会接收各刚体相对于锚点的相对位姿 \\(T^{-1}_{b_\\text{anchor}}\\,T_{b},\\ \\forall b \\in \\mathcal{B}\\)，使其能够直接在笛卡尔空间中估计各个刚体的跟踪误差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b13",
@@ -639,10 +665,11 @@
             559,
             555
           ],
-          "en": "Adding joint impedance is a standard approach in animation and robotics. Many works in character animation [10], [17], [34] adopt high impedance for precise tracking, effectively reducing the control in free-space to a nearly kinematic problem. However, policies trained under such high-impedance settings are often impractical for hardware deployment, as they amplify sensor noise, reduce the passive compliance needed for impact absorption, and hinder implicit torque information from current and prior commands. In comparison, we heuristically set joint stiffness and damping following Raibert et. al. [39]: k p ,j = Ijωn2, k d ,j = 2 Ijζωn , where ωn is the natural frequency, ζ is the damping ratio, and Ij = k g2 ,jImotor,jisthereflectedinertiaofthejth joint. We choose a damping ratio ζ = 2 (overdamped) rather than 1 (critically damped) as in Raibert et. al. [39], since the inertia is typically underestimated by considering only the motor armature and ignoring the apparent link inertia. The natural frequency is set to a relatively low value of 10 Hz, which promotes compliance with moderate gains.",
+          "en": "Adding joint impedance is a standard approach in animation and robotics. Many works in character animation [10], [17], [34] adopt high impedance for precise tracking, effectively reducing the control in free-space to a nearly kinematic problem. However, policies trained under such high-impedance settings are often impractical for hardware deployment, as they amplify sensor noise, reduce the passive compliance needed for impact absorption, and hinder implicit torque information from current and prior commands. In comparison, we heuristically set joint stiffness and damping following Raibert et. al. [39]: \\(k_{\\text{p},j} = I_j \\omega_n^2, \\quad k_{\\text{d},j} = 2 I_j \\zeta \\omega_n\\), where \\(\\omega_n\\) is the natural frequency, \\(\\zeta\\) is the damping ratio, and \\(I_j = k_{\\text{g},j}^2 I_{\\text{motor},j}\\) is the reflected inertia of the \\(j^{th}\\) joint. We choose a damping ratio \\(\\zeta = 2\\) (overdamped) rather than \\(1\\) (critically damped) as in Raibert et. al. [39], since the inertia is typically underestimated by considering only the motor armature and ignoring the apparent link inertia. The natural frequency is set to a relatively low value of 10 Hz, which promotes compliance with moderate gains.",
           "reference": false,
           "source_image": "figs/p003-014-source.png",
-          "zh": "引入关节阻抗是动画与机器人学中的标准方法。角色动画领域的许多研究 [10], [17], [34] 采用高阻抗来实现精确跟踪，这有效地将自由空间中的控制简化为一个近乎纯运动学的问题。然而，在这种高阻抗设定下训练出的策略往往难以直接部署到硬件上，因为它们会放大传感器噪声，降低吸收冲击所需的被动柔顺性，并阻碍从当前及先验指令中获取隐式力矩信息。相比之下，我们参考 Raibert 等人 [39] 的方法启发式地设置关节刚度与阻尼：k p ,j = Ijωn2, k d ,j = 2 Ijζωn，其中 ωn 为固有频率，ζ 为阻尼比，Ij = k g2 ,jImotor,j 为第 j 个关节的折算转动惯量。我们选择阻尼比 ζ = 2（过阻尼），而非 Raibert 等人 [39] 中采用的 1（临界阻尼），因为如果仅考虑电机电枢而忽略视在连杆惯量，惯量通常会被低估。固有频率设定为相对较低的 10 Hz，从而以适度的增益提升柔顺性。"
+          "zh": "引入关节阻抗是动画与机器人学中的标准方法。角色动画领域的许多研究 [10], [17], [34] 采用高阻抗来实现精确跟踪，这有效地将自由空间中的控制简化为一个近乎纯运动学的问题。然而，在这种高阻抗设定下训练出的策略往往难以直接部署到硬件上，因为它们会放大传感器噪声，降低吸收冲击所需的被动柔顺性，并阻碍从当前及先验指令中获取隐式力矩信息。相比之下，我们参考 Raibert 等人 [39] 的方法启发式地设置关节刚度与阻尼：\\(k_{\\text{p},j} = I_j \\omega_n^2, \\quad k_{\\text{d},j} = 2 I_j \\zeta \\omega_n\\)，其中 \\(\\omega_n\\) 为固有频率，\\(\\zeta\\) 为阻尼比，\\(I_j = k_{\\text{g},j}^2 I_{\\text{motor},j}\\) 为第 \\(j\\) 个关节的折算转动惯量。我们选择阻尼比 \\(\\zeta = 2\\)（过阻尼），而非 Raibert 等人 [39] 中采用的 \\(1\\)（临界阻尼），因为如果仅考虑电机电枢而忽略视在连杆惯量，惯量通常会被低估。固有频率设定为相对较低的 10 Hz，从而以适度的增益提升柔顺性。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b15",
@@ -653,10 +680,11 @@
             559,
             687
           ],
-          "en": "The policy action is designed as normalized joint position setpoints: q j,t = q ¯ j + αj a j,t , where a j,t is the policy action output, q ¯ j is a constant nominal joint configuration, αj = 0 . 25τ kj, p,jmax,withτj,maxrepresentingthemaximumallowable joint torque for joint j . This heuristic assumes that contacts generally occur around q ¯ j and that the robot hardware design ensures the maximum joint torque is proportional to the expected load. At low gains, these setpoints are not intended as desired position targets; rather, they serve as intermediate variables to generate desired torques, and are intentionally not clipped by joint kinematic limits.",
+          "en": "The policy action is designed as normalized joint position setpoints: \\(\\mathbf{q}_{j,t} = \\bar{\\mathbf{q}}_j + \\alpha_j \\mathbf{a}_{j, t}\\), where \\(\\mathbf{a}_{j,t}\\) is the policy action output, \\(\\bar{\\mathbf{q}}_j\\) is a constant nominal joint configuration, \\(\\alpha_j = 0.25\\frac{\\tau_{j,\\text{max}}}{k_{p,j}}\\), with \\(\\tau_{j,\\text{max}}\\) representing the maximum allowable joint torque for joint \\(j\\). This heuristic assumes that contacts generally occur around \\(\\bar{\\mathbf{q}}_j\\) and that the robot hardware design ensures the maximum joint torque is proportional to the expected load. At low gains, these setpoints are not intended as desired position targets; rather, they serve as intermediate variables to generate desired torques, and are intentionally not clipped by joint kinematic limits.",
           "reference": false,
           "source_image": "figs/p003-015-source.png",
-          "zh": "策略动作被设计为归一化的关节位置设定值：q j,t = q ¯ j + αj a j,t，其中 a j,t 为策略动作输出，q ¯ j 为恒定的标称关节构型，αj = 0 . 25τ kj, p,jmax，其中 τj,max 代表关节 j 的最大允许关节力矩。该启发式规则假设接触通常发生在 q ¯ j 附近，并且机器人硬件设计能够确保最大关节力矩与预期负载成正比。在低增益情况下，这些设定值并非用于充当期望的位置目标；相反，它们作为生成期望力矩的中间变量，并且有意不被关节运动学限位所截断。"
+          "zh": "策略动作被设计为归一化的关节位置设定值：\\(\\mathbf{q}_{j,t} = \\bar{\\mathbf{q}}_j + \\alpha_j \\mathbf{a}_{j, t}\\)，其中 \\(\\mathbf{a}_{j,t}\\) 为策略动作输出，\\(\\bar{\\mathbf{q}}_j\\) 为恒定的标称关节构型，\\(\\alpha_j = 0.25\\frac{\\tau_{j,\\text{max}}}{k_{p,j}}\\)，其中 \\(\\tau_{j,\\text{max}}\\) 代表关节 \\(j\\) 的最大允许关节力矩。该启发式规则假设接触通常发生在 \\(\\bar{\\mathbf{q}}_j\\) 附近，并且机器人硬件设计能够确保最大关节力矩与预期负载成正比。在低增益情况下，这些设定值并非用于充当期望的位置目标；相反，它们作为生成期望力矩的中间变量，并且有意不被关节运动学限位所截断。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b16",
@@ -714,10 +742,11 @@
             299,
             197
           ],
-          "en": "Task rewards are body tracking rewards. First, we compute error metrics for each target body b ∈B target based on the desired ( Tˆ b, Vˆ b ) and actual ( Tb, Vb ) poses and twists: e p,b = p ˆ b − p b , e R,b = log( Rˆ bRb⊤),ev,b=vˆb−vb,andew,b≈ w ˆ b − w b assuming the orientaion error is small. Then, the mean squared errors are computed across all target bodies: e ¯ χ = |B target1 | � b∈B target∥eχ,b∥2,χ∈{p, R, v, w}.Eacherror metric is then normalized using a Gaussian-style exponential function: r (¯ eχ, σ ) = exp � −e ¯ χ/σχ2 �, where σχ is a nominal error determined empirically.",
+          "en": "Task rewards are body tracking rewards. First, we compute error metrics for each target body \\(b \\in \\mathcal{B}_\\text{target}\\) based on the desired \\((\\hat{T}_{b}, \\hat{\\mathcal{V}}_{b})\\) and actual \\((T_{b}, \\mathcal{V}_{b})\\) poses and twists: \\(\\mathbf{e}_{p,b} = \\hat{\\mathbf{p}}_{b} - \\mathbf{p}_b\\), \\(\\mathbf{e}_{R,b} =\\log(\\hat{R}_{b} R_b^\\top)\\), \\(\\mathbf{e}_{v,b} = \\hat{\\mathbf{v}}_{b} - \\mathbf{v}_b\\), and \\(\\mathbf{e}_{w,b} \\approx \\hat{\\mathbf{w}}_{b} - \\mathbf{w}_b\\) assuming the orientaion error is small. Then, the mean squared errors are computed across all target bodies: \\(\\bar{e}_{\\chi} = \\frac{1}{|\\mathcal{B}_\\text{target}|} \\sum_{b\\in\\mathcal{B}_\\text{target}} \\|\\mathbf{e}_{\\chi,b}\\|^2,\\,\\chi \\in \\{p, R, v, w\\}\\). Each error metric is then normalized using a Gaussian-style exponential function: \\(r(\\bar{e}_{\\chi},\\sigma) = \\exp\\left(-{\\bar{e}_{\\chi}}/{\\sigma^2_\\chi}\\right)\\), where \\(\\sigma_\\chi\\) is a nominal error determined empirically.",
           "reference": false,
           "source_image": "figs/p004-001-source.png",
-          "zh": "任务奖励即为刚体跟踪奖励。首先，我们基于期望位姿与旋量 ( Tˆ b, Vˆ b ) 以及实际位姿与旋量 ( Tb, Vb )，计算每个目标刚体 b ∈B target 的误差度量：e p,b = p ˆ b − p b , e R,b = log( Rˆ bRb⊤),ev,b=vˆb−vb，并且在假设朝向误差较小的前提下，ew,b≈ w ˆ b − w b。随后，计算所有目标刚体上的均方误差：〔行内公式见原版〕。接着，使用高斯形式的指数函数对每个误差度量进行归一化：〔行内公式见原版〕，其中 σχ 是通过经验确定的标称误差。"
+          "zh": "任务奖励即为刚体跟踪奖励。首先，我们基于期望位姿与旋量 \\((\\hat{T}_{b}, \\hat{\\mathcal{V}}_{b})\\) 以及实际位姿与旋量 \\((T_{b}, \\mathcal{V}_{b})\\)，计算每个目标刚体 \\(b \\in \\mathcal{B}_\\text{target}\\) 的误差度量：\\(\\mathbf{e}_{p,b} = \\hat{\\mathbf{p}}_{b} - \\mathbf{p}_b\\), \\(\\mathbf{e}_{R,b} =\\log(\\hat{R}_{b} R_b^\\top)\\), \\(\\mathbf{e}_{v,b} = \\hat{\\mathbf{v}}_{b} - \\mathbf{v}_b\\)，并且在假设朝向误差较小的前提下，\\(\\mathbf{e}_{w,b} \\approx \\hat{\\mathbf{w}}_{b} - \\mathbf{w}_b\\)。随后，计算所有目标刚体上的均方误差：\\(\\bar{e}_{\\chi} = \\frac{1}{|\\mathcal{B}_\\text{target}|} \\sum_{b\\in\\mathcal{B}_\\text{target}} \\|\\mathbf{e}_{\\chi,b}\\|^2,\\,\\chi \\in \\{p, R, v, w\\}\\)。接着，使用高斯形式的指数函数对每个误差度量进行归一化：\\(r(\\bar{e}_{\\chi},\\sigma) = \\exp\\left(-{\\bar{e}_{\\chi}}/{\\sigma^2_\\chi}\\right)\\)，其中 \\(\\sigma_\\chi\\) 是通过经验确定的标称误差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b2",
@@ -737,17 +766,26 @@
           "id": "p4-b3",
           "kind": "formula",
           "bbox": [
-            117,
-            216,
-            299,
-            240
+            115.0,
+            214.0,
+            301.0,
+            242.0
           ],
           "en": "r task = � r � e ¯ χ, σχ � . (1) χ∈{p,R,v,w}",
           "reference": false,
           "image": "figs/p004-003.png",
           "labels": [
             "1"
-          ]
+          ],
+          "original_bbox": [
+            117.0,
+            216.0,
+            299.0,
+            240.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 558,
+          "image_height": 84
         },
         {
           "id": "p4-b4",
@@ -758,26 +796,36 @@
             299,
             363
           ],
-          "en": "For regularization, we include as few as three penalties critical for sim-to-real alignment. Among them, the joint limit penalty, r limit, encourages joint positions to remain within the soft limits. The action rate penalty, r smooth, encourages consecutive actions to be smooth, avoiding policies with excessive jitter. To penalize self-collision, we count the number of bodies where the self-contact force exceeds a predefined threshold as the total penalty, r contact, over the bodies b ∈B/ ee ⊆B , where B ee is the end-effector body set. The total reward then becomes:",
+          "en": "For regularization, we include as few as three penalties critical for sim-to-real alignment. Among them, the joint limit penalty, \\(r_{\\text{limit}}\\), encourages joint positions to remain within the soft limits. The action rate penalty, \\(r_{\\text{smooth}}\\), encourages consecutive actions to be smooth, avoiding policies with excessive jitter. To penalize self-collision, we count the number of bodies where the self-contact force exceeds a predefined threshold as the total penalty, \\(r_{\\text{contact}}\\), over the bodies \\(b \\notin \\mathcal{B}_\\text{ee} \\subseteq \\mathcal{B}\\), where \\(\\mathcal{B}_\\text{ee}\\) is the end-effector body set. The total reward then becomes:",
           "reference": false,
           "source_image": "figs/p004-004-source.png",
-          "zh": "在正则化方面，我们仅引入了三项对仿真到现实迁移对齐至关重要的惩罚。其中，关节限位惩罚 r limit 促使关节位置保持在软限位内；动作变化率惩罚 r smooth 促进连续动作的平滑性，避免策略产生过度抖动。为了惩罚自碰撞，对于刚体集合 b ∈B/ ee ⊆B（其中 B ee 为末端执行器刚体集合），我们以自接触力超过预设阈值的刚体数量作为总惩罚 r contact。由此，总奖励函数为："
+          "zh": "在正则化方面，我们仅引入了三项对仿真到现实迁移对齐至关重要的惩罚。其中，关节限位惩罚 \\(r_{\\text{limit}}\\) 促使关节位置保持在软限位内；动作变化率惩罚 \\(r_{\\text{smooth}}\\) 促进连续动作的平滑性，避免策略产生过度抖动。为了惩罚自碰撞，对于刚体集合 \\(b \\notin \\mathcal{B}_\\text{ee} \\subseteq \\mathcal{B}\\)（其中 \\(\\mathcal{B}_\\text{ee}\\) 为末端执行器刚体集合），我们以自接触力超过预设阈值的刚体数量作为总惩罚 \\(r_{\\text{contact}}\\)。由此，总奖励函数为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b5",
           "kind": "formula",
           "bbox": [
-            92,
-            374,
-            299,
-            383
+            90.0,
+            372.0,
+            301.0,
+            385.0
           ],
           "en": "r = r task − λlr limit − λsr smooth − λcr contact (2)",
           "reference": false,
           "image": "figs/p004-005.png",
           "labels": [
             "2"
-          ]
+          ],
+          "original_bbox": [
+            92.0,
+            374.0,
+            299.0,
+            383.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 633,
+          "image_height": 39
         },
         {
           "id": "p4-b6",
@@ -788,10 +836,11 @@
             252,
             403
           ],
-          "en": "where λl, λs, λc > 0, define the reward weights.",
+          "en": "where \\(\\lambda_{l}, \\lambda_{s}, \\lambda_{c} > 0\\), define the reward weights.",
           "reference": false,
           "source_image": "figs/p004-006-source.png",
-          "zh": "其中 λl, λs, λc > 0 定义了奖励权重。"
+          "zh": "其中 \\(\\lambda_{l}, \\lambda_{s}, \\lambda_{c} > 0\\) 定义了奖励权重。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b7",
@@ -802,10 +851,11 @@
             299,
             439
           ],
-          "en": "Optionally, a global tracking reward for the anchor body b anchor can be added, following the same structure as r tracking but using errors e p,b anchor and e R,b anchor.",
+          "en": "Optionally, a global tracking reward for the anchor body \\(b_\\text{anchor}\\) can be added, following the same structure as \\(r_{\\text{tracking}}\\) but using errors \\({\\mathbf{e}}_{p,b_\\text{anchor}}\\) and \\({\\mathbf{e}}_{R,b_\\text{anchor}}\\).",
           "reference": false,
           "source_image": "figs/p004-007-source.png",
-          "zh": "作为可选项，还可以为锚刚体 b anchor 添加一个全局跟踪奖励，其结构与 r tracking 相同，但采用误差 e p,b anchor 和 e R,b anchor。"
+          "zh": "作为可选项，还可以为锚刚体 \\(b_\\text{anchor}\\) 添加一个全局跟踪奖励，其结构与 \\(r_{\\text{tracking}}\\) 相同，但采用误差 \\({\\mathbf{e}}_{p,b_\\text{anchor}}\\) 和 \\({\\mathbf{e}}_{R,b_\\text{anchor}}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b8",
@@ -830,10 +880,11 @@
             299,
             532
           ],
-          "en": "An episode terminates under two conditions, indicating either a fall or tracking failure: (1) when the height or orientation (considering only pitch and roll) errors of the anchor body b anchor exceed predefined thresholds, or (2) when any height of the end-effector body b ∈B ee deviates significantly from the reference trajectory.",
+          "en": "An episode terminates under two conditions, indicating either a fall or tracking failure: (1) when the height or orientation (considering only pitch and roll) errors of the anchor body \\(b_\\text{anchor}\\) exceed predefined thresholds, or (2) when any height of the end-effector body \\(b \\in \\mathcal{B}_\\text{ee}\\) deviates significantly from the reference trajectory.",
           "reference": false,
           "source_image": "figs/p004-009-source.png",
-          "zh": "当满足以下两种情况之一时，一个 episode 即告终止，这表明发生跌倒或跟踪失败：(1) 锚刚体 b anchor 的高度或朝向（仅考虑俯仰角和横滚角）误差超过预设阈值；或 (2) 末端执行器刚体 b ∈B ee 的任意高度明显偏离参考轨迹。"
+          "zh": "当满足以下两种情况之一时，一个 episode 即告终止，这表明发生跌倒或跟踪失败：(1) 锚刚体 \\(b_\\text{anchor}\\) 的高度或朝向（仅考虑俯仰角和横滚角）误差超过预设阈值；或 (2) 末端执行器刚体 \\(b \\in \\mathcal{B}_\\text{ee}\\) 的任意高度明显偏离参考轨迹。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b10",
@@ -900,10 +951,11 @@
             559,
             101
           ],
-          "en": "Let N s and F s be the counts of episodes and failures starting in Bin s. The failure rate is smoothed over time using an exponential moving average to prevent discrete jumps in sampling caused by short-term fluctuations.",
+          "en": "Let \\(N_\\text{s}\\) and \\(F_\\text{s}\\) be the counts of episodes and failures starting in Bin \\(\\text{s}\\). The failure rate is smoothed over time using an exponential moving average to prevent discrete jumps in sampling caused by short-term fluctuations.",
           "reference": false,
           "source_image": "figs/p004-014-source.png",
-          "zh": "令 N s 和 F s 分别为起始于区间 s 的 episode 次数和失败次数。失败率会通过指数移动平均在时间上进行平滑处理，以防止短期波动导致采样概率出现离散突变。"
+          "zh": "令 \\(N_\\text{s}\\) 和 \\(F_\\text{s}\\) 分别为起始于区间 \\(\\text{s}\\) 的 episode 次数和失败次数。失败率会通过指数移动平均在时间上进行平滑处理，以防止短期波动导致采样概率出现离散突变。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b15",
@@ -914,26 +966,36 @@
             559,
             170
           ],
-          "en": "Since failures are more likely caused by suboptimal actions taken shortly before termination, we apply a noncausal convolution with an exponentially decaying kernel k ( u ) = γu , where γ is the decay rate, to assign greater weight to recent past failures. The final sampling probability from Bin s is then:",
+          "en": "Since failures are more likely caused by suboptimal actions taken shortly before termination, we apply a noncausal convolution with an exponentially decaying kernel \\(k(u) = \\gamma^u\\), where \\(\\gamma\\) is the decay rate, to assign greater weight to recent past failures. The final sampling probability from Bin \\(\\text{s}\\) is then:",
           "reference": false,
           "source_image": "figs/p004-015-source.png",
-          "zh": "由于失败更可能是由终止发生前不久所采取的次优动作导致的，因此我们采用带有指数衰减核 k ( u ) = γu（其中 γ 为衰减率）的非因果卷积，从而为不久前的历史失败赋予更大权重。区间 s 的最终采样概率为："
+          "zh": "由于失败更可能是由终止发生前不久所采取的次优动作导致的，因此我们采用带有指数衰减核 \\(k(u) = \\gamma^u\\)（其中 \\(\\gamma\\) 为衰减率）的非因果卷积，从而为不久前的历史失败赋予更大权重。区间 \\(\\text{s}\\) 的最终采样概率为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b16",
           "kind": "formula",
           "bbox": [
-            377,
-            177,
-            559,
-            208
+            375.0,
+            175.0,
+            561.0,
+            210.0
           ],
           "en": "� Ku = − 01 αu ¯ r s+ u p s = , (3) �S j =1 � Ku =0 − 1 αu ¯ rj + u",
           "reference": false,
           "image": "figs/p004-016.png",
           "labels": [
             "3"
-          ]
+          ],
+          "original_bbox": [
+            377.0,
+            177.0,
+            559.0,
+            208.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 558,
+          "image_height": 105
         },
         {
           "id": "p4-b17",
@@ -944,10 +1006,11 @@
             559,
             284
           ],
-          "en": "where r ¯s is the smoothed failure rate of Bin s. We further mix the probability p s with a uniform distribution to preserve coverage of easier bins and mitigate catastrophic forgetting, using p′ s=λ B1+(1−λ)ps,whereλisthe uniform sampling ratio. Starting bins are then drawn from Multinomial( p 1′, . . . , p′ S),prioritizingchallengingregions.",
+          "en": "where \\(\\bar{r}_{\\text{s}}\\) is the smoothed failure rate of Bin \\(\\text{s}\\). We further mix the probability \\(p_\\text{s}\\) with a uniform distribution to preserve coverage of easier bins and mitigate catastrophic forgetting, using \\(p_\\text{s}' = \\lambda \\frac{1}{B} + (1-\\lambda) p_\\text{s}\\),where\\(\\lambda\\)isthe uniform sampling ratio. Starting bins are then drawn from \\(\\mathrm{Multinomial}(p_1', \\dots, p_\\text{S}')\\),prioritizingchallengingregions.",
           "reference": false,
           "source_image": "figs/p004-017-source.png",
-          "zh": "其中 r ¯s 是区间 s 的平滑失败率。我们进一步将概率 p s 与均匀分布进行混合，以保持对较简单区间的覆盖并缓解灾难性遗忘，计算公式为 p′ s=λ B1+(1−λ)ps，其中 λ 为均匀采样比例。随后从多项分布 Multinomial( p 1′, . . . , p′ S) 中抽取起始区间，从而优先采样具有挑战性的区域。"
+          "zh": "其中 \\(\\bar{r}_{\\text{s}}\\) 是区间 \\(\\text{s}\\) 的平滑失败率。我们进一步将概率 \\(p_\\text{s}\\) 与均匀分布进行混合，以保持对较简单区间的覆盖并缓解灾难性遗忘，计算公式为 \\(p_\\text{s}' = \\lambda \\frac{1}{B} + (1-\\lambda) p_\\text{s}\\)，其中 \\(\\lambda\\) 为均匀采样比例。随后从多项分布 \\(\\mathrm{Multinomial}(p_1', \\dots, p_\\text{S}')\\) 中抽取起始区间，从而优先采样具有挑战性的区域。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b18",
@@ -972,10 +1035,11 @@
             559,
             391
           ],
-          "en": "We apply three domain randomization terms: the ground friction coefficient, default joint positions q ¯ j (for both actions and observations, effectively simulating joint offset calibration errors), and the torso’s center of mass position. Additionally, we introduce perturbations in the environment during training to encourage the robot to learn policies robust to environmental variability.",
+          "en": "We apply three domain randomization terms: the ground friction coefficient, default joint positions \\(\\bar{\\mathbf{q}}_j\\) (for both actions and observations, effectively simulating joint offset calibration errors), and the torso’s center of mass position. Additionally, we introduce perturbations in the environment during training to encourage the robot to learn policies robust to environmental variability.",
           "reference": false,
           "source_image": "figs/p004-019-source.png",
-          "zh": "我们应用了三个域随机化项：地面摩擦系数、默认关节位置 q ¯ j（同时应用于动作与观测，以有效模拟关节零点标定误差），以及躯干质心位置。此外，我们在训练期间向环境中引入扰动，以促使机器人学习对环境变化具有鲁棒性的策略。"
+          "zh": "我们应用了三个域随机化项：地面摩擦系数、默认关节位置 \\(\\bar{\\mathbf{q}}_j\\)（同时应用于动作与观测，以有效模拟关节零点标定误差），以及躯干质心位置。此外，我们在训练期间向环境中引入扰动，以促使机器人学习对环境变化具有鲁棒性的策略。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b20",
@@ -1028,26 +1092,36 @@
             559,
             678
           ],
-          "en": "We employ Diffuse-CLoC [3] to create a state-action co-diffusion framework capable of generating physicallygrounded robot actions through guided sampling in state space. The model is trained to predict future trajectories, τ t = [ a t, s t +1 , . . . , s t + H , a t + H ], of a look-ahead horizon of H timesteps, conditioned on an observation history O t = [ s t−N , a t−N , · · · , s t ] of N steps of preceding state-action pairs. The training itself follows a standard denoising diffusion process. First, in a forward pass, we incrementally add Gaussian noise to ground-truth trajectories. A denoising network, x 0 ,θ , then learns to reverse this corruption. It takes a noised trajectory τ tk as input and is trained to predict the original, clean trajectory τ ˆ t0 = x 0 ,θ ( τ tk,Ot,k).The network’s parameters are optimized by minimizing the Mean Squared Error (MSE) loss against the ground truth:",
+          "en": "We employ Diffuse-CLoC [3] to create a state-action co-diffusion framework capable of generating physicallygrounded robot actions through guided sampling in state space. The model is trained to predict future trajectories, \\(\\boldsymbol{\\tau}_{t} = [\\boldsymbol{a}_{t}, \\boldsymbol{s}_{t+1}, \\dots, \\boldsymbol{s}_{t+H}, \\boldsymbol{a}_{t+H}]\\), of a look-ahead horizon of \\(H\\) timesteps, conditioned on an observation history \\(\\boldsymbol{O}_t = [\\boldsymbol{s}_{t-N}, \\boldsymbol{a}_{t-N}, \\cdots, \\boldsymbol{s}_{t}]\\) of \\(N\\) steps of preceding state-action pairs. The training itself follows a standard denoising diffusion process. First, in a forward pass, we incrementally add Gaussian noise to ground-truth trajectories. A denoising network, \\(x_{0,\\theta}\\), then learns to reverse this corruption. It takes a noised trajectory \\(\\boldsymbol{\\tau}_t^{\\boldsymbol{k}}\\) as input and is trained to predict the original, clean trajectory \\(\\hat{\\boldsymbol{\\tau}}_{t}^0 = x_{0,\\theta}(\\boldsymbol{\\tau}_{t}^{\\boldsymbol{k}}, \\boldsymbol{O}_{t}, \\boldsymbol{k})\\).The network’s parameters are optimized by minimizing the Mean Squared Error (MSE) loss against the ground truth:",
           "reference": false,
           "source_image": "figs/p004-023-source.png",
-          "zh": "我们采用 Diffuse-CLoC [3] 构建状态-动作协同扩散框架，能够通过在状态空间中进行引导采样来生成符合物理规律的机器人动作。该模型经过训练，以由 N 个历史步的状态-动作对组成的观测历史 O t = [ s t−N , a t−N , · · · , s t ] 为条件，预测前视时域为 H 个时间步的未来轨迹 τ t = [ a t, s t +1 , . . . , s t + H , a t + H ]。训练本身遵循标准的前向去噪扩散过程。首先，在前向过程中，我们逐步向真实轨迹中添加高斯噪声。随后，去噪网络 x 0 ,θ 学习逆转这一加噪过程。它以带噪轨迹 τ tk 为输入，并经过训练以预测原始的干净轨迹 τ ˆ t0 = x 0 ,θ ( τ tk,Ot,k)。通过最小化针对真实轨迹的均方误差（MSE）损失函数来优化网络参数："
+          "zh": "我们采用 Diffuse-CLoC [3] 构建状态-动作协同扩散框架，能够通过在状态空间中进行引导采样来生成符合物理规律的机器人动作。该模型经过训练，以由 \\(N\\) 个历史步的状态-动作对组成的观测历史 \\(\\boldsymbol{O}_t = [\\boldsymbol{s}_{t-N}, \\boldsymbol{a}_{t-N}, \\cdots, \\boldsymbol{s}_{t}]\\) 为条件，预测前视时域为 \\(H\\) 个时间步的未来轨迹 \\(\\boldsymbol{\\tau}_{t} = [\\boldsymbol{a}_{t}, \\boldsymbol{s}_{t+1}, \\dots, \\boldsymbol{s}_{t+H}, \\boldsymbol{a}_{t+H}]\\)。训练本身遵循标准的前向去噪扩散过程。首先，在前向过程中，我们逐步向真实轨迹中添加高斯噪声。随后，去噪网络 \\(x_{0,\\theta}\\) 学习逆转这一加噪过程。它以带噪轨迹 \\(\\boldsymbol{\\tau}_t^{\\boldsymbol{k}}\\) 为输入，并经过训练以预测原始的干净轨迹 \\(\\hat{\\boldsymbol{\\tau}}_{t}^0 = x_{0,\\theta}(\\boldsymbol{\\tau}_{t}^{\\boldsymbol{k}}, \\boldsymbol{O}_{t}, \\boldsymbol{k})\\)。通过最小化针对真实轨迹的均方误差（MSE）损失函数来优化网络参数：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b24",
           "kind": "formula",
           "bbox": [
-            373,
-            691,
-            559,
-            703
+            371.0,
+            689.0,
+            561.0,
+            705.0
           ],
           "en": "L = MSE( x 0 ,θ ( τ t k , O t, k ) , τ t ) (4)",
           "reference": false,
           "image": "figs/p004-024.png",
           "labels": [
             "4"
-          ]
+          ],
+          "original_bbox": [
+            373.0,
+            691.0,
+            559.0,
+            703.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 570,
+          "image_height": 48
         },
         {
           "id": "p4-b25",
@@ -1086,17 +1160,26 @@
           "id": "p5-b1",
           "kind": "formula",
           "bbox": [
-            68,
-            96,
-            299,
-            108
+            66.0,
+            94.0,
+            301.0,
+            110.0
           ],
           "en": "τ t k − 1 = α k ( τ t k − γ k ϵθ ( τ t k , O t, k ) + N (0 , σ k 2 I )) (5)",
           "reference": false,
           "image": "figs/p005-001.png",
           "labels": [
             "5"
-          ]
+          ],
+          "original_bbox": [
+            68.0,
+            96.0,
+            299.0,
+            108.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 705,
+          "image_height": 48
         },
         {
           "id": "p5-b2",
@@ -1107,10 +1190,11 @@
             299,
             164
           ],
-          "en": "Here, ϵθ ( · ) is the predicted noise derived from the clean trajectory estimate x 0 ,θ ( · ), α k , γ k , and σ k are DDPM coefficients. We use independent noise schedules for states and actions, denoted by k = ( ks , ka ).",
+          "en": "Here, \\(\\epsilon_{\\theta}(\\cdot)\\) is the predicted noise derived from the clean trajectory estimate \\(x_{0,\\theta}(\\cdot)\\), \\(\\alpha_{\\boldsymbol{k}}\\), \\(\\gamma_{\\boldsymbol{k}}\\), and \\(\\sigma_{\\boldsymbol{k}}\\) are DDPM coefficients. We use independent noise schedules for states and actions, denoted by \\(\\boldsymbol{k} = (\\boldsymbol{k_s}, \\boldsymbol{k_a})\\).",
           "reference": false,
           "source_image": "figs/p005-002-source.png",
-          "zh": "在此，ϵθ ( · ) 是由干净轨迹估计值 x 0 ,θ ( · ) 推导出的预测噪声，α k , γ k 以及 σ k 为 DDPM 系数。我们对状态和动作采用独立的加噪调度（noise schedule），记为 k = ( ks , ka )。"
+          "zh": "在此，\\(\\epsilon_{\\theta}(\\cdot)\\) 是由干净轨迹估计值 \\(x_{0,\\theta}(\\cdot)\\) 推导出的预测噪声，\\(\\alpha_{\\boldsymbol{k}}\\), \\(\\gamma_{\\boldsymbol{k}}\\) 以及 \\(\\sigma_{\\boldsymbol{k}}\\) 为 DDPM 系数。我们对状态和动作采用独立的加噪调度（noise schedule），记为 \\(\\boldsymbol{k} = (\\boldsymbol{k_s}, \\boldsymbol{k_a})\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b3",
@@ -1144,17 +1228,26 @@
           "id": "p5-b5",
           "kind": "formula",
           "bbox": [
-            62,
-            267,
-            299,
-            278
+            60.0,
+            265.0,
+            301.0,
+            280.0
           ],
           "en": "∇ τ log p ( τ | τ ∗ ) = ∇ τ log p ( τ ) + ∇ τ log p ( τ ∗ | τ ) , (6)",
           "reference": false,
           "image": "figs/p005-005.png",
           "labels": [
             "6"
-          ]
+          ],
+          "original_bbox": [
+            62.0,
+            267.0,
+            299.0,
+            278.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 723,
+          "image_height": 45
         },
         {
           "id": "p5-b6",
@@ -1165,10 +1258,11 @@
             299,
             357
           ],
-          "en": "where τ∗ is the optimal trajectory. In our application, this guidance term is a differentiable, task-specific cost function, Gc ( τ ). By establishing a relationship between the cost and the conditional likelihood, p ( τ∗ | τ ) ∝ exp( −G c( τ )), the guidance term simplifies to the negative gradient of the cost: −∇ τ G c( τ ).",
+          "en": "where \\(\\boldsymbol{\\tau}^*\\) is the optimal trajectory. In our application, this guidance term is a differentiable, task-specific cost function, \\(G_c(\\boldsymbol{\\tau})\\). By establishing a relationship between the cost and the conditional likelihood, \\(p(\\boldsymbol{\\tau}^* \\mid \\boldsymbol{\\tau}) \\propto \\exp(-G_{\\text{c}}(\\boldsymbol{\\tau}))\\), the guidance term simplifies to the negative gradient of the cost: \\(-\\nabla_{\\boldsymbol{\\tau}} G_{\\text{c}}(\\boldsymbol{\\tau})\\).",
           "reference": false,
           "source_image": "figs/p005-006-source.png",
-          "zh": "其中 τ∗ 为最优轨迹。在我们的应用中，该引导项是一个可微的特定任务代价函数 Gc ( τ )。通过在代价与条件似然之间建立关系 p ( τ∗ | τ ) ∝ exp( −G c( τ ))，该引导项简化为代价的负梯度：−∇ τ G c( τ )。"
+          "zh": "其中 \\(\\boldsymbol{\\tau}^*\\) 为最优轨迹。在我们的应用中，该引导项是一个可微的特定任务代价函数 \\(G_c(\\boldsymbol{\\tau})\\)。通过在代价与条件似然之间建立关系 \\(p(\\boldsymbol{\\tau}^* \\mid \\boldsymbol{\\tau}) \\propto \\exp(-G_{\\text{c}}(\\boldsymbol{\\tau}))\\)，该引导项简化为代价的负梯度：\\(-\\nabla_{\\boldsymbol{\\tau}} G_{\\text{c}}(\\boldsymbol{\\tau})\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b7",
@@ -1216,17 +1310,26 @@
           "id": "p5-b10",
           "kind": "formula",
           "bbox": [
-            102,
-            531,
-            299,
-            562
+            100.0,
+            529.0,
+            301.0,
+            564.0
           ],
           "en": "t + H G js( τ ) = 1 2 � ∥Vxy,t′ ( τ t′ ) − gv∥ 2 , (7) t ′ = t",
           "reference": false,
           "image": "figs/p005-010.png",
           "labels": [
             "7"
-          ]
+          ],
+          "original_bbox": [
+            102.0,
+            531.0,
+            299.0,
+            562.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 603,
+          "image_height": 105
         },
         {
           "id": "p5-b11",
@@ -1237,10 +1340,11 @@
             299,
             603
           ],
-          "en": "where τ is the predicted trajectory at timestep t , Vxy,t pulls out the planar root velocity at timestep t and gv ∈ R2 is the goal root velocity from the joystick controller.",
+          "en": "where \\(\\boldsymbol{\\tau}\\) is the predicted trajectory at timestep \\(t\\), \\(V_{xy,t}\\) pulls out the planar root velocity at timestep \\(t\\) and \\(g_v \\in \\mathbb{R}^2\\) is the goal root velocity from the joystick controller.",
           "reference": false,
           "source_image": "figs/p005-011-source.png",
-          "zh": "其中 τ 为时间步 t 处的预测轨迹，Vxy,t 提取出时间步 t 处的平面根节点速度，gv ∈ R2 为来自摇杆控制器的目标根节点速度。"
+          "zh": "其中 \\(\\boldsymbol{\\tau}\\) 为时间步 \\(t\\) 处的预测轨迹，\\(V_{xy,t}\\) 提取出时间步 \\(t\\) 处的平面根节点速度，\\(g_v \\in \\mathbb{R}^2\\) 为来自摇杆控制器的目标根节点速度。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b12",
@@ -1260,17 +1364,26 @@
           "id": "p5-b13",
           "kind": "formula",
           "bbox": [
-            54,
-            646,
-            300,
-            686
+            52.0,
+            644.0,
+            302.0,
+            688.0
           ],
           "en": "t + H G wp( τ ) = �(1 −e − 2 d ) ∥Px ( s t′ ) −gp∥ 2 + e − 2 d ∥Vx,t′ ( τ t′ ) ∥ 2 , t ′ = t (8)",
           "reference": false,
           "image": "figs/p005-013.png",
           "labels": [
             "8"
-          ]
+          ],
+          "original_bbox": [
+            54.0,
+            646.0,
+            300.0,
+            686.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 750,
+          "image_height": 132
         },
         {
           "id": "p5-b14",
@@ -1281,10 +1394,11 @@
             299,
             711
           ],
-          "en": "where d = ∥Px ( s t′ ) − gp∥ is the current scalar distance from the goal gp , detached from the gradient computation.",
+          "en": "where \\(d = \\|P_x(\\boldsymbol{s}_{t'}) - g_{p}\\|\\) is the current scalar distance from the goal \\(g_{p}\\), detached from the gradient computation.",
           "reference": false,
           "source_image": "figs/p005-014-source.png",
-          "zh": "其中 d = ∥Px ( s t′ ) − gp∥ 是当前到目标 gp 的标量距离，且不参与梯度计算。"
+          "zh": "其中 \\(d = \\|P_x(\\boldsymbol{s}_{t'}) - g_{p}\\|\\) 是当前到目标 \\(g_{p}\\) 的标量距离，且不参与梯度计算。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b15",
@@ -1318,17 +1432,26 @@
           "id": "p5-b17",
           "kind": "formula",
           "bbox": [
-            342,
-            86,
-            559,
-            116
+            340.0,
+            84.0,
+            561.0,
+            118.0
           ],
           "en": "t + H G sdf( τ ) = � � B (SDF( P b,t ′ ( τ )) − ri, δ ) , (9) t ′ = t b∈B",
           "reference": false,
           "image": "figs/p005-017.png",
           "labels": [
             "9"
-          ]
+          ],
+          "original_bbox": [
+            342.0,
+            86.0,
+            559.0,
+            116.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 663,
+          "image_height": 102
         },
         {
           "id": "p5-b18",
@@ -1339,26 +1462,36 @@
             559,
             162
           ],
-          "en": "where P b,t ( τ ) is the position of body b at time t given trajectory τ , ri is the approximation sphere radius of body b , and B ( x, δ ) is a relaxed barrier function [42]:",
+          "en": "where \\(\\mathbf{P}_{b,t}(\\boldsymbol\\tau)\\) is the position of body \\(b\\) at time \\(t\\) given trajectory \\(\\boldsymbol\\tau\\), \\(r_i\\) is the approximation sphere radius of body \\(b\\), and \\(B(x, \\delta)\\) is a relaxed barrier function [42]:",
           "reference": false,
           "source_image": "figs/p005-018-source.png",
-          "zh": "其中 P b,t ( τ ) 表示在给定轨迹 τ 时刚体 b 在时间 t 的位置，ri 是刚体 b 的近似球体半径，而 B ( x, δ ) 为松弛屏障函数 [42]："
+          "zh": "其中 \\(\\mathbf{P}_{b,t}(\\boldsymbol\\tau)\\) 表示在给定轨迹 \\(\\boldsymbol\\tau\\) 时刚体 \\(b\\) 在时间 \\(t\\) 的位置，\\(r_i\\) 是刚体 \\(b\\) 的近似球体半径，而 \\(B(x, \\delta)\\) 为松弛屏障函数 [42]：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b19",
           "kind": "formula",
           "bbox": [
-            321,
-            173,
-            558,
-            205
+            319.0,
+            171.0,
+            560.0,
+            207.0
           ],
           "en": "− ln( x ) if x ≥ δ B ( x, δ ) = � − ln( δ ) + 1 2 �� x−δ 2 δ �2 − 1� if x < δ . (10)",
           "reference": false,
           "image": "figs/p005-019.png",
           "labels": [
             "10"
-          ]
+          ],
+          "original_bbox": [
+            321.0,
+            173.0,
+            558.0,
+            205.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 723,
+          "image_height": 108
         },
         {
           "id": "p5-b20",
@@ -1467,10 +1600,11 @@
             559,
             734
           ],
-          "en": "All policies are executed onboard using ONNX Runtime [46] on the robot’s CPU. Each inference step takes under 1 . 0 ms, allowing seamless integration into the realtime estimation and control loop.",
+          "en": "All policies are executed onboard using ONNX Runtime [46] on the robot’s CPU. Each inference step takes under \\(1.0\\,\\mathrm{ms}\\), allowing seamless integration into the realtime estimation and control loop.",
           "reference": false,
           "source_image": "figs/p005-027-source.png",
-          "zh": "所有策略均使用 ONNX Runtime [46] 在机器人的机载 CPU 上运行。单步推理耗时不足 1.0 ms，从而能够无缝集成到实时估计与控制闭环中。"
+          "zh": "所有策略均使用 ONNX Runtime [46] 在机器人的机载 CPU 上运行。单步推理耗时不足 \\(1.0\\,\\mathrm{ms}\\)，从而能够无缝集成到实时估计与控制闭环中。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1509,15 +1643,24 @@
           "id": "p6-b2",
           "kind": "table",
           "bbox": [
-            93,
-            80,
-            259,
-            502
+            91.0,
+            78.0,
+            261.0,
+            504.0
           ],
           "en": "|Name|Sim|Real [s]| |---|---|---| |Short Sequ|ency|| |Cristiano Ronaldo [14] |Full |Full | |Side Kick [15]|Full|Full| |Single Leg Balance [16]|Full|Full| |Swallow Balance [16]|Full|Full| |LAFAN1 [43] (about|3 minu|tes each)| |walk1 ~~s~~ubject1|Full|[0.0, 33.0]| |||[81.2, 86.7]| |walk1 ~~s~~ubject2 |Full |- | |walk1 ~~s~~ubject5|Full|[146.7, 159.0] | |||[206.7, 263.7]| |walk2 ~~s~~ubject1|Full|-| |walk2 ~~s~~ubject3|Full|[42.7, 75.7]| |||[217.6, 230.6]| |walk2 ~~s~~ubject4|Full|[154.4, 164.4]| |||[218.6, 238.6]| |dance1 ~~s~~ubject1|Full|[0.0, 118.0]| |dance1 ~~s~~ubject2|Full|Full| |dance1 ~~s~~ubject3 |Full |-| |dance2 ~~s~~ubject1|Full|-| |dance2 ~~s~~ubject2|Full|-| |dance2 ~~s~~ubject3|Full|[43.1, 163.1]| |||[164.3, 184.3]| |dance2 ~~s~~ubject4|Full|[156.3, end]| |dance2 ~~s~~ubject4|Full|-| |fallAndGetUp1 ~~s~~ubject4|Full|-| |fallAndGetUp2 ~~s~~ubject2|Full|[0.0, 21.0]| |||[74.0, 91.2]| |||[94.0, 109.0]| |fallAndGetUp2 ~~s~~ubject3|Full|[26.5, 46.5]| |run1 ~~s~~ubject2|Full|[0.0, 50.0]| |run1 ~~s~~ubject4|Full|-| |run1 ~~s~~ubject5|Full|-| |run2 ~~s~~ubject1|Full|[0.0, 11.0]| |||[167.4, 204.4]| |jumps1 ~~s~~ubject1|Full|[24.3, 42.3]| |||[71.6, 81.6]| |||[205.5, 226.5]| |jumps1 ~~s~~ubject2|Full|-| |jumps1 ~~s~~ubject5|Full|-| |fightAndSports1 ~~s~~ubject1|Full|[16.8, 25.4]| |||[201.6, end]| |fightAndSports1 ~~s~~ubject4|Full|-| |i fight1 ~~s~~ubject2|Full|-| |fight1 ~~s~~ubject3|Full|-| |fight1 ~~s~~ubject5|Full|-|",
           "reference": false,
           "image": "figs/p006-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            93.0,
+            80.0,
+            259.0,
+            502.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 510,
+          "image_height": 1278
         },
         {
           "id": "p6-b3",
@@ -1584,10 +1727,11 @@
             559,
             338
           ],
-          "en": "c) Extremely Dynamic and Previously Undemonstrated Motions: We push the limits of humanoid motion tracking by executing highly dynamic motions that have not, to our knowledge, been demonstrated by existing research (with the possible exception of Boston Dynamics Atlas). These include double- and single-leg hopping, two cartwheels in a row, out-and-back sprints, and forward jumps with 180◦ and 360◦ spins. Motions like the 360◦ spin jump are physically demanding even for adult humans, yet our policy performs them fluidly and reliably. Remarkably, these are not isolated clips, but parts of the three-minute long references , highlighting our framework’s ability to scale to long motion sequences while preserving both precision and extreme agility hidden in the dataset.",
+          "en": "c) Extremely Dynamic and Previously Undemonstrated Motions: We push the limits of humanoid motion tracking by executing highly dynamic motions that have not, to our knowledge, been demonstrated by existing research (with the possible exception of Boston Dynamics Atlas). These include double- and single-leg hopping, two cartwheels in a row, out-and-back sprints, and forward jumps with \\(180^{\\circ}\\) and \\(360^{\\circ}\\) spins. Motions like the \\(360^{\\circ}\\) spin jump are physically demanding even for adult humans, yet our policy performs them fluidly and reliably. Remarkably, these are not isolated clips, but parts of the three-minute long references , highlighting our framework’s ability to scale to long motion sequences while preserving both precision and extreme agility hidden in the dataset.",
           "reference": false,
           "source_image": "figs/p006-007-source.png",
-          "zh": "c) 极限高动态且以往未曾展示过的动作：我们通过执行据我们所知在现有研究中从未展示过的高动态动作（Boston Dynamics Atlas 可能除外），进一步拓展了人形机器人运动跟踪的极限。这些动作包括双腿及单腿跳跃、连续两次侧手翻、折返冲刺，以及带有 180◦ 和 360◦ 空中转体的向前跳跃。像 360◦ 转体跳跃这样的动作，即使对成年人类来说也极耗体能，但我们的策略依然能够流畅且可靠地完成。值得注意的是，这些动作并非孤立的片段，而是长达三分钟的参考动作的一部分，这彰显了我们的框架在扩展到长动作序列的同时，能够充分保留数据集中蕴含的高精度与极限敏捷性。"
+          "zh": "c) 极限高动态且以往未曾展示过的动作：我们通过执行据我们所知在现有研究中从未展示过的高动态动作（Boston Dynamics Atlas 可能除外），进一步拓展了人形机器人运动跟踪的极限。这些动作包括双腿及单腿跳跃、连续两次侧手翻、折返冲刺，以及带有 \\(180^{\\circ}\\) 和 \\(360^{\\circ}\\) 空中转体的向前跳跃。像 \\(360^{\\circ}\\) 转体跳跃这样的动作，即使对成年人类来说也极耗体能，但我们的策略依然能够流畅且可靠地完成。值得注意的是，这些动作并非孤立的片段，而是长达三分钟的参考动作的一部分，这彰显了我们的框架在扩展到长动作序列的同时，能够充分保留数据集中蕴含的高精度与极限敏捷性。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b8",
@@ -1696,15 +1840,24 @@
           "id": "p7-b5",
           "kind": "table",
           "bbox": [
-            81,
-            94,
-            272,
-            152
+            79.0,
+            92.0,
+            274.0,
+            154.0
           ],
           "en": "|Motion|w/o AS|w/ AS| |---|---|---| |Christiano Ronaldo [14]|3k|1.5k| |Swallow Balance [16]|2.8k|1.8k| |dance1 ~~s~~ubject1|Failed (cartwheel)|8k| |dance2 ~~s~~ubject1|Failed (jump-spining)|9k| |fightAndSports1 ~~s~~ubject1|Failed (balance)|10k|",
           "reference": false,
           "image": "figs/p007-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            81.0,
+            94.0,
+            272.0,
+            152.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 585,
+          "image_height": 186
         },
         {
           "id": "p7-b6",
@@ -1827,10 +1980,11 @@
             299,
             626
           ],
-          "en": "We train BeyondMimic using an observation history of N = 4 and predict a future horizon of H = 16. We limit the action prediction horizon to 8 steps through loss masking. The model uses a Transformer decoder with 6 layers, 4 attention heads, and a 512-dimensional embedding, totaling 19.95M parameters. Training is performed with 20 denoising steps and an attention dropout probability of 0 . 3.",
+          "en": "We train BeyondMimic using an observation history of \\(N = 4\\) and predict a future horizon of \\(H = 16\\). We limit the action prediction horizon to 8 steps through loss masking. The model uses a Transformer decoder with 6 layers, 4 attention heads, and a 512-dimensional embedding, totaling 19.95M parameters. Training is performed with 20 denoising steps and an attention dropout probability of \\(0.3\\).",
           "reference": false,
           "source_image": "figs/p007-014-source.png",
-          "zh": "我们使用 N = 4 的历史观测步数来训练 BeyondMimic，并预测 H = 16 的未来时域。我们通过损失掩码（loss masking）将动作预测时域限制为 8 步。该模型采用一个包含 6 层、4 个注意力头和 512 维嵌入的 Transformer 解码器，参数总量为 19.95M。训练过程中采用 20 个去噪步数，注意力 dropout 概率为 0.3。"
+          "zh": "我们使用 \\(N = 4\\) 的历史观测步数来训练 BeyondMimic，并预测 \\(H = 16\\) 的未来时域。我们通过损失掩码（loss masking）将动作预测时域限制为 8 步。该模型采用一个包含 6 层、4 个注意力头和 512 维嵌入的 Transformer 解码器，参数总量为 19.95M。训练过程中采用 20 个去噪步数，注意力 dropout 概率为 \\(0.3\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b15",
@@ -1878,15 +2032,24 @@
           "id": "p7-b16",
           "kind": "table",
           "bbox": [
-            342,
-            81,
-            529,
-            108
+            340.0,
+            79.0,
+            531.0,
+            110.0
           ],
           "en": "|State Representation|Walk + Perturb|Joystick Control| |---|---|---| |Body-Pos State|100%|80%| |Joint-Rot State|72%|0%|",
           "reference": false,
           "image": "figs/p007-016.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            342.0,
+            81.0,
+            529.0,
+            108.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 573,
+          "image_height": 93
         },
         {
           "id": "p7-b17",
@@ -1925,10 +2088,11 @@
             559,
             208
           ],
-          "en": "- Walk-Perturb: During a 15-second walk, we apply instantaneous root velocity perturbations sampled uniformly from 0 to 0 . 5 m/s once every second. We measure the fall rate in simulation.",
+          "en": "- Walk-Perturb: During a 15-second walk, we apply instantaneous root velocity perturbations sampled uniformly from 0 to \\(0.5 \\, \\text{m/s}\\) once every second. We measure the fall rate in simulation.",
           "reference": false,
           "source_image": "figs/p007-019-source.png",
-          "zh": "- Walk-Perturb：在15秒的行走过程中，我们每秒施加一次从0到0.5 m/s均匀采样的瞬时根节点速度扰动。我们在仿真中测量跌倒率。"
+          "zh": "- Walk-Perturb：在15秒的行走过程中，我们每秒施加一次从0到\\(0.5 \\, \\text{m/s}\\)均匀采样的瞬时根节点速度扰动。我们在仿真中测量跌倒率。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b20",
@@ -1942,7 +2106,8 @@
           "en": "- Joystick Control: We issue a sequence of directional commands: forward, backward, turn left, turn right—each lasting 3 seconds. Failure to follow commands or maintain balance is counted as a failure.",
           "reference": false,
           "source_image": "figs/p007-020-source.png",
-          "zh": "- Joystick Control：我们给出一系列方向指令：前进、后退、左转、右转——每个指令持续3秒。未能执行指令或未能保持平衡均被视为失败。"
+          "zh": "- Joystick Control：我们给出一系列方向指令：前进、后退、左转、右转——每个指令持续3秒。未能执行指令或未能保持平衡均被视为失败。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b21",
@@ -1953,10 +2118,11 @@
             559,
             284
           ],
-          "en": "- A fall is defined as any episode where the head height - drops below 0 . 2 m. Each experiment is run 50 times.",
+          "en": "- A fall is defined as any episode where the head height - drops below \\(0.2 \\, \\text{m}\\). Each experiment is run 50 times.",
           "reference": false,
           "source_image": "figs/p007-021-source.png",
-          "zh": "- 跌倒定义为头部高度降至0.2 m以下的任何回合。每个实验均进行50次。"
+          "zh": "- 跌倒定义为头部高度降至\\(0.2 \\, \\text{m}\\)以下的任何回合。每个实验均进行50次。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b22",
@@ -1998,7 +2164,8 @@
           "en": "- Body Pos State",
           "reference": false,
           "source_image": "figs/p007-024-source.png",
-          "zh": "- Body Pos 状态"
+          "zh": "- Body Pos 状态",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b25",
@@ -2009,10 +2176,11 @@
             559,
             513
           ],
-          "en": "- Global States: Root position (R3 ), linear velocity (R3 ), and orientation represented as a rotation vector (R3 ). These are expressed relative to the character frame at the current timestep.",
+          "en": "- Global States: Root position (\\(\\mathbb{R}^{3}\\)), linear velocity (\\(\\mathbb{R}^{3}\\)), and orientation represented as a rotation vector (\\(\\mathbb{R}^{3}\\)). These are expressed relative to the character frame at the current timestep.",
           "reference": false,
           "source_image": "figs/p007-025-source.png",
-          "zh": "- 全局状态：根节点位置（R3）、线速度（R3），以及用旋转向量表示的朝向（R3）。这些均相对于当前时间步的角色坐标系表示。"
+          "zh": "- 全局状态：根节点位置（\\(\\mathbb{R}^{3}\\)）、线速度（\\(\\mathbb{R}^{3}\\)），以及用旋转向量表示的朝向（\\(\\mathbb{R}^{3}\\)）。这些均相对于当前时间步的角色坐标系表示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b26",
@@ -2023,10 +2191,11 @@
             559,
             549
           ],
-          "en": "- Local States: Cartesian positions (R3B ), and linear velocities (R3B ) of all bodies, expressed in the character frame at each timestep.",
+          "en": "- Local States: Cartesian positions (\\(\\mathbb{R}^{3\\mathcal{B}}\\)), and linear velocities (\\(\\mathbb{R}^{3\\mathcal{B}}\\)) of all bodies, expressed in the character frame at each timestep.",
           "reference": false,
           "source_image": "figs/p007-026-source.png",
-          "zh": "- 局部状态：所有刚体的笛卡尔位置（R3B）和线速度（R3B），在每个时间步均在角色坐标系中表示。"
+          "zh": "- 局部状态：所有刚体的笛卡尔位置（\\(\\mathbb{R}^{3\\mathcal{B}}\\)）和线速度（\\(\\mathbb{R}^{3\\mathcal{B}}\\)），在每个时间步均在角色坐标系中表示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b27",
@@ -2040,7 +2209,8 @@
           "en": "- Joint Pos State",
           "reference": false,
           "source_image": "figs/p007-027-source.png",
-          "zh": "- Joint Pos 状态"
+          "zh": "- Joint Pos 状态",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b28",
@@ -2065,10 +2235,11 @@
             558,
             625
           ],
-          "en": "- Local States: Joint angles (RJ ), where J is the number of joints, and joint velocities (RJ ).",
+          "en": "- Local States: Joint angles (\\(\\mathbb{R}^{J}\\)), where \\(J\\) is the number of joints, and joint velocities (\\(\\mathbb{R}^{J}\\)).",
           "reference": false,
           "source_image": "figs/p007-029-source.png",
-          "zh": "- 局部状态：关节角度（RJ，其中 J 为关节数量）和关节速度（RJ）。"
+          "zh": "- 局部状态：关节角度（\\(\\mathbb{R}^{J}\\)，其中 \\(J\\) 为关节数量）和关节速度（\\(\\mathbb{R}^{J}\\)）。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b30",

@@ -10,7 +10,7 @@
   "out": "site/kungfubot",
   "imported": true,
   "source_language": "en",
-  "math": false,
+  "math": true,
   "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
   "source_aliases": [
     "papers/humanoid-whole-body/PBHC.pdf"
@@ -53,7 +53,7 @@
       "26": "p18-b17",
       "27": "p20-b8"
     },
-    "equation_references": 25,
+    "equation_references": 26,
     "paragraphs": 227
   },
   "translation_review": "gemini-polished-awaiting-human-review",

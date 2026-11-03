@@ -1,0 +1,87 @@
+{
+  "model": "gpt-6-astra",
+  "effort": "high",
+  "via": "local Codex CLI /usr/lib/chatgpt/resources/codex (0.159.2)",
+  "role_prompt": "You are an embodied intelligence generalist and academic translator, fluent in robotics, control, reinforcement learning, and mathematical notation.",
+  "completed_at": "2026-10-23T15:39:49.084212+00:00",
+  "paragraphs": 98,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "source_pdf_sha256": "318891d59ba0065f57eb0e735735700e5eb528f53bf08b81c773437385586c64",
+  "math_source": "正文数学记号已对照作者 LaTeX 源码与原 PDF 页面恢复。",
+  "batches": [
+    {
+      "job_id": "dreamer-01",
+      "rows": 27,
+      "receipt_sha256": "5f055a2008528f6c8bf908e3d8b6cdb6659eca227857c608c85e6e51a44c4a48",
+      "result_sha256": "116a748b6ecc60099fdbe354c2e9d8ca00d791cdf22424d5f349c1e2c512098b",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "dreamer-03",
+      "rows": 19,
+      "receipt_sha256": "da53f2f92d942096cf30b7be07403561b0db41484b6bc3e6ab6d07c8c0ac7b49",
+      "result_sha256": "f73e6fa40c57e8f31a64fa45ea939f29bfdd46683b5a9cdc0e00c0cc5588d65e",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "dreamer-05",
+      "rows": 12,
+      "receipt_sha256": "2b5b1546a1c3b723c8d676de447915857ffb9ae63c3816d0ed6aff2409996f7f",
+      "result_sha256": "669855beae785c6f72e909cc341ad0ea010db13356414154d182eef8e9176ae7",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "dreamer-07",
+      "rows": 11,
+      "receipt_sha256": "71a7f28766a541387de024f1a82c02ac1051613543fe27c04480becf333172be",
+      "result_sha256": "4c25fac3bb72f9c8ddbbd63ff6c1846a2d75602088f314dd98d369beb594f56c",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "dreamer-09",
+      "rows": 5,
+      "receipt_sha256": "a2fce9666b98793c0229191e43f9c5833b78926744cde512a5f06fd72e5785a6",
+      "result_sha256": "9822f541621556ddbce83fa79c8443f832a56953e45100f30807b36d27094c24",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "dreamer-13",
+      "rows": 5,
+      "receipt_sha256": "d76b5ef8192316cc5ae8c7aaece43f51d4c5ee00530b3508ec40d51641d3b811",
+      "result_sha256": "f59f65c7b956634183dae264640a61f3e54679126599673d0758bdb1f76d19e0",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "dreamer-15",
+      "rows": 11,
+      "receipt_sha256": "db95cb3e82ee265a85c0e65713ae81bec197be7019a47fbcba4637c6da9d949a",
+      "result_sha256": "b2e864c2caadbf79ef5ae7c7b737976f31b14a575fed9dd5f3aa7e6a06a15f5c",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "dreamer-17",
+      "rows": 4,
+      "receipt_sha256": "81eed3e9892a5f0dbeeda5478549ff25ba260b89f67de67b47b0a3af274d17f3",
+      "result_sha256": "c14e070544355361e8148907fcf21132c9ffc7ff48d6ed485f3201eff849f608",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "dreamer-19",
+      "rows": 4,
+      "receipt_sha256": "2c779cc560d09852069407186973b51e5e9b1c43c5a8fd27a003f6977d3f7809",
+      "result_sha256": "abdca07003ada6d53c173418c885ca2d87bef6400c0f964dee9fb210a59e79f9",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    }
+  ],
+  "source_tex_archive_sha256": "3064085d8e79175c5ae61b82489ab6b49f5f0cebb669f0eac48cd1215fb1d5a6"
+}

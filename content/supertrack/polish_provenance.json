@@ -1,0 +1,62 @@
+{
+  "model": "gpt-6-astra",
+  "effort": "high",
+  "via": "local Codex CLI /usr/lib/chatgpt/resources/codex (0.159.2)",
+  "role_prompt": "You are an embodied intelligence generalist and academic translator, fluent in robotics, control, reinforcement learning, and mathematical notation.",
+  "completed_at": "2026-10-23T15:39:49.084212+00:00",
+  "paragraphs": 130,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "source_pdf_sha256": "91276c0027b2c299303a466357526a365eb7806c9bea3de2d33f6e5d6de9083d",
+  "math_source": "正文数学记号已结合作者公开 PDF 的原页图像恢复。",
+  "batches": [
+    {
+      "job_id": "supertrack-01",
+      "rows": 29,
+      "receipt_sha256": "a91618ab47b474bbf311a8513da93af80c99d8712a9258619daa1c8234344723",
+      "result_sha256": "cf007883bdc5a53fbb9844f4f1958c7567e9b3810496e3f31a1f18f3309c4b86",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "supertrack-03",
+      "rows": 17,
+      "receipt_sha256": "266d09c55d130041e817e65291ecf13fde4b45bc2c56bfa7c9cbfca18ab20ad6",
+      "result_sha256": "921d8d7f01a44db88447cd1ab1b4d104e2470b2c8b328d6ad0a410f9f2c0a1d9",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "supertrack-05",
+      "rows": 23,
+      "receipt_sha256": "038781bf5af3f6716457591b45400a699fe76892d7d7311c8dc24f84e0faba20",
+      "result_sha256": "634961b8a4952fce5c4978f2daaf5d1545694b7eb3799b7f2878a2d277343a83",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "supertrack-07",
+      "rows": 23,
+      "receipt_sha256": "03a6b615ad0cdc80c145e972b78b4af960b6e10bac011724dae53f2fb2668008",
+      "result_sha256": "4f38ddfe76895b7725b5274cac033ca8a1c9bee895964571fbafd06c8220b90e",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "supertrack-09",
+      "rows": 24,
+      "receipt_sha256": "0569ed1a6c1c3f6f5174cfde62a25fc761cfff5c432a2e3375ffb8336c1b997e",
+      "result_sha256": "cbad231e11ef06d9e4d7684a6b628a8272c6ee7fb760a9384ab8e25d3e5908dd",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "job_id": "supertrack-11",
+      "rows": 14,
+      "receipt_sha256": "ac31c4855f78856130f805daef823105833eaf5cb5cffa8379a5fbc2d057fdc8",
+      "result_sha256": "9041869bb1bec8e6908d15a6cc412a977179f344daef60a2e1e52c6d7d941feb",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    }
+  ]
+}

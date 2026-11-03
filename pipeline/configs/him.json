@@ -10,7 +10,7 @@
   "out": "site/him",
   "imported": true,
   "source_language": "en",
-  "math": false,
+  "math": true,
   "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
   "source_aliases": [
     "papers/humanoid-whole-body/HIM.pdf"
@@ -21,7 +21,7 @@
       "2": "p5-b10"
     },
     "equation_references": 0,
-    "paragraphs": 168
+    "paragraphs": 167
   },
   "translation_review": "gemini-polished-awaiting-human-review",
   "translation_engine": "antigravity",

@@ -27,24 +27,34 @@
             539,
             133
           ],
-          "en": "Zhikai Zhang˚1,3 Jun Guo˚1,3 Chao Chen2,3 Jilong Wang2,3 Chenghuai Lin3 Yunrui Lian1,3 Han Xue1,3 Zhenrong Wang3 Maoqi Liu3 Huaping Liu1 He Wang2,3 Li Yi:1,4",
+          "en": "Zhikai Zhang\\(^{*1,3}\\) Jun Guo\\(^{*1,3}\\) Chao Chen\\(^{2,3}\\) Jilong Wang\\(^{2,3}\\) Chenghuai Lin\\(^{3}\\) Yunrui Lian\\(^{1,3}\\) Han Xue\\(^{1,3}\\) Zhenrong Wang\\(^{3}\\) Maoqi Liu\\(^{3}\\) Huaping Liu\\(^{1}\\) He Wang\\(^{2,3}\\) Li Yi\\(^{\\dag 1,4}\\)",
           "reference": false,
           "source_image": "figs/p001-002-source.png",
-          "zh": "Zhikai Zhang˚1,3 Jun Guo˚1,3 Chao Chen2,3 Jilong Wang2,3 Chenghuai Lin3 Yunrui Lian1,3 Han Xue1,3 Zhenrong Wang3 Maoqi Liu3 Huaping Liu1 He Wang2,3 Li Yi:1,4"
+          "zh": "Zhikai Zhang\\(^{*1,3}\\) Jun Guo\\(^{*1,3}\\) Chao Chen\\(^{2,3}\\) Jilong Wang\\(^{2,3}\\) Chenghuai Lin\\(^{3}\\) Yunrui Lian\\(^{1,3}\\) Han Xue\\(^{1,3}\\) Zhenrong Wang\\(^{3}\\) Maoqi Liu\\(^{3}\\) Huaping Liu\\(^{1}\\) He Wang\\(^{2,3}\\) Li Yi\\(^{\\dag 1,4}\\)",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b3",
           "kind": "picture",
           "bbox": [
-            54,
-            139,
-            559,
-            506
+            52.0,
+            137.0,
+            561.0,
+            508.0
           ],
           "en": "(a) (b) (c) (d) (e)",
           "reference": false,
           "image": "figs/p001-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            139.0,
+            559.0,
+            506.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1527,
+          "image_height": 1113
         },
         {
           "id": "p1-b4",
@@ -273,7 +283,8 @@
           "en": "- ‚ Any2Track : A novel two-stage RL framework for robust humanoid motion tracking that excels under significant real-world disturbances.",
           "reference": false,
           "source_image": "figs/p002-009-source.png",
-          "zh": "- Any2Track：一种新颖的两阶段强化学习框架，用于鲁棒的人形机器人动作跟踪，在显著的现实世界扰动下表现优异。"
+          "zh": "- Any2Track：一种新颖的两阶段强化学习框架，用于鲁棒的人形机器人动作跟踪，在显著的现实世界扰动下表现优异。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b10",
@@ -287,7 +298,8 @@
           "en": "- ‚ AnyTracker : A general motion tracker with a series of careful designs to alleviate the optimization difficulties brought by complex action spaces and track diverse, highly dynamic, and contact-rich motions.",
           "reference": false,
           "source_image": "figs/p002-010-source.png",
-          "zh": "- AnyTracker：一个通用动作跟踪器，通过一系列精心设计来缓解复杂动作空间带来的优化困难，并跟踪多样、高度动态且富接触的动作。"
+          "zh": "- AnyTracker：一个通用动作跟踪器，通过一系列精心设计来缓解复杂动作空间带来的优化困难，并跟踪多样、高度动态且富接触的动作。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b11",
@@ -301,7 +313,8 @@
           "en": "- ‚ AnyAdapter : A history-informed module that provides online adaptation to dynamic shifts and external perturbations, including terrains, external forces, and physical property changes.",
           "reference": false,
           "source_image": "figs/p002-011-source.png",
-          "zh": "- AnyAdapter：一个基于历史信息的模块，为动力学变化和外部扰动（包括地形、外力以及物理属性变化）提供在线自适应。"
+          "zh": "- AnyAdapter：一个基于历史信息的模块，为动力学变化和外部扰动（包括地形、外力以及物理属性变化）提供在线自适应。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b12",
@@ -315,7 +328,8 @@
           "en": "- ‚ State-of-the-art Performance : We demonstrate superior real-world tracking under disturbances on the Unitree G1 hardware, validated by extensive experiments in both simulation and reality.",
           "reference": false,
           "source_image": "figs/p002-012-source.png",
-          "zh": "- 最先进的性能（State-of-the-art Performance）：我们在 Unitree G1 硬件平台上展示了受扰动情况下卓越的真实世界动作跟踪表现，并通过仿真与真实环境中的大量实验进行了验证。"
+          "zh": "- 最先进的性能（State-of-the-art Performance）：我们在 Unitree G1 硬件平台上展示了受扰动情况下卓越的真实世界动作跟踪表现，并通过仿真与真实环境中的大量实验进行了验证。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b13",
@@ -396,15 +410,24 @@
           "id": "p3-b1",
           "kind": "table",
           "bbox": [
-            54,
-            135,
-            546,
-            196
+            52.0,
+            133.0,
+            548.0,
+            198.0
           ],
           "en": "|Method|Trac|k Any Motions|||Adapt|to Any|Disturbances| |---|---|---|---|---|---|---|---| ||Diversity|Highly Dynamic|Contact-rich|Terrain|External|Force|Physical Property Change| |Exbody2 [3]|CMU dataset [18]|✗|✗|✗|✗||✗| |ASAP [6]|One motion clip|✓|✗|✗|✗||✗| |GMT [5]|LAFAN1 + AMASS*|✓|✗|✗|✗||✗| |Ours|LAFAN1 + AMASS|✓|✓|✓|✓||✓|",
           "reference": false,
           "image": "figs/p003-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            135.0,
+            546.0,
+            196.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1488,
+          "image_height": 195
         },
         {
           "id": "p3-b2",
@@ -527,10 +550,11 @@
             559,
             696
           ],
-          "en": "Our tracker can be seen as an RL policy π : G ˆ S ÞÑ A , which maps humanoid proprioception state and tracking goals to low-level robot actions. At each timestep t , the inputs of policy π consist of current state st and current tracking goals gt . st includes angular velocity, projected gravity, per-joint position, per-joint velocity, and last-frame action. gt depicts next-frame humanoid target motion, including target per-joint position, target per-joint velocity, and target rigid body information in the local frame. The policy π needs to output per-joint action at , which is further fed into a PD controller to compute actuator torques. The task goal of motion tracking is that at timestep t ` 1, the robot’s state st `1 should be as close as possible to the target motion depicted by gt while maintaining balance and safety. The reward terms we used are shown in Table II.",
+          "en": "Our tracker can be seen as an RL policy \\(\\pi: \\mathcal G \\times \\mathcal S \\mapsto \\mathcal A\\), which maps humanoid proprioception state and tracking goals to low-level robot actions. At each timestep \\(t\\), the inputs of policy \\(\\pi\\) consist of current state \\(s_{t}\\) and current tracking goals \\(g_{t}\\). \\(s_{t}\\) includes angular velocity, projected gravity, per-joint position, per-joint velocity, and last-frame action. \\(g_{t}\\) depicts next-frame humanoid target motion, including target per-joint position, target per-joint velocity, and target rigid body information in the local frame. The policy \\(\\pi\\) needs to output per-joint action \\(a_{t}\\), which is further fed into a PD controller to compute actuator torques. The task goal of motion tracking is that at timestep \\(t+1\\), the robot’s state \\(s_{t+1}\\) should be as close as possible to the target motion depicted by \\(g_{t}\\) while maintaining balance and safety. The reward terms we used are shown in Table II.",
           "reference": false,
           "source_image": "figs/p003-010-source.png",
-          "zh": "我们的跟踪器可以看作是一个强化学习策略 π : 〔行内公式见原版〕，它将人形机器人的本体感觉状态和跟踪目标映射到低层机器人动作。在每个时间步 t，策略 π 的输入由当前状态 st 和当前跟踪目标 gt 组成。st 包括角速度、重力投影、各关节位置、各关节速度以及上一帧动作。gt 描述了下一帧的人形机器人目标动作，包括目标各关节位置、目标各关节速度以及局部坐标系下的目标刚体信息。策略 π 需要输出各关节动作 at，该动作被进一步输入到 PD 控制器中以计算执行器力矩。动作跟踪的任务目标是：在时间步 t+1，机器人的状态 st+1 应尽可能接近由 gt 所描绘的目标动作，同时保持平衡与安全。我们使用的奖励项如表 II 所示。"
+          "zh": "我们的跟踪器可以看作是一个强化学习策略 \\(\\pi: \\mathcal G \\times \\mathcal S \\mapsto \\mathcal A\\)，它将人形机器人的本体感觉状态和跟踪目标映射到低层机器人动作。在每个时间步 \\(t\\)，策略 \\(\\pi\\) 的输入由当前状态 \\(s_{t}\\) 和当前跟踪目标 \\(g_{t}\\) 组成。\\(s_{t}\\) 包括角速度、重力投影、各关节位置、各关节速度以及上一帧动作。\\(g_{t}\\) 描述了下一帧的人形机器人目标动作，包括目标各关节位置、目标各关节速度以及局部坐标系下的目标刚体信息。策略 \\(\\pi\\) 需要输出各关节动作 \\(a_{t}\\)，该动作被进一步输入到 PD 控制器中以计算执行器力矩。动作跟踪的任务目标是：在时间步 \\(t+1\\)，机器人的状态 \\(s_{t+1}\\) 应尽可能接近由 \\(g_{t}\\) 所描绘的目标动作，同时保持平衡与安全。我们使用的奖励项如表 II 所示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b11",
@@ -555,15 +579,24 @@
           "id": "p4-b0",
           "kind": "picture",
           "bbox": [
-            54,
-            52,
-            558,
-            229
+            52.0,
+            50.0,
+            560.0,
+            231.0
           ],
           "en": "AnyTracker AnyAdapter Data Curation World Model Learning ref! 𝑠! Retargeting Categorizing 𝑠!$%, 𝑎!$% 𝑠̂!\"# PHC Filtering Clustering ……ref\" 𝑠!$%\"#⋯⋯, 𝑎!$%\"# EncoderHistory 𝑒! World Model 𝑠!$#, 𝑎!$# 𝐿&' ref# Base Policy Learning Policy Adaptation Adapter Specialist *+, Simulator 𝑠!\"# 𝑎! Ref Data Policies (Various Disturbance) Simulator DAgger (No Disturbance) 𝑠! Policy feet friction terrains 𝑟! Generalist -,. body mass CoM pos Policy 𝑎! 𝑔! ⊕ ⊕ ⊕ 𝑎! external push armature 𝐿(() Linear Linear Linear Linear Linear Linear",
           "reference": false,
           "image": "figs/p004-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            52.0,
+            558.0,
+            229.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1524,
+          "image_height": 543
         },
         {
           "id": "p4-b1",
@@ -597,15 +630,24 @@
           "id": "p4-b3",
           "kind": "table",
           "bbox": [
-            60,
-            313,
-            290,
-            468
+            58.0,
+            311.0,
+            292.0,
+            470.0
           ],
           "en": "|Term|Weight|Term|Weight| |---|---|---|---| |||Task|| |Upper-body position|1.0|Lower-body position|0.5| |Torso roll/pitch|1.0|Body rotation|0.5| |Body linear velocity|0.5|Body angular velocity|0.5| |DoF position|0.75|DoF velocity|0.5| |Root linear velocity|1.0|Root angular velocity|1.0| |Root height|1.0|Feet height|1.0| ||Reg|ularization|| |Action rate Torques |´0.5 ´2ˆ10´|DoF velocity rate 5|´1ˆ10´6| |||Penalty|| |DoF position limits Self collision|´10.0 ´10.0|DoF velocity limits Termination|´5.0 ´200.0|",
           "reference": false,
           "image": "figs/p004-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            60.0,
+            313.0,
+            290.0,
+            468.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 702,
+          "image_height": 477
         },
         {
           "id": "p4-b4",
@@ -658,26 +700,36 @@
             559,
             396
           ],
-          "en": "Concretely, we first utilize the tanh function to map the policy prediction π p at | st q to the range r´1 , 1s. However, the action range varies for different joints, and using a unified policy prediction range is not suitable for all joints and can severely hinder the tracker’s performance. Therefore, we use empirically designed hyperparameters α P Rnum ~~j~~ oints to rescale each joint’s action scale. Instead of directly predicting the PD targets, we predict residual PD offsets relative to the reference motion. The final PD targets can be written as:",
+          "en": "Concretely, we first utilize the \\(tanh\\) function to map the policy prediction \\(\\pi(a_{t}|s_{t})\\) to the range \\([-1,1]\\). However, the action range varies for different joints, and using a unified policy prediction range is not suitable for all joints and can severely hinder the tracker’s performance. Therefore, we use empirically designed hyperparameters \\(\\mathbf{\\alpha} \\in \\mathbb{R}^{\\text{num\\_joints}}\\) to rescale each joint’s action scale. Instead of directly predicting the PD targets, we predict residual PD offsets relative to the reference motion. The final PD targets can be written as:",
           "reference": false,
           "source_image": "figs/p004-007-source.png",
-          "zh": "具体而言，我们首先利用 tanh 函数将策略预测 π p at | st q 映射到区间 r´1 , 1s。然而，不同关节的动作范围各不相同，使用统一的策略预测范围并不适合所有关节，并会严重阻碍跟踪器的性能。因此，我们使用经验设计的超参数 α P Rnum ~~j~~ oints 来重新缩放每个关节的动作尺度。我们不直接预测 PD 目标，而是预测相对于参考动作的残差 PD 偏移量。最终的 PD 目标可表示为："
+          "zh": "具体而言，我们首先利用 \\(tanh\\) 函数将策略预测 \\(\\pi(a_{t}|s_{t})\\) 映射到区间 \\([-1,1]\\)。然而，不同关节的动作范围各不相同，使用统一的策略预测范围并不适合所有关节，并会严重阻碍跟踪器的性能。因此，我们使用经验设计的超参数 \\(\\mathbf{\\alpha} \\in \\mathbb{R}^{\\text{num\\_joints}}\\) 来重新缩放每个关节的动作尺度。我们不直接预测 PD 目标，而是预测相对于参考动作的残差 PD 偏移量。最终的 PD 目标可表示为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b8",
           "kind": "formula",
           "bbox": [
-            373,
-            405,
-            559,
-            416
+            371.0,
+            403.0,
+            561.0,
+            418.0
           ],
           "en": "qd “ q ˜ t `1 ` α tanhp π p at | st qq , (1)",
           "reference": false,
           "image": "figs/p004-008.png",
           "labels": [
             "1"
-          ]
+          ],
+          "original_bbox": [
+            373.0,
+            405.0,
+            559.0,
+            416.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 570,
+          "image_height": 45
         },
         {
           "id": "p4-b9",
@@ -688,10 +740,11 @@
             518,
             435
           ],
-          "en": "where q ˜ t `1 is the target next-frame joint position.",
+          "en": "where \\(\\tilde{q}_{t+1}\\) is the target next-frame joint position.",
           "reference": false,
           "source_image": "figs/p004-009-source.png",
-          "zh": "其中 q ˜ t `1 为目标下一帧关节位置。"
+          "zh": "其中 \\(\\tilde{q}_{t+1}\\) 为目标下一帧关节位置。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b10",
@@ -772,15 +825,24 @@
           "id": "p5-b1",
           "kind": "table",
           "bbox": [
-            67,
-            102,
-            283,
-            285
+            65.0,
+            100.0,
+            285.0,
+            287.0
           ],
           "en": "|Term|Value| |---|---| |Terrains|| |Floor friction|Up0.3,2.0q| |Max terrain height|0.3| |Noise scale|Up10.0,16.0q| |Noise octaves|Up5.0,8.0q| |Noise persistence|Up0.3,0.5q| |Noise lacunarity|Up2.0,4.0q| |External Forces|| |Interval range|Up5.0,10.0q| |Velocity magnitude range|Up0.1,1.0q| |Physical Property Changes|| |DoF friction scaling|Up0.5,2.0q| |Armature scaling|Up1.0,1.05q| |Torso CoM position change|Up´0.15,0.15q| |Torso mass change|Up´3.0,6.0q| |Default DoF position jittering|Up´0.05,0.05q|",
           "reference": false,
           "image": "figs/p005-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            67.0,
+            102.0,
+            283.0,
+            285.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 660,
+          "image_height": 561
         },
         {
           "id": "p5-b2",
@@ -833,26 +895,36 @@
             299,
             682
           ],
-          "en": "Given the history of robot–environment interactions, the motion tracker is expected to leverage this information to estimate the current environment dynamics and adapt its behavior accordingly. However, we found that the interaction history often contains substantial irrelevant information and noise, making direct utilization challenging for model learning. To address this, it is necessary to introduce proxy tasks for representation learning, enabling the extraction of informative feature embeddings that capture rich dynamics knowledge. In this work, we propose dynamics-aware world model prediction, which contains a history encoder ϕ and a world model ω . At each timestep t , the history encoder extracts dynamics feature embeddings from history information:",
+          "en": "Given the history of robot–environment interactions, the motion tracker is expected to leverage this information to estimate the current environment dynamics and adapt its behavior accordingly. However, we found that the interaction history often contains substantial irrelevant information and noise, making direct utilization challenging for model learning. To address this, it is necessary to introduce proxy tasks for representation learning, enabling the extraction of informative feature embeddings that capture rich dynamics knowledge. In this work, we propose dynamics-aware world model prediction, which contains a history encoder \\(\\phi\\) and a world model \\(\\omega\\). At each timestep \\(t\\), the history encoder extracts dynamics feature embeddings from history information:",
           "reference": false,
           "source_image": "figs/p005-005-source.png",
-          "zh": "给定机器人与环境交互的历史信息，动作跟踪器预期能够利用该信息估计当前的环境动力学，并据此调整其行为。然而，我们发现交互历史通常包含大量无关信息与噪声，使得模型学习难以对其进行直接利用。为解决该问题，有必要引入表征学习的代理任务，从而能够提取捕获了丰富动力学知识的高信息量特征嵌入。在这项工作中，我们提出了动力学感知世界模型预测，它包含一个历史编码器 ϕ 和一个世界模型 ω。在每个时间步 t，历史编码器从历史信息中提取动力学特征嵌入："
+          "zh": "给定机器人与环境交互的历史信息，动作跟踪器预期能够利用该信息估计当前的环境动力学，并据此调整其行为。然而，我们发现交互历史通常包含大量无关信息与噪声，使得模型学习难以对其进行直接利用。为解决该问题，有必要引入表征学习的代理任务，从而能够提取捕获了丰富动力学知识的高信息量特征嵌入。在这项工作中，我们提出了动力学感知世界模型预测，它包含一个历史编码器 \\(\\phi\\) 和一个世界模型 \\(\\omega\\)。在每个时间步 \\(t\\)，历史编码器从历史信息中提取动力学特征嵌入：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b6",
           "kind": "formula",
           "bbox": [
-            152,
-            689,
-            299,
-            700
+            150.0,
+            687.0,
+            301.0,
+            702.0
           ],
           "en": "et “ ϕ p ht q , (2)",
           "reference": false,
           "image": "figs/p005-006.png",
           "labels": [
             "2"
-          ]
+          ],
+          "original_bbox": [
+            152.0,
+            689.0,
+            299.0,
+            700.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 453,
+          "image_height": 45
         },
         {
           "id": "p5-b7",
@@ -863,10 +935,11 @@
             299,
             734
           ],
-          "en": "where ht “ t st ´ H , at ´ H , ..., st ´1 , at ´1u and H “ 79 is the history window size. The world model needs to predict the",
+          "en": "where \\(h_{t}=\\{s_{t-H},a_{t-H},...,s_{t-1},a_{t-1}\\}\\) and \\(H=79\\) is the history window size. The world model needs to predict the",
           "reference": false,
           "source_image": "figs/p005-007-source.png",
-          "zh": "其中 ht “ t st ´ H , at ´ H , ..., st ´1 , at ´1u，且 H “ 79 为历史窗口大小。世界模型需要自回归地预测"
+          "zh": "其中 \\(h_{t}=\\{s_{t-H},a_{t-H},...,s_{t-1},a_{t-1}\\}\\)，且 \\(H=79\\) 为历史窗口大小。世界模型需要自回归地预测",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b8",
@@ -886,17 +959,26 @@
           "id": "p5-b9",
           "kind": "formula",
           "bbox": [
-            376,
-            79,
-            559,
-            90
+            374.0,
+            77.0,
+            561.0,
+            92.0
           ],
           "en": "s ˆ t ` i `1 “ ω p s ˆ t ` i, at ` i, et ` i q , (3)",
           "reference": false,
           "image": "figs/p005-009.png",
           "labels": [
             "3"
-          ]
+          ],
+          "original_bbox": [
+            376.0,
+            79.0,
+            559.0,
+            90.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 561,
+          "image_height": 45
         },
         {
           "id": "p5-b10",
@@ -907,10 +989,11 @@
             559,
             210
           ],
-          "en": "where i P t0 , 1 , ..., N ´ 1u and N “ 20 is the autoregressive prediction window size. Since we introduce environment dynamics variance at this stage, different environment configurations can significantly affect the forward dynamics. The history encoder needs to provide sufficiently informative dynamics features to identify environments, so that the world model can correctly predict the next-frame robot state taking the features as input ( dynamics-aware world model prediction).",
+          "en": "where \\(i\\in\\{0,1,...,N-1\\}\\) and \\(N=20\\) is the autoregressive prediction window size. Since we introduce environment dynamics variance at this stage, different environment configurations can significantly affect the forward dynamics. The history encoder needs to provide sufficiently informative dynamics features to identify environments, so that the world model can correctly predict the next-frame robot state taking the features as input ( dynamics-aware world model prediction).",
           "reference": false,
           "source_image": "figs/p005-010-source.png",
-          "zh": "其中 i P t0 , 1 , ..., N ´ 1u，且 N “ 20 为自回归预测窗口大小。由于我们在此阶段引入了环境动力学变化，不同的环境配置会显著影响前向动力学。历史编码器需要提供足够丰富的动力学特征来识别环境，以便世界模型能够以这些特征作为输入，正确预测下一帧的机器人状态（即动力学感知世界模型预测）。"
+          "zh": "其中 \\(i\\in\\{0,1,...,N-1\\}\\)，且 \\(N=20\\) 为自回归预测窗口大小。由于我们在此阶段引入了环境动力学变化，不同的环境配置会显著影响前向动力学。历史编码器需要提供足够丰富的动力学特征来识别环境，以便世界模型能够以这些特征作为输入，正确预测下一帧的机器人状态（即动力学感知世界模型预测）。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b11",
@@ -921,26 +1004,36 @@
             559,
             305
           ],
-          "en": "To train the history encoder ϕ and world model ω , we first sample a window of H ` 1 ` N “ 100 state-action pairs from the data buffer. For initialization, the history encoder ϕ takes the first H data pairs as history input and computes initial dynamics feature embeddings et . Then the world model takes the p H ` 1q-th state st as the initial state s ˆ t , and autoregressively predicts the next N states. The loss function can be written as:",
+          "en": "To train the history encoder \\(\\phi\\) and world model \\(\\omega\\), we first sample a window of \\(H+1+N=100\\) state-action pairs from the data buffer. For initialization, the history encoder \\(\\phi\\) takes the first \\(H\\) data pairs as history input and computes initial dynamics feature embeddings \\(e_{t}\\). Then the world model takes the \\((H+1)\\)-th state \\(s_{t}\\) as the initial state \\(\\hat{s}_t\\), and autoregressively predicts the next \\(N\\) states. The loss function can be written as:",
           "reference": false,
           "source_image": "figs/p005-011-source.png",
-          "zh": "为了训练历史编码器 ϕ 和世界模型 ω，我们首先从数据缓冲区中采样一个包含 H ` 1 ` N “ 100 个状态-动作对的窗口。在初始化阶段，历史编码器 ϕ 将前 H 个数据对作为历史输入，并计算初始动力学特征嵌入 et。随后，世界模型将第 p H ` 1q 个状态 st 作为初始状态 s ˆ t，并自回归地预测接下来的 N 个状态。损失函数可写为："
+          "zh": "为了训练历史编码器 \\(\\phi\\) 和世界模型 \\(\\omega\\)，我们首先从数据缓冲区中采样一个包含 \\(H+1+N=100\\) 个状态-动作对的窗口。在初始化阶段，历史编码器 \\(\\phi\\) 将前 \\(H\\) 个数据对作为历史输入，并计算初始动力学特征嵌入 \\(e_{t}\\)。随后，世界模型将第 \\((H+1)\\) 个状态 \\(s_{t}\\) 作为初始状态 \\(\\hat{s}_t\\)，并自回归地预测接下来的 \\(N\\) 个状态。损失函数可写为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b12",
           "kind": "formula",
           "bbox": [
-            381,
-            318,
-            559,
-            347
+            379.0,
+            316.0,
+            561.0,
+            349.0
           ],
           "en": "N L wm “ ÿ } st ` i ´ ˆ st ` i }1 . (4) i “1",
           "reference": false,
           "image": "figs/p005-012.png",
           "labels": [
             "4"
-          ]
+          ],
+          "original_bbox": [
+            381.0,
+            318.0,
+            559.0,
+            347.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 546,
+          "image_height": 99
         },
         {
           "id": "p5-b13",
@@ -951,10 +1044,11 @@
             558,
             381
           ],
-          "en": "L wm updates both the history encoder ϕ and the world model ω simultaneously through backpropagation.",
+          "en": "\\(\\mathcal{L}_{\\text{wm}}\\) updates both the history encoder \\(\\phi\\) and the world model \\(\\omega\\) simultaneously through backpropagation.",
           "reference": false,
           "source_image": "figs/p005-013-source.png",
-          "zh": "L wm 通过反向传播同时更新历史编码器 ϕ 和世界模型 ω。"
+          "zh": "\\(\\mathcal{L}_{\\text{wm}}\\) 通过反向传播同时更新历史编码器 \\(\\phi\\) 和世界模型 \\(\\omega\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b14",
@@ -993,10 +1087,11 @@
             559,
             673
           ],
-          "en": "In this work, we reformulate dynamics adaptability as an additional capability on top of basic action execution. To avoid compromising the already acquired motion tracking capability. We freeze the network parameters of Any2Track and introduce an adapter [15] architecture for fine-tuning. The adapter ξ consists of M layers with zero-initialized weights ξ “ t ξ 1 , ..., ξM u, where M is the number of layers of AnyTracker network. At the beginning, the zero-initialized adapter does not affect the base tracker’s output. As finetuning progresses, the adapter injects dynamics adaptability into the base model through layer-wise feature fusion as shown in Figure 2. Such a training paradigm avoids degrading the already acquired motion tracking performance, ultimately yielding both rich motion expressiveness and strong dynamics adaptability.",
+          "en": "In this work, we reformulate dynamics adaptability as an additional capability on top of basic action execution. To avoid compromising the already acquired motion tracking capability. We freeze the network parameters of Any2Track and introduce an adapter [15] architecture for fine-tuning. The adapter \\(\\xi\\) consists of \\(M\\) layers with zero-initialized weights \\(\\xi=\\{\\xi_{1},...,\\xi_{M}\\}\\), where \\(M\\) is the number of layers of AnyTracker network. At the beginning, the zero-initialized adapter does not affect the base tracker’s output. As finetuning progresses, the adapter injects dynamics adaptability into the base model through layer-wise feature fusion as shown in Figure 2. Such a training paradigm avoids degrading the already acquired motion tracking performance, ultimately yielding both rich motion expressiveness and strong dynamics adaptability.",
           "reference": false,
           "source_image": "figs/p005-016-source.png",
-          "zh": "在这项工作中，我们将动力学自适应能力重新定义为基础动作执行之上的附加能力。为避免损害已获得的动作跟踪能力，我们冻结了 Any2Track 的网络参数，并引入适配器 [15] 架构进行微调。适配器 ξ 由 M 层带有零初始化权重的层组成，即 ξ “ t ξ 1 , ..., ξM u，其中 M 为 AnyTracker 网络的层数。在训练初始阶段，零初始化的适配器不会影响基础跟踪器的输出。随着微调的进行，如图 2 所示，适配器通过逐层特征融合将动力学自适应能力注入到基础模型中。这种训练范式避免了已获得的动作跟踪性能发生退化，最终同时实现了丰富的动作表现力与强大的动力学自适应能力。"
+          "zh": "在这项工作中，我们将动力学自适应能力重新定义为基础动作执行之上的附加能力。为避免损害已获得的动作跟踪能力，我们冻结了 Any2Track 的网络参数，并引入适配器 [15] 架构进行微调。适配器 \\(\\xi\\) 由 \\(M\\) 层带有零初始化权重的层组成，即 \\(\\xi=\\{\\xi_{1},...,\\xi_{M}\\}\\)，其中 \\(M\\) 为 AnyTracker 网络的层数。在训练初始阶段，零初始化的适配器不会影响基础跟踪器的输出。随着微调的进行，如图 2 所示，适配器通过逐层特征融合将动力学自适应能力注入到基础模型中。这种训练范式避免了已获得的动作跟踪性能发生退化，最终同时实现了丰富的动作表现力与强大的动力学自适应能力。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b17",
@@ -1043,7 +1138,8 @@
           "en": "- ‚ Q1 : Can AnyTracker improve the performance of general motion tracking compared to existing methods?",
           "reference": false,
           "source_image": "figs/p006-002-source.png",
-          "zh": "- Q1：与现有方法相比，AnyTracker 能否提升通用动作跟踪的性能？"
+          "zh": "- Q1：与现有方法相比，AnyTracker 能否提升通用动作跟踪的性能？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b3",
@@ -1057,7 +1153,8 @@
           "en": "- ‚ Q2 : Can AnyAdapter outperform other baseline methods in online dynamics adaptation capability against disturbances from different sources?",
           "reference": false,
           "source_image": "figs/p006-003-source.png",
-          "zh": "- Q2：面对来自不同来源的扰动，AnyAdapter 在在线动力学自适应能力上能否超越其他基线方法？"
+          "zh": "- Q2：面对来自不同来源的扰动，AnyAdapter 在在线动力学自适应能力上能否超越其他基线方法？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b4",
@@ -1071,7 +1168,8 @@
           "en": "- ‚ Q3 : How does Any2Track perform in various real-world scenarios?",
           "reference": false,
           "source_image": "figs/p006-004-source.png",
-          "zh": "- Q3：Any2Track 在各类真实世界场景中的表现如何？"
+          "zh": "- Q3：Any2Track 在各类真实世界场景中的表现如何？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b5",
@@ -1169,7 +1267,8 @@
           "en": "- ‚ Success Rate (SR, %) records the percentage of successful tracking trials. For motion tracking of a certain trajectory, the tracking is defined as unsuccessful when the averaged joint position error or the root height error is greater than 0.2m.",
           "reference": false,
           "source_image": "figs/p006-011-source.png",
-          "zh": "- 成功率（Success Rate, SR, %）记录跟踪成功的测试比例。对于某条轨迹的动作跟踪，当平均关节位置误差或根节点高度误差大于 0.2m 时，该次跟踪被定义为失败。"
+          "zh": "- 成功率（Success Rate, SR, %）记录跟踪成功的测试比例。对于某条轨迹的动作跟踪，当平均关节位置误差或根节点高度误差大于 0.2m 时，该次跟踪被定义为失败。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b12",
@@ -1183,7 +1282,8 @@
           "en": "- ‚ Mean Per Joint Position Error (MPJPE, mm) is the average position error of all links.",
           "reference": false,
           "source_image": "figs/p006-012-source.png",
-          "zh": "- 平均每关节位置误差（Mean Per Joint Position Error, MPJPE, mm）是所有连杆的平均位置误差。"
+          "zh": "- 平均每关节位置误差（Mean Per Joint Position Error, MPJPE, mm）是所有连杆的平均位置误差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b13",
@@ -1197,7 +1297,8 @@
           "en": "- ‚ Mean Per Joint Velocity Error (MPJVE, mm/frame) is the average velocity error of all links.",
           "reference": false,
           "source_image": "figs/p006-013-source.png",
-          "zh": "- 平均每关节速度误差（Mean Per Joint Velocity Error, MPJVE, mm/frame）是所有连杆的平均速度误差。"
+          "zh": "- 平均每关节速度误差（Mean Per Joint Velocity Error, MPJVE, mm/frame）是所有连杆的平均速度误差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b14",
@@ -1287,15 +1388,24 @@
           "id": "p6-b20",
           "kind": "table",
           "bbox": [
-            332,
-            110,
-            536,
-            163
+            330.0,
+            108.0,
+            538.0,
+            165.0
           ],
           "en": "|Method|SR↑|MPJPE↓|MPJVE↓| |---|---|---|---| |OmniH2O|75.64|36.12|12.24| |Exbody2|79.68|34.70|13.69| |Ours w/o CAS|84.92|30.15|9.87| |Ours w/o distillation|83.32|31.29|9.61| |Ours|89.23|27.96|6.43|",
           "reference": false,
           "image": "figs/p006-020.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            332.0,
+            110.0,
+            536.0,
+            163.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 624,
+          "image_height": 171
         },
         {
           "id": "p6-b21",
@@ -1365,7 +1475,8 @@
           "en": "- ‚ Terrains : We use Perlin noise [36] to generate smooth and natural terrains, where we evaluate the terrain adaptability of all methods.",
           "reference": false,
           "source_image": "figs/p006-025-source.png",
-          "zh": "- 地形（Terrains）：我们使用 Perlin 噪声 [36] 生成平滑自然的地形，并在其上评估所有方法的地形适应能力。"
+          "zh": "- 地形（Terrains）：我们使用 Perlin 噪声 [36] 生成平滑自然的地形，并在其上评估所有方法的地形适应能力。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b26",
@@ -1379,7 +1490,8 @@
           "en": "- ‚ External Forces : We randomly apply a force of random magnitude and direction to the robot’s torso during motion tracking.",
           "reference": false,
           "source_image": "figs/p006-026-source.png",
-          "zh": "- 外力（External Forces）：在动作跟踪过程中，我们随机对机器人的躯干施加大小和方向均随机的作用力。"
+          "zh": "- 外力（External Forces）：在动作跟踪过程中，我们随机对机器人的躯干施加大小和方向均随机的作用力。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b27",
@@ -1393,7 +1505,8 @@
           "en": "- ‚ Physical Property Changes : We randomly change the torso mass, torso CoM position, and joint friction of the robot.",
           "reference": false,
           "source_image": "figs/p006-027-source.png",
-          "zh": "- 物理属性变化（Physical Property Changes）：我们随机改变机器人的躯干质量、躯干质心（CoM）位置以及关节摩擦力。"
+          "zh": "- 物理属性变化（Physical Property Changes）：我们随机改变机器人的躯干质量、躯干质心（CoM）位置以及关节摩擦力。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b28",
@@ -1477,7 +1590,8 @@
           "en": "- ‚ Vanilla PPO : We directly train the policy with the vanilla PPO algorithm as we described in AnyTracker, with dynamics variance introduced during training. The policy cannot observe the history or the disturbance.",
           "reference": false,
           "source_image": "figs/p006-033-source.png",
-          "zh": "- 原生 PPO（Vanilla PPO）：我们直接采用在 AnyTracker 中描述的原生 PPO 算法训练策略，并在训练期间引入动力学变化。该策略无法观测历史信息或扰动。"
+          "zh": "- 原生 PPO（Vanilla PPO）：我们直接采用在 AnyTracker 中描述的原生 PPO 算法训练策略，并在训练期间引入动力学变化。该策略无法观测历史信息或扰动。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b34",
@@ -1491,7 +1605,8 @@
           "en": "- ‚ Dual History [27]: The policy can receive both longterm and short-term history as observations. The longterm history is encoded by a convolutional network and concatenated with the short-term history.",
           "reference": false,
           "source_image": "figs/p006-034-source.png",
-          "zh": "- Dual History [27]：策略可同时接收长期和短期历史作为观测。长期历史通过卷积网络进行编码，并与短期历史拼接。"
+          "zh": "- Dual History [27]：策略可同时接收长期和短期历史作为观测。长期历史通过卷积网络进行编码，并与短期历史拼接。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b35",
@@ -1505,7 +1620,8 @@
           "en": "- ‚ RMA [28]: It utilizes a two-stage framework to adapt for different environments. In stage 1, the privileged environment factor is encoded by an MLP to form the environment embedding, and the embedding is fed into the policy network and trained with PPO. In stage 2, the policy network is fixed, and a history encoder is trained",
           "reference": false,
           "source_image": "figs/p006-035-source.png",
-          "zh": "- RMA [28]：该方法采用两阶段框架来适应不同环境。在阶段 1 中，特权环境因子经由 MLP 编码形成环境嵌入，该嵌入被输入策略网络并使用 PPO 进行训练。在阶段 2 中，策略网络被固定，并训练一个历史编码器"
+          "zh": "- RMA [28]：该方法采用两阶段框架来适应不同环境。在阶段 1 中，特权环境因子经由 MLP 编码形成环境嵌入，该嵌入被输入策略网络并使用 PPO 进行训练。在阶段 2 中，策略网络被固定，并训练一个历史编码器",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1516,15 +1632,24 @@
           "id": "p7-b0",
           "kind": "picture",
           "bbox": [
-            54,
-            52,
-            558,
-            144
+            52.0,
+            50.0,
+            560.0,
+            146.0
           ],
           "en": "Short-term History Proprioception Reference Motion Proprioception MLP Reference Motion Reference Motion Privileged Information Reference Motion Proprioception Denoising Reference Motion MLP MLP Env Factor MLP MLP Loss Decoder MLP Adapter Regress History CNN Long-termHistory CNN History CNN ObservationHistory Encoder ModelWorld (a) PPO (b) Dual History (c) RMA (d) DWL (e) Any2Track (ours)",
           "reference": false,
           "image": "figs/p007-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            54.0,
+            52.0,
+            558.0,
+            144.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1524,
+          "image_height": 288
         },
         {
           "id": "p7-b1",
@@ -1558,15 +1683,24 @@
           "id": "p7-b3",
           "kind": "table",
           "bbox": [
-            60,
-            208,
-            549,
-            297
+            58.0,
+            206.0,
+            551.0,
+            299.0
           ],
           "en": "|Mthd|w|/o Distur|bance||Terrain|s|E|xternal F|orces|Physi|cal Proper|ty Changes| |---|---|---|---|---|---|---|---|---|---|---|---|---| |eo|SR↑|MPJPE↓|MPJVE↓|SR↑|MPJPE↓|MPJVE↓|SR↑|MPJPE↓|MPJVE↓|SR↑|MPJPE↓|MPJVE↓| |PPO|87.4|28.30|7.65|73.0|31.01|8.99|50.0|37.60|12.06|73.6|34.14|8.64| |RMA (Stage 1)|88.8|18.58|6.54|75.8|23.99|8.45|52.2|30.22|11.18|77.8|29.54|8.29| |RMA (Stage 2)|88.4|19.68|6.76|75.8|24.60|8.56|51.8|30.63|11.33|77.8|29.52|8.35| |DWL|87.4|26.04|7.83|78.6|29.27|9.31|42.6|37.24|11.92|70.6|35.11|9.61| |Dual History|87.4|22.62|6.92|79.6|26.38|8.58|43.6|34.29|11.62|74.8|32.06|8.76| |Ours w/o Adapter|89.6|19.12|6.42|82.4|22.36|7.90|57.6|28.91|11.16|80.6|29.08|8.61| |Ours w/o World Model|88.8|21.42|6.56|82.6|26.32|8.21|49.8|36.43|11.40|70.4|32.09|8.52| |Any2Track (ours)|89.8|16.46|6.04|83.2|20.68|7.82|59.0|28.97|10.81|80.6|27.75|8.15|",
           "reference": false,
           "image": "figs/p007-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            60.0,
+            208.0,
+            549.0,
+            297.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1479,
+          "image_height": 279
         },
         {
           "id": "p7-b4",
@@ -1594,7 +1728,8 @@
           "en": "- ‚ DWL [9]: An encoder-decoder structure is applied to predict privileged information, including privileged robot states and environment dynamics configurations, from the observation history. The decoder is discarded during inference, and the history embedding from the encoder is fed into the policy network.",
           "reference": false,
           "source_image": "figs/p007-005-source.png",
-          "zh": "- DWL [9]：采用编码器-解码器结构，从观测历史中预测特权信息（包括特权机器人状态和环境动力学配置）。在推理阶段舍弃解码器，将编码器提取的历史嵌入输入策略网络。"
+          "zh": "- DWL [9]：采用编码器-解码器结构，从观测历史中预测特权信息（包括特权机器人状态和环境动力学配置）。在推理阶段舍弃解码器，将编码器提取的历史嵌入输入策略网络。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b6",
@@ -1656,15 +1791,24 @@
           "id": "p7-b10",
           "kind": "picture",
           "bbox": [
-            313,
-            307,
-            559,
-            430
+            311.0,
+            305.0,
+            561.0,
+            432.0
           ],
           "en": "(a) Complex Terrain (b) External Constraint (c) Weight Carrying",
           "reference": false,
           "image": "figs/p007-010.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            313.0,
+            307.0,
+            559.0,
+            430.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 750,
+          "image_height": 381
         },
         {
           "id": "p7-b11",
@@ -1698,15 +1842,24 @@
           "id": "p7-b13",
           "kind": "table",
           "bbox": [
-            316,
-            506,
-            556,
-            559
+            314.0,
+            504.0,
+            558.0,
+            561.0
           ],
           "en": "|Method|P|PO|Any2|Track| |---|---|---|---|---| ||MPJPE↓|MPJVE↓|MPJPE↓|MPJVE↓| |w/o Disturbance|29.38|14.26|17.38 (-12.00)|11.56 (-2.70)| |Complex Terrain|37.21|15.75|18.34 (-18.87)|11.87 (-3.88)| |External Constraint|39.84|16.01|19.17 (-20.67)|13.04 (-2.97)| |Weight Carrying|37.52|16.91|23.24 (-14.28)|12.69 (-4.22)|",
           "reference": false,
           "image": "figs/p007-013.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            316.0,
+            506.0,
+            556.0,
+            559.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 732,
+          "image_height": 171
         },
         {
           "id": "p7-b14",

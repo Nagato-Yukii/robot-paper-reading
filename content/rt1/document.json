@@ -30,7 +30,8 @@
           "en": "1 Anthony Brohan ∗ , Noah Brown ∗ , Justice Carbajal ∗ , Yevgen Chebotar ∗ , Joseph Dabis ∗ , Chelsea Finn∗ , Keerthana Gopalakrishnan∗ , Karol Hausman∗ , Alex Herzog† , Jasmine Hsu∗ , Julian Ibarz∗ , Brian Ichter∗ , Alex Irpan∗ , Tomas Jackson∗ , Sally Jesmonth∗ , Nikhil J Joshi∗ , Ryan Julian∗ , Dmitry Kalashnikov∗ , Yuheng Kuang∗ , Isabel Leal∗ , Kuang-Huei Lee‡ , Sergey Levine∗ , Yao Lu∗ , Utsav Malla∗ , Deeksha Manjunath∗ , Igor Mordatch‡ , Ofir Nachum‡ , Carolina Parada∗ , Jodilyn Peralta∗ , Emily Perez∗ , Karl Pertsch∗ , Jornell Quiambao∗ , Kanishka Rao∗ , Michael Ryoo∗ , Grecia Salazar∗ , Pannag Sanketi∗ , Kevin Sayed∗ , Jaspiar Singh∗ , Sumedh Sontakke‡ , Austin Stone∗ , Clayton Tan∗ , Huong Tran∗ , Vincent Vanhoucke∗ , Steve Vega∗ , Quan Vuong∗ , Fei Xia∗ , Ted Xiao∗ , Peng Xu∗ , Sichun Xu∗ , Tianhe Yu∗ , Brianna Zitkovich∗",
           "reference": false,
           "source_image": "figs/p001-003-source.png",
-          "zh": "1 Anthony Brohan ∗ , Noah Brown ∗ , Justice Carbajal ∗ , Yevgen Chebotar ∗ , Joseph Dabis ∗ , Chelsea Finn∗ , Keerthana Gopalakrishnan∗ , Karol Hausman∗ , Alex Herzog† , Jasmine Hsu∗ , Julian Ibarz∗ , Brian Ichter∗ , Alex Irpan∗ , Tomas Jackson∗ , Sally Jesmonth∗ , Nikhil J Joshi∗ , Ryan Julian∗ , Dmitry Kalashnikov∗ , Yuheng Kuang∗ , Isabel Leal∗ , Kuang-Huei Lee‡ , Sergey Levine∗ , Yao Lu∗ , Utsav Malla∗ , Deeksha Manjunath∗ , Igor Mordatch‡ , Ofir Nachum‡ , Carolina Parada∗ , Jodilyn Peralta∗ , Emily Perez∗ , Karl Pertsch∗ , Jornell Quiambao∗ , Kanishka Rao∗ , Michael Ryoo∗ , Grecia Salazar∗ , Pannag Sanketi∗ , Kevin Sayed∗ , Jaspiar Singh∗ , Sumedh Sontakke‡ , Austin Stone∗ , Clayton Tan∗ , Huong Tran∗ , Vincent Vanhoucke∗ , Steve Vega∗ , Quan Vuong∗ , Fei Xia∗ , Ted Xiao∗ , Peng Xu∗ , Sichun Xu∗ , Tianhe Yu∗ , Brianna Zitkovich∗"
+          "zh": "1 Anthony Brohan ∗ , Noah Brown ∗ , Justice Carbajal ∗ , Yevgen Chebotar ∗ , Joseph Dabis ∗ , Chelsea Finn∗ , Keerthana Gopalakrishnan∗ , Karol Hausman∗ , Alex Herzog† , Jasmine Hsu∗ , Julian Ibarz∗ , Brian Ichter∗ , Alex Irpan∗ , Tomas Jackson∗ , Sally Jesmonth∗ , Nikhil J Joshi∗ , Ryan Julian∗ , Dmitry Kalashnikov∗ , Yuheng Kuang∗ , Isabel Leal∗ , Kuang-Huei Lee‡ , Sergey Levine∗ , Yao Lu∗ , Utsav Malla∗ , Deeksha Manjunath∗ , Igor Mordatch‡ , Ofir Nachum‡ , Carolina Parada∗ , Jodilyn Peralta∗ , Emily Perez∗ , Karl Pertsch∗ , Jornell Quiambao∗ , Kanishka Rao∗ , Michael Ryoo∗ , Grecia Salazar∗ , Pannag Sanketi∗ , Kevin Sayed∗ , Jaspiar Singh∗ , Sumedh Sontakke‡ , Austin Stone∗ , Clayton Tan∗ , Huong Tran∗ , Vincent Vanhoucke∗ , Steve Vega∗ , Quan Vuong∗ , Fei Xia∗ , Ted Xiao∗ , Peng Xu∗ , Sichun Xu∗ , Tianhe Yu∗ , Brianna Zitkovich∗",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b4",
@@ -44,7 +45,8 @@
           "en": "∗ Robotics at Google, † Everyday Robots, ‡ Google Research, Brain Team",
           "reference": false,
           "source_image": "figs/p001-004-source.png",
-          "zh": "∗ Robotics at Google, † Everyday Robots, ‡ Google Research, Brain Team"
+          "zh": "∗ Robotics at Google, † Everyday Robots, ‡ Google Research, Brain Team",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b5",
@@ -128,7 +130,8 @@
           "en": "1Authors listed in alphabetical order. Contributions in Appendix A. Corresponding emails: { keerthanapg,kanishkarao,karolhausman } @google.com.",
           "reference": false,
           "source_image": "figs/p001-010-source.png",
-          "zh": "1作者按字母顺序排列。贡献详见附录 A。通信邮箱：{ keerthanapg,kanishkarao,karolhausman } @google.com。"
+          "zh": "1作者按字母顺序排列。贡献详见附录 A。通信邮箱：{ keerthanapg,kanishkarao,karolhausman } @google.com。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -139,15 +142,24 @@
           "id": "p2-b1",
           "kind": "picture",
           "bbox": [
-            108,
-            81,
-            505,
-            182
+            106.0,
+            79.0,
+            507.0,
+            184.0
           ],
           "en": "Instruction Action Pick apple from top drawer and place on counter Mode Arm Base RT-1 Images 3 Hz FiLM EfficientNet TokenLearner Transformer · + β(1+γ) …",
           "reference": false,
           "image": "figs/p002-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            81.0,
+            505.0,
+            182.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1203,
+          "image_height": 315
         },
         {
           "id": "p2-b2",
@@ -167,15 +179,24 @@
           "id": "p2-b3",
           "kind": "picture",
           "bbox": [
-            109,
-            228,
-            503,
-            317
+            107.0,
+            218.124755859375,
+            505.0,
+            319.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p002-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            109.0,
+            228.0,
+            503.0,
+            317.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1194,
+          "image_height": 303
         },
         {
           "id": "p2-b4",
@@ -214,10 +235,11 @@
             505,
             494
           ],
-          "en": "The two main challenges lie in assembling the right dataset and designing the right model. While data collection and curation is often the “unsung hero” of many large-scale machine learning projects (Radford et al., 2021; Ramesh et al., 2021), this is especially true in robotics, where datasets are often robot-specific and gathered manually (Dasari et al., 2019; Ebert et al., 2021). As we will show in our evaluations, good generalization requires datasets that combine both scale and breadth, covering a variety of tasks and settings. At the same time, the tasks in the dataset should be sufficiently well-connected to enable generalization, such that the model can discover the patterns between structural similar tasks and perform new tasks that combine those patterns in novel ways. We utilize a dataset that we gathered over the course of 17 months with a fleet of 13 robots, containing ∼ 130k episodes and over 700 tasks, and we ablate various aspects of this dataset in our evaluation.",
+          "en": "The two main challenges lie in assembling the right dataset and designing the right model. While data collection and curation is often the “unsung hero” of many large-scale machine learning projects (Radford et al., 2021; Ramesh et al., 2021), this is especially true in robotics, where datasets are often robot-specific and gathered manually (Dasari et al., 2019; Ebert et al., 2021). As we will show in our evaluations, good generalization requires datasets that combine both scale and breadth, covering a variety of tasks and settings. At the same time, the tasks in the dataset should be sufficiently well-connected to enable generalization, such that the model can discover the patterns between structural similar tasks and perform new tasks that combine those patterns in novel ways. We utilize a dataset that we gathered over the course of 17 months with a fleet of 13 robots, containing \\(\\sim\\) 130k episodes and over 700 tasks, and we ablate various aspects of this dataset in our evaluation.",
           "reference": false,
           "source_image": "figs/p002-006-source.png",
-          "zh": "两大主要挑战在于构建合适的数据集以及设计合适的模型。尽管数据收集与整理往往是许多大规模机器学习项目中的“无名英雄”（Radford et al., 2021; Ramesh et al., 2021），但在机器人领域尤其如此，因为这里的数据集通常针对特定机器人且依赖人工采集（Dasari et al., 2019; Ebert et al., 2021）。正如我们将在评估中所证明的，良好的泛化能力需要兼具规模与广度的数据集，覆盖多样的任务与环境设置。与此同时，数据集中的各项任务应具有足够紧密的内在关联以支持泛化，使模型能够发现结构相似任务之间的规律，并以新颖的方式组合这些规律来执行新任务。我们利用了由 13 台机器人组成的机队历时 17 个月收集的数据集，其中包含约 13 万个（∼ 130k）episode 以及超过 700 项任务，并且我们在评估中对该数据集的各个方面进行了消融实验。"
+          "zh": "两大主要挑战在于构建合适的数据集以及设计合适的模型。尽管数据收集与整理往往是许多大规模机器学习项目中的“无名英雄”（Radford et al., 2021; Ramesh et al., 2021），但在机器人领域尤其如此，因为这里的数据集通常针对特定机器人且依赖人工采集（Dasari et al., 2019; Ebert et al., 2021）。正如我们将在评估中所证明的，良好的泛化能力需要兼具规模与广度的数据集，覆盖多样的任务与环境设置。与此同时，数据集中的各项任务应具有足够紧密的内在关联以支持泛化，使模型能够发现结构相似任务之间的规律，并以新颖的方式组合这些规律来执行新任务。我们利用了由 13 台机器人组成的机队历时 17 个月收集的数据集，其中包含约 13 万个（\\(\\sim\\) 130k）episode 以及超过 700 项任务，并且我们在评估中对该数据集的各个方面进行了消融实验。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b7",
@@ -345,10 +367,11 @@
             505,
             733
           ],
-          "en": "Robot learning. We aim to learn robot policies to solve language-conditioned tasks from vision. Formally, we consider a sequential decision-making environment. At timestep t = 0, the policy π is presented with a language instruction i and an initial image observation x 0. The policy produces an action distribution π ( · | i, x 0) from which an action a 0 is sampled and applied to the robot. This process continues, with the policy iteratively producing actions at by sampling from a learned distribution π ( · | i, {xj}t j =0) and applying those actions to the robot.The interaction ends when a termination condition is achieved. The full interaction i, { ( xj, aj ) }T j =0from from the starting step t = 0 to terminating step T is referred to as an episode . At the end of an episode, the agent will be given a binary reward r ∈{ 0 , 1 } indicating whether the robot performed the instruction i . The goal is to learn a policy π that maximizes the average reward, in expectation over a distribution of instructions, starting states x 0, and transition dynamics.",
+          "en": "Robot learning. We aim to learn robot policies to solve language-conditioned tasks from vision. Formally, we consider a sequential decision-making environment. At timestep \\(t=0\\), the policy \\(\\pi\\) is presented with a language instruction \\(i\\) and an initial image observation \\(x_0\\). The policy produces an action distribution \\(\\pi(\\cdot~|~i,x_0)\\) from which an action \\(a_0\\) is sampled and applied to the robot. This process continues, with the policy iteratively producing actions \\(a_t\\) by sampling from a learned distribution \\(\\pi(\\cdot~|~i,\\{x_j\\}_{j=0}^t)\\) and applying those actions to the robot.The interaction ends when a termination condition is achieved. The full interaction \\(i,\\{(x_j,a_j)\\}_{j=0}^T\\) from from the starting step \\(t=0\\) to terminating step \\(T\\) is referred to as an episode . At the end of an episode, the agent will be given a binary reward \\(r\\in\\{0,1\\}\\) indicating whether the robot performed the instruction \\(i\\) . The goal is to learn a policy \\(\\pi\\) that maximizes the average reward, in expectation over a distribution of instructions, starting states \\(x_0\\), and transition dynamics.",
           "reference": false,
           "source_image": "figs/p003-006-source.png",
-          "zh": "机器人学习。我们的目标是从视觉中学习机器人策略以解决语言条件化的任务。形式上，我们考虑一个序贯决策环境。在时间步 t = 0 时，策略 π 接收一条语言指令 i 和初始图像观测 x 0。策略生成动作分布 π ( · | i, x 0)，从中采样动作 a 0 并作用于机器人。这一过程持续进行，策略通过从学得的分布 π ( · | i, {xj}t j =0) 中采样来迭代生成动作 at，并将这些动作作用于机器人。当达到终止条件时交互结束。从起始步 t = 0 到终止步 T 的完整交互过程 i, { ( xj, aj ) }T j =0 被称为一个 episode。在一个 episode 结束时，智能体将获得一个二元奖励 r ∈{ 0 , 1 }，用以指示机器人是否完成了指令 i。目标是学习一个策略 π，以最大化在指令分布、初始状态 x 0 以及状态转移动态分布期望下的平均奖励。"
+          "zh": "机器人学习。我们的目标是从视觉中学习机器人策略以解决语言条件化的任务。形式上，我们考虑一个序贯决策环境。在时间步 \\(t=0\\) 时，策略 \\(\\pi\\) 接收一条语言指令 \\(i\\) 和初始图像观测 \\(x_0\\)。策略生成动作分布 \\(\\pi(\\cdot~|~i,x_0)\\)，从中采样动作 \\(a_0\\) 并作用于机器人。这一过程持续进行，策略通过从学得的分布 \\(\\pi(\\cdot~|~i,\\{x_j\\}_{j=0}^t)\\) 中采样来迭代生成动作 \\(a_t\\)，并将这些动作作用于机器人。当达到终止条件时交互结束。从起始步 \\(t=0\\) 到终止步 \\(T\\) 的完整交互过程 \\(i,\\{(x_j,a_j)\\}_{j=0}^T\\) 被称为一个 episode。在一个 episode 结束时，智能体将获得一个二元奖励 \\(r\\in\\{0,1\\}\\)，用以指示机器人是否完成了指令 \\(i\\)。目标是学习一个策略 \\(\\pi\\)，以最大化在指令分布、初始状态 \\(x_0\\) 以及状态转移动态分布期望下的平均奖励。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -364,10 +387,11 @@
             505,
             176
           ],
-          "en": "Transformers. RT-1 uses a Transformer (Vaswani et al., 2017) to parameterize the policy π . Generally speaking, a Transformer is a sequence model mapping an input sequence {ξh}H h =0to an output sequence {yk}K k =0using combinations of self-attention layers and fully-connected neural networks. While Transformers were originally designed for text sequences, where each input ξj and output yk represents a text token, they have been extended to images (Parmar et al., 2018) as well as other modalities (Lee et al., 2022a; Reed et al., 2022). As detailed in the next section, we parameterize π by first mapping inputs i, {xj}t j =0toasequence{ξh} hH =0andactionoutputsattoasequence {yk}K k =0before using a Transformer to learn the mapping{ξh}H h =0→{yk}K k =0.",
+          "en": "Transformers. RT-1 uses a Transformer (Vaswani et al., 2017) to parameterize the policy \\(\\pi\\) . Generally speaking, a Transformer is a sequence model mapping an input sequence \\(\\{\\xi_h\\}_{h=0}^H\\) to an output sequence \\(\\{y_k\\}_{k=0}^K\\) using combinations of self-attention layers and fully-connected neural networks. While Transformers were originally designed for text sequences, where each input \\(\\xi_j\\) and output \\(y_k\\) represents a text token, they have been extended to images (Parmar et al., 2018) as well as other modalities (Lee et al., 2022a; Reed et al., 2022). As detailed in the next section, we parameterize \\(\\pi\\) by first mapping inputs \\(i,\\{x_j\\}_{j=0}^t\\) toasequence\\(\\{\\xi_h\\}_{h=0}^H\\) andactionoutputs\\(a_t\\) toasequence \\(\\{y_k\\}_{k=0}^K\\) before using a Transformer to learn the mapping\\(\\{\\xi_h\\}_{h=0}^H\\to\\{y_k\\}_{k=0}^K\\).",
           "reference": false,
           "source_image": "figs/p004-001-source.png",
-          "zh": "Transformer。RT-1 使用 Transformer (Vaswani et al., 2017) 来对策略 π 进行参数化。通常而言，Transformer 是一种利用自注意力层与全连接神经网络组合，将输入序列 {ξh}H h =0 映射到输出序列 {yk}K k =0 的序列模型。虽然 Transformer 最初是针对文本序列设计的（其中每个输入 ξj 和输出 yk 代表一个文本 token），但它们已被扩展应用于图像 (Parmar et al., 2018) 以及其他模态 (Lee et al., 2022a; Reed et al., 2022)。如下节所详述，我们对 π 进行参数化时，首先将输入 i, {xj}t j =0 映射为序列 {ξh} hH =0，并将动作输出 at 映射为序列 {yk}K k =0，然后使用 Transformer 学习映射关系 {ξh}H h =0→{yk}K k =0。"
+          "zh": "Transformer。RT-1 使用 Transformer (Vaswani et al., 2017) 来对策略 \\(\\pi\\) 进行参数化。通常而言，Transformer 是一种利用自注意力层与全连接神经网络组合，将输入序列 \\(\\{\\xi_h\\}_{h=0}^H\\) 映射到输出序列 \\(\\{y_k\\}_{k=0}^K\\) 的序列模型。虽然 Transformer 最初是针对文本序列设计的（其中每个输入 \\(\\xi_j\\) 和输出 \\(y_k\\) 代表一个文本 token），但它们已被扩展应用于图像 (Parmar et al., 2018) 以及其他模态 (Lee et al., 2022a; Reed et al., 2022)。如下节所详述，我们对 \\(\\pi\\) 进行参数化时，首先将输入 \\(i,\\{x_j\\}_{j=0}^t\\) 映射为序列 \\(\\{\\xi_h\\}_{h=0}^H\\)，并将动作输出 \\(a_t\\) 映射为序列 \\(\\{y_k\\}_{k=0}^K\\)，然后使用 Transformer 学习映射关系 \\(\\{\\xi_h\\}_{h=0}^H\\to\\{y_k\\}_{k=0}^K\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b2",
@@ -378,10 +402,11 @@
             505,
             238
           ],
-          "en": "Imitation learning. Imitation learning methods train the policy π on a dataset D of demonstrations (Pomerleau, 1988; Zhang et al., 2018; Jang et al., 2021). Specifically, we assume access to a dataset D = { ( i(n) , { ( x( tn) , a( tn) ) }tT =0(n))}N n =0of episodes, all of which are successful (i.e., have a final reward of 1). We learn π using behavioral cloning (Pomerleau, 1988), which optimizes π by minimizing the negative log-likelihood of actions at given the images and language instructions.",
+          "en": "Imitation learning. Imitation learning methods train the policy \\(\\pi\\) on a dataset \\(\\mathcal{D}\\) of demonstrations (Pomerleau, 1988; Zhang et al., 2018; Jang et al., 2021). Specifically, we assume access to a dataset \\(\\mathcal{D}=\\{(i^{(n)}, \\{(x_t^{(n)},a_t^{(n)})\\}_{t=0}^{T^{(n)}})\\}_{n=0}^N\\) of episodes, all of which are successful (i.e., have a final reward of \\(1\\)). We learn \\(\\pi\\) using behavioral cloning (Pomerleau, 1988), which optimizes \\(\\pi\\) by minimizing the negative log-likelihood of actions \\(a_t\\) given the images and language instructions.",
           "reference": false,
           "source_image": "figs/p004-002-source.png",
-          "zh": "模仿学习。模仿学习方法在包含演示的数据集 D 上训练策略 π (Pomerleau, 1988; Zhang et al., 2018; Jang et al., 2021)。具体而言，我们假设可以访问一个由 episode 组成的数据集 D = { ( i(n) , { ( x( tn) , a( tn) ) }tT =0(n))}N n =0，其中所有 episode 均是成功的（即最终奖励为 1）。我们使用行为克隆 (Pomerleau, 1988) 来学习 π，其通过在给定图像和语言指令的条件下最小化动作 at 的负对数似然来优化 π。"
+          "zh": "模仿学习。模仿学习方法在包含演示的数据集 \\(\\mathcal{D}\\) 上训练策略 \\(\\pi\\) (Pomerleau, 1988; Zhang et al., 2018; Jang et al., 2021)。具体而言，我们假设可以访问一个由 episode 组成的数据集 \\(\\mathcal{D}=\\{(i^{(n)}, \\{(x_t^{(n)},a_t^{(n)})\\}_{t=0}^{T^{(n)}})\\}_{n=0}^N\\)，其中所有 episode 均是成功的（即最终奖励为 \\(1\\)）。我们使用行为克隆 (Pomerleau, 1988) 来学习 \\(\\pi\\)，其通过在给定图像和语言指令的条件下最小化动作 \\(a_t\\) 的负对数似然来优化 \\(\\pi\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b3",
@@ -490,15 +515,24 @@
           "id": "p5-b1",
           "kind": "picture",
           "bbox": [
-            147,
-            81,
-            465,
-            247
+            145.0,
+            79.0,
+            467.0,
+            249.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p005-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            147.0,
+            81.0,
+            465.0,
+            247.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 966,
+          "image_height": 510
         },
         {
           "id": "p5-b2",
@@ -551,10 +585,11 @@
             505,
             484
           ],
-          "en": "Instruction and image tokenization. The RT-1 architecture relies on a data-efficient and compact tokenization of images and language instruction. RT-1 tokenizes a history of 6 images by passing images through an ImageNet pretrained EfficientNet-B3 (Tan & Le, 2019) model, which takes 6 images of resolution 300 × 300 as input and outputs a spatial feature map of shape 9 × 9 × 512 from the final convolutional layer. Unlike Reed et al. (2022), we do not patchify the images into visual tokens prior to feeding them to our Transformer backbone. We instead flatten the output feature map from the EfficientNet into 81 visual tokens which are passed on to the later layers of the network.",
+          "en": "Instruction and image tokenization. The RT-1 architecture relies on a data-efficient and compact tokenization of images and language instruction. RT-1 tokenizes a history of 6 images by passing images through an ImageNet pretrained EfficientNet-B3 (Tan & Le, 2019) model, which takes 6 images of resolution \\(300 \\times 300\\) as input and outputs a spatial feature map of shape \\(9 \\times 9 \\times 512\\) from the final convolutional layer. Unlike Reed et al. (2022), we do not patchify the images into visual tokens prior to feeding them to our Transformer backbone. We instead flatten the output feature map from the EfficientNet into \\(81\\) visual tokens which are passed on to the later layers of the network.",
           "reference": false,
           "source_image": "figs/p005-005-source.png",
-          "zh": "指令与图像的 token 化。RT-1 架构依赖于对图像和语言指令进行兼具数据高效性与紧凑性的 token 化。RT-1 通过将历史 6 帧图像输入至在 ImageNet 上预训练的 EfficientNet-B3（Tan & Le, 2019）模型来对图像进行 token 化；该模型以 6 张分辨率为 300 × 300 的图像作为输入，并从最后一个卷积层输出形状为 9 × 9 × 512 的空间特征图。与 Reed et al. (2022) 不同，我们在将图像输入 Transformer 主干网络之前，并未将其切分为 patch 形式的视觉 token。相反，我们将 EfficientNet 输出的特征图展平为 81 个视觉 token，并传递至网络的后续各层。"
+          "zh": "指令与图像的 token 化。RT-1 架构依赖于对图像和语言指令进行兼具数据高效性与紧凑性的 token 化。RT-1 通过将历史 6 帧图像输入至在 ImageNet 上预训练的 EfficientNet-B3（Tan & Le, 2019）模型来对图像进行 token 化；该模型以 6 张分辨率为 \\(300 \\times 300\\) 的图像作为输入，并从最后一个卷积层输出形状为 \\(9 \\times 9 \\times 512\\) 的空间特征图。与 Reed et al. (2022) 不同，我们在将图像输入 Transformer 主干网络之前，并未将其切分为 patch 形式的视觉 token。相反，我们将 EfficientNet 输出的特征图展平为 \\(81\\) 个视觉 token，并传递至网络的后续各层。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b6",
@@ -565,10 +600,11 @@
             505,
             622
           ],
-          "en": "To include the language instruction, we condition the image tokenizer on the natural language instruction in the form of a pretrained language embedding, allowing extraction of task-relevant image features early on and improving performance of RT-1. The instruction is first embedded via Universal Sentence Encoder (Cer et al., 2018). This embedding is then used as input to identity-initialized FiLM layers (Perez et al., 2018) added to the pretrained EfficientNet to condition the image encoder. Normally, inserting a FiLM layer into the interior of a pretrained network would disrupt the intermediate activations and negate the benefit of using pretrained weights. To overcome this, we initialize the weights of the dense layers ( fc and hC ) which produce the FiLM affine transformation to zero, allowing the FiLM layer to initially act as an identity and preserve the function of the pretrained weights. We find that identity-initialized FiLM also produces better results when training with an EfficientNet initialized from scratch, without ImageNet pretraining, but it does not surpass the initialization described above. The architecture of the image tokenizer is presented in Fig. 3.",
+          "en": "To include the language instruction, we condition the image tokenizer on the natural language instruction in the form of a pretrained language embedding, allowing extraction of task-relevant image features early on and improving performance of RT-1. The instruction is first embedded via Universal Sentence Encoder (Cer et al., 2018). This embedding is then used as input to identity-initialized FiLM layers (Perez et al., 2018) added to the pretrained EfficientNet to condition the image encoder. Normally, inserting a FiLM layer into the interior of a pretrained network would disrupt the intermediate activations and negate the benefit of using pretrained weights. To overcome this, we initialize the weights of the dense layers (\\(f_{c}\\) and \\(h_{C}\\)) which produce the FiLM affine transformation to zero, allowing the FiLM layer to initially act as an identity and preserve the function of the pretrained weights. We find that identity-initialized FiLM also produces better results when training with an EfficientNet initialized from scratch, without ImageNet pretraining, but it does not surpass the initialization described above. The architecture of the image tokenizer is presented in Fig. 3.",
           "reference": false,
           "source_image": "figs/p005-006-source.png",
-          "zh": "为了融入语言指令，我们以预训练语言嵌入的形式，基于自然语言指令对图像 tokenizer 进行条件化，从而能够在早期提取与任务相关的图像特征并提升 RT-1 的性能。指令首先通过 Universal Sentence Encoder（Cer et al., 2018）进行嵌入。该嵌入随后作为输入，送入添加到预训练 EfficientNet 中的恒等初始化 FiLM 层（Perez et al., 2018），以对图像编码器进行条件化调节。通常情况下，在预训练网络内部插入 FiLM 层会扰乱中间激活值，并抵消使用预训练权重带来的收益。为了克服这一问题，我们将用于生成 FiLM 仿射变换的稠密层（fc 与 hC）的权重初始化为零，使 FiLM 层在初始状态下表现为恒等映射，从而保留预训练权重的功能。我们发现，在没有 ImageNet 预训练、从零初始化 EfficientNet 进行训练时，恒等初始化的 FiLM 也能带来更好的效果，但其表现仍未超过上述预训练初始化方案。图像 tokenizer 的架构如图 Fig. 3 所示。"
+          "zh": "为了融入语言指令，我们以预训练语言嵌入的形式，基于自然语言指令对图像 tokenizer 进行条件化，从而能够在早期提取与任务相关的图像特征并提升 RT-1 的性能。指令首先通过 Universal Sentence Encoder（Cer et al., 2018）进行嵌入。该嵌入随后作为输入，送入添加到预训练 EfficientNet 中的恒等初始化 FiLM 层（Perez et al., 2018），以对图像编码器进行条件化调节。通常情况下，在预训练网络内部插入 FiLM 层会扰乱中间激活值，并抵消使用预训练权重带来的收益。为了克服这一问题，我们将用于生成 FiLM 仿射变换的稠密层（\\(f_{c}\\) 与 \\(h_{C}\\)）的权重初始化为零，使 FiLM 层在初始状态下表现为恒等映射，从而保留预训练权重的功能。我们发现，在没有 ImageNet 预训练、从零初始化 EfficientNet 进行训练时，恒等初始化的 FiLM 也能带来更好的效果，但其表现仍未超过上述预训练初始化方案。图像 tokenizer 的架构如图 Fig. 3 所示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b7",
@@ -607,15 +643,24 @@
           "id": "p6-b1",
           "kind": "picture",
           "bbox": [
-            187,
-            81,
-            425,
-            475
+            185.0,
+            79.0,
+            427.0,
+            477.0
           ],
           "en": "1 γ) β 1 γ) β 1 γ) β 1 γ) β",
           "reference": false,
           "image": "figs/p006-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            187.0,
+            81.0,
+            425.0,
+            475.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 726,
+          "image_height": 1194
         },
         {
           "id": "p6-b2",
@@ -654,10 +699,11 @@
             505,
             666
           ],
-          "en": "Action tokenization. To tokenize actions, each action dimension in RT-1 is discretized into 256 bins. As mentioned previously, the action dimensions we consider include seven variables for the arm movement ( x , y , z , roll, pitch, yaw, ~~o~~ pening of the gri pp er), three variables for base movement ( x , y , yaw) and a discrete variable to switch between three ~~m~~ odes: controlling arm, base or terminating the episode. For each variable, we map the target to one of the 256 bins, where the bins are uniformly distributed within the bounds of each variable.",
+          "en": "Action tokenization. To tokenize actions, each action dimension in RT-1 is discretized into \\(256\\) bins. As mentioned previously, the action dimensions we consider include seven variables for the arm movement (\\(x\\), \\(y\\), \\(z\\), roll, pitch, yaw, ~~o~~ pening of the gri pp er), three variables for base movement (\\(x\\), \\(y\\), yaw) and a discrete variable to switch between three ~~m~~ odes: controlling arm, base or terminating the episode. For each variable, we map the target to one of the 256 bins, where the bins are uniformly distributed within the bounds of each variable.",
           "reference": false,
           "source_image": "figs/p006-004-source.png",
-          "zh": "动作 token 化。为了对动作进行 token 化，RT-1 中的每个动作维度都被离散化为 256 个 bin。如前所述，我们考虑的动作维度包括机械臂运动的 7 个变量（x, y, z, roll, pitch, yaw, 夹爪开合度）、底座移动的 3 个变量（x, y, yaw），以及用于在三种模式之间切换的 1 个离散变量：控制机械臂、控制底座或终止当前 episode。对于每个变量，我们将目标值映射到 256 个 bin 之一，这些 bin 均匀分布在每个变量的取值边界范围内。"
+          "zh": "动作 token 化。为了对动作进行 token 化，RT-1 中的每个动作维度都被离散化为 \\(256\\) 个 bin。如前所述，我们考虑的动作维度包括机械臂运动的 7 个变量（\\(x\\), \\(y\\), \\(z\\), roll, pitch, yaw, 夹爪开合度）、底座移动的 3 个变量（\\(x\\), \\(y\\), yaw），以及用于在三种模式之间切换的 1 个离散变量：控制机械臂、控制底座或终止当前 episode。对于每个变量，我们将目标值映射到 256 个 bin 之一，这些 bin 均匀分布在每个变量的取值边界范围内。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b5",
@@ -701,10 +747,11 @@
             505,
             127
           ],
-          "en": "considered in this work (which we measured to be in the 2 − 4 secs range), we want the model to be not significantly slower than that. Based on our experiments this requirement corresponds to at least 3Hz control frequency and the resulting inference time budget for the model, given other latencies in the system, to be less than 100ms.",
+          "en": "considered in this work (which we measured to be in the \\(2-4\\) secs range), we want the model to be not significantly slower than that. Based on our experiments this requirement corresponds to at least \\(3\\)Hz control frequency and the resulting inference time budget for the model, given other latencies in the system, to be less than \\(100\\)ms.",
           "reference": false,
           "source_image": "figs/p007-001-source.png",
-          "zh": "（我们测得该速度在 2 − 4 秒范围内），我们希望模型不要明显慢于该速度。根据我们的实验，这一要求对应于至少 3 Hz 的控制频率；考虑到系统中的其他延迟，由此留给模型的推理时间预算需小于 100 ms。"
+          "zh": "（我们测得该速度在 \\(2-4\\) 秒范围内），我们希望模型不要明显慢于该速度。根据我们的实验，这一要求对应于至少 \\(3\\) Hz 的控制频率；考虑到系统中的其他延迟，由此留给模型的推理时间预算需小于 \\(100\\) ms。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b2",
@@ -715,10 +762,11 @@
             505,
             199
           ],
-          "en": "This requirement limits the size of the model that we can use. We further explore the impact of model size on inference speed in the experiments. We employ two techniques to speed up inference: (i) reduce the number of tokens generated by a pre-trained EfficientNet model by using TokenLearner (Ryoo et al., 2021), (ii) compute these tokens only once and reuse them for the following windows that overlap for the future inferences. Both of these allow us to speed up the model inference by 2 . 4 and 1 . 7 times, respectively. Additional details on model inference are in Appendix C.1.",
+          "en": "This requirement limits the size of the model that we can use. We further explore the impact of model size on inference speed in the experiments. We employ two techniques to speed up inference: (i) reduce the number of tokens generated by a pre-trained EfficientNet model by using TokenLearner (Ryoo et al., 2021), (ii) compute these tokens only once and reuse them for the following windows that overlap for the future inferences. Both of these allow us to speed up the model inference by \\(2.4\\) and \\(1.7\\) times, respectively. Additional details on model inference are in Appendix C.1.",
           "reference": false,
           "source_image": "figs/p007-002-source.png",
-          "zh": "这一要求限制了我们所能使用的模型规模。我们在实验中进一步探讨了模型规模对推理速度的影响。我们采用了两项技术来加快推理速度：(i) 利用 TokenLearner（Ryoo et al., 2021）减少预训练 EfficientNet 模型生成的 token 数量；(ii) 仅计算这些 token 一次，并在后续重叠窗口的未来推理中予以复用。这两项技术分别使模型推理加速了 2.4 倍和 1.7 倍。有关模型推理的更多细节见 Appendix C.1。"
+          "zh": "这一要求限制了我们所能使用的模型规模。我们在实验中进一步探讨了模型规模对推理速度的影响。我们采用了两项技术来加快推理速度：(i) 利用 TokenLearner（Ryoo et al., 2021）减少预训练 EfficientNet 模型生成的 token 数量；(ii) 仅计算这些 token 一次，并在后续重叠窗口的未来推理中予以复用。这两项技术分别使模型推理加速了 \\(2.4\\) 倍和 \\(1.7\\) 倍。有关模型推理的更多细节见 Appendix C.1。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b3",
@@ -738,15 +786,24 @@
           "id": "p7-b4",
           "kind": "table",
           "bbox": [
-            119,
-            244,
-            493,
-            368
+            117.0,
+            242.0,
+            495.0,
+            370.0
           ],
           "en": "|Skill|Count|Description|Example Instruction| |---|---|---|---| |PickObject|130|Lift the object off the surface|pick iced tea can| |MoveObjectNearObject|337|Move the first object near the second|move pepsi can near rxbar blueberry| |PlaceObjectUpright|8|Place an elongated object upright|place water bottle upright| |KnockObjectOver|8|Knock an elongated object over|knock redbull can over| |OpenDrawer|3|Open any of the cabinet drawers|open the top drawer| |CloseDrawer|3|Close any of the cabinet drawers|close the middle drawer| |PlaceObjectintoReceptacle|84|Place an object into a receptacle|place brown chip bag into white bowl| |Pick Object from Receptacle and Place on the Counter|162|Pick an object up from a location and then place it on the counter|pick green jalapeno chip bag from paper bowl and place on counter| |Section 6.3 and 6.4 tasks|9|Skills trained for realistic, long instructions|open the large glass jar of pistachios pull napkin out of dispenser grab scooper| |Total|744|||",
           "reference": false,
           "image": "figs/p007-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            119.0,
+            244.0,
+            493.0,
+            368.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1134,
+          "image_height": 384
         },
         {
           "id": "p7-b5",
@@ -771,10 +828,11 @@
             505,
             490
           ],
-          "en": "Our goal is to build a system that exhibits high performance, generalization to new tasks, and robustness to distractors and backgrounds. We therefore aim to collect a large, diverse dataset of robot trajectories that includes multiple tasks, objects and environments. Our primary dataset consists of ∼ 130k robot demonstrations, collected with a fleet of 13 robots over the course of 17 months. We conducted this large-scale data collection in a series of office kitchen segments, which we refer to as robot classrooms , shown in Fig. 2. More details on data collection are in Appendix C.2.",
+          "en": "Our goal is to build a system that exhibits high performance, generalization to new tasks, and robustness to distractors and backgrounds. We therefore aim to collect a large, diverse dataset of robot trajectories that includes multiple tasks, objects and environments. Our primary dataset consists of \\(\\sim\\) 130k robot demonstrations, collected with a fleet of 13 robots over the course of 17 months. We conducted this large-scale data collection in a series of office kitchen segments, which we refer to as robot classrooms , shown in Fig. 2. More details on data collection are in Appendix C.2.",
           "reference": false,
           "source_image": "figs/p007-006-source.png",
-          "zh": "我们的目标是构建一个展现出高性能、对新任务具有泛化能力，且对干扰物和背景具有鲁棒性的系统。因此，我们旨在采集一个涵盖多种任务、物体和环境的大规模、多样化机器人轨迹数据集。我们的主要数据集包含约 130k 条机器人示教，是由 13 台机器人组成的机队历时 17 个月采集而成的。我们在如图 Fig. 2 所示的一系列办公厨房隔间（我们称之为机器人教室）中进行了这一大规模数据采集。关于数据采集的更多细节见 Appendix C.2。"
+          "zh": "我们的目标是构建一个展现出高性能、对新任务具有泛化能力，且对干扰物和背景具有鲁棒性的系统。因此，我们旨在采集一个涵盖多种任务、物体和环境的大规模、多样化机器人轨迹数据集。我们的主要数据集包含约 130k 条机器人示教，是由 13 台机器人组成的机队历时 17 个月采集而成的。我们在如图 Fig. 2 所示的一系列办公厨房隔间（我们称之为机器人教室）中进行了这一大规模数据采集。关于数据采集的更多细节见 Appendix C.2。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b7",
@@ -902,10 +960,11 @@
             505,
             436
           ],
-          "en": "Throughout this section we will compare to two baseline state of the art architectures, Gato (Reed et al., 2022) and BC-Z (Jang et al., 2021). Importantly both of these are trained on our data described in detail in Sec. 5.2 (which is an important part of our system) since the original models in these publications would not exhibit generalization properties required for our evaluation tasks. Gato is, similarly to RT-1, based on a Transformer architecture, but varies from RT-1 in multiple aspects. First, it computes image tokens without the notion of language and each image token embedding is computed separately for each image patch, as opposed to early language fusion and global image embedding in our model. Second, it does not use a pre-trained text embedding to encode the language string. It also does not include inference time considerations that are necessary for real robots as discussed in Sec. 5.1 such as TokenLearner and the removal of auto-regressive actions. In order to run Gato on real robots at a high enough frequency, we also limit the size of the model compared to the original publication, which was 1.2B parameters (resulting in on robot inference time of 1 . 9s), to be of similar size to RT-1 (37M parameters for Gato vs. 35M for RT-1). BC-Z is based on a ResNet architecture, and was used in SayCan (Ahn et al., 2022). BC-Z differs from RT-1 in that it is a feedforward model that does not use previous timesteps, and it uses continuous actions rather than discrete action tokens. In addition to the original BC-Z model size, we also compare our method to a larger version of BC-Z that has a similar number of parameters to RT-1 and refer to it as BC-Z XL. We study and analyze how each of these design decisions changes performance in Appendix Sections D.4 and D.5.",
+          "en": "Throughout this section we will compare to two baseline state of the art architectures, Gato (Reed et al., 2022) and BC-Z (Jang et al., 2021). Importantly both of these are trained on our data described in detail in Sec. 5.2 (which is an important part of our system) since the original models in these publications would not exhibit generalization properties required for our evaluation tasks. Gato is, similarly to RT-1, based on a Transformer architecture, but varies from RT-1 in multiple aspects. First, it computes image tokens without the notion of language and each image token embedding is computed separately for each image patch, as opposed to early language fusion and global image embedding in our model. Second, it does not use a pre-trained text embedding to encode the language string. It also does not include inference time considerations that are necessary for real robots as discussed in Sec. 5.1 such as TokenLearner and the removal of auto-regressive actions. In order to run Gato on real robots at a high enough frequency, we also limit the size of the model compared to the original publication, which was 1.2B parameters (resulting in on robot inference time of \\(1.9\\)s), to be of similar size to RT-1 (37M parameters for Gato vs. 35M for RT-1). BC-Z is based on a ResNet architecture, and was used in SayCan (Ahn et al., 2022). BC-Z differs from RT-1 in that it is a feedforward model that does not use previous timesteps, and it uses continuous actions rather than discrete action tokens. In addition to the original BC-Z model size, we also compare our method to a larger version of BC-Z that has a similar number of parameters to RT-1 and refer to it as BC-Z XL. We study and analyze how each of these design decisions changes performance in Appendix Sections D.4 and D.5.",
           "reference": false,
           "source_image": "figs/p008-007-source.png",
-          "zh": "在整个本节中，我们将与两种代表现有最高水平的基线架构进行对比：Gato（Reed et al., 2022）和 BC-Z（Jang et al., 2021）。重要的是，这两者均在我们于 Sec. 5.2 中详细描述的数据集上进行了训练（这是我们系统的重要组成部分），因为这些文献中的原始模型无法展现出我们评估任务所要求的泛化特性。与 RT-1 类似，Gato 也是基于 Transformer 架构，但在多个方面与 RT-1 有所不同。首先，它在不结合语言概念的情况下计算图像 token，且每个图像 token 嵌入是针对各个图像 patch 分别独立计算的，而我们的模型则采用早期语言融合与全局图像嵌入。其次，它没有使用预训练的文本嵌入来编码语言字符串。此外，它也不包含 Sec. 5.1 中讨论的真实机器人所必需的推理时间优化考量，例如 TokenLearner 以及去除自回归动作生成。为了在真实机器人上以足够高的频率运行 Gato，相较于原论文中 1.2B 参数的模型规模（导致在机器人上的推理时间达到 1.9 秒），我们限制了其模型大小，使其与 RT-1 规模相当（Gato 为 37M 参数，RT-1 为 35M 参数）。BC-Z 基于 ResNet 架构，曾应用于 SayCan（Ahn et al., 2022）。BC-Z 与 RT-1 的不同之处在于它是一个不使用以往时间步信息的前馈模型，且使用连续动作而非离散动作 token。除了原始的 BC-Z 模型大小外，我们还将我们的方法与参数量同 RT-1 相近的更大版本 BC-Z 进行了对比，并将其称为 BC-Z XL。我们在 Appendix Sections D.4 和 D.5 中深入研究并分析了这些设计决策各自对性能产生的影响。"
+          "zh": "在整个本节中，我们将与两种代表现有最高水平的基线架构进行对比：Gato（Reed et al., 2022）和 BC-Z（Jang et al., 2021）。重要的是，这两者均在我们于 Sec. 5.2 中详细描述的数据集上进行了训练（这是我们系统的重要组成部分），因为这些文献中的原始模型无法展现出我们评估任务所要求的泛化特性。与 RT-1 类似，Gato 也是基于 Transformer 架构，但在多个方面与 RT-1 有所不同。首先，它在不结合语言概念的情况下计算图像 token，且每个图像 token 嵌入是针对各个图像 patch 分别独立计算的，而我们的模型则采用早期语言融合与全局图像嵌入。其次，它没有使用预训练的文本嵌入来编码语言字符串。此外，它也不包含 Sec. 5.1 中讨论的真实机器人所必需的推理时间优化考量，例如 TokenLearner 以及去除自回归动作生成。为了在真实机器人上以足够高的频率运行 Gato，相较于原论文中 1.2B 参数的模型规模（导致在机器人上的推理时间达到 \\(1.9\\) 秒），我们限制了其模型大小，使其与 RT-1 规模相当（Gato 为 37M 参数，RT-1 为 35M 参数）。BC-Z 基于 ResNet 架构，曾应用于 SayCan（Ahn et al., 2022）。BC-Z 与 RT-1 的不同之处在于它是一个不使用以往时间步信息的前馈模型，且使用连续动作而非离散动作 token。除了原始的 BC-Z 模型大小外，我们还将我们的方法与参数量同 RT-1 相近的更大版本 BC-Z 进行了对比，并将其称为 BC-Z XL。我们在 Appendix Sections D.4 和 D.5 中深入研究并分析了这些设计决策各自对性能产生的影响。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p8-b8",
@@ -1019,24 +1078,34 @@
             505,
             271
           ],
-          "en": "Long-horizon scenarios. We also evaluate generalization to more realistic long-horizon scenarios, which each require executing a sequence of skills. The goal of this evaluation is to combine multiple generalization axes such as new tasks, objects, environments and test the overall generalization capabilities in realistic settings. These evaluations consist of 15 long-horizon instructions in two real kitchens, which require executing sequences of skills consisting of ∼ 10 distinct steps, with each step of roughly comparable scope as the training instructions. These steps are obtained automatically from higher level instructions, such as “how would you throw away all the items on the table?” by using the SayCan system (Ahn et al., 2022), as described in detail in Section 6.4 and Appendix D.3.",
+          "en": "Long-horizon scenarios. We also evaluate generalization to more realistic long-horizon scenarios, which each require executing a sequence of skills. The goal of this evaluation is to combine multiple generalization axes such as new tasks, objects, environments and test the overall generalization capabilities in realistic settings. These evaluations consist of 15 long-horizon instructions in two real kitchens, which require executing sequences of skills consisting of \\( \\sim 10 \\) distinct steps, with each step of roughly comparable scope as the training instructions. These steps are obtained automatically from higher level instructions, such as “how would you throw away all the items on the table?” by using the SayCan system (Ahn et al., 2022), as described in detail in Section 6.4 and Appendix D.3.",
           "reference": false,
           "source_image": "figs/p009-003-source.png",
-          "zh": "长时域场景。我们还评估了向更逼真的长时域场景的泛化能力，每个场景都需要执行一系列技能。该评估的目标是将多个泛化维度（例如新任务、新物体、新环境）结合起来，并在真实设置中测试整体泛化能力。这些评估包含在两个真实厨房中的 15 条长时域指令，需要执行由 ∼ 10 个独立步骤组成的技能序列，且每个步骤的作用范围与训练指令大致相当。这些步骤是利用 SayCan 系统（Ahn et al., 2022）从更高层级的指令（例如“你如何把桌上的所有物品扔掉？”）中自动获取的，详见第 6.4 节和附录 D.3。"
+          "zh": "长时域场景。我们还评估了向更逼真的长时域场景的泛化能力，每个场景都需要执行一系列技能。该评估的目标是将多个泛化维度（例如新任务、新物体、新环境）结合起来，并在真实设置中测试整体泛化能力。这些评估包含在两个真实厨房中的 15 条长时域指令，需要执行由 \\( \\sim 10 \\) 个独立步骤组成的技能序列，且每个步骤的作用范围与训练指令大致相当。这些步骤是利用 SayCan 系统（Ahn et al., 2022）从更高层级的指令（例如“你如何把桌上的所有物品扔掉？”）中自动获取的，详见第 6.4 节和附录 D.3。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b4",
           "kind": "picture",
           "bbox": [
-            167,
-            280,
-            445,
-            492
+            165.0,
+            278.0,
+            447.0,
+            494.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p009-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            167.0,
+            280.0,
+            445.0,
+            492.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 846,
+          "image_height": 648
         },
         {
           "id": "p9-b5",
@@ -1047,10 +1116,11 @@
             505,
             545
           ],
-          "en": "Figure 4: Evaluation scenarios for distractors (first row), from left to right: easy (0-5 distractors), medium (9 distractors), hard (9 distractors and occluded object); background (second row), from left to right: original environment, patterned table cloth, new kitchen; and realistic scenarios in the real kitchen (third row), generalization levels from left to right: L 1, L 2 and L 3.",
+          "en": "Figure 4: Evaluation scenarios for distractors (first row), from left to right: easy (0-5 distractors), medium (9 distractors), hard (9 distractors and occluded object); background (second row), from left to right: original environment, patterned table cloth, new kitchen; and realistic scenarios in the real kitchen (third row), generalization levels from left to right: \\(L1\\), \\(L2\\) and \\(L3\\).",
           "reference": false,
           "source_image": "figs/p009-005-source.png",
-          "zh": "图 4：干扰物评估场景（第一行），从左至右依次为：简单（0-5 个干扰物）、中等（9 个干扰物）、困难（9 个干扰物且目标物体被遮挡）；背景评估场景（第二行），从左至右依次为：原始环境、带图案的桌布、新厨房；以及真实厨房中的逼真场景（第三行），泛化等级从左至右依次为：L 1、L 2 和 L 3。"
+          "zh": "图 4：干扰物评估场景（第一行），从左至右依次为：简单（0-5 个干扰物）、中等（9 个干扰物）、困难（9 个干扰物且目标物体被遮挡）；背景评估场景（第二行），从左至右依次为：原始环境、带图案的桌布、新厨房；以及真实厨房中的逼真场景（第三行），泛化等级从左至右依次为：\\(L1\\)、\\(L2\\) 和 \\(L3\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b6",
@@ -1103,29 +1173,47 @@
           "id": "p10-b1",
           "kind": "table",
           "bbox": [
-            108,
-            110,
-            329,
-            154
+            106.0,
+            108.0,
+            331.0,
+            156.0
           ],
           "en": "|Model|Seen Tasks|Unseen Tasks|Distractors|Backgrounds| |---|---|---|---|---| |Gato (Reed et al., 2022)|65|52|43|35| |BC-Z (Jang et al., 2021)|72|19|47|41| |BC-Z XL|56|43|23|35| |RT-1 (ours)|97|76|83|59|",
           "reference": false,
           "image": "figs/p010-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            110.0,
+            329.0,
+            154.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 675,
+          "image_height": 144
         },
         {
           "id": "p10-b2",
           "kind": "picture",
           "bbox": [
-            337,
-            81,
-            505,
-            182
+            335.0,
+            79.0,
+            507.0,
+            184.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p010-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            337.0,
+            81.0,
+            505.0,
+            182.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 516,
+          "image_height": 315
         },
         {
           "id": "p10-b3",
@@ -1178,10 +1266,11 @@
             505,
             578
           ],
-          "en": "To evaluate our algorithm in realistic scenarios in a real kitchen, we construct task sequences to accomplish a number of realistic goals. The robot restocks several snacks in drawers, tidies up knocked over condiment bottles and closes drawers left open by humans, prepares a snack with an orange and a napkin and fetches lost sunglasses and an octopus toy from several places in the kitchen. The detailed instructions used in these scenarios are listed in the Appendix D.1. The office kitchen involves a dramatic shift from the training environment and we categorize tasks across these scenarios with varying levels of generalization: L 1 for generalization to the new counter-top layout and lighting conditions, L 2 for additionally generalization to unseen distractor objects, L 3 for additional generalization to drastically new task settings, new task objects or objects in unseen locations such as near a sink. The three levels that correspond to the three tasks of restocking, preparing a snack and fetching a lost object in the real kitchen are depicted in the last row of Fig. 4. Example trajectories for different levels are presented in the Appendix in Fig. 11.",
+          "en": "To evaluate our algorithm in realistic scenarios in a real kitchen, we construct task sequences to accomplish a number of realistic goals. The robot restocks several snacks in drawers, tidies up knocked over condiment bottles and closes drawers left open by humans, prepares a snack with an orange and a napkin and fetches lost sunglasses and an octopus toy from several places in the kitchen. The detailed instructions used in these scenarios are listed in the Appendix D.1. The office kitchen involves a dramatic shift from the training environment and we categorize tasks across these scenarios with varying levels of generalization: \\(L1\\) for generalization to the new counter-top layout and lighting conditions, \\(L2\\) for additionally generalization to unseen distractor objects, \\(L3\\) for additional generalization to drastically new task settings, new task objects or objects in unseen locations such as near a sink. The three levels that correspond to the three tasks of restocking, preparing a snack and fetching a lost object in the real kitchen are depicted in the last row of Fig. 4. Example trajectories for different levels are presented in the Appendix in Fig. 11.",
           "reference": false,
           "source_image": "figs/p010-006-source.png",
-          "zh": "为了在真实厨房的逼真场景中评估我们的算法，我们构建了用于完成若干现实目标的一系列任务序列。机器人将数种零食重新补充进抽屉、收拾被碰倒的调味瓶并关上人类敞开的抽屉、用一个橙子和一张餐巾准备一份点心，并从厨房各处取回遗落的太阳镜和章鱼玩具。这些场景中使用的详细指令列于附录 D.1。办公室厨房相比训练环境发生了显著转变，我们将这些场景中的任务按不同的泛化等级进行分类：L 1 表示泛化到新的操作台布局和光照条件；L 2 表示额外泛化到未见过的干扰物体；L 3 表示进一步泛化到全新的任务环境、新的任务物体，或位于未见位置（例如水槽附近）的物体。与真实厨房中补充物品、准备点心和取回遗失物品这三项任务相对应的三个等级展示在图 4 的最后一行。不同等级的示例轨迹展示在附录图 11 中。"
+          "zh": "为了在真实厨房的逼真场景中评估我们的算法，我们构建了用于完成若干现实目标的一系列任务序列。机器人将数种零食重新补充进抽屉、收拾被碰倒的调味瓶并关上人类敞开的抽屉、用一个橙子和一张餐巾准备一份点心，并从厨房各处取回遗落的太阳镜和章鱼玩具。这些场景中使用的详细指令列于附录 D.1。办公室厨房相比训练环境发生了显著转变，我们将这些场景中的任务按不同的泛化等级进行分类：\\(L1\\) 表示泛化到新的操作台布局和光照条件；\\(L2\\) 表示额外泛化到未见过的干扰物体；\\(L3\\) 表示进一步泛化到全新的任务环境、新的任务物体，或位于未见位置（例如水槽附近）的物体。与真实厨房中补充物品、准备点心和取回遗失物品这三项任务相对应的三个等级展示在图 4 的最后一行。不同等级的示例轨迹展示在附录图 11 中。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b7",
@@ -1192,10 +1281,11 @@
             505,
             639
           ],
-          "en": "We report the per-task success rate in these realistic scenarios along with the varying generalization levels in Table 3 and find RT-1 to be the most robust on all levels. Gato generalizes fairly well at the first level but it performs significantly drops for the more difficult generalization scenarios. BC-Z and its XL equivalent perform fairly well at L 2 level and better than Gato at L 3 but they are still not at the generalization level of RT-1.",
+          "en": "We report the per-task success rate in these realistic scenarios along with the varying generalization levels in Table 3 and find RT-1 to be the most robust on all levels. Gato generalizes fairly well at the first level but it performs significantly drops for the more difficult generalization scenarios. BC-Z and its XL equivalent perform fairly well at \\(L2\\) level and better than Gato at \\(L3\\) but they are still not at the generalization level of RT-1.",
           "reference": false,
           "source_image": "figs/p010-007-source.png",
-          "zh": "我们在表 3 中报告了在这些现实场景中各个任务的成功率以及不同的泛化等级，发现 RT-1 在所有等级上均表现最为鲁棒。Gato 在第一等级上的泛化效果相当好，但在更困难的泛化场景中性能显著下降。BC-Z 及其 XL 版本在 L 2 等级上表现相当不错，且在 L 3 上的表现优于 Gato，但它们仍未达到 RT-1 的泛化水平。"
+          "zh": "我们在表 3 中报告了在这些现实场景中各个任务的成功率以及不同的泛化等级，发现 RT-1 在所有等级上均表现最为鲁棒。Gato 在第一等级上的泛化效果相当好，但在更困难的泛化场景中性能显著下降。BC-Z 及其 XL 版本在 \\(L2\\) 等级上表现相当不错，且在 \\(L3\\) 上的表现优于 Gato，但它们仍未达到 RT-1 的泛化水平。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b8",
@@ -1234,15 +1324,24 @@
           "id": "p11-b1",
           "kind": "picture",
           "bbox": [
-            147,
-            81,
-            465,
-            449
+            145.0,
+            79.0,
+            467.0,
+            451.0
           ],
           "en": "“pick water bottle from the bottom drawer and put it on the counter” “move sponge to green jalapeno chips” “place red bull can in middle drawer” “pull napkin out of dispenser” “place coke can upright” “open top drawer” “pick apple from bowl”",
           "reference": false,
           "image": "figs/p011-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            147.0,
+            81.0,
+            465.0,
+            449.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 966,
+          "image_height": 1116
         },
         {
           "id": "p11-b2",
@@ -1262,29 +1361,47 @@
           "id": "p11-b3",
           "kind": "table",
           "bbox": [
-            116,
-            518,
-            289,
-            575
+            114.0,
+            516.0,
+            291.0,
+            577.0
           ],
           "en": "|||Generaliza|tion Scenario|Levels| |---|---|---|---|---| |Models|All|L1|L2|L3| |Gato Reed et al. (2022)|30|63|25|0| |BC-Z Jang et al. (2021)|45|38|50|50| |BC-Z XL|55|63|75|38| |RT-1 (ours)|70|88|75|50|",
           "reference": false,
           "image": "figs/p011-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            116.0,
+            518.0,
+            289.0,
+            575.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 531,
+          "image_height": 183
         },
         {
           "id": "p11-b4",
           "kind": "picture",
           "bbox": [
-            317,
-            484,
-            496,
-            607
+            315.0,
+            482.0,
+            498.0,
+            609.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p011-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            317.0,
+            484.0,
+            496.0,
+            607.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 549,
+          "image_height": 381
         },
         {
           "id": "p11-b5",
@@ -1295,10 +1412,11 @@
             504,
             657
           ],
-          "en": "Table 3: Realistic generalization scenarios: we compare model success rate in a realistic Google kitchen scenarios across three levels of generalization: L 1 for generalization to the new counter-top layout and lighting conditions, L 2 for additionally generalization to unseen distractor objects, L 3 for additionally generalization to drastically new task settings, new task objects or in unseen locations like near a sink.",
+          "en": "Table 3: Realistic generalization scenarios: we compare model success rate in a realistic Google kitchen scenarios across three levels of generalization: \\(L1\\) for generalization to the new counter-top layout and lighting conditions, \\(L2\\) for additionally generalization to unseen distractor objects, \\(L3\\) for additionally generalization to drastically new task settings, new task objects or in unseen locations like near a sink.",
           "reference": false,
           "source_image": "figs/p011-005-source.png",
-          "zh": "表 3：现实泛化场景：我们在逼真的 Google 厨房场景中对比了模型在三个泛化等级下的成功率：L 1 表示泛化到新的操作台布局和光照条件；L 2 表示额外泛化到未见过的干扰物体；L 3 表示额外泛化到全新的任务设置、新的任务物体，或水槽附近等未见位置。"
+          "zh": "表 3：现实泛化场景：我们在逼真的 Google 厨房场景中对比了模型在三个泛化等级下的成功率：\\(L1\\) 表示泛化到新的操作台布局和光照条件；\\(L2\\) 表示额外泛化到未见过的干扰物体；\\(L3\\) 表示额外泛化到全新的任务设置、新的任务物体，或水槽附近等未见位置。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p11-b6",
@@ -1337,15 +1455,24 @@
           "id": "p12-b1",
           "kind": "table",
           "bbox": [
-            107,
-            84,
-            495,
-            201
+            105.0,
+            82.0,
+            497.0,
+            203.0
           ],
           "en": "|Models|Training Data|Real Objects Seen Skill w/ Objects|Sim Objects Seen Skill w/ Objects|(not seen in real) Unseen Skill w/ Objects|30% 40% 50% 60% Rate Compared to Real only|+64%|+26% Real + Sim Data|| |---|---|---|---|---|---|---|---|---| |RT-1|Real Only|92|23|7|20% ss |||| |RT-1|Real+Sim|90(-2)|87(+64)|33(+26)|10% ucce|||| ||||||Sim- 0% S|seen Objects w/ Skills|Sim-seen Objects w/o Skills|Real Tasks -2%|",
           "reference": false,
           "image": "figs/p012-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            107.0,
+            84.0,
+            495.0,
+            201.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1176,
+          "image_height": 363
         },
         {
           "id": "p12-b2",
@@ -1440,15 +1567,24 @@
           "id": "p13-b1",
           "kind": "picture",
           "bbox": [
-            147,
-            81,
-            465,
-            211
+            145.0,
+            79.0,
+            467.0,
+            213.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            147.0,
+            81.0,
+            465.0,
+            211.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 966,
+          "image_height": 402
         },
         {
           "id": "p13-b2",
@@ -1468,15 +1604,24 @@
           "id": "p13-b3",
           "kind": "picture",
           "bbox": [
-            107,
-            254,
-            504,
-            365
+            105.0,
+            252.0,
+            506.0,
+            367.0
           ],
           "en": "EDR + Kuka Data 17.5% +17% 15.0% 12.5% Models Training Data Classroom eval Bin-picking eval 10.0% RT-1 Kuka bin-picking data + EDR data 90(-2) 39(+17) 7.5% RT-1 EDR only data 92 22 5.0% RT-1 Kuka bin-picking only data 0 0 2.5% 0.0% 2.5% -2% Bin-picking Eval Classroom Eval Success Rate Compared to EDR Only",
           "reference": false,
           "image": "figs/p013-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            107.0,
+            254.0,
+            504.0,
+            365.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1203,
+          "image_height": 345
         },
         {
           "id": "p13-b4",
@@ -1571,15 +1716,24 @@
           "id": "p14-b2",
           "kind": "table",
           "bbox": [
-            176,
-            122,
-            430,
-            179
+            174.0,
+            120.0,
+            432.0,
+            181.0
           ],
           "en": "||SayCan task|s in Kitchen1|SayCan task|s in Kitchen2| |---|---|---|---|---| ||Planning|Execution|Planning|Execution| |Original SayCan (Ahn et al., 2022)∗|73|47|-|-| |SayCan w/ Gato (Reed et al., 2022)|87|33|87|0| |SayCan w/ BC-Z (Jang et al., 2021)|87|53|87|13| |SayCan w/ RT-1 (ours)|87|67|87|67|",
           "reference": false,
           "image": "figs/p014-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            176.0,
+            122.0,
+            430.0,
+            179.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 774,
+          "image_height": 183
         },
         {
           "id": "p14-b3",
@@ -1627,29 +1781,47 @@
           "id": "p14-b6",
           "kind": "picture",
           "bbox": [
-            168,
-            386,
-            444,
-            479
+            166.0,
+            384.0,
+            446.0,
+            481.0
           ],
           "en": "Generalization Models % Tasks % Data Seen Tasks All Unseen Tasks Distractors Backgrounds Smaller Data RT-1 (ours) 100 100 97 73 76 83 59 RT-1 100 51 71 50 52 39 59 RT-1 100 37 55 46 57 35 47 RT-1 100 22 59 29 14 31 41 Narrower Data RT-1 (ours) 100 100 97 73 76 83 59 RT-1 75 97 86 54 67 42 53",
           "reference": false,
           "image": "figs/p014-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            168.0,
+            386.0,
+            444.0,
+            479.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 840,
+          "image_height": 291
         },
         {
           "id": "p14-b7",
           "kind": "picture",
           "bbox": [
-            167,
-            497,
-            445,
-            634
+            165.0,
+            495.0,
+            447.0,
+            636.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p014-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            167.0,
+            497.0,
+            445.0,
+            634.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 846,
+          "image_height": 423
         },
         {
           "id": "p14-b8",
@@ -3118,15 +3290,24 @@
           "id": "p21-b16",
           "kind": "table",
           "bbox": [
-            119,
-            372,
-            493,
-            472
+            117.0,
+            370.0,
+            495.0,
+            474.0
           ],
           "en": "|Skill|Count|Description|Example Instruction| |---|---|---|---| |PickObject|130|Lift the object off the surface|pick iced tea can| |MoveObjectNearObject|337|Move the first object near the second|move pepsi can near rxbar blueberry| |PlaceObjectUpright|8|Place an elongated object upright|place water bottle upright| |KnockObjectOver|8|Knock an elongated object over|knock redbull can over| |Open / CloseDrawer|6|Open or close any of the cabinet drawers|open the top drawer| |PlaceObjectintoReceptacle|84|Place an object into a receptacle|place brown chip bag into white bowl| |Pick Object from Receptacle and Place on the Counter|162|Pick an object up from a location and then place it on the counter|pick green jalapeno chip bag from paper bowl and place on counter| |Additional tasks|9|Skills trained for realistic, long instructions|pull napkin out of dispenser| |Total|744|||",
           "reference": false,
           "image": "figs/p021-016.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            119.0,
+            372.0,
+            493.0,
+            472.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1134,
+          "image_height": 312
         },
         {
           "id": "p21-b17",
@@ -3188,15 +3369,24 @@
           "id": "p21-b21",
           "kind": "picture",
           "bbox": [
-            117,
-            551,
-            486,
-            638
+            115.0,
+            549.0,
+            488.0,
+            647.4141845703125
           ],
           "en": "",
           "reference": false,
           "image": "figs/p021-021.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            117.0,
+            551.0,
+            486.0,
+            638.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1119,
+          "image_height": 296
         },
         {
           "id": "p21-b22",
@@ -3333,15 +3523,24 @@
           "id": "p22-b6",
           "kind": "picture",
           "bbox": [
-            137,
-            486,
-            475,
-            676
+            135.0,
+            484.0,
+            477.0,
+            678.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p022-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            137.0,
+            486.0,
+            475.0,
+            676.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1026,
+          "image_height": 582
         },
         {
           "id": "p22-b7",
@@ -3394,15 +3593,24 @@
           "id": "p23-b3",
           "kind": "picture",
           "bbox": [
-            147,
-            174,
-            465,
-            314
+            145.0,
+            172.0,
+            467.0,
+            316.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p023-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            147.0,
+            174.0,
+            465.0,
+            314.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 966,
+          "image_height": 432
         },
         {
           "id": "p23-b4",
@@ -3544,24 +3752,34 @@
             505,
             221
           ],
-          "en": "Realistic instructions. To study how RT-1 performs in more realistic scenarios, we propose an evaluation setting in a real office kitchen that is a dramatic shift from the original training classroom environment. We propose a variety of skills that combine aspects of the previous zero-shot evaluations, including adding new distractors, including new backgrounds, and new combinations of objects with skills. We refer to the easiest scenario as L 1 generalization, which introduces a new countertop and lighting condition but keeps the skills and objects the same. Next, L 2 generalization additionally adds novel distractor objects such as kitchen jar containers. Finally, L 3 generalization adds new objects or new locations such as near a sink. While some of these distribution shifts are tested in Section 6.2, these realistic instructions aim to test multiple dimensions simultaneously. Examples of these instructions are presented in Fig. 11.",
+          "en": "Realistic instructions. To study how RT-1 performs in more realistic scenarios, we propose an evaluation setting in a real office kitchen that is a dramatic shift from the original training classroom environment. We propose a variety of skills that combine aspects of the previous zero-shot evaluations, including adding new distractors, including new backgrounds, and new combinations of objects with skills. We refer to the easiest scenario as \\(L1\\) generalization, which introduces a new countertop and lighting condition but keeps the skills and objects the same. Next, \\(L2\\) generalization additionally adds novel distractor objects such as kitchen jar containers. Finally, \\(L3\\) generalization adds new objects or new locations such as near a sink. While some of these distribution shifts are tested in Section 6.2, these realistic instructions aim to test multiple dimensions simultaneously. Examples of these instructions are presented in Fig. 11.",
           "reference": false,
           "source_image": "figs/p024-002-source.png",
-          "zh": "逼真指令。为了研究 RT-1 在更逼真场景中的表现，我们在真实的办公室厨房中提出了一个评估设置，该环境与最初训练用的教室环境有着巨大差异。我们提出了结合先前零样本评估各个方面的多种技能，包括添加新干扰物、引入新背景以及物体与技能的新组合。我们将最简单的场景称为 L 1 泛化，它引入了新的台面和光照条件，但保持技能和物体不变。接着，L 2 泛化额外增加了新颖的干扰物体，如厨房罐装容器。最后，L 3 泛化增加了新物体或新位置，例如水槽附近。尽管其中某些分布偏移已在第 6.2 节中进行了测试，但这些逼真指令旨在同时测试多个维度。这些指令的示例见图 11。"
+          "zh": "逼真指令。为了研究 RT-1 在更逼真场景中的表现，我们在真实的办公室厨房中提出了一个评估设置，该环境与最初训练用的教室环境有着巨大差异。我们提出了结合先前零样本评估各个方面的多种技能，包括添加新干扰物、引入新背景以及物体与技能的新组合。我们将最简单的场景称为 \\(L1\\) 泛化，它引入了新的台面和光照条件，但保持技能和物体不变。接着，\\(L2\\) 泛化额外增加了新颖的干扰物体，如厨房罐装容器。最后，\\(L3\\) 泛化增加了新物体或新位置，例如水槽附近。尽管其中某些分布偏移已在第 6.2 节中进行了测试，但这些逼真指令旨在同时测试多个维度。这些指令的示例见图 11。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p24-b3",
           "kind": "picture",
           "bbox": [
-            108,
-            232,
-            504,
-            380
+            106.0,
+            230.0,
+            506.0,
+            382.0
           ],
           "en": "Easy same background, same texture Medium same background, new texture Hard new background, new texture",
           "reference": false,
           "image": "figs/p024-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            232.0,
+            504.0,
+            380.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1200,
+          "image_height": 456
         },
         {
           "id": "p24-b4",
@@ -3581,15 +3799,24 @@
           "id": "p24-b5",
           "kind": "picture",
           "bbox": [
-            108,
-            462,
-            504,
-            616
+            106.0,
+            460.0,
+            506.0,
+            618.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p024-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            462.0,
+            504.0,
+            616.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1200,
+          "image_height": 474
         },
         {
           "id": "p24-b6",
@@ -3600,10 +3827,11 @@
             505,
             668
           ],
-          "en": "Figure 11: “Realistic instructions” evaluations propose realistic scenarios multiple distribution shifts that incrementally increase in difficulty. L 1 generalization introduces a new real office kitchen with new lighting conditions. L 2 generalization additionally adds unseen distractor objects. Finally, L 3 generalization includes new objects or objects in new locations, such as next to a sink.",
+          "en": "Figure 11: “Realistic instructions” evaluations propose realistic scenarios multiple distribution shifts that incrementally increase in difficulty. \\(L1\\) generalization introduces a new real office kitchen with new lighting conditions. \\(L2\\) generalization additionally adds unseen distractor objects. Finally, \\(L3\\) generalization includes new objects or objects in new locations, such as next to a sink.",
           "reference": false,
           "source_image": "figs/p024-006-source.png",
-          "zh": "图 11：“逼真指令”评估提出了难度逐步递增的包含多种分布偏移的真实场景。L 1 泛化引入了具有新光照条件的真实办公室新厨房。L 2 泛化额外添加了未见过的干扰物体。最后，L 3 泛化包含了新物体或位于新位置的物体，例如水槽旁边。"
+          "zh": "图 11：“逼真指令”评估提出了难度逐步递增的包含多种分布偏移的真实场景。\\(L1\\) 泛化引入了具有新光照条件的真实办公室新厨房。\\(L2\\) 泛化额外添加了未见过的干扰物体。最后，\\(L3\\) 泛化包含了新物体或位于新位置的物体，例如水槽旁边。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p24-b7",
@@ -3675,15 +3903,24 @@
           "id": "p26-b1",
           "kind": "picture",
           "bbox": [
-            108,
-            81,
-            504,
-            321
+            106.0,
+            79.0,
+            506.0,
+            323.0
           ],
           "en": "Easy 2 - 5 distractors, no occlusion Medium 9 distractors, no occlusion Hard 9 distractors, occlusion",
           "reference": false,
           "image": "figs/p026-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            81.0,
+            504.0,
+            321.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1200,
+          "image_height": 732
         },
         {
           "id": "p26-b2",
@@ -3764,15 +4001,24 @@
           "id": "p27-b1",
           "kind": "picture",
           "bbox": [
-            107,
-            81,
-            504,
-            205
+            105.0,
+            79.0,
+            506.0,
+            207.0
           ],
           "en": "Real + Sim Data +64% 60% 50% Real Objects Sim Objects (not seen in real) 40% Seen Skill Seen Skill Unseen Skill Models Training Data w/ Objects w/ Objects w/ Objects 30% +26% RT-1 Real Only 92 23 7 20% RT-1 Real + Sim 90 87 33 10% 0% -2% Sim-seen Objects Sim-seen Objects Real Tasks w/ Skills w/o Skills Real only Success Rate Compared to",
           "reference": false,
           "image": "figs/p027-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            107.0,
+            81.0,
+            504.0,
+            205.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1203,
+          "image_height": 384
         },
         {
           "id": "p27-b2",
@@ -3867,15 +4113,24 @@
           "id": "p28-b1",
           "kind": "picture",
           "bbox": [
-            107,
-            81,
-            504,
-            193
+            105.0,
+            79.0,
+            506.0,
+            195.0
           ],
           "en": "EDR + Kuka Data 17.5% +17% 15.0% 12.5% Models Training Data Classroom eval Bin-picking eval 10.0% RT-1 Kuka bin-picking data + EDR data 90 39 7.5% RT-1 EDR only data 92 22 5.0% RT-1 Kuka bin-picking only data 0 0 2.5% 0.0% 2.5% -2% Bin-picking Eval Classroom Eval Success Rate Compared to EDR Only",
           "reference": false,
           "image": "figs/p028-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            107.0,
+            81.0,
+            504.0,
+            193.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1203,
+          "image_height": 348
         },
         {
           "id": "p28-b2",
@@ -4026,15 +4281,24 @@
           "id": "p29-b2",
           "kind": "table",
           "bbox": [
-            176,
-            123,
-            430,
-            180
+            174.0,
+            121.0,
+            432.0,
+            182.0
           ],
           "en": "||SayCan tas|ks in Kitchen1|SayCan tas|ks in Kitchen2| |---|---|---|---|---| ||Planning|Execution|Planning|Execution| |Original SayCan (Ahn et al., 2022)∗|73|47|-|-| |SayCan w/ Gato (Reed et al., 2022)|87|33|87|0| |SayCan w/ BC-Z (Jang et al., 2021)|87|53|87|13| |SayCan w/ RT-1 (ours)|87|67|87|67|",
           "reference": false,
           "image": "figs/p029-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            176.0,
+            123.0,
+            430.0,
+            180.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 774,
+          "image_height": 183
         },
         {
           "id": "p29-b3",
@@ -4157,29 +4421,47 @@
           "id": "p30-b3",
           "kind": "table",
           "bbox": [
-            126,
-            299,
-            484,
-            408
+            124.0,
+            297.0,
+            486.0,
+            410.0
           ],
           "en": "|||||Distra|ctors||Backgrounds|| |---|---|---|---|---|---|---|---|---| |Model|Seen Tasks|Unseen Tasks|All|Easy|Medium|Hard|All|Inference Time (ms)| |Gato (Reed et al., 2022)|65 (-32)|52 (-24)|43 (-40)|71|44|29|35 (-24)|129| |BC-Z (Jang et al., 2021)|72 (-25)|19 (-57)|47 (-36)|100|67|7|41 (-18)|5.3| |BC-Z XL|56 (-41)|43 (-33)|23 (-60)|57|33|0|35 (-24)|5.9| |RT-1 (ours)|97|76|83|100|100|64|59|15| |RT-1 w/o big model|89 (-8)|62 (-14)|77 (-6)|100|100|50|53 (-6)|13.5| |RT-1 w/o pre-training|84 (-13)|43 (-33)|60 (-23)|100|67|36|41 (-18)|15| |RT-1 w/ continuous actions|68 (-29)|43 (-33)|37 (-46)|71|67|0|35 (-24)|16| |RT-1 w/ auto-regressive actions|85 (-12)|71 (-5)|67 (-16)|100|78|43|65 (+6)|36| |RT-1 w/o history|82 (-15)|62 (-14)|50 (-33)|71|89|14|59 (+0)|15| |RT-1 w/o Transformer|86 (-13)|62 (-14)|67 (-16)|100|100|29|59 (+0)|26|",
           "reference": false,
           "image": "figs/p030-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            126.0,
+            299.0,
+            484.0,
+            408.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1086,
+          "image_height": 339
         },
         {
           "id": "p30-b4",
           "kind": "picture",
           "bbox": [
-            167,
-            426,
-            445,
-            598
+            165.0,
+            424.0,
+            447.0,
+            600.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p030-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            167.0,
+            426.0,
+            445.0,
+            598.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 846,
+          "image_height": 528
         },
         {
           "id": "p30-b5",
@@ -4204,10 +4486,11 @@
             505,
             733
           ],
-          "en": "for all the models, and therefore we focus our evaluation on just the network inference time. The last column of Table 13 shows the inference speed of all the models. RT-1 is almost an order of magnitude faster than Gato with a similar number of parameters, but it is also considerably slower than a ResNet-based BC-Z. In terms of the different ablations of our model, we observe that the biggest slow-down is caused by including auto-regressive actions ( ∼ 2x slow-down), and since this does not significantly influence the performance, the final version of RT-1 does not generate actions auto-regressively.",
+          "en": "for all the models, and therefore we focus our evaluation on just the network inference time. The last column of Table 13 shows the inference speed of all the models. RT-1 is almost an order of magnitude faster than Gato with a similar number of parameters, but it is also considerably slower than a ResNet-based BC-Z. In terms of the different ablations of our model, we observe that the biggest slow-down is caused by including auto-regressive actions (\\(\\sim\\)2x slow-down), and since this does not significantly influence the performance, the final version of RT-1 does not generate actions auto-regressively.",
           "reference": false,
           "source_image": "figs/p030-006-source.png",
-          "zh": "对所有模型而言都是相同的，因此我们将评估重点仅放在网络推理时间上。表 13 的最后一列显示了所有模型的推理速度。在参数量相近的情况下，RT-1 比 Gato 快了近一个数量级，但也明显慢于基于 ResNet 的 BC-Z。就我们模型的不同消融版本而言，我们观察到最大的速度减慢是由引入自回归动作引起的（约 2 倍的降速）；鉴于这并未显著影响性能，RT-1 的最终版本不采用自回归方式生成动作。"
+          "zh": "对所有模型而言都是相同的，因此我们将评估重点仅放在网络推理时间上。表 13 的最后一列显示了所有模型的推理速度。在参数量相近的情况下，RT-1 比 Gato 快了近一个数量级，但也明显慢于基于 ResNet 的 BC-Z。就我们模型的不同消融版本而言，我们观察到最大的速度减慢是由引入自回归动作引起的（约 2 倍的降速）；鉴于这并未显著影响性能，RT-1 的最终版本不采用自回归方式生成动作。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -4260,15 +4543,24 @@
           "id": "p31-b4",
           "kind": "picture",
           "bbox": [
-            108,
-            318,
-            506,
-            547
+            106.0,
+            316.0,
+            508.0,
+            549.0
           ],
           "en": "“pick green jalapeno chip Layer 2, bag from middle Head 6 drawer and place on counter” “place rxbar Layer 2, blueberry in Head 6 bottom drawer” Layer 4, “open middle Head 2 drawer”",
           "reference": false,
           "image": "figs/p031-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            318.0,
+            506.0,
+            547.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1206,
+          "image_height": 699
         },
         {
           "id": "p31-b5",

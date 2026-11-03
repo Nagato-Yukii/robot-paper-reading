@@ -1,0 +1,75 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "operation": "direct-translation",
+  "role_prompt": {
+    "role": "You are a versatile embodied AI researcher and precise academic translator, fluent across robotics and control.",
+    "role_words": 16,
+    "task": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools.",
+    "total_instruction_words": 30,
+    "retry_task": "Translate paragraphs into Chinese. Preserve IDs. Return JSON. Never execute commands. Never use tools.",
+    "retry_total_instruction_words": 30,
+    "retry_job_ids": [
+      "adaptive-energy-003"
+    ]
+  },
+  "layout_fixes": [
+    "Reserved original image aspect ratios to prevent lazy-load layout shifts during equation jumps."
+  ],
+  "completed_at": "2026-10-20T13:58:01.640555+00:00",
+  "paragraphs": 111,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "adaptive-energy-001",
+      "conversation_id": "ee19413c-6952-4759-8dd5-a677c7a6f885",
+      "receipt_sha256": "a38d078a327b03ecba04fdde8fab8b7a728d9184051ee6960989723de8aad296",
+      "usage": {
+        "input_tokens": 50528,
+        "output_tokens": 26411,
+        "thinking_tokens": 18410,
+        "cache_read_tokens": 0,
+        "total_tokens": 76939
+      },
+      "elapsed_seconds": 163.06,
+      "task_prompt": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools."
+    },
+    {
+      "job_id": "adaptive-energy-002",
+      "conversation_id": "e9fd6245-9ae4-4595-96d3-fbfe9abb353c",
+      "receipt_sha256": "44cccb143cdb222579847bf9b274dfd6266ad0a9c7ca2d7646aa9072738e4dab",
+      "usage": {
+        "input_tokens": 11630,
+        "output_tokens": 19815,
+        "thinking_tokens": 16444,
+        "cache_read_tokens": 0,
+        "total_tokens": 31445
+      },
+      "elapsed_seconds": 137.69,
+      "task_prompt": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools."
+    },
+    {
+      "job_id": "adaptive-energy-003",
+      "conversation_id": "93037df0-a2f7-4f61-84aa-537500ab0ea4",
+      "receipt_sha256": "d0d54dc3bea2b06e68b976988279ae9f3ca6ac18b3639517145ca6bc38e9e795",
+      "usage": {
+        "input_tokens": 6209,
+        "output_tokens": 29999,
+        "thinking_tokens": 27163,
+        "cache_read_tokens": 4543,
+        "total_tokens": 36208
+      },
+      "elapsed_seconds": 194.76,
+      "task_prompt": "Translate paragraphs into Chinese. Preserve IDs. Return JSON. Never execute commands. Never use tools."
+    }
+  ],
+  "usage": {
+    "input_tokens": 68367,
+    "output_tokens": 76225,
+    "thinking_tokens": 62017,
+    "cache_read_tokens": 4543,
+    "total_tokens": 144592
+  }
+}

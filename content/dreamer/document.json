@@ -1,0 +1,3155 @@
+{
+  "title": "Dream to Control: Learning Behaviors by Latent Imagination",
+  "pages": [
+    {
+      "number": 1,
+      "blocks": [
+        {
+          "id": "p1-b2",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            69,
+            447,
+            102
+          ],
+          "en": "DREAM TO CONTROL: LEARNING BEHAVIORS BY LATENT IMAGINATION",
+          "reference": false,
+          "source_image": "figs/p001-002-source.png",
+          "pdf_extracted_en": "DREAM TO CONTROL: LEARNING BEHAVIORS BY LATENT IMAGINATION",
+          "zh": "以梦实现控制：通过潜空间想象学习行为"
+        },
+        {
+          "id": "p1-b3",
+          "kind": "text",
+          "bbox": [
+            113,
+            122,
+            496,
+            158
+          ],
+          "en": "Danijar Hafner\\(^{*}\\)\nUniversity of Toronto\nGoogle Brain\n\nTimothy Lillicrap\nDeepMind\n\nJimmy Ba\nUniversity of Toronto\n\nMohammad Norouzi\nGoogle Brain",
+          "reference": false,
+          "source_image": "figs/p001-003-source.png",
+          "pdf_extracted_en": "Danijar Hafner∗ Timothy Lillicrap Jimmy Ba Mohammad Norouzi University of Toronto DeepMind University of Toronto Google Brain Google Brain",
+          "zh": "Danijar Hafner\\(^{*}\\)\n多伦多大学\nGoogle Brain\n\nTimothy Lillicrap\nDeepMind\n\nJimmy Ba\n多伦多大学\n\nMohammad Norouzi\nGoogle Brain"
+        },
+        {
+          "id": "p1-b4",
+          "kind": "section-header",
+          "bbox": [
+            287,
+            170,
+            325,
+            178
+          ],
+          "en": "Abstract",
+          "reference": false,
+          "source_image": "figs/p001-004-source.png",
+          "pdf_extracted_en": "Abstract",
+          "zh": "摘要"
+        },
+        {
+          "id": "p1-b5",
+          "kind": "text",
+          "bbox": [
+            143,
+            187,
+            470,
+            284
+          ],
+          "en": "Learned world models summarize an agent’s experience to facilitate learning complex behaviors. While learning world models from high-dimensional sensory inputs is becoming feasible through deep learning, there are many potential ways for deriving behaviors from them. We present Dreamer, a reinforcement learning agent that solves long-horizon tasks from images purely by latent imagination. We efficiently learn behaviors by propagating analytic gradients of learned state values back through trajectories imagined in the compact state space of a learned world model. On 20 challenging visual control tasks, Dreamer exceeds existing approaches in data-efficiency, computation time, and final performance.",
+          "reference": false,
+          "source_image": "figs/p001-005-source.png",
+          "pdf_extracted_en": "Learned world models summarize an agent’s experience to facilitate learning complex behaviors. While learning world models from high-dimensional sensory inputs is becoming feasible through deep learning, there are many potential ways for deriving behaviors from them. We present Dreamer, a reinforcement learning agent that solves long-horizon tasks from images purely by latent imagination. We efficiently learn behaviors by propagating analytic gradients of learned state values back through trajectories imagined in the compact state space of a learned world model. On 20 challenging visual control tasks, Dreamer exceeds existing approaches in data-efficiency, computation time, and final performance.",
+          "zh": "学习得到的世界模型对智能体的经验进行概括，以促进复杂行为的学习。尽管深度学习使得从高维感知输入中学习世界模型逐渐成为可能，但从这些模型中获得行为仍有多种潜在途径。我们提出 Dreamer，这是一种仅通过潜空间想象就能基于图像解决长时域任务的强化学习智能体。我们在学习得到的世界模型的紧凑状态空间中想象轨迹，并沿这些轨迹反向传播所学状态价值的解析梯度，从而高效地学习行为。在 20 项具有挑战性的视觉控制任务上，Dreamer 在数据效率、计算时间和最终性能方面均优于现有方法。"
+        },
+        {
+          "id": "p1-b6",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            299,
+            206,
+            308
+          ],
+          "en": "1 INTRODUCTION",
+          "reference": false,
+          "source_image": "figs/p001-006-source.png",
+          "pdf_extracted_en": "1 INTRODUCTION",
+          "zh": "1 引言"
+        },
+        {
+          "id": "p1-b7",
+          "kind": "text",
+          "bbox": [
+            108,
+            320,
+            405,
+            385
+          ],
+          "en": "Intelligent agents can achieve goals in complex environments even though they never encounter the exact same situation twice. This ability requires building representations of the world from past experience that enable generalization to novel situations. World models offer an explicit way to represent an agent’s knowledge about the world in a parametric model that can make predictions about the future.",
+          "reference": false,
+          "source_image": "figs/p001-007-source.png",
+          "pdf_extracted_en": "Intelligent agents can achieve goals in complex environments even though they never encounter the exact same situation twice. This ability requires building representations of the world from past experience that enable generalization to novel situations. World models offer an explicit way to represent an agent’s knowledge about the world in a parametric model that can make predictions about the future.",
+          "zh": "即使从未两次遇到完全相同的情境，智能体也能在复杂环境中实现目标。这种能力要求智能体从过去的经验中构建世界的表征，从而能够泛化到新的情境。世界模型提供了一种显式途径，将智能体关于世界的知识表示为能够预测未来的参数化模型。"
+        },
+        {
+          "id": "p1-b8",
+          "kind": "text",
+          "bbox": [
+            107,
+            389,
+            406,
+            476
+          ],
+          "en": "When the sensory inputs are high-dimensional images, latent dynamics models can abstract observations to predict forward in compact state spaces (Watter et al., 2015; Oh et al., 2017; Gregor et al., 2019). Compared to predictions in image space, latent states have a small memory footprint that enables imagining thousands of trajectories in parallel. Learning effective latent dynamics models is becoming feasible through advances in deep learning and latent variable models (Krishnan et al., 2015; Karl et al., 2016; Doerr et al., 2018; Buesing et al., 2018).",
+          "reference": false,
+          "source_image": "figs/p001-008-source.png",
+          "pdf_extracted_en": "When the sensory inputs are high-dimensional images, latent dynamics models can abstract observations to predict forward in compact state spaces (Watter et al., 2015; Oh et al., 2017; Gregor et al., 2019). Compared to predictions in image space, latent states have a small memory footprint that enables imagining thousands of trajectories in parallel. Learning effective latent dynamics models is becoming feasible through advances in deep learning and latent variable models (Krishnan et al., 2015; Karl et al., 2016; Doerr et al., 2018; Buesing et al., 2018).",
+          "zh": "当感知输入是高维图像时，潜在动力学模型可以对观测进行抽象，从而在紧凑的状态空间中向前预测 (Watter et al., 2015; Oh et al., 2017; Gregor et al., 2019)。与在图像空间中进行预测相比，潜在状态占用的内存较少，因此能够并行想象数千条轨迹。随着深度学习和潜变量模型的发展，学习有效的潜在动力学模型正逐渐成为可能 (Krishnan et al., 2015; Karl et al., 2016; Doerr et al., 2018; Buesing et al., 2018)。"
+        },
+        {
+          "id": "p1-b9",
+          "kind": "text",
+          "bbox": [
+            107,
+            480,
+            407,
+            577
+          ],
+          "en": "Behaviors can be derived from dynamics models in many ways. Often, imagined rewards are maximized with a parametric policy (Sutton, 1991; Ha and Schmidhuber, 2018; Zhang et al., 2019) or by online planning (Chua et al., 2018; Hafner et al., 2018). However, considering only rewards within a fixed imagination horizon results in shortsighted behaviors (Wang et al., 2019). Moreover, prior work commonly resorts to derivative-free optimization for robustness to model errors (Ebert et al., 2017; Chua et al., 2018; Parmas et al., 2019), rather than leveraging analytic gradients offered by neural network dynamics (Henaff et al., 2019; Srinivas et al., 2018).",
+          "reference": false,
+          "source_image": "figs/p001-009-source.png",
+          "pdf_extracted_en": "Behaviors can be derived from dynamics models in many ways. Often, imagined rewards are maximized with a parametric policy (Sutton, 1991; Ha and Schmidhuber, 2018; Zhang et al., 2019) or by online planning (Chua et al., 2018; Hafner et al., 2018). However, considering only rewards within a fixed imagination horizon results in shortsighted behaviors (Wang et al., 2019). Moreover, prior work commonly resorts to derivative-free optimization for robustness to model errors (Ebert et al., 2017; Chua et al., 2018; Parmas et al., 2019), rather than leveraging analytic gradients offered by neural network dynamics (Henaff et al., 2019; Srinivas et al., 2018).",
+          "zh": "可以通过多种方式从动力学模型中获得行为。通常，使用参数化策略 (Sutton, 1991; Ha and Schmidhuber, 2018; Zhang et al., 2019) 或在线规划 (Chua et al., 2018; Hafner et al., 2018) 来最大化想象中的奖励。然而，仅考虑固定想象时域内的奖励会导致短视行为 (Wang et al., 2019)。此外，先前的工作通常采用无导数优化来提高对模型误差的鲁棒性 (Ebert et al., 2017; Chua et al., 2018; Parmas et al., 2019)，而没有利用神经网络动力学模型所提供的解析梯度 (Henaff et al., 2019; Srinivas et al., 2018)。"
+        },
+        {
+          "id": "p1-b10",
+          "kind": "text",
+          "bbox": [
+            107,
+            581,
+            405,
+            657
+          ],
+          "en": "We present Dreamer, an agent that learns long-horizon behaviors from images purely by latent imagination. A novel actor critic algorithm accounts for rewards beyond the imagination horizon while making efficient use of the neural network dynamics. For this, we predict state values and actions in the learned latent space as summarized in Figure 1. The values optimize Bellman consistency for imagined rewards and the policy maximizes the values by propagating their analytic gradients back through the dynamics.",
+          "reference": false,
+          "source_image": "figs/p001-010-source.png",
+          "pdf_extracted_en": "We present Dreamer, an agent that learns long-horizon behaviors from images purely by latent imagination. A novel actor critic algorithm accounts for rewards beyond the imagination horizon while making efficient use of the neural network dynamics. For this, we predict state values and actions in the learned latent space as summarized in Figure 1. The values optimize Bellman consistency for imagined rewards and the policy maximizes the values by propagating their analytic gradients back through the dynamics.",
+          "zh": "我们提出 Dreamer，这是一种仅通过潜空间想象就能从图像中学习长时域行为的智能体。一种新颖的行动者—评论家算法在高效利用神经网络动力学模型的同时，也考虑了想象时域之外的奖励。为此，我们在学习得到的潜空间中预测状态价值和动作，如图 1 所概述。价值的优化以满足想象奖励下的 Bellman 一致性为目标，而策略则通过沿动力学模型反向传播价值的解析梯度来最大化这些价值。"
+        },
+        {
+          "id": "p1-b11",
+          "kind": "text",
+          "bbox": [
+            108,
+            661,
+            406,
+            715
+          ],
+          "en": "In comparison to actor critic algorithms that learn online or by experience replay (Lillicrap et al., 2015; Mnih et al., 2016; Schulman et al., 2017; Haarnoja et al., 2018; Lee et al., 2019), world models can interpolate past experience and offer analytic gradients of multi-step returns for efficient policy optimization.",
+          "reference": false,
+          "source_image": "figs/p001-011-source.png",
+          "pdf_extracted_en": "In comparison to actor critic algorithms that learn online or by experience replay (Lillicrap et al., 2015; Mnih et al., 2016; Schulman et al., 2017; Haarnoja et al., 2018; Lee et al., 2019), world models can interpolate past experience and offer analytic gradients of multi-step returns for efficient policy optimization.",
+          "zh": "与在线学习或通过经验回放进行学习的行动者—评论家算法 (Lillicrap et al., 2015; Mnih et al., 2016; Schulman et al., 2017; Haarnoja et al., 2018; Lee et al., 2019) 相比，世界模型能够对过去的经验进行插值，并提供多步回报的解析梯度，以实现高效的策略优化。"
+        },
+        {
+          "id": "p1-b12",
+          "kind": "caption",
+          "bbox": [
+            426,
+            327,
+            493,
+            334
+          ],
+          "en": "Dataset of Experience",
+          "reference": false,
+          "source_image": "figs/p001-012-source.png",
+          "pdf_extracted_en": "Dataset of Experience",
+          "zh": "经验数据集"
+        },
+        {
+          "id": "p1-b13",
+          "kind": "picture",
+          "bbox": [
+            414.0,
+            318.0,
+            506.0,
+            600.0
+          ],
+          "en": "       ",
+          "reference": false,
+          "image": "figs/p001-013.png",
+          "labels": [],
+          "original_bbox": [
+            414.0,
+            318.0,
+            506.0,
+            600.0
+          ],
+          "merged_source_blocks": [
+            "p1-b13",
+            "p1-b15",
+            "p1-b16",
+            "p1-b17",
+            "p1-b18",
+            "p1-b20",
+            "p1-b21",
+            "p1-b22"
+          ]
+        },
+        {
+          "id": "p1-b14",
+          "kind": "caption",
+          "bbox": [
+            420,
+            407,
+            499,
+            414
+          ],
+          "en": "Learned Latent Dynamics",
+          "reference": false,
+          "source_image": "figs/p001-014-source.png",
+          "pdf_extracted_en": "Learned Latent Dynamics",
+          "zh": "学习得到的潜在动力学"
+        },
+        {
+          "id": "p1-b19",
+          "kind": "caption",
+          "bbox": [
+            420,
+            519,
+            501,
+            535
+          ],
+          "en": "Value and Action Learned by Latent Imagination",
+          "reference": false,
+          "source_image": "figs/p001-019-source.png",
+          "pdf_extracted_en": "Value and Action Learned by Latent Imagination",
+          "zh": "通过潜空间想象学习的价值与动作"
+        },
+        {
+          "id": "p1-b23",
+          "kind": "text",
+          "bbox": [
+            414,
+            602,
+            505,
+            700
+          ],
+          "en": "Figure 1: Dreamer learns a world model from past experience and efficiently learns farsighted behaviors in its latent space by backpropagating value estimates back through imagined trajectories.",
+          "reference": false,
+          "source_image": "figs/p001-023-source.png",
+          "pdf_extracted_en": "Figure 1: Dreamer learns a world model from past experience and efficiently learns farsighted behaviors in its latent space by backpropagating value estimates back through imagined trajectories.",
+          "zh": "图 1：Dreamer 从过去的经验中学习世界模型，并沿想象轨迹反向传播价值估计，从而在其潜空间中高效地学习具有长远考量的行为。"
+        },
+        {
+          "id": "p1-b24",
+          "kind": "text",
+          "bbox": [
+            119,
+            723,
+            332,
+            732
+          ],
+          "en": "\\(^{*}\\)Correspondence to: Danijar Hafner <mail@danijar.com>.",
+          "reference": false,
+          "source_image": "figs/p001-024-source.png",
+          "pdf_extracted_en": "∗ Correspondence to: Danijar Hafner .",
+          "zh": "\\(^{*}\\)通讯联系人：Danijar Hafner <mail@danijar.com>。"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "blocks": [
+        {
+          "id": "p2-b1",
+          "kind": "picture",
+          "bbox": [
+            104.0,
+            77.0,
+            509.0,
+            173.0
+          ],
+          "en": "     (a) Cup (b) Acrobot (c) Hopper (d) Walker (e) Quadruped",
+          "reference": false,
+          "image": "figs/p002-001.png",
+          "labels": [],
+          "original_bbox": [
+            104.0,
+            77.0,
+            509.0,
+            173.0
+          ],
+          "merged_source_blocks": [
+            "p2-b1",
+            "p2-b2",
+            "p2-b3",
+            "p2-b4",
+            "p2-b5",
+            "p2-b6"
+          ]
+        },
+        {
+          "id": "p2-b7",
+          "kind": "caption",
+          "bbox": [
+            108,
+            174,
+            506,
+            206
+          ],
+          "en": "Figure 2: Image observations for 5 of the 20 visual control tasks used in our experiments. The tasks pose a variety of challenges including contact dynamics, sparse rewards, many degrees of freedom, and 3D environments. Several of these tasks could previously not be solved through world models.",
+          "reference": false,
+          "source_image": "figs/p002-007-source.png",
+          "pdf_extracted_en": "Figure 2: Image observations for 5 of the 20 visual control tasks used in our experiments. The tasks pose a variety of challenges including contact dynamics, sparse rewards, many degrees of freedom, and 3D environments. Several of these tasks could previously not be solved through world models.",
+          "zh": "图 2：实验所用 20 项视觉控制任务中 5 项任务的图像观测。这些任务带来了多种挑战，包括接触动力学、稀疏奖励、大量自由度以及三维环境。其中若干任务此前无法通过世界模型解决。"
+        },
+        {
+          "id": "p2-b8",
+          "kind": "text",
+          "bbox": [
+            107,
+            214,
+            359,
+            224
+          ],
+          "en": "The key contributions of this paper are summarized as follows:",
+          "reference": false,
+          "source_image": "figs/p002-008-source.png",
+          "pdf_extracted_en": "The key contributions of this paper are summarized as follows:",
+          "zh": "本文的主要贡献概括如下："
+        },
+        {
+          "id": "p2-b9",
+          "kind": "list-item",
+          "bbox": [
+            112,
+            227,
+            506,
+            270
+          ],
+          "en": "- Learning long-horizon behaviors by latent imagination Model-based agents can be shortsighted if they use a finite imagination horizon. We approach this limitation by predicting both actions and state values. Training purely by imagination in a latent space lets us efficiently learn the policy by propagating analytic value gradients back through the latent dynamics.",
+          "reference": false,
+          "source_image": "figs/p002-009-source.png",
+          "pdf_extracted_en": "- Learning long-horizon behaviors by latent imagination Model-based agents can be shortsighted if they use a finite imagination horizon. We approach this limitation by predicting both actions and state values. Training purely by imagination in a latent space lets us efficiently learn the policy by propagating analytic value gradients back through the latent dynamics.",
+          "zh": "- 通过潜空间想象学习长时域行为 基于模型的智能体如果采用有限的想象时域，就可能表现出短视行为。我们通过同时预测动作和状态价值来应对这一局限。完全依靠潜空间中的想象进行训练，使我们能够沿潜在动力学模型反向传播价值的解析梯度，从而高效地学习策略。"
+        },
+        {
+          "id": "p2-b10",
+          "kind": "list-item",
+          "bbox": [
+            112,
+            274,
+            505,
+            317
+          ],
+          "en": "- Empirical performance for visual control We pair Dreamer with existing representation learning methods and evaluate it on the DeepMind Control Suite with image inputs, illustrated in Figure 2. Using the same hyper parameters for all tasks, Dreamer exceeds previous model-based and model-free agents in terms of data-efficiency, computation time, and final performance.",
+          "reference": false,
+          "source_image": "figs/p002-010-source.png",
+          "pdf_extracted_en": "- Empirical performance for visual control We pair Dreamer with existing representation learning methods and evaluate it on the DeepMind Control Suite with image inputs, illustrated in Figure 2. Using the same hyper parameters for all tasks, Dreamer exceeds previous model-based and model-free agents in terms of data-efficiency, computation time, and final performance.",
+          "zh": "- 视觉控制的实验性能 我们将 Dreamer 与现有表征学习方法结合，并在以图像为输入的 DeepMind Control Suite 上进行评估，如图 2 所示。在所有任务上使用相同的超参数时，Dreamer 在数据效率、计算时间和最终性能方面均优于先前基于模型和无模型的智能体。"
+        },
+        {
+          "id": "p2-b11",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            328,
+            299,
+            338
+          ],
+          "en": "2 CONTROL WITH WORLD MODELS",
+          "reference": false,
+          "source_image": "figs/p002-011-source.png",
+          "pdf_extracted_en": "2 CONTROL WITH WORLD MODELS",
+          "zh": "2 利用世界模型进行控制"
+        },
+        {
+          "id": "p2-b12",
+          "kind": "text",
+          "bbox": [
+            107,
+            348,
+            506,
+            460
+          ],
+          "en": "Reinforcement learning We formulate visual control as a partially observable Markov decision process (POMDP) with discrete time step \\(t \\in [1; T]\\), continuous vector-valued actions \\(a_t \\sim p(a_t \\mid o_{\\leq t}, a_{<t})\\) generated by the agent, and high-dimensional observations and scalar rewards \\(o_t, r_t \\sim p(o_t, r_t \\mid o_{<t}, a_{<t})\\) generated by the unknown environment. The goal is to develop an agent that maximizes the expected sum of rewards \\(\\mathbb{E}_p\\big(\\sum_{t=1}^{T} r_t\\big)\\). Figure 2 shows a selection of our tasks. Agent components The classical components of agents that learn in imagination are dynamics learning, behavior learning, and environment interaction (Sutton, 1991). In the case of Dreamer, the behavior is learned by predicting hypothetical trajectories in the compact latent space of the world model. As outlined in Figure 3 and detailed in Algorithm 1, Dreamer performs the following operations throughout the agent’s life time, either interleaved or in parallel:",
+          "reference": false,
+          "source_image": "figs/p002-012-source.png",
+          "pdf_extracted_en": "Reinforcement learning We formulate visual control as a partially observable Markov decision process (POMDP) with discrete time step t ∈ [1; T ], continuous vector-valued actions at ∼ p ( at | o≤t, art �. Figure 2 shows a selection of our tasks. Agent components The classical components of agents that learn in imagination are dynamics learning, behavior learning, and environment interaction (Sutton, 1991). In the case of Dreamer, the behavior is learned by predicting hypothetical trajectories in the compact latent space of the world model. As outlined in Figure 3 and detailed in Algorithm 1, Dreamer performs the following operations throughout the agent’s life time, either interleaved or in parallel:",
+          "zh": "强化学习 我们将视觉控制表述为部分可观测马尔可夫决策过程（POMDP），其中包含离散时间步 \\(t \\in [1; T]\\)、由智能体生成的连续向量值动作 \\(a_t \\sim p(a_t \\mid o_{\\leq t}, a_{<t})\\)，以及由未知环境生成的高维观测和标量奖励 \\(o_t, r_t \\sim p(o_t, r_t \\mid o_{<t}, a_{<t})\\)。目标是构建一个能够最大化奖励总和期望 \\(\\mathbb{E}_p\\big(\\sum_{t=1}^{T} r_t\\big)\\) 的智能体。图 2 展示了我们所用任务中的一部分。智能体组成部分 在想象中学习的智能体通常包含动力学学习、行为学习以及环境交互三个组成部分 (Sutton, 1991)。对于 Dreamer，行为学习通过在世界模型的紧凑潜空间中预测假想轨迹来实现。如图 3 所概述、算法 1 所详述，Dreamer 在智能体的整个生命周期中交替或并行地执行以下操作："
+        },
+        {
+          "id": "p2-b13",
+          "kind": "list-item",
+          "bbox": [
+            112,
+            464,
+            506,
+            496
+          ],
+          "en": "- Learning the latent dynamics model from the dataset of past experience to predict future rewards from actions and past observations. Any learning objective for the world model can be incorporated with Dreamer. We review existing methods for learning latent dynamics in Section 4.",
+          "reference": false,
+          "source_image": "figs/p002-013-source.png",
+          "pdf_extracted_en": "- Learning the latent dynamics model from the dataset of past experience to predict future rewards from actions and past observations. Any learning objective for the world model can be incorporated with Dreamer. We review existing methods for learning latent dynamics in Section 4.",
+          "zh": "- 从过去经验构成的数据集中学习潜在动力学模型，以根据动作和过去的观测预测未来奖励。世界模型的任何学习目标都可以与 Dreamer 结合。我们在第 4 节回顾现有的潜在动力学学习方法。"
+        },
+        {
+          "id": "p2-b14",
+          "kind": "list-item",
+          "bbox": [
+            112,
+            499,
+            506,
+            531
+          ],
+          "en": "- Learning action and value models from predicted latent trajectories, as described in Section 3. The value model optimizes Bellman consistency for imagined rewards and the action model is updated by propagating gradients of value estimates back through the neural network dynamics.",
+          "reference": false,
+          "source_image": "figs/p002-014-source.png",
+          "pdf_extracted_en": "- Learning action and value models from predicted latent trajectories, as described in Section 3. The value model optimizes Bellman consistency for imagined rewards and the action model is updated by propagating gradients of value estimates back through the neural network dynamics.",
+          "zh": "- 如第 3 节所述，从预测的潜在轨迹中学习动作模型和价值模型。价值模型以满足想象奖励下的 Bellman 一致性为优化目标，动作模型则通过沿神经网络动力学模型反向传播价值估计的梯度来更新。"
+        },
+        {
+          "id": "p2-b15",
+          "kind": "list-item",
+          "bbox": [
+            112,
+            535,
+            506,
+            545
+          ],
+          "en": "- Executing the learned action model in the world to collect new experience for growing the dataset.",
+          "reference": false,
+          "source_image": "figs/p002-015-source.png",
+          "pdf_extracted_en": "- Executing the learned action model in the world to collect new experience for growing the dataset.",
+          "zh": "- 在真实世界中执行学习得到的动作模型，收集新的经验以扩充数据集。"
+        },
+        {
+          "id": "p2-b16",
+          "kind": "text",
+          "bbox": [
+            108,
+            549,
+            505,
+            603
+          ],
+          "en": "Latent dynamics Dreamer uses a latent dynamics model that consists of three components. The representation model encodes observations and actions to create continuous vector-valued model states \\(s_t\\) with Markovian transitions (Watter et al., 2015; Zhang et al., 2019; Hafner et al., 2018). The transition model predicts future model states without seeing the corresponding observations that will later cause them. The reward model predicts the rewards given the model states,",
+          "reference": false,
+          "source_image": "figs/p002-016-source.png",
+          "pdf_extracted_en": "Latent dynamics Dreamer uses a latent dynamics model that consists of three components. The representation model encodes observations and actions to create continuous vector-valued model states st with Markovian transitions (Watter et al., 2015; Zhang et al., 2019; Hafner et al., 2018). The transition model predicts future model states without seeing the corresponding observations that will later cause them. The reward model predicts the rewards given the model states,",
+          "zh": "潜在动力学 Dreamer 使用的潜在动力学模型包含三个组成部分。表征模型对观测和动作进行编码，生成具有马尔可夫转移性质的连续向量值模型状态 \\(s_t\\) (Watter et al., 2015; Zhang et al., 2019; Hafner et al., 2018)。转移模型在尚未看到之后将产生相应状态的观测时，预测未来的模型状态。奖励模型根据给定的模型状态预测奖励，"
+        },
+        {
+          "id": "p2-b17",
+          "kind": "formula",
+          "bbox": [
+            198.0,
+            607.0,
+            507.0,
+            650.0
+          ],
+          "en": "Representation model: p ( st | st− 1 , at− 1 , ot ) Transition model: q ( st | st− 1 , at− 1) (1) Reward model: q ( rt | st ) .",
+          "reference": false,
+          "image": "figs/p002-017.png",
+          "labels": [
+            "1"
+          ],
+          "original_bbox": [
+            200,
+            609,
+            505,
+            648
+          ]
+        },
+        {
+          "id": "p2-b18",
+          "kind": "text",
+          "bbox": [
+            107,
+            654,
+            505,
+            697
+          ],
+          "en": "We use \\(p\\) for distributions that generate samples in the real environment and \\(q\\) for their approximations that enable latent imagination. Specifically, the transition model lets us predict ahead in the compact latent space without having to observe or imagine the corresponding images. This results in a low memory footprint and fast predictions of thousands of imagined trajectories in parallel.",
+          "reference": false,
+          "source_image": "figs/p002-018-source.png",
+          "pdf_extracted_en": "We use p for distributions that generate samples in the real environment and q for their approximations that enable latent imagination. Specifically, the transition model lets us predict ahead in the compact latent space without having to observe or imagine the corresponding images. This results in a low memory footprint and fast predictions of thousands of imagined trajectories in parallel.",
+          "zh": "我们用 \\(p\\) 表示在真实环境中生成样本的分布，用 \\(q\\) 表示使潜空间想象成为可能的相应近似分布。具体而言，转移模型使我们能够在紧凑的潜空间中向前预测，而无须观测或想象相应的图像。因此，内存占用较低，并且可以快速、并行地预测数千条想象轨迹。"
+        },
+        {
+          "id": "p2-b19",
+          "kind": "text",
+          "bbox": [
+            107,
+            701,
+            505,
+            733
+          ],
+          "en": "The model mimics a non-linear Kalman filter (Kalman, 1960), latent state space model, or HMM with real-valued states. However, it is conditioned on actions and predicts rewards, allowing the agent to imagine the outcomes of potential action sequences without executing them in the environment.",
+          "reference": false,
+          "source_image": "figs/p002-019-source.png",
+          "pdf_extracted_en": "The model mimics a non-linear Kalman filter (Kalman, 1960), latent state space model, or HMM with real-valued states. However, it is conditioned on actions and predicts rewards, allowing the agent to imagine the outcomes of potential action sequences without executing them in the environment.",
+          "zh": "该模型类似于非线性 Kalman 滤波器 (Kalman, 1960)、潜在状态空间模型或具有实值状态的隐马尔可夫模型（HMM）。不过，它以动作为条件并预测奖励，使智能体无须在环境中执行潜在的动作序列，就能想象这些序列的结果。"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "blocks": [
+        {
+          "id": "p3-b1",
+          "kind": "picture",
+          "bbox": [
+            111.0,
+            79.0,
+            501.0,
+            206.0
+          ],
+          "en": "r 1 a 1 r 2 a 2 r 3 v 1 r 1 a 1 v 2 r 2 a 2 v 3 r 3 a 3 a 1 a 2 a 3 o 1 o 1 o 2 o 2 o 3 o 3 o 1 o 1 o 2 o 3 (a) Learn dynamics from experience (b) Learn behavior in imagination (c) Act in the environment",
+          "reference": false,
+          "image": "figs/p003-001.png",
+          "labels": [],
+          "original_bbox": [
+            113,
+            81,
+            499,
+            204
+          ]
+        },
+        {
+          "id": "p3-b2",
+          "kind": "text",
+          "bbox": [
+            108,
+            209,
+            505,
+            274
+          ],
+          "en": "Figure 3: Components of Dreamer. (a) From the dataset of past experience, the agent learns to encode observations and actions into compact latent states (🟢), for example via reconstruction, and predicts environment rewards (🌟). (b) In the compact latent space, Dreamer predicts state values (🏆) and actions (🕹️) that maximize future value predictions by propagating gradients back through imagined trajectories. (c) The agent encodes the history of the episode to compute the current model state and predict the next action to execute in the environment. See Algorithm 1 for pseudo code of the agent.",
+          "reference": false,
+          "source_image": "figs/p003-002-source.png",
+          "pdf_extracted_en": "Figure 3: Components of Dreamer. (a) From the dataset of past experience, the agent learns to encode observations and actions into compact latent states ( ), for example via reconstruction, and predicts environment rewards ( ). (b) In the compact latent space, Dreamer predicts state values ( ) and actions ( ) that maximize future value predictions by propagating gradients back through imagined trajectories. (c) The agent encodes the history of the episode to compute the current model state and predict the next action to execute in the environment. See Algorithm 1 for pseudo code of the agent.",
+          "zh": "图 3：Dreamer 的组成部分。(a) 智能体从过往经验数据集中学习，例如通过重建，将观测和动作编码为紧凑的潜在状态（🟢），并预测环境奖励（🌟）。(b) 在紧凑的潜空间中，Dreamer 预测状态价值（🏆）和动作（🕹️），通过沿想象轨迹反向传播梯度，使未来价值的预测值最大化。(c) 智能体对当前回合的历史进行编码，以计算当前模型状态，并预测下一步要在环境中执行的动作。智能体的伪代码见算法 1。"
+        },
+        {
+          "id": "p3-b3",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            285,
+            381,
+            295
+          ],
+          "en": "3 LEARNING BEHAVIORS BY LATENT IMAGINATION",
+          "reference": false,
+          "source_image": "figs/p003-003-source.png",
+          "pdf_extracted_en": "3 LEARNING BEHAVIORS BY LATENT IMAGINATION",
+          "zh": "3 通过潜空间想象学习行为"
+        },
+        {
+          "id": "p3-b4",
+          "kind": "text",
+          "bbox": [
+            108,
+            302,
+            505,
+            345
+          ],
+          "en": "Dreamer learns long-horizon behaviors in the compact latent space of a learned world model by efficiently leveraging the neural network latent dynamics. For this, we propagate stochastic gradients of multi-step returns through neural network predictions of actions, states, rewards, and values using reparameterization. This section describes the main contribution of our paper.",
+          "reference": false,
+          "source_image": "figs/p003-004-source.png",
+          "pdf_extracted_en": "Dreamer learns long-horizon behaviors in the compact latent space of a learned world model by efficiently leveraging the neural network latent dynamics. For this, we propagate stochastic gradients of multi-step returns through neural network predictions of actions, states, rewards, and values using reparameterization. This section describes the main contribution of our paper.",
+          "zh": "Dreamer 高效利用神经网络潜在动力学，在学得的世界模型的紧凑潜空间中学习长时域行为。为此，我们利用重参数化，将多步回报的随机梯度通过神经网络对动作、状态、奖励和价值的预测进行传播。本节介绍本文的主要贡献。"
+        },
+        {
+          "id": "p3-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            349,
+            506,
+            416
+          ],
+          "en": "Imagination environment The latent dynamics define a Markov decision process (MDP; Sutton, 1991) that is fully observed because the compact model states \\(s_t\\) are Markovian. We denote imagined quantities with \\(\\tau\\) as the time index. Imagined trajectories start at the true model states \\(s_t\\) of observation sequences drawn from the agent’s past experience. They follow predictions of the transition model \\(s_\\tau \\sim q(s_\\tau \\mid s_{\\tau-1}, a_{\\tau-1})\\), reward model \\(r_\\tau \\sim q(r_\\tau \\mid s_\\tau)\\), and a policy \\(a_\\tau \\sim q(a_\\tau \\mid s_\\tau)\\). The objective is to maximize expected imagined rewards \\(\\mathbb{E}_q\\big(\\sum_{\\tau=t}^{\\infty}\\gamma^{\\tau-t}r_\\tau\\big)\\) with respect to the policy.",
+          "reference": false,
+          "source_image": "figs/p003-005-source.png",
+          "pdf_extracted_en": "Imagination environment The latent dynamics define a Markov decision process (MDP; Sutton, 1991) that is fully observed because the compact model states st are Markovian. We denote imagined quantities with τ as the time index. Imagined trajectories start at the true model states st of observation sequences drawn from the agent’s past experience. They follow predictions of the transition model sτ ∼ q ( sτ | sτ − 1 , aτ − 1), reward model rτ ∼ q ( rτ | sτ ), and a policy aτ ∼ q ( aτ | sτ ). The objective is to maximize expected imagined rewards E q �� τ∞ = tγτ−trτ � with respect to the policy.",
+          "zh": "想象环境 潜在动力学定义了一个马尔可夫决策过程（MDP; Sutton, 1991）；由于紧凑的模型状态 \\(s_t\\) 具有马尔可夫性，该过程是完全可观测的。我们用 \\(\\tau\\) 作为想象中各量的时间索引。想象轨迹从智能体过往经验中抽取的观测序列所对应的真实模型状态 \\(s_t\\) 出发，遵循转移模型 \\(s_\\tau \\sim q(s_\\tau \\mid s_{\\tau-1}, a_{\\tau-1})\\)、奖励模型 \\(r_\\tau \\sim q(r_\\tau \\mid s_\\tau)\\) 和策略 \\(a_\\tau \\sim q(a_\\tau \\mid s_\\tau)\\) 的预测。目标是通过优化策略，最大化想象奖励的期望 \\(\\mathbb{E}_q\\big(\\sum_{\\tau=t}^{\\infty}\\gamma^{\\tau-t}r_\\tau\\big)\\)。"
+        },
+        {
+          "id": "p3-b6",
+          "kind": "section-header",
+          "bbox": [
+            107,
+            429,
+            201,
+            439
+          ],
+          "en": "Algorithm 1: Dreamer",
+          "reference": false,
+          "source_image": "figs/p003-006-source.png",
+          "pdf_extracted_en": "Algorithm 1: Dreamer",
+          "zh": "算法 1：Dreamer"
+        },
+        {
+          "id": "p3-b7",
+          "kind": "text",
+          "bbox": [
+            107,
+            448,
+            324,
+            491
+          ],
+          "en": "Initialize dataset \\(\\mathcal{D}\\) with \\(S\\) random seed episodes.\nInitialize neural network parameters \\(\\theta,\\phi,\\psi\\) randomly.\nwhile not converged do\nfor update step \\(c=1..C\\) do",
+          "reference": false,
+          "source_image": "figs/p003-007-source.png",
+          "pdf_extracted_en": "Initialize dataset D with S random seed episodes. Initialize neural network parameters θ, φ, ψ randomly. while not converged do for update step c = 1 ..C do",
+          "zh": "用 \\(S\\) 个随机初始回合初始化数据集 \\(\\mathcal{D}\\)。\n随机初始化神经网络参数 \\(\\theta,\\phi,\\psi\\)。\n当尚未收敛时，执行\n对于更新步 \\(c=1..C\\)，执行"
+        },
+        {
+          "id": "p3-b8",
+          "kind": "text",
+          "bbox": [
+            138,
+            496,
+            350,
+            625
+          ],
+          "en": "// Dynamics learning\nDraw \\(B\\) data sequences \\(\\{(a_t,o_t,r_t)\\}_{t=k}^{k+L}\\sim\\mathcal{D}\\).\nCompute model states \\(s_t\\sim p_\\theta(s_t\\mid s_{t-1},a_{t-1},o_t)\\).\nUpdate \\(\\theta\\) using representation learning.\n// Behavior learning\nImagine trajectories \\(\\{(s_\\tau,a_\\tau)\\}_{\\tau=t}^{t+H}\\) from each \\(s_t\\).\nPredict rewards \\(\\mathbb{E}\\big(q_\\theta(r_\\tau\\mid s_\\tau)\\big)\\) and values \\(v_\\psi(s_\\tau)\\).\nCompute value estimates \\(\\mathrm{V}_\\lambda(s_\\tau)\\) via Equation 6.\nUpdate \\(\\phi\\leftarrow\\phi+\\alpha\\nabla_\\phi\\sum_{\\tau=t}^{t+H}\\mathrm{V}_\\lambda(s_\\tau)\\).\nUpdate \\(\\psi\\leftarrow\\psi-\\alpha\\nabla_\\psi\\sum_{\\tau=t}^{t+H}\\frac{1}{2}\\big\\|v_\\psi(s_\\tau)-\\mathrm{V}_\\lambda(s_\\tau)\\big\\|^2\\).",
+          "reference": false,
+          "source_image": "figs/p003-008-source.png",
+          "pdf_extracted_en": "// Dynamics learning Draw B data sequences { ( at, ot, rt ) }k t =+ kL∼D. Compute model states st ∼ pθ ( st | st− 1 , at− 1 , ot ). Update θ using representation learning. // Behavior learning Imagine trajectories { ( sτ , aτ ) }t τ+ =H tfrom eachst. Predict rewards E� qθ ( rτ | sτ )� and values vψ ( sτ ) . Compute value estimates V λ ( sτ ) via Equation 6. Update φ ← φ + α∇φ � τt += HtVλ(sτ). Update ψ ← ψ − α∇ψ � τt += Ht 12 �� vψ ( sτ )�V λ ( sτ )��2.",
+          "zh": "// 动力学学习\n抽取 \\(B\\) 条数据序列 \\(\\{(a_t,o_t,r_t)\\}_{t=k}^{k+L}\\sim\\mathcal{D}\\)。\n计算模型状态 \\(s_t\\sim p_\\theta(s_t\\mid s_{t-1},a_{t-1},o_t)\\)。\n通过表征学习更新 \\(\\theta\\)。\n// 行为学习\n从每个 \\(s_t\\) 出发，想象轨迹 \\(\\{(s_\\tau,a_\\tau)\\}_{\\tau=t}^{t+H}\\)。\n预测奖励 \\(\\mathbb{E}\\big(q_\\theta(r_\\tau\\mid s_\\tau)\\big)\\) 和价值 \\(v_\\psi(s_\\tau)\\)。\n通过式 (6) 计算价值估计 \\(\\mathrm{V}_\\lambda(s_\\tau)\\)。\n更新 \\(\\phi\\leftarrow\\phi+\\alpha\\nabla_\\phi\\sum_{\\tau=t}^{t+H}\\mathrm{V}_\\lambda(s_\\tau)\\)。\n更新 \\(\\psi\\leftarrow\\psi-\\alpha\\nabla_\\psi\\sum_{\\tau=t}^{t+H}\\frac{1}{2}\\big\\|v_\\psi(s_\\tau)-\\mathrm{V}_\\lambda(s_\\tau)\\big\\|^2\\)。"
+        },
+        {
+          "id": "p3-b9",
+          "kind": "table",
+          "bbox": [
+            351.0,
+            445.0,
+            506.0,
+            618.0
+          ],
+          "en": "|Model components || |---|---| |Representation pθ(st || st-1, at-1, ot)| |Transition qθ(st || st-1, at-1)| |Reward qθ(rt || st)| |Action qφ(at || st)| |Value vψ(st|)| |Hyper parameters|| |Seed episodes|S| |Collect interval|C| |Batch size|B| |Sequence length|L| |Imagination horizon|H| |Learning rate|α|",
+          "reference": false,
+          "image": "figs/p003-009.png",
+          "labels": [],
+          "original_bbox": [
+            353,
+            447,
+            504,
+            616
+          ]
+        },
+        {
+          "id": "p3-b10",
+          "kind": "text",
+          "bbox": [
+            122,
+            631,
+            279,
+            639
+          ],
+          "en": "// Environment interaction",
+          "reference": false,
+          "source_image": "figs/p003-010-source.png",
+          "pdf_extracted_en": "// Environment interaction",
+          "zh": "// 环境交互"
+        },
+        {
+          "id": "p3-b11",
+          "kind": "text",
+          "bbox": [
+            123,
+            642,
+            214,
+            651
+          ],
+          "en": "\\(o_1\\leftarrow\\texttt{env.reset()}\\)",
+          "reference": false,
+          "source_image": "figs/p003-011-source.png",
+          "pdf_extracted_en": "o 1 ← env.reset()",
+          "zh": "\\(o_1\\leftarrow\\texttt{env.reset()}\\)"
+        },
+        {
+          "id": "p3-b12",
+          "kind": "text",
+          "bbox": [
+            123,
+            652,
+            225,
+            662
+          ],
+          "en": "for time step \\(t=1..T\\) do",
+          "reference": false,
+          "source_image": "figs/p003-012-source.png",
+          "pdf_extracted_en": "for time step t = 1 ..T do",
+          "zh": "对于时间步 \\(t=1..T\\)，执行"
+        },
+        {
+          "id": "p3-b13",
+          "kind": "text",
+          "bbox": [
+            138,
+            663,
+            342,
+            695
+          ],
+          "en": "Compute \\(s_t\\sim p_\\theta(s_t\\mid s_{t-1},a_{t-1},o_t)\\) from history.\nCompute \\(a_t\\sim q_\\phi(a_t\\mid s_t)\\) with the action model.\nAdd exploration noise to action.",
+          "reference": false,
+          "source_image": "figs/p003-013-source.png",
+          "pdf_extracted_en": "Compute st ∼ pθ ( st | st− 1 , at− 1 , ot ) from history. Compute at ∼ qφ ( at | st ) with the action model. Add exploration noise to action.",
+          "zh": "根据历史计算 \\(s_t\\sim p_\\theta(s_t\\mid s_{t-1},a_{t-1},o_t)\\)。\n利用动作模型计算 \\(a_t\\sim q_\\phi(a_t\\mid s_t)\\)。\n向动作添加探索噪声。"
+        },
+        {
+          "id": "p3-b14",
+          "kind": "text",
+          "bbox": [
+            138,
+            697,
+            257,
+            706
+          ],
+          "en": "\\(r_t,o_{t+1}\\leftarrow\\texttt{env.step(}a_t\\texttt{)}\\).",
+          "reference": false,
+          "source_image": "figs/p003-014-source.png",
+          "pdf_extracted_en": "rt, ot +1 ← env.step( at ) .",
+          "zh": "\\(r_t,o_{t+1}\\leftarrow\\texttt{env.step(}a_t\\texttt{)}\\)。"
+        },
+        {
+          "id": "p3-b15",
+          "kind": "text",
+          "bbox": [
+            122,
+            707,
+            340,
+            719
+          ],
+          "en": "Add experience to dataset \\(\\mathcal{D}\\leftarrow\\mathcal{D}\\cup\\{(o_t,a_t,r_t)_{t=1}^{T}\\}\\).",
+          "reference": false,
+          "source_image": "figs/p003-015-source.png",
+          "pdf_extracted_en": "Add experience to dataset D ←D ∪{ ( ot, at, rt )T t =1}.",
+          "zh": "将经验加入数据集：\\(\\mathcal{D}\\leftarrow\\mathcal{D}\\cup\\{(o_t,a_t,r_t)_{t=1}^{T}\\}\\)。"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "blocks": [
+        {
+          "id": "p4-b1",
+          "kind": "picture",
+          "bbox": [
+            106.0,
+            79.0,
+            507.0,
+            173.0
+          ],
+          "en": "Cartpole Swingup Cheetah Run Quadruped Walk Walker Walk 1000 1000 1000 1000 800 800 800 800 600 600 600 600 400 400 400 400 Dreamer ( ) 200 200 200 200 No value ( R ) PlaNet ( R ) 0 0 0 0 10 20 30 40 10 20 30 40 10 20 30 40 10 20 30 40 Imagination Horizon Imagination Horizon Imagination Horizon Imagination Horizon Episode Return",
+          "reference": false,
+          "image": "figs/p004-001.png",
+          "labels": [],
+          "original_bbox": [
+            108,
+            81,
+            505,
+            171
+          ]
+        },
+        {
+          "id": "p4-b2",
+          "kind": "caption",
+          "bbox": [
+            107,
+            175,
+            506,
+            218
+          ],
+          "en": "Figure 4: Imagination horizons. We compare the final performance of Dreamer, learning an action model without value prediction, and online planning using PlaNet. Learning a state value model to estimate rewards beyond the imagination horizon makes Dreamer more robust to the horizon length. The agents use pixel reconstruction for representation learning and an action repeat of \\(R=2\\).",
+          "reference": false,
+          "source_image": "figs/p004-002-source.png",
+          "pdf_extracted_en": "Figure 4: Imagination horizons. We compare the final performance of Dreamer, learning an action model without value prediction, and online planning using PlaNet. Learning a state value model to estimate rewards beyond the imagination horizon makes Dreamer more robust to the horizon length. The agents use pixel reconstruction for representation learning and an action repeat of R = 2.",
+          "zh": "图 4：想象时域。我们比较 Dreamer、不使用价值预测而学习动作模型，以及使用 PlaNet 进行在线规划这三种方法的最终性能。通过学习状态价值模型来估计想象时域之外的奖励，Dreamer 对时域长度的变化更具鲁棒性。这些智能体使用像素重建进行表征学习，动作重复次数为 \\(R=2\\)。"
+        },
+        {
+          "id": "p4-b3",
+          "kind": "text",
+          "bbox": [
+            108,
+            233,
+            504,
+            287
+          ],
+          "en": "Action and value models Consider imagined trajectories with a finite horizon \\(H\\). Dreamer uses an actor critic approach to learn behaviors that consider rewards beyond the horizon. We learn an action model and a value model in the latent space of the world model for this. The action model implements the policy and aims to predict actions that solve the imagination environment. The value model estimates the expected imagined rewards that the action model achieves from each state \\(s_\\tau\\),",
+          "reference": false,
+          "source_image": "figs/p004-003-source.png",
+          "pdf_extracted_en": "Action and value models Consider imagined trajectories with a finite horizon H . Dreamer uses an actor critic approach to learn behaviors that consider rewards beyond the horizon. We learn an action model and a value model in the latent space of the world model for this. The action model implements the policy and aims to predict actions that solve the imagination environment. The value model estimates the expected imagined rewards that the action model achieves from each state sτ ,",
+          "zh": "动作与价值模型 考虑时域长度有限、为 \\(H\\) 的想象轨迹。Dreamer 使用演员–评论家方法，学习能够考虑时域之外奖励的行为。为此，我们在世界模型的潜空间中学习动作模型和价值模型。动作模型实现策略，旨在预测能够解决想象环境中任务的动作。价值模型估计动作模型从每个状态 \\(s_\\tau\\) 出发所能获得的想象奖励的期望，"
+        },
+        {
+          "id": "p4-b4",
+          "kind": "formula",
+          "bbox": [
+            168.0,
+            297.0,
+            507.0,
+            330.0
+          ],
+          "en": "Action model: aτ ∼ qφ ( aτ | sτ ) (2) Value model: vψ ( sτ ) ≈ E q ( ·|sτ )�� τt += Ht γτ −trτ � .",
+          "reference": false,
+          "image": "figs/p004-004.png",
+          "labels": [
+            "2"
+          ],
+          "original_bbox": [
+            170,
+            299,
+            505,
+            328
+          ]
+        },
+        {
+          "id": "p4-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            340,
+            504,
+            372
+          ],
+          "en": "The action and value models are trained cooperatively as typical in policy iteration: the action model aims to maximize an estimate of the value, while the value model aims to match an estimate of the value that changes as the action model changes.",
+          "reference": false,
+          "source_image": "figs/p004-005-source.png",
+          "pdf_extracted_en": "The action and value models are trained cooperatively as typical in policy iteration: the action model aims to maximize an estimate of the value, while the value model aims to match an estimate of the value that changes as the action model changes.",
+          "zh": "动作模型和价值模型按照策略迭代中的典型方式协同训练：动作模型旨在最大化价值估计，而价值模型旨在拟合随动作模型变化而变化的价值估计。"
+        },
+        {
+          "id": "p4-b6",
+          "kind": "text",
+          "bbox": [
+            107,
+            381,
+            506,
+            435
+          ],
+          "en": "We use dense neural networks for the action and value models with parameters \\(\\phi\\) and \\(\\psi\\), respectively. The action model outputs a tanh-transformed Gaussian (Haarnoja et al., 2018) with sufficient statistics predicted by the neural network. This allows for reparameterized sampling (Kingma and Welling, 2013; Rezende et al., 2014) that views sampled actions as deterministically dependent on the neural network output, allowing us to backpropagate analytic gradients through the sampling operation,",
+          "reference": false,
+          "source_image": "figs/p004-006-source.png",
+          "pdf_extracted_en": "We use dense neural networks for the action and value models with parameters φ and ψ , respectively. The action model outputs a tanh-transformed Gaussian (Haarnoja et al., 2018) with sufficient statistics predicted by the neural network. This allows for reparameterized sampling (Kingma and Welling, 2013; Rezende et al., 2014) that views sampled actions as deterministically dependent on the neural network output, allowing us to backpropagate analytic gradients through the sampling operation,",
+          "zh": "我们使用全连接神经网络实现动作模型和价值模型，其参数分别为 \\(\\phi\\) 和 \\(\\psi\\)。动作模型输出经 tanh 变换的高斯分布 (Haarnoja et al., 2018)，其充分统计量由神经网络预测。这使得重参数化采样 (Kingma and Welling, 2013; Rezende et al., 2014) 成为可能：该方法将采样得到的动作视为确定性地依赖于神经网络的输出，从而使我们能够通过采样操作反向传播解析梯度，"
+        },
+        {
+          "id": "p4-b7",
+          "kind": "formula",
+          "bbox": [
+            196.0,
+            444.0,
+            507.0,
+            461.0
+          ],
+          "en": "aτ = tanh� µφ ( sτ ) + σφ ( sτ ) ϵ � , ϵ ∼ Normal(0 , I) . (3)",
+          "reference": false,
+          "image": "figs/p004-007.png",
+          "labels": [
+            "3"
+          ],
+          "original_bbox": [
+            198,
+            446,
+            505,
+            459
+          ]
+        },
+        {
+          "id": "p4-b8",
+          "kind": "text",
+          "bbox": [
+            107,
+            478,
+            505,
+            532
+          ],
+          "en": "Value estimation To learn the action and value models, we need to estimate the state values of imagined trajectories \\(\\{s_\\tau,a_\\tau,r_\\tau\\}_{\\tau=t}^{t+H}\\). These trajectories branch off of the model states \\(s_t\\) of sequence batches drawn from the agent’s dataset of experience and predict forward for the imagination horizon \\(H\\) using actions sampled from the action model. State values can be estimated in multiple ways that trade off bias and variance (Sutton and Barto, 2018),",
+          "reference": false,
+          "source_image": "figs/p004-008-source.png",
+          "pdf_extracted_en": "Value estimation To learn the action and value models, we need to estimate the state values of imagined trajectories {sτ , aτ , rτ }t τ+ =H t.Thesetrajectoriesbranchoffofthemodelstatesstof sequence batches drawn from the agent’s dataset of experience and predict forward for the imagination horizon H using actions sampled from the action model. State values can be estimated in multiple ways that trade off bias and variance (Sutton and Barto, 2018),",
+          "zh": "价值估计 为了学习动作模型和价值模型，我们需要估计想象轨迹 \\(\\{s_\\tau,a_\\tau,r_\\tau\\}_{\\tau=t}^{t+H}\\) 的状态价值。这些轨迹从智能体经验数据集中抽取的序列批次所对应的模型状态 \\(s_t\\) 处分支展开，并利用从动作模型中采样的动作，在长度为 \\(H\\) 的想象时域内向前预测。状态价值可以通过多种方式估计，这些方式在偏差与方差之间进行权衡 (Sutton and Barto, 2018)，"
+        },
+        {
+          "id": "p4-b9",
+          "kind": "formula",
+          "bbox": [
+            135.0,
+            541.0,
+            509.0,
+            648.0
+          ],
+          "en": "VR( sτ ) = E . qθ,qφ � rn , (4) � tn += Hτ � VN k ( sτ ) = E . q θ ,q φ � γ n−τ rn + γ h−τ vψ ( sh ) with h = min( τ + k, t + H ) , (5) � nh = −τ 1 � H− 1 V λ ( sτ ) = (1 . − λ ) � λ n− 1 VN n ( sτ ) + λH− 1V N H ( sτ ) , (6) n =1",
+          "reference": false,
+          "image": "figs/p004-009.png",
+          "labels": [
+            "4",
+            "5",
+            "6"
+          ],
+          "original_bbox": [
+            135.0,
+            541.0,
+            509.0,
+            648.0
+          ],
+          "merged_source_blocks": [
+            "p4-b9",
+            "p4-b10"
+          ]
+        },
+        {
+          "id": "p4-b11",
+          "kind": "text",
+          "bbox": [
+            107,
+            657,
+            505,
+            733
+          ],
+          "en": "where the expectations are estimated under the imagined trajectories. \\(\\mathrm{V}_{\\mathrm{R}}\\) simply sums the rewards from \\(\\tau\\) until the horizon and ignores rewards beyond it. This allows learning the action model without a value model, an ablation we compare to in our experiments. \\(\\mathrm{V}_{\\mathrm{N}}^k\\) estimates rewards beyond \\(k\\) steps with the learned value model. Dreamer uses \\(\\mathrm{V}_\\lambda\\), an exponentially-weighted average of the estimates for different \\(k\\) to balance bias and variance. Figure 4 shows that learning a value model in imagination enables Dreamer to solve long-horizon tasks while being robust to the imagination horizon. The experimental details and results on all tasks are described in Section 6.",
+          "reference": false,
+          "source_image": "figs/p004-011-source.png",
+          "pdf_extracted_en": "where the expectations are estimated under the imagined trajectories. VR simply sums the rewards from τ until the horizon and ignores rewards beyond it. This allows learning the action model without a value model, an ablation we compare to in our experiments. VNkestimates rewards beyondksteps with the learned value model. Dreamer uses V λ , an exponentially-weighted average of the estimates for different k to balance bias and variance. Figure 4 shows that learning a value model in imagination enables Dreamer to solve long-horizon tasks while being robust to the imagination horizon. The experimental details and results on all tasks are described in Section 6.",
+          "zh": "其中，各期望根据想象轨迹进行估计。\\(\\mathrm{V}_{\\mathrm{R}}\\) 仅将从 \\(\\tau\\) 到时域终点的奖励求和，并忽略时域之外的奖励。这使得无需价值模型也能学习动作模型；我们在实验中将这一消融设置作为比较对象。\\(\\mathrm{V}_{\\mathrm{N}}^k\\) 利用学得的价值模型估计 \\(k\\) 步之后的奖励。Dreamer 使用 \\(\\mathrm{V}_\\lambda\\)，即对不同 \\(k\\) 对应的估计值取指数加权平均，以平衡偏差与方差。图 4 表明，在想象中学习价值模型，使 Dreamer 能够解决长时域任务，同时对想象时域的变化保持鲁棒性。所有任务的实验细节与结果见第 6 节。"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "blocks": [
+        {
+          "id": "p5-b1",
+          "kind": "picture",
+          "bbox": [
+            104.58061981201172,
+            77.97795867919922,
+            507.0,
+            204.0
+          ],
+          "en": "Context 6 10 15 20 25 30 35 40 45 50 True Model True Model",
+          "reference": false,
+          "image": "figs/p005-001.png",
+          "labels": [],
+          "original_bbox": [
+            108,
+            81,
+            505,
+            202
+          ]
+        },
+        {
+          "id": "p5-b2",
+          "kind": "caption",
+          "bbox": [
+            108,
+            206,
+            505,
+            249
+          ],
+          "en": "Figure 5: Reconstructions of long-term predictions. We apply the representation model to the first 5 images of two hold-out trajectories and predict forward for 45 steps using the latent dynamics, given only the actions. The recurrent state space model (RSSM; Hafner et al., 2018) performs accurate long-term predictions, enabling Dreamer to learn successful behaviors in a compact latent space.",
+          "reference": false,
+          "source_image": "figs/p005-002-source.png",
+          "pdf_extracted_en": "Figure 5: Reconstructions of long-term predictions. We apply the representation model to the first 5 images of two hold-out trajectories and predict forward for 45 steps using the latent dynamics, given only the actions. The recurrent state space model (RSSM; Hafner et al., 2018) performs accurate long-term predictions, enabling Dreamer to learn successful behaviors in a compact latent space.",
+          "zh": "图 5：长期预测的重建结果。我们将表征模型应用于两条留出轨迹的前 5 幅图像，随后仅给定动作，利用潜在动力学向前预测 45 步。循环状态空间模型 (RSSM; Hafner et al., 2018) 能够进行准确的长期预测，使 Dreamer 能够在紧凑的潜空间中学习成功完成任务的行为。"
+        },
+        {
+          "id": "p5-b3",
+          "kind": "text",
+          "bbox": [
+            107,
+            261,
+            506,
+            304
+          ],
+          "en": "Learning objective\n\nTo update the action and value models, we first compute the value estimates \\(\\mathrm{V}_{\\lambda}(s_\\tau)\\) for all states \\(s_\\tau\\) along the imagined trajectories. The objective for the action model \\(q_\\phi(a_\\tau \\mid s_\\tau)\\) is to predict actions that result in state trajectories with high value estimates. The objective for the value model \\(v_\\psi(s_\\tau)\\), in turn, is to regress the value estimates,",
+          "reference": false,
+          "source_image": "figs/p005-003-source.png",
+          "pdf_extracted_en": "Learning objective To update the action and value models, we first compute the value estimates V λ ( sτ ) for all states sτ along the imagined trajectories. The objective for the action model qφ ( aτ | sτ ) is to predict actions that result in state trajectories with high value estimates. The objective for the value model vψ ( sτ ), in turn, is to regress the value estimates,",
+          "zh": "学习目标\n\n为了更新动作模型和价值模型，我们首先计算想象轨迹上所有状态 \\(s_\\tau\\) 的价值估计 \\(\\mathrm{V}_{\\lambda}(s_\\tau)\\)。动作模型 \\(q_\\phi(a_\\tau \\mid s_\\tau)\\) 的目标是预测能够产生高价值估计状态轨迹的动作。而价值模型 \\(v_\\psi(s_\\tau)\\) 的目标则是通过回归拟合这些价值估计，"
+        },
+        {
+          "id": "p5-b4",
+          "kind": "formula",
+          "bbox": [
+            122.0,
+            305.0,
+            507.0,
+            340.0
+          ],
+          "en": "1 max φ E qθ,qφ � t � τ += Ht V λ ( sτ )� , (7) min ψ E qθ,qφ � t � τ += Ht 2 ��� vψ ( sτ ) − V λ ( sτ ))���2 � . (8)",
+          "reference": false,
+          "image": "figs/p005-004.png",
+          "labels": [
+            "7",
+            "8"
+          ],
+          "original_bbox": [
+            124,
+            307,
+            505,
+            338
+          ]
+        },
+        {
+          "id": "p5-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            341,
+            506,
+            563
+          ],
+          "en": "The value model is updated to regress the targets, around which we stop the gradient as typical (Sutton and Barto, 2018). The action model uses analytic gradients through the learned dynamics to maximize the value estimates. To understand this, we note that the value estimates depend on the reward and value predictions, which depend on the imagined states, which in turn depend on the imagined actions. Since all steps are implemented as neural networks, we analytically compute \\(\\nabla_\\phi \\mathbb{E}_{q_\\theta,q_\\phi}\\big(\\sum_{\\tau=t}^{t+H}\\mathrm{V}_{\\lambda}(s_\\tau)\\big)\\) by stochastic backpropagation (Kingma and Welling, 2013; Rezende et al., 2014). We use reparameterization for continuous actions and latent states and straight-through gradients (Bengio et al., 2013) for discrete actions. The world model is fixed while learning behaviors.\n\nIn tasks with early termination, the world model also predicts the discount factor from each latent state to weigh the time steps in Equations 7 and 8 by the cumulative product of the predicted discount factors, so terms are weighted down based on how likely the imagined trajectory would have ended.\n\nComparison to actor critic methods\n\nAgents using Reinforce gradients (Williams, 1992), such as A3C and PPO (Mnih et al., 2016; Schulman et al., 2017), employ value baselines to reduce gradient variance, while Dreamer backpropagates through the value model. This is similar to deterministic or reparameterized actor critics (Silver et al., 2014), such as DDPG and SAC (Lillicrap et al., 2015; Haarnoja et al., 2018). However, these do not leverage gradients through transitions and only maximize immediate Q-values. MVE and STEVE (Feinberg et al., 2018; Buckman et al., 2018) extend them to multi-step Q-learning with learned dynamics to provide more accurate Q-value targets. We predict state values, which is sufficient for policy optimization since we backpropagate through the dynamics. Refer to Section 5 for a more detailed comparison to related work.",
+          "reference": false,
+          "source_image": "figs/p005-005-source.png",
+          "pdf_extracted_en": "The value model is updated to regress the targets, around which we stop the gradient as typical (Sutton and Barto, 2018). The action model uses analytic gradients through the learned dynamics to maximize the value estimates. To understand this, we note that the value estimates depend on the reward and value predictions, which depend on the imagined states, which in turn depend on the imagined actions. Since all steps are implemented as neural networks, we analytically compute ∇φ E qθ,qφ �� τt += HtVλ(sτ) � by stochastic backpropagation (Kingma and Welling, 2013; Rezende et al., 2014). We use reparameterization for continuous actions and latent states and straight-through gradients (Bengio et al., 2013) for discrete actions. The world model is fixed while learning behaviors. In tasks with early termination, the world model also predicts the discount factor from each latent state to weigh the time steps in Equations 7 and 8 by the cumulative product of the predicted discount factors, so terms are weighted down based on how likely the imagined trajectory would have ended. Comparison to actor critic methods Agents using Reinforce gradients (Williams, 1992), such as A3C and PPO (Mnih et al., 2016; Schulman et al., 2017), employ value baselines to reduce gradient variance, while Dreamer backpropagates through the value model. This is similar to deterministic or reparameterized actor critics (Silver et al., 2014), such as DDPG and SAC (Lillicrap et al., 2015; Haarnoja et al., 2018). However, these do not leverage gradients through transitions and only maximize immediate Q-values. MVE and STEVE (Feinberg et al., 2018; Buckman et al., 2018) extend them to multi-step Q-learning with learned dynamics to provide more accurate Q-value targets. We predict state values, which is sufficient for policy optimization since we backpropagate through the dynamics. Refer to Section 5 for a more detailed comparison to related work.",
+          "zh": "我们更新价值模型以回归拟合目标值，并按照通常的做法停止梯度通过这些目标值传播 (Sutton and Barto, 2018)。动作模型利用通过所学动力学传播的解析梯度来最大化价值估计。要理解这一点，需要注意：价值估计依赖于奖励预测和价值预测，而这些预测依赖于想象状态，想象状态又依赖于想象动作。由于所有步骤均由神经网络实现，我们通过随机反向传播解析地计算 \\(\\nabla_\\phi \\mathbb{E}_{q_\\theta,q_\\phi}\\big(\\sum_{\\tau=t}^{t+H}\\mathrm{V}_{\\lambda}(s_\\tau)\\big)\\) (Kingma and Welling, 2013; Rezende et al., 2014)。对于连续动作和潜在状态，我们使用重参数化；对于离散动作，我们使用直通梯度 (Bengio et al., 2013)。学习行为时，世界模型保持固定。\n\n在存在提前终止的任务中，世界模型还根据每个潜在状态预测折扣因子，并用预测折扣因子的累积乘积对式 (7) 和式 (8) 中各时间步的项进行加权，从而根据想象轨迹届时已经终止的可能性降低相应项的权重。\n\n与演员—评论家方法的比较\n\n使用 Reinforce 梯度 (Williams, 1992) 的智能体，例如 A3C 和 PPO (Mnih et al., 2016; Schulman et al., 2017)，采用价值基线来降低梯度方差，而 Dreamer 则通过价值模型进行反向传播。这与确定性或重参数化的演员—评论家方法 (Silver et al., 2014) 类似，例如 DDPG 和 SAC (Lillicrap et al., 2015; Haarnoja et al., 2018)。然而，这些方法并未利用通过状态转移传播的梯度，而仅最大化当前的 Q 值。MVE 和 STEVE (Feinberg et al., 2018; Buckman et al., 2018) 利用所学动力学将这些方法扩展为多步 Q 学习，以提供更准确的 Q 值目标。我们预测的是状态价值；由于我们通过动力学进行反向传播，这已足以实现策略优化。与相关工作的更详细比较见第 5 节。"
+        },
+        {
+          "id": "p5-b6",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            572,
+            285,
+            582
+          ],
+          "en": "4 LEARNING LATENT DYNAMICS",
+          "reference": false,
+          "source_image": "figs/p005-006-source.png",
+          "pdf_extracted_en": "4 LEARNING LATENT DYNAMICS",
+          "zh": "4 学习潜在动力学"
+        },
+        {
+          "id": "p5-b7",
+          "kind": "text",
+          "bbox": [
+            108,
+            589,
+            506,
+            733
+          ],
+          "en": "Learning behaviors in imagination requires a world model that generalizes well. We focus on latent dynamics models that predict forward in a compact latent space, facilitating long-term predictions and allowing the agent to imagine thousands of trajectories in parallel. Several objectives for learning representations for control have been proposed (Watter et al., 2015; Jaderberg et al., 2016; Oord et al., 2018; Eslami et al., 2018). We review three approaches for learning representations to use with Dreamer: reward prediction, image reconstruction, and contrastive estimation.\n\nReward prediction\n\nLatent imagination requires a representation model \\(p(s_t \\mid s_{t-1},a_{t-1},o_t)\\), transition model \\(q(s_t \\mid s_{t-1},a_{t-1},)\\), and reward model \\(q(r_t \\mid s_t)\\), as described in Section 2. In principle, this could be achieved by simply learning to predict future rewards given actions and past observations (Oh et al., 2017; Gelada et al., 2019; Schrittwieser et al., 2019). With a large and diverse dataset, such representations should be sufficient for solving a control task. However, with a finite dataset and especially when rewards are sparse, learning about observations that correlate with rewards is likely to improve the world model (Jaderberg et al., 2016; Gregor et al., 2019).",
+          "reference": false,
+          "source_image": "figs/p005-007-source.png",
+          "pdf_extracted_en": "Learning behaviors in imagination requires a world model that generalizes well. We focus on latent dynamics models that predict forward in a compact latent space, facilitating long-term predictions and allowing the agent to imagine thousands of trajectories in parallel. Several objectives for learning representations for control have been proposed (Watter et al., 2015; Jaderberg et al., 2016; Oord et al., 2018; Eslami et al., 2018). We review three approaches for learning representations to use with Dreamer: reward prediction, image reconstruction, and contrastive estimation. Reward prediction Latent imagination requires a representation model p ( st | st− 1 , at− 1 , ot ), transition model q ( st | st− 1 , at− 1 , ), and reward model q ( rt | st ), as described in Section 2. In principle, this could be achieved by simply learning to predict future rewards given actions and past observations (Oh et al., 2017; Gelada et al., 2019; Schrittwieser et al., 2019). With a large and diverse dataset, such representations should be sufficient for solving a control task. However, with a finite dataset and especially when rewards are sparse, learning about observations that correlate with rewards is likely to improve the world model (Jaderberg et al., 2016; Gregor et al., 2019).",
+          "zh": "在想象中学习行为需要具有良好泛化能力的世界模型。我们关注在紧凑潜空间中向前预测的潜在动力学模型，这类模型便于进行长期预测，并允许智能体并行想象数千条轨迹。已有研究提出了多种用于学习控制表征的目标 (Watter et al., 2015; Jaderberg et al., 2016; Oord et al., 2018; Eslami et al., 2018)。我们回顾三种可与 Dreamer 配合使用的表征学习方法：奖励预测、图像重建和对比估计。\n\n奖励预测\n\n如第 2 节所述，潜空间想象需要表征模型 \\(p(s_t \\mid s_{t-1},a_{t-1},o_t)\\)、转移模型 \\(q(s_t \\mid s_{t-1},a_{t-1},)\\) 和奖励模型 \\(q(r_t \\mid s_t)\\)。原则上，仅通过学习根据动作和过去的观测预测未来奖励，就可以实现这一点 (Oh et al., 2017; Gelada et al., 2019; Schrittwieser et al., 2019)。在数据集规模大且多样性丰富的情况下，这类表征应足以解决控制任务。然而，当数据集有限，尤其是奖励稀疏时，学习与奖励相关的观测信息有望改进世界模型 (Jaderberg et al., 2016; Gregor et al., 2019)。"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "blocks": [
+        {
+          "id": "p6-b1",
+          "kind": "picture",
+          "bbox": [
+            105.6989974975586,
+            79.0,
+            507.0,
+            199.0
+          ],
+          "en": "Dreamer (5e6 steps) PlaNet (5e6 steps) D4PG (1e 8 steps) A3C (1e 8 steps, proprio) 1000 800 600 400 200 0 Episode Return n/an/a n/an/a Cartpole Balance Walker Stand Cup Catch Walker Walk Cartpole Bal. Sparse Reacher Easy Quadruped Walk Hopper Stand Cheetah Run Finger Turn Hard Quadruped Run Cartpole Swingup Pendulum Swingup Finger Turn Easy Walker Run Reacher Hard Cartpole Swi. Sparse Finger Spin Hopper Hop Acrobot Swingup",
+          "reference": false,
+          "image": "figs/p006-001.png",
+          "labels": [],
+          "original_bbox": [
+            108,
+            81,
+            505,
+            197
+          ]
+        },
+        {
+          "id": "p6-b2",
+          "kind": "caption",
+          "bbox": [
+            108,
+            201,
+            505,
+            244
+          ],
+          "en": "Figure 6: Performance comparison to existing methods. Dreamer inherits the data-efficiency of PlaNet while exceeding the asymptotic performance of the best model-free agents. After \\(5 \\times 10^6\\) environment steps, Dreamer reaches an average performance of 823 across tasks, compared to PlaNet at 332 and the top model-free D4PG agent at 786 after \\(10^8\\) steps. Results are averages over 5 seeds.",
+          "reference": false,
+          "source_image": "figs/p006-002-source.png",
+          "pdf_extracted_en": "Figure 6: Performance comparison to existing methods. Dreamer inherits the data-efficiency of PlaNet while exceeding the asymptotic performance of the best model-free agents. After 5 × 106 environment steps, Dreamer reaches an average performance of 823 across tasks, compared to PlaNet at 332 and the top model-free D4PG agent at 786 after 108 steps. Results are averages over 5 seeds.",
+          "zh": "图 6：与现有方法的性能比较。Dreamer 继承了 PlaNet 的数据效率，同时超越了最优无模型智能体的渐近性能。经过 \\(5 \\times 10^6\\) 个环境步后，Dreamer 在各任务上的平均性能达到 823，而 PlaNet 为 332，顶尖无模型智能体 D4PG 在经过 \\(10^8\\) 步后为 786。结果为 5 个随机种子下的平均值。"
+        },
+        {
+          "id": "p6-b3",
+          "kind": "text",
+          "bbox": [
+            108,
+            257,
+            504,
+            289
+          ],
+          "en": "Reconstruction\n\nWe first describe the world model used by PlaNet (Hafner et al., 2018) that learns latent dynamics by reconstructing images as shown in Figure 3a. The world model consists of the following components, where the observation model is only used to provide a learning signal,",
+          "reference": false,
+          "source_image": "figs/p006-003-source.png",
+          "pdf_extracted_en": "Reconstruction We first describe the world model used by PlaNet (Hafner et al., 2018) that learns latent dynamics by reconstructing images as shown in Figure 3a. The world model consists of the following components, where the observation model is only used to provide a learning signal,",
+          "zh": "重建\n\n我们首先介绍 PlaNet (Hafner et al., 2018) 使用的世界模型，该模型通过重建图像来学习潜在动力学，如图 3a 所示。该世界模型由以下组件构成，其中观测模型仅用于提供学习信号，"
+        },
+        {
+          "id": "p6-b4",
+          "kind": "formula",
+          "bbox": [
+            195.0,
+            295.0,
+            507.0,
+            351.0
+          ],
+          "en": "|Representation model:|pθ(st || st−1, at−1, ot)|| |---|---|---|---| |Observation model: Reward model:|qθ(ot | qθ(rt ||st) st)|(9)| |Transition model:|qθ(st ||st−1, at−1).||",
+          "reference": false,
+          "image": "figs/p006-004.png",
+          "labels": [
+            "9"
+          ],
+          "original_bbox": [
+            197,
+            297,
+            505,
+            349
+          ]
+        },
+        {
+          "id": "p6-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            358,
+            506,
+            401
+          ],
+          "en": "The components are optimized jointly to increase the variational lower bound (ELBO; Jordan et al., 1999) or more generally the variational information bottleneck (VIB; Tishby et al., 2000; Alemi et al., 2016). As derived in Appendix B, the bound includes reconstruction terms for observations and rewards and a KL regularizer. The expectation is taken under the dataset and representation model,",
+          "reference": false,
+          "source_image": "figs/p006-005-source.png",
+          "pdf_extracted_en": "The components are optimized jointly to increase the variational lower bound (ELBO; Jordan et al., 1999) or more generally the variational information bottleneck (VIB; Tishby et al., 2000; Alemi et al., 2016). As derived in Appendix B, the bound includes reconstruction terms for observations and rewards and a KL regularizer. The expectation is taken under the dataset and representation model,",
+          "zh": "这些组件通过联合优化来提高变分下界 (ELBO; Jordan et al., 1999)，或者更一般地，提高变分信息瓶颈目标 (VIB; Tishby et al., 2000; Alemi et al., 2016)。根据附录 B 中的推导，该下界包含观测与奖励的重建项，以及一个 KL 正则项。期望是在数据集和表征模型所确定的分布下计算的，"
+        },
+        {
+          "id": "p6-b6",
+          "kind": "formula",
+          "bbox": [
+            131.0,
+            406.0,
+            506.0,
+            454.0
+          ],
+          "en": "J REC = E . p J O t + J R t + J D t + const J O t = . ln q ( ot | st ) �� t � � � (10) J R t = ln . q ( rt | st ) J D t = . −β KL � p ( st | st− 1 , at− 1 , ot ) �� q ( st | st− 1 , at− 1)� .",
+          "reference": false,
+          "image": "figs/p006-006.png",
+          "labels": [
+            "10"
+          ],
+          "original_bbox": [
+            133,
+            408,
+            504,
+            452
+          ]
+        },
+        {
+          "id": "p6-b7",
+          "kind": "text",
+          "bbox": [
+            107,
+            463,
+            505,
+            528
+          ],
+          "en": "We implement the transition model as a recurrent state space model (RSSM; Hafner et al., 2018), the representation model by combining the RSSM with a convolutional neural network (CNN; LeCun et al., 1989) applied to the image observation, the observation model as a transposed CNN, and the reward model as a dense network. The combined parameter vector \\(\\theta\\) is updated by stochastic backpropagation (Kingma and Welling, 2013; Rezende et al., 2014). Figure 5 shows video predictions of this model. We refer to Appendix A and Hafner et al. (2018) model details.",
+          "reference": false,
+          "source_image": "figs/p006-007-source.png",
+          "pdf_extracted_en": "We implement the transition model as a recurrent state space model (RSSM; Hafner et al., 2018), the representation model by combining the RSSM with a convolutional neural network (CNN; LeCun et al., 1989) applied to the image observation, the observation model as a transposed CNN, and the reward model as a dense network. The combined parameter vector θ is updated by stochastic backpropagation (Kingma and Welling, 2013; Rezende et al., 2014). Figure 5 shows video predictions of this model. We refer to Appendix A and Hafner et al. (2018) model details.",
+          "zh": "我们将转移模型实现为循环状态空间模型 (RSSM; Hafner et al., 2018)；将 RSSM 与作用于图像观测的卷积神经网络 (CNN; LeCun et al., 1989) 相结合来实现表征模型；将观测模型实现为转置卷积神经网络；将奖励模型实现为全连接网络。合并后的参数向量 \\(\\theta\\) 通过随机反向传播更新 (Kingma and Welling, 2013; Rezende et al., 2014)。图 5 展示了该模型的视频预测结果。模型细节参见附录 A 和 Hafner et al. (2018)。"
+        },
+        {
+          "id": "p6-b8",
+          "kind": "text",
+          "bbox": [
+            108,
+            533,
+            505,
+            565
+          ],
+          "en": "Contrastive estimation\n\nPredicting pixels can require high model capacity. We can also encourage mutual information between model states and observations by instead predicting the states from the images (Guo et al., 2018). This replaces the observation model with a state model,",
+          "reference": false,
+          "source_image": "figs/p006-008-source.png",
+          "pdf_extracted_en": "Contrastive estimation Predicting pixels can require high model capacity. We can also encourage mutual information between model states and observations by instead predicting the states from the images (Guo et al., 2018). This replaces the observation model with a state model,",
+          "zh": "对比估计\n\n预测像素可能需要较高的模型容量。我们也可以改为从图像预测状态，以增大模型状态与观测之间的互信息 (Guo et al., 2018)。这种方法用状态模型替代观测模型，"
+        },
+        {
+          "id": "p6-b9",
+          "kind": "formula",
+          "bbox": [
+            212.0,
+            570.0,
+            506.0,
+            585.0
+          ],
+          "en": "State model: qθ ( st | ot ) . (11)",
+          "reference": false,
+          "image": "figs/p006-009.png",
+          "labels": [
+            "11"
+          ],
+          "original_bbox": [
+            214,
+            572,
+            504,
+            583
+          ]
+        },
+        {
+          "id": "p6-b10",
+          "kind": "text",
+          "bbox": [
+            107,
+            592,
+            505,
+            646
+          ],
+          "en": "While the reconstruction objective used the fact that the observation marginal is a constant, we now face the state marginal. As shown in Appendix B, this can be estimated via noise contrastive estimation (NCE; Gutmann and Hyvärinen, 2010; Oord et al., 2018) by averaging the state model over observations \\(o'\\) of the current sequence batch. Intuitively, \\(q(s_t \\mid o_t)\\) makes the state predictable from the current image while \\(\\ln \\sum_{o'} q(s_t \\mid o')\\) keeps it diverse to prevent collapse,",
+          "reference": false,
+          "source_image": "figs/p006-010-source.png",
+          "pdf_extracted_en": "While the reconstruction objective used the fact that the observation marginal is a constant, we now face the state marginal. As shown in Appendix B, this can be estimated via noise contrastive estimation (NCE; Gutmann and Hyvärinen, 2010; Oord et al., 2018) by averaging the state model over observations o′ of the current sequence batch. Intuitively, q ( st | ot ) makes the state predictable from the current image while ln� o′ q(st| o′) keeps it diverse to prevent collapse,",
+          "zh": "重建目标利用了观测的边缘概率为常数这一事实，而现在我们需要处理状态的边缘概率。如附录 B 所示，可以通过对当前序列批次中的观测 \\(o'\\) 所对应的状态模型输出取平均，利用噪声对比估计 (NCE; Gutmann and Hyvärinen, 2010; Oord et al., 2018) 来估计该边缘概率。直观而言，\\(q(s_t \\mid o_t)\\) 使状态能够由当前图像预测，而 \\(\\ln \\sum_{o'} q(s_t \\mid o')\\) 则使状态保持多样性以防止坍塌，"
+        },
+        {
+          "id": "p6-b11",
+          "kind": "formula",
+          "bbox": [
+            125.0,
+            652.0,
+            506.0,
+            683.0
+          ],
+          "en": "J NCE = . E�� t � J S t + J R t + J D t � � J S t = . ln q ( st | ot ) − ln �� o ′ q ( st | o ′ )� . (12)",
+          "reference": false,
+          "image": "figs/p006-011.png",
+          "labels": [
+            "12"
+          ],
+          "original_bbox": [
+            127,
+            654,
+            504,
+            681
+          ]
+        },
+        {
+          "id": "p6-b12",
+          "kind": "text",
+          "bbox": [
+            107,
+            690,
+            505,
+            733
+          ],
+          "en": "We implement the state model as a CNN and again optimize the bound with respect to the combined parameter vector \\(\\theta\\) using stochastic backpropagation. While avoiding pixel prediction, the amount of information this bound can extract efficiently is limited (McAllester and Statos, 2018). We empirically compare reward, reconstruction, and contrastive objectives in our experiments in Figure 8.",
+          "reference": false,
+          "source_image": "figs/p006-012-source.png",
+          "pdf_extracted_en": "We implement the state model as a CNN and again optimize the bound with respect to the combined parameter vector θ using stochastic backpropagation. While avoiding pixel prediction, the amount of information this bound can extract efficiently is limited (McAllester and Statos, 2018). We empirically compare reward, reconstruction, and contrastive objectives in our experiments in Figure 8.",
+          "zh": "我们将状态模型实现为 CNN，并再次使用随机反向传播，相对于合并后的参数向量 \\(\\theta\\) 优化该下界。尽管避免了像素预测，该下界能够高效提取的信息量仍然有限 (McAllester and Statos, 2018)。我们在图 8 所示的实验中，对奖励预测目标、重建目标和对比目标进行了实证比较。"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "blocks": [
+        {
+          "id": "p7-b1",
+          "kind": "picture",
+          "bbox": [
+            106.0,
+            79.0,
+            507.0,
+            276.0
+          ],
+          "en": "Acrobot Swingup Cartpole Swingup Sparse Hopper Hop Hopper Stand 1000 400 800 400 750 300 600 200 400 200 500 100 200 250 0 0 0 0 0.0 0.5 1.0 1.5 2.0 0.0 0.5 1.0 1.5 2.0 0.0 0.5 1.0 1.5 2.0 0.0 0.5 1.0 1.5 2.0 Pendulum Swingup Quadruped Walk Walker Run Walker Walk 1000 1000 800 750 750 600 750 500 500 400 500 250 250 200 250 0 0 0 0 0.0 0.5 1.0 1.5 2.0 0.0 0.5 1.0 1.5 2.0 0.0 0.5 1.0 1.5 2.0 0.0 0.5 1.0 1.5 2.0 Environment Steps 1e6 Environment Steps 1e6 Environment Steps 1e6 Environment Steps 1e6 Dreamer No value PlaNet D4PG (1e9 steps) A3C (1e9 steps, proprio) Episode Return Episode Return",
+          "reference": false,
+          "image": "figs/p007-001.png",
+          "labels": [],
+          "original_bbox": [
+            108,
+            81,
+            505,
+            274
+          ]
+        },
+        {
+          "id": "p7-b2",
+          "kind": "caption",
+          "bbox": [
+            108,
+            279,
+            505,
+            332
+          ],
+          "en": "Figure 7: Dreamer succeeds at visual control tasks that require long-horizon credit assignment, such as the acrobot and hopper tasks. Optimizing only imagined rewards within the horizon via an action model or by online planning yields shortsighted behaviors that only succeed in reactive tasks, such as in the walker domain. The performance on all 20 tasks is summarized in Figure 6 and training curves are shown in Appendix D. See Tassa et al. (2018) for performance curves of D4PG and A3C.",
+          "reference": false,
+          "source_image": "figs/p007-002-source.png",
+          "pdf_extracted_en": "Figure 7: Dreamer succeeds at visual control tasks that require long-horizon credit assignment, such as the acrobot and hopper tasks. Optimizing only imagined rewards within the horizon via an action model or by online planning yields shortsighted behaviors that only succeed in reactive tasks, such as in the walker domain. The performance on all 20 tasks is summarized in Figure 6 and training curves are shown in Appendix D. See Tassa et al. (2018) for performance curves of D4PG and A3C.",
+          "zh": "图 7：Dreamer 能够成功完成需要长时域信用分配的视觉控制任务，例如 acrobot 和 hopper 任务。通过动作模型或在线规划，仅优化想象时域内的奖励，会产生短视行为，这类行为只能在反应式任务中取得成功，例如 walker 环境中的任务。全部 20 项任务的性能汇总见图 6，训练曲线见附录 D。D4PG 和 A3C 的性能曲线见 Tassa et al. (2018)。"
+        },
+        {
+          "id": "p7-b3",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            345,
+            212,
+            354
+          ],
+          "en": "5 RELATED WORK",
+          "reference": false,
+          "source_image": "figs/p007-003-source.png",
+          "pdf_extracted_en": "5 RELATED WORK",
+          "zh": "5 相关工作"
+        },
+        {
+          "id": "p7-b4",
+          "kind": "text",
+          "bbox": [
+            107,
+            367,
+            506,
+            491
+          ],
+          "en": "Prior works learn latent dynamics for visual control by derivative-free policy learning or online planning, augment model-free agents with multi-step predictions, or use analytic gradients of Q-values or multi-step rewards, often for low-dimensional tasks. In comparison, Dreamer uses analytic gradients to efficiently learn long-horizon behaviors for visual control purely by latent imagination. Control with latent dynamics E2C (Watter et al., 2015) and RCE (Banijamali et al., 2017) embed images to predict forward in a compact space to solve simple tasks. World Models (Ha and Schmidhuber, 2018) learn latent dynamics in a two-stage process to evolve linear controllers in imagination. PlaNet (Hafner et al., 2018) learns them jointly and solves visual locomotion tasks by latent online planning. SOLAR (Zhang et al., 2019) solves robotic tasks via guided policy search in latent space. I2A (Weber et al., 2017) hands imagined trajectories to a model-free policy, while Lee et al. (2019) and Gregor et al. (2019) learn belief representations to accelerate model-free agents.",
+          "reference": false,
+          "source_image": "figs/p007-004-source.png",
+          "pdf_extracted_en": "Prior works learn latent dynamics for visual control by derivative-free policy learning or online planning, augment model-free agents with multi-step predictions, or use analytic gradients of Q- values or multi-step rewards, often for low-dimensional tasks. In comparison, Dreamer uses analytic gradients to efficiently learn long-horizon behaviors for visual control purely by latent imagination. Control with latent dynamics E2C (Watter et al., 2015) and RCE (Banijamali et al., 2017) embed images to predict forward in a compact space to solve simple tasks. World Models (Ha and Schmidhuber, 2018) learn latent dynamics in a two-stage process to evolve linear controllers in imagination. PlaNet (Hafner et al., 2018) learns them jointly and solves visual locomotion tasks by latent online planning. SOLAR (Zhang et al., 2019) solves robotic tasks via guided policy search in latent space. I2A (Weber et al., 2017) hands imagined trajectories to a model-free policy, while Lee et al. (2019) and Gregor et al. (2019) learn belief representations to accelerate model-free agents.",
+          "zh": "以往的工作通过无导数策略学习或在线规划来学习用于视觉控制的潜在动力学，利用多步预测增强无模型智能体，或使用 Q 值或多步奖励的解析梯度，且通常面向低维任务。相比之下，Dreamer 使用解析梯度，纯粹通过潜空间想象，高效地学习用于视觉控制的长时域行为。利用潜在动力学进行控制：E2C (Watter et al., 2015) 和 RCE (Banijamali et al., 2017) 对图像进行嵌入，在紧凑空间中向前预测，以解决简单任务。World Models (Ha and Schmidhuber, 2018) 采用两阶段过程学习潜在动力学，并在想象中通过演化优化线性控制器。PlaNet (Hafner et al., 2018) 对其进行联合学习，并通过潜空间在线规划解决视觉运动任务。SOLAR (Zhang et al., 2019) 通过潜空间中的引导式策略搜索解决机器人任务。I2A (Weber et al., 2017) 将想象轨迹交给无模型策略，而 Lee et al. (2019) 和 Gregor et al. (2019) 则学习信念表征，以加速无模型智能体的学习。"
+        },
+        {
+          "id": "p7-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            496,
+            505,
+            616
+          ],
+          "en": "Imagined multi-step returns VPN (Oh et al., 2017), MVE (Feinberg et al., 2018), and STEVE (Buckman et al., 2018) learn dynamics for multi-step Q-learning from a replay buffer. AlphaGo (Silver et al., 2017) combines predictions of actions and state values with planning, assuming access to the true dynamics. Also assuming access to the dynamics, POLO (Lowrey et al., 2018) plans to explore by learning a value ensemble. MuZero (Schrittwieser et al., 2019) learns task-specific reward and value models to solve challenging tasks but requires large amounts of experience. PETS (Chua et al., 2018), VisualMPC (Ebert et al., 2017), and PlaNet (Hafner et al., 2018) plan online using derivative-free optimization. POPLIN (Wang and Ba, 2019) improves over online planning by self-imitation. Piergiovanni et al. (2018) learn robot policies by imagination with a latent dynamics model. Planning with neural network gradients was shown on small problems (Schmidhuber, 1990; Henaff et al., 2018) but has been challenging to scale (Parmas et al., 2019).",
+          "reference": false,
+          "source_image": "figs/p007-005-source.png",
+          "pdf_extracted_en": "Imagined multi-step returns VPN (Oh et al., 2017), MVE (Feinberg et al., 2018), and STEVE (Buckman et al., 2018) learn dynamics for multi-step Q-learning from a replay buffer. AlphaGo (Silver et al., 2017) combines predictions of actions and state values with planning, assuming access to the true dynamics. Also assuming access to the dynamics, POLO (Lowrey et al., 2018) plans to explore by learning a value ensemble. MuZero (Schrittwieser et al., 2019) learns task-specific reward and value models to solve challenging tasks but requires large amounts of experience. PETS (Chua et al., 2018), VisualMPC (Ebert et al., 2017), and PlaNet (Hafner et al., 2018) plan online using derivative-free optimization. POPLIN (Wang and Ba, 2019) improves over online planning by self-imitation. Piergiovanni et al. (2018) learn robot policies by imagination with a latent dynamics model. Planning with neural network gradients was shown on small problems (Schmidhuber, 1990; Henaff et al., 2018) but has been challenging to scale (Parmas et al., 2019).",
+          "zh": "想象的多步回报：VPN (Oh et al., 2017)、MVE (Feinberg et al., 2018) 和 STEVE (Buckman et al., 2018) 从回放缓冲区中学习动力学，用于多步 Q 学习。AlphaGo (Silver et al., 2017) 在假设可访问真实动力学的前提下，将动作预测和状态价值预测与规划相结合。POLO (Lowrey et al., 2018) 同样假设可访问动力学，通过学习价值模型集成来规划探索行为。MuZero (Schrittwieser et al., 2019) 学习任务特定的奖励模型和价值模型，以解决具有挑战性的任务，但需要大量经验。PETS (Chua et al., 2018)、VisualMPC (Ebert et al., 2017) 和 PlaNet (Hafner et al., 2018) 使用无导数优化进行在线规划。POPLIN (Wang and Ba, 2019) 通过自模仿改进在线规划。Piergiovanni et al. (2018) 借助潜在动力学模型，通过想象学习机器人策略。利用神经网络梯度进行规划已在小规模问题上得到展示 (Schmidhuber, 1990; Henaff et al., 2018)，但扩展到更大规模仍面临挑战 (Parmas et al., 2019)。"
+        },
+        {
+          "id": "p7-b6",
+          "kind": "text",
+          "bbox": [
+            107,
+            621,
+            505,
+            708
+          ],
+          "en": "Analytic value gradients DPG (Silver et al., 2014), DDPG (Lillicrap et al., 2015), and SAC (Haarnoja et al., 2018) leverage gradients of learned immediate action values to learn a policy by experience replay. SVG (Heess et al., 2015) reduces the variance of model-free on-policy algorithms by analytic value gradients of one-step model predictions. Concurrent work by Byravan et al. (2019) uses latent imagination with deterministic models for navigation and manipulation tasks. ME-TRPO (Kurutach et al., 2018) accelerates an otherwise model-free agent via gradients of predicted rewards for proprioceptive inputs. DistGBP (Henaff et al., 2017; 2019) uses model gradients for online planning in simple tasks.",
+          "reference": false,
+          "source_image": "figs/p007-006-source.png",
+          "pdf_extracted_en": "Analytic value gradients DPG (Silver et al., 2014), DDPG (Lillicrap et al., 2015), and SAC (Haarnoja et al., 2018) leverage gradients of learned immediate action values to learn a policy by experience replay. SVG (Heess et al., 2015) reduces the variance of model-free on-policy algorithms by analytic value gradients of one-step model predictions. Concurrent work by Byravan et al. (2019) uses latent imagination with deterministic models for navigation and manipulation tasks. ME-TRPO (Kurutach et al., 2018) accelerates an otherwise model-free agent via gradients of predicted rewards for proprioceptive inputs. DistGBP (Henaff et al., 2017; 2019) uses model gradients for online planning in simple tasks.",
+          "zh": "解析价值梯度：DPG (Silver et al., 2014)、DDPG (Lillicrap et al., 2015) 和 SAC (Haarnoja et al., 2018) 利用所学习的即时动作价值的梯度，通过经验回放学习策略。SVG (Heess et al., 2015) 利用模型单步预测的解析价值梯度，降低无模型同策略算法的方差。Byravan et al. (2019) 的同期工作使用确定性模型进行潜空间想象，以完成导航和操作任务。ME-TRPO (Kurutach et al., 2018) 针对本体感觉输入，利用预测奖励的梯度，加速原本采用无模型方法的智能体的学习。DistGBP (Henaff et al., 2017; 2019) 利用模型梯度，在简单任务中进行在线规划。"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "blocks": [
+        {
+          "id": "p8-b1",
+          "kind": "picture",
+          "bbox": [
+            106.0,
+            79.0,
+            507.0,
+            276.0
+          ],
+          "en": "Acrobot Swingup Cheetah Run Cup Catch Finger Spin 400 1000 1000 750 300 750 750 200 500 500 500 100 250 250 250 0 0 0 0 0.0 0.5 1.0 1.5 2.0 0.0 0.5 1.0 1.5 2.0 0.0 0.5 1.0 1.5 2.0 0.0 0.5 1.0 1.5 2.0 Hopper Stand Pendulum Swingup Quadruped Run Walker Stand 1000 1000 1000 1000 750 750 750 800 500 500 500 600 250 400 250 250 0 200 0 0 0.0 0.5 1.0 1.5 2.0 0.0 0.5 1.0 1.5 2.0 0.0 0.5 1.0 1.5 2.0 0.0 0.5 1.0 1.5 2.0 Environment Steps 1e6 Environment Steps 1e6 Environment Steps 1e6 Environment Steps 1e6 Dreamer + Reconstruction Dreamer + Contrastive Dreamer + Reward only D4PG (1e9 steps) A3C (1e9 steps, proprio) Episode Return Episode Return",
+          "reference": false,
+          "image": "figs/p008-001.png",
+          "labels": [],
+          "original_bbox": [
+            108,
+            81,
+            505,
+            274
+          ]
+        },
+        {
+          "id": "p8-b2",
+          "kind": "caption",
+          "bbox": [
+            108,
+            279,
+            506,
+            332
+          ],
+          "en": "Figure 8: Comparison of representation learning objectives to be used with Dreamer. Pixel reconstruction performs best for the majority of tasks. The contrastive objective solves about half of the tasks, while predicting rewards alone was not sufficient in our experiments. The results suggest that future developments in learning representations are likely to translate into improved task performance for Dreamer. The performance curves for all tasks are included in Appendix E.",
+          "reference": false,
+          "source_image": "figs/p008-002-source.png",
+          "pdf_extracted_en": "Figure 8: Comparison of representation learning objectives to be used with Dreamer. Pixel reconstruction performs best for the majority of tasks. The contrastive objective solves about half of the tasks, while predicting rewards alone was not sufficient in our experiments. The results suggest that future developments in learning representations are likely to translate into improved task performance for Dreamer. The performance curves for all tasks are included in Appendix E.",
+          "zh": "图 8：用于 Dreamer 的表征学习目标的比较。像素重建在大多数任务上表现最佳。对比目标能够解决约一半的任务，而在我们的实验中，仅预测奖励并不足以解决任务。这些结果表明，未来表征学习的发展很可能转化为 Dreamer 任务性能的提升。全部任务的性能曲线见附录 E。"
+        },
+        {
+          "id": "p8-b3",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            346,
+            201,
+            356
+          ],
+          "en": "6 EXPERIMENTS",
+          "reference": false,
+          "source_image": "figs/p008-003-source.png",
+          "pdf_extracted_en": "6 EXPERIMENTS",
+          "zh": "6 实验"
+        },
+        {
+          "id": "p8-b4",
+          "kind": "text",
+          "bbox": [
+            107,
+            375,
+            505,
+            429
+          ],
+          "en": "We experimentally evaluate Dreamer on a variety of control tasks. We designed the experiments to compare Dreamer to current best methods in the literature, and to evaluate its ability to solve tasks with long horizons, continuous actions, discrete actions, and early termination. We further compare the orthogonal choice of learning objective for the world model. The source code for all our experiments and videos of Dreamer are available at https://danijar.com/dreamer.",
+          "reference": false,
+          "source_image": "figs/p008-004-source.png",
+          "pdf_extracted_en": "We experimentally evaluate Dreamer on a variety of control tasks. We designed the experiments to compare Dreamer to current best methods in the literature, and to evaluate its ability to solve tasks with long horizons, continuous actions, discrete actions, and early termination. We further compare the orthogonal choice of learning objective for the world model. The source code for all our experiments and videos of Dreamer are available at https://danijar.com/dreamer.",
+          "zh": "我们通过实验，在多种控制任务上评估 Dreamer。我们设计这些实验，旨在将 Dreamer 与现有文献中的最佳方法进行比较，并评估其解决长时域、连续动作、离散动作以及提前终止任务的能力。我们还比较了世界模型学习目标的不同选择，这一选择与算法设计相互独立。我们所有实验的源代码及 Dreamer 的视频均可在 https://danijar.com/dreamer 获取。"
+        },
+        {
+          "id": "p8-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            439,
+            506,
+            526
+          ],
+          "en": "Control tasks We evaluate Dreamer on 20 visual control tasks of the DeepMind Control Suite (Tassa et al., 2018), illustrated in Figure 2. These tasks pose a variety of challenges, including sparse rewards, contact dynamics, and 3D scenes. We selected the tasks on which Tassa et al. (2018) report non-zero performance from image inputs. Agent observations are images of shape \\(64 \\times 64 \\times 3\\), actions range from 1 to 12 dimensions, rewards range from 0 to 1, episodes last for 1000 steps and have randomized initial states. We use a fixed action repeat of \\(R = 2\\) across tasks. We further evaluate the applicability of Dreamer to discrete actions and early termination on a subset of Atari games (Bellemare et al., 2013) and DeepMind Lab levels (Beattie et al., 2016) as detailed in Appendix C.",
+          "reference": false,
+          "source_image": "figs/p008-005-source.png",
+          "pdf_extracted_en": "Control tasks We evaluate Dreamer on 20 visual control tasks of the DeepMind Control Suite (Tassa et al., 2018), illustrated in Figure 2. These tasks pose a variety of challenges, including sparse rewards, contact dynamics, and 3D scenes. We selected the tasks on which Tassa et al. (2018) report non-zero performance from image inputs. Agent observations are images of shape 64 × 64 × 3, actions range from 1 to 12 dimensions, rewards range from 0 to 1, episodes last for 1000 steps and have randomized initial states. We use a fixed action repeat of R = 2 across tasks. We further evaluate the applicability of Dreamer to discrete actions and early termination on a subset of Atari games (Bellemare et al., 2013) and DeepMind Lab levels (Beattie et al., 2016) as detailed in Appendix C.",
+          "zh": "控制任务：我们在 DeepMind Control Suite (Tassa et al., 2018) 的 20 项视觉控制任务上评估 Dreamer，任务示例见图 2。这些任务带来了多种挑战，包括稀疏奖励、接触动力学和三维场景。我们选用了 Tassa et al. (2018) 报告中以图像为输入能够取得非零性能的任务。智能体的观测为形状为 \\(64 \\times 64 \\times 3\\) 的图像，动作维数从 1 到 12 不等，奖励范围为 0 到 1，每个回合持续 1000 步，初始状态随机化。我们在所有任务中使用固定的动作重复次数 \\(R = 2\\)。我们还在部分 Atari 游戏 (Bellemare et al., 2013) 和 DeepMind Lab 关卡 (Beattie et al., 2016) 上评估 Dreamer 对离散动作和提前终止情形的适用性，详见附录 C。"
+        },
+        {
+          "id": "p8-b6",
+          "kind": "text",
+          "bbox": [
+            108,
+            536,
+            506,
+            600
+          ],
+          "en": "Implementation Our implementation uses TensorFlow Probability (Dillon et al., 2017). We use a single Nvidia V100 GPU and 10 CPU cores for each training run. The training time for our Dreamer implementation is about 3 hours per \\(10^6\\) environment steps on the control suite, compared to 11 hours for online planning using PlaNet, and the 24 hours used by D4PG to reach similar performance. We use the same hyper parameters across all continuous tasks, and similarly across all discrete tasks, detailed in Appendix A. The world models are learned via reconstruction unless specified.",
+          "reference": false,
+          "source_image": "figs/p008-006-source.png",
+          "pdf_extracted_en": "Implementation Our implementation uses TensorFlow Probability (Dillon et al., 2017). We use a single Nvidia V100 GPU and 10 CPU cores for each training run. The training time for our Dreamer implementation is about 3 hours per 106 environment steps on the control suite, compared to 11 hours for online planning using PlaNet, and the 24 hours used by D4PG to reach similar performance. We use the same hyper parameters across all continuous tasks, and similarly across all discrete tasks, detailed in Appendix A. The world models are learned via reconstruction unless specified.",
+          "zh": "实现：我们的实现使用 TensorFlow Probability (Dillon et al., 2017)。每次训练运行使用一块 Nvidia V100 GPU 和 10 个 CPU 核心。在该控制任务套件上，我们实现的 Dreamer 每 \\(10^6\\) 个环境步的训练时间约为 3 小时；相比之下，使用 PlaNet 进行在线规划需要 11 小时，而 D4PG 达到相近性能需要 24 小时。我们对所有连续动作任务使用同一组超参数，对所有离散动作任务也同样使用一组统一的超参数，详见附录 A。除非另有说明，世界模型均通过重建进行学习。"
+        },
+        {
+          "id": "p8-b7",
+          "kind": "text",
+          "bbox": [
+            107,
+            610,
+            506,
+            708
+          ],
+          "en": "Baseline methods The highest reported performance on the continuous tasks is achieved by D4PG (Barth-Maron et al., 2018), an improved variant of DDPG (Lillicrap et al., 2015) that uses distributed collection, distributional Q-learning, multi-step returns, and prioritized replay. We include the scores for D4PG with pixel inputs and A3C (Mnih et al., 2016) with state inputs from Tassa et al. (2018). PlaNet (Hafner et al., 2018) learns the same world model as Dreamer and selects actions via online planning without an action model and drastically improves over D4PG and A3C in data efficiency. We re-run PlaNet with \\(R = 2\\) for a unified experimental setup. For Atari, we show the final performance of SimPLe (Kaiser et al., 2019), DQN (Mnih et al., 2015) and Rainbow (Hessel et al., 2018) reported by Castro et al. (2018), and for DeepMind Lab that of IMPALA (Espeholt et al., 2018) as a guideline.",
+          "reference": false,
+          "source_image": "figs/p008-007-source.png",
+          "pdf_extracted_en": "Baseline methods The highest reported performance on the continuous tasks is achieved by D4PG (Barth-Maron et al., 2018), an improved variant of DDPG (Lillicrap et al., 2015) that uses distributed collection, distributional Q-learning, multi-step returns, and prioritized replay. We include the scores for D4PG with pixel inputs and A3C (Mnih et al., 2016) with state inputs from Tassa et al. (2018). PlaNet (Hafner et al., 2018) learns the same world model as Dreamer and selects actions via online planning without an action model and drastically improves over D4PG and A3C in data efficiency. We re-run PlaNet with R = 2 for a unified experimental setup. For Atari, we show the final performance of SimPLe (Kaiser et al., 2019), DQN (Mnih et al., 2015) and Rainbow (Hessel et al., 2018) reported by Castro et al. (2018), and for DeepMind Lab that of IMPALA (Espeholt et al., 2018) as a guideline.",
+          "zh": "基线方法：在连续动作任务上，已报告的最高性能由 D4PG (Barth-Maron et al., 2018) 取得。它是 DDPG (Lillicrap et al., 2015) 的改进变体，采用分布式数据采集、分布式 Q 学习、多步回报和优先经验回放。我们纳入了 Tassa et al. (2018) 中以像素为输入的 D4PG 和以状态为输入的 A3C (Mnih et al., 2016) 的得分。PlaNet (Hafner et al., 2018) 学习与 Dreamer 相同的世界模型，并在不使用动作模型的情况下通过在线规划选择动作，其数据效率显著优于 D4PG 和 A3C。为统一实验设置，我们以 \\(R = 2\\) 重新运行了 PlaNet。对于 Atari，我们展示了 SimPLe (Kaiser et al., 2019) 的最终性能，以及 Castro et al. (2018) 报告的 DQN (Mnih et al., 2015) 和 Rainbow (Hessel et al., 2018) 的最终性能；对于 DeepMind Lab，我们展示了 IMPALA (Espeholt et al., 2018) 的最终性能，作为参考。"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "blocks": [
+        {
+          "id": "p9-b1",
+          "kind": "text",
+          "bbox": [
+            107,
+            84,
+            506,
+            240
+          ],
+          "en": "Performance To evaluate the performance of Dreamer, we compare it to state-of-the-art reinforcement learning agents. The results are summarized in Figure 6. With an average score of 823 across tasks after \\(5 \\times 10^6\\) environment steps, Dreamer exceeds the performance of the strong model-free D4PG agent that achieves an average of 786 within \\(10^8\\) environment steps. At the same time, Dreamer inherits the data-efficiency of PlaNet, confirming that the learned world model can help to generalize from small amounts of experience. The empirical success of Dreamer shows that learning behaviors by latent imagination with world models can outperform top methods based on experience replay. Long horizons To investigate its ability to learn long-horizon behaviors, we compare Dreamer to alternatives for deriving behaviors from the world model at various horizon lengths. For this, we learn an action model to maximize imagined rewards without a value model and compare to online planning using PlaNet. Figure 4 shows the final performance for different imagination horizons, confirming that the value model makes Dreamer more robust to the horizon and performs well even for short horizons. Performance curves for all 19 tasks with horizon of 20 are shown in Appendix D, where Dreamer outperforms the alternatives on 16 of 20 tasks, with 4 ties.",
+          "reference": false,
+          "source_image": "figs/p009-001-source.png",
+          "pdf_extracted_en": "Performance To evaluate the performance of Dreamer, we compare it to state-of-the-art reinforcement learning agents. The results are summarized in Figure 6. With an average score of 823 across tasks after 5 × 106 environment steps, Dreamer exceeds the performance of the strong model-free D4PG agent that achieves an average of 786 within 108 environment steps. At the same time, Dreamer inherits the data-efficiency of PlaNet, confirming that the learned world model can help to generalize from small amounts of experience. The empirical success of Dreamer shows that learning behaviors by latent imagination with world models can outperform top methods based on experience replay. Long horizons To investigate its ability to learn long-horizon behaviors, we compare Dreamer to alternatives for deriving behaviors from the world model at various horizon lengths. For this, we learn an action model to maximize imagined rewards without a value model and compare to online planning using PlaNet. Figure 4 shows the final performance for different imagination horizons, confirming that the value model makes Dreamer more robust to the horizon and performs well even for short horizons. Performance curves for all 19 tasks with horizon of 20 are shown in Appendix D, where Dreamer outperforms the alternatives on 16 of 20 tasks, with 4 ties.",
+          "zh": "性能 为评估 Dreamer 的性能，我们将其与最先进的强化学习智能体进行比较。结果汇总于图 6。在经过 \\(5 \\times 10^6\\) 个环境步后，Dreamer 在各任务上的平均得分为 823，超过了性能强劲的无模型智能体 D4PG，后者在 \\(10^8\\) 个环境步内取得的平均得分为 786。同时，Dreamer 继承了 PlaNet 的数据效率，这证实了学得的世界模型能够帮助智能体从少量经验中实现泛化。Dreamer 在实验中的成功表明，利用世界模型通过潜空间想象学习行为，可以超越基于经验回放的顶尖方法。长时域 为研究 Dreamer 学习长时域行为的能力，我们在不同的时域长度下，将其与其他从世界模型中获得行为的方法进行比较。为此，我们在不使用价值模型的情况下学习一个动作模型，以最大化想象奖励，并与使用 PlaNet 的在线规划进行比较。图 4 展示了不同想象时域下的最终性能，证实价值模型使 Dreamer 对时域长度更加鲁棒，即使在短时域下也能表现良好。附录 D 展示了全部 19 个任务在时域长度为 20 时的性能曲线，其中 Dreamer 在 20 个任务中的 16 个任务上优于其他方法，在 4 个任务上与其持平。"
+        },
+        {
+          "id": "p9-b2",
+          "kind": "text",
+          "bbox": [
+            107,
+            245,
+            506,
+            332
+          ],
+          "en": "Representation learning Dreamer can be used with any differentiable dynamics model that predicts future rewards given actions and past observations. Since the representation learning objective is orthogonal to our algorithm, we compare three natural choices described in Section 4: pixel reconstruction, contrastive estimation, and pure reward prediction. Figure 8 shows clear differences in task performance for different representation learning approaches, with pixel reconstruction outperforming contrastive estimation on most tasks. This suggests that future improvements in representation learning are likely to translate to higher task performance with Dreamer. Reward prediction alone was not sufficient in our experiments. Further ablations are included in the appendix of the paper.",
+          "reference": false,
+          "source_image": "figs/p009-002-source.png",
+          "pdf_extracted_en": "Representation learning Dreamer can be used with any differentiable dynamics model that predicts future rewards given actions and past observations. Since the representation learning objective is orthogonal to our algorithm, we compare three natural choices described in Section 4: pixel reconstruction, contrastive estimation, and pure reward prediction. Figure 8 shows clear differences in task performance for different representation learning approaches, with pixel reconstruction outperforming contrastive estimation on most tasks. This suggests that future improvements in representation learning are likely to translate to higher task performance with Dreamer. Reward prediction alone was not sufficient in our experiments. Further ablations are included in the appendix of the paper.",
+          "zh": "表征学习 Dreamer 可以与任何根据动作和过去的观测预测未来奖励的可微动力学模型配合使用。由于表征学习目标的选择独立于我们的算法，我们比较了第 4 节中介绍的三种自然选择：像素重建、对比估计和纯奖励预测。图 8 显示，不同表征学习方法的任务性能存在明显差异，其中像素重建在大多数任务上优于对比估计。这表明，未来表征学习的改进很可能转化为 Dreamer 更高的任务性能。在我们的实验中，仅进行奖励预测并不足够。本文附录中还包含更多消融实验。"
+        },
+        {
+          "id": "p9-b3",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            346,
+            196,
+            355
+          ],
+          "en": "7 CONCLUSION",
+          "reference": false,
+          "source_image": "figs/p009-003-source.png",
+          "pdf_extracted_en": "7 CONCLUSION",
+          "zh": "7 结论"
+        },
+        {
+          "id": "p9-b4",
+          "kind": "text",
+          "bbox": [
+            107,
+            367,
+            505,
+            443
+          ],
+          "en": "We present Dreamer, an agent that learns long-horizon behaviors purely by latent imagination. For this, we propose an actor critic method that optimizes a parametric policy by propagating analytic gradients of multi-step values back through learned latent dynamics. Dreamer outperforms previous methods in data-efficiency, computation time, and final performance on a variety of challenging continuous control tasks with image inputs. We further show that Dreamer is applicable to tasks with discrete actions and early episode termination. Future research on representation learning can likely scale latent imagination to environments of higher visual complexity.",
+          "reference": false,
+          "source_image": "figs/p009-004-source.png",
+          "pdf_extracted_en": "We present Dreamer, an agent that learns long-horizon behaviors purely by latent imagination. For this, we propose an actor critic method that optimizes a parametric policy by propagating analytic gradients of multi-step values back through learned latent dynamics. Dreamer outperforms previous methods in data-efficiency, computation time, and final performance on a variety of challenging continuous control tasks with image inputs. We further show that Dreamer is applicable to tasks with discrete actions and early episode termination. Future research on representation learning can likely scale latent imagination to environments of higher visual complexity.",
+          "zh": "我们提出了 Dreamer，这是一种完全通过潜空间想象学习长时域行为的智能体。为此，我们提出了一种演员–评论家方法，通过学得的潜空间动力学反向传播多步价值的解析梯度，以优化参数化策略。在多种以图像为输入且具有挑战性的连续控制任务上，Dreamer 在数据效率、计算时间和最终性能方面均优于以往的方法。我们进一步表明，Dreamer 也适用于具有离散动作和回合提前终止机制的任务。未来的表征学习研究有望将潜空间想象扩展到视觉复杂度更高的环境中。"
+        },
+        {
+          "id": "p9-b5",
+          "kind": "text",
+          "bbox": [
+            108,
+            448,
+            506,
+            490
+          ],
+          "en": "Acknowledgements We thank Simon Kornblith, Benjamin Eysenbach, Ian Fischer, Amy Zhang, Geoffrey Hinton, Shane Gu, Adam Kosiorek, Brandon Amos, Jacob Buckman, Calvin Luo, and Rishabh Agarwal, and our anonymous reviewers for feedback and discussions. We thank Yuval Tassa for adding the quadruped environment to the control suite.",
+          "reference": false,
+          "source_image": "figs/p009-005-source.png",
+          "pdf_extracted_en": "Acknowledgements We thank Simon Kornblith, Benjamin Eysenbach, Ian Fischer, Amy Zhang, Geoffrey Hinton, Shane Gu, Adam Kosiorek, Brandon Amos, Jacob Buckman, Calvin Luo, and Rishabh Agarwal, and our anonymous reviewers for feedback and discussions. We thank Yuval Tassa for adding the quadruped environment to the control suite.",
+          "zh": "致谢 感谢 Simon Kornblith、Benjamin Eysenbach、Ian Fischer、Amy Zhang、Geoffrey Hinton、Shane Gu、Adam Kosiorek、Brandon Amos、Jacob Buckman、Calvin Luo、Rishabh Agarwal 以及匿名审稿人提供的反馈与讨论。感谢 Yuval Tassa 将四足机器人环境加入控制套件。"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "blocks": [
+        {
+          "id": "p10-b1",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            83,
+            176,
+            92
+          ],
+          "en": "REFERENCES",
+          "reference": true,
+          "source_image": "figs/p010-001-source.png",
+          "zh": "参考文献"
+        },
+        {
+          "id": "p10-b2",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            105,
+            505,
+            126
+          ],
+          "en": "- A. A. Alemi, I. Fischer, J. V. Dillon, and K. Murphy. Deep variational information bottleneck. arXiv preprint arXiv:1612.00410 , 2016.",
+          "reference": true,
+          "source_image": "figs/p010-002-source.png",
+          "zh": "- A. A. Alemi, I. Fischer, J. V. Dillon, and K. Murphy. Deep variational information bottleneck. arXiv preprint arXiv:1612.00410 , 2016."
+        },
+        {
+          "id": "p10-b3",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            136,
+            504,
+            157
+          ],
+          "en": "- E. Banijamali, R. Shu, M. Ghavamzadeh, H. Bui, and A. Ghodsi. Robust locally-linear controllable embedding. arXiv preprint arXiv:1710.05373 , 2017.",
+          "reference": true,
+          "source_image": "figs/p010-003-source.png",
+          "zh": "- E. Banijamali, R. Shu, M. Ghavamzadeh, H. Bui, and A. Ghodsi. Robust locally-linear controllable embedding. arXiv preprint arXiv:1710.05373 , 2017."
+        },
+        {
+          "id": "p10-b4",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            166,
+            506,
+            196
+          ],
+          "en": "- G. Barth-Maron, M. W. Hoffman, D. Budden, W. Dabney, D. Horgan, A. Muldal, N. Heess, and T. Lillicrap. Distributed distributional deterministic policy gradients. arXiv preprint arXiv:1804.08617 , 2018.",
+          "reference": true,
+          "source_image": "figs/p010-004-source.png",
+          "zh": "- G. Barth-Maron, M. W. Hoffman, D. Budden, W. Dabney, D. Horgan, A. Muldal, N. Heess, and T. Lillicrap. Distributed distributional deterministic policy gradients. arXiv preprint arXiv:1804.08617 , 2018."
+        },
+        {
+          "id": "p10-b5",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            208,
+            506,
+            229
+          ],
+          "en": "- C. Beattie, J. Z. Leibo, D. Teplyashin, T. Ward, M. Wainwright, H. Küttler, A. Lefrancq, S. Green, V. Valdés, A. Sadik, et al. Deepmind lab. arXiv preprint arXiv:1612.03801 , 2016.",
+          "reference": true,
+          "source_image": "figs/p010-005-source.png",
+          "zh": "- C. Beattie, J. Z. Leibo, D. Teplyashin, T. Ward, M. Wainwright, H. Küttler, A. Lefrancq, S. Green, V. Valdés, A. Sadik, et al. Deepmind lab. arXiv preprint arXiv:1612.03801 , 2016."
+        },
+        {
+          "id": "p10-b6",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            238,
+            506,
+            268
+          ],
+          "en": "- M. G. Bellemare, Y. Naddaf, J. Veness, and M. Bowling. The arcade learning environment: An evaluation platform for general agents. Journal of Artificial Intelligence Research , 47:253–279, 2013.",
+          "reference": true,
+          "source_image": "figs/p010-006-source.png",
+          "zh": "- M. G. Bellemare, Y. Naddaf, J. Veness, and M. Bowling. The arcade learning environment: An evaluation platform for general agents. Journal of Artificial Intelligence Research , 47:253–279, 2013."
+        },
+        {
+          "id": "p10-b7",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            280,
+            504,
+            301
+          ],
+          "en": "- Y. Bengio, N. Léonard, and A. Courville. Estimating or propagating gradients through stochastic neurons for conditional computation. arXiv preprint arXiv:1308.3432 , 2013.",
+          "reference": true,
+          "source_image": "figs/p010-007-source.png",
+          "zh": "- Y. Bengio, N. Léonard, and A. Courville. Estimating or propagating gradients through stochastic neurons for conditional computation. arXiv preprint arXiv:1308.3432 , 2013."
+        },
+        {
+          "id": "p10-b8",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            310,
+            506,
+            342
+          ],
+          "en": "- J. Buckman, D. Hafner, G. Tucker, E. Brevdo, and H. Lee. Sample-efficient reinforcement learning with stochastic ensemble value expansion. In Advances in Neural Information Processing Systems , pages 8224–8234, 2018.",
+          "reference": true,
+          "source_image": "figs/p010-008-source.png",
+          "zh": "- J. Buckman, D. Hafner, G. Tucker, E. Brevdo, and H. Lee. Sample-efficient reinforcement learning with stochastic ensemble value expansion. In Advances in Neural Information Processing Systems , pages 8224–8234, 2018."
+        },
+        {
+          "id": "p10-b9",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            352,
+            506,
+            384
+          ],
+          "en": "- L. Buesing, T. Weber, S. Racaniere, S. Eslami, D. Rezende, D. P. Reichert, F. Viola, F. Besse, K. Gregor, D. Hassabis, et al. Learning and querying fast generative models for reinforcement learning. arXiv preprint arXiv:1802.03006 , 2018.",
+          "reference": true,
+          "source_image": "figs/p010-009-source.png",
+          "zh": "- L. Buesing, T. Weber, S. Racaniere, S. Eslami, D. Rezende, D. P. Reichert, F. Viola, F. Besse, K. Gregor, D. Hassabis, et al. Learning and querying fast generative models for reinforcement learning. arXiv preprint arXiv:1802.03006 , 2018."
+        },
+        {
+          "id": "p10-b10",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            393,
+            506,
+            425
+          ],
+          "en": "- A. Byravan, J. T. Springenberg, A. Abdolmaleki, R. Hafner, M. Neunert, T. Lampe, N. Siegel, N. Heess, and M. Riedmiller. Imagined value gradients: Model-based policy optimization with transferable latent dynamics models. arXiv preprint arXiv:1910.04142 , 2019.",
+          "reference": true,
+          "source_image": "figs/p010-010-source.png",
+          "zh": "- A. Byravan, J. T. Springenberg, A. Abdolmaleki, R. Hafner, M. Neunert, T. Lampe, N. Siegel, N. Heess, and M. Riedmiller. Imagined value gradients: Model-based policy optimization with transferable latent dynamics models. arXiv preprint arXiv:1910.04142 , 2019."
+        },
+        {
+          "id": "p10-b11",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            435,
+            505,
+            456
+          ],
+          "en": "- P. S. Castro, S. Moitra, C. Gelada, S. Kumar, and M. G. Bellemare. Dopamine: A research framework for deep reinforcement learning. arXiv preprint arXiv:1812.06110 , 2018.",
+          "reference": true,
+          "source_image": "figs/p010-011-source.png",
+          "zh": "- P. S. Castro, S. Moitra, C. Gelada, S. Kumar, and M. G. Bellemare. Dopamine: A research framework for deep reinforcement learning. arXiv preprint arXiv:1812.06110 , 2018."
+        },
+        {
+          "id": "p10-b12",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            465,
+            506,
+            497
+          ],
+          "en": "- K. Chua, R. Calandra, R. McAllister, and S. Levine. Deep reinforcement learning in a handful of trials using probabilistic dynamics models. In Advances in Neural Information Processing Systems , pages 4754–4765, 2018.",
+          "reference": true,
+          "source_image": "figs/p010-012-source.png",
+          "zh": "- K. Chua, R. Calandra, R. McAllister, and S. Levine. Deep reinforcement learning in a handful of trials using probabilistic dynamics models. In Advances in Neural Information Processing Systems , pages 4754–4765, 2018."
+        },
+        {
+          "id": "p10-b13",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            507,
+            505,
+            528
+          ],
+          "en": "- D.-A. Clevert, T. Unterthiner, and S. Hochreiter. Fast and accurate deep network learning by exponential linear units (elus). arXiv preprint arXiv:1511.07289 , 2015.",
+          "reference": true,
+          "source_image": "figs/p010-013-source.png",
+          "zh": "- D.-A. Clevert, T. Unterthiner, and S. Hochreiter. Fast and accurate deep network learning by exponential linear units (elus). arXiv preprint arXiv:1511.07289 , 2015."
+        },
+        {
+          "id": "p10-b14",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            537,
+            506,
+            558
+          ],
+          "en": "- J. V. Dillon, I. Langmore, D. Tran, E. Brevdo, S. Vasudevan, D. Moore, B. Patton, A. Alemi, M. Hoffman, and R. A. Saurous. Tensorflow distributions. arXiv preprint arXiv:1711.10604 , 2017.",
+          "reference": true,
+          "source_image": "figs/p010-014-source.png",
+          "zh": "- J. V. Dillon, I. Langmore, D. Tran, E. Brevdo, S. Vasudevan, D. Moore, B. Patton, A. Alemi, M. Hoffman, and R. A. Saurous. Tensorflow distributions. arXiv preprint arXiv:1711.10604 , 2017."
+        },
+        {
+          "id": "p10-b15",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            568,
+            506,
+            589
+          ],
+          "en": "- A. Doerr, C. Daniel, M. Schiegg, D. Nguyen-Tuong, S. Schaal, M. Toussaint, and S. Trimpe. Probabilistic recurrent state-space models. arXiv preprint arXiv:1801.10395 , 2018.",
+          "reference": true,
+          "source_image": "figs/p010-015-source.png",
+          "zh": "- A. Doerr, C. Daniel, M. Schiegg, D. Nguyen-Tuong, S. Schaal, M. Toussaint, and S. Trimpe. Probabilistic recurrent state-space models. arXiv preprint arXiv:1801.10395 , 2018."
+        },
+        {
+          "id": "p10-b16",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            598,
+            504,
+            619
+          ],
+          "en": "- F. Ebert, C. Finn, A. X. Lee, and S. Levine. Self-supervised visual planning with temporal skip connections. arXiv preprint arXiv:1710.05268 , 2017.",
+          "reference": true,
+          "source_image": "figs/p010-016-source.png",
+          "zh": "- F. Ebert, C. Finn, A. X. Lee, and S. Levine. Self-supervised visual planning with temporal skip connections. arXiv preprint arXiv:1710.05268 , 2017."
+        },
+        {
+          "id": "p10-b17",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            629,
+            506,
+            660
+          ],
+          "en": "- S. A. Eslami, D. J. Rezende, F. Besse, F. Viola, A. S. Morcos, M. Garnelo, A. Ruderman, A. A. Rusu, I. Danihelka, K. Gregor, et al. Neural scene representation and rendering. Science , 360(6394): 1204–1210, 2018.",
+          "reference": true,
+          "source_image": "figs/p010-017-source.png",
+          "zh": "- S. A. Eslami, D. J. Rezende, F. Besse, F. Viola, A. S. Morcos, M. Garnelo, A. Ruderman, A. A. Rusu, I. Danihelka, K. Gregor, et al. Neural scene representation and rendering. Science , 360(6394): 1204–1210, 2018."
+        },
+        {
+          "id": "p10-b18",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            670,
+            506,
+            702
+          ],
+          "en": "- L. Espeholt, H. Soyer, R. Munos, K. Simonyan, V. Mnih, T. Ward, Y. Doron, V. Firoiu, T. Harley, I. Dunning, et al. Impala: Scalable distributed deep-rl with importance weighted actor-learner architectures. arXiv preprint arXiv:1802.01561 , 2018.",
+          "reference": true,
+          "source_image": "figs/p010-018-source.png",
+          "zh": "- L. Espeholt, H. Soyer, R. Munos, K. Simonyan, V. Mnih, T. Ward, Y. Doron, V. Firoiu, T. Harley, I. Dunning, et al. Impala: Scalable distributed deep-rl with importance weighted actor-learner architectures. arXiv preprint arXiv:1802.01561 , 2018."
+        },
+        {
+          "id": "p10-b19",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            712,
+            506,
+            733
+          ],
+          "en": "- V. Feinberg, A. Wan, I. Stoica, M. I. Jordan, J. E. Gonzalez, and S. Levine. Model-based value estimation for efficient model-free reinforcement learning. arXiv preprint arXiv:1803.00101 , 2018.",
+          "reference": true,
+          "source_image": "figs/p010-019-source.png",
+          "zh": "- V. Feinberg, A. Wan, I. Stoica, M. I. Jordan, J. E. Gonzalez, and S. Levine. Model-based value estimation for efficient model-free reinforcement learning. arXiv preprint arXiv:1803.00101 , 2018."
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "blocks": [
+        {
+          "id": "p11-b1",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            85,
+            505,
+            105
+          ],
+          "en": "- C. Gelada, S. Kumar, J. Buckman, O. Nachum, and M. G. Bellemare. Deepmdp: Learning continuous latent space models for representation learning. arXiv preprint arXiv:1906.02736 , 2019.",
+          "reference": true,
+          "source_image": "figs/p011-001-source.png",
+          "zh": "- C. Gelada, S. Kumar, J. Buckman, O. Nachum, and M. G. Bellemare. Deepmdp: Learning continuous latent space models for representation learning. arXiv preprint arXiv:1906.02736 , 2019."
+        },
+        {
+          "id": "p11-b2",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            114,
+            505,
+            135
+          ],
+          "en": "- K. Gregor, D. J. Rezende, F. Besse, Y. Wu, H. Merzic, and A. v. d. Oord. Shaping belief states with generative environment models for rl. arXiv preprint arXiv:1906.09237 , 2019.",
+          "reference": true,
+          "source_image": "figs/p011-002-source.png",
+          "zh": "- K. Gregor, D. J. Rezende, F. Besse, Y. Wu, H. Merzic, and A. v. d. Oord. Shaping belief states with generative environment models for rl. arXiv preprint arXiv:1906.09237 , 2019."
+        },
+        {
+          "id": "p11-b3",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            144,
+            504,
+            165
+          ],
+          "en": "- Z. D. Guo, M. G. Azar, B. Piot, B. A. Pires, T. Pohlen, and R. Munos. Neural predictive belief representations. arXiv preprint arXiv:1811.06407 , 2018.",
+          "reference": true,
+          "source_image": "figs/p011-003-source.png",
+          "zh": "- Z. D. Guo, M. G. Azar, B. Piot, B. A. Pires, T. Pohlen, and R. Munos. Neural predictive belief representations. arXiv preprint arXiv:1811.06407 , 2018."
+        },
+        {
+          "id": "p11-b4",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            174,
+            505,
+            206
+          ],
+          "en": "- M. Gutmann and A. Hyvärinen. Noise-contrastive estimation: A new estimation principle for unnormalized statistical models. In Proceedings of the Thirteenth International Conference on Artificial Intelligence and Statistics , pages 297–304, 2010.",
+          "reference": true,
+          "source_image": "figs/p011-004-source.png",
+          "zh": "- M. Gutmann and A. Hyvärinen. Noise-contrastive estimation: A new estimation principle for unnormalized statistical models. In Proceedings of the Thirteenth International Conference on Artificial Intelligence and Statistics , pages 297–304, 2010."
+        },
+        {
+          "id": "p11-b5",
+          "kind": "list-item",
+          "bbox": [
+            107,
+            214,
+            441,
+            224
+          ],
+          "en": "- D. Ha and J. Schmidhuber. World models. arXiv preprint arXiv:1803.10122 , 2018.",
+          "reference": true,
+          "source_image": "figs/p011-005-source.png",
+          "zh": "- D. Ha and J. Schmidhuber. World models. arXiv preprint arXiv:1803.10122 , 2018."
+        },
+        {
+          "id": "p11-b6",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            233,
+            504,
+            254
+          ],
+          "en": "- T. Haarnoja, A. Zhou, P. Abbeel, and S. Levine. Soft actor-critic: Off-policy maximum entropy deep reinforcement learning with a stochastic actor. arXiv preprint arXiv:1801.01290 , 2018.",
+          "reference": true,
+          "source_image": "figs/p011-006-source.png",
+          "zh": "- T. Haarnoja, A. Zhou, P. Abbeel, and S. Levine. Soft actor-critic: Off-policy maximum entropy deep reinforcement learning with a stochastic actor. arXiv preprint arXiv:1801.01290 , 2018."
+        },
+        {
+          "id": "p11-b7",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            263,
+            504,
+            284
+          ],
+          "en": "- D. Hafner, T. Lillicrap, I. Fischer, R. Villegas, D. Ha, H. Lee, and J. Davidson. Learning latent dynamics for planning from pixels. arXiv preprint arXiv:1811.04551 , 2018.",
+          "reference": true,
+          "source_image": "figs/p011-007-source.png",
+          "zh": "- D. Hafner, T. Lillicrap, I. Fischer, R. Villegas, D. Ha, H. Lee, and J. Davidson. Learning latent dynamics for planning from pixels. arXiv preprint arXiv:1811.04551 , 2018."
+        },
+        {
+          "id": "p11-b8",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            292,
+            506,
+            324
+          ],
+          "en": "- N. Heess, G. Wayne, D. Silver, T. Lillicrap, T. Erez, and Y. Tassa. Learning continuous control policies by stochastic value gradients. In Advances in Neural Information Processing Systems , pages 2944–2952, 2015.",
+          "reference": true,
+          "source_image": "figs/p011-008-source.png",
+          "zh": "- N. Heess, G. Wayne, D. Silver, T. Lillicrap, T. Erez, and Y. Tassa. Learning continuous control policies by stochastic value gradients. In Advances in Neural Information Processing Systems , pages 2944–2952, 2015."
+        },
+        {
+          "id": "p11-b9",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            333,
+            506,
+            353
+          ],
+          "en": "- M. Henaff, W. F. Whitney, and Y. LeCun. Model-based planning in discrete action spaces. CoRR , abs/1705.07177, 2017.",
+          "reference": true,
+          "source_image": "figs/p011-009-source.png",
+          "zh": "- M. Henaff, W. F. Whitney, and Y. LeCun. Model-based planning in discrete action spaces. CoRR , abs/1705.07177, 2017."
+        },
+        {
+          "id": "p11-b10",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            363,
+            506,
+            384
+          ],
+          "en": "- M. Henaff, W. F. Whitney, and Y. LeCun. Model-based planning with discrete and continuous actions. arXiv preprint arXiv:1705.07177 , 2018.",
+          "reference": true,
+          "source_image": "figs/p011-010-source.png",
+          "zh": "- M. Henaff, W. F. Whitney, and Y. LeCun. Model-based planning with discrete and continuous actions. arXiv preprint arXiv:1705.07177 , 2018."
+        },
+        {
+          "id": "p11-b11",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            393,
+            506,
+            414
+          ],
+          "en": "- M. Henaff, A. Canziani, and Y. LeCun. Model-predictive policy learning with uncertainty regularization for driving in dense traffic. arXiv preprint arXiv:1901.02705 , 2019.",
+          "reference": true,
+          "source_image": "figs/p011-011-source.png",
+          "zh": "- M. Henaff, A. Canziani, and Y. LeCun. Model-predictive policy learning with uncertainty regularization for driving in dense traffic. arXiv preprint arXiv:1901.02705 , 2019."
+        },
+        {
+          "id": "p11-b12",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            422,
+            506,
+            454
+          ],
+          "en": "- M. Hessel, J. Modayil, H. Van Hasselt, T. Schaul, G. Ostrovski, W. Dabney, D. Horgan, B. Piot, M. Azar, and D. Silver. Rainbow: Combining improvements in deep reinforcement learning. In Thirty-Second AAAI Conference on Artificial Intelligence , 2018.",
+          "reference": true,
+          "source_image": "figs/p011-012-source.png",
+          "zh": "- M. Hessel, J. Modayil, H. Van Hasselt, T. Schaul, G. Ostrovski, W. Dabney, D. Horgan, B. Piot, M. Azar, and D. Silver. Rainbow: Combining improvements in deep reinforcement learning. In Thirty-Second AAAI Conference on Artificial Intelligence , 2018."
+        },
+        {
+          "id": "p11-b13",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            463,
+            506,
+            484
+          ],
+          "en": "- M. Jaderberg, V. Mnih, W. M. Czarnecki, T. Schaul, J. Z. Leibo, D. Silver, and K. Kavukcuoglu. Reinforcement learning with unsupervised auxiliary tasks. arXiv preprint arXiv:1611.05397 , 2016.",
+          "reference": true,
+          "source_image": "figs/p011-013-source.png",
+          "zh": "- M. Jaderberg, V. Mnih, W. M. Czarnecki, T. Schaul, J. Z. Leibo, D. Silver, and K. Kavukcuoglu. Reinforcement learning with unsupervised auxiliary tasks. arXiv preprint arXiv:1611.05397 , 2016."
+        },
+        {
+          "id": "p11-b14",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            493,
+            505,
+            514
+          ],
+          "en": "- M. I. Jordan, Z. Ghahramani, T. S. Jaakkola, and L. K. Saul. An introduction to variational methods for graphical models. Machine learning , 37(2):183–233, 1999.",
+          "reference": true,
+          "source_image": "figs/p011-014-source.png",
+          "zh": "- M. I. Jordan, Z. Ghahramani, T. S. Jaakkola, and L. K. Saul. An introduction to variational methods for graphical models. Machine learning , 37(2):183–233, 1999."
+        },
+        {
+          "id": "p11-b15",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            522,
+            506,
+            554
+          ],
+          "en": "- L. Kaiser, M. Babaeizadeh, P. Milos, B. Osinski, R. H. Campbell, K. Czechowski, D. Erhan, C. Finn, P. Kozakowski, S. Levine, et al. Model-based reinforcement learning for atari. arXiv preprint arXiv:1903.00374 , 2019.",
+          "reference": true,
+          "source_image": "figs/p011-015-source.png",
+          "zh": "- L. Kaiser, M. Babaeizadeh, P. Milos, B. Osinski, R. H. Campbell, K. Czechowski, D. Erhan, C. Finn, P. Kozakowski, S. Levine, et al. Model-based reinforcement learning for atari. arXiv preprint arXiv:1903.00374 , 2019."
+        },
+        {
+          "id": "p11-b16",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            563,
+            505,
+            584
+          ],
+          "en": "- R. E. Kalman. A new approach to linear filtering and prediction problems. Journal of basic Engineering , 82(1):35–45, 1960.",
+          "reference": true,
+          "source_image": "figs/p011-016-source.png",
+          "zh": "- R. E. Kalman. A new approach to linear filtering and prediction problems. Journal of basic Engineering , 82(1):35–45, 1960."
+        },
+        {
+          "id": "p11-b17",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            593,
+            504,
+            614
+          ],
+          "en": "- M. Karl, M. Soelch, J. Bayer, and P. van der Smagt. Deep variational bayes filters: Unsupervised learning of state space models from raw data. arXiv preprint arXiv:1605.06432 , 2016.",
+          "reference": true,
+          "source_image": "figs/p011-017-source.png",
+          "zh": "- M. Karl, M. Soelch, J. Bayer, and P. van der Smagt. Deep variational bayes filters: Unsupervised learning of state space models from raw data. arXiv preprint arXiv:1605.06432 , 2016."
+        },
+        {
+          "id": "p11-b18",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            622,
+            506,
+            641
+          ],
+          "en": "- D. P. Kingma and J. Ba. Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980 , 2014.",
+          "reference": true,
+          "source_image": "figs/p011-018-source.png",
+          "zh": "- D. P. Kingma and J. Ba. Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980 , 2014."
+        },
+        {
+          "id": "p11-b19",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            652,
+            506,
+            671
+          ],
+          "en": "- D. P. Kingma and M. Welling. Auto-encoding variational bayes. arXiv preprint arXiv:1312.6114 , 2013.",
+          "reference": true,
+          "source_image": "figs/p011-019-source.png",
+          "zh": "- D. P. Kingma and M. Welling. Auto-encoding variational bayes. arXiv preprint arXiv:1312.6114 , 2013."
+        },
+        {
+          "id": "p11-b20",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            682,
+            506,
+            701
+          ],
+          "en": "- R. G. Krishnan, U. Shalit, and D. Sontag. Deep kalman filters. arXiv preprint arXiv:1511.05121 , 2015.",
+          "reference": true,
+          "source_image": "figs/p011-020-source.png",
+          "zh": "- R. G. Krishnan, U. Shalit, and D. Sontag. Deep kalman filters. arXiv preprint arXiv:1511.05121 , 2015."
+        },
+        {
+          "id": "p11-b21",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            712,
+            505,
+            733
+          ],
+          "en": "- T. Kurutach, I. Clavera, Y. Duan, A. Tamar, and P. Abbeel. Model-ensemble trust-region policy optimization. arXiv preprint arXiv:1802.10592 , 2018.",
+          "reference": true,
+          "source_image": "figs/p011-021-source.png",
+          "zh": "- T. Kurutach, I. Clavera, Y. Duan, A. Tamar, and P. Abbeel. Model-ensemble trust-region policy optimization. arXiv preprint arXiv:1802.10592 , 2018."
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "blocks": [
+        {
+          "id": "p12-b1",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            85,
+            506,
+            114
+          ],
+          "en": "- Y. LeCun, B. Boser, J. S. Denker, D. Henderson, R. E. Howard, W. Hubbard, and L. D. Jackel. Backpropagation applied to handwritten zip code recognition. Neural computation , 1(4):541–551, 1989.",
+          "reference": true,
+          "source_image": "figs/p012-001-source.png",
+          "zh": "- Y. LeCun, B. Boser, J. S. Denker, D. Henderson, R. E. Howard, W. Hubbard, and L. D. Jackel. Backpropagation applied to handwritten zip code recognition. Neural computation , 1(4):541–551, 1989."
+        },
+        {
+          "id": "p12-b2",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            125,
+            505,
+            146
+          ],
+          "en": "- A. X. Lee, A. Nagabandi, P. Abbeel, and S. Levine. Stochastic latent actor-critic: Deep reinforcement learning with a latent variable model. arXiv preprint arXiv:1907.00953 , 2019.",
+          "reference": true,
+          "source_image": "figs/p012-002-source.png",
+          "zh": "- A. X. Lee, A. Nagabandi, P. Abbeel, and S. Levine. Stochastic latent actor-critic: Deep reinforcement learning with a latent variable model. arXiv preprint arXiv:1907.00953 , 2019."
+        },
+        {
+          "id": "p12-b3",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            155,
+            505,
+            176
+          ],
+          "en": "- T. P. Lillicrap, J. J. Hunt, A. Pritzel, N. Heess, T. Erez, Y. Tassa, D. Silver, and D. Wierstra. Continuous control with deep reinforcement learning. arXiv preprint arXiv:1509.02971 , 2015.",
+          "reference": true,
+          "source_image": "figs/p012-003-source.png",
+          "zh": "- T. P. Lillicrap, J. J. Hunt, A. Pritzel, N. Heess, T. Erez, Y. Tassa, D. Silver, and D. Wierstra. Continuous control with deep reinforcement learning. arXiv preprint arXiv:1509.02971 , 2015."
+        },
+        {
+          "id": "p12-b4",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            185,
+            506,
+            215
+          ],
+          "en": "- K. Lowrey, A. Rajeswaran, S. Kakade, E. Todorov, and I. Mordatch. Plan online, learn offline: Efficient learning and exploration via model-based control. arXiv preprint arXiv:1811.01848 , 2018.",
+          "reference": true,
+          "source_image": "figs/p012-004-source.png",
+          "zh": "- K. Lowrey, A. Rajeswaran, S. Kakade, E. Todorov, and I. Mordatch. Plan online, learn offline: Efficient learning and exploration via model-based control. arXiv preprint arXiv:1811.01848 , 2018."
+        },
+        {
+          "id": "p12-b5",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            226,
+            506,
+            258
+          ],
+          "en": "- M. C. Machado, M. G. Bellemare, E. Talvitie, J. Veness, M. Hausknecht, and M. Bowling. Revisiting the arcade learning environment: Evaluation protocols and open problems for general agents. Journal of Artificial Intelligence Research , 61:523–562, 2018.",
+          "reference": true,
+          "source_image": "figs/p012-005-source.png",
+          "zh": "- M. C. Machado, M. G. Bellemare, E. Talvitie, J. Veness, M. Hausknecht, and M. Bowling. Revisiting the arcade learning environment: Evaluation protocols and open problems for general agents. Journal of Artificial Intelligence Research , 61:523–562, 2018."
+        },
+        {
+          "id": "p12-b6",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            267,
+            505,
+            288
+          ],
+          "en": "- D. McAllester and K. Statos. Formal limitations on the measurement of mutual information. arXiv preprint arXiv:1811.04251 , 2018.",
+          "reference": true,
+          "source_image": "figs/p012-006-source.png",
+          "zh": "- D. McAllester and K. Statos. Formal limitations on the measurement of mutual information. arXiv preprint arXiv:1811.04251 , 2018."
+        },
+        {
+          "id": "p12-b7",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            297,
+            506,
+            329
+          ],
+          "en": "- V. Mnih, K. Kavukcuoglu, D. Silver, A. A. Rusu, J. Veness, M. G. Bellemare, A. Graves, M. Riedmiller, A. K. Fidjeland, G. Ostrovski, et al. Human-level control through deep reinforcement learning. Nature , 518(7540):529, 2015.",
+          "reference": true,
+          "source_image": "figs/p012-007-source.png",
+          "zh": "- V. Mnih, K. Kavukcuoglu, D. Silver, A. A. Rusu, J. Veness, M. G. Bellemare, A. Graves, M. Riedmiller, A. K. Fidjeland, G. Ostrovski, et al. Human-level control through deep reinforcement learning. Nature , 518(7540):529, 2015."
+        },
+        {
+          "id": "p12-b8",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            338,
+            506,
+            370
+          ],
+          "en": "- V. Mnih, A. P. Badia, M. Mirza, A. Graves, T. Lillicrap, T. Harley, D. Silver, and K. Kavukcuoglu. Asynchronous methods for deep reinforcement learning. In International Conference on Machine Learning , pages 1928–1937, 2016.",
+          "reference": true,
+          "source_image": "figs/p012-008-source.png",
+          "zh": "- V. Mnih, A. P. Badia, M. Mirza, A. Graves, T. Lillicrap, T. Harley, D. Silver, and K. Kavukcuoglu. Asynchronous methods for deep reinforcement learning. In International Conference on Machine Learning , pages 1928–1937, 2016."
+        },
+        {
+          "id": "p12-b9",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            379,
+            504,
+            400
+          ],
+          "en": "- J. Oh, S. Singh, and H. Lee. Value prediction network. In Advances in Neural Information Processing Systems , pages 6118–6128, 2017.",
+          "reference": true,
+          "source_image": "figs/p012-009-source.png",
+          "zh": "- J. Oh, S. Singh, and H. Lee. Value prediction network. In Advances in Neural Information Processing Systems , pages 6118–6128, 2017."
+        },
+        {
+          "id": "p12-b10",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            409,
+            506,
+            430
+          ],
+          "en": "- A. v. d. Oord, Y. Li, and O. Vinyals. Representation learning with contrastive predictive coding. arXiv preprint arXiv:1807.03748 , 2018.",
+          "reference": true,
+          "source_image": "figs/p012-010-source.png",
+          "zh": "- A. v. d. Oord, Y. Li, and O. Vinyals. Representation learning with contrastive predictive coding. arXiv preprint arXiv:1807.03748 , 2018."
+        },
+        {
+          "id": "p12-b11",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            439,
+            504,
+            460
+          ],
+          "en": "- P. Parmas, C. E. Rasmussen, J. Peters, and K. Doya. Pipps: Flexible model-based policy search robust to the curse of chaos. arXiv preprint arXiv:1902.01240 , 2019.",
+          "reference": true,
+          "source_image": "figs/p012-011-source.png",
+          "zh": "- P. Parmas, C. E. Rasmussen, J. Peters, and K. Doya. Pipps: Flexible model-based policy search robust to the curse of chaos. arXiv preprint arXiv:1902.01240 , 2019."
+        },
+        {
+          "id": "p12-b12",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            469,
+            505,
+            490
+          ],
+          "en": "- A. Piergiovanni, A. Wu, and M. S. Ryoo. Learning real-world robot policies by dreaming. arXiv preprint arXiv:1805.07813 , 2018.",
+          "reference": true,
+          "source_image": "figs/p012-012-source.png",
+          "zh": "- A. Piergiovanni, A. Wu, and M. S. Ryoo. Learning real-world robot policies by dreaming. arXiv preprint arXiv:1805.07813 , 2018."
+        },
+        {
+          "id": "p12-b13",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            499,
+            504,
+            520
+          ],
+          "en": "- B. Poole, S. Ozair, A. v. d. Oord, A. A. Alemi, and G. Tucker. On variational bounds of mutual information. arXiv preprint arXiv:1905.06922 , 2019.",
+          "reference": true,
+          "source_image": "figs/p012-013-source.png",
+          "zh": "- B. Poole, S. Ozair, A. v. d. Oord, A. A. Alemi, and G. Tucker. On variational bounds of mutual information. arXiv preprint arXiv:1905.06922 , 2019."
+        },
+        {
+          "id": "p12-b14",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            529,
+            505,
+            550
+          ],
+          "en": "- D. J. Rezende, S. Mohamed, and D. Wierstra. Stochastic backpropagation and approximate inference in deep generative models. arXiv preprint arXiv:1401.4082 , 2014.",
+          "reference": true,
+          "source_image": "figs/p012-014-source.png",
+          "zh": "- D. J. Rezende, S. Mohamed, and D. Wierstra. Stochastic backpropagation and approximate inference in deep generative models. arXiv preprint arXiv:1401.4082 , 2014."
+        },
+        {
+          "id": "p12-b15",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            559,
+            506,
+            580
+          ],
+          "en": "- J. Schmidhuber. Making the world differentiable: On using self-supervised fully recurrent neural networks for dynamic reinforcement learning and planning in non-stationary environments. 1990.",
+          "reference": true,
+          "source_image": "figs/p012-015-source.png",
+          "zh": "- J. Schmidhuber. Making the world differentiable: On using self-supervised fully recurrent neural networks for dynamic reinforcement learning and planning in non-stationary environments. 1990."
+        },
+        {
+          "id": "p12-b16",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            589,
+            506,
+            621
+          ],
+          "en": "- J. Schrittwieser, I. Antonoglou, T. Hubert, K. Simonyan, L. Sifre, S. Schmitt, A. Guez, E. Lockhart, D. Hassabis, T. Graepel, et al. Mastering atari, go, chess and shogi by planning with a learned model. arXiv preprint arXiv:1911.08265 , 2019.",
+          "reference": true,
+          "source_image": "figs/p012-016-source.png",
+          "zh": "- J. Schrittwieser, I. Antonoglou, T. Hubert, K. Simonyan, L. Sifre, S. Schmitt, A. Guez, E. Lockhart, D. Hassabis, T. Graepel, et al. Mastering atari, go, chess and shogi by planning with a learned model. arXiv preprint arXiv:1911.08265 , 2019."
+        },
+        {
+          "id": "p12-b17",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            630,
+            504,
+            651
+          ],
+          "en": "- J. Schulman, F. Wolski, P. Dhariwal, A. Radford, and O. Klimov. Proximal policy optimization algorithms. arXiv preprint arXiv:1707.06347 , 2017.",
+          "reference": true,
+          "source_image": "figs/p012-017-source.png",
+          "zh": "- J. Schulman, F. Wolski, P. Dhariwal, A. Radford, and O. Klimov. Proximal policy optimization algorithms. arXiv preprint arXiv:1707.06347 , 2017."
+        },
+        {
+          "id": "p12-b18",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            660,
+            506,
+            690
+          ],
+          "en": "- D. Silver, G. Lever, N. Heess, T. Degris, D. Wierstra, and M. Riedmiller. Deterministic policy gradient algorithms. In Proceedings of the 31st International Conference on Machine Learning , 2014.",
+          "reference": true,
+          "source_image": "figs/p012-018-source.png",
+          "zh": "- D. Silver, G. Lever, N. Heess, T. Degris, D. Wierstra, and M. Riedmiller. Deterministic policy gradient algorithms. In Proceedings of the 31st International Conference on Machine Learning , 2014."
+        },
+        {
+          "id": "p12-b19",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            701,
+            506,
+            732
+          ],
+          "en": "- D. Silver, J. Schrittwieser, K. Simonyan, I. Antonoglou, A. Huang, A. Guez, T. Hubert, L. Baker, M. Lai, A. Bolton, et al. Mastering the game of go without human knowledge. Nature , 550(7676): 354, 2017.",
+          "reference": true,
+          "source_image": "figs/p012-019-source.png",
+          "zh": "- D. Silver, J. Schrittwieser, K. Simonyan, I. Antonoglou, A. Huang, A. Guez, T. Hubert, L. Baker, M. Lai, A. Bolton, et al. Mastering the game of go without human knowledge. Nature , 550(7676): 354, 2017."
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "blocks": [
+        {
+          "id": "p13-b1",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            85,
+            505,
+            105
+          ],
+          "en": "- A. Srinivas, A. Jabri, P. Abbeel, S. Levine, and C. Finn. Universal planning networks. arXiv preprint arXiv:1804.00645 , 2018.",
+          "reference": true,
+          "source_image": "figs/p013-001-source.png",
+          "zh": "- A. Srinivas, A. Jabri, P. Abbeel, S. Levine, and C. Finn. Universal planning networks. arXiv preprint arXiv:1804.00645 , 2018."
+        },
+        {
+          "id": "p13-b2",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            114,
+            505,
+            135
+          ],
+          "en": "- R. S. Sutton. Dyna, an integrated architecture for learning, planning, and reacting. ACM SIGART Bulletin , 2(4):160–163, 1991.",
+          "reference": true,
+          "source_image": "figs/p013-002-source.png",
+          "zh": "- R. S. Sutton. Dyna, an integrated architecture for learning, planning, and reacting. ACM SIGART Bulletin , 2(4):160–163, 1991."
+        },
+        {
+          "id": "p13-b3",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            144,
+            466,
+            154
+          ],
+          "en": "- R. S. Sutton and A. G. Barto. Reinforcement learning: An introduction . MIT press, 2018.",
+          "reference": true,
+          "source_image": "figs/p013-003-source.png",
+          "zh": "- R. S. Sutton and A. G. Barto. Reinforcement learning: An introduction . MIT press, 2018."
+        },
+        {
+          "id": "p13-b4",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            163,
+            506,
+            184
+          ],
+          "en": "- Y. Tassa, Y. Doron, A. Muldal, T. Erez, Y. Li, D. d. L. Casas, D. Budden, A. Abdolmaleki, J. Merel, A. Lefrancq, et al. Deepmind control suite. arXiv preprint arXiv:1801.00690 , 2018.",
+          "reference": true,
+          "source_image": "figs/p013-004-source.png",
+          "zh": "- Y. Tassa, Y. Doron, A. Muldal, T. Erez, Y. Li, D. d. L. Casas, D. Budden, A. Abdolmaleki, J. Merel, A. Lefrancq, et al. Deepmind control suite. arXiv preprint arXiv:1801.00690 , 2018."
+        },
+        {
+          "id": "p13-b5",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            193,
+            504,
+            214
+          ],
+          "en": "- N. Tishby, F. C. Pereira, and W. Bialek. The information bottleneck method. arXiv preprint physics/0004057 , 2000.",
+          "reference": true,
+          "source_image": "figs/p013-005-source.png",
+          "zh": "- N. Tishby, F. C. Pereira, and W. Bialek. The information bottleneck method. arXiv preprint physics/0004057 , 2000."
+        },
+        {
+          "id": "p13-b6",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            223,
+            504,
+            243
+          ],
+          "en": "- T. Wang and J. Ba. Exploring model-based planning with policy networks. arXiv preprint arXiv:1906.08649 , 2019.",
+          "reference": true,
+          "source_image": "figs/p013-006-source.png",
+          "zh": "- T. Wang and J. Ba. Exploring model-based planning with policy networks. arXiv preprint arXiv:1906.08649 , 2019."
+        },
+        {
+          "id": "p13-b7",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            253,
+            506,
+            274
+          ],
+          "en": "- T. Wang, X. Bao, I. Clavera, J. Hoang, Y. Wen, E. Langlois, S. Zhang, G. Zhang, P. Abbeel, and J. Ba. Benchmarking model-based reinforcement learning. CoRR , abs/1907.02057, 2019.",
+          "reference": true,
+          "source_image": "figs/p013-007-source.png",
+          "zh": "- T. Wang, X. Bao, I. Clavera, J. Hoang, Y. Wen, E. Langlois, S. Zhang, G. Zhang, P. Abbeel, and J. Ba. Benchmarking model-based reinforcement learning. CoRR , abs/1907.02057, 2019."
+        },
+        {
+          "id": "p13-b8",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            283,
+            505,
+            315
+          ],
+          "en": "- M. Watter, J. Springenberg, J. Boedecker, and M. Riedmiller. Embed to control: A locally linear latent dynamics model for control from raw images. In Advances in neural information processing systems , pages 2746–2754, 2015.",
+          "reference": true,
+          "source_image": "figs/p013-008-source.png",
+          "zh": "- M. Watter, J. Springenberg, J. Boedecker, and M. Riedmiller. Embed to control: A locally linear latent dynamics model for control from raw images. In Advances in neural information processing systems , pages 2746–2754, 2015."
+        },
+        {
+          "id": "p13-b9",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            324,
+            506,
+            355
+          ],
+          "en": "- T. Weber, S. Racanière, D. P. Reichert, L. Buesing, A. Guez, D. J. Rezende, A. P. Badia, O. Vinyals, N. Heess, Y. Li, et al. Imagination-augmented agents for deep reinforcement learning. arXiv preprint arXiv:1707.06203 , 2017.",
+          "reference": true,
+          "source_image": "figs/p013-009-source.png",
+          "zh": "- T. Weber, S. Racanière, D. P. Reichert, L. Buesing, A. Guez, D. J. Rezende, A. P. Badia, O. Vinyals, N. Heess, Y. Li, et al. Imagination-augmented agents for deep reinforcement learning. arXiv preprint arXiv:1707.06203 , 2017."
+        },
+        {
+          "id": "p13-b10",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            364,
+            504,
+            385
+          ],
+          "en": "- R. J. Williams. Simple statistical gradient-following algorithms for connectionist reinforcement learning. Machine learning , 8(3-4):229–256, 1992.",
+          "reference": true,
+          "source_image": "figs/p013-010-source.png",
+          "zh": "- R. J. Williams. Simple statistical gradient-following algorithms for connectionist reinforcement learning. Machine learning , 8(3-4):229–256, 1992."
+        },
+        {
+          "id": "p13-b11",
+          "kind": "list-item",
+          "bbox": [
+            108,
+            394,
+            505,
+            426
+          ],
+          "en": "- M. Zhang, S. Vikram, L. Smith, P. Abbeel, M. Johnson, and S. Levine. Solar: deep structured representations for model-based reinforcement learning. In International Conference on Machine Learning , 2019.",
+          "reference": true,
+          "source_image": "figs/p013-011-source.png",
+          "zh": "- M. Zhang, S. Vikram, L. Smith, P. Abbeel, M. Johnson, and S. Levine. Solar: deep structured representations for model-based reinforcement learning. In International Conference on Machine Learning , 2019."
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "blocks": [
+        {
+          "id": "p14-b1",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            83,
+            238,
+            92
+          ],
+          "en": "A HYPER PARAMETERS",
+          "reference": false,
+          "source_image": "figs/p014-001-source.png",
+          "pdf_extracted_en": "A HYPER PARAMETERS",
+          "zh": "A 超参数"
+        },
+        {
+          "id": "p14-b2",
+          "kind": "text",
+          "bbox": [
+            107,
+            106,
+            506,
+            171
+          ],
+          "en": "Model components We use the convolutional encoder and decoder networks from Ha and Schmidhuber (2018), the RSSM of Hafner et al. (2018), and implement all other functions as three dense layers of size \\(300\\) with ELU activations (Clevert et al., 2015). Distributions in latent space are 30-dimensional diagonal Gaussians. The action model outputs a tanh mean scaled by a factor of 5 and a softplus standard deviation for the Normal distribution that is then transformed using tanh (Haarnoja et al., 2018). The scaling factor allows the agent to saturate the action distribution.",
+          "reference": false,
+          "source_image": "figs/p014-002-source.png",
+          "pdf_extracted_en": "Model components We use the convolutional encoder and decoder networks from Ha and Schmidhuber (2018), the RSSM of Hafner et al. (2018), and implement all other functions as three dense layers of size 300 with ELU activations (Clevert et al., 2015). Distributions in latent space are 30-dimensional diagonal Gaussians. The action model outputs a tanh mean scaled by a factor of 5 and a softplus standard deviation for the Normal distribution that is then transformed using tanh (Haarnoja et al., 2018). The scaling factor allows the agent to saturate the action distribution.",
+          "zh": "模型组件 我们采用 Ha and Schmidhuber (2018) 的卷积编码器和解码器网络，以及 Hafner et al. (2018) 的 RSSM，并将所有其他函数实现为三个全连接层，每层包含 \\(300\\) 个单元，使用 ELU 激活函数 (Clevert et al., 2015)。潜空间中的分布为 30 维对角高斯分布。动作模型为正态分布输出经 tanh 处理并放大 5 倍的均值，以及经 softplus 处理的标准差，随后对该正态分布施加 tanh 变换 (Haarnoja et al., 2018)。这一缩放因子使智能体能够让动作分布达到饱和。"
+        },
+        {
+          "id": "p14-b3",
+          "kind": "text",
+          "bbox": [
+            107,
+            175,
+            506,
+            251
+          ],
+          "en": "Learning updates We draw batches of 50 sequences of length 50 to train the world model, value model, and action model models using Adam (Kingma and Ba, 2014) with learning rates \\(6 \\times 10^{-4}\\), \\(8 \\times 10^{-5}\\), \\(8 \\times 10^{-5}\\), respectively and scale down gradient norms that exceed \\(100\\). We do not scale the KL regularizers (\\(\\beta = 1\\)) but clip them below \\(3\\) free nats as in PlaNet. The imagination horizon is \\(H = 15\\) and the same trajectories are used to update both action and value models. We compute the \\(\\mathrm{V}_\\lambda\\) targets with \\(\\gamma = 0.99\\) and \\(\\lambda = 0.95\\). We did not find latent overshooting for learning the model, an entropy bonus for the action model, or target networks for the value model necessary.",
+          "reference": false,
+          "source_image": "figs/p014-003-source.png",
+          "pdf_extracted_en": "Learning updates We draw batches of 50 sequences of length 50 to train the world model, value model, and action model models using Adam (Kingma and Ba, 2014) with learning rates 6 × 10−4 , 8 × 10−5 , 8 × 10−5 , respectively and scale down gradient norms that exceed 100. We do not scale the KL regularizers ( β = 1) but clip them below 3 free nats as in PlaNet. The imagination horizon is H = 15 and the same trajectories are used to update both action and value models. We compute the V λ targets with γ = 0 . 99 and λ = 0 . 95. We did not find latent overshooting for learning the model, an entropy bonus for the action model, or target networks for the value model necessary.",
+          "zh": "学习更新 我们抽取每批包含 50 条序列、每条序列长度为 50 的数据，使用 Adam (Kingma and Ba, 2014) 训练世界模型、价值模型和动作模型，学习率分别为 \\(6 \\times 10^{-4}\\)、\\(8 \\times 10^{-5}\\)、\\(8 \\times 10^{-5}\\)，并缩减范数超过 \\(100\\) 的梯度。我们不对 KL 正则项进行缩放（\\(\\beta = 1\\)），而是与 PlaNet 一样，以 \\(3\\) 个自由纳特为下限对其进行裁剪。想象时域为 \\(H = 15\\)，动作模型和价值模型使用相同的轨迹进行更新。我们使用 \\(\\gamma = 0.99\\) 和 \\(\\lambda = 0.95\\) 计算 \\(\\mathrm{V}_\\lambda\\) 目标值。我们发现，模型学习中的潜空间超调、动作模型的熵奖励以及价值模型的目标网络均非必需。"
+        },
+        {
+          "id": "p14-b4",
+          "kind": "text",
+          "bbox": [
+            108,
+            255,
+            506,
+            309
+          ],
+          "en": "Environment interaction The dataset is initialized with \\(S = 5\\) episodes collected using random actions. We iterate between \\(100\\) training steps and collecting \\(1\\) episode by executing the predicted mode action with \\(\\operatorname{Normal}(0, 0.3)\\) exploration noise. Instead of manually selecting the action repeat for each environment as in Hafner et al. (2018) and Lee et al. (2019), we fix it to 2 for all environments. See Figure 12 for an assessment of the robustness to different action repeat values.",
+          "reference": false,
+          "source_image": "figs/p014-004-source.png",
+          "pdf_extracted_en": "Environment interaction The dataset is initialized with S = 5 episodes collected using random actions. We iterate between 100 training steps and collecting 1 episode by executing the predicted mode action with Normal(0 , 0 . 3) exploration noise. Instead of manually selecting the action repeat for each environment as in Hafner et al. (2018) and Lee et al. (2019), we fix it to 2 for all environments. See Figure 12 for an assessment of the robustness to different action repeat values.",
+          "zh": "环境交互 数据集使用通过随机动作收集的 \\(S = 5\\) 个回合进行初始化。我们交替执行 \\(100\\) 个训练步骤与收集 \\(1\\) 个回合；收集时，执行预测动作分布的众数所对应的动作，并加入 \\(\\operatorname{Normal}(0, 0.3)\\) 探索噪声。我们没有像 Hafner et al. (2018) 和 Lee et al. (2019) 那样为每个环境手动选择动作重复次数，而是将所有环境的动作重复次数固定为 2。关于对不同动作重复次数的鲁棒性评估，见图 12。"
+        },
+        {
+          "id": "p14-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            314,
+            506,
+            389
+          ],
+          "en": "Discrete control For experiments on Atari games and DeepMind Lab levels, the action model predicts the logits of a categorical distribution. We use straight-through gradients for the sampling step during latent imagination. The action noise is epsilon greedy where \\(\\epsilon\\) is linearly scheduled from \\(0.4 \\rightarrow 0.1\\) over the first \\(200{,}000\\) gradient steps. To account for the higher complexity of these tasks, we use an imagination horizon of \\(H = 10\\), scale the KL regularizers by \\(\\beta = 0.1\\), and bound rewards using tanh. We predict the discount factor from the latent state with a binary classifier that is trained towards the soft labels of \\(0\\) and \\(\\gamma\\).",
+          "reference": false,
+          "source_image": "figs/p014-005-source.png",
+          "pdf_extracted_en": "Discrete control For experiments on Atari games and DeepMind Lab levels, the action model predicts the logits of a categorical distribution. We use straight-through gradients for the sampling step during latent imagination. The action noise is epsilon greedy where ϵ is linearly scheduled from 0 . 4 → 0 . 1 over the first 200 , 000 gradient steps. To account for the higher complexity of these tasks, we use an imagination horizon of H = 10, scale the KL regularizers by β = 0 . 1, and bound rewards using tanh. We predict the discount factor from the latent state with a binary classifier that is trained towards the soft labels of 0 and γ .",
+          "zh": "离散控制 在 Atari 游戏和 DeepMind Lab 关卡的实验中，动作模型预测类别分布的 logits。我们在潜空间想象的采样步骤中使用直通梯度。动作噪声采用 epsilon 贪心方式，其中 \\(\\epsilon\\) 在前 \\(200{,}000\\) 个梯度更新步骤中按 \\(0.4 \\rightarrow 0.1\\) 线性调整。考虑到这些任务的复杂度更高，我们使用 \\(H = 10\\) 的想象时域，以 \\(\\beta = 0.1\\) 缩放 KL 正则项，并使用 tanh 限制奖励的取值范围。我们使用一个二分类器根据潜状态预测折扣因子，该分类器以 \\(0\\) 和 \\(\\gamma\\) 为软标签进行训练。"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "blocks": [
+        {
+          "id": "p15-b1",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            83,
+            199,
+            92
+          ],
+          "en": "B DERIVATIONS",
+          "reference": false,
+          "source_image": "figs/p015-001-source.png",
+          "pdf_extracted_en": "B DERIVATIONS",
+          "zh": "B 推导"
+        },
+        {
+          "id": "p15-b2",
+          "kind": "text",
+          "bbox": [
+            107,
+            105,
+            491,
+            115
+          ],
+          "en": "We define the information bottleneck objective (Tishby et al., 2000) for latent dynamics models,",
+          "reference": false,
+          "source_image": "figs/p015-002-source.png",
+          "pdf_extracted_en": "We define the information bottleneck objective (Tishby et al., 2000) for latent dynamics models,",
+          "zh": "我们为潜在动力学模型定义信息瓶颈目标 (Tishby et al., 2000)，"
+        },
+        {
+          "id": "p15-b3",
+          "kind": "formula",
+          "bbox": [
+            192.0,
+            120.0,
+            506.0,
+            135.0
+          ],
+          "en": "max I( s 1: T ; ( o 1: T , r 1: T ) | a 1: T ) − β I( s 1: T , i 1: T | a 1: T ) , (13)",
+          "reference": false,
+          "image": "figs/p015-003.png",
+          "labels": [
+            "13"
+          ],
+          "original_bbox": [
+            194,
+            122,
+            504,
+            133
+          ]
+        },
+        {
+          "id": "p15-b4",
+          "kind": "text",
+          "bbox": [
+            107,
+            140,
+            505,
+            161
+          ],
+          "en": "where \\(\\beta\\) is scalar and \\(i_t\\) are dataset indices that determine the observations \\(p(o_t \\mid i_t) \\doteq \\delta(o_t-\\bar{o}_t)\\) as in Alemi et al. (2016).",
+          "reference": false,
+          "source_image": "figs/p015-004-source.png",
+          "pdf_extracted_en": "where β is scalar and it are dataset indices that determine the observations p ( ot | it ) =. δ ( ot − o ¯ t ) as in Alemi et al. (2016).",
+          "zh": "其中，\\(\\beta\\) 为标量，\\(i_t\\) 为数据集索引，并按照 Alemi et al. (2016) 中的方式确定观测：\\(p(o_t \\mid i_t) \\doteq \\delta(o_t-\\bar{o}_t)\\)。"
+        },
+        {
+          "id": "p15-b5",
+          "kind": "text",
+          "bbox": [
+            107,
+            166,
+            506,
+            220
+          ],
+          "en": "Maximizing the objective leads to model states that can predict the sequence of observations and rewards while limiting the amount of information extracted at each time step. This encourages the model to reconstruct each image by relying on information extracted at preceeding time steps to the extent possible, and only accessing additional information from the current image when necessary. As a result, the information regularizer encourages the model to learn long-term dependencies.",
+          "reference": false,
+          "source_image": "figs/p015-005-source.png",
+          "pdf_extracted_en": "Maximizing the objective leads to model states that can predict the sequence of observations and rewards while limiting the amount of information extracted at each time step. This encourages the model to reconstruct each image by relying on information extracted at preceeding time steps to the extent possible, and only accessing additional information from the current image when necessary. As a result, the information regularizer encourages the model to learn long-term dependencies.",
+          "zh": "最大化该目标可使模型状态能够预测观测与奖励序列，同时限制每个时间步提取的信息量。这促使模型在重建每幅图像时尽可能依赖先前时间步提取的信息，仅在必要时才从当前图像获取额外信息。因此，信息正则项鼓励模型学习长期依赖关系。"
+        },
+        {
+          "id": "p15-b6",
+          "kind": "text",
+          "bbox": [
+            108,
+            223,
+            505,
+            244
+          ],
+          "en": "For the generative objective, we lower bound the first term using the non-negativity of the KL divergence and drop the marginal data probability as it does not depend on the representation model,",
+          "reference": false,
+          "source_image": "figs/p015-006-source.png",
+          "pdf_extracted_en": "For the generative objective, we lower bound the first term using the non-negativity of the KL divergence and drop the marginal data probability as it does not depend on the representation model,",
+          "zh": "对于生成式目标，我们利用 KL 散度的非负性求得第一项的下界，并略去数据的边缘概率，因为它不依赖于表征模型，"
+        },
+        {
+          "id": "p15-b7",
+          "kind": "formula",
+          "bbox": [
+            105.0,
+            248.0,
+            513.0,
+            385.7813415527344
+          ],
+          "en": "I( s 1: T ; ( o 1: T , r 1: T ) | a 1: T ) = E p ( o 1: T ,r 1: T ,s 1: T ,a 1: T )�� ln p ( o 1: T , r 1: T | s 1: T , a 1: T ) − ln p ( o 1: T , r 1: T | a 1: T ) � t const =+ E ln p ( o 1: T , r 1: T | s 1: T , a 1: T ) �� � t ≥ E�� ln p ( o 1: T , r 1: T | s 1: T , a 1: T )� − KL � p ( o 1: T , r 1: T | s 1: T , a 1: T ) ��� � q ( ot | st ) q ( rt | st )� t t = E ln q ( ot | st ) + ln q ( rt | st ) . �� � t (14)",
+          "reference": false,
+          "image": "figs/p015-007.png",
+          "labels": [
+            "14"
+          ],
+          "original_bbox": [
+            105.0,
+            248.0,
+            513.0,
+            385.7813415527344
+          ],
+          "merged_source_blocks": [
+            "p15-b7",
+            "p15-b8"
+          ]
+        },
+        {
+          "id": "p15-b9",
+          "kind": "text",
+          "bbox": [
+            107,
+            386,
+            504,
+            407
+          ],
+          "en": "For the contrastive objective, we subtract the constant marginal probability of the data under the variational encoder, apply Bayes rule, and use the InfoNCE mini-batch bound (Poole et al., 2019),",
+          "reference": false,
+          "source_image": "figs/p015-009-source.png",
+          "pdf_extracted_en": "For the contrastive objective, we subtract the constant marginal probability of the data under the variational encoder, apply Bayes rule, and use the InfoNCE mini-batch bound (Poole et al., 2019),",
+          "zh": "对于对比目标，我们减去变分编码器下数据的常数边缘概率，应用贝叶斯法则，并使用 InfoNCE 小批量界 (Poole et al., 2019)，"
+        },
+        {
+          "id": "p15-b10",
+          "kind": "formula",
+          "bbox": [
+            194.0,
+            412.0,
+            506.0,
+            493.0
+          ],
+          "en": "E� ln q ( ot | st ) + ln q ( rt | st )� =+ E� ln q ( ot | st ) − ln q ( ot ) + ln q ( rt | st )� = E� ln q ( st | ot ) − ln q ( st ) + ln q ( rt | st )� (15) ≥ E ln q ( st | ot ) − ln � q ( st | o ′ ) + ln q ( rt | st ) . � o ′ �",
+          "reference": false,
+          "image": "figs/p015-010.png",
+          "labels": [
+            "15"
+          ],
+          "original_bbox": [
+            196,
+            414,
+            504,
+            491
+          ]
+        },
+        {
+          "id": "p15-b11",
+          "kind": "text",
+          "bbox": [
+            107,
+            499,
+            486,
+            509
+          ],
+          "en": "For the second term, we use the non-negativity of the KL divergence to obtain an upper bound,",
+          "reference": false,
+          "source_image": "figs/p015-011-source.png",
+          "pdf_extracted_en": "For the second term, we use the non-negativity of the KL divergence to obtain an upper bound,",
+          "zh": "对于第二项，我们利用 KL 散度的非负性得到一个上界，"
+        },
+        {
+          "id": "p15-b12",
+          "kind": "formula",
+          "bbox": [
+            130.0,
+            512.0,
+            508.0,
+            643.0
+          ],
+          "en": "I( s 1: T ; i 1: T | a 1: T ) = E p ( o 1: T ,r 1: T ,s 1: T ,a 1: T ,i 1: T )�� ln p ( st | st− 1 , at− 1 , it ) − ln p ( st | st− 1 , at− 1)� t = E ln p ( st | st− 1 , at− 1 , ot ) − ln p ( st | st− 1 , at− 1) �� � t (16) ≤ E ln p ( st | st− 1 , at− 1 , ot ) − ln q ( st | st− 1 , at− 1) �� � t = E�� KL � p ( st | st− 1 , at− 1 , ot ) �� q ( st | st− 1 , at− 1)� � . t",
+          "reference": false,
+          "image": "figs/p015-012.png",
+          "labels": [
+            "16"
+          ],
+          "original_bbox": [
+            130.0,
+            512.0,
+            508.0,
+            643.0
+          ],
+          "merged_source_blocks": [
+            "p15-b12",
+            "p15-b13"
+          ]
+        },
+        {
+          "id": "p15-b14",
+          "kind": "text",
+          "bbox": [
+            107,
+            647,
+            238,
+            657
+          ],
+          "en": "This lower bounds the objective.",
+          "reference": false,
+          "source_image": "figs/p015-014-source.png",
+          "pdf_extracted_en": "This lower bounds the objective.",
+          "zh": "由此得到该目标的下界。"
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "blocks": [
+        {
+          "id": "p16-b1",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            83,
+            234,
+            92
+          ],
+          "en": "C DISCRETE CONTROL",
+          "reference": false,
+          "source_image": "figs/p016-001-source.png",
+          "pdf_extracted_en": "C DISCRETE CONTROL",
+          "zh": "C 离散控制"
+        },
+        {
+          "id": "p16-b2",
+          "kind": "text",
+          "bbox": [
+            107,
+            105,
+            506,
+            170
+          ],
+          "en": "We evaluate Dreamer on a subset of tasks with discrete actions from the Atari suite (Bellemare et al., 2013) and DeepMind Lab (Beattie et al., 2016). While agents that purely learn through world models are not yet competitive in these domains (Kaiser et al., 2019), the tasks offer a diverse test bed with visual complexity, sparse rewards, and early termination. Agents observe \\(64 \\times 64 \\times 3\\) images and select one of between \\(3\\) and \\(18\\) actions. For Atari, we follow the evaluation protocol of Machado et al. (2018) with sticky actions. Refer to Figure 9 for these experiments.",
+          "reference": false,
+          "source_image": "figs/p016-002-source.png",
+          "pdf_extracted_en": "We evaluate Dreamer on a subset of tasks with discrete actions from the Atari suite (Bellemare et al., 2013) and DeepMind Lab (Beattie et al., 2016). While agents that purely learn through world models are not yet competitive in these domains (Kaiser et al., 2019), the tasks offer a diverse test bed with visual complexity, sparse rewards, and early termination. Agents observe 64 × 64 × 3 images and select one of between 3 and 18 actions. For Atari, we follow the evaluation protocol of Machado et al. (2018) with sticky actions. Refer to Figure 9 for these experiments.",
+          "zh": "我们在 Atari 套件 (Bellemare et al., 2013) 和 DeepMind Lab (Beattie et al., 2016) 中选取部分具有离散动作的任务，对 Dreamer 进行评估。尽管纯粹通过世界模型学习的智能体在这些领域尚不具备竞争力 (Kaiser et al., 2019)，这些任务仍提供了一个多样化的测试平台，涵盖复杂的视觉场景、稀疏奖励和提前终止。智能体观测尺寸为 \\(64 \\times 64 \\times 3\\) 的图像，并从数量介于 \\(3\\) 到 \\(18\\) 之间的可选动作中选择一个动作。对于 Atari，我们遵循 Machado et al. (2018) 的评估协议，采用黏性动作机制。这些实验见图 9。"
+        },
+        {
+          "id": "p16-b3",
+          "kind": "picture",
+          "bbox": [
+            106.0,
+            179.0,
+            507.0,
+            581.0
+          ],
+          "en": "Boxing Choppercommand Doubledunk Fishingderby 20 100 10000 0 50 5000 0 50 0 0 20 100 0.5 1.0 1.5 1 2 3 4 2 4 6 1 2 3 4 1e7 1e7 1e7 1e7 Ice Hockey Kangaroo Krull Kungfumaster 0 40000 5 10000 7500 30000 10 5000 20000 5000 15 2500 10000 20 0 0 0 2 4 6 0.5 1.0 1.5 2.0 0.5 1.0 1.5 0.5 1.0 1.5 2.0 1e7 1e7 1e7 1e7 Mspacman Namethisgame Pong Tutankham 4000 10000 10 200 3000 7500 0 2000 5000 100 10 1000 2500 20 0 0 0.5 1.0 1.5 1 2 3 4 2 4 6 0 1 2 3 4 5 1e7 1e7 1e7 1e7 Up N Down Zaxxon Collect Good Objects Watermaze 200000 15000 10.0 40 150000 7.5 10000 100000 5.0 20 5000 2.5 50000 0.0 0 0 0 2 4 6 0.5 1.0 1.5 0.25 0.50 0.75 1.00 1.25 1.50 1 2 3 4 5 Environment Steps 1e7 Environment Steps 1e7 Environment Steps 1e7 Environment Steps 1e7 Dreamer SimPLe (1e5 steps) DQN (2e8 steps) Rainbow (2e8 steps) IMPALA (1e10 steps) Random Episode Return Episode Return Episode Return Episode Return",
+          "reference": false,
+          "image": "figs/p016-003.png",
+          "labels": [],
+          "original_bbox": [
+            108,
+            181,
+            505,
+            579
+          ]
+        },
+        {
+          "id": "p16-b4",
+          "kind": "caption",
+          "bbox": [
+            108,
+            583,
+            506,
+            626
+          ],
+          "en": "Figure 9: Performance of Dreamer in environments with discrete actions and early termination. Dreamer learns successful behaviors on this subset of Atari games and the object collection level of DMLab. We highlight representation learning for these environments as a direction of future work that could enable competitive performance across all Atari games and DMLab levels using Dreamer.",
+          "reference": false,
+          "source_image": "figs/p016-004-source.png",
+          "pdf_extracted_en": "Figure 9: Performance of Dreamer in environments with discrete actions and early termination. Dreamer learns successful behaviors on this subset of Atari games and the object collection level of DMLab. We highlight representation learning for these environments as a direction of future work that could enable competitive performance across all Atari games and DMLab levels using Dreamer.",
+          "zh": "图 9：Dreamer 在具有离散动作和提前终止机制的环境中的性能。Dreamer 在这一组 Atari 游戏和 DMLab 的物体收集关卡中学会了能够成功完成任务的行为。我们强调，针对这些环境的表征学习是未来工作的一个方向，有望使 Dreamer 在所有 Atari 游戏和 DMLab 关卡中均取得具有竞争力的性能。"
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "blocks": [
+        {
+          "id": "p17-b1",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            83,
+            242,
+            92
+          ],
+          "en": "D BEHAVIOR LEARNING",
+          "reference": false,
+          "source_image": "figs/p017-001-source.png",
+          "pdf_extracted_en": "D BEHAVIOR LEARNING",
+          "zh": "D 行为学习"
+        },
+        {
+          "id": "p17-b2",
+          "kind": "picture",
+          "bbox": [
+            106.0,
+            112.0,
+            507.0,
+            616.0
+          ],
+          "en": "Acrobot Swingup Cartpole Balance Cartpole Balance Sparse Cartpole Swingup 1000 1000 1000 1000 750 750 750 750 500 500 500 500 250 250 250 250 0 0 0 0 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4 5 Cartpole Swingup Sparse Cheetah Run Cup Catch Finger Spin 1000 1000 1000 1000 750 750 750 750 500 500 500 500 250 250 250 250 0 0 0 0 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4 5 Finger Turn Easy Finger Turn Hard Hopper Hop Hopper Stand 1000 1000 1000 1000 750 750 750 750 500 500 500 500 250 250 250 250 0 0 0 0 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4 5 Pendulum Swingup Quadruped Run Quadruped Walk Reacher Easy 1000 1000 1000 1000 750 750 750 750 500 500 500 500 250 250 250 250 0 0 0 0 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4 5 Reacher Hard Walker Run Walker Stand Walker Walk 1000 1000 1000 1000 750 750 750 750 500 500 500 500 250 250 250 250 0 0 0 0 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4 5 Environment Steps 1e6 Environment Steps 1e6 Environment Steps 1e6 Environment Steps 1e6 Dreamer No value PlaNet D4PG (1e9 steps) A3C (1e9 steps, proprio) SLAC (3e6 steps) Episode Return Episode Return Episode Return Episode Return Episode Return",
+          "reference": false,
+          "image": "figs/p017-002.png",
+          "labels": [],
+          "original_bbox": [
+            108,
+            114,
+            505,
+            614
+          ]
+        },
+        {
+          "id": "p17-b3",
+          "kind": "caption",
+          "bbox": [
+            108,
+            618,
+            505,
+            683
+          ],
+          "en": "Figure 10: Comparison of action selection schemes on the continuous control tasks of the DeepMind Control Suite from pixel inputs. The lines show mean scores over environment steps and the shaded areas show the standard deviation across 5 seeds. We compare Dreamer that learns both actions and values in imagination, to only learning actions in imagination, and Planet that selects actions by online planning instead of learning a policy. The baselines include the top model-free algorithm D4PG, the well-known A3C agent, and the hybrid SLAC agent.",
+          "reference": false,
+          "source_image": "figs/p017-003-source.png",
+          "pdf_extracted_en": "Figure 10: Comparison of action selection schemes on the continuous control tasks of the DeepMind Control Suite from pixel inputs. The lines show mean scores over environment steps and the shaded areas show the standard deviation across 5 seeds. We compare Dreamer that learns both actions and values in imagination, to only learning actions in imagination, and Planet that selects actions by online planning instead of learning a policy. The baselines include the top model-free algorithm D4PG, the well-known A3C agent, and the hybrid SLAC agent.",
+          "zh": "图 10：在以像素为输入的 DeepMind Control Suite 连续控制任务上比较动作选择方案。曲线表示平均得分随环境步数的变化，阴影区域表示 5 个随机种子下的标准差。我们比较了在想象中同时学习动作和价值的 Dreamer、仅在想象中学习动作的方法，以及通过在线规划而非学习策略来选择动作的 Planet。基线包括顶尖的无模型算法 D4PG、广为人知的 A3C 智能体和混合式 SLAC 智能体。"
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "blocks": [
+        {
+          "id": "p18-b1",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            83,
+            277,
+            92
+          ],
+          "en": "E REPRESENTATION LEARNING",
+          "reference": false,
+          "source_image": "figs/p018-001-source.png",
+          "pdf_extracted_en": "E REPRESENTATION LEARNING",
+          "zh": "E 表征学习"
+        },
+        {
+          "id": "p18-b2",
+          "kind": "picture",
+          "bbox": [
+            106.0,
+            112.0,
+            507.0,
+            616.0
+          ],
+          "en": "Acrobot Swingup Cartpole Balance Cartpole Balance Sparse Cartpole Swingup 1000 1000 1000 1000 750 750 750 750 500 500 500 500 250 250 250 250 0 0 0 0 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 Cartpole Swingup Sparse Cheetah Run Cup Catch Finger Spin 1000 1000 1000 1000 750 750 750 750 500 500 500 500 250 250 250 250 0 0 0 0 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 Finger Turn Easy Finger Turn Hard Hopper Hop Hopper Stand 1000 1000 1000 1000 750 750 750 750 500 500 500 500 250 250 250 250 0 0 0 0 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 Pendulum Swingup Quadruped Run Quadruped Walk Reacher Easy 1000 1000 1000 1000 750 750 750 750 500 500 500 500 250 250 250 250 0 0 0 0 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 Reacher Hard Walker Run Walker Stand Walker Walk 1000 1000 1000 1000 750 750 750 750 500 500 500 500 250 250 250 250 0 0 0 0 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 Environment Steps 1e6 Environment Steps 1e6 Environment Steps 1e6 Environment Steps 1e6 Dreamer + Reconstruction Dreamer + Contrastive Dreamer + Reward only D4PG (1e9 steps) A3C (1e9 steps, proprio) Episode Return Episode Return Episode Return Episode Return Episode Return",
+          "reference": false,
+          "image": "figs/p018-002.png",
+          "labels": [],
+          "original_bbox": [
+            108,
+            114,
+            505,
+            614
+          ]
+        },
+        {
+          "id": "p18-b3",
+          "kind": "caption",
+          "bbox": [
+            108,
+            618,
+            505,
+            683
+          ],
+          "en": "Figure 11: Comparison of representation learning methods for Dreamer. The lines show mean scores and the shaded areas show the standard deviation across 5 seeds. We compare generating both images and rewards, generating rewards and using a contrastive loss to learn about the images, and only predicting rewards. Image reconstruction provides the best learning signal across most of the tasks, followed by the contrastive objective. Learning purely from rewards was not sufficient in our experiments and might require larger amounts of experience.",
+          "reference": false,
+          "source_image": "figs/p018-003-source.png",
+          "pdf_extracted_en": "Figure 11: Comparison of representation learning methods for Dreamer. The lines show mean scores and the shaded areas show the standard deviation across 5 seeds. We compare generating both images and rewards, generating rewards and using a contrastive loss to learn about the images, and only predicting rewards. Image reconstruction provides the best learning signal across most of the tasks, followed by the contrastive objective. Learning purely from rewards was not sufficient in our experiments and might require larger amounts of experience.",
+          "zh": "图 11：用于 Dreamer 的表征学习方法的比较。曲线表示平均得分，阴影区域表示 5 个随机种子下的标准差。我们比较了同时生成图像和奖励、生成奖励并使用对比损失学习图像信息，以及仅预测奖励这三种方法。在大多数任务中，图像重建提供了最佳的学习信号，其次是对比目标。在我们的实验中，仅从奖励中学习并不足以完成任务，而且可能需要更多的经验。"
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "blocks": [
+        {
+          "id": "p19-b1",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            83,
+            212,
+            92
+          ],
+          "en": "F ACTION REPEAT",
+          "reference": false,
+          "source_image": "figs/p019-001-source.png",
+          "pdf_extracted_en": "F ACTION REPEAT",
+          "zh": "F 动作重复"
+        },
+        {
+          "id": "p19-b2",
+          "kind": "picture",
+          "bbox": [
+            106.0,
+            112.0,
+            507.0,
+            599.0
+          ],
+          "en": "Acrobot Swingup Cartpole Balance Cartpole Balance Sparse Cartpole Swingup 1000 1000 1000 1000 800 800 800 800 600 600 600 600 400 400 400 400 200 200 200 200 0 0 0 0 0.0 0.2 0.4 0.6 0.8 1.0 0.0 0.2 0.4 0.6 0.8 1.0 0.0 0.2 0.4 0.6 0.8 1.0 0.0 0.2 0.4 0.6 0.8 1.0 Cartpole Swingup Sparse Cheetah Run Cup Catch Finger Spin 1000 1000 1000 1000 800 800 800 800 600 600 600 600 400 400 400 400 200 200 200 200 0 0 0 0 0.0 0.2 0.4 0.6 0.8 1.0 0.0 0.2 0.4 0.6 0.8 1.0 0.0 0.2 0.4 0.6 0.8 1.0 0.0 0.2 0.4 0.6 0.8 1.0 Finger Turn Easy Finger Turn Hard Hopper Hop Hopper Stand 1000 1000 1000 1000 800 800 800 800 600 600 600 600 400 400 400 400 200 200 200 200 0 0 0 0 0.0 0.2 0.4 0.6 0.8 1.0 0.0 0.2 0.4 0.6 0.8 1.0 0.0 0.2 0.4 0.6 0.8 1.0 0.0 0.2 0.4 0.6 0.8 1.0 Pendulum Swingup Quadruped Run Quadruped Walk Reacher Easy 1000 1000 1000 1000 800 800 800 800 600 600 600 600 400 400 400 400 200 200 200 200 0 0 0 0 0.0 0.2 0.4 0.6 0.8 1.0 0.0 0.2 0.4 0.6 0.8 1.0 0.0 0.2 0.4 0.6 0.8 1.0 0.0 0.2 0.4 0.6 0.8 1.0 Reacher Hard Walker Run Walker Stand Walker Walk 1000 1000 1000 1000 800 800 800 800 600 600 600 600 400 400 400 400 200 200 200 200 0 0 0 0 0.0 0.2 0.4 0.6 0.8 1.0 0.0 0.2 0.4 0.6 0.8 1.0 0.0 0.2 0.4 0.6 0.8 1.0 0.0 0.2 0.4 0.6 0.8 1.0 Environment Steps 1e6 Environment Steps 1e6 Environment Steps 1e6 Environment Steps 1e6 Repeat 1 Repeat 2 Repeat 4 A3C (1e9 steps, proprio) D4PG (1e9 steps) PlaNet (1e6 steps) SLAC (3e6 steps) Episode Return Episode Return Episode Return Episode Return Episode Return",
+          "reference": false,
+          "image": "figs/p019-002.png",
+          "labels": [],
+          "original_bbox": [
+            108,
+            114,
+            505,
+            597
+          ]
+        },
+        {
+          "id": "p19-b3",
+          "kind": "caption",
+          "bbox": [
+            108,
+            602,
+            505,
+            655
+          ],
+          "en": "Figure 12: Robustness of Dreamer to different control frequencies. Reinforcement learning methods can be sensitive to this hyper parameter, which could be amplified when learning dynamics models at the control frequency of the environment. For this experiment, we train Dreamer with different amounts of action repeat. The areas show one standard deviation across 2 seeds. We used a previous hyper parameter setting for this experiment. We find that a value of \\(R = 2\\) works best across tasks.",
+          "reference": false,
+          "source_image": "figs/p019-003-source.png",
+          "pdf_extracted_en": "Figure 12: Robustness of Dreamer to different control frequencies. Reinforcement learning methods can be sensitive to this hyper parameter, which could be amplified when learning dynamics models at the control frequency of the environment. For this experiment, we train Dreamer with different amounts of action repeat. The areas show one standard deviation across 2 seeds. We used a previous hyper parameter setting for this experiment. We find that a value of R = 2 works best across tasks.",
+          "zh": "图 12：Dreamer 对不同控制频率的鲁棒性。强化学习方法可能对这一超参数敏感，而在环境的控制频率下学习动力学模型时，这种敏感性可能会进一步增强。在本实验中，我们采用不同的动作重复次数训练 Dreamer。阴影区域表示 2 个随机种子下的一个标准差范围。本实验采用了先前的超参数设置。我们发现，\\(R = 2\\) 在各项任务上的整体表现最佳。"
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "blocks": [
+        {
+          "id": "p20-b1",
+          "kind": "section-header",
+          "bbox": [
+            108,
+            83,
+            297,
+            92
+          ],
+          "en": "G CONTINUOUS CONTROL SCORES",
+          "reference": false,
+          "source_image": "figs/p020-001-source.png",
+          "pdf_extracted_en": "G CONTINUOUS CONTROL SCORES",
+          "zh": "G 连续控制得分"
+        },
+        {
+          "id": "p20-b2",
+          "kind": "table",
+          "bbox": [
+            106.0,
+            108.0,
+            507.0,
+            441.0
+          ],
+          "en": "||A3C|D4PG|PlaNet1|Dreamer| |---|---|---|---|---| |Input modality|proprio|pixels|pixels|pixels| |Environment steps|108|108|5×106|5×106| |Acrobot Swingup|41.90|91.70|3.21|365.26| |Cartpole Balance|951.60|992.80|452.56|979.56| |Cartpole Balance Sparse|857.40|1000.00|164.74|941.84| |Cartpole Swingup|558.40|862.00|312.56|833.66| |Cartpole Swingup Sparse|179.80|482.00|0.64|812.22| |Cheetah Run|213.90|523.80|496.12|894.56| |Cup Catch|104.70|980.50|455.98|962.48| |Finger Spin|129.40|985.70|495.25|498.88| |Finger Turn Easy|167.30|971.40|451.22|825.86| |Finger Turn Hard|88.70|966.00|312.55|891.38| |Hopper Hop|0.50|242.00|0.37|368.97| |Hopper Stand|27.90|929.90|5.96|923.72| |Pendulum Swingup|48.60|680.90|3.27|833.00| |Quadruped Run|−|−|280.45|888.39| |Quadruped Walk|−|−|238.90|931.61| |Reacher Easy|95.60|967.40|468.50|935.08| |Reacher Hard|39.70|957.10|187.02|817.05| |Walker Run|191.80|567.20|626.25|824.67| |Walker Stand|378.40|985.20|759.19|977.99| |Walker Walk|311.00|968.30|944.70|961.67| |Average|243.70|786.32|332.97|823.39|",
+          "reference": false,
+          "image": "figs/p020-002.png",
+          "labels": [],
+          "original_bbox": [
+            108,
+            110,
+            505,
+            439
+          ]
+        },
+        {
+          "id": "p20-b3",
+          "kind": "footnote",
+          "bbox": [
+            108,
+            712,
+            504,
+            732
+          ],
+          "en": "\\({}^{1}\\) We re-run PlaNet with fixed action repeat of \\(R = 2\\) to not tune the this value for each of the 20 tasks. As a result, the scores differ from Hafner et al. (2018).",
+          "reference": false,
+          "source_image": "figs/p020-003-source.png",
+          "pdf_extracted_en": "1We re-run PlaNet with fixed action repeat of R = 2 to not tune the this value for each of the 20 tasks. As a result, the scores differ from Hafner et al. (2018).",
+          "zh": "\\({}^{1}\\) 我们将动作重复次数固定为 \\(R = 2\\)，重新运行 PlaNet，以避免针对 20 项任务中的每一项单独调整该值。因此，所得分数与 Hafner et al. (2018) 中的分数有所不同。"
+        }
+      ]
+    }
+  ],
+  "page_count": 20
+}

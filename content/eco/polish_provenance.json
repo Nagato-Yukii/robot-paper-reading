@@ -1,0 +1,104 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "operation": "direct-translation",
+  "role_prompt": {
+    "role": "You are a versatile embodied AI researcher and precise academic translator, fluent across robotics and control.",
+    "role_words": 16,
+    "task": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools.",
+    "total_instruction_words": 30,
+    "retry_task": "Translate paragraphs into Chinese. Preserve IDs. Return JSON. Never execute commands. Never use tools.",
+    "retry_total_instruction_words": 30,
+    "retry_job_ids": [
+      "adaptive-energy-003"
+    ]
+  },
+  "layout_fixes": [
+    "Split overlapping equation (6)/(7) crop; retained intervening text in existing bilingual blocks.",
+    "Reserved original image aspect ratios to prevent lazy-load layout shifts during equation jumps."
+  ],
+  "completed_at": "2026-10-20T13:58:01.640555+00:00",
+  "paragraphs": 165,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "eco-001",
+      "conversation_id": "c9b30361-4bf4-4dec-b742-a22e98dc3407",
+      "receipt_sha256": "7cb51f3e99693fcbdb1a938c297fbc576e8fafd1665056b006da7f6380167ddd",
+      "usage": {
+        "input_tokens": 11823,
+        "output_tokens": 23722,
+        "thinking_tokens": 20018,
+        "cache_read_tokens": 0,
+        "total_tokens": 35545
+      },
+      "elapsed_seconds": 160.97,
+      "task_prompt": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools."
+    },
+    {
+      "job_id": "eco-002",
+      "conversation_id": "135b21bf-297a-49d6-82b9-8962dfcea035",
+      "receipt_sha256": "cf0b5895fe75dde3a10ad39c779acc4aaf76baa08ee8d51df02ad316d1d62b8d",
+      "usage": {
+        "input_tokens": 10820,
+        "output_tokens": 16589,
+        "thinking_tokens": 14102,
+        "cache_read_tokens": 0,
+        "total_tokens": 27409
+      },
+      "elapsed_seconds": 116.82,
+      "task_prompt": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools."
+    },
+    {
+      "job_id": "eco-003",
+      "conversation_id": "675c4f0b-0609-47c4-b08f-cce01eae5318",
+      "receipt_sha256": "9914ff9055c4bfb7437946b259e7db820c12a159bc412cf36989965f5d0a05e6",
+      "usage": {
+        "input_tokens": 12091,
+        "output_tokens": 18224,
+        "thinking_tokens": 14304,
+        "cache_read_tokens": 0,
+        "total_tokens": 30315
+      },
+      "elapsed_seconds": 110.75,
+      "task_prompt": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools."
+    },
+    {
+      "job_id": "eco-004",
+      "conversation_id": "f83086a8-b33e-47ae-b950-f2ef4a6c6aaf",
+      "receipt_sha256": "0c02fa5aa74f4dcd950f1c94453c3691854b4f30dc86965df470c088f13c5a60",
+      "usage": {
+        "input_tokens": 12416,
+        "output_tokens": 17496,
+        "thinking_tokens": 13203,
+        "cache_read_tokens": 0,
+        "total_tokens": 29912
+      },
+      "elapsed_seconds": 127.37,
+      "task_prompt": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools."
+    },
+    {
+      "job_id": "eco-005",
+      "conversation_id": "383504a9-e99f-4500-abfb-0fd994ebb77d",
+      "receipt_sha256": "3b9b8b3832b0e9783e22d1c98627bfe2aabeb2e738c22365b5269d04f4cd14a1",
+      "usage": {
+        "input_tokens": 8090,
+        "output_tokens": 6058,
+        "thinking_tokens": 5567,
+        "cache_read_tokens": 0,
+        "total_tokens": 14148
+      },
+      "elapsed_seconds": 51.79,
+      "task_prompt": "Translate paragraphs into Chinese directly. Preserve IDs, equations, citations. Return JSON without using tools."
+    }
+  ],
+  "usage": {
+    "input_tokens": 55240,
+    "output_tokens": 82089,
+    "thinking_tokens": 67194,
+    "cache_read_tokens": 0,
+    "total_tokens": 137329
+  }
+}

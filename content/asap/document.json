@@ -36,15 +36,24 @@
           "id": "p1-b3",
           "kind": "picture",
           "bbox": [
-            48,
-            198,
-            564,
-            619
+            46.0,
+            196.0,
+            566.0,
+            621.0
           ],
           "en": "(a) (b) (c) (d) (e) (f)",
           "reference": false,
           "image": "figs/p001-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            198.0,
+            564.0,
+            619.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1560,
+          "image_height": 1275
         },
         {
           "id": "p1-b4",
@@ -97,15 +106,24 @@
           "id": "p2-b0",
           "kind": "picture",
           "bbox": [
-            48,
-            54,
-            564,
-            277
+            46.0,
+            52.0,
+            566.0,
+            279.0
           ],
           "en": "Pose Policy Estimation Train Rollout Human Videos Dataset Motion Imitation Goal 𝑎𝑡 s𝑡 Real Trajectories Retargeting Simulator (a) Motion Tracking Pre-training and Real Trajectory Collection s 0r 𝑎 0r s 1r 𝑎 1r s 2r 𝑎 2r s 3r 𝑎 3r Aligned Simulation Physics Delta ′ Simulator Action 𝑎 𝑡 s 1 s 2 s 3 s 𝑡+1 s 1 s 2 s 3 s 𝑡+1 Simulator Simulator Update 𝑎 0′ 𝑎 1′ 𝑎 2′ 𝑎 𝑡′ 𝑎 0′ 𝑎 1′ 𝑎 2′ 𝑎 𝑡′ 𝑎𝑡 s 𝑡 s 𝑡+1 Delta Action Delta Action Policy s 0 𝑎 0r s 1 𝑎 1r s 2 𝑎 2r s 𝑡 𝑎 𝑡r 𝑎 0 𝑎 1 𝑎 2 𝑎 𝑡 Reward Reward Reward Policy 𝑎 𝑡 Policy Real-World s 0r 𝑎 0r s 1r 𝑎 1r s 2r 𝑎 2r s 𝑡r 𝑎 𝑡r s 0 s 1 s 2 s 𝑡 s𝑡 Physics (b) Delta Action Model Training (c) Policy Fine-tuning (d) Real World Deployment",
           "reference": false,
           "image": "figs/p002-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            54.0,
+            564.0,
+            277.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1560,
+          "image_height": 681
         },
         {
           "id": "p2-b1",
@@ -116,10 +134,11 @@
             564,
             339
           ],
-          "en": "Fig. 2. Overview of ASAP. (a) Motion Tracking Pre-training and Real Trajectory Collection : With the humanoid motions retargeted from human videos, we pre-train multiple motion tracking policies to roll out real-world trajectories. (b) Delta Action Model Training : Based on the real-world rollout data, we train the delta action model by minimizing the discrepancy between simulation state st and real-world state sr t.(c)PolicyFine-tuning:Wefreezethe delta action model, incorporate it into the simulator to align the real-world physics and then fine-tune the pre-trained motion tracking policy. (d) Real-World Deployment : Finally, we deploy the fine-tuned policy directly in the real world without delta action model.",
+          "en": "Fig. 2. Overview of ASAP. (a) Motion Tracking Pre-training and Real Trajectory Collection : With the humanoid motions retargeted from human videos, we pre-train multiple motion tracking policies to roll out real-world trajectories. (b) Delta Action Model Training : Based on the real-world rollout data, we train the delta action model by minimizing the discrepancy between simulation state \\(s_t\\) and real-world state \\(s^r_t\\).(c)PolicyFine-tuning:Wefreezethe delta action model, incorporate it into the simulator to align the real-world physics and then fine-tune the pre-trained motion tracking policy. (d) Real-World Deployment : Finally, we deploy the fine-tuned policy directly in the real world without delta action model.",
           "reference": false,
           "source_image": "figs/p002-001-source.png",
-          "zh": "图 2. ASAP 概述。(a) 动作跟踪预训练与真实轨迹采集：利用从人类视频重定向得到的人形机器人动作，我们预训练多个动作跟踪策略以在现实世界中进行轨迹展开（rollout）。(b) 增量动作模型训练：基于现实世界的 rollout 数据，我们通过最小化仿真状态 st 与现实世界状态 sr t 之间的差异来训练增量动作模型。(c) 策略微调：我们冻结增量动作模型，将其集成到仿真器中以对齐现实世界物理特性，随后微调预训练的动作跟踪策略。(d) 现实世界部署：最后，我们在不使用增量动作模型的情况下，直接将微调后的策略部署到现实世界中。"
+          "zh": "图 2. ASAP 概述。(a) 动作跟踪预训练与真实轨迹采集：利用从人类视频重定向得到的人形机器人动作，我们预训练多个动作跟踪策略以在现实世界中进行轨迹展开（rollout）。(b) 增量动作模型训练：基于现实世界的 rollout 数据，我们通过最小化仿真状态 \\(s_t\\) 与现实世界状态 \\(s^r_t\\) 之间的差异来训练增量动作模型。(c) 策略微调：我们冻结增量动作模型，将其集成到仿真器中以对齐现实世界物理特性，随后微调预训练的动作跟踪策略。(d) 现实世界部署：最后，我们在不使用增量动作模型的情况下，直接将微调后的策略部署到现实世界中。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b2",
@@ -214,15 +233,24 @@
           "id": "p3-b0",
           "kind": "picture",
           "bbox": [
-            98,
-            54,
-            510,
-            159
+            96.0,
+            52.0,
+            512.0,
+            161.0
           ],
           "en": "(a) Human Motion (b) SMPL Motion (c) SMPL Motion (d) G1 Motion (e) G1 Motion From Video from TRAM from RL from Retargeting from RL",
           "reference": false,
           "image": "figs/p003-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            98.0,
+            54.0,
+            510.0,
+            159.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1248,
+          "image_height": 327
         },
         {
           "id": "p3-b1",
@@ -373,10 +401,11 @@
             301,
             726
           ],
-          "en": "a) Transforming Human Video to SMPL Motions: We begin by recording videos (see Figure 3 (a) and Figure 12) of humans performing expressive and agile motions. Using TRAM [93], we reconstruct 3D motions from videos. TRAM estimates the global trajectory of the human motions in SMPL parameter format [52], which includes global root translation, orientation, body poses, and shape parameters, as shown in Figure 3 (b). The resulting motions are denoted as D SMPL.",
+          "en": "a) Transforming Human Video to SMPL Motions: We begin by recording videos (see Figure 3 (a) and Figure 12) of humans performing expressive and agile motions. Using TRAM [93], we reconstruct 3D motions from videos. TRAM estimates the global trajectory of the human motions in SMPL parameter format [52], which includes global root translation, orientation, body poses, and shape parameters, as shown in Figure 3 (b). The resulting motions are denoted as \\(\\mathcal{D}_{\\text{SMPL}}\\).",
           "reference": false,
           "source_image": "figs/p003-011-source.png",
-          "zh": "a) 将人类视频转换为 SMPL 动作：我们首先录制人类执行富有表现力且敏捷动作的视频（参见图 3 (a) 和图 12）。使用 TRAM [93]，我们从视频中重建 3D 动作。TRAM 以 SMPL 参数格式 [52] 估计人体运动的全局轨迹，包括全局根节点平移、朝向、身体姿态和体型参数，如图 3 (b) 所示。生成的动作表示为 D SMPL。"
+          "zh": "a) 将人类视频转换为 SMPL 动作：我们首先录制人类执行富有表现力且敏捷动作的视频（参见图 3 (a) 和图 12）。使用 TRAM [93]，我们从视频中重建 3D 动作。TRAM 以 SMPL 参数格式 [52] 估计人体运动的全局轨迹，包括全局根节点平移、朝向、身体姿态和体型参数，如图 3 (b) 所示。生成的动作表示为 \\(\\mathcal{D}_{\\text{SMPL}}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b12",
@@ -387,10 +416,11 @@
             564,
             331
           ],
-          "en": "b) Simulation-based Data Cleaning: Since the reconstruction process can introduce noise and errors [25], some estimated motions may not be physically feasible, making them unsuitable for motion tracking in the real world. To address this, we employ a “sim-to-data” cleaning procedure. Specifically, we use MaskedMimic [86], a physics-based motion tracker, to imitate the SMPL motions from TRAM in IsaacGym simulator [58]. The motions (Figure 3 (c)) that pass this simulation-based validation are saved as the cleaned dataset D SMPLCleaned.",
+          "en": "b) Simulation-based Data Cleaning: Since the reconstruction process can introduce noise and errors [25], some estimated motions may not be physically feasible, making them unsuitable for motion tracking in the real world. To address this, we employ a “sim-to-data” cleaning procedure. Specifically, we use MaskedMimic [86], a physics-based motion tracker, to imitate the SMPL motions from TRAM in IsaacGym simulator [58]. The motions (Figure 3 (c)) that pass this simulation-based validation are saved as the cleaned dataset \\(\\mathcal{D}_{\\text{SMPL}}^{\\text{Cleaned}}\\).",
           "reference": false,
           "source_image": "figs/p003-012-source.png",
-          "zh": "b) 基于仿真的数据清洗：由于重建过程可能会引入噪声和误差 [25]，部分估计出的动作在物理上可能不可行，因而不适于在现实世界中进行动作跟踪。为了解决这一问题，我们采用了一种“仿真到数据（sim-to-data）”的清洗流程。具体而言，我们在 IsaacGym 仿真器 [58] 中使用基于物理的动作跟踪器 MaskedMimic [86] 来模仿来自 TRAM 的 SMPL 动作。通过该基于仿真的验证的动作（图 3 (c)）被保存为清洗后的数据集 D SMPLCleaned。"
+          "zh": "b) 基于仿真的数据清洗：由于重建过程可能会引入噪声和误差 [25]，部分估计出的动作在物理上可能不可行，因而不适于在现实世界中进行动作跟踪。为了解决这一问题，我们采用了一种“仿真到数据（sim-to-data）”的清洗流程。具体而言，我们在 IsaacGym 仿真器 [58] 中使用基于物理的动作跟踪器 MaskedMimic [86] 来模仿来自 TRAM 的 SMPL 动作。通过该基于仿真的验证的动作（图 3 (c)）被保存为清洗后的数据集 \\(\\mathcal{D}_{\\text{SMPL}}^{\\text{Cleaned}}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b13",
@@ -401,10 +431,11 @@
             564,
             499
           ],
-          "en": "c) Retargeting SMPL Motions to Robot Motions: With the cleaned dataset D SMPLCleaned in SMPL format, we retarget the motions into robot motions following the shape-and-motion two-stage retargeting process [25]. Since the SMPL parameters estimated by TRAM represent various human body shapes, we first optimize the shape parameter β′ to approximate a humanoid shape. By selecting 12 body links with correspondences between humans and humanoids, we perform gradient descent on β′ to minimize joint distances in the rest pose. Using the optimized shape β′ along with the original translation p and pose θ , we apply gradient descent to further minimize the distances of the body links. This process ensures accurate motion retargeting and produces the cleaned robot trajectory dataset D RobotCleaned,asshowninFigure3(d).",
+          "en": "c) Retargeting SMPL Motions to Robot Motions: With the cleaned dataset \\(\\mathcal{D}_{\\text{SMPL}}^{\\text{Cleaned}}\\) in SMPL format, we retarget the motions into robot motions following the shape-and-motion two-stage retargeting process [25]. Since the SMPL parameters estimated by TRAM represent various human body shapes, we first optimize the shape parameter \\(\\boldsymbol{\\beta}^{\\prime}\\) to approximate a humanoid shape. By selecting 12 body links with correspondences between humans and humanoids, we perform gradient descent on \\(\\boldsymbol{\\beta}^{\\prime}\\) to minimize joint distances in the rest pose. Using the optimized shape \\(\\boldsymbol{\\beta}^{\\prime}\\) along with the original translation \\(\\boldsymbol{p}\\) and pose \\(\\boldsymbol{\\theta}\\) , we apply gradient descent to further minimize the distances of the body links. This process ensures accurate motion retargeting and produces the cleaned robot trajectory dataset \\(\\mathcal{D}_{\\text{Robot}}^{\\text{Cleaned}}\\),asshowninFigure3(d).",
           "reference": false,
           "source_image": "figs/p003-013-source.png",
-          "zh": "c) 将 SMPL 动作重定向为机器人动作：在获得 SMPL 格式的清洗数据集 D SMPLCleaned 后，我们遵循形状与动作两阶段重定向流程 [25] 将动作重定向为机器人动作。由于 TRAM 估计的 SMPL 参数代表多样的人体体型，我们首先优化体型参数 β′ 以逼近人形机器人的形态。通过选取人体与人形机器人之间具有对应关系的 12 个身体连杆，我们对 β′ 执行梯度下降以最小化静态姿势（rest pose）下的关节距离。利用优化后的体型 β′ 以及原始平移 p 和姿态 θ，我们应用梯度下降进一步最小化身体连杆的距离。该过程确保了精准的动作重定向，并生成了清洗后的机器人轨迹数据集 D RobotCleaned，如图 3 (d) 所示。"
+          "zh": "c) 将 SMPL 动作重定向为机器人动作：在获得 SMPL 格式的清洗数据集 \\(\\mathcal{D}_{\\text{SMPL}}^{\\text{Cleaned}}\\) 后，我们遵循形状与动作两阶段重定向流程 [25] 将动作重定向为机器人动作。由于 TRAM 估计的 SMPL 参数代表多样的人体体型，我们首先优化体型参数 \\(\\boldsymbol{\\beta}^{\\prime}\\) 以逼近人形机器人的形态。通过选取人体与人形机器人之间具有对应关系的 12 个身体连杆，我们对 \\(\\boldsymbol{\\beta}^{\\prime}\\) 执行梯度下降以最小化静态姿势（rest pose）下的关节距离。利用优化后的体型 \\(\\boldsymbol{\\beta}^{\\prime}\\) 以及原始平移 \\(\\boldsymbol{p}\\) 和姿态 \\(\\boldsymbol{\\theta}\\)，我们应用梯度下降进一步最小化身体连杆的距离。该过程确保了精准的动作重定向，并生成了清洗后的机器人轨迹数据集 \\(\\mathcal{D}_{\\text{Robot}}^{\\text{Cleaned}}\\)，如图 3 (d) 所示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b14",
@@ -429,10 +460,11 @@
             564,
             726
           ],
-          "en": "We formulate the motion-tracking problem as a goalconditioned reinforcement learning (RL) task, where the policy π is trained to track the retargeted robot movement trajectories in the dataset D RobotCleaned.Inspiredby [67], the state st includes the robot’s proprioception sp tand a time phase variable ϕ ∈ [0 , 1], where ϕ = 0 represents the start of a motion and ϕ = 1 represents the end. This time phase variable alone ϕ is proven to be sufficient to serve as the goal state sg tfor single-motion tracking [67]. The proprioception sp tisdefined as sp t≜ � q t− 4: t, q ˙ t− 4: t, ωroot t− 4: t,g t− 4: t,at−5:t−1 �, with 5-step history of joint position q t ∈ R23 , joint velocity q ˙ t ∈ R23 , root angular velocity ωroot t ∈ R3 , root projected gravity g t ∈ R3 , and last action a t− 1 ∈ R23 . Using the agent’s proprioception sp tandthegoalstatesg t,wedefinetherewardasrt= R ( sp t, sg t), which is used for policy optimization. The specific reward terms can be found in Table I. The action a t ∈ R23 corresponds to the target joint positions and is passed to a",
+          "en": "We formulate the motion-tracking problem as a goalconditioned reinforcement learning (RL) task, where the policy \\(\\pi\\) is trained to track the retargeted robot movement trajectories in the dataset \\(\\mathcal{D}_{\\text{Robot}}^{\\text{Cleaned}}\\).Inspiredby [67], the state \\(s_t\\) includes the robot’s proprioception \\(s_t^{\\mathrm{p}}\\) and a time phase variable \\(\\phi \\in [0,1]\\), where \\(\\phi=0\\) represents the start of a motion and \\(\\phi=1\\) represents the end. This time phase variable alone \\(\\phi\\) is proven to be sufficient to serve as the goal state \\(\\boldsymbol{s}_t^{\\mathrm{g}}\\) for single-motion tracking [67]. The proprioception \\(s_t^{\\mathrm{p}}\\) isdefined as \\(s_t^{\\mathrm{p}} \\triangleq \\left[\\boldsymbol{q}_{t-4:t}, \\dot{\\boldsymbol{q}}_{t-4:t}, \\boldsymbol{\\omega}^{\\mathrm{root}}_{t-4:t}, \\boldsymbol{g}_{t-4:t}, \\boldsymbol{a}_{t-5:t-1}\\right]\\), with 5-step history of joint position \\(\\boldsymbol{q}_t \\in \\mathbb{R}^{23}\\), joint velocity \\(\\dot{\\boldsymbol{q}}_t \\in \\mathbb{R}^{23}\\), root angular velocity \\(\\boldsymbol{\\omega}_t^{\\mathrm{root}} \\in \\mathbb{R}^3\\), root projected gravity \\(\\boldsymbol{g}_t \\in \\mathbb{R}^3\\), and last action \\(\\boldsymbol{a}_{t-1} \\in \\mathbb{R}^{23}\\). Using the agent’s proprioception \\(s_t^{\\mathrm{p}}\\) andthegoalstate\\(\\boldsymbol{s}_t^{\\mathrm{g}}\\),wedefinetherewardas\\(r_t=\\mathcal{R}\\left(s_t^{\\mathrm{p}}, s_t^{\\mathrm{g}}\\right)\\), which is used for policy optimization. The specific reward terms can be found in Table I. The action \\(\\boldsymbol{a}_t \\in \\mathbb{R}^{23}\\) corresponds to the target joint positions and is passed to a",
           "reference": false,
           "source_image": "figs/p003-015-source.png",
-          "zh": "我们将动作跟踪问题形式化为目标条件强化学习（RL）任务，其中训练策略 π 以跟踪数据集 D RobotCleaned 中重定向后的机器人运动轨迹。受 [67] 启发，状态 st 包含机器人的本体感受 sp t 和时间相位变量 ϕ ∈ [0 , 1]，其中 ϕ = 0 代表运动的开始，ϕ = 1 代表结束。该时间相位变量 ϕ 本身已被证明足以作为单动作跟踪的目标状态 sg t [67]。本体感受 sp t 定义为 sp t ≜ 〔行内公式见原版〕，包含关节位置 q t ∈ R23、关节速度 q ˙ t ∈ R23、根节点角速度 ωroot t ∈ R3、根节点投影重力 g t ∈ R3 以及上一动作 a t− 1 ∈ R23 的 5 步历史信息。利用智能体的本体感受 sp t 和目标状态 sg t，我们将奖励定义为 rt = R ( sp t, sg t)，用于策略优化。具体的奖励项见表 I。动作 a t ∈ R23 对应目标关节位置，并被传递给"
+          "zh": "我们将动作跟踪问题形式化为目标条件强化学习（RL）任务，其中训练策略 \\(\\pi\\) 以跟踪数据集 \\(\\mathcal{D}_{\\text{Robot}}^{\\text{Cleaned}}\\) 中重定向后的机器人运动轨迹。受 [67] 启发，状态 \\(s_t\\) 包含机器人的本体感受 \\(s_t^{\\mathrm{p}}\\) 和时间相位变量 \\(\\phi \\in [0,1]\\)，其中 \\(\\phi=0\\) 代表运动的开始，\\(\\phi=1\\) 代表结束。该时间相位变量 \\(\\phi\\) 本身已被证明足以作为单动作跟踪的目标状态 \\(\\boldsymbol{s}_t^{\\mathrm{g}}\\) [67]。本体感受 \\(s_t^{\\mathrm{p}}\\) 定义为 \\(s_t^{\\mathrm{p}} \\triangleq \\left[\\boldsymbol{q}_{t-4:t}, \\dot{\\boldsymbol{q}}_{t-4:t}, \\boldsymbol{\\omega}^{\\mathrm{root}}_{t-4:t}, \\boldsymbol{g}_{t-4:t}, \\boldsymbol{a}_{t-5:t-1}\\right]\\)，包含关节位置 \\(\\boldsymbol{q}_t \\in \\mathbb{R}^{23}\\)、关节速度 \\(\\dot{\\boldsymbol{q}}_t \\in \\mathbb{R}^{23}\\)、根节点角速度 \\(\\boldsymbol{\\omega}_t^{\\mathrm{root}} \\in \\mathbb{R}^3\\)、根节点投影重力 \\(\\boldsymbol{g}_t \\in \\mathbb{R}^3\\) 以及上一动作 \\(\\boldsymbol{a}_{t-1} \\in \\mathbb{R}^{23}\\) 的 5 步历史信息。利用智能体的本体感受 \\(s_t^{\\mathrm{p}}\\) 和目标状态 \\(\\boldsymbol{s}_t^{\\mathrm{g}}\\)，我们将奖励定义为 \\(r_t=\\mathcal{R}\\left(s_t^{\\mathrm{p}}, s_t^{\\mathrm{g}}\\right)\\)，用于策略优化。具体的奖励项见表 I。动作 \\(\\boldsymbol{a}_t \\in \\mathbb{R}^{23}\\) 对应目标关节位置，并被传递给",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -448,10 +480,11 @@
             301,
             119
           ],
-          "en": "PD controller that actuates the robot’s degrees of freedom. To optimize the policy, we use the proximal policy optimization (PPO) [80], aiming to maximize the cumulative discounted reward E t =1γt−1rt . We identify several design choices �� T � that are crucial for achieving stable policy training:",
+          "en": "PD controller that actuates the robot’s degrees of freedom. To optimize the policy, we use the proximal policy optimization (PPO) [80], aiming to maximize the cumulative discounted reward \\(\\mathbb{E}\\left[\\sum_{t=1}^T \\gamma^{t-1} r_t\\right]\\). We identify several design choices that are crucial for achieving stable policy training:",
           "reference": false,
           "source_image": "figs/p004-000-source.png",
-          "zh": "PD 控制器以驱动机器人的各自由度。为了优化策略，我们采用近端策略优化（PPO）[80]，旨在最大化累积折扣奖励〔行内公式见原版〕。我们确定了若干项对于实现稳定策略训练至关重要的设计选择："
+          "zh": "PD 控制器以驱动机器人的各自由度。为了优化策略，我们采用近端策略优化（PPO）[80]，旨在最大化累积折扣奖励 \\(\\mathbb{E}\\left[\\sum_{t=1}^T \\gamma^{t-1} r_t\\right]\\)。我们确定了若干项对于实现稳定策略训练至关重要的设计选择：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b1",
@@ -518,10 +551,11 @@
             564,
             164
           ],
-          "en": "d) Reward Terms: We define the reward function rt with the sum of three terms: 1) penalty, 2) regularization, and 3) task rewards. A detailed summary of these components is provided in Table I.",
+          "en": "d) Reward Terms: We define the reward function \\(r_t\\) with the sum of three terms: 1) penalty, 2) regularization, and 3) task rewards. A detailed summary of these components is provided in Table I.",
           "reference": false,
           "source_image": "figs/p004-005-source.png",
-          "zh": "d) 奖励项：我们将奖励函数 rt 定义为三项之和：1) 惩罚项，2) 正则化项，以及 3) 任务奖励。表 I 提供了这些组成部分的详细汇总。"
+          "zh": "d) 奖励项：我们将奖励函数 \\(r_t\\) 定义为三项之和：1) 惩罚项，2) 正则化项，以及 3) 任务奖励。表 I 提供了这些组成部分的详细汇总。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b6",
@@ -555,15 +589,24 @@
           "id": "p4-b8",
           "kind": "table",
           "bbox": [
-            341,
-            186,
-            534,
-            318
+            339.0,
+            184.0,
+            536.0,
+            320.0
           ],
           "en": "|Term|Weight Term|Weight| |---|---|---| ||Penalty|| |DoF position limits Torque limits|−10.0 DoF velocity limits −5.0 Termination|−5.0 −200.0| ||Regularization|| |Torques |−1×10−6 Action rate|−0.5| |Feet orientation Slippage|−2.0 Feet heading −1.0|−0.1| ||Task Reward|| |Body position|1.0 VR 3-point|1.6| |Body position (feet)|2.1 Body rotation|0.5| |Body angular velocity|0.5 Body velocity|0.5| |DoF position|0.75 DoF velocity|0.5|",
           "reference": false,
           "image": "figs/p004-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            341.0,
+            186.0,
+            534.0,
+            318.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 591,
+          "image_height": 408
         },
         {
           "id": "p4-b9",
@@ -630,10 +673,11 @@
             564,
             643
           ],
-          "en": "We deploy the pretrained policy in the real world to perform whole-body motion tracking tasks (as depicted in Figure 9) and record the resulting trajectories, denoted as Dr = {sr 0, ar 0, . . . , sr T, ar T},asillustratedinFigure2(a).Ateach timestep t , we use a motion capture device and onboard sensors to record the state: st = [ pbase t , vtbase , αtbase , ωtbase , qt, q ˙ t ] , where pbase t ∈ R3 represents the robot base 3D position, vtbase ∈ R3 is base linear velocity, αtbase ∈ R4 is the robot base orientation represented as a quaternion, ωtbase ∈ R3 is the base angular velocity, qt ∈ R23 is the vector of joint positions, and q ˙ t ∈ R23 represents joint velocities.",
+          "en": "We deploy the pretrained policy in the real world to perform whole-body motion tracking tasks (as depicted in Figure 9) and record the resulting trajectories, denoted as \\(\\mathcal{D}^\\text{r} = \\{s^\\text{r}_0, a^\\text{r}_0, \\dots, s^\\text{r}_T, a^\\text{r}_T\\}\\),asillustratedinFigure2(a).Ateach timestep \\(t\\), we use a motion capture device and onboard sensors to record the state: \\(s_t = [p^\\text{base}_t, v_t^\\text{base}, \\alpha^\\text{base}_t, \\omega^\\text{base}_t, q_t, \\dot{q}_t]\\), where \\(p^\\text{base}_t \\in \\mathbb{R}^3\\) represents the robot base 3D position, \\(v_t^\\text{base} \\in \\mathbb{R}^3\\) is base linear velocity, \\(\\alpha^\\text{base}_t \\in \\mathbb{R}^4\\) is the robot base orientation represented as a quaternion, \\(\\omega^\\text{base}_t \\in \\mathbb{R}^3\\) is the base angular velocity, \\(q_t \\in \\mathbb{R}^{23}\\) is the vector of joint positions, and \\(\\dot{q}_t \\in \\mathbb{R}^{23}\\) represents joint velocities.",
           "reference": false,
           "source_image": "figs/p004-013-source.png",
-          "zh": "我们将预训练策略部署在现实世界中以执行全身动作跟踪任务（如图 9 所示），并记录生成的轨迹，记为 Dr = {sr 0, ar 0, . . . , sr T, ar T}，如图 2 (a) 所示。在每个时间步 t，我们使用动作捕捉设备和板载传感器记录状态：st = [ pbase t , vtbase , αtbase , ωtbase , qt, q ˙ t ]，其中 pbase t ∈ R3 表示机器人基座三维位置，vtbase ∈ R3 为基座线速度，αtbase ∈ R4 为表示为四元数的机器人基座朝向，ωtbase ∈ R3 为基座角速度，qt ∈ R23 为关节位置向量，而 q ˙ t ∈ R23 表示关节速度。"
+          "zh": "我们将预训练策略部署在现实世界中以执行全身动作跟踪任务（如图 9 所示），并记录生成的轨迹，记为 \\(\\mathcal{D}^\\text{r} = \\{s^\\text{r}_0, a^\\text{r}_0, \\dots, s^\\text{r}_T, a^\\text{r}_T\\}\\)，如图 2 (a) 所示。在每个时间步 \\(t\\)，我们使用动作捕捉设备和板载传感器记录状态：\\(s_t = [p^\\text{base}_t, v_t^\\text{base}, \\alpha^\\text{base}_t, \\omega^\\text{base}_t, q_t, \\dot{q}_t]\\)，其中 \\(p^\\text{base}_t \\in \\mathbb{R}^3\\) 表示机器人基座三维位置，\\(v_t^\\text{base} \\in \\mathbb{R}^3\\) 为基座线速度，\\(\\alpha^\\text{base}_t \\in \\mathbb{R}^4\\) 为表示为四元数的机器人基座朝向，\\(\\omega^\\text{base}_t \\in \\mathbb{R}^3\\) 为基座角速度，\\(q_t \\in \\mathbb{R}^{23}\\) 为关节位置向量，而 \\(\\dot{q}_t \\in \\mathbb{R}^{23}\\) 表示关节速度。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b14",
@@ -672,15 +716,24 @@
           "id": "p5-b0",
           "kind": "picture",
           "bbox": [
-            72,
-            53,
-            536,
-            135
+            70.0,
+            51.0,
+            538.0,
+            137.0
           ],
           "en": "Simulator Simulator Params Delta State ∆𝑠 𝑡+1′ Simulator ActionDelta 𝑎 𝑡′ Simulator 𝑎 𝑡 𝑠𝑡 𝑠 𝑡+1 𝑎 𝑡 𝑠𝑡 𝑠 𝑡+1 𝑎 𝑡 𝑠𝑡 𝑠 𝑡+1′ 𝑎 𝑡 𝑠𝑡 𝑠 𝑡+1′ Policy Policy Policy Policy (a) Vanilla (b) SysID (c) Delta Dynamics (d) Delta Action (ASAP)",
           "reference": false,
           "image": "figs/p005-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            72.0,
+            53.0,
+            536.0,
+            135.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1404,
+          "image_height": 258
         },
         {
           "id": "p5-b1",
@@ -719,10 +772,11 @@
             301,
             268
           ],
-          "en": "As illustrated in Figure 2 (b), the delta action model is defined as ∆ at = πθ∆(st, at),wherethepolicyπ θ∆ learns to output corrective actions based on the current state st and the action at . These corrective actions (∆ at ) are added to the real-world recorded actions ( ar t)toaccountfordiscrepancies between simulation and real-world dynamics.",
+          "en": "As illustrated in Figure 2 (b), the delta action model is defined as \\(\\Delta a_t = \\pi^\\Delta_\\theta(s_t, a_t)\\),wherethepolicy\\(\\pi^\\Delta_\\theta\\) learns to output corrective actions based on the current state \\(s_t\\) and the action \\(a_t\\). These corrective actions (\\(\\Delta a_t\\)) are added to the real-world recorded actions (\\(a^r_t\\))toaccountfordiscrepancies between simulation and real-world dynamics.",
           "reference": false,
           "source_image": "figs/p005-003-source.png",
-          "zh": "如图 2 (b) 所示，Delta 动作模型定义为 ∆ at = πθ∆(st, at)，其中策略 πθ∆ 学习根据当前状态 st 和动作 at 输出校正动作。这些校正动作 (∆ at) 会被添加到现实世界记录的动作 (ar t) 中，以弥补仿真与现实世界动力学之间的差异。"
+          "zh": "如图 2 (b) 所示，Delta 动作模型定义为 \\(\\Delta a_t = \\pi^\\Delta_\\theta(s_t, a_t)\\)，其中策略 \\(\\pi^\\Delta_\\theta\\) 学习根据当前状态 \\(s_t\\) 和动作 \\(a_t\\) 输出校正动作。这些校正动作 (\\(\\Delta a_t\\)) 会被添加到现实世界记录的动作 (\\(a^r_t\\)) 中，以弥补仿真与现实世界动力学之间的差异。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b4",
@@ -733,10 +787,11 @@
             301,
             338
           ],
-          "en": "The RL environment incorporates this delta action model by modifying the simulator dynamics as follows: st +1 = fsim ( st, ar t+ ∆at)wherefsimrepresentsthesimulator’sdy- namics, ar tisthereferenceactionrecordedfromreal-world rollouts, and ∆ at introduces corrections learned by the delta action model.",
+          "en": "The RL environment incorporates this delta action model by modifying the simulator dynamics as follows: \\(s_{t+1} = f^\\text{sim}(s_t, a^r_t + \\Delta a_t)\\)where\\(f^\\text{sim}\\)representsthesimulator’sdy- namics, \\(a^r_t\\)isthereferenceactionrecordedfromreal-world rollouts, and \\(\\Delta a_t\\) introduces corrections learned by the delta action model.",
           "reference": false,
           "source_image": "figs/p005-004-source.png",
-          "zh": "强化学习环境通过按如下方式修改仿真器动力学来融入该 Delta 动作模型：st +1 = fsim ( st, ar t+ ∆at)，其中 fsim 表示仿真器的动力学，ar t 是现实世界 rollout 记录的参考动作，而 ∆ at 则引入由 Delta 动作模型学习到的校正量。"
+          "zh": "强化学习环境通过按如下方式修改仿真器动力学来融入该 Delta 动作模型：\\(s_{t+1} = f^\\text{sim}(s_t, a^r_t + \\Delta a_t)\\)，其中 \\(f^\\text{sim}\\) 表示仿真器的动力学，\\(a^r_t\\) 是现实世界 rollout 记录的参考动作，而 \\(\\Delta a_t\\) 则引入由 Delta 动作模型学习到的校正量。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b5",
@@ -770,15 +825,24 @@
           "id": "p5-b13",
           "kind": "table",
           "bbox": [
-            76,
-            369,
-            269,
-            492
+            74.0,
+            367.0,
+            271.0,
+            494.0
           ],
           "en": "|Term|Weight Term|Weight| |---|---|---| ||Penalty|| |DoF position limits Torque limits|−10.0 DoF velocity limits −0.1 Termination|−5.0 −200.0| ||Regularization|| |Action rate|−0.01 Action norm|−0.2| ||Task Reward|| |Body position|1.0 VR 3-point|1.0| |Body position (feet)|1.0 Body rotation|0.5| |Body angular velocity|0.5 Body velocity|0.5| |DoF position|0.5 DoF velocity|0.5|",
           "reference": false,
           "image": "figs/p005-013.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            76.0,
+            369.0,
+            269.0,
+            492.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 591,
+          "image_height": 381
         },
         {
           "id": "p5-b14",
@@ -803,10 +867,11 @@
             275,
             532
           ],
-          "en": "- 1) The robot is initialized at the real-world state sr t.",
+          "en": "- 1) The robot is initialized at the real-world state \\(s^r_t\\).",
           "reference": false,
           "source_image": "figs/p005-015-source.png",
-          "zh": "- 1) 机器人初始化于现实世界状态 sr t。"
+          "zh": "- 1) 机器人初始化于现实世界状态 \\(s^r_t\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b16",
@@ -817,10 +882,11 @@
             301,
             592
           ],
-          "en": "- 2) A reward signal is computed to minimize the discrepancy between the simulated state st +1 and the recorded real-world state sr t +1,withanadditionalactionmagni- tude regularization term exp( −∥at∥ ) − 1), as specified in Table II. The workflow is illustrated in Figure 2 (b).",
+          "en": "- 2) A reward signal is computed to minimize the discrepancy between the simulated state \\(s_{t+1}\\) and the recorded real-world state \\(s^r_{t+1}\\),withanadditionalactionmagni- tude regularization term \\(\\exp(-\\lVert a_t \\rVert) - 1)\\), as specified in Table II. The workflow is illustrated in Figure 2 (b).",
           "reference": false,
           "source_image": "figs/p005-016-source.png",
-          "zh": "- 2) 计算奖励信号以最小化仿真状态 st +1 与记录的现实世界状态 sr t +1 之间的差异，并附加表 II 中指定的动作幅度正则化项 exp( −∥at∥ ) − 1)。工作流程如图 2 (b) 所示。"
+          "zh": "- 2) 计算奖励信号以最小化仿真状态 \\(s_{t+1}\\) 与记录的现实世界状态 \\(s^r_{t+1}\\) 之间的差异，并附加表 II 中指定的动作幅度正则化项 \\(\\exp(-\\lVert a_t \\rVert) - 1)\\)。工作流程如图 2 (b) 所示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b17",
@@ -831,10 +897,11 @@
             301,
             615
           ],
-          "en": "- 3) PPO is used to train the delta action policy πθ∆, learning corrected ∆ at to match simulation and the real world.",
+          "en": "- 3) PPO is used to train the delta action policy \\(\\pi^\\Delta_\\theta\\), learning corrected \\(\\Delta a_t\\) to match simulation and the real world.",
           "reference": false,
           "source_image": "figs/p005-017-source.png",
-          "zh": "- 3) 使用 PPO 算法训练 Delta 动作策略 πθ∆，学习校正量 ∆ at 以匹配仿真与现实世界。"
+          "zh": "- 3) 使用 PPO 算法训练 Delta 动作策略 \\(\\pi^\\Delta_\\theta\\)，学习校正量 \\(\\Delta a_t\\) 以匹配仿真与现实世界。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b18",
@@ -845,10 +912,11 @@
             301,
             726
           ],
-          "en": "By learning the delta action model, the simulator can accurately reproduce real-world failures. For example, consider a scenario where the simulated robot can jump because its motor strength is overestimated, but the real-world robot cannot jump due to weaker motors. The delta action model πθ∆willlearn to reduce the intensity of lower-body actions, simulating the motor limitations of the real-world robot. This allows the simulator to replicate the real-world dynamics and enables the policy to be fine-tuned to handle these limitations effectively.",
+          "en": "By learning the delta action model, the simulator can accurately reproduce real-world failures. For example, consider a scenario where the simulated robot can jump because its motor strength is overestimated, but the real-world robot cannot jump due to weaker motors. The delta action model \\(\\pi^\\Delta_\\theta\\)willlearn to reduce the intensity of lower-body actions, simulating the motor limitations of the real-world robot. This allows the simulator to replicate the real-world dynamics and enables the policy to be fine-tuned to handle these limitations effectively.",
           "reference": false,
           "source_image": "figs/p005-018-source.png",
-          "zh": "通过学习 Delta 动作模型，仿真器可以准确重现真实世界中的失败情况。例如，考虑这样一种情景：由于电机力量被高估，仿真中的机器人能够跳跃，但现实世界中的机器人因电机动力较弱而无法跳跃。Delta 动作模型 πθ∆ 将学会降低下肢动作的幅度，从而模拟现实世界机器人的电机局限性。这使得仿真器能够复刻现实世界的动力学特性，并让策略得以微调以有效应对这些限制。"
+          "zh": "通过学习 Delta 动作模型，仿真器可以准确重现真实世界中的失败情况。例如，考虑这样一种情景：由于电机力量被高估，仿真中的机器人能够跳跃，但现实世界中的机器人因电机动力较弱而无法跳跃。Delta 动作模型 \\(\\pi^\\Delta_\\theta\\) 将学会降低下肢动作的幅度，从而模拟现实世界机器人的电机局限性。这使得仿真器能够复刻现实世界的动力学特性，并让策略得以微调以有效应对这些限制。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b6",
@@ -873,10 +941,11 @@
             564,
             209
           ],
-          "en": "With the learned delta action model π∆ ( st, at ), we can reconstruct the simulation environment with",
+          "en": "With the learned delta action model \\(\\pi^\\Delta (s_t, a_t)\\), we can reconstruct the simulation environment with",
           "reference": false,
           "source_image": "figs/p005-007-source.png",
-          "zh": "借助学习到的 Delta 动作模型 π∆ ( st, at )，我们可以通过以下方式重构仿真环境："
+          "zh": "借助学习到的 Delta 动作模型 \\(\\pi^\\Delta (s_t, a_t)\\)，我们可以通过以下方式重构仿真环境：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b8",
@@ -887,10 +956,11 @@
             539,
             230
           ],
-          "en": "st +1 = fASAP ( st, at ) = fsim ( st, at + π∆ ( st, at )) ,",
+          "en": "\\(s_{t+1}=f^{\\text{ASAP}}(s_t,a_t)=f^{\\text{sim}}(s_t,a_t+\\pi^\\Delta(s_t,a_t)),\\)",
           "reference": false,
           "source_image": "figs/p005-008-source.png",
-          "zh": "st +1 = fASAP ( st, at ) = fsim ( st, at + π∆ ( st, at )) ,"
+          "zh": "\\(s_{t+1}=f^{\\text{ASAP}}(s_t,a_t)=f^{\\text{sim}}(s_t,a_t+\\pi^\\Delta(s_t,a_t)),\\)",
+          "math_repair": "exact-author-latex-fragment-recovery"
         },
         {
           "id": "p5-b9",
@@ -901,10 +971,11 @@
             564,
             270
           ],
-          "en": "As shown in Figure 2 (c), we keep the π∆ model parameters frozen, and fine-tune the pretrained policy with the same reward summarized in Table I.",
+          "en": "As shown in Figure 2 (c), we keep the \\(\\pi^\\Delta\\) model parameters frozen, and fine-tune the pretrained policy with the same reward summarized in Table I.",
           "reference": false,
           "source_image": "figs/p005-009-source.png",
-          "zh": "如图 2 (c) 所示，我们保持 π∆ 模型的参数冻结，并使用表 I 汇总的相同奖励来微调预训练策略。"
+          "zh": "如图 2 (c) 所示，我们保持 \\(\\pi^\\Delta\\) 模型的参数冻结，并使用表 I 汇总的相同奖励来微调预训练策略。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b10",
@@ -974,7 +1045,8 @@
           "en": "- Q1 : Can ASAP outperform other baseline methods to compensate for the dynamics mismatch?",
           "reference": false,
           "source_image": "figs/p005-021-source.png",
-          "zh": "- Q1：ASAP 在补偿动力学失配方面能否优于其他基线方法？"
+          "zh": "- Q1：ASAP 在补偿动力学失配方面能否优于其他基线方法？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b22",
@@ -988,7 +1060,8 @@
           "en": "- Q2 : Can ASAP finetune policy to outperform SysID and Delta Dynamics methods?",
           "reference": false,
           "source_image": "figs/p005-022-source.png",
-          "zh": "- Q2：ASAP 能否通过微调策略使其表现优于 SysID 和 Delta 动力学方法？"
+          "zh": "- Q2：ASAP 能否通过微调策略使其表现优于 SysID 和 Delta 动力学方法？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b23",
@@ -1002,7 +1075,8 @@
           "en": "- Q3 : Does ASAP work for sim-to-real transfer?",
           "reference": false,
           "source_image": "figs/p005-023-source.png",
-          "zh": "- Q3：ASAP 是否适用于仿真到现实迁移？"
+          "zh": "- Q3：ASAP 是否适用于仿真到现实迁移？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b24",
@@ -1027,10 +1101,11 @@
             564,
             690
           ],
-          "en": "In the simulation, we use the retargeted motion dataset from the videos we shoot, denoted as D RobotCleaned,whichcon- tains diverse human motion sequences. We select 43 motions categorized into three difficulty levels: easy, medium, and hard (as partially visualized in Figure 6), based on motion complexity and the required agility. ASAP is evaluated through simulation-to-simulation transfer by training policies in IsaacGym and using two other simulators, IsaacSim and Genesis, as a proxy of “real-world” environments. This setup allows for a systematic evaluation of ASAP’s generalization and transferability. The success of the transfer is assessed by metrics described in subsequent sections.",
+          "en": "In the simulation, we use the retargeted motion dataset from the videos we shoot, denoted as \\({\\mathcal{D}}_{\\text{Robot}}^{\\text{Cleaned}}\\),whichcon- tains diverse human motion sequences. We select 43 motions categorized into three difficulty levels: easy, medium, and hard (as partially visualized in Figure 6), based on motion complexity and the required agility. ASAP is evaluated through simulation-to-simulation transfer by training policies in IsaacGym and using two other simulators, IsaacSim and Genesis, as a proxy of “real-world” environments. This setup allows for a systematic evaluation of ASAP’s generalization and transferability. The success of the transfer is assessed by metrics described in subsequent sections.",
           "reference": false,
           "source_image": "figs/p005-025-source.png",
-          "zh": "在仿真中，我们使用从实拍视频中重定向的动作数据集，记为 D RobotCleaned，其中包含多样的人体动作序列。根据动作复杂度与所需敏捷性，我们选取了划分为简单、中等和困难三个难度级别的 43 种动作（部分可视化见图 6）。ASAP 通过仿真到仿真迁移进行评估：在 IsaacGym 中训练策略，并使用 IsaacSim 和 Genesis 另外两款仿真器作为“现实世界”环境的代理。这种设置便于对 ASAP 的泛化能力和可迁移性进行系统评估。迁移的成功与否通过后续章节所述的指标进行衡量。"
+          "zh": "在仿真中，我们使用从实拍视频中重定向的动作数据集，记为 \\({\\mathcal{D}}_{\\text{Robot}}^{\\text{Cleaned}}\\)，其中包含多样的人体动作序列。根据动作复杂度与所需敏捷性，我们选取了划分为简单、中等和困难三个难度级别的 43 种动作（部分可视化见图 6）。ASAP 通过仿真到仿真迁移进行评估：在 IsaacGym 中训练策略，并使用 IsaacSim 和 Genesis 另外两款仿真器作为“现实世界”环境的代理。这种设置便于对 ASAP 的泛化能力和可迁移性进行系统评估。迁移的成功与否通过后续章节所述的指标进行衡量。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b26",
@@ -1055,15 +1130,24 @@
           "id": "p6-b0",
           "kind": "picture",
           "bbox": [
-            48,
-            53,
-            564,
-            344
+            46.0,
+            51.0,
+            566.0,
+            346.0
           ],
           "en": "Vanilla (Open-loop action only) SysID (Open-loop action + SysID sim params) Delta Dynamics (Open-loop action + Delta state) ASAP (Open-loop action + Delta action) Timestep MPJPE (mm)",
           "reference": false,
           "image": "figs/p006-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            53.0,
+            564.0,
+            344.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1560,
+          "image_height": 885
         },
         {
           "id": "p6-b1",
@@ -1144,10 +1228,11 @@
             301,
             606
           ],
-          "en": "SysID (Figure 4 b): We identify the following representative parameters in our simulated model that best align the ones in the real world: base center of mass (CoM) shift ( cx, cy, cz ), base link mass offset ratio km and low-level PD gain ratios ( kpi, k di)wherei=1,2, ...,23.Specifically,wesearchthe best parameters among certain discrete ranges by replaying the recorded trajectories in real with different simulation parameters summarized in Table VII. We then finetune the pretrained policy in IsaacGym with the best SysID parameters.",
+          "en": "SysID (Figure 4 b): We identify the following representative parameters in our simulated model that best align the ones in the real world: base center of mass (CoM) shift \\((c_x, c_y, c_z)\\), base link mass offset ratio \\(k_m\\) and low-level PD gain ratios \\((k^i_p, k^i_d)\\) where \\(i=1,2,...,23\\).Specifically,wesearchthe best parameters among certain discrete ranges by replaying the recorded trajectories in real with different simulation parameters summarized in Table VII. We then finetune the pretrained policy in IsaacGym with the best SysID parameters.",
           "reference": false,
           "source_image": "figs/p006-006-source.png",
-          "zh": "SysID（图 4 b）：我们在仿真模型中辨识出以下最具代表性的参数，使其与真实世界中的参数最佳对齐：基座质心（CoM）偏移 ( cx, cy, cz )、基座连杆质量偏移比 km 以及底层 PD 增益比 ( kpi, k di)，其中 i = 1, 2, ..., 23。具体而言，我们通过在表 VII 汇总的不同仿真参数下重放真实世界中记录的轨迹，在特定离散范围内搜索最佳参数。然后，我们在 IsaacGym 中使用最佳 SysID 参数对预训练策略进行微调。"
+          "zh": "SysID（图 4 b）：我们在仿真模型中辨识出以下最具代表性的参数，使其与真实世界中的参数最佳对齐：基座质心（CoM）偏移 \\((c_x, c_y, c_z)\\)、基座连杆质量偏移比 \\(k_m\\) 以及底层 PD 增益比 \\((k^i_p, k^i_d)\\)，其中 \\(i=1,2,...,23\\)。具体而言，我们通过在表 VII 汇总的不同仿真参数下重放真实世界中记录的轨迹，在特定离散范围内搜索最佳参数。然后，我们在 IsaacGym 中使用最佳 SysID 参数对预训练策略进行微调。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b7",
@@ -1158,10 +1243,11 @@
             301,
             652
           ],
-          "en": "DeltaDynamics (Figure 4 c): We train a residual dynamics model fθ∆(st, at)tocapturethediscrepancybetween simulated and real-world physics. The detailed implementation is introduced in Section VIII-C",
+          "en": "DeltaDynamics (Figure 4 c): We train a residual dynamics model \\(f^\\Delta_{\\theta}(s_t, a_t)\\) to capture the discrepancy between simulated and real-world physics. The detailed implementation is introduced in Section VIII-C",
           "reference": false,
           "source_image": "figs/p006-007-source.png",
-          "zh": "DeltaDynamics（图 4 c）：我们训练一个残差动力学模型 fθ∆(st, at) 来捕捉仿真与真实世界物理之间的差异。具体实现细节在第 VIII-C 节中介绍。"
+          "zh": "DeltaDynamics（图 4 c）：我们训练一个残差动力学模型 \\(f^\\Delta_{\\theta}(s_t, a_t)\\) 来捕捉仿真与真实世界物理之间的差异。具体实现细节在第 VIII-C 节中介绍。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b8",
@@ -1172,10 +1258,11 @@
             301,
             727
           ],
-          "en": "Metrics. We report success rate, deeming imitation unsuccessful when, at any point during imitation, the average difference in body distance is on average further than 0.5m. We evaluate policy’s ability to imitate the reference motion by comparing the tracking error of the global body position E g-mpjpe (mm), the root-relative mean per-joint (MPJPE) E mpjpe",
+          "en": "Metrics. We report success rate, deeming imitation unsuccessful when, at any point during imitation, the average difference in body distance is on average further than 0.5m. We evaluate policy’s ability to imitate the reference motion by comparing the tracking error of the global body position \\(E_\\text{g-mpjpe}\\) (mm), the root-relative mean per-joint (MPJPE) \\(E_{\\text{mpjpe}}\\)",
           "reference": false,
           "source_image": "figs/p006-008-source.png",
-          "zh": "评估指标。我们报告成功率，若在动作模仿过程中的任意时刻，身体距离的平均差异超过 0.5m，则判定模仿失败。我们通过对比全局身体位置跟踪误差 E g-mpjpe (mm)、以根节点为参考的各关节平均位置误差（MPJPE）E mpjpe"
+          "zh": "评估指标。我们报告成功率，若在动作模仿过程中的任意时刻，身体距离的平均差异超过 0.5m，则判定模仿失败。我们通过对比全局身体位置跟踪误差 \\(E_\\text{g-mpjpe}\\) (mm)、以根节点为参考的各关节平均位置误差（MPJPE）\\(E_{\\text{mpjpe}}\\)",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b9",
@@ -1195,15 +1282,24 @@
           "id": "p6-b10",
           "kind": "table",
           "bbox": [
-            318,
-            420,
-            559,
-            537
+            316.0,
+            418.0,
+            561.0,
+            539.0
           ],
           "en": "|Simul|ator & Length||IsaacSi|m|||Genesi|s| |---|---|---|---|---|---|---|---|---| |Length|Method|Eg-mpjpe|Empjpe|Eacc|Evel|Eg-mpjpe|Empjpe|Eacc Evel| ||OpenLoop |19.5 |15.1 |6.44 |5.80 |19.8 |15.3 |6.53 5.88 | |025s|SysID |19.4 |15.0 |6.43 |5.74 |19.3 |15.0 |6.42 5.73 | |.|DeltaDynamics|24.4 |13.6 |9.43 |7.85 |20.0 |12.4|8.42 6.89 | ||ASAP|19.9|15.6|6.48 |5.86|19.0|14.9|6.19 5.59| ||OpenLoop |33.3 |23.2 |6.80 |6.84 |33.1 |23.0 |6.78 6.82 | |05s|SysID |32.1 |22.2 |6.57 |6.56 |32.2 |22.3 |6.57 6.57 | |.|DeltaDynamics |36.5 |16.4 |8.89 |7.98 |27.8 |14.0 |7.63 6.74 | ||ASAP|26.8|19.2|5.09 |5.36|25.9|18.4|4.93 5.19| ||OpenLoop|80.8|43.5|10.6|11.1|82.5|44.5|10.8 11.4| |10s|SysID|77.6|41.5|10.2|10.7|76.5|41.6|10.0 10.5| |.|DeltaDynamics|68.1|21.5|9.61|9.14|50.2|17.2|8.19 7.62| ||ASAP|37.9|22.9|4.38 |5.26|36.9|22.6|4.23 5.10|",
           "reference": false,
           "image": "figs/p006-010.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            318.0,
+            420.0,
+            559.0,
+            537.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 735,
+          "image_height": 363
         },
         {
           "id": "p6-b11",
@@ -1214,10 +1310,11 @@
             564,
             592
           ],
-          "en": "(mm), acceleration error E acc (mm/frame2 ), and root velocity E vel (mm/frame). The mean values of the metrics are computed across all motion sequences used.",
+          "en": "(mm), acceleration error \\(E_\\text{acc}\\) (\\(\\text{mm/frame}^2\\)), and root velocity \\(E_\\text{vel}\\) (mm/frame). The mean values of the metrics are computed across all motion sequences used.",
           "reference": false,
           "source_image": "figs/p006-011-source.png",
-          "zh": "(mm)、加速度误差 E acc (mm/frame2 ) 以及根节点速度误差 E vel (mm/frame)，来评估策略模仿参考动作的能力。各项指标的均值均在所使用的所有动作序列上计算得出。"
+          "zh": "(mm)、加速度误差 \\(E_\\text{acc}\\) (\\(\\text{mm/frame}^2\\)) 以及根节点速度误差 \\(E_\\text{vel}\\) (mm/frame)，来评估策略模仿参考动作的能力。各项指标的均值均在所使用的所有动作序列上计算得出。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b12",
@@ -1284,29 +1381,47 @@
           "id": "p7-b2",
           "kind": "table",
           "bbox": [
-            56,
-            78,
-            559,
-            236
+            54.0,
+            76.0,
+            561.0,
+            238.0
           ],
           "en": "||Test Environment|||IsaacSim|||||Genesis||| |---|---|---|---|---|---|---|---|---|---|---|---| |Level|Method|Succ↑|Eg-mpjpe ↓|Empjpe ↓|Eacc ↓|Evel ↓|Succ↑|Eg-mpjpe ↓|Empjpe ↓|Eacc ↓|Evel ↓| ||Oracle (IsaacGym →IsaacGym)|100%±0.000%|97.5±0.605|43.2±0.112|2.56±0.024|4.48±0.023|100%±0.000%|97.5±0.605|43.2±0.112|2.56±0.024|4.48±0.023| |Easy|Vanilla (IsaacGym →TestEnv) SysID DeltaDynamics ASAP|100%±0.000% 100%±0.000% 100%±0.000% 100%±0.000%|107 ±0.578 105 ±1.35 127±2.97 106 ±0.498|45.4±0.169 47.8±0.970 56.7±0.390 44.3 ±0.103|2.83±0.012 3.09±0.011 3.50±0.028 2.74 ±0.025|4.59±0.021 4.98±0.020 5.56±0.031 4.46 ±0.020|100%±0.000% 100%±0.000% 83.3%±0.000% 100%±0.000%|140±1.85 127±0.233 168±7.62 125±4.75|70.1±0.626 79.9±0.330 87.0±1.51 73.5±0.570|2.68±0.042 2.99±0.035 3.08±0.18 2.10±0.083|4.65±0.046 4.95±0.012 5.39±0.34 4.11±0.133| ||Oracle (IsaacGym →IsaacGym)|100%±0.000%|111±0.635|48.8±0.133|2.63±0.017|4.82±0.019|100%±0.000%|111±0.635|48.8±0.133|2.63±0.017|4.82±0.019| |Medium|Vanilla (IsaacGym →TestEnv) SysID DeltaDynamics ASAP|100%±0.000% 100%±0.000% 83.3%±0.000% 100%±0.000%|114±0.720 115±1.256 151±2.62 112 ±1.648|49.2±0.104 49.1±0.560 68.0±0.364 49.3 ±0.574|2.92±0.021 3.43±0.021 2.90±0.047 2.53 ±0.019|5.07±0.016 5.01±0.017 5.90±0.107 4.45 ±0.026|94.3%±7.00% 100%±0.000% 83.3%±0.000% 100%±0.000%|169±5.76 138±2.70 190±1.46 126±1.63|72.0±0.692 75.4±1.18 89.4±0.50 71.2±0.163|3.26±0.076 3.14±0.042 3.44±0.16 2.81±0.037|5.86±0.101 5.50±0.058 7.49±0.11 5.13±0.066| ||Oracle (IsaacGym →IsaacGym)|100%±0.000%|116±0.711|52.5±0.298|3.40±0.027|6.16 ±0.028|100%±0.000%|116±0.711|52.5±0.298|3.40±0.027|6.16 ±0.028| |Hard|Vanilla (IsaacGym →TestEnv) SysID DeltaDynamics ASAP|100%±0.000% 100%±0.000% 66.7%±0.000% 100%±0.000%|148±0.845 165±3.83 137±2.59 129 ±1.57|51.6±0.137 58.4±0.229 60.2±0.477 56.5 ±1.15|4.41±0.055 4.87±0.197 4.20±0.041 3.72 ±0.036|6.88±0.064 7.13±0.131 7.10±0.024 6.52 ±0.042|82.9%±5.70% 100%±0.000% 60.0%±5.70% 100%±0.000%|175±9.77 186±3.84 190±14.0 129±2.31|80.7±1.69 93.0±1.49 89.6±9.34 77.0±1.07|3.87±0.175 4.98±0.245 4.29±1.16 2.69±0.040|7.19±0.199 8.98±0.119 8.70±2.33 5.65±0.073|",
           "reference": false,
           "image": "figs/p007-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            56.0,
+            78.0,
+            559.0,
+            236.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1521,
+          "image_height": 486
         },
         {
           "id": "p7-b3",
           "kind": "picture",
           "bbox": [
-            48,
-            251,
-            563,
-            395
+            46.0,
+            249.0,
+            565.0,
+            397.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            251.0,
+            563.0,
+            395.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1557,
+          "image_height": 444
         },
         {
           "id": "p7-b4",
@@ -1331,10 +1446,11 @@
             301,
             711
           ],
-          "en": "environment trajectories in the training environment. This is achieved by rolling out the same trajectory executed in the testing environment and assessing tracking discrepancies using key metrics such as MPJPE. An ideal method should minimize the discrepancies between training and testing trajectories when replaying testing-environment actions, thereby demonstrating an improved capacity for compensating dynamics mismatch. Quantitative results in Table III demonstrate that ASAP consistently outperforms the OpenLoop baseline across all replayed motion lengths, achieving lower E g-mpjpe and E mpjpe values, which indicate improved alignment with testingenv trajectories. While SysID helps address short-horizon dynamics gaps, it struggles with long-horizon scenarios due to cumulative error buildup. DeltaDynamics improves upon both SysID and OpenLoop for long horizons but suffers from overfitting, as evidenced by cascading errors magnified over time, as shown in Figure 5. ASAP, however, demonstrates superior generalization by learning residual policies that effectively bridge the dynamics gap. Comparable trends are observed in the Genesis simulator, where ASAP achieves notable improvements across all metrics relative to the baseline. These results emphasize the efficacy of learning delta action model to reduce the physics gap and improve open-loop replay performance.",
+          "en": "environment trajectories in the training environment. This is achieved by rolling out the same trajectory executed in the testing environment and assessing tracking discrepancies using key metrics such as MPJPE. An ideal method should minimize the discrepancies between training and testing trajectories when replaying testing-environment actions, thereby demonstrating an improved capacity for compensating dynamics mismatch. Quantitative results in Table III demonstrate that ASAP consistently outperforms the OpenLoop baseline across all replayed motion lengths, achieving lower \\(E_\\text{g-mpjpe}\\) and \\(E_\\text{mpjpe}\\) values, which indicate improved alignment with testingenv trajectories. While SysID helps address short-horizon dynamics gaps, it struggles with long-horizon scenarios due to cumulative error buildup. DeltaDynamics improves upon both SysID and OpenLoop for long horizons but suffers from overfitting, as evidenced by cascading errors magnified over time, as shown in Figure 5. ASAP, however, demonstrates superior generalization by learning residual policies that effectively bridge the dynamics gap. Comparable trends are observed in the Genesis simulator, where ASAP achieves notable improvements across all metrics relative to the baseline. These results emphasize the efficacy of learning delta action model to reduce the physics gap and improve open-loop replay performance.",
           "reference": false,
           "source_image": "figs/p007-005-source.png",
-          "zh": "环境轨迹在训练环境中的重现精度。这是通过在训练环境中对测试环境中执行的相同动作进行轨迹展开（rollout），并使用如 MPJPE 等关键指标评估跟踪差异来实现的。一种理想的方法应在重放测试环境动作时，最大限度地减小训练轨迹与测试轨迹之间的差异，从而展现出更强的补偿动力学失配的能力。表 III 中的定量结果表明，在所有重放动作长度下，ASAP 均一致优于 OpenLoop 基线，取得了更低的 E g-mpjpe 和 E mpjpe 值，这表明其与测试环境轨迹的对齐程度更高。虽然 SysID 有助于解决短时界动力学差距，但由于累积误差的增长，它在长时界场景中表现欠佳。DeltaDynamics 在长时界上较 SysID 和 OpenLoop 均有所改善，但存在过拟合问题，如图 5 所示，其级联误差随时间推移被放大。然而，ASAP 通过学习有效弥合动力学差距的残差策略，展现出了卓越的泛化能力。在 Genesis 仿真器中也观察到了类似的趋势，ASAP 相比基线在所有指标上均取得了显著提升。这些结果强调了学习增量动作模型（delta action model）以缩小物理差距并提高开环重放性能的有效性。"
+          "zh": "环境轨迹在训练环境中的重现精度。这是通过在训练环境中对测试环境中执行的相同动作进行轨迹展开（rollout），并使用如 MPJPE 等关键指标评估跟踪差异来实现的。一种理想的方法应在重放测试环境动作时，最大限度地减小训练轨迹与测试轨迹之间的差异，从而展现出更强的补偿动力学失配的能力。表 III 中的定量结果表明，在所有重放动作长度下，ASAP 均一致优于 OpenLoop 基线，取得了更低的 \\(E_\\text{g-mpjpe}\\) 和 \\(E_\\text{mpjpe}\\) 值，这表明其与测试环境轨迹的对齐程度更高。虽然 SysID 有助于解决短时界动力学差距，但由于累积误差的增长，它在长时界场景中表现欠佳。DeltaDynamics 在长时界上较 SysID 和 OpenLoop 均有所改善，但存在过拟合问题，如图 5 所示，其级联误差随时间推移被放大。然而，ASAP 通过学习有效弥合动力学差距的残差策略，展现出了卓越的泛化能力。在 Genesis 仿真器中也观察到了类似的趋势，ASAP 相比基线在所有指标上均取得了显著提升。这些结果强调了学习增量动作模型（delta action model）以缩小物理差距并提高开环重放性能的有效性。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b6",
@@ -1359,10 +1475,11 @@
             564,
             726
           ],
-          "en": "To address Q2 ( Can ASAP finetune policy to outperform SysID and Delta Dynamics methods? ), we evaluate the effectiveness of different methods in fine-tuning RL policies for improved testing-environment performance. We fine-tune RL policies in modified training environments and subsequently deploy them in the testing environments, quantifying motiontracking errors in testing environments. As shown in Table IV, ASAP consistently outperforms baselines such as Vanilla, SysID, and DeltaDynamics across all difficulty levels (Easy, Medium, and Hard) in both simulators (IsaacSim and Genesis). For the Easy level, our method achieves the lowest E g-mpjpe and E mpjpe in IsaacSim ( E g-mpjpe = 106 and E mpjpe = 44 . 3) and Genesis ( E g-mpjpe = 125 and E mpjpe = 73 . 5), with minimal acceleration (Eacc) and velocity (Evel) errors. In more challenging tasks, such as the Hard level, our method continues to excel, significantly reducing motion-tracking errors. For instance, in Genesis, it achieves E g-mpjpe = 129 and E mpjpe = 77 . 0, outperforming SysID and DeltaDynamics by substantial margins. Additionally, our method consistently maintains a 100% success rate across both simulators, unlike DeltaDynamics, which experiences lower success rates in harder environments. To further illustrate the advantages of ASAP, we provide per-step visualizations in Figure 7, comparing ASAP with",
+          "en": "To address Q2 ( Can ASAP finetune policy to outperform SysID and Delta Dynamics methods? ), we evaluate the effectiveness of different methods in fine-tuning RL policies for improved testing-environment performance. We fine-tune RL policies in modified training environments and subsequently deploy them in the testing environments, quantifying motiontracking errors in testing environments. As shown in Table IV, ASAP consistently outperforms baselines such as Vanilla, SysID, and DeltaDynamics across all difficulty levels (Easy, Medium, and Hard) in both simulators (IsaacSim and Genesis). For the Easy level, our method achieves the lowest \\(E_\\text{g-mpjpe}\\) and \\(E_\\text{mpjpe}\\) in IsaacSim (\\(E_\\text{g-mpjpe} = 106\\) and \\(E_\\text{mpjpe} = 44.3\\)) and Genesis (\\(E_\\text{g-mpjpe} = 125\\) and \\(E_\\text{mpjpe} = 73.5\\)), with minimal acceleration (\\(\\text{E}_{\\text{acc}}\\)) and velocity (\\(\\text{E}_{\\text{vel}}\\)) errors. In more challenging tasks, such as the Hard level, our method continues to excel, significantly reducing motion-tracking errors. For instance, in Genesis, it achieves \\(E_\\text{g-mpjpe} = 129\\) and \\(E_\\text{mpjpe} = 77.0\\), outperforming SysID and DeltaDynamics by substantial margins. Additionally, our method consistently maintains a 100% success rate across both simulators, unlike DeltaDynamics, which experiences lower success rates in harder environments. To further illustrate the advantages of ASAP, we provide per-step visualizations in Figure 7, comparing ASAP with",
           "reference": false,
           "source_image": "figs/p007-007-source.png",
-          "zh": "为了回答 Q2（ASAP 能否通过微调策略超越 SysID 和 Delta Dynamics 方法？），我们评估了不同方法在微调强化学习策略以提升测试环境性能方面的有效性。我们在修改后的训练环境中微调 RL 策略，随后将其部署到测试环境中，量化测试环境中的动作跟踪误差。如表 IV 所示，ASAP 在两个仿真器（IsaacSim 和 Genesis）的所有难度级别（简单 Easy、中等 Medium 和困难 Hard）下，均一致优于 Vanilla、SysID 和 DeltaDynamics 等基线方法。在简单级别下，我们的方法在 IsaacSim（E g-mpjpe = 106 且 E mpjpe = 44 . 3）和 Genesis（E g-mpjpe = 125 且 E mpjpe = 73 . 5）中均取得了最低的 E g-mpjpe 和 E mpjpe，且加速度误差（Eacc）与速度误差（Evel）均为最小。在更具挑战性的任务（如困难级别）中，我们的方法依然表现优异，显著降低了动作跟踪误差。例如，在 Genesis 中，它取得了 E g-mpjpe = 129 和 E mpjpe = 77 . 0 的成绩，大幅优于 SysID 和 DeltaDynamics。此外，我们的方法在两个仿真器中始终保持 100% 的成功率，而 DeltaDynamics 在较难环境中的成功率则有所下降。为了进一步说明 ASAP 的优势，我们在图 7 中提供了单步可视化结果，将 ASAP 与"
+          "zh": "为了回答 Q2（ASAP 能否通过微调策略超越 SysID 和 Delta Dynamics 方法？），我们评估了不同方法在微调强化学习策略以提升测试环境性能方面的有效性。我们在修改后的训练环境中微调 RL 策略，随后将其部署到测试环境中，量化测试环境中的动作跟踪误差。如表 IV 所示，ASAP 在两个仿真器（IsaacSim 和 Genesis）的所有难度级别（简单 Easy、中等 Medium 和困难 Hard）下，均一致优于 Vanilla、SysID 和 DeltaDynamics 等基线方法。在简单级别下，我们的方法在 IsaacSim（\\(E_\\text{g-mpjpe} = 106\\) 且 \\(E_\\text{mpjpe} = 44.3\\)）和 Genesis（\\(E_\\text{g-mpjpe} = 125\\) 且 \\(E_\\text{mpjpe} = 73.5\\)）中均取得了最低的 \\(E_\\text{g-mpjpe}\\) 和 \\(E_\\text{mpjpe}\\)，且加速度误差（\\(\\text{E}_{\\text{acc}}\\)）与速度误差（\\(\\text{E}_{\\text{vel}}\\)）均为最小。在更具挑战性的任务（如困难级别）中，我们的方法依然表现优异，显著降低了动作跟踪误差。例如，在 Genesis 中，它取得了 \\(E_\\text{g-mpjpe} = 129\\) 和 \\(E_\\text{mpjpe} = 77.0\\) 的成绩，大幅优于 SysID 和 DeltaDynamics。此外，我们的方法在两个仿真器中始终保持 100% 的成功率，而 DeltaDynamics 在较难环境中的成功率则有所下降。为了进一步说明 ASAP 的优势，我们在图 7 中提供了单步可视化结果，将 ASAP 与",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1373,15 +1490,24 @@
           "id": "p8-b0",
           "kind": "picture",
           "bbox": [
-            75,
-            54,
-            537,
-            412
+            73.0,
+            52.0,
+            539.0,
+            414.0
           ],
           "en": "Before Timestep Delta Action Finetuning After Delta Action Finetuning Timestep (a) IsaacGym -> IsaacSim Before Delta Action Finetuning After Delta Action Finetuning (b) IsaacGym -> Genesis Timestep Tracking Error MPJPE (mm) Tracking Error MPJPE (mm)",
           "reference": false,
           "image": "figs/p008-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            75.0,
+            54.0,
+            537.0,
+            412.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1398,
+          "image_height": 1086
         },
         {
           "id": "p8-b1",
@@ -1504,15 +1630,24 @@
           "id": "p9-b0",
           "kind": "picture",
           "bbox": [
-            48,
-            53,
-            564,
-            243
+            46.0,
+            51.0,
+            566.0,
+            245.0
           ],
           "en": "Before Delta Action Finetuning After Delta Action Finetuning In-distribution Motion Finetuning Out-of-distribution Motion Finetuning",
           "reference": false,
           "image": "figs/p009-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            53.0,
+            564.0,
+            243.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1560,
+          "image_height": 582
         },
         {
           "id": "p9-b1",
@@ -1532,15 +1667,24 @@
           "id": "p9-b2",
           "kind": "picture",
           "bbox": [
-            49,
-            300,
-            300,
-            477
+            47.0,
+            298.0,
+            302.0,
+            479.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p009-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            49.0,
+            300.0,
+            300.0,
+            477.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 765,
+          "image_height": 543
         },
         {
           "id": "p9-b3",
@@ -1565,10 +1709,11 @@
             301,
             630
           ],
-          "en": "the robot as in simulators, and therefore we train a robust locomotion policy for the policy transition between different motion-tracking tasks. Our locomotion command contains ( v, ω, Π), where v and ω indicate the linear and angular velocities while Π indicates the command to walk or stand still. After each motion-tracking task is done, our locomotion policy will take over to keep the robot balance until the next motion-tracking task begins. In this way, the robot is able to execute multiple tasks without manually resetting.",
+          "en": "the robot as in simulators, and therefore we train a robust locomotion policy for the policy transition between different motion-tracking tasks. Our locomotion command contains \\((v, \\omega, \\Pi)\\), where \\(v\\) and \\(\\omega\\) indicate the linear and angular velocities while \\(\\Pi\\) indicates the command to walk or stand still. After each motion-tracking task is done, our locomotion policy will take over to keep the robot balance until the next motion-tracking task begins. In this way, the robot is able to execute multiple tasks without manually resetting.",
           "reference": false,
           "source_image": "figs/p009-004-source.png",
-          "zh": "机器人，因此我们训练了一个鲁棒的移动策略，用于不同动作跟踪任务之间的策略过渡。我们的移动指令包含 ( v, ω, Π)，其中 v 和 ω 分别表示线速度与角速度，而 Π 表示行走或静止站立的指令。每个动作跟踪任务完成后，我们的移动策略将接管控制以保持机器人平衡，直到下一个动作跟踪任务开始。通过这种方式，机器人无需手动重置即可执行多项任务。"
+          "zh": "机器人，因此我们训练了一个鲁棒的移动策略，用于不同动作跟踪任务之间的策略过渡。我们的移动指令包含 \\((v, \\omega, \\Pi)\\)，其中 \\(v\\) 和 \\(\\omega\\) 分别表示线速度与角速度，而 \\(\\Pi\\) 表示行走或静止站立的指令。每个动作跟踪任务完成后，我们的移动策略将接管控制以保持机器人平衡，直到下一个动作跟踪任务开始。通过这种方式，机器人无需手动重置即可执行多项任务。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b5",
@@ -1616,15 +1761,24 @@
           "id": "p9-b8",
           "kind": "table",
           "bbox": [
-            320,
-            343,
-            558,
-            388
+            318.0,
+            341.0,
+            560.0,
+            390.0
           ],
           "en": "|Motion|Real|-World-|Kick||Real-Wo|rld-LeBron (|OOD)| |---|---|---|---|---|---|---|---| |Method|Eg-mpjpe|Empjpe|Eacc|Evel|Eg-mpjpe|Empjpe Eacc|Evel| |Vanilla|61.2|43.5|2.96|2.91|159|55.3 3.43|6.43| |ASAP|50.2|40.1|2.46 |2.70|112|47.5 2.84 |5.94|",
           "reference": false,
           "image": "figs/p009-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            320.0,
+            343.0,
+            558.0,
+            388.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 726,
+          "image_height": 147
         },
         {
           "id": "p9-b9",
@@ -1635,10 +1789,11 @@
             564,
             536
           ],
-          "en": "generalizability of the learned delta action model for out-ofdistribution motions, we also fine-tune the policy for LeBron James’ “Silencer” motion as shown in Figure 1 and Figure 8. The experiment data is summarized in Table V. It shows that ASAP outperforms the baseline on both in-distribution and out-of-distribution humanoid motion tracking tasks, achieving a considerable reduction of the tracking errors across all key metrics ( E g-mpjpe , E mpjpe , Eacc and Evel ). These findings highlight the effectiveness of ASAP in improving sim-to-real transfer for agile humanoid motion tracking.",
+          "en": "generalizability of the learned delta action model for out-ofdistribution motions, we also fine-tune the policy for LeBron James’ “Silencer” motion as shown in Figure 1 and Figure 8. The experiment data is summarized in Table V. It shows that ASAP outperforms the baseline on both in-distribution and out-of-distribution humanoid motion tracking tasks, achieving a considerable reduction of the tracking errors across all key metrics (\\(E_\\text{g-mpjpe}\\), \\(E_\\text{mpjpe}\\), \\(E_{acc}\\) and \\(E_{vel}\\)). These findings highlight the effectiveness of ASAP in improving sim-to-real transfer for agile humanoid motion tracking.",
           "reference": false,
           "source_image": "figs/p009-009-source.png",
-          "zh": "所学习到的增量动作模型针对分布外动作的泛化能力，我们还针对如图 1 和图 8 所示的勒布朗·詹姆斯“Silencer”动作微调了策略。实验数据汇总于表 V。结果表明，ASAP 在分布内和分布外的人形机器人动作跟踪任务上均优于基线方法，在所有关键指标（E g-mpjpe、E mpjpe、Eacc 和 Evel）上均显著降低了跟踪误差。这些发现突显了 ASAP 在改善敏捷人形动作跟踪的仿真到现实迁移方面的有效性。"
+          "zh": "所学习到的增量动作模型针对分布外动作的泛化能力，我们还针对如图 1 和图 8 所示的勒布朗·詹姆斯“Silencer”动作微调了策略。实验数据汇总于表 V。结果表明，ASAP 在分布内和分布外的人形机器人动作跟踪任务上均优于基线方法，在所有关键指标（\\(E_\\text{g-mpjpe}\\)、\\(E_\\text{mpjpe}\\)、\\(E_{acc}\\) 和 \\(E_{vel}\\)）上均显著降低了跟踪误差。这些发现突显了 ASAP 在改善敏捷人形动作跟踪的仿真到现实迁移方面的有效性。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b10",
@@ -1680,7 +1835,8 @@
           "en": "- Q4 : How to best train the delta action model of ASAP?",
           "reference": false,
           "source_image": "figs/p009-012-source.png",
-          "zh": "- Q4：如何以最佳方式训练 ASAP 的增量动作模型？"
+          "zh": "- Q4：如何以最佳方式训练 ASAP 的增量动作模型？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b13",
@@ -1694,7 +1850,8 @@
           "en": "- Q5 : How to best use the delta action model of ASAP?",
           "reference": false,
           "source_image": "figs/p009-013-source.png",
-          "zh": "- Q5：如何以最佳方式使用 ASAP 的增量动作模型？"
+          "zh": "- Q5：如何以最佳方式使用 ASAP 的增量动作模型？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b14",
@@ -1708,7 +1865,8 @@
           "en": "- Q6 : Why and how does ASAP work?",
           "reference": false,
           "source_image": "figs/p009-014-source.png",
-          "zh": "- Q6：ASAP 为什么有效以及如何发挥作用？"
+          "zh": "- Q6：ASAP 为什么有效以及如何发挥作用？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b15",
@@ -1747,15 +1905,24 @@
           "id": "p10-b0",
           "kind": "picture",
           "bbox": [
-            48,
-            53,
-            564,
-            294
+            46.0,
+            51.0,
+            566.0,
+            296.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p010-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            53.0,
+            564.0,
+            294.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1560,
+          "image_height": 735
         },
         {
           "id": "p10-b1",
@@ -1766,10 +1933,11 @@
             564,
             377
           ],
-          "en": "Fig. 10. Analysis of dataset size, training horizon, and action norm on the performance of π∆ . (a) Dataset Size : Mean Per Joint Position Error (MPJPE) is evaluated for both in-distribution (green) and out-of-distribution (blue) scenarios. Increasing dataset size leads to enhanced generalization, evidenced by decreasing errors in out-of-distribution evaluations. Closed-loop MPJPE (red bars) also shows improvement with larger datasets. (b) Training Horizon : Openloop MPJPE (heatmap) improves across evaluation points as training horizons increase, achieving the lowest error at 1.5s. However, closed-loop MPJPE (red bars) shows a sweet spot at a training horizon of 1.0s, beyond which no further improvements are observed. The red dashed line represents the pretrained baseline without π∆ fine-tuning. (c) Action Norm : The action norm weight significantly influences performance. Both open-loop and closed-loop MPJPE decrease as the weight increases up to 0.1, achieving the lowest error. However, further increases in the action norm weight result in degradation of open-loop performance, highlighting the trade-off between action smoothness and policy flexibility.",
+          "en": "Fig. 10. Analysis of dataset size, training horizon, and action norm on the performance of \\(\\pi^\\Delta\\) . (a) Dataset Size : Mean Per Joint Position Error (MPJPE) is evaluated for both in-distribution (green) and out-of-distribution (blue) scenarios. Increasing dataset size leads to enhanced generalization, evidenced by decreasing errors in out-of-distribution evaluations. Closed-loop MPJPE (red bars) also shows improvement with larger datasets. (b) Training Horizon : Openloop MPJPE (heatmap) improves across evaluation points as training horizons increase, achieving the lowest error at 1.5s. However, closed-loop MPJPE (red bars) shows a sweet spot at a training horizon of 1.0s, beyond which no further improvements are observed. The red dashed line represents the pretrained baseline without \\(\\pi^\\Delta\\) fine-tuning. (c) Action Norm : The action norm weight significantly influences performance. Both open-loop and closed-loop MPJPE decrease as the weight increases up to 0.1, achieving the lowest error. However, further increases in the action norm weight result in degradation of open-loop performance, highlighting the trade-off between action smoothness and policy flexibility.",
           "reference": false,
           "source_image": "figs/p010-001-source.png",
-          "zh": "图 10. 数据集规模、训练时界与动作范数对 π∆ 性能影响的分析。(a) 数据集规模：针对分布内（绿色）和分布外（蓝色）场景分别评估各关节平均位置误差（MPJPE）。增大数据集规模可提升泛化能力，分布外评估中误差的降低证明了这一点。闭环 MPJPE（红色柱状图）也随数据集增大而改善。(b) 训练时界：随着训练时界增加，开环 MPJPE（热力图）在各评估点上均有所改善，并在 1.5s 时达到最低误差。然而，闭环 MPJPE（红色柱状图）在训练时界为 1.0s 时出现最佳平衡点（sweet spot），超过该时界后未观察到进一步改善。红色虚线表示未经 π∆ 微调的预训练基线。(c) 动作范数：动作范数权重显著影响性能。当权重增加至 0.1 时，开环和闭环 MPJPE 均下降并达到最低误差。然而，进一步增加动作范数权重会导致开环性能下降，突显了动作平滑度与策略灵活性之间的权衡。"
+          "zh": "图 10. 数据集规模、训练时界与动作范数对 \\(\\pi^\\Delta\\) 性能影响的分析。(a) 数据集规模：针对分布内（绿色）和分布外（蓝色）场景分别评估各关节平均位置误差（MPJPE）。增大数据集规模可提升泛化能力，分布外评估中误差的降低证明了这一点。闭环 MPJPE（红色柱状图）也随数据集增大而改善。(b) 训练时界：随着训练时界增加，开环 MPJPE（热力图）在各评估点上均有所改善，并在 1.5s 时达到最低误差。然而，闭环 MPJPE（红色柱状图）在训练时界为 1.0s 时出现最佳平衡点（sweet spot），超过该时界后未观察到进一步改善。红色虚线表示未经 \\(\\pi^\\Delta\\) 微调的预训练基线。(c) 动作范数：动作范数权重显著影响性能。当权重增加至 0.1 时，开环和闭环 MPJPE 均下降并达到最低误差。然而，进一步增加动作范数权重会导致开环性能下降，突显了动作平滑度与策略灵活性之间的权衡。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b2",
@@ -1794,10 +1962,11 @@
             301,
             568
           ],
-          "en": "a) Dataset Size: We analyze the impact of dataset size on the training and generalization of π∆ . Simulation data is collected in Isaac Sim, and π∆ is trained in Isaac Gym. Openloop performance is assessed on both in-distribution (training) and out-of-distribution (unseen) trajectories, while closed-loop performance is evaluated using the fine-tuned policy in Isaac Sim. As shown in Figure 10 (a), increasing the dataset size improves π∆ ’s generalization, evidenced by reduced errors in out-of-distribution evaluations. However, the improvement in closed-loop performance saturates, with a marginal decrease of only 0 . 65% when scaling from 4300 to 43000 samples, suggesting limited additional benefit from larger datasets.",
+          "en": "a) Dataset Size: We analyze the impact of dataset size on the training and generalization of \\(\\pi^\\Delta\\) . Simulation data is collected in Isaac Sim, and \\(\\pi^\\Delta\\) is trained in Isaac Gym. Openloop performance is assessed on both in-distribution (training) and out-of-distribution (unseen) trajectories, while closed-loop performance is evaluated using the fine-tuned policy in Isaac Sim. As shown in Figure 10 (a), increasing the dataset size improves \\(\\pi^\\Delta\\) ’s generalization, evidenced by reduced errors in out-of-distribution evaluations. However, the improvement in closed-loop performance saturates, with a marginal decrease of only 0 . 65% when scaling from 4300 to 43000 samples, suggesting limited additional benefit from larger datasets.",
           "reference": false,
           "source_image": "figs/p010-003-source.png",
-          "zh": "a) 数据集规模：我们分析了数据集规模对 π∆ 训练和泛化的影响。仿真数据在 Isaac Sim 中采集，π∆ 在 Isaac Gym 中训练。开环性能在分布内（训练）和分布外（未见过）轨迹上进行评估，而闭环性能则使用在 Isaac Sim 中微调后的策略进行评估。如图 10 (a) 所示，增大数据集规模可提高 π∆ 的泛化能力，这体现在分布外评估中误差的降低。然而，闭环性能的提升趋于饱和，当样本量从 4300 扩展到 43000 时，误差仅微弱降低了 0 . 65%，表明更大的数据集带来的额外收益有限。"
+          "zh": "a) 数据集规模：我们分析了数据集规模对 \\(\\pi^\\Delta\\) 训练和泛化的影响。仿真数据在 Isaac Sim 中采集，\\(\\pi^\\Delta\\) 在 Isaac Gym 中训练。开环性能在分布内（训练）和分布外（未见过）轨迹上进行评估，而闭环性能则使用在 Isaac Sim 中微调后的策略进行评估。如图 10 (a) 所示，增大数据集规模可提高 \\(\\pi^\\Delta\\) 的泛化能力，这体现在分布外评估中误差的降低。然而，闭环性能的提升趋于饱和，当样本量从 4300 扩展到 43000 时，误差仅微弱降低了 0 . 65%，表明更大的数据集带来的额外收益有限。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b4",
@@ -1808,10 +1977,11 @@
             301,
             677
           ],
-          "en": "b) Training Horizon: The rollout horizon plays a crucial role in learning π∆ . As shown in Figure 10 (b), longer training horizons generally improve open-loop performance, with a horizon of 1.5s achieving the lowest errors across evaluation points at 0.25s, 0.5s, and 1.0s. However, this trend does not consistently extend to closed-loop performance. The best closed-loop results are observed at a training horizon of 1.0s, indicating that excessively long horizons do not provide additional benefits for fine-tuned policy.",
+          "en": "b) Training Horizon: The rollout horizon plays a crucial role in learning \\(\\pi^\\Delta\\) . As shown in Figure 10 (b), longer training horizons generally improve open-loop performance, with a horizon of 1.5s achieving the lowest errors across evaluation points at 0.25s, 0.5s, and 1.0s. However, this trend does not consistently extend to closed-loop performance. The best closed-loop results are observed at a training horizon of 1.0s, indicating that excessively long horizons do not provide additional benefits for fine-tuned policy.",
           "reference": false,
           "source_image": "figs/p010-004-source.png",
-          "zh": "b) 训练时域（Training Horizon）：rollout 时域在学习 π∆ 的过程中起着至关重要的作用。如图 10 (b) 所示，较长的训练时域通常能提高开环性能，其中 1.5s 的时域在 0.25s、0.5s 和 1.0s 的评估点上均取得了最低误差。然而，这一趋势并未一致地延伸至闭环性能。在 1.0s 的训练时域下观察到了最佳闭环结果，这表明过长的时域并不会为微调后的策略带来额外益处。"
+          "zh": "b) 训练时域（Training Horizon）：rollout 时域在学习 \\(\\pi^\\Delta\\) 的过程中起着至关重要的作用。如图 10 (b) 所示，较长的训练时域通常能提高开环性能，其中 1.5s 的时域在 0.25s、0.5s 和 1.0s 的评估点上均取得了最低误差。然而，这一趋势并未一致地延伸至闭环性能。在 1.0s 的训练时域下观察到了最佳闭环结果，这表明过长的时域并不会为微调后的策略带来额外益处。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b5",
@@ -1822,10 +1992,11 @@
             301,
             726
           ],
-          "en": "c) Action Norm Weight: Training π∆ incorporates an action norm reward to balance dynamics alignment and minimal correction. As illustrated in Figure 10 (c), both openloop and closed-loop errors decrease as the action norm",
+          "en": "c) Action Norm Weight: Training \\(\\pi^\\Delta\\) incorporates an action norm reward to balance dynamics alignment and minimal correction. As illustrated in Figure 10 (c), both openloop and closed-loop errors decrease as the action norm",
           "reference": false,
           "source_image": "figs/p010-005-source.png",
-          "zh": "c) 动作范数权重（Action Norm Weight）：训练 π∆ 时引入了动作范数奖励，以平衡动力学对齐与最小修正。如图 10 (c) 所示，随着动作范数"
+          "zh": "c) 动作范数权重（Action Norm Weight）：训练 \\(\\pi^\\Delta\\) 时引入了动作范数奖励，以平衡动力学对齐与最小修正。如图 10 (c) 所示，随着动作范数",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b6",
@@ -1836,10 +2007,11 @@
             564,
             471
           ],
-          "en": "weight increases, reaching the lowest error at a weight of 0 . 1. However, further increasing the action norm weight causes open-loop errors to rise, likely due to the minimal action norm reward dominates in the delta action RL training. This highlights the importance of carefully tuning the action norm weight to achieve optimal performance.",
+          "en": "weight increases, reaching the lowest error at a weight of \\(0.1\\). However, further increasing the action norm weight causes open-loop errors to rise, likely due to the minimal action norm reward dominates in the delta action RL training. This highlights the importance of carefully tuning the action norm weight to achieve optimal performance.",
           "reference": false,
           "source_image": "figs/p010-006-source.png",
-          "zh": "权重的增加，开环和闭环误差均有所下降，并在权重为 0.1 时达到最低误差。然而，进一步增大动作范数权重会导致开环误差上升，这可能是由于最小动作范数奖励在 delta 动作强化学习训练中占据了主导地位。这凸显了精细调节动作范数权重以实现最佳性能的重要性。"
+          "zh": "权重的增加，开环和闭环误差均有所下降，并在权重为 \\(0.1\\) 时达到最低误差。然而，进一步增大动作范数权重会导致开环误差上升，这可能是由于最小动作范数奖励在 delta 动作强化学习训练中占据了主导地位。这凸显了精细调节动作范数权重以实现最佳性能的重要性。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b7",
@@ -1864,24 +2036,34 @@
             564,
             542
           ],
-          "en": "To answer Q5 ( How to best use the delta action model of ASAP?), we compare multiple strategies: fixed-point iteration, gradient-based optimization, and reinforcement learning (RL). Given a learned delta policy π∆ such that:",
+          "en": "To answer Q5 ( How to best use the delta action model of ASAP?), we compare multiple strategies: fixed-point iteration, gradient-based optimization, and reinforcement learning (RL). Given a learned delta policy \\(\\pi^\\Delta\\) such that:",
           "reference": false,
           "source_image": "figs/p010-008-source.png",
-          "zh": "为了回答问题 5（Q5：如何最好地使用 ASAP 的 delta 动作模型？），我们比较了多种策略：不动点迭代、基于梯度的优化和强化学习（RL）。给定一个已学得的 delta 策略 π∆，满足："
+          "zh": "为了回答问题 5（Q5：如何最好地使用 ASAP 的 delta 动作模型？），我们比较了多种策略：不动点迭代、基于梯度的优化和强化学习（RL）。给定一个已学得的 delta 策略 \\(\\pi^\\Delta\\)，满足：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b9",
           "kind": "formula",
           "bbox": [
-            366,
-            549,
-            509,
-            561
+            364.0,
+            547.0,
+            511.0,
+            563.0
           ],
           "en": "f sim ( s, a + π ∆ ( s, a )) ≈ f real ( s, a ) ,",
           "reference": false,
           "image": "figs/p010-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            366.0,
+            549.0,
+            509.0,
+            561.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 441,
+          "image_height": 48
         },
         {
           "id": "p10-b10",
@@ -1892,10 +2074,11 @@
             564,
             592
           ],
-          "en": "and a nominal policy π ˆ( s ) that performs well in simulation, the goal is to fine-tune π ˆ( s ) for real-world deployment.",
+          "en": "and a nominal policy \\(\\hat{\\pi}(s)\\) that performs well in simulation, the goal is to fine-tune \\(\\hat{\\pi}(s)\\) for real-world deployment.",
           "reference": false,
           "source_image": "figs/p010-010-source.png",
-          "zh": "以及一个在仿真中表现良好的名义策略 π ˆ( s )，目标是对 π ˆ( s ) 进行微调以用于真实世界部署。"
+          "zh": "以及一个在仿真中表现良好的名义策略 \\(\\hat{\\pi}(s)\\)，目标是对 \\(\\hat{\\pi}(s)\\) 进行微调以用于真实世界部署。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p10-b11",
@@ -1915,15 +2098,24 @@
           "id": "p10-b12",
           "kind": "formula",
           "bbox": [
-            380,
-            623,
-            495,
-            636
+            378.0,
+            621.0,
+            497.0,
+            638.0
           ],
           "en": "π ( s ) = π ˆ( s ) − π ∆ ( s, π ( s )) .",
           "reference": false,
           "image": "figs/p010-012.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            380.0,
+            623.0,
+            495.0,
+            636.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 357,
+          "image_height": 51
         },
         {
           "id": "p10-b13",
@@ -1934,10 +2126,11 @@
             564,
             724
           ],
-          "en": "We consider two RL-free methods: fixed-point iteration and gradient-based optimization. Fixed-point iteration refines π ˆ( s ) iteratively, while gradient-based optimization minimizes a loss function to achieve a better estimate. These methods are compared against RL fine-tuning, which adapts π ˆ( s ) using reinforcement learning in simulation. The detailed derivation of these two baselines is summarized in Section VIII-D.",
+          "en": "We consider two RL-free methods: fixed-point iteration and gradient-based optimization. Fixed-point iteration refines \\(\\hat{\\pi}(s)\\) iteratively, while gradient-based optimization minimizes a loss function to achieve a better estimate. These methods are compared against RL fine-tuning, which adapts \\(\\hat{\\pi}(s)\\) using reinforcement learning in simulation. The detailed derivation of these two baselines is summarized in Section VIII-D.",
           "reference": false,
           "source_image": "figs/p010-013-source.png",
-          "zh": "我们考虑了两种无需强化学习（RL-free）的方法：不动点迭代和基于梯度的优化。不动点迭代对 π ˆ( s ) 进行迭代精炼，而基于梯度的优化则通过最小化损失函数以获得更好的估计。我们将这些方法与 RL 微调进行了对比，后者在仿真中利用强化学习对 π ˆ( s ) 进行自适应调整。这两个基线方法的详细推导总结于第 VIII-D 节中。"
+          "zh": "我们考虑了两种无需强化学习（RL-free）的方法：不动点迭代和基于梯度的优化。不动点迭代对 \\(\\hat{\\pi}(s)\\) 进行迭代精炼，而基于梯度的优化则通过最小化损失函数以获得更好的估计。我们将这些方法与 RL 微调进行了对比，后者在仿真中利用强化学习对 \\(\\hat{\\pi}(s)\\) 进行自适应调整。这两个基线方法的详细推导总结于第 VIII-D 节中。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1962,15 +2155,24 @@
           "id": "p11-b1",
           "kind": "picture",
           "bbox": [
-            66,
-            140,
-            280,
-            274
+            64.0,
+            138.0,
+            282.0,
+            276.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p011-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            66.0,
+            140.0,
+            280.0,
+            274.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 654,
+          "image_height": 414
         },
         {
           "id": "p11-b2",
@@ -2023,24 +2225,34 @@
             301,
             726
           ],
-          "en": "Random torque noise [7] is a widely used domain randomization technique for legged robots. To determine whether delta action facilitates fine-tuning of pre-trained policies toward real-world dynamics rather than merely enhancing robustness through random action noise, we analyze its impact. Specifically, we assess the effect of applying random action noise during policy fine-tuning in Isaac Gym by modifying the environment dynamics as st +1 = fsim ( st, at + βδa ), where δa ∼U [0 , 1], and deploy it in Genesis. We conduct an ablation study to examine the influence of the noise magnitude, β , varying from 0 . 025 to 0 . 4. As shown in Figure 12, within the constrained range of β ∈ [0 . 025 , 0 . 2], policies fine-tuned with action noise outperform those without fine-tuning in terms of global tracking error (MPJPE). However, the performance of the action noise approach (MPJPE of 150) does not match the precision achieved by ASAP (MPJPE of 126). Furthermore, we visualize the average output of π∆ learned from IsaacSim data in Figure 13, which reveals non-uniform discrepancies across joints. For example, in the G1 humanoid robot under our experimental setup, lower-body motors exhibit a larger dynamics gap compared to upper-body joints. Within the lower-body, the ankle and knee joints show the most pronounced discrepancies. Additionally, asymmetries between the left and right body motors further highlight the complexity. Such structured discrepancies cannot be effectively captured by merely adding uniform action noise. These findings, along with the results in Figure 5, demonstrate that delta action",
+          "en": "Random torque noise [7] is a widely used domain randomization technique for legged robots. To determine whether delta action facilitates fine-tuning of pre-trained policies toward real-world dynamics rather than merely enhancing robustness through random action noise, we analyze its impact. Specifically, we assess the effect of applying random action noise during policy fine-tuning in Isaac Gym by modifying the environment dynamics as \\(s_{t+1} = f^\\text{sim}(s_t, a_t + \\beta \\delta_a)\\), where \\(\\delta_a \\sim \\mathcal{U}[0, 1]\\), and deploy it in Genesis. We conduct an ablation study to examine the influence of the noise magnitude, \\(\\beta\\), varying from \\(0.025\\) to \\(0.4\\). As shown in Figure 12, within the constrained range of \\(\\beta \\in [0.025, 0.2]\\), policies fine-tuned with action noise outperform those without fine-tuning in terms of global tracking error (MPJPE). However, the performance of the action noise approach (MPJPE of \\(150\\)) does not match the precision achieved by ASAP (MPJPE of \\(126\\)). Furthermore, we visualize the average output of \\(\\pi^\\Delta\\) learned from IsaacSim data in Figure 13, which reveals non-uniform discrepancies across joints. For example, in the G1 humanoid robot under our experimental setup, lower-body motors exhibit a larger dynamics gap compared to upper-body joints. Within the lower-body, the ankle and knee joints show the most pronounced discrepancies. Additionally, asymmetries between the left and right body motors further highlight the complexity. Such structured discrepancies cannot be effectively captured by merely adding uniform action noise. These findings, along with the results in Figure 5, demonstrate that delta action",
           "reference": false,
           "source_image": "figs/p011-005-source.png",
-          "zh": "随机力矩噪声 [7] 是足式机器人中广泛采用的一种域随机化技术。为了探究 delta 动作究竟是促进了预训练策略针对真实世界动力学的微调，还是仅仅通过随机动作噪声增强了鲁棒性，我们分析了其影响。具体而言，我们通过将环境动力学修改为 st +1 = fsim ( st, at + βδa )（其中 δa ∼U [0 , 1]），评估了在 Isaac Gym 中进行策略微调期间引入随机动作噪声的效果，并将其部署于 Genesis 中。我们进行了一项消融实验，以检验噪声幅度 β 在 0.025 至 0.4 范围内变化时的影响。如图 12 所示，在 β ∈ [0.025, 0.2] 的受限范围内，使用动作噪声微调的策略在全局跟踪误差（MPJPE）方面优于未微调的策略。然而，动作噪声方法取得的性能（MPJPE 为 150）无法匹敌 ASAP 所达到的精度（MPJPE 为 126）。此外，我们在图 13 中可视化了基于 IsaacSim 数据学得的 π∆ 的平均输出，结果揭示了不同关节之间存在非均匀的差异。例如，在我们实验设置下的 G1 人形机器人中，下肢电机相比于上肢关节表现出更大的动力学差距。在下肢内部，踝关节和膝关节的差异最为显著。此外，左右身体电机之间的不对称性进一步凸显了这种复杂性。这种结构化的差异仅靠添加均匀的动作噪声是无法被有效捕捉的。这些发现连同图 5 的结果表明，delta 动作"
+          "zh": "随机力矩噪声 [7] 是足式机器人中广泛采用的一种域随机化技术。为了探究 delta 动作究竟是促进了预训练策略针对真实世界动力学的微调，还是仅仅通过随机动作噪声增强了鲁棒性，我们分析了其影响。具体而言，我们通过将环境动力学修改为 \\(s_{t+1} = f^\\text{sim}(s_t, a_t + \\beta \\delta_a)\\)（其中 \\(\\delta_a \\sim \\mathcal{U}[0, 1]\\)），评估了在 Isaac Gym 中进行策略微调期间引入随机动作噪声的效果，并将其部署于 Genesis 中。我们进行了一项消融实验，以检验噪声幅度 \\(\\beta\\) 在 \\(0.025\\) 至 \\(0.4\\) 范围内变化时的影响。如图 12 所示，在 \\(\\beta \\in [0.025, 0.2]\\) 的受限范围内，使用动作噪声微调的策略在全局跟踪误差（MPJPE）方面优于未微调的策略。然而，动作噪声方法取得的性能（MPJPE 为 \\(150\\)）无法匹敌 ASAP 所达到的精度（MPJPE 为 \\(126\\)）。此外，我们在图 13 中可视化了基于 IsaacSim 数据学得的 \\(\\pi^\\Delta\\) 的平均输出，结果揭示了不同关节之间存在非均匀的差异。例如，在我们实验设置下的 G1 人形机器人中，下肢电机相比于上肢关节表现出更大的动力学差距。在下肢内部，踝关节和膝关节的差异最为显著。此外，左右身体电机之间的不对称性进一步凸显了这种复杂性。这种结构化的差异仅靠添加均匀的动作噪声是无法被有效捕捉的。这些发现连同图 5 的结果表明，delta 动作",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p11-b6",
           "kind": "picture",
           "bbox": [
-            322,
-            54,
-            549,
-            195
+            320.0,
+            52.0,
+            551.0,
+            197.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p011-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            322.0,
+            54.0,
+            549.0,
+            195.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 693,
+          "image_height": 435
         },
         {
           "id": "p11-b7",
@@ -2051,24 +2263,34 @@
             564,
             236
           ],
-          "en": "Fig. 12. MPJPE vs. Noise Level for policies fine-tuned with random action noise. Policies with noise levels β ∈ [0 . 025 , 0 . 2] show improved performance compared to no fine-tuning. Delta action achieves better tracking precision (126 MPJPE) compared to the best action noise (173 MPJPE).",
+          "en": "Fig. 12. MPJPE vs. Noise Level for policies fine-tuned with random action noise. Policies with noise levels \\(\\beta \\in [0.025, 0.2]\\) show improved performance compared to no fine-tuning. Delta action achieves better tracking precision (126 MPJPE) compared to the best action noise (173 MPJPE).",
           "reference": false,
           "source_image": "figs/p011-007-source.png",
-          "zh": "图 12. 使用随机动作噪声微调策略的 MPJPE 与噪声水平对比关系。噪声水平处于 β ∈ [0.025, 0.2] 的策略相比于未微调策略展现出性能提升。与最佳动作噪声（MPJPE 为 173）相比，delta 动作取得了更优的跟踪精度（MPJPE 为 126）。"
+          "zh": "图 12. 使用随机动作噪声微调策略的 MPJPE 与噪声水平对比关系。噪声水平处于 \\(\\beta \\in [0.025, 0.2]\\) 的策略相比于未微调策略展现出性能提升。与最佳动作噪声（MPJPE 为 173）相比，delta 动作取得了更优的跟踪精度（MPJPE 为 126）。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p11-b8",
           "kind": "picture",
           "bbox": [
-            311,
-            237,
-            564,
-            515
+            309.0,
+            236.36256408691406,
+            566.0,
+            517.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p011-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            311.0,
+            237.0,
+            564.0,
+            515.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 771,
+          "image_height": 842
         },
         {
           "id": "p11-b9",
@@ -2079,10 +2301,11 @@
             564,
             577
           ],
-          "en": "Fig. 13. Visualization of IsaacGym-to-IsaacSim π∆ output magnitude. We compute the average absolute value of each joint over the 4300-episode dataset. Larger red dots indicate higher values. The results suggest that lowerbody motors exhibit a larger discrepancy compared to upper-body joints, with the most significant gap observed in the ankle pitch joint of the G1 humanoid.",
+          "en": "Fig. 13. Visualization of IsaacGym-to-IsaacSim \\(\\pi^\\Delta\\) output magnitude. We compute the average absolute value of each joint over the 4300-episode dataset. Larger red dots indicate higher values. The results suggest that lowerbody motors exhibit a larger discrepancy compared to upper-body joints, with the most significant gap observed in the ankle pitch joint of the G1 humanoid.",
           "reference": false,
           "source_image": "figs/p011-009-source.png",
-          "zh": "图 13. IsaacGym 到 IsaacSim 的 π∆ 输出幅值可视化。我们计算了包含 4300 个回合（episode）的数据集上每个关节的平均绝对值。较大的红点表示数值更高。结果表明，相比于上肢关节，下肢电机表现出更大的差异，其中在 G1 人形机器人的踝关节俯仰（ankle pitch）关节处观察到的差距最为显著。"
+          "zh": "图 13. IsaacGym 到 IsaacSim 的 \\(\\pi^\\Delta\\) 输出幅值可视化。我们计算了包含 4300 个回合（episode）的数据集上每个关节的平均绝对值。较大的红点表示数值更高。结果表明，相比于上肢关节，下肢电机表现出更大的差异，其中在 G1 人形机器人的踝关节俯仰（ankle pitch）关节处观察到的差距最为显著。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p11-b10",
@@ -2297,7 +2520,8 @@
           "en": "- Hardware Constraints : Agile whole-body motions exert significant stress on robots, leading to motor overheating and hardware failure during data collection. Two Unitree G1 robots were broken to some extent during our experiments. This bottleneck limits the scale and diversity of real-world motion sequences that can be safely collected.",
           "reference": false,
           "source_image": "figs/p012-010-source.png",
-          "zh": "- 硬件限制（Hardware Constraints）：敏捷的全身运动会对机器人产生巨大负荷，导致在数据采集过程中出现电机过热和硬件故障。在我们的实验中，两台 Unitree G1 机器人均受到了不同程度的损坏。这一瓶颈限制了能够安全采集的真实世界动作序列的规模和多样性。"
+          "zh": "- 硬件限制（Hardware Constraints）：敏捷的全身运动会对机器人产生巨大负荷，导致在数据采集过程中出现电机过热和硬件故障。在我们的实验中，两台 Unitree G1 机器人均受到了不同程度的损坏。这一瓶颈限制了能够安全采集的真实世界动作序列的规模和多样性。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p12-b11",
@@ -2311,7 +2535,8 @@
           "en": "- Dependence on Motion Capture Systems : Our pipeline requires MoCap setup to record real-world trajectories. This introduces practical deployment barriers in unstructured environments where MoCap setups are unavailable.",
           "reference": false,
           "source_image": "figs/p012-011-source.png",
-          "zh": "- 对动捕系统的依赖（Dependence on Motion Capture Systems）：我们的流程需要动捕（MoCap）系统来记录真实世界的轨迹。这在无法使用动捕系统的非结构化环境中带来了实际部署障碍。"
+          "zh": "- 对动捕系统的依赖（Dependence on Motion Capture Systems）：我们的流程需要动捕（MoCap）系统来记录真实世界的轨迹。这在无法使用动捕系统的非结构化环境中带来了实际部署障碍。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p12-b12",
@@ -2322,10 +2547,11 @@
             564,
             539
           ],
-          "en": "- Data-Hungry Delta Action Training : While reducing the delta action model to 4 DoF ankle joints improved sample efficiency, training the full 23 DoF model remains impractical for real-world deployment due to the large demand of required motion clips (e.g., > 400 episodes in simulation for the 23 DoF delta action training).",
+          "en": "- Data-Hungry Delta Action Training : While reducing the delta action model to 4 DoF ankle joints improved sample efficiency, training the full 23 DoF model remains impractical for real-world deployment due to the large demand of required motion clips (e.g., \\(>\\) 400 episodes in simulation for the 23 DoF delta action training).",
           "reference": false,
           "source_image": "figs/p012-012-source.png",
-          "zh": "- Delta 动作训练的数据需求量大（Data-Hungry Delta Action Training）：尽管将 delta 动作模型缩减至 4 个自由度（DoF）的踝关节提高了样本效率，但由于对所需动作片段的巨大需求（例如，在仿真中进行 23 个自由度的 delta 动作训练需要 > 400 个回合），训练完整的 23 个自由度模型对于真实世界部署而言仍不切实际。"
+          "zh": "- Delta 动作训练的数据需求量大（Data-Hungry Delta Action Training）：尽管将 delta 动作模型缩减至 4 个自由度（DoF）的踝关节提高了样本效率，但由于对所需动作片段的巨大需求（例如，在仿真中进行 23 个自由度的 delta 动作训练需要 \\(>\\) 400 个回合），训练完整的 23 个自由度模型对于真实世界部署而言仍不切实际。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p12-b13",
@@ -4041,15 +4267,24 @@
           "id": "p18-b6",
           "kind": "table",
           "bbox": [
-            95,
-            160,
-            251,
-            244
+            93.0,
+            158.0,
+            253.0,
+            246.0
           ],
           "en": "|Term Value| |---| |Dynamics Randomization| |Friction U(0.2,1.1) P Gain U(0.925,1.05)× default| |Control delay U(20,40)ms| |External Perturbation| |Push robot interval = 10s, vxy = 0.5 m/s|",
           "reference": false,
           "image": "figs/p018-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            95.0,
+            160.0,
+            251.0,
+            244.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 480,
+          "image_height": 264
         },
         {
           "id": "p18-b16",
@@ -4074,10 +4309,11 @@
             301,
             339
           ],
-          "en": "We identify the following representative robot parameters in our simulated model that best align the ones in the real world: base center of mass (CoM) shift ( cx, cy, cz ), base link mass offset ratio km and low-level PD gain ratios ( kpi, k di)where i = 1 , 2 , ..., 23, as shown in Table VII. .",
+          "en": "We identify the following representative robot parameters in our simulated model that best align the ones in the real world: base center of mass (CoM) shift \\((c_x, c_y, c_z)\\), base link mass offset ratio \\(k_m\\) and low-level PD gain ratios \\((k^i_p, k^i_d)\\) where \\(i=1,2,...,23\\), as shown in Table VII. .",
           "reference": false,
           "source_image": "figs/p018-017-source.png",
-          "zh": "我们在仿真模型中辨识出以下最能与现实世界对齐的代表性机器人参数：基座质心（CoM）偏移量 ( cx, cy, cz )、基座连杆质量偏移比 km 以及底层 PD 增益比 ( kpi, k di)（其中 i = 1 , 2 , ..., 23），如表 VII 所示。"
+          "zh": "我们在仿真模型中辨识出以下最能与现实世界对齐的代表性机器人参数：基座质心（CoM）偏移量 \\((c_x, c_y, c_z)\\)、基座连杆质量偏移比 \\(k_m\\) 以及底层 PD 增益比 \\((k^i_p, k^i_d)\\)（其中 \\(i=1,2,...,23\\)），如表 VII 所示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b18",
@@ -4097,15 +4333,24 @@
           "id": "p18-b19",
           "kind": "table",
           "bbox": [
-            67,
-            379,
-            282,
-            425
+            65.0,
+            377.0,
+            284.0,
+            427.0
           ],
           "en": "|Parameter|Range P|arameter R|ange| |---|---|---|---| |cx|[−0.02,0.0,0.02]|cy [−0.02|,0.0,0.02]| |cz |[−0.02,0.0,0.02]|km [0.95, |1.0,1.05]| |ki p|[0.95,1.0,1.05]|ki d [0.95,|1.0,1.05]|",
           "reference": false,
           "image": "figs/p018-019.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            67.0,
+            379.0,
+            282.0,
+            425.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 657,
+          "image_height": 150
         },
         {
           "id": "p18-b20",
@@ -4130,24 +4375,34 @@
             301,
             507
           ],
-          "en": "Using the collected real-world trajectory, we replay the action sequence {areal 0, . . . , areal T}insimulationandrecord the resulting trajectory {ssim 0, . . . , ssim T}.Theneuraldynamics model fθ∆istrainedtopredictthedifference:",
+          "en": "Using the collected real-world trajectory, we replay the action sequence \\(\\{a^\\text{real}_0, \\dots, a^\\text{real}_T\\}\\) in simulation and record the resulting trajectory \\(\\{s^\\text{sim}_0, \\dots, s^\\text{sim}_T\\}\\). The neural dynamics model \\(f^\\Delta_\\theta\\) is trained to predict the difference:",
           "reference": false,
           "source_image": "figs/p018-021-source.png",
-          "zh": "利用采集到的现实世界轨迹，我们在仿真中重放动作序列 {areal 0, . . . , areal T} 并记录生成的轨迹 {ssim 0, . . . , ssim T}。随后训练神经动力学模型 fθ∆ 来预测两者之间的差异："
+          "zh": "利用采集到的现实世界轨迹，我们在仿真中重放动作序列 \\(\\{a^\\text{real}_0, \\dots, a^\\text{real}_T\\}\\) 并记录生成的轨迹 \\(\\{s^\\text{sim}_0, \\dots, s^\\text{sim}_T\\}\\)。随后训练神经动力学模型 \\(f^\\Delta_\\theta\\) 来预测两者之间的差异：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b27",
           "kind": "formula",
           "bbox": [
-            101,
-            511,
-            248,
-            525
+            99.0,
+            509.0,
+            250.0,
+            527.0
           ],
           "en": "s real t +1 − s t sim +1 = f θ ∆( s real t , a t real) , ∀t.",
           "reference": false,
           "image": "figs/p018-027.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            101.0,
+            511.0,
+            248.0,
+            525.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 453,
+          "image_height": 54
         },
         {
           "id": "p18-b28",
@@ -4158,24 +4413,34 @@
             301,
             601
           ],
-          "en": "In practice, we compute the mean squared error (MSE) loss in an autoregressive setting, where the model predicts forward for K steps and uses gradient descent to minimize the loss. To balance learning efficiency and stability over long horizons, we implement a schedule that gradually increases K during training. Formally, the optimization objective is:",
+          "en": "In practice, we compute the mean squared error (MSE) loss in an autoregressive setting, where the model predicts forward for \\(K\\) steps and uses gradient descent to minimize the loss. To balance learning efficiency and stability over long horizons, we implement a schedule that gradually increases \\(K\\) during training. Formally, the optimization objective is:",
           "reference": false,
           "source_image": "figs/p018-028-source.png",
-          "zh": "在实践中，我们在自回归设置下计算均方误差（MSE）损失，其中模型向前预测 K 步，并通过梯度下降最小化该损失。为了平衡长时域下的学习效率与稳定性，我们在训练过程中采用了逐步增加 K 的调度策略。形式化地，优化目标为："
+          "zh": "在实践中，我们在自回归设置下计算均方误差（MSE）损失，其中模型向前预测 \\(K\\) 步，并通过梯度下降最小化该损失。为了平衡长时域下的学习效率与稳定性，我们在训练过程中采用了逐步增加 \\(K\\) 的调度策略。形式化地，优化目标为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b29",
           "kind": "formula",
           "bbox": [
-            48,
-            605,
-            301,
-            638
+            46.0,
+            603.0,
+            303.0,
+            640.0
           ],
           "en": "L = t + K − f sim� . . . f sim ( st, at ) + fθ ∆( st, at ) , . . . , at + K ���� s real � �� � � � ��� . K",
           "reference": false,
           "image": "figs/p018-029.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            605.0,
+            301.0,
+            638.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 771,
+          "image_height": 111
         },
         {
           "id": "p18-b30",
@@ -4186,10 +4451,11 @@
             301,
             724
           ],
-          "en": "After training, we freeze the residual dynamics model fθ∆ and integrate it into the simulator. During each simulation step, the robot’s state is updated by incorporating the delta predicted by the dynamics model. In this augmented simulation environment, we finetune the previously pretrained policy to adapt to the corrected dynamics, ensuring improved alignment with real-world behavior.",
+          "en": "After training, we freeze the residual dynamics model \\(f^\\Delta_\\theta\\) and integrate it into the simulator. During each simulation step, the robot’s state is updated by incorporating the delta predicted by the dynamics model. In this augmented simulation environment, we finetune the previously pretrained policy to adapt to the corrected dynamics, ensuring improved alignment with real-world behavior.",
           "reference": false,
           "source_image": "figs/p018-030-source.png",
-          "zh": "训练完成后，我们冻结残差动力学模型 fθ∆ 并将其集成到仿真器中。在每个仿真步中，通过计入动力学模型预测的增量来更新机器人的状态。在这个增强的仿真环境中，我们微调先前预训练的策略以适应校正后的动力学，从而确保更好地与现实世界的行为对齐。"
+          "zh": "训练完成后，我们冻结残差动力学模型 \\(f^\\Delta_\\theta\\) 并将其集成到仿真器中。在每个仿真步中，通过计入动力学模型预测的增量来更新机器人的状态。在这个增强的仿真环境中，我们微调先前预训练的策略以适应校正后的动力学，从而确保更好地与现实世界的行为对齐。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b1",
@@ -4228,10 +4494,11 @@
             528,
             115
           ],
-          "en": "freal ( s, π ( s )) = fsim ( s, π ( s ) + π∆ ( s, π ( s ))) .",
+          "en": "\\(f^{\\text{real}}(s,\\pi(s))=f^{\\text{sim}}(s,\\pi(s)+\\pi^\\Delta(s,\\pi(s))).\\)",
           "reference": false,
           "source_image": "figs/p018-008-source.png",
-          "zh": "freal ( s, π ( s )) = fsim ( s, π ( s ) + π∆ ( s, π ( s ))) ."
+          "zh": "\\(f^{\\text{real}}(s,\\pi(s))=f^{\\text{sim}}(s,\\pi(s)+\\pi^\\Delta(s,\\pi(s))).\\)",
+          "math_repair": "exact-author-latex-fragment-recovery"
         },
         {
           "id": "p18-b9",
@@ -4251,33 +4518,51 @@
           "id": "p18-b10",
           "kind": "formula",
           "bbox": [
-            387,
-            151,
-            564,
-            164
+            385.0,
+            149.0,
+            566.0,
+            166.0
           ],
           "en": "π ( s ) + π ∆ ( s, π ( s )) = π ˆ( s ) , (1)",
           "reference": false,
           "image": "figs/p018-010.png",
           "labels": [
             "1"
-          ]
+          ],
+          "original_bbox": [
+            387.0,
+            151.0,
+            564.0,
+            164.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 543,
+          "image_height": 51
         },
         {
           "id": "p18-b11",
           "kind": "formula",
           "bbox": [
-            374,
-            167,
-            564,
-            179
+            372.0,
+            165.0,
+            566.0,
+            181.0
           ],
           "en": "⇒ π ( s ) = π ˆ( s ) − π ∆ ( s, π ( s )) . (2)",
           "reference": false,
           "image": "figs/p018-011.png",
           "labels": [
             "2"
-          ]
+          ],
+          "original_bbox": [
+            374.0,
+            167.0,
+            564.0,
+            179.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 582,
+          "image_height": 48
         },
         {
           "id": "p18-b12",
@@ -4302,26 +4587,36 @@
             564,
             224
           ],
-          "en": "- 1) Fixed-Point Iteration : We initialize y 0 = π ˆ( s ) and iteratively update:",
+          "en": "- 1) Fixed-Point Iteration : We initialize \\(y_0 = \\hat{\\pi}(s)\\) and iteratively update:",
           "reference": false,
           "source_image": "figs/p018-013-source.png",
-          "zh": "- 1) 不动点迭代：我们初始化 y 0 = π ˆ( s ) 并进行迭代更新："
+          "zh": "- 1) 不动点迭代：我们初始化 \\(y_0 = \\hat{\\pi}(s)\\) 并进行迭代更新：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b14",
           "kind": "formula",
           "bbox": [
-            396,
-            230,
-            564,
-            243
+            394.0,
+            228.0,
+            566.0,
+            245.0
           ],
           "en": "yk +1 = π ˆ( s ) − π ∆ ( s, yk ) , (3)",
           "reference": false,
           "image": "figs/p018-014.png",
           "labels": [
             "3"
-          ]
+          ],
+          "original_bbox": [
+            396.0,
+            230.0,
+            564.0,
+            243.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 516,
+          "image_height": 51
         },
         {
           "id": "p18-b15",
@@ -4332,10 +4627,11 @@
             550,
             261
           ],
-          "en": "where yk converges to a solution after K iterations.",
+          "en": "where \\(y_k\\) converges to a solution after \\(K\\) iterations.",
           "reference": false,
           "source_image": "figs/p018-015-source.png",
-          "zh": "其中 yk 在 K 次迭代后收敛到一个解。"
+          "zh": "其中 \\(y_k\\) 在 \\(K\\) 次迭代后收敛到一个解。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b22",
@@ -4355,17 +4651,26 @@
           "id": "p18-b23",
           "kind": "formula",
           "bbox": [
-            384,
-            285,
-            564,
-            297
+            382.0,
+            283.0,
+            566.0,
+            299.0
           ],
           "en": "l ( y ) = ∥y + π ∆ ( s, y ) − π ˆ( s ) ∥ 2 . (4)",
           "reference": false,
           "image": "figs/p018-023.png",
           "labels": [
             "4"
-          ]
+          ],
+          "original_bbox": [
+            384.0,
+            285.0,
+            564.0,
+            297.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 552,
+          "image_height": 48
         },
         {
           "id": "p18-b24",
@@ -4376,10 +4681,11 @@
             564,
             327
           ],
-          "en": "A gradient descent method minimizes this loss to solve for y .",
+          "en": "A gradient descent method minimizes this loss to solve for \\(y\\).",
           "reference": false,
           "source_image": "figs/p018-024-source.png",
-          "zh": "梯度下降法通过最小化该损失来求解 y。"
+          "zh": "梯度下降法通过最小化该损失来求解 \\(y\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b25",
@@ -4390,10 +4696,11 @@
             564,
             377
           ],
-          "en": "These methods approximate π ( s ), but suffer from OOD issues when trained on limited trajectories. RL fine-tuning, in contrast, directly optimizes π ( s ) for real-world deployment, resulting in superior performance.",
+          "en": "These methods approximate \\(\\pi(s)\\), but suffer from OOD issues when trained on limited trajectories. RL fine-tuning, in contrast, directly optimizes \\(\\pi(s)\\) for real-world deployment, resulting in superior performance.",
           "reference": false,
           "source_image": "figs/p018-025-source.png",
-          "zh": "这些方法对 π ( s ) 进行了近似，但在有限轨迹上训练时会遇到 OOD 问题。相比之下，RL 微调直接针对现实世界部署优化 π ( s )，从而取得了更优越的性能。"
+          "zh": "这些方法对 \\(\\pi(s)\\) 进行了近似，但在有限轨迹上训练时会遇到 OOD 问题。相比之下，RL 微调直接针对现实世界部署优化 \\(\\pi(s)\\)，从而取得了更优越的性能。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b26",
@@ -4404,10 +4711,11 @@
             564,
             473
           ],
-          "en": "Problem of One-Step Matching. Note that Equation (2) is derived from the one-step matching assumption (i.e., π ( s ) + π∆ ( s, π ( s )) = π ˆ( s )). For multi-step matching, one has to differentiate through fsim , which is, in general, intractable. Therefore, both fixed-point iteration and gradient-based optimization assume one-step matching. This also explains the advantages of RL-based fine-tuning: it effectively performs a gradient-free multi-step matching procedure.",
+          "en": "Problem of One-Step Matching. Note that Equation (2) is derived from the one-step matching assumption (i.e., \\(\\pi(s) + \\pi^\\Delta(s, \\pi(s)) = \\hat{\\pi}(s)\\)). For multi-step matching, one has to differentiate through \\(f^\\text{sim}\\), which is, in general, intractable. Therefore, both fixed-point iteration and gradient-based optimization assume one-step matching. This also explains the advantages of RL-based fine-tuning: it effectively performs a gradient-free multi-step matching procedure.",
           "reference": false,
           "source_image": "figs/p018-026-source.png",
-          "zh": "单步匹配的问题。需要注意的是，公式 (2) 是从单步匹配假设（即 π ( s ) + π∆ ( s, π ( s )) = π ˆ( s )）推导而来的。对于多步匹配，必须对 fsim 进行求导，而这通常是难以处理的。因此，不动点迭代和基于梯度的优化都假设了单步匹配。这也解释了基于 RL 的微调的优势：它实际上执行了一种无梯度的多步匹配过程。"
+          "zh": "单步匹配的问题。需要注意的是，公式 (2) 是从单步匹配假设（即 \\(\\pi(s) + \\pi^\\Delta(s, \\pi(s)) = \\hat{\\pi}(s)\\)）推导而来的。对于多步匹配，必须对 \\(f^\\text{sim}\\) 进行求导，而这通常是难以处理的。因此，不动点迭代和基于梯度的优化都假设了单步匹配。这也解释了基于 RL 的微调的优势：它实际上执行了一种无梯度的多步匹配过程。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     }

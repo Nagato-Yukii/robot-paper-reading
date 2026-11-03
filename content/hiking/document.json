@@ -27,10 +27,11 @@
             494,
             140
           ],
-          "en": "Shaoting Zhu12∗ , Ziwen Zhuang12∗ , Mengjie Zhao1 , Kun-Ying Lee3 , Hang Zhao12†",
+          "en": "Shaoting Zhu\\(^{12}\\)∗ , Ziwen Zhuang\\(^{12}\\)∗ , Mengjie Zhao\\(^{1}\\) , Kun-Ying Lee\\(^{3}\\) , Hang Zhao\\(^{12}\\)†",
           "reference": false,
           "source_image": "figs/p001-002-source.png",
-          "zh": "Shaoting Zhu12∗ , Ziwen Zhuang12∗ , Mengjie Zhao1 , Kun-Ying Lee3 , Hang Zhao12†"
+          "zh": "Shaoting Zhu\\(^{12}\\)∗ , Ziwen Zhuang\\(^{12}\\)∗ , Mengjie Zhao\\(^{1}\\) , Kun-Ying Lee\\(^{3}\\) , Hang Zhao\\(^{12}\\)†",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b3",
@@ -55,24 +56,34 @@
             468,
             180
           ],
-          "en": "3Department of Computer Science and Technology, Tsinghua University ∗ Equal contribution † Corresponding author",
+          "en": "\\(^3\\)Department of Computer Science and Technology, Tsinghua University ∗ Equal contribution † Corresponding author",
           "reference": false,
           "source_image": "figs/p001-004-source.png",
-          "zh": "3清华大学计算机科学与技术系 ∗同等贡献 †通讯作者"
+          "zh": "\\(^3\\)清华大学计算机科学与技术系 ∗同等贡献 †通讯作者",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p1-b5",
           "kind": "picture",
           "bbox": [
-            48,
-            189,
-            564,
-            552
+            46.0,
+            187.0,
+            566.0,
+            554.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            189.0,
+            564.0,
+            552.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1560,
+          "image_height": 1101
         },
         {
           "id": "p1-b6",
@@ -368,15 +379,24 @@
           "id": "p3-b0",
           "kind": "picture",
           "bbox": [
-            98,
-            53,
-            510,
-            199
+            96.0,
+            51.0,
+            512.0,
+            201.0
           ],
           "en": "Depth Simulation Proprioception Depth Encoder Policy Actions Training Localization or Reconstruction Strided Depth Input 60 Hz Onboard Depth Sensor Scalable Edge Penaliztion Position-based Command Extremely Dynamic Behavior",
           "reference": false,
           "image": "figs/p003-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            98.0,
+            53.0,
+            510.0,
+            199.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1248,
+          "image_height": 450
         },
         {
           "id": "p3-b1",
@@ -499,26 +519,36 @@
             564,
             550
           ],
-          "en": "1) Observation Space: The observation space is formulated to provide the policy with sufficient state information for stable locomotion. Specifically, the actor’s observation comprises both proprioceptive and perceptive signals, including base angular velocity ω t ∈ R3 , projected gravity vector g t ∈ R3 , velocity commands c t ∈ R3 , joint positions q t ∈ R29 , joint velocities q ˙ t ∈ R29 , last action a t− 1 ∈ R29 , and depth images I t ∈ RW ×H . To capture temporal dependencies, we employ a sliding window of history consisting of h steps. During training, the actor’s input is subject to stochastic noise to improve robustness and bridge the sim-to-real gap. The comprehensive actor observation oa tisdefinedas:",
+          "en": "1) Observation Space: The observation space is formulated to provide the policy with sufficient state information for stable locomotion. Specifically, the actor’s observation comprises both proprioceptive and perceptive signals, including base angular velocity \\(\\boldsymbol{\\omega}_t \\in \\mathbb{R}^3\\) , projected gravity vector \\(\\mathbf{g}_t \\in \\mathbb{R}^3\\) , velocity commands \\(\\mathbf{c}_t \\in \\mathbb{R}^3\\) , joint positions \\(\\mathbf{q}_t \\in \\mathbb{R}^{29}\\) , joint velocities \\(\\dot{\\mathbf{q}}_t \\in \\mathbb{R}^{29}\\) , last action \\(\\mathbf{a}_{t-1} \\in \\mathbb{R}^{29}\\) , and depth images \\(\\mathbf{I}_t \\in \\mathbb{R}^{W \\times H}\\) . To capture temporal dependencies, we employ a sliding window of history consisting of \\(h\\) steps. During training, the actor’s input is subject to stochastic noise to improve robustness and bridge the sim-to-real gap. The comprehensive actor observation \\(\\mathbf{o}_t^a\\) isdefinedas:",
           "reference": false,
           "source_image": "figs/p003-009-source.png",
-          "zh": "1) 观测空间：观测空间的构建旨在为策略提供足够的状态信息以实现稳定运动。具体而言，Actor 的观测由本体感受和感知信号组成，包括基座角速度 ω t ∈ R3、投影重力向量 g t ∈ R3、速度指令 c t ∈ R3、关节位置 q t ∈ R29、关节速度 q ˙ t ∈ R29、上一时刻动作 a t− 1 ∈ R29 以及深度图像 I t ∈ RW ×H。为捕捉时间依赖性，我们采用由 h 步构成的历史滑动窗口。在训练期间，Actor 的输入会加入随机噪声，以提高稳健性并弥合仿真到现实的差距。综合的 Actor 观测 oa t 定义为："
+          "zh": "1) 观测空间：观测空间的构建旨在为策略提供足够的状态信息以实现稳定运动。具体而言，Actor 的观测由本体感受和感知信号组成，包括基座角速度 \\(\\boldsymbol{\\omega}_t \\in \\mathbb{R}^3\\)、投影重力向量 \\(\\mathbf{g}_t \\in \\mathbb{R}^3\\)、速度指令 \\(\\mathbf{c}_t \\in \\mathbb{R}^3\\)、关节位置 \\(\\mathbf{q}_t \\in \\mathbb{R}^{29}\\)、关节速度 \\(\\dot{\\mathbf{q}}_t \\in \\mathbb{R}^{29}\\)、上一时刻动作 \\(\\mathbf{a}_{t-1} \\in \\mathbb{R}^{29}\\) 以及深度图像 \\(\\mathbf{I}_t \\in \\mathbb{R}^{W \\times H}\\)。为捕捉时间依赖性，我们采用由 \\(h\\) 步构成的历史滑动窗口。在训练期间，Actor 的输入会加入随机噪声，以提高稳健性并弥合仿真到现实的差距。综合的 Actor 观测 \\(\\mathbf{o}_t^a\\) 定义为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b10",
           "kind": "formula",
           "bbox": [
-            343,
-            556,
-            564,
-            570
+            341.0,
+            554.0,
+            566.0,
+            572.0
           ],
           "en": "o a t = { ( ω i, g i, c i, q i, q ˙ i, a i− 1) }t i = t−h +1 + Ht (1)",
           "reference": false,
           "image": "figs/p003-010.png",
           "labels": [
             "1"
-          ]
+          ],
+          "original_bbox": [
+            343.0,
+            556.0,
+            564.0,
+            570.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 675,
+          "image_height": 54
         },
         {
           "id": "p3-b11",
@@ -529,10 +559,11 @@
             564,
             635
           ],
-          "en": "where Ht is the historical input sequence of depth images. We adopt an asymmetric actor-critic architecture to facilitate training in simulation. The critic’s observation oc tincludes all noise-free actor observations, combined with base linear velocity v t ∈ R3 .",
+          "en": "where \\(\\mathcal{H}_t\\) is the historical input sequence of depth images. We adopt an asymmetric actor-critic architecture to facilitate training in simulation. The critic’s observation \\(\\mathbf{o}_t^c\\) includes all noise-free actor observations, combined with base linear velocity \\(\\mathbf{v}_t \\in \\mathbb{R}^3\\) .",
           "reference": false,
           "source_image": "figs/p003-011-source.png",
-          "zh": "其中 Ht 是深度图像的历史输入序列。我们采用非对称 Actor-Critic 架构以便于仿真中的训练。Critic 的观测 oc t 包含所有无噪声的 Actor 观测，并结合了基座线速度 v t ∈ R3。"
+          "zh": "其中 \\(\\mathcal{H}_t\\) 是深度图像的历史输入序列。我们采用非对称 Actor-Critic 架构以便于仿真中的训练。Critic 的观测 \\(\\mathbf{o}_t^c\\) 包含所有无噪声的 Actor 观测，并结合了基座线速度 \\(\\mathbf{v}_t \\in \\mathbb{R}^3\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b12",
@@ -543,26 +574,36 @@
             564,
             669
           ],
-          "en": "2) Action Space: The policy outputs the target joint positions a t ∈ R29 . Then, the joint torques τ t are computed via PD control:",
+          "en": "2) Action Space: The policy outputs the target joint positions \\(\\mathbf{a}_t \\in \\mathbb{R}^{29}\\) . Then, the joint torques \\(\\boldsymbol{\\tau}_t\\) are computed via PD control:",
           "reference": false,
           "source_image": "figs/p003-012-source.png",
-          "zh": "2) 动作空间：策略输出目标关节位置 a t ∈ R29。随后，通过 PD 控制计算关节力矩 τ t："
+          "zh": "2) 动作空间：策略输出目标关节位置 \\(\\mathbf{a}_t \\in \\mathbb{R}^{29}\\)。随后，通过 PD 控制计算关节力矩 \\(\\boldsymbol{\\tau}_t\\)：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b13",
           "kind": "formula",
           "bbox": [
-            385,
-            673,
-            564,
-            684
+            383.0,
+            671.0,
+            566.0,
+            686.0
           ],
           "en": "τ t = kp ( a t − q t ) − kd ˙ q t (2)",
           "reference": false,
           "image": "figs/p003-013.png",
           "labels": [
             "2"
-          ]
+          ],
+          "original_bbox": [
+            385.0,
+            673.0,
+            564.0,
+            684.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 549,
+          "image_height": 45
         },
         {
           "id": "p3-b14",
@@ -587,15 +628,24 @@
           "id": "p4-b0",
           "kind": "picture",
           "bbox": [
-            48,
-            53,
-            564,
-            172
+            46.0,
+            51.0,
+            566.0,
+            174.0
           ],
           "en": "Original Image Crop and Resize Gaussian Noise Disparity Artifact Gaussian Blur OOD Perturbation (Optional) Original Image Resize Crop Inpaint Gaussian Blur",
           "reference": false,
           "image": "figs/p004-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            53.0,
+            564.0,
+            172.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1560,
+          "image_height": 369
         },
         {
           "id": "p4-b1",
@@ -606,10 +656,11 @@
             543,
             186
           ],
-          "en": "Fig. 3: Depth processing: Top row shows Fsim on synthetic data, and bottom row shows Freal on real-world data.",
+          "en": "Fig. 3: Depth processing: Top row shows \\(\\mathcal{F}_{sim}\\) on synthetic data, and bottom row shows \\(\\mathcal{F}_{real}\\) on real-world data.",
           "reference": false,
           "source_image": "figs/p004-001-source.png",
-          "zh": "图 3：深度处理：首行展示在合成数据上的 Fsim，次行展示在真实世界数据上的 Freal。"
+          "zh": "图 3：深度处理：首行展示在合成数据上的 \\(\\mathcal{F}_{sim}\\)，次行展示在真实世界数据上的 \\(\\mathcal{F}_{real}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b2",
@@ -634,10 +685,11 @@
             301,
             325
           ],
-          "en": "4) Reward Functions: The total reward R is defined as the sum of four primary components: task, regularization, safety, and AMP-style rewards. Formally, R = r task+ r reg+ r safe+ r amp. These terms respectively facilitate command tracking, energy efficiency, constraint satisfaction, and natural locomotion styles.",
+          "en": "4) Reward Functions: The total reward \\(R\\) is defined as the sum of four primary components: task, regularization, safety, and AMP-style rewards. Formally, \\(R = r_{\\text{task}} + r_{\\text{reg}} + r_{\\text{safe}} + r_{\\text{amp}}\\). These terms respectively facilitate command tracking, energy efficiency, constraint satisfaction, and natural locomotion styles.",
           "reference": false,
           "source_image": "figs/p004-003-source.png",
-          "zh": "4) 奖励函数：总奖励 R 定义为四个主要组成部分之和：任务奖励、正则化奖励、安全奖励和 AMP 风格奖励。形式化表示为：R = r task+ r reg+ r safe+ r amp。这些项分别促进指令跟踪、能量效率、约束满足以及自然的步态运动风格。"
+          "zh": "4) 奖励函数：总奖励 \\(R\\) 定义为四个主要组成部分之和：任务奖励、正则化奖励、安全奖励和 AMP 风格奖励。形式化表示为：\\(R = r_{\\text{task}} + r_{\\text{reg}} + r_{\\text{safe}} + r_{\\text{amp}}\\)。这些项分别促进指令跟踪、能量效率、约束满足以及自然的步态运动风格。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b4",
@@ -662,10 +714,11 @@
             301,
             433
           ],
-          "en": "1) Efficient Depth Synthesis via Parallelized Ray-casting: To synthesize high-fidelity depth observations, we leverage the NVIDIA Warp framework [25] to implement a GPUaccelerated ray-caster. Given the camera’s extrinsic parameters—comprising the optical center position p c ∈ R3 and orientation matrix R c ∈ SO (3)—we cast a set of rays corresponding to the camera’s intrinsic manifold.",
+          "en": "1) Efficient Depth Synthesis via Parallelized Ray-casting: To synthesize high-fidelity depth observations, we leverage the NVIDIA Warp framework [25] to implement a GPUaccelerated ray-caster. Given the camera’s extrinsic parameters—comprising the optical center position \\(\\mathbf{p}_c \\in \\mathbb{R}^3\\) and orientation matrix \\(\\mathbf{R}_c \\in SO(3)\\)—we cast a set of rays corresponding to the camera’s intrinsic manifold.",
           "reference": false,
           "source_image": "figs/p004-005-source.png",
-          "zh": "1) 基于并行光线投射的高效深度合成：为了合成高保真深度观测，我们利用 NVIDIA Warp 框架 [25] 实现了一个 GPU 加速的光线投射器。在给定相机外参——包括光心位置 p c ∈ R3 和朝向矩阵 R c ∈ SO(3)——的前提下，我们发射一组与相机内参流形相对应的光线。"
+          "zh": "1) 基于并行光线投射的高效深度合成：为了合成高保真深度观测，我们利用 NVIDIA Warp 框架 [25] 实现了一个 GPU 加速的光线投射器。在给定相机外参——包括光心位置 \\(\\mathbf{p}_c \\in \\mathbb{R}^3\\) 和朝向矩阵 \\(\\mathbf{R}_c \\in SO(3)\\)——的前提下，我们发射一组与相机内参流形相对应的光线。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b6",
@@ -676,24 +729,34 @@
             301,
             490
           ],
-          "en": "For each pixel ( i, j ) in the image plane, a ray is emitted in the direction v i,j . The ray-caster computes the radial distance di,j by identifying the first intersection point between the ray and the scene geometry G , which includes both the terrain environment and the robot’s visual meshes:",
+          "en": "For each pixel \\((i, j)\\) in the image plane, a ray is emitted in the direction \\(\\mathbf{v}_{i,j}\\) . The ray-caster computes the radial distance \\(d_{i,j}\\) by identifying the first intersection point between the ray and the scene geometry \\(\\mathcal{G}\\) , which includes both the terrain environment and the robot’s visual meshes:",
           "reference": false,
           "source_image": "figs/p004-006-source.png",
-          "zh": "对于图像平面中的每个像素 ( i, j )，沿方向 v i,j 发射一条光线。光线投射器通过确定光线与场景几何体 G（既包括地形环境，也包括机器人的视觉网格）的第一个交点，来计算径向距离 di,j："
+          "zh": "对于图像平面中的每个像素 \\((i, j)\\)，沿方向 \\(\\mathbf{v}_{i,j}\\) 发射一条光线。光线投射器通过确定光线与场景几何体 \\(\\mathcal{G}\\)（既包括地形环境，也包括机器人的视觉网格）的第一个交点，来计算径向距离 \\(d_{i,j}\\)：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b7",
           "kind": "formula",
           "bbox": [
-            100,
-            501,
-            249,
-            513
+            98.0,
+            499.0,
+            251.0,
+            515.0
           ],
           "en": "di,j = min {τ | p c + τ v i,j ∩G̸ = ∅}",
           "reference": false,
           "image": "figs/p004-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            100.0,
+            501.0,
+            249.0,
+            513.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 459,
+          "image_height": 48
         },
         {
           "id": "p4-b8",
@@ -704,24 +767,34 @@
             301,
             567
           ],
-          "en": "To accurately emulate the output of physical RGB-D sensors, we transform the radial distance di,j into the orthogonal depth zi,j . This is achieved by projecting the distance onto the camera’s principal axis n c :",
+          "en": "To accurately emulate the output of physical RGB-D sensors, we transform the radial distance \\(d_{i,j}\\) into the orthogonal depth \\(z_{i,j}\\) . This is achieved by projecting the distance onto the camera’s principal axis \\(\\mathbf{n}_c\\) :",
           "reference": false,
           "source_image": "figs/p004-008-source.png",
-          "zh": "为了精确模拟真实物理 RGB-D 传感器的输出，我们将径向距离 di,j 转换为正交深度 zi,j。这是通过将该距离投影到相机主光轴 n c 上实现的："
+          "zh": "为了精确模拟真实物理 RGB-D 传感器的输出，我们将径向距离 \\(d_{i,j}\\) 转换为正交深度 \\(z_{i,j}\\)。这是通过将该距离投影到相机主光轴 \\(\\mathbf{n}_c\\) 上实现的：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b9",
           "kind": "formula",
           "bbox": [
-            129,
-            576,
-            220,
-            588
+            127.0,
+            574.0,
+            222.0,
+            590.0
           ],
           "en": "zi,j = di,j · ( v i,j · n c )",
           "reference": false,
           "image": "figs/p004-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            129.0,
+            576.0,
+            220.0,
+            588.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 285,
+          "image_height": 48
         },
         {
           "id": "p4-b10",
@@ -732,10 +805,11 @@
             301,
             642
           ],
-          "en": "where v i,j is the unit ray direction and n c is the camera’s forward-facing unit vector. This parallelized approach ensures real-time synthesis of dense depth maps within the simulation loop.",
+          "en": "where \\(\\mathbf{v}_{i,j}\\) is the unit ray direction and \\(\\mathbf{n}_c\\) is the camera’s forward-facing unit vector. This parallelized approach ensures real-time synthesis of dense depth maps within the simulation loop.",
           "reference": false,
           "source_image": "figs/p004-010-source.png",
-          "zh": "其中 v i,j 为单位光线方向，n c 为相机朝前的单位向量。这种并行化方法确保了在仿真循环内实时合成稠密深度图。"
+          "zh": "其中 \\(\\mathbf{v}_{i,j}\\) 为单位光线方向，\\(\\mathbf{n}_c\\) 为相机朝前的单位向量。这种并行化方法确保了在仿真循环内实时合成稠密深度图。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b11",
@@ -746,10 +820,11 @@
             301,
             726
           ],
-          "en": "2) Bidirectional Depth Alignment and Noise Modeling: To minimize the sim-to-real gap, we define two transformation pipelines, Fsim and Freal , which map raw depth observations from their respective domains into a unified perception space O . Our objective is to ensure that the processed distributions are harmonized, such that P ( Fsim ( dsim )) ≈ P ( Freal ( dreal )), where d ∈ RH×W denotes the raw depth map.",
+          "en": "2) Bidirectional Depth Alignment and Noise Modeling: To minimize the sim-to-real gap, we define two transformation pipelines, \\(\\mathcal{F}_{sim}\\) and \\(\\mathcal{F}_{real}\\) , which map raw depth observations from their respective domains into a unified perception space \\(\\mathcal{O}\\) . Our objective is to ensure that the processed distributions are harmonized, such that \\(P(\\mathcal{F}_{sim}(d_{sim})) \\approx P(\\mathcal{F}_{real}(d_{real}))\\), where \\(d \\in \\mathbb{R}^{H \\times W}\\) denotes the raw depth map.",
           "reference": false,
           "source_image": "figs/p004-011-source.png",
-          "zh": "2) 双向深度对齐与噪声建模：为了最小化仿真到现实迁移差距（sim-to-real gap），我们定义了两个变换管线 Fsim 与 Freal，将来自各自领域的原始深度观测映射到统一的感知空间 O 中。我们的目标是确保处理后的分布保持一致，即满足 P ( Fsim ( dsim )) ≈ P ( Freal ( dreal ))，其中 d ∈ RH×W 表示原始深度图。"
+          "zh": "2) 双向深度对齐与噪声建模：为了最小化仿真到现实迁移差距（sim-to-real gap），我们定义了两个变换管线 \\(\\mathcal{F}_{sim}\\) 与 \\(\\mathcal{F}_{real}\\)，将来自各自领域的原始深度观测映射到统一的感知空间 \\(\\mathcal{O}\\) 中。我们的目标是确保处理后的分布保持一致，即满足 \\(P(\\mathcal{F}_{sim}(d_{sim})) \\approx P(\\mathcal{F}_{real}(d_{real}))\\)，其中 \\(d \\in \\mathbb{R}^{H \\times W}\\) 表示原始深度图。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b12",
@@ -760,10 +835,11 @@
             564,
             229
           ],
-          "en": "a) Simulation Pipeline Fsim: The simulation pipeline degrades ideal depth to emulate physical sensor limitations through the following sequential stochastic operations:",
+          "en": "a) Simulation Pipeline \\(\\mathcal{F}_{sim}\\): The simulation pipeline degrades ideal depth to emulate physical sensor limitations through the following sequential stochastic operations:",
           "reference": false,
           "source_image": "figs/p004-012-source.png",
-          "zh": "a) 仿真管线 Fsim：仿真管线通过以下一系列随机操作对理想深度进行降级，以模拟物理传感器的局限性："
+          "zh": "a) 仿真管线 \\(\\mathcal{F}_{sim}\\)：仿真管线通过以下一系列随机操作对理想深度进行降级，以模拟物理传感器的局限性：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b13",
@@ -788,10 +864,11 @@
             564,
             317
           ],
-          "en": "- 2) Range-dependent Gaussian Noise : To account for precision decay, additive Gaussian noise ϵ ∼N (0 , σ2 ) is injected into pixels within a valid sensing range [ dmin, dmax ]. The perturbed depth zi,j′isdefinedas:",
+          "en": "- 2) Range-dependent Gaussian Noise : To account for precision decay, additive Gaussian noise \\(\\epsilon \\sim \\mathcal{N}(0, \\sigma^2)\\) is injected into pixels within a valid sensing range \\([d_{min}, d_{max}]\\). The perturbed depth \\(z'_{i,j}\\)isdefinedas:",
           "reference": false,
           "source_image": "figs/p004-014-source.png",
-          "zh": "- 2) 距离相关的高斯噪声（Range-dependent Gaussian Noise）：为考虑精度随距离衰减的问题，向有效感知范围 [ dmin, dmax ] 内的像素注入加性高斯噪声 ϵ ∼ N(0, σ2)。扰动后的深度 zi,j′ 定义为："
+          "zh": "- 2) 距离相关的高斯噪声（Range-dependent Gaussian Noise）：为考虑精度随距离衰减的问题，向有效感知范围 \\([d_{min}, d_{max}]\\) 内的像素注入加性高斯噪声 \\(\\epsilon \\sim \\mathcal{N}(0, \\sigma^2)\\)。扰动后的深度 \\(z'_{i,j}\\) 定义为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b15",
@@ -802,10 +879,11 @@
             564,
             408
           ],
-          "en": "- zi,j + ϵ, if zi,j ∈ [ dmin, dmax ] - z′ i,j= � zi,j, otherwise - 3) Disparity Artifact Synthesis : To simulate binocular matching failures (e.g., in over-exposed or textureless regions), we mask contiguous pixels as invalid ”white regions” using structural masks.",
+          "en": "- \\(z_{i,j} + \\epsilon\\), if \\(z_{i,j} \\in [d_{min}, d_{max}]\\) - \\(z'_{i,j}\\)=  \\(z_{i,j}\\), otherwise - 3) Disparity Artifact Synthesis : To simulate binocular matching failures (e.g., in over-exposed or textureless regions), we mask contiguous pixels as invalid ”white regions” using structural masks.",
           "reference": false,
           "source_image": "figs/p004-015-source.png",
-          "zh": "- zi,j + ϵ, 若 zi,j ∈ [ dmin, dmax ] - z′ i,j =  zi,j, 其他情况 - 3) 视差伪影合成（Disparity Artifact Synthesis）：为了模拟双目匹配失效（例如在过曝或无纹理区域），我们使用结构化掩膜将连通像素遮蔽为无效的“白色区域”。"
+          "zh": "- \\(z_{i,j} + \\epsilon\\), 若 \\(z_{i,j} \\in [d_{min}, d_{max}]\\) - \\(z'_{i,j}\\) =  \\(z_{i,j}\\), 其他情况 - 3) 视差伪影合成（Disparity Artifact Synthesis）：为了模拟双目匹配失效（例如在过曝或无纹理区域），我们使用结构化掩膜将连通像素遮蔽为无效的“白色区域”。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b16",
@@ -830,10 +908,11 @@
             564,
             456
           ],
-          "en": "- 5) Clip and Normalization Values are clipped and normalized to [0 , 1].",
+          "en": "- 5) Clip and Normalization Values are clipped and normalized to \\([0, 1]\\).",
           "reference": false,
           "source_image": "figs/p004-017-source.png",
-          "zh": "- 5) 截断与归一化（Clip and Normalization）：将数值截断并归一化至 [0, 1]。"
+          "zh": "- 5) 截断与归一化（Clip and Normalization）：将数值截断并归一化至 \\([0, 1]\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b18",
@@ -844,10 +923,11 @@
             564,
             527
           ],
-          "en": "- 6) Out-of-Distribution (OOD) Perturbation : To enhance robustness against brief obstructions or temporary sensor glitches, we introduce a Bernoulli-distributed dropout. With a probability Pood , the entire observation is replaced by random gaussian noise, forcing the policy to handle transient perceptual failures.",
+          "en": "- 6) Out-of-Distribution (OOD) Perturbation : To enhance robustness against brief obstructions or temporary sensor glitches, we introduce a Bernoulli-distributed dropout. With a probability \\(P_{ood}\\) , the entire observation is replaced by random gaussian noise, forcing the policy to handle transient perceptual failures.",
           "reference": false,
           "source_image": "figs/p004-018-source.png",
-          "zh": "- 6) 分布外（OOD）扰动（Out-of-Distribution Perturbation）：为提升应对短暂遮挡或临时传感器故障的鲁棒性，我们引入了服从伯努利分布的丢弃（dropout）机制。以概率 Pood 将整个观测替换为随机高斯噪声，从而迫使策略具备处理瞬态感知失效的能力。"
+          "zh": "- 6) 分布外（OOD）扰动（Out-of-Distribution Perturbation）：为提升应对短暂遮挡或临时传感器故障的鲁棒性，我们引入了服从伯努利分布的丢弃（dropout）机制。以概率 \\(P_{ood}\\) 将整个观测替换为随机高斯噪声，从而迫使策略具备处理瞬态感知失效的能力。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b19",
@@ -858,10 +938,11 @@
             564,
             566
           ],
-          "en": "b) Real-world Pipeline Freal: During deployment, the physical depth stream is refined to match the characteristics of the trained policy’s input space:",
+          "en": "b) Real-world Pipeline \\(\\mathcal{F}_{real}\\): During deployment, the physical depth stream is refined to match the characteristics of the trained policy’s input space:",
           "reference": false,
           "source_image": "figs/p004-019-source.png",
-          "zh": "b) 现实世界管线 Freal：在实机部署期间，对物理深度流进行处理与优化，使其匹配已训练策略的输入空间特征："
+          "zh": "b) 现实世界管线 \\(\\mathcal{F}_{real}\\)：在实机部署期间，对物理深度流进行处理与优化，使其匹配已训练策略的输入空间特征：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b20",
@@ -928,15 +1009,24 @@
           "id": "p5-b0",
           "kind": "picture",
           "bbox": [
-            50,
-            55,
-            299,
-            168
+            48.0,
+            53.0,
+            301.0,
+            170.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p005-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            50.0,
+            55.0,
+            299.0,
+            168.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 759,
+          "image_height": 351
         },
         {
           "id": "p5-b1",
@@ -947,10 +1037,11 @@
             301,
             238
           ],
-          "en": "Fig. 4: Automatically detected edges across diverse terrains. observations. Unlike proprioceptive states that typically utilize a dense history of the last n consecutive steps, the depth input employs a strided temporal sampling strategy to balance the look-back window with computational efficiency.",
+          "en": "Fig. 4: Automatically detected edges across diverse terrains. observations. Unlike proprioceptive states that typically utilize a dense history of the last \\(n\\) consecutive steps, the depth input employs a strided temporal sampling strategy to balance the look-back window with computational efficiency.",
           "reference": false,
           "source_image": "figs/p005-001-source.png",
-          "zh": "图 4：在多种不同地形上自动检测到的边缘。观测。与通常利用过去连续 n 步稠密历史的本体感知状态不同，深度输入采用跨步时间采样策略，以在回溯窗口与计算效率之间取得平衡。"
+          "zh": "图 4：在多种不同地形上自动检测到的边缘。观测。与通常利用过去连续 \\(n\\) 步稠密历史的本体感知状态不同，深度输入采用跨步时间采样策略，以在回溯窗口与计算效率之间取得平衡。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b2",
@@ -961,24 +1052,34 @@
             301,
             307
           ],
-          "en": "Specifically, we define a history buffer consisting of m frames sampled with a temporal stride ℓ . Furthermore, a single-frame delay is introduced during training to emulate physical sensor latency. Let It denote the depth image at current time step t . The historical input sequence Ht is formulated as:",
+          "en": "Specifically, we define a history buffer consisting of \\(m\\) frames sampled with a temporal stride \\(\\ell\\) . Furthermore, a single-frame delay is introduced during training to emulate physical sensor latency. Let \\(I_t\\) denote the depth image at current time step \\(t\\) . The historical input sequence \\(\\mathcal{H}_t\\) is formulated as:",
           "reference": false,
           "source_image": "figs/p005-002-source.png",
-          "zh": "具体而言，我们定义了一个历史缓冲区，包含以时间步长 ℓ 采样的 m 帧图像。此外，在训练过程中引入了单帧延迟，以模拟物理传感器的延迟。设 It 表示当前时间步 t 的深度图像。历史输入序列 Ht 表示为："
+          "zh": "具体而言，我们定义了一个历史缓冲区，包含以时间步长 \\(\\ell\\) 采样的 \\(m\\) 帧图像。此外，在训练过程中引入了单帧延迟，以模拟物理传感器的延迟。设 \\(I_t\\) 表示当前时间步 \\(t\\) 的深度图像。历史输入序列 \\(\\mathcal{H}_t\\) 表示为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b3",
           "kind": "formula",
           "bbox": [
-            100,
-            317,
-            249,
-            328
+            98.0,
+            315.0,
+            251.0,
+            330.0
           ],
           "en": "Ht = {It−k·ℓ | k = 0 , 1 , . . . , m − 1 }",
           "reference": false,
           "image": "figs/p005-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            100.0,
+            317.0,
+            249.0,
+            328.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 459,
+          "image_height": 45
         },
         {
           "id": "p5-b4",
@@ -989,10 +1090,11 @@
             301,
             370
           ],
-          "en": "where k is the frame index. This configuration allows the policy to perceive a total temporal horizon of ( m − 1) · ℓ steps while only processing m discrete frames.",
+          "en": "where \\(k\\) is the frame index. This configuration allows the policy to perceive a total temporal horizon of \\((m-1) \\cdot \\ell\\) steps while only processing \\(m\\) discrete frames.",
           "reference": false,
           "source_image": "figs/p005-004-source.png",
-          "zh": "其中 k 为帧索引。该配置使得策略仅需处理 m 个离散帧，即可感知总共 ( m − 1) · ℓ 步的时间跨度。"
+          "zh": "其中 \\(k\\) 为帧索引。该配置使得策略仅需处理 \\(m\\) 个离散帧，即可感知总共 \\((m-1) \\cdot \\ell\\) 步的时间跨度。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b5",
@@ -1045,10 +1147,11 @@
             301,
             655
           ],
-          "en": "1) Terrain Edge Detector: First, we identify sharp terrain edges by comparing the dihedral angle between adjacent faces to a predefined threshold τ . To enhance computational efficiency, the resulting raw edges are further processed to filter noise and concatenate short segments. This procedure is summarized in algorithm 1.",
+          "en": "1) Terrain Edge Detector: First, we identify sharp terrain edges by comparing the dihedral angle between adjacent faces to a predefined threshold \\(\\tau\\) . To enhance computational efficiency, the resulting raw edges are further processed to filter noise and concatenate short segments. This procedure is summarized in algorithm 1.",
           "reference": false,
           "source_image": "figs/p005-008-source.png",
-          "zh": "1) 地形边缘检测器：首先，我们通过将相邻面之间的二面角与预设阈值 τ 进行比较，来识别陡峭的地形边缘。为了提高计算效率，对得到的原始边缘进行进一步处理，以过滤噪声并拼接短线段。该流程总结在算法 1 中。"
+          "zh": "1) 地形边缘检测器：首先，我们通过将相邻面之间的二面角与预设阈值 \\(\\tau\\) 进行比较，来识别陡峭的地形边缘。为了提高计算效率，对得到的原始边缘进行进一步处理，以过滤噪声并拼接短线段。该流程总结在算法 1 中。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b9",
@@ -1073,10 +1176,11 @@
             301,
             726
           ],
-          "en": "2) Volumetric Point Penetration Penalization: To accurately monitor the contact state relative to the terrain edges, we distribute a set of volume points P within each foot’s collision",
+          "en": "2) Volumetric Point Penetration Penalization: To accurately monitor the contact state relative to the terrain edges, we distribute a set of volume points \\(\\mathcal{P}\\) within each foot’s collision",
           "reference": false,
           "source_image": "figs/p005-010-source.png",
-          "zh": "2) 体积点穿透惩罚：为了精确监测相对于地形边缘的接触状态，我们在每只脚的碰撞"
+          "zh": "2) 体积点穿透惩罚：为了精确监测相对于地形边缘的接触状态，我们在每只脚的碰撞",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b11",
@@ -1087,10 +1191,11 @@
             549,
             323
           ],
-          "en": "- Algorithm 1: Terrain Edge Detection Algorithm Input : Triangular Mesh M = ( V, F ), Sharpness Threshold τ , Cylinder Radius r , Grid Resolution N grid - Output: Spatial Collision Grid S /* 1. Sharp Edge Detection */ - 1 Let A be the set of face adjacencies in M ; 2 Initialize raw edge set E raw ←∅ ; 3 foreach adjacency a ∈A do 4 Let αa be the dihedral angle of a ; 5 if αa > τ then 6 Let ( vi, vj ) be the vertex indices shared by a ; 7 Add segment coordinate ( V [ vi ] , V [ vj ]) to E raw; /* 2. Edge Processing */ - 8 if Eraw is empty then 9 return None ; - 10 else 11 E final ← ProcessEdges( E raw); /* 3. Spatial Structure Construction */",
+          "en": "- Algorithm 1: Terrain Edge Detection Algorithm Input : Triangular Mesh \\(\\mathcal{M} = (\\mathcal{V}, \\mathcal{F})\\), Sharpness Threshold \\(\\tau\\) , Cylinder Radius \\(r\\) , Grid Resolution \\(N_{\\text{grid}}\\) - Output: Spatial Collision Grid \\(\\mathcal{S}\\) /* 1. Sharp Edge Detection */ - 1 Let \\(\\mathcal{A}\\) be the set of face adjacencies in \\(\\mathcal{M}\\) ; 2 Initialize raw edge set \\(E_{\\text{raw}} \\leftarrow \\emptyset\\) ; 3 foreach adjacency \\(a \\in \\mathcal{A}\\) do 4 Let \\(\\alpha_a\\) be the dihedral angle of \\(a\\) ; 5 if \\(\\alpha_a > \\tau\\) then 6 Let \\((v_i, v_j)\\) be the vertex indices shared by \\(a\\) ; 7 Add segment coordinate \\((\\mathcal{V}[v_i], \\mathcal{V}[v_j])\\) to \\(E_{\\text{raw}}\\); /* 2. Edge Processing */ - 8 if \\(E_{\\text{raw}}\\) is empty then 9 return None ; - 10 else 11 \\(E_{\\text{final}} \\leftarrow \\operatorname{ProcessEdges}(E_{\\text{raw}})\\); /* 3. Spatial Structure Construction */",
           "reference": false,
           "source_image": "figs/p005-011-source.png",
-          "zh": "- 算法 1：地形边缘检测算法 输入：三角网格 M = ( V, F )，锐度阈值 τ，圆柱半径 r，网格分辨率 N grid - 输出：空间碰撞网格 S /* 1. 尖锐边缘检测 */ - 1 设 A 为 M 中的面邻接关系集合；2 初始化原始边缘集合 E raw ← ∅；3 对每个邻接关系 a ∈ A 执行 4 设 αa 为 a 的二面角；5 若 αa > τ 则 6 设 ( vi, vj ) 为 a 共享的顶点索引；7 将线段坐标 ( V [ vi ] , V [ vj ]) 添加至 E raw；/* 2. 边缘处理 */ - 8 若 Eraw 为空则 9 返回 None；- 10 否则 11 E final ← ProcessEdges( E raw)；/* 3. 空间结构构建 */"
+          "zh": "- 算法 1：地形边缘检测算法 输入：三角网格 \\(\\mathcal{M} = (\\mathcal{V}, \\mathcal{F})\\)，锐度阈值 \\(\\tau\\)，圆柱半径 \\(r\\)，网格分辨率 \\(N_{\\text{grid}}\\) - 输出：空间碰撞网格 \\(\\mathcal{S}\\) /* 1. 尖锐边缘检测 */ - 1 设 \\(\\mathcal{A}\\) 为 \\(\\mathcal{M}\\) 中的面邻接关系集合；2 初始化原始边缘集合 \\(E_{\\text{raw}} \\leftarrow \\emptyset\\)；3 对每个邻接关系 \\(a \\in \\mathcal{A}\\) 执行 4 设 \\(\\alpha_a\\) 为 \\(a\\) 的二面角；5 若 \\(\\alpha_a > \\tau\\) 则 6 设 \\((v_i, v_j)\\) 为 \\(a\\) 共享的顶点索引；7 将线段坐标 \\((\\mathcal{V}[v_i], \\mathcal{V}[v_j])\\) 添加至 \\(E_{\\text{raw}}\\)；/* 2. 边缘处理 */ - 8 若 \\(E_{\\text{raw}}\\) 为空则 9 返回 None；- 10 否则 11 \\(E_{\\text{final}} \\leftarrow \\operatorname{ProcessEdges}(E_{\\text{raw}})\\)；/* 3. 空间结构构建 */",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b12",
@@ -1101,10 +1206,11 @@
             441,
             336
           ],
-          "en": "- 12 Initialize cylinder set C ←∅ ;",
+          "en": "- 12 Initialize cylinder set \\(\\mathcal{C} \\leftarrow \\emptyset\\) ;",
           "reference": false,
           "source_image": "figs/p005-012-source.png",
-          "zh": "- 12 初始化圆柱体集合 C ← ∅；"
+          "zh": "- 12 初始化圆柱体集合 \\(\\mathcal{C} \\leftarrow \\emptyset\\)；",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b13",
@@ -1115,10 +1221,11 @@
             548,
             371
           ],
-          "en": "- 13 foreach segment e ∈ Efinal do 14 Construct cylinder c from segment e with radius r ; 15 Add c to C ;",
+          "en": "- 13 foreach segment \\(e \\in E_{\\text{final}}\\) do 14 Construct cylinder \\(c\\) from segment \\(e\\) with radius \\(r\\) ; 15 Add \\(c\\) to \\(\\mathcal{C}\\) ;",
           "reference": false,
           "source_image": "figs/p005-013-source.png",
-          "zh": "- 13 对每条线段 e ∈ Efinal 执行 14 以半径 r 基于线段 e 构建圆柱体 c；15 将 c 添加到 C；"
+          "zh": "- 13 对每条线段 \\(e \\in E_{\\text{final}}\\) 执行 14 以半径 \\(r\\) 基于线段 \\(e\\) 构建圆柱体 \\(c\\)；15 将 \\(c\\) 添加到 \\(\\mathcal{C}\\)；",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b14",
@@ -1129,10 +1236,11 @@
             499,
             389
           ],
-          "en": "- 16 S ← CylinderSpatialGrid( C, N grid);",
+          "en": "16: \\(\\mathcal{S}\\leftarrow\\operatorname{CylinderSpatialGrid}(\\mathcal{C},N_{\\text{grid}})\\);",
           "reference": false,
           "source_image": "figs/p005-014-source.png",
-          "zh": "- 16 S ← CylinderSpatialGrid( C, N grid)；"
+          "zh": "16: \\(\\mathcal{S}\\leftarrow\\operatorname{CylinderSpatialGrid}(\\mathcal{C},N_{\\text{grid}})\\);",
+          "math_repair": "exact-author-latex-fragment-recovery"
         },
         {
           "id": "p5-b15",
@@ -1143,24 +1251,34 @@
             363,
             399
           ],
-          "en": "- 17 return S ;",
+          "en": "17: return \\(\\mathcal{S}\\);",
           "reference": false,
           "source_image": "figs/p005-015-source.png",
-          "zh": "- 17 返回 S；"
+          "zh": "17: 返回 \\(\\mathcal{S}\\)；",
+          "math_repair": "exact-author-latex-fragment-recovery"
         },
         {
           "id": "p5-b16",
           "kind": "picture",
           "bbox": [
-            311,
-            407,
-            564,
-            479
+            309.0,
+            405.0,
+            566.0,
+            481.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p005-016.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            311.0,
+            407.0,
+            564.0,
+            479.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 771,
+          "image_height": 228
         },
         {
           "id": "p5-b17",
@@ -1185,10 +1303,11 @@
             564,
             549
           ],
-          "en": "manifold, as illustrated in Figure 5. We leverage NVIDIA Warp [25] to perform massively parallel distance queries, computing the penetration depth of each point relative to the previously constructed spatial collision grid S .",
+          "en": "manifold, as illustrated in Figure 5. We leverage NVIDIA Warp [25] to perform massively parallel distance queries, computing the penetration depth of each point relative to the previously constructed spatial collision grid \\(\\mathcal{S}\\) .",
           "reference": false,
           "source_image": "figs/p005-018-source.png",
-          "zh": "流形内，如图 5 所示。我们利用 NVIDIA Warp [25] 执行大规模并行距离查询，计算每个点相对于先前构建的空间碰撞网格 S 的穿透深度。"
+          "zh": "流形内，如图 5 所示。我们利用 NVIDIA Warp [25] 执行大规模并行距离查询，计算每个点相对于先前构建的空间碰撞网格 \\(\\mathcal{S}\\) 的穿透深度。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b19",
@@ -1199,26 +1318,36 @@
             564,
             620
           ],
-          "en": "To discourage unstable foot-ground interactions near terrain edges, we define a penalty term that considers both the geometric penetration and the dynamic state of the foot following [49]. For each point i ∈P , let d i be its penetration offset and v i be its linear velocity in the world frame. The penalization reward rvol is formulated as:",
+          "en": "To discourage unstable foot-ground interactions near terrain edges, we define a penalty term that considers both the geometric penetration and the dynamic state of the foot following [49]. For each point \\(i \\in \\mathcal{P}\\) , let \\(\\mathbf{d}_i\\) be its penetration offset and \\(\\mathbf{v}_i\\) be its linear velocity in the world frame. The penalization reward \\(r_{vol}\\) is formulated as:",
           "reference": false,
           "source_image": "figs/p005-019-source.png",
-          "zh": "为了抑制地形边缘附近不稳定的足地交互，我们参考 [49] 定义了一个同时考虑几何穿透和足部动态状态的惩罚项。对于每个点 i ∈ P，设 d i 为其穿透偏移量，v i 为其在世界坐标系下的线速度。惩罚奖励 rvol 表示为："
+          "zh": "为了抑制地形边缘附近不稳定的足地交互，我们参考 [49] 定义了一个同时考虑几何穿透和足部动态状态的惩罚项。对于每个点 \\(i \\in \\mathcal{P}\\)，设 \\(\\mathbf{d}_i\\) 为其穿透偏移量，\\(\\mathbf{v}_i\\) 为其在世界坐标系下的线速度。惩罚奖励 \\(r_{vol}\\) 表示为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b20",
           "kind": "formula",
           "bbox": [
-            375,
-            628,
-            564,
-            659
+            373.0,
+            626.0,
+            566.0,
+            661.0
           ],
           "en": "|P| rvol = − � ∥ d i∥· ( ∥ v i∥ + ϵ ) (3) i =1",
           "reference": false,
           "image": "figs/p005-020.png",
           "labels": [
             "3"
-          ]
+          ],
+          "original_bbox": [
+            375.0,
+            628.0,
+            564.0,
+            659.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 579,
+          "image_height": 105
         },
         {
           "id": "p5-b21",
@@ -1229,10 +1358,11 @@
             564,
             724
           ],
-          "en": "where ϵ = 10−3 is a small constant for numerical stability. This formulation ensures that the policy is penalized more heavily for high-velocity impacts or scraping motions near terrain edges, thereby encouraging the robot to seek stable footholds.",
+          "en": "where \\(\\epsilon = 10^{-3}\\) is a small constant for numerical stability. This formulation ensures that the policy is penalized more heavily for high-velocity impacts or scraping motions near terrain edges, thereby encouraging the robot to seek stable footholds.",
           "reference": false,
           "source_image": "figs/p005-021-source.png",
-          "zh": "其中 ϵ = 10−3 为用于数值稳定性的微小常数。该公式确保策略在地形边缘附近发生高速撞击或刮擦动作时受到更严厉的惩罚，从而激励机器人寻找稳定的落足点。"
+          "zh": "其中 \\(\\epsilon = 10^{-3}\\) 为用于数值稳定性的微小常数。该公式确保策略在地形边缘附近发生高速撞击或刮擦动作时受到更严厉的惩罚，从而激励机器人寻找稳定的落足点。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -1276,10 +1406,11 @@
             301,
             351
           ],
-          "en": "1) Target Generation via Flat Patch: Following the approach in IsaacLab [31], we identify ”flat patches” on the terrain mesh to serve as reachable navigation targets. A location is considered a valid target if the terrain within a radius r is sufficiently level. Specifically, we sample potential locations and use ray-casting to check the height difference of the surrounding terrain. A patch is accepted only if the maximum height difference is below a threshold δ . This ensures that targets are placed on stable ground rather than steep slopes or unreachable areas. An example can be found in Figure 6.",
+          "en": "1) Target Generation via Flat Patch: Following the approach in IsaacLab [31], we identify ”flat patches” on the terrain mesh to serve as reachable navigation targets. A location is considered a valid target if the terrain within a radius \\(r\\) is sufficiently level. Specifically, we sample potential locations and use ray-casting to check the height difference of the surrounding terrain. A patch is accepted only if the maximum height difference is below a threshold \\(\\delta\\) . This ensures that targets are placed on stable ground rather than steep slopes or unreachable areas. An example can be found in Figure 6.",
           "reference": false,
           "source_image": "figs/p006-002-source.png",
-          "zh": "1) 基于平坦区域的目标生成：遵循 IsaacLab [31] 中的方法，我们在地形网格上识别“平坦区域”（flat patches），以作为可达的导航目标。如果半径 r 内的地形足够平整，则该位置被视为有效目标。具体而言，我们对候选位置进行采样，并利用光线投射来检查周围地形的高低落差。只有当最大高差低于阈值 δ 时，该区域才会被采纳。这确保了目标位于稳固的地面上，而非陡坡或无法到达的区域。示例如图 6 所示。"
+          "zh": "1) 基于平坦区域的目标生成：遵循 IsaacLab [31] 中的方法，我们在地形网格上识别“平坦区域”（flat patches），以作为可达的导航目标。如果半径 \\(r\\) 内的地形足够平整，则该位置被视为有效目标。具体而言，我们对候选位置进行采样，并利用光线投射来检查周围地形的高低落差。只有当最大高差低于阈值 \\(\\delta\\) 时，该区域才会被采纳。这确保了目标位于稳固的地面上，而非陡坡或无法到达的区域。示例如图 6 所示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b3",
@@ -1304,10 +1435,11 @@
             252,
             412
           ],
-          "en": "Input : Mesh M , Patch radius r , Max height difference δ Output: Set of valid targets P",
+          "en": "Input : Mesh \\(\\mathcal{M}\\) , Patch radius \\(r\\) , Max height difference \\(\\delta\\) Output: Set of valid targets \\(\\mathcal{P}\\)",
           "reference": false,
           "source_image": "figs/p006-004-source.png",
-          "zh": "输入：网格 M，区域半径 r，最大高度差 δ 输出：有效目标集合 P"
+          "zh": "输入：网格 \\(\\mathcal{M}\\)，区域半径 \\(r\\)，最大高度差 \\(\\delta\\) 输出：有效目标集合 \\(\\mathcal{P}\\)",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b5",
@@ -1318,10 +1450,11 @@
             161,
             430
           ],
-          "en": "- 1 while |P| < Ntargets do",
+          "en": "1: while \\(|\\mathcal{P}|<N_{\\text{targets}}\\) do",
           "reference": false,
           "source_image": "figs/p006-005-source.png",
-          "zh": "- 1 当 |P| < Ntargets 时执行"
+          "zh": "1: 当 \\(|\\mathcal{P}|<N_{\\text{targets}}\\) 时执行",
+          "math_repair": "exact-author-latex-fragment-recovery"
         },
         {
           "id": "p6-b6",
@@ -1332,10 +1465,11 @@
             262,
             452
           ],
-          "en": "- 2 1. Sample a random 2D position ( x, y ) in the environment;",
+          "en": "- 2 1. Sample a random 2D position \\((x, y)\\) in the environment;",
           "reference": false,
           "source_image": "figs/p006-006-source.png",
-          "zh": "- 2 1. 在环境中随机采样一个二维位置 ( x, y )；"
+          "zh": "- 2 1. 在环境中随机采样一个二维位置 \\((x, y)\\)；",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b7",
@@ -1346,10 +1480,11 @@
             283,
             477
           ],
-          "en": "- 3 2. Ray-cast to get a set of heights H within radius r around ( x, y );",
+          "en": "- 3 2. Ray-cast to get a set of heights \\(H\\) within radius \\(r\\) around \\((x, y)\\);",
           "reference": false,
           "source_image": "figs/p006-007-source.png",
-          "zh": "- 3 2. 进行射线检测（Ray-cast），获取 ( x, y ) 周围半径 r 范围内的一组高度 H；"
+          "zh": "- 3 2. 进行射线检测（Ray-cast），获取 \\((x, y)\\) 周围半径 \\(r\\) 范围内的一组高度 \\(H\\)；",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b8",
@@ -1360,10 +1495,11 @@
             206,
             505
           ],
-          "en": "- 4 if max( H ) − min( H ) < δ then 5 Add ( x, y, avg( H )) to P ;",
+          "en": "4: if \\(\\max(H)-\\min(H)<\\delta\\) then; 5: Add \\((x,y,\\operatorname{avg}(H))\\) to \\(\\mathcal{P}\\);",
           "reference": false,
           "source_image": "figs/p006-008-source.png",
-          "zh": "- 4 若 max( H ) − min( H ) < δ，则 5 将 ( x, y, avg( H )) 添加至 P；"
+          "zh": "4: 若 \\(\\max(H)-\\min(H)<\\delta\\)，则 5: 将 \\((x,y,\\operatorname{avg}(H))\\) 添加至 \\(\\mathcal{P}\\)；",
+          "math_repair": "exact-author-latex-fragment-recovery"
         },
         {
           "id": "p6-b9",
@@ -1374,24 +1510,34 @@
             101,
             524
           ],
-          "en": "- 6 return P ;",
+          "en": "6: return \\(\\mathcal{P}\\);",
           "reference": false,
           "source_image": "figs/p006-009-source.png",
-          "zh": "- 6 返回 P；"
+          "zh": "6: 返回 \\(\\mathcal{P}\\)；",
+          "math_repair": "exact-author-latex-fragment-recovery"
         },
         {
           "id": "p6-b10",
           "kind": "picture",
           "bbox": [
-            50,
-            549,
-            299,
-            629
+            48.0,
+            547.0,
+            301.0,
+            631.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p006-010.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            50.0,
+            549.0,
+            299.0,
+            629.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 759,
+          "image_height": 252
         },
         {
           "id": "p6-b11",
@@ -1416,10 +1562,11 @@
             301,
             726
           ],
-          "en": "2) Position-based Velocity Command Generation: After generating the flat patches, we periodically select one as the navigation target. The robot’s velocity commands are then generated based on the relative position of this target. Let pB target= [xg, yg]Trepresentthetargetpositionintherobot’s base frame. The desired linear velocity vx and angular velocity",
+          "en": "2) Position-based Velocity Command Generation: After generating the flat patches, we periodically select one as the navigation target. The robot’s velocity commands are then generated based on the relative position of this target. Let \\(\\mathbf{p}_{target}^B = [x_g, y_g]^T\\)representthetargetpositionintherobot’s base frame. The desired linear velocity \\(v_x\\) and angular velocity",
           "reference": false,
           "source_image": "figs/p006-012-source.png",
-          "zh": "2) 基于位置的速度指令生成：在生成平坦区域后，我们周期性地选取其中一个作为导航目标。随后根据该目标的相对位置生成机器人的速度指令。令 pB target = [xg, yg]T 表示目标在机器人基座坐标系下的位置。期望线速度 vx 与角速度"
+          "zh": "2) 基于位置的速度指令生成：在生成平坦区域后，我们周期性地选取其中一个作为导航目标。随后根据该目标的相对位置生成机器人的速度指令。令 \\(\\mathbf{p}_{target}^B = [x_g, y_g]^T\\) 表示目标在机器人基座坐标系下的位置。期望线速度 \\(v_x\\) 与角速度",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b13",
@@ -1430,42 +1577,61 @@
             430,
             68
           ],
-          "en": "ωz are calculated as follows:",
+          "en": "\\(\\omega_z\\) are calculated as follows:",
           "reference": false,
           "source_image": "figs/p006-013-source.png",
-          "zh": "ωz 的计算方式如下："
+          "zh": "\\(\\omega_z\\) 的计算方式如下：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b14",
           "kind": "formula",
           "bbox": [
-            348,
-            76,
-            564,
-            88
+            346.0,
+            74.0,
+            566.0,
+            90.0
           ],
           "en": "vx = clip( kv · xg, 0 , vmax ) (4)",
           "reference": false,
           "image": "figs/p006-014.png",
           "labels": [
             "4"
-          ]
+          ],
+          "original_bbox": [
+            348.0,
+            76.0,
+            564.0,
+            88.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 660,
+          "image_height": 48
         },
         {
           "id": "p6-b15",
           "kind": "formula",
           "bbox": [
-            347,
-            91,
-            564,
-            103
+            345.0,
+            89.0,
+            566.0,
+            105.0
           ],
           "en": "ωz = clip( kω · atan2( yg, xg ) , −ωmax, ωmax ) (5)",
           "reference": false,
           "image": "figs/p006-015.png",
           "labels": [
             "5"
-          ]
+          ],
+          "original_bbox": [
+            347.0,
+            91.0,
+            564.0,
+            103.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 663,
+          "image_height": 48
         },
         {
           "id": "p6-b16",
@@ -1476,10 +1642,11 @@
             564,
             180
           ],
-          "en": "where kv and kω are the linear and angular stiffness (gain) coefficients. Because we use the forward camera on robot’s head link, we only focus on forward locomotion and heading alignment; therefore, the lateral velocity command vy is set to zero. The velocity limits ( vmax, ωmax ) are adaptively adjusted based on the category of the terrain.",
+          "en": "where \\(k_v\\) and \\(k_{\\omega}\\) are the linear and angular stiffness (gain) coefficients. Because we use the forward camera on robot’s head link, we only focus on forward locomotion and heading alignment; therefore, the lateral velocity command \\(v_y\\) is set to zero. The velocity limits \\((v_{max}, \\omega_{max})\\) are adaptively adjusted based on the category of the terrain.",
           "reference": false,
           "source_image": "figs/p006-016-source.png",
-          "zh": "其中 kv 和 kω 分别为线速度与角速度的刚度（增益）系数。由于我们使用的是安装在机器人头部连杆上的前向相机，因此我们仅关注前向运动与航向对齐；为此，横向速度指令 vy 被设为零。速度限值 ( vmax, ωmax ) 会根据地形类别进行自适应调整。"
+          "zh": "其中 \\(k_v\\) 和 \\(k_{\\omega}\\) 分别为线速度与角速度的刚度（增益）系数。由于我们使用的是安装在机器人头部连杆上的前向相机，因此我们仅关注前向运动与航向对齐；为此，横向速度指令 \\(v_y\\) 被设为零。速度限值 \\((v_{max}, \\omega_{max})\\) 会根据地形类别进行自适应调整。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b17",
@@ -1490,10 +1657,11 @@
             564,
             276
           ],
-          "en": "However, relying solely on these position-based commands can limit the robot’s ability to learn in-place turning, as the target is usually far away. To address this, we assign a small subset of agents on flat terrain to receive pure turning commands. For these agents, we set vx = 0 and provide a random ωz , forcing the policy to learn effective in-place rotation maneuvers. This combination improves the overall maneuverability of the robot across different environments.",
+          "en": "However, relying solely on these position-based commands can limit the robot’s ability to learn in-place turning, as the target is usually far away. To address this, we assign a small subset of agents on flat terrain to receive pure turning commands. For these agents, we set \\(v_x = 0\\) and provide a random \\(\\omega_z\\), forcing the policy to learn effective in-place rotation maneuvers. This combination improves the overall maneuverability of the robot across different environments.",
           "reference": false,
           "source_image": "figs/p006-017-source.png",
-          "zh": "然而，仅依靠这些基于位置的指令可能会限制机器人学习原地转向的能力，因为目标通常距离较远。为解决这一问题，我们在平坦地形上指定一小部分智能体接收纯转向指令。对于这些智能体，我们将 vx 设为 0 并给予随机的 ωz，从而迫使策略学习有效的原地旋转机动动作。这种结合提升了机器人在不同环境下的整体机动性。"
+          "zh": "然而，仅依靠这些基于位置的指令可能会限制机器人学习原地转向的能力，因为目标通常距离较远。为解决这一问题，我们在平坦地形上指定一小部分智能体接收纯转向指令。对于这些智能体，我们将 \\(v_x\\) 设为 0 并给予随机的 \\(\\omega_z\\)，从而迫使策略学习有效的原地旋转机动动作。这种结合提升了机器人在不同环境下的整体机动性。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b18",
@@ -1518,10 +1686,11 @@
             564,
             355
           ],
-          "en": "Following previous works [42, 40], we use the Adversarial Motion Priors (AMP) framework [32] to improve the robot’s gait style and overall locomotion ability. Our reference dataset D is collected at a frequency of f = 50 Hz from three primary sources:",
+          "en": "Following previous works [42, 40], we use the Adversarial Motion Priors (AMP) framework [32] to improve the robot’s gait style and overall locomotion ability. Our reference dataset \\(\\mathcal{D}\\) is collected at a frequency of \\(f = 50\\,\\text{Hz}\\) from three primary sources:",
           "reference": false,
           "source_image": "figs/p006-019-source.png",
-          "zh": "遵循以往工作 [42, 40]，我们采用对抗运动先验（Adversarial Motion Priors, AMP）框架 [32] 来改善机器人的步态风格与整体运动能力。我们的参考数据集 D 以 f = 50 Hz 的采样频率从三个主要来源采集："
+          "zh": "遵循以往工作 [42, 40]，我们采用对抗运动先验（Adversarial Motion Priors, AMP）框架 [32] 来改善机器人的步态风格与整体运动能力。我们的参考数据集 \\(\\mathcal{D}\\) 以 \\(f = 50\\,\\text{Hz}\\) 的采样频率从三个主要来源采集：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b20",
@@ -1588,10 +1757,11 @@
             564,
             576
           ],
-          "en": "To avoid the “mode collapse” problem, we train the walking and running policies separately using different datasets. The walking dataset D walk combines sources 1 and 2, totaling T = 379 . 62 s of motion data. The running dataset D run consists of source 3, with a total duration of T = 1 . 54 s. This multi-source approach allows the policy to learn both the stability of MPC and the natural agility of human-like movement.",
+          "en": "To avoid the “mode collapse” problem, we train the walking and running policies separately using different datasets. The walking dataset \\(\\mathcal{D}_{\\text{walk}}\\) combines sources 1 and 2, totaling \\(T = 379.62\\,\\text{s}\\) of motion data. The running dataset \\(\\mathcal{D}_{\\text{run}}\\) consists of source 3, with a total duration of \\(T = 1.54\\,\\text{s}\\). This multi-source approach allows the policy to learn both the stability of MPC and the natural agility of human-like movement.",
           "reference": false,
           "source_image": "figs/p006-024-source.png",
-          "zh": "为避免“模式坍塌”问题，我们使用不同数据集分别训练行走策略和跑步策略。行走数据集 D walk 结合了来源 1 和来源 2，包含总计 T = 379 . 62 s 的运动数据。跑步数据集 D run 由来源 3 组成，总时长为 T = 1 . 54 s。这种多源方法使得策略既能习得 MPC 的稳定性，又能兼具类人运动的自然敏捷性。"
+          "zh": "为避免“模式坍塌”问题，我们使用不同数据集分别训练行走策略和跑步策略。行走数据集 \\(\\mathcal{D}_{\\text{walk}}\\) 结合了来源 1 和来源 2，包含总计 \\(T = 379.62\\,\\text{s}\\) 的运动数据。跑步数据集 \\(\\mathcal{D}_{\\text{run}}\\) 由来源 3 组成，总时长为 \\(T = 1.54\\,\\text{s}\\)。这种多源方法使得策略既能习得 MPC 的稳定性，又能兼具类人运动的自然敏捷性。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b25",
@@ -1602,26 +1772,36 @@
             564,
             636
           ],
-          "en": "Unlike previous works that only use a single state pair ( s t, s t +1) as the transition for the discriminator, we use a short sequence of past states to better capture the motion’s temporal features. The transition is defined as ( S t, S t +1), where S t = [ s t−n, . . . , s t ] represents a history of n frames.",
+          "en": "Unlike previous works that only use a single state pair \\((\\mathbf{s}_t, \\mathbf{s}_{t+1})\\) as the transition for the discriminator, we use a short sequence of past states to better capture the motion’s temporal features. The transition is defined as \\((\\mathbf{S}_t, \\mathbf{S}_{t+1})\\), where \\(\\mathbf{S}_t = [\\mathbf{s}_{t-n}, \\dots, \\mathbf{s}_t]\\) represents a history of \\(n\\) frames.",
           "reference": false,
           "source_image": "figs/p006-025-source.png",
-          "zh": "与以往仅使用单对状态 ( s t, s t +1) 作为判别器状态转移的工作不同，我们使用较短的历史状态序列以更好地捕捉运动的时序特征。该状态转移定义为 ( S t, S t +1)，其中 S t = [ s t−n, . . . , s t ] 表示过去 n 帧的历史信息。"
+          "zh": "与以往仅使用单对状态 \\((\\mathbf{s}_t, \\mathbf{s}_{t+1})\\) 作为判别器状态转移的工作不同，我们使用较短的历史状态序列以更好地捕捉运动的时序特征。该状态转移定义为 \\((\\mathbf{S}_t, \\mathbf{S}_{t+1})\\)，其中 \\(\\mathbf{S}_t = [\\mathbf{s}_{t-n}, \\dots, \\mathbf{s}_t]\\) 表示过去 \\(n\\) 帧的历史信息。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b26",
           "kind": "formula",
           "bbox": [
-            384,
-            643,
-            564,
-            654
+            382.0,
+            641.0,
+            566.0,
+            656.0
           ],
           "en": "s t = { ( v t, ω t, g t, q t, q ˙ t ) } (6)",
           "reference": false,
           "image": "figs/p006-026.png",
           "labels": [
             "6"
-          ]
+          ],
+          "original_bbox": [
+            384.0,
+            643.0,
+            564.0,
+            654.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 552,
+          "image_height": 45
         },
         {
           "id": "p6-b27",
@@ -1632,26 +1812,36 @@
             564,
             708
           ],
-          "en": "To increase the diversity of the motion data, we also apply symmetric augmentation to the dataset. Following the AMP framework, the discriminator D ( S ) is trained using a leastsquares (MSE) loss:",
+          "en": "To increase the diversity of the motion data, we also apply symmetric augmentation to the dataset. Following the AMP framework, the discriminator \\(D(\\mathbf{S})\\) is trained using a leastsquares (MSE) loss:",
           "reference": false,
           "source_image": "figs/p006-027-source.png",
-          "zh": "为增加运动数据的多样性，我们还对数据集应用了对称数据增强。遵循 AMP 框架，判别器 D ( S ) 使用最小二乘（MSE）损失进行训练："
+          "zh": "为增加运动数据的多样性，我们还对数据集应用了对称数据增强。遵循 AMP 框架，判别器 \\(D(\\mathbf{S})\\) 使用最小二乘（MSE）损失进行训练：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b28",
           "kind": "formula",
           "bbox": [
-            345,
-            714,
-            564,
-            726
+            343.0,
+            712.0,
+            566.0,
+            728.0
           ],
           "en": "LD = E M [( D ( S ) − 1) 2 ] + E P [( D ( S ) + 1) 2 ] (7)",
           "reference": false,
           "image": "figs/p006-028.png",
           "labels": [
             "7"
-          ]
+          ],
+          "original_bbox": [
+            345.0,
+            714.0,
+            564.0,
+            726.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 669,
+          "image_height": 48
         }
       ]
     },
@@ -1667,26 +1857,36 @@
             301,
             116
           ],
-          "en": "where M represents the reference motion dataset and P represents the motions produced by the current policy. To ensure training stability, we incorporate gradient penalty and weight decay. The style-reward rt provided by the discriminator to the policy is calculated as:",
+          "en": "where \\(\\mathcal{M}\\) represents the reference motion dataset and \\(\\mathcal{P}\\) represents the motions produced by the current policy. To ensure training stability, we incorporate gradient penalty and weight decay. The style-reward \\(r_t\\) provided by the discriminator to the policy is calculated as:",
           "reference": false,
           "source_image": "figs/p007-000-source.png",
-          "zh": "其中 M 表示参考运动数据集，P 表示当前策略生成的运动。为确保训练稳定性，我们引入了梯度惩罚和权重衰减。判别器向策略提供的风格奖励 rt 计算如下："
+          "zh": "其中 \\(\\mathcal{M}\\) 表示参考运动数据集，\\(\\mathcal{P}\\) 表示当前策略生成的运动。为确保训练稳定性，我们引入了梯度惩罚和权重衰减。判别器向策略提供的风格奖励 \\(r_t\\) 计算如下：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b1",
           "kind": "formula",
           "bbox": [
-            99,
-            129,
-            301,
-            142
+            97.0,
+            127.0,
+            303.0,
+            144.0
           ],
           "en": "rt = max �0 , 1 − 0 . 25( D ( S t ) − 1) 2� (8)",
           "reference": false,
           "image": "figs/p007-001.png",
           "labels": [
             "8"
-          ]
+          ],
+          "original_bbox": [
+            99.0,
+            129.0,
+            301.0,
+            142.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 618,
+          "image_height": 51
         },
         {
           "id": "p7-b2",
@@ -1742,7 +1942,8 @@
           "en": "- Q1 : Does our framework enable efficient training and reliable zero-shot deployment on physical hardware?",
           "reference": false,
           "source_image": "figs/p007-005-source.png",
-          "zh": "- Q1：我们的框架是否能够在物理硬件上实现高效训练与可靠的零样本部署？"
+          "zh": "- Q1：我们的框架是否能够在物理硬件上实现高效训练与可靠的零样本部署？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b6",
@@ -1756,7 +1957,8 @@
           "en": "- Q2 : Does the edge-aware penalization mechanism improve foothold safety and stability when traversing discrete terrain features? Is it scalable to new terrains without any extra design?",
           "reference": false,
           "source_image": "figs/p007-006-source.png",
-          "zh": "- Q2：在穿越离散地形特征时，边缘感知惩罚机制能否提升落脚点的安全性与稳定性？它是否能够在无需额外设计的情况下扩展至新地形？"
+          "zh": "- Q2：在穿越离散地形特征时，边缘感知惩罚机制能否提升落脚点的安全性与稳定性？它是否能够在无需额外设计的情况下扩展至新地形？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b7",
@@ -1770,7 +1972,8 @@
           "en": "- Q3 : What are the individual contributions of the key design components (e.g., perception, AMP, or command generation) to the robot’s performance?",
           "reference": false,
           "source_image": "figs/p007-007-source.png",
-          "zh": "- Q3：关键设计组件（例如感知、AMP 或指令生成）对机器人性能的独立贡献分别是什么？"
+          "zh": "- Q3：关键设计组件（例如感知、AMP 或指令生成）对机器人性能的独立贡献分别是什么？",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b8",
@@ -1809,10 +2012,11 @@
             301,
             641
           ],
-          "en": "Hardware and Perception: For real-world deployment, we utilize the factory-integrated Intel RealSense D435i depth camera that comes standard with the Unitree G1 without any hardware modification. Depth images are captured at 60 Hz with a raw resolution of 480 × 270, which are then downsampled to 64 × 36 and cropped to a final input size of 36 × 18 for the policy.",
+          "en": "Hardware and Perception: For real-world deployment, we utilize the factory-integrated Intel RealSense D435i depth camera that comes standard with the Unitree G1 without any hardware modification. Depth images are captured at 60 Hz with a raw resolution of \\(480 \\times 270\\), which are then downsampled to \\(64 \\times 36\\) and cropped to a final input size of \\(36 \\times 18\\) for the policy.",
           "reference": false,
           "source_image": "figs/p007-010-source.png",
-          "zh": "硬件与感知：在现实世界部署中，我们使用 Unitree G1 出厂标配集成的 Intel RealSense D435i 深度相机，未进行任何硬件改装。深度图像以 60 Hz 的频率采集，原始分辨率为 480 × 270，随后降采样至 64 × 36，并裁剪为 36 × 18 的最终输入尺寸输入策略。"
+          "zh": "硬件与感知：在现实世界部署中，我们使用 Unitree G1 出厂标配集成的 Intel RealSense D435i 深度相机，未进行任何硬件改装。深度图像以 60 Hz 的频率采集，原始分辨率为 \\(480 \\times 270\\)，随后降采样至 \\(64 \\times 36\\)，并裁剪为 \\(36 \\times 18\\) 的最终输入尺寸输入策略。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b11",
@@ -1851,10 +2055,11 @@
             564,
             180
           ],
-          "en": "We highly recommend watching videos in the supplementary materials for better demonstration. We evaluate our framework by deploying the trained policies directly onto the humanoid robot via zero-shot sim-to-real transfer. As illustrated in Figure 7, the robot successfully performs various locomotion primitives across challenging terrains. Notably, the robot achieves a maximum running speed of 2 . 5 m/s and successfully traversed difficult obstacles, including high platforms up to 32 cm and discrete gaps with a width of 50 cm.",
+          "en": "We highly recommend watching videos in the supplementary materials for better demonstration. We evaluate our framework by deploying the trained policies directly onto the humanoid robot via zero-shot sim-to-real transfer. As illustrated in Figure 7, the robot successfully performs various locomotion primitives across challenging terrains. Notably, the robot achieves a maximum running speed of \\(2.5~\\text{m/s}\\) and successfully traversed difficult obstacles, including high platforms up to \\(32~\\text{cm}\\) and discrete gaps with a width of \\(50~\\text{cm}\\).",
           "reference": false,
           "source_image": "figs/p007-013-source.png",
-          "zh": "我们强烈建议观看补充材料中的视频以获得更好的展示效果。我们通过零样本仿真到现实迁移将训练好的策略直接部署到人形机器人上，以评估我们的框架。如图 7 所示，机器人在具有挑战性的地形中成功执行了多种运动原语。值得注意的是，机器人达到了 2 . 5 m/s 的最高奔跑速度，并成功越过了困难障碍，包括高达 32 cm 的高台和宽达 50 cm 的离散沟壑。"
+          "zh": "我们强烈建议观看补充材料中的视频以获得更好的展示效果。我们通过零样本仿真到现实迁移将训练好的策略直接部署到人形机器人上，以评估我们的框架。如图 7 所示，机器人在具有挑战性的地形中成功执行了多种运动原语。值得注意的是，机器人达到了 \\(2.5~\\text{m/s}\\) 的最高奔跑速度，并成功越过了困难障碍，包括高达 \\(32~\\text{cm}\\) 的高台和宽达 \\(50~\\text{cm}\\) 的离散沟壑。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b14",
@@ -1958,15 +2163,24 @@
           "id": "p7-b21",
           "kind": "table",
           "bbox": [
-            332,
-            603,
-            540,
-            664
+            330.0,
+            601.0,
+            542.0,
+            666.0
           ],
           "en": "||Success R|ate (SR) ↑|Landing |Area % ↑| |---|---|---|---|---| |Terrain Type|Ours|No Edge|Ours|No Edge| |Stair Ascent|100.00%|100.00%|0.99|0.98| |Stair Descent|99.95%|99.82%|0.94|0.87| |Deep Gap|100.0%|99.94%|0.96|0.94| |Small Box|99.09%|93.17%|0.96|0.95|",
           "reference": false,
           "image": "figs/p007-021.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            332.0,
+            603.0,
+            540.0,
+            664.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 636,
+          "image_height": 195
         },
         {
           "id": "p7-b22",
@@ -1991,15 +2205,24 @@
           "id": "p8-b0",
           "kind": "picture",
           "bbox": [
-            48,
-            54,
-            564,
-            248
+            46.0,
+            52.0,
+            566.0,
+            250.0
           ],
           "en": "a d b e c f",
           "reference": false,
           "image": "figs/p008-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            54.0,
+            564.0,
+            248.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1560,
+          "image_height": 594
         },
         {
           "id": "p8-b1",
@@ -2019,15 +2242,24 @@
           "id": "p8-b2",
           "kind": "picture",
           "bbox": [
-            59,
-            292,
-            286,
-            419
+            57.0,
+            290.0,
+            288.0,
+            421.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            59.0,
+            292.0,
+            286.0,
+            419.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 693,
+          "image_height": 393
         },
         {
           "id": "p8-b3",
@@ -2047,15 +2279,24 @@
           "id": "p8-b4",
           "kind": "picture",
           "bbox": [
-            59,
-            435,
-            286,
-            574
+            57.0,
+            433.0,
+            288.0,
+            576.0
           ],
           "en": "w/ Edge Penalty w/o Edge Penalty",
           "reference": false,
           "image": "figs/p008-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            59.0,
+            435.0,
+            286.0,
+            574.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 693,
+          "image_height": 429
         },
         {
           "id": "p8-b5",
@@ -2089,15 +2330,24 @@
           "id": "p8-b7",
           "kind": "picture",
           "bbox": [
-            48,
-            625,
-            301,
-            690
+            46.0,
+            623.0,
+            303.0,
+            692.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            48.0,
+            625.0,
+            301.0,
+            690.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 771,
+          "image_height": 207
         },
         {
           "id": "p8-b8",
@@ -2159,15 +2409,24 @@
           "id": "p8-b12",
           "kind": "picture",
           "bbox": [
-            311,
-            486,
-            564,
-            557
+            309.0,
+            484.0,
+            566.0,
+            559.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-012.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            311.0,
+            486.0,
+            564.0,
+            557.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 771,
+          "image_height": 225
         },
         {
           "id": "p8-b13",
@@ -2223,7 +2482,8 @@
           "en": "- Single-frame Depth (w/o depth history) : The policy receives only the current depth image instead of the strided temporal history.",
           "reference": false,
           "source_image": "figs/p008-016-source.png",
-          "zh": "- 单帧深度（Single-frame Depth，w/o depth history）：策略仅接收当前深度图像，而非带步长的时序历史帧。"
+          "zh": "- 单帧深度（Single-frame Depth，w/o depth history）：策略仅接收当前深度图像，而非带步长的时序历史帧。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p8-b17",
@@ -2237,7 +2497,8 @@
           "en": "- Uniform Command (w/o pose-based) : The policy is trained using standard uniform velocity sampling with heading commands.",
           "reference": false,
           "source_image": "figs/p008-017-source.png",
-          "zh": "- 均匀指令（Uniform Command，w/o pose-based）：该策略使用带有航向指令的标准均匀速度采样进行训练。"
+          "zh": "- 均匀指令（Uniform Command，w/o pose-based）：该策略使用带有航向指令的标准均匀速度采样进行训练。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p8-b18",
@@ -2251,7 +2512,8 @@
           "en": "- Vanilla MLP (w/o MoE) : The policy network is replaced by a standard Multi-Layer Perceptron (MLP) with an",
           "reference": false,
           "source_image": "figs/p008-018-source.png",
-          "zh": "- 原生 MLP（Vanilla MLP，w/o MoE）：策略网络被替换为标准多层感知机（MLP），其具有"
+          "zh": "- 原生 MLP（Vanilla MLP，w/o MoE）：策略网络被替换为标准多层感知机（MLP），其具有",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -2276,15 +2538,24 @@
           "id": "p9-b1",
           "kind": "table",
           "bbox": [
-            51,
-            75,
-            561,
-            127
+            49.0,
+            73.0,
+            563.0,
+            129.0
           ],
           "en": "|Method|Large Box|Ramp|Small Box|S Rough |uccess Rate ( Stair down|%) ↑ Platform down|Stair up|Platform up|Gap|Large Box|Ramp|Small Box|Mea Rough|n Reaching Stair down|Time (s) ↓ Platform down|Stair up|Platform up|Gap| |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---| |Ours|100.0|100.0|99.09|100.0|99.95|100.0|100.0|100.0|100.0|5.50|5.84|8.03|5.40|4.45|5.48|5.35|5.45|5.43| |w/o depth history|100.0|100.0|1.66|100.0|99.49|99.70|99.93|100.0|100.0|5.90|6.72|11.68|5.78|5.54|5.82|6.98|5.91|5.79| |w/o pose-based|100.0|100.0|90.68|100.0|100.0|100.0|99.74|100.0|100.0|5.90|5.74|11.32|5.72|6.02|5.82|6.39|6.34|5.70| |w/o MoE|100.0|100.0|84.51|100.0|99.68|100.0|100.0|100.0|100.0|6.06|6.22|10.98|5.49|5.23|5.65|6.12|5.51|5.59| |w/o Amp|99.56|99.94|0.00|100.0|99.94|100.0|100.0|99.94|99.94|7.27|5.68|–|6.50|5.80|6.31|6.17|6.25|6.07|",
           "reference": false,
           "image": "figs/p009-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            51.0,
+            75.0,
+            561.0,
+            127.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1542,
+          "image_height": 168
         },
         {
           "id": "p9-b2",
@@ -2312,7 +2583,8 @@
           "en": "- No Motion Prior (w/o AMP) : The Adversarial Motion Prior is removed, training the policy solely through taskrelated rewards.",
           "reference": false,
           "source_image": "figs/p009-003-source.png",
-          "zh": "- 无动作先验（No Motion Prior，w/o AMP）：移除对抗性动作先验（Adversarial Motion Prior），仅通过任务相关奖励来训练策略。"
+          "zh": "- 无动作先验（No Motion Prior，w/o AMP）：移除对抗性动作先验（Adversarial Motion Prior），仅通过任务相关奖励来训练策略。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p9-b4",

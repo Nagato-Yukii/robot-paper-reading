@@ -8,15 +8,24 @@
           "id": "p1-b2",
           "kind": "picture",
           "bbox": [
-            62,
-            46,
-            162,
-            62
+            60.0,
+            44.0,
+            164.0,
+            64.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            62.0,
+            46.0,
+            162.0,
+            62.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 312,
+          "image_height": 60
         },
         {
           "id": "p1-b3",
@@ -111,15 +120,24 @@
           "id": "p2-b1",
           "kind": "picture",
           "bbox": [
-            64,
-            85,
-            531,
-            258
+            62.0,
+            83.0,
+            533.0,
+            260.0
           ],
           "en": "Internet-Scale VQA + Robot Action Data Vision-Language-Action Models for Robot Control Closed-Loop Robot Control Q: What is happening Q: What should the robot in the image? do to ? A: … RT-2 Large Language Model A: 311 423 170 55 244 A grey donkey walks down the street. Put the strawberry Q: Que puis-je faire avec ViT into the correct bowl ces objets? A: 3455 1144 189 25673 Faire cuire un gâteau. Q: What should the robot A: 132 114 128 5 25 156 De-Tokenize ΔΔT = [0.1, -0.2, 0]R = [10∘, 25∘, -7∘] Pick the nearly falling bag do to ? Robot Action A: 132 114 128 5 25 156 Translation = [0.1, -0.2, 0]Δ ΔRotation = [10∘, 25∘, -7∘] Co-Fine-Tune Deploy Pick object that is diferent f",
           "reference": false,
           "image": "figs/p002-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            64.0,
+            85.0,
+            531.0,
+            258.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1413,
+          "image_height": 531
         },
         {
           "id": "p2-b2",
@@ -219,10 +237,11 @@
             535,
             628
           ],
-          "en": "Vision-language models. There are several categories of Vision-Language Models (VLMs) (Gan et al., 2022), with perhaps two most relevant: (1) representation-learning models, e.g. CLIP (Radford et al., 2021), which learn common embeddings for both modalities, and (2) visual language models of the form {vision , text} →{text} which learn to take vision and language as input and provide free-form text. Both categories have been used to provide pretraining for a wide variety of applied to downstream applications such as object classification (Radford et al., 2021), detection (Gu et al., 2021), and segmentation (Ghiasi et al., 2021). In this work, we focus on the latter category (Alayrac et al., 2022; Chen et al., 2023a,b; Driess et al., 2023; Hao et al., 2022; Li et al., 2023, 2019; Lu et al., 2019). These models are generally trained on many different tasks, such as image captioning, vision-question answering (VQA), and general language tasks on multiple datasets at the same time. While prior works study VLMs for a wide range of problems and settings including in robotics, our focus is on how the capabilities of VLMs can be extended to robotics closed-loop control by endowing them with the ability to predict robot actions, thus leveraging the knowledge already present in VLMs to enable new levels of generalization.",
+          "en": "Vision-language models. There are several categories of Vision-Language Models (VLMs) (Gan et al., 2022), with perhaps two most relevant: (1) representation-learning models, e.g. CLIP (Radford et al., 2021), which learn common embeddings for both modalities, and (2) visual language models of the form \\(\\{\\text{vision},\\text{text}\\} \\rightarrow \\{\\text{text}\\}\\) which learn to take vision and language as input and provide free-form text. Both categories have been used to provide pretraining for a wide variety of applied to downstream applications such as object classification (Radford et al., 2021), detection (Gu et al., 2021), and segmentation (Ghiasi et al., 2021). In this work, we focus on the latter category (Alayrac et al., 2022; Chen et al., 2023a,b; Driess et al., 2023; Hao et al., 2022; Li et al., 2023, 2019; Lu et al., 2019). These models are generally trained on many different tasks, such as image captioning, vision-question answering (VQA), and general language tasks on multiple datasets at the same time. While prior works study VLMs for a wide range of problems and settings including in robotics, our focus is on how the capabilities of VLMs can be extended to robotics closed-loop control by endowing them with the ability to predict robot actions, thus leveraging the knowledge already present in VLMs to enable new levels of generalization.",
           "reference": false,
           "source_image": "figs/p003-004-source.png",
-          "zh": "视觉-语言模型。视觉-语言模型（VLM）有几个类别（Gan et al., 2022），其中最相关的或许是两类：(1) 表示学习模型，例如 CLIP（Radford et al., 2021），它们为这两种模态学习通用嵌入；(2) 形式为 {vision , text} →{text} 的视觉语言模型，它们学习以视觉和语言为输入并提供自由格式文本。这两类模型都已被用于为广泛的下游应用提供预训练，例如物体分类（Radford et al., 2021）、检测（Gu et al., 2021）和分割（Ghiasi et al., 2021）。在这项工作中，我们重点关注后一类（Alayrac et al., 2022; Chen et al., 2023a,b; Driess et al., 2023; Hao et al., 2022; Li et al., 2023, 2019; Lu et al., 2019）。这些模型通常在多个数据集上同时针对许多不同任务进行训练，例如图像描述、视觉问答（VQA）以及通用语言任务。尽管先前的研究探讨了 VLM 在包括机器人在内的广泛问题和设置中的应用，但我们的重点是如何通过赋予 VLM 预测机器人动作的能力，将其能力扩展到机器人闭环控制中，从而利用 VLM 中已有的知识实现前所未有的泛化水平。"
+          "zh": "视觉-语言模型。视觉-语言模型（VLM）有几个类别（Gan et al., 2022），其中最相关的或许是两类：(1) 表示学习模型，例如 CLIP（Radford et al., 2021），它们为这两种模态学习通用嵌入；(2) 形式为 \\(\\{\\text{vision},\\text{text}\\} \\rightarrow \\{\\text{text}\\}\\) 的视觉语言模型，它们学习以视觉和语言为输入并提供自由格式文本。这两类模型都已被用于为广泛的下游应用提供预训练，例如物体分类（Radford et al., 2021）、检测（Gu et al., 2021）和分割（Ghiasi et al., 2021）。在这项工作中，我们重点关注后一类（Alayrac et al., 2022; Chen et al., 2023a,b; Driess et al., 2023; Hao et al., 2022; Li et al., 2023, 2019; Lu et al., 2019）。这些模型通常在多个数据集上同时针对许多不同任务进行训练，例如图像描述、视觉问答（VQA）以及通用语言任务。尽管先前的研究探讨了 VLM 在包括机器人在内的广泛问题和设置中的应用，但我们的重点是如何通过赋予 VLM 预测机器人动作的能力，将其能力扩展到机器人闭环控制中，从而利用 VLM 中已有的知识实现前所未有的泛化水平。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b5",
@@ -350,15 +369,24 @@
           "id": "p5-b2",
           "kind": "picture",
           "bbox": [
-            64,
-            164,
-            531,
-            531
+            62.0,
+            162.0,
+            533.0,
+            533.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p005-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            64.0,
+            164.0,
+            531.0,
+            531.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1413,
+          "image_height": 1113
         },
         {
           "id": "p5-b3",
@@ -430,10 +458,11 @@
             468,
             161
           ],
-          "en": "“terminate Δpos 𝑥 Δpos 𝑦 Δpos 𝑧 Δrot 𝑥 Δrot 𝑦 Δrot 𝑧 gripperextension” .",
+          "en": "“terminate \\(\\Delta\\text{pos}_x\\;\\Delta\\text{pos}_y\\;\\Delta\\text{pos}_z\\;\\Delta\\text{rot}_x\\;\\Delta\\text{rot}_y\\;\\Delta\\text{rot}_z\\) gripper_extension”.",
           "reference": false,
           "source_image": "figs/p006-002-source.png",
-          "zh": "“terminate Δpos 𝑥 Δpos 𝑦 Δpos 𝑧 Δrot 𝑥 Δrot 𝑦 Δrot 𝑧 gripperextension”。"
+          "zh": "“terminate \\(\\Delta\\text{pos}_x\\;\\Delta\\text{pos}_y\\;\\Delta\\text{pos}_z\\;\\Delta\\text{rot}_x\\;\\Delta\\text{rot}_y\\;\\Delta\\text{rot}_z\\) gripper_extension”.",
+          "math_repair": "exact-author-latex-fragment-recovery"
         },
         {
           "id": "p6-b3",
@@ -668,43 +697,70 @@
           "id": "p7-b9",
           "kind": "picture",
           "bbox": [
-            130,
-            559,
-            188,
-            610
+            128.0,
+            557.0,
+            190.0,
+            612.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            130.0,
+            559.0,
+            188.0,
+            610.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 186,
+          "image_height": 165
         },
         {
           "id": "p7-b10",
           "kind": "picture",
           "bbox": [
-            69,
-            559,
-            127,
-            610
+            67.0,
+            557.0,
+            129.0,
+            612.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-010.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            69.0,
+            559.0,
+            127.0,
+            610.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 186,
+          "image_height": 165
         },
         {
           "id": "p7-b12",
           "kind": "picture",
           "bbox": [
-            194,
-            554,
-            528,
-            628
+            192.0,
+            552.0,
+            530.0,
+            630.0
           ],
           "en": "(b) Unseen Backgrounds (c) Unseen Environments",
           "reference": false,
           "image": "figs/p007-012.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            194.0,
+            554.0,
+            528.0,
+            628.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1014,
+          "image_height": 234
         },
         {
           "id": "p7-b11",
@@ -771,15 +827,24 @@
           "id": "p8-b2",
           "kind": "picture",
           "bbox": [
-            62,
-            203,
-            533,
-            317
+            60.0,
+            201.0,
+            535.0,
+            319.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            62.0,
+            203.0,
+            533.0,
+            317.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1425,
+          "image_height": 354
         },
         {
           "id": "p8-b3",
@@ -860,29 +925,47 @@
           "id": "p9-b1",
           "kind": "picture",
           "bbox": [
-            77,
-            85,
-            328,
-            152
+            75.0,
+            83.0,
+            330.0,
+            154.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p009-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            77.0,
+            85.0,
+            328.0,
+            152.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 765,
+          "image_height": 213
         },
         {
           "id": "p9-b3",
           "kind": "table",
           "bbox": [
-            352,
-            97,
-            514,
-            148
+            350.0,
+            95.0,
+            516.0,
+            150.0
           ],
           "en": "|Model|Language-Table| |---|---| |BC-Zero (Jang et al.,2021)|72±3| |RT-1 (Brohan et al.,2022)|74±13| |LAVA (Lynch et al.,2022)|77±4| |RT-2-PaLI-3B (ours)|90±10|",
           "reference": false,
           "image": "figs/p009-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            352.0,
+            97.0,
+            514.0,
+            148.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 498,
+          "image_height": 165
         },
         {
           "id": "p9-b4",
@@ -991,29 +1074,47 @@
           "id": "p10-b1",
           "kind": "picture",
           "bbox": [
-            65,
-            85,
-            297,
-            216
+            63.0,
+            83.0,
+            299.0,
+            218.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p010-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            65.0,
+            85.0,
+            297.0,
+            216.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 708,
+          "image_height": 405
         },
         {
           "id": "p10-b2",
           "kind": "picture",
           "bbox": [
-            299,
-            85,
-            530,
-            216
+            297.0,
+            83.0,
+            532.0,
+            218.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p010-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            299.0,
+            85.0,
+            530.0,
+            216.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 705,
+          "image_height": 405
         },
         {
           "id": "p10-b3",
@@ -2838,10 +2939,11 @@
             534,
             749
           ],
-          "en": "The PaLI-X model architecture consists of a ViT-22B Dehghani et al. (2023) to process images, which can accept sequences of 𝑛 images, leading to 𝑛 × 𝑘 tokens per image, where 𝑘 is the number of patches per image. The image tokens passing over a projection layer is then consumed by an encoder-decoder backbone of 32B parameters and 50 layers, similar to UL2 Tay et al. (2023), which jointly processes text and images as embeddings to generate output tokens in an auto-regressive manner. The text",
+          "en": "The PaLI-X model architecture consists of a ViT-22B Dehghani et al. (2023) to process images, which can accept sequences of \\(n\\) images, leading to \\(n \\times k\\) tokens per image, where \\(k\\) is the number of patches per image. The image tokens passing over a projection layer is then consumed by an encoder-decoder backbone of 32B parameters and 50 layers, similar to UL2 Tay et al. (2023), which jointly processes text and images as embeddings to generate output tokens in an auto-regressive manner. The text",
           "reference": false,
           "source_image": "figs/p020-010-source.png",
-          "zh": "PaLI-X 模型架构由用于处理图像的 ViT-22B Dehghani et al. (2023) 组成，该模块可接收 𝑛 张图像的序列，从而产生每张图像 𝑛 × 𝑘 个 token，其中 𝑘 是每张图像的 patch 数量。经过投影层的图像 token 随后被一个拥有 32B 参数和 50 层的编码器-解码器主干网络（类似于 UL2 Tay et al. (2023)）处理，该网络将文本和图像作为嵌入进行联合处理，以自回归方式生成输出 token。文本"
+          "zh": "PaLI-X 模型架构由用于处理图像的 ViT-22B Dehghani et al. (2023) 组成，该模块可接收 \\(n\\) 张图像的序列，从而产生每张图像 \\(n \\times k\\) 个 token，其中 \\(k\\) 是每张图像的 patch 数量。经过投影层的图像 token 随后被一个拥有 32B 参数和 50 层的编码器-解码器主干网络（类似于 UL2 Tay et al. (2023)）处理，该网络将文本和图像作为嵌入进行联合处理，以自回归方式生成输出 token。文本",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -2997,15 +3099,24 @@
           "id": "p22-b1",
           "kind": "picture",
           "bbox": [
-            64,
-            85,
-            531,
-            318
+            62.0,
+            83.0,
+            533.0,
+            320.0
           ],
           "en": "(a) Reasoning “move coke can to “move apple to cup with “move banna near the “déplacer les frites verts “pick a healthy drink” Taylor Swift” same color” sum of two plus one” dans la tasse rouge” “move coke can to person with glasses” “move coke can “put coke can close “move banana to “move apple to tree” near Y” to dog” android” (c) Human (b) Symbol Understanding Recognition",
           "reference": false,
           "image": "figs/p022-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            64.0,
+            85.0,
+            531.0,
+            318.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1413,
+          "image_height": 711
         },
         {
           "id": "p22-b2",
@@ -3025,15 +3136,24 @@
           "id": "p22-b3",
           "kind": "table",
           "bbox": [
-            91,
-            374,
-            505,
-            697
+            89.0,
+            372.0,
+            507.0,
+            699.0
           ],
           "en": "|Task Group|Tasks| |---|---| |Symbol Understand- ing: Symbol 1|move coke can near X, move coke can near 3, move coke can near Y| |Symbol Understand- ing: Symbol 2|move apple to tree, move apple to duck, move apple to apple, move apple to matching card| |Symbol Understand- ing: Symbol 3|put coke can close to dog, push coke can on top of heart, place coke can above star| |Reasoning: Math|move banana to 2, move banna near the sum of two plus one, move banana near the answer of three times two, move banana near the smallest number| |Reasoning: Logos|move cup to google, move cup to android, move cup to youtube, move cup to a search engine, move cup to a phone| |Reasoning: Nutrition|get me a healthy snack, pick a healthy drink, pick up a sweet drink, move the healthy snack to the healthy drink, pick up a salty snack| |Reasoning: Color and Multilingual|move apple to cup with same color, move apple to cup with different color, move green chips to matching color cup, move apple to vaso verde, Bewegen Sie den Apfel in die rote Tasse, move green chips to vaso rojo, mueve la manzana al vaso verde, déplacer les frites verts dans la tasse rouge| |Person Recognition: Celebrities|move coke can to taylor swift, move coke can to tom cruise, move coke can to snoop dog| |Person Recognition: CelebA|move coke can to person with glasses, move coke can to the man with white hair, move coke can to the brunette lady|",
           "reference": false,
           "image": "figs/p022-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            91.0,
+            374.0,
+            505.0,
+            697.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1254,
+          "image_height": 981
         },
         {
           "id": "p22-b4",
@@ -3156,15 +3276,24 @@
           "id": "p23-b8",
           "kind": "picture",
           "bbox": [
-            64,
-            391,
-            531,
-            479
+            62.0,
+            389.0,
+            533.0,
+            481.0
           ],
           "en": "Push the red marker to the video game controller Push the banana to the apple",
           "reference": false,
           "image": "figs/p023-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            64.0,
+            391.0,
+            531.0,
+            479.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1413,
+          "image_height": 276
         },
         {
           "id": "p23-b9",
@@ -3226,15 +3355,24 @@
           "id": "p23-b13",
           "kind": "table",
           "bbox": [
-            63,
-            630,
-            524,
-            715
+            61.0,
+            628.0,
+            526.0,
+            717.0
           ],
           "en": "|Model|Seen Tasks|Unseen|Objects|Unseen|Backgrounds|Unseen|Environments|Unseen Average| |---|---|---|---|---|---|---|---|---| |||Easy|Hard|Easy|Hard|Easy|Hard|| |R3M (Nair et al.,2022b)|45|32|14|13|9|0|2|12| |VC-1 (Majumdar et al.,2023a)|63|34|10|13|3|0|0|10| |RT-1 (Brohan et al.,2022)|92|31|43|71|9|26|14|32| |MOO (Stone et al.,2023)|75|58|48|38|41|19|3|35| |RT-2-PaLI-X-55B (ours) |91|70|62|96|48|63|35|62| |RT-2-PaLM-E-12B1 (ours)|93|84|76|75|71|36|33|62|",
           "reference": false,
           "image": "figs/p023-013.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            63.0,
+            630.0,
+            524.0,
+            715.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1395,
+          "image_height": 267
         },
         {
           "id": "p23-b14",
@@ -3287,15 +3425,24 @@
           "id": "p24-b3",
           "kind": "table",
           "bbox": [
-            62,
-            177,
-            530,
-            226
+            60.0,
+            175.0,
+            532.0,
+            228.0
           ],
           "en": "|Model||Symbol Und|erstanding||||Rea|soning||Perso|n Recogni|tion|Average| |---|---|---|---|---|---|---|---|---|---|---|---|---|---| ||Symbol 1|Symbol 2|Symbol 3|Average|Math|Logos|Nutrition|Color/Multilingual|Average|Celebrities|CelebA|Average|| |VC-1 (Majumdar et al.,2023a)|7|25|0|11|0|8|20|13|10|20|7|13|11| |RT-1 (Brohan et al.,2022)|27|20|0|16|5|0|32|28|16|20|20|20|17| |RT-2-PaLI-X-55B (ours)|93|60|93|82|25|52|48|58|46|53|53|53|60| |RT-2-PaLM-E-12B (ours)|67|20|20|36|35|56|44|35|43|33|53|43|40|",
           "reference": false,
           "image": "figs/p024-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            62.0,
+            177.0,
+            530.0,
+            226.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1416,
+          "image_height": 159
         },
         {
           "id": "p24-b4",
@@ -3343,15 +3490,24 @@
           "id": "p24-b7",
           "kind": "table",
           "bbox": [
-            91,
-            359,
-            496,
-            435
+            89.0,
+            357.0,
+            498.0,
+            437.0
           ],
           "en": "|Model|Size|Training|Unseen|Objects|Unseen|Backgrounds|Unseen E|nvironments|Average| |---|---|---|---|---|---|---|---|---|---| ||||Easy|Hard|Easy|Hard|Easy|Hard|| |RT-2-PaLI-X|5B|from scratch|0|10|46|0|0|0|9| |RT-2-PaLI-X|5B|fine-tuning|24|38|79|50|36|23|42| |RT-2-PaLI-X|5B|co-fine-tuning|60|38|67|29|44|24|44| |RT-2-PaLI-X|55B|fine-tuning|60|62|75|38|57|19|52| |RT-2-PaLI-X|55B|co-fine-tuning|70|62|96|48|63|35|63|",
           "reference": false,
           "image": "figs/p024-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            91.0,
+            359.0,
+            496.0,
+            435.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1227,
+          "image_height": 240
         },
         {
           "id": "p24-b8",
@@ -3418,15 +3574,24 @@
           "id": "p25-b1",
           "kind": "picture",
           "bbox": [
-            64,
-            301,
-            531,
-            519
+            62.0,
+            299.0,
+            533.0,
+            521.0
           ],
           "en": "User Pick up the object that is different from all other objects Plan: Pick rxbar chocolate User Move the green objects together Plan: Move green can near green rice chip bag User Move the blue objects together Plan: Move blue chip bag near pepsi User I am sleepy, bring me a drink to help. Plan: Pick redbull can",
           "reference": false,
           "image": "figs/p025-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            64.0,
+            301.0,
+            531.0,
+            519.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1413,
+          "image_height": 666
         },
         {
           "id": "p25-b2",
@@ -3451,15 +3616,24 @@
           "id": "p26-b1",
           "kind": "table",
           "bbox": [
-            102,
-            89,
-            494,
-            717
+            100.0,
+            87.0,
+            496.0,
+            719.0
           ],
           "en": "|Task Group|Tasks| |---|---| |Unseen Objects (Easy)|pick banana, move banana near coke can, move orange can near banana, pick oreo, move oreo near apple, move redbull can near oreo, pick pear, pick coconut water, move pear near coconut water, move pepsi can near pear| |Unseen Objects (Hard)|pick cold brew can, pick large orange plate, pick chew toy, pick large ten- nis ball, pick bird ornament, pick fish toy, pick ginger lemon kombucha, pick egg separator, pick wrist watch, pick green sprite can, pick blue microfiber cloth, pick yellow pear, pick pretzel chip bag, pick disinfectant wipes, pick pineapple hint water, pick green cup, pick pickle snack, pick small blue plate, pick small orange rolling pin, pick octopus toy, pick catnip toy| |Unseen Back- grounds (Easy)|pick green jalapeno chip bag, pick orange can, pick pepsi can, pick 7up can, pick apple, pick blue chip bag, pick orange, pick 7up can, move orange near sink, pick coke can, pick sponge, pick rxbar blueberry| |Unseen Back- grounds (Hard)|pick wrist watch, pick egg separator, pick green sprite can, pick blue microfiber cloth, pick yellow pear, pick pretzel chip bag, pick disinfectant wipes, pick pineapple hint water, pick green cup, pick pickle snack, pick small blue plate, pick small orange rolling pin, pick octopus toy, pick catnip toy, pick swedish fish bag, pick large green rolling pin, pick black sunglasses| |Unseen Environ- ments (Easy)|pick coke can, pick apple, pick rxbar blueberry, move apple near coke can, move rxbar blueberry near apple, move coke can near rxbar blueberry, pick blue plastic bottle, pick sponge, pick blue chip bag, move sponge near blue plastic bottle, move blue chip bag near sponge, move blue plastic bottle near blue chip bag, move coke can near white mug, move sponge near white mug, move coke can near yellow bowl, move sponge near yellow bowl, move coke can near green cloth, move sponge near green cloth, move coke can near plate, move sponge near plate, move coke can near spoon, move sponge near spoon, move coke can near orange cup, move sponge near orange cup, pick white mug, pick yellow bowl, pick green cloth, move white mug near sponge, move yellow bowl near sponge, move green cloth near sponge, pick plate, pick spoon, pick orange cup, move plate near sponge, move spoon near sponge, move orange cup near sponge, put coke can into sink, drop coke can into sink, push coke can into sink, put sponge into sink, drop sponge into sink, push sponge into sink, put green cloth into sink, drop green cloth into sink, push green cloth into sink| |Unseen Environ- ments (Hard)|pick coke can, pick apple, pick rxbar blueberry, move apple near coke can, move rxbar blueberry near apple, move coke can near rxbar blueberry, move coke can near stapler, move apple near stapler, move coke can near keyboard, move apple near keyboard, move coke can near tissue box, move apple near tissue box, move coke can near papers, move apple near papers, move coke can near mouse, move apple near mouse, move coke can near book, move apple near book, pick marker, pick stapler, pick mouse, move marker near apple, move stapler near apple, move mouse near apple, push coke can to the left, push coke can to the right, push sponge to the left, push sponge to the right, push tissue box to the left, push tissue box to the right, point at coke can, point at sponge, point at tissue box|",
           "reference": false,
           "image": "figs/p026-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            102.0,
+            89.0,
+            494.0,
+            717.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1188,
+          "image_height": 1896
         },
         {
           "id": "p26-b2",

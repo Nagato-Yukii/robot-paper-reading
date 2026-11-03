@@ -1,0 +1,102 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "role_prompt": "You are an embodied intelligence generalist and academic translator, fluent in robotics, control, reinforcement learning, and world models.",
+  "completed_at": "2026-10-23T06:51:51.779309+00:00",
+  "paragraphs": 136,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "source_tex_sha256": "256a25330dbd7a7f4ebbc56228a57e6f426c9f155f1e7ace81e0a9d78a6292ab",
+  "batches": [
+    {
+      "job_id": "gemini-01",
+      "conversation_id": "074ee63f-04b2-4ab3-809a-691d57b658fc",
+      "receipt_sha256": "94cf298b410d8200786e2cb99654514fba79e585e4075c8c6bcd9f14e5b17e1c",
+      "usage": {
+        "input_tokens": 54994,
+        "output_tokens": 18416,
+        "thinking_tokens": 7811,
+        "cache_read_tokens": 42916,
+        "total_tokens": 73410
+      }
+    },
+    {
+      "job_id": "gemini-02",
+      "conversation_id": "de3c77a2-92c3-490a-8e5a-ec74586c7925",
+      "receipt_sha256": "a714f5249bd16cb22d06617737a8d8e0122ed2173fdb46480be75626e5997471",
+      "usage": {
+        "input_tokens": 40941,
+        "output_tokens": 21029,
+        "thinking_tokens": 15495,
+        "cache_read_tokens": 0,
+        "total_tokens": 61970
+      }
+    },
+    {
+      "job_id": "gemini-03",
+      "conversation_id": "b788221e-09c2-422e-a367-f0e4903dd9b5",
+      "receipt_sha256": "fb9dd19f56d03d4b6bc106c5c56a80c3747dba34b58a992b68e6f9b8bb59f96c",
+      "usage": {
+        "input_tokens": 60931,
+        "output_tokens": 24386,
+        "thinking_tokens": 12112,
+        "cache_read_tokens": 43733,
+        "total_tokens": 85317
+      }
+    },
+    {
+      "job_id": "gemini-04",
+      "conversation_id": "867a505d-f212-497b-a588-b9bfab70625a",
+      "receipt_sha256": "a57d05aff7d353ceb578cbfa9aa0ac0ef1fbb6bb083dad4ccea9158445036f2c",
+      "usage": {
+        "input_tokens": 42770,
+        "output_tokens": 4346,
+        "thinking_tokens": 2965,
+        "cache_read_tokens": 39387,
+        "total_tokens": 47116
+      }
+    },
+    {
+      "job_id": "gemini-appendix-01",
+      "conversation_id": "ea8731d7-36fe-48c2-a331-d10da869e5bc",
+      "receipt_sha256": "283af9d251e61cb3cbed4235a8ce8b48dff6ec8d7cd1725213c2a5e5548dc0fd",
+      "usage": {
+        "input_tokens": 109838,
+        "output_tokens": 28787,
+        "thinking_tokens": 19316,
+        "cache_read_tokens": 0,
+        "total_tokens": 138625
+      }
+    },
+    {
+      "job_id": "gemini-appendix-02",
+      "conversation_id": "f78d2e6f-c138-4577-bf02-b830d282f2ac",
+      "receipt_sha256": "524f1426e892721fed53dacfdceb77f5e04d028f5b3ec44802c1932573ca55f3",
+      "usage": {
+        "input_tokens": 54750,
+        "output_tokens": 17279,
+        "thinking_tokens": 9272,
+        "cache_read_tokens": 42373,
+        "total_tokens": 72029
+      }
+    },
+    {
+      "job_id": "gemini-appendix-03",
+      "conversation_id": "acc61a7c-72f6-4c01-90b4-6d005e508a21",
+      "receipt_sha256": "ff3ba53d312a2e4b2dd6b2b8b50dd4f6e593154b0e3313ba0beeb0ec442931e7",
+      "usage": {
+        "input_tokens": 39663,
+        "output_tokens": 15299,
+        "thinking_tokens": 13420,
+        "cache_read_tokens": 0,
+        "total_tokens": 54962
+      }
+    }
+  ],
+  "postprocessing": [
+    "Expanded math macros and normalized escaped TeX delimiters for local KaTeX.",
+    "Unified critic terminology to 价值网络; removed Markdown formatting residue.",
+    "Corrected one duplicated backslash before theta against author LaTeX."
+  ]
+}

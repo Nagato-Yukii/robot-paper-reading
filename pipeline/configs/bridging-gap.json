@@ -10,7 +10,7 @@
   "out": "site/bridging-gap",
   "imported": true,
   "source_language": "en",
-  "math": false,
+  "math": true,
   "translation": "Gemini 3.8 Flash (Medium), polished against English via local Antigravity CLI",
   "source_aliases": [
     "new_papers/Towards bridging the gap.pdf"
@@ -71,7 +71,7 @@
       "52": "p23-b24",
       "53": "p23-b26"
     },
-    "equation_references": 13,
+    "equation_references": 14,
     "paragraphs": 351
   },
   "translation_review": "gemini-polished-awaiting-human-review",

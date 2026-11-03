@@ -228,10 +228,11 @@
             506,
             533
           ],
-          "en": "Problem Formulation. We adopt the Unitree G1 robot [12] in our work, which has 23 degrees of freedom (DoFs) to control, excluding the 3 DoFs in each wrist of the hand. We formulate the motion imitation problem as a goal-conditional RL problem with Markov Decision Process M = ( S, A, Sref , γ, r, P ), where S and Sref are the state spaces of the humanoid robot and reference motion, respectively, A is the robot’s action space, r is a mixed reward function consisting motion-tracking and regularization rewards, and P is the transition function depending on the robot morphology and physical constraints. At each time step t , the policy π observes the proprioceptive state sprop t of the robot and generates action a t , with the aim of obtaining the next-state s t +1 that follows the corresponding reference state sref t +1in the reference trajectory [s 0ref, . . . ,sref N − 1].The action a t ∈ R23 is the target joint position for a PD controller to compute the motor torques. We adopt an off-the-shelf RL algorithm, PPO [13], for policy optimization with an actor-critic architecture.",
+          "en": "Problem Formulation. We adopt the Unitree G1 robot [12] in our work, which has 23 degrees of freedom (DoFs) to control, excluding the 3 DoFs in each wrist of the hand. We formulate the motion imitation problem as a goal-conditional RL problem with Markov Decision Process \\(\\mathcal{M}=(\\mathcal{S},\\mathcal{A},\\mathcal{S}^{\\rm ref},\\gamma,r,P)\\), where \\(\\mathcal{S}\\) and \\(\\mathcal{S}^{\\rm{ref}}\\) are the state spaces of the humanoid robot and reference motion, respectively, \\(\\mathcal{A}\\) is the robot’s action space, \\(r\\) is a mixed reward function consisting motion-tracking and regularization rewards, and \\(P\\) is the transition function depending on the robot morphology and physical constraints. At each time step \\(t\\), the policy \\(\\pi\\) observes the proprioceptive state \\(\\boldsymbol s_t^{\\rm{prop}}\\) of the robot and generates action \\(\\boldsymbol a_t\\), with the aim of obtaining the next-state \\(\\boldsymbol s_{t+1}\\) that follows the corresponding reference state \\(\\boldsymbol s^{\\rm ref}_{t+1}\\) in the reference trajectory \\([\\boldsymbol s^{\\rm{ref}}_0, \\ldots, \\boldsymbol s^{\\rm ref}_{N-1}]\\).The action \\(\\boldsymbol a_t \\in \\mathbb{R}^{23}\\) is the target joint position for a PD controller to compute the motor torques. We adopt an off-the-shelf RL algorithm, PPO [13], for policy optimization with an actor-critic architecture.",
           "reference": false,
           "source_image": "figs/p002-004-source.png",
-          "zh": "问题形式化。我们在工作中采用 Unitree G1 机器人 [12]，该机器人拥有 23 个受控自由度（DoF），不包括每只手腕部的 3 个自由度。我们将动作模仿问题形式化为目标条件 RL 问题，其马尔可夫决策过程为 M = ( S, A, Sref , γ, r, P )，其中 S 和 Sref 分别为人形机器人和参考动作的状态空间，A 是机器人的动作空间，r 是由动作跟踪奖励和正则化奖励组成的混合奖励函数，P 是取决于机器人形态和物理约束的状态转移函数。在每个时间步 t，策略 π 观测机器人的本体感知状态 sprop t 并生成动作 a t，旨在获得紧跟参考轨迹 [s 0ref, . . . ,sref N − 1] 中对应参考状态 sref t +1 的下一状态 s t +1。动作 a t ∈ R23 是用于 PD 控制器计算电机力矩的目标关节位置。我们采用现成的 RL 算法 PPO [13]，配合 actor-critic 架构进行策略优化。"
+          "zh": "问题形式化。我们在工作中采用 Unitree G1 机器人 [12]，该机器人拥有 23 个受控自由度（DoF），不包括每只手腕部的 3 个自由度。我们将动作模仿问题形式化为目标条件 RL 问题，其马尔可夫决策过程为 \\(\\mathcal{M}=(\\mathcal{S},\\mathcal{A},\\mathcal{S}^{\\rm ref},\\gamma,r,P)\\)，其中 \\(\\mathcal{S}\\) 和 \\(\\mathcal{S}^{\\rm{ref}}\\) 分别为人形机器人和参考动作的状态空间，\\(\\mathcal{A}\\) 是机器人的动作空间，\\(r\\) 是由动作跟踪奖励和正则化奖励组成的混合奖励函数，\\(P\\) 是取决于机器人形态和物理约束的状态转移函数。在每个时间步 \\(t\\)，策略 \\(\\pi\\) 观测机器人的本体感知状态 \\(\\boldsymbol s_t^{\\rm{prop}}\\) 并生成动作 \\(\\boldsymbol a_t\\)，旨在获得紧跟参考轨迹 \\([\\boldsymbol s^{\\rm{ref}}_0, \\ldots, \\boldsymbol s^{\\rm ref}_{N-1}]\\) 中对应参考状态 \\(\\boldsymbol s^{\\rm ref}_{t+1}\\) 的下一状态 \\(\\boldsymbol s_{t+1}\\)。动作 \\(\\boldsymbol a_t \\in \\mathbb{R}^{23}\\) 是用于 PD 控制器计算电机力矩的目标关节位置。我们采用现成的 RL 算法 PPO [13]，配合 actor-critic 架构进行策略优化。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b5",
@@ -242,10 +243,11 @@
             506,
             626
           ],
-          "en": "Reference Motion Processing. For human motion processing, the Skinned Multi-Person Linear (SMPL) model [14] offers a general representation of human motions, using three key parameters: β ∈ R10 for body shapes, θ ∈ R24×3 for joint rotations in axis-angle representation, and ψ ∈ R3 for global translation. These parameters can be mapped to a 3D mesh consisting of 6,890 vertices via a differentiable skinning function M ( · ), which formally expressed as V = M ( β , θ , ψ ) ∈ R6890×3 . We employ a human motion recovery model to estimate SMPL parameters ( β , θ , ψ ) from videos, followed by additional motion processing. The resulting SMPL-format motions are then retargeted to G1 through an Inverse Kinematics (IK) method, yielding the reference motions for tracking purposes.",
+          "en": "Reference Motion Processing. For human motion processing, the Skinned Multi-Person Linear (SMPL) model [14] offers a general representation of human motions, using three key parameters: \\(\\boldsymbol{\\mathfrak{\\beta}}\\in\\mathbb{R}^{10}\\) for body shapes, \\(\\boldsymbol \\theta\\in\\mathbb{R}^{24\\times 3}\\) for joint rotations in axis-angle representation, and \\(\\boldsymbol{\\psi}\\in\\mathbb{R}^3\\) for global translation. These parameters can be mapped to a 3D mesh consisting of 6,890 vertices via a differentiable skinning function \\(M(\\cdot)\\), which formally expressed as \\(\\mathcal{V}=M(\\boldsymbol{\\beta},\\boldsymbol \\theta,\\boldsymbol{\\psi})\\in\\mathbb{R}^{6890\\times3}\\). We employ a human motion recovery model to estimate SMPL parameters \\((\\boldsymbol{\\beta},\\boldsymbol \\theta,\\boldsymbol{\\psi})\\) from videos, followed by additional motion processing. The resulting SMPL-format motions are then retargeted to G1 through an Inverse Kinematics (IK) method, yielding the reference motions for tracking purposes.",
           "reference": false,
           "source_image": "figs/p002-005-source.png",
-          "zh": "参考动作处理。对于人类动作处理，蒙皮多人线性（SMPL）模型 [14] 提供了人类动作的通用表征，采用三个关键参数：用于体型的 β ∈ R10、用于轴角表征下关节旋转的 θ ∈ R24×3 以及用于全局平移的 ψ ∈ R3。这些参数可通过可微蒙皮函数 M ( · ) 映射到包含 6,890 个顶点的 3D 网格，形式化表示为 V = M ( β , θ , ψ ) ∈ R6890×3。我们采用人体动作恢复模型从视频中估计 SMPL 参数 ( β , θ , ψ )，随后进行进一步的动作处理。接着，通过逆运动学（IK）方法将生成的 SMPL 格式动作重定向到 G1，从而获得用于跟踪的参考动作。"
+          "zh": "参考动作处理。对于人类动作处理，蒙皮多人线性（SMPL）模型 [14] 提供了人类动作的通用表征，采用三个关键参数：用于体型的 \\(\\boldsymbol{\\mathfrak{\\beta}}\\in\\mathbb{R}^{10}\\)、用于轴角表征下关节旋转的 \\(\\boldsymbol \\theta\\in\\mathbb{R}^{24\\times 3}\\) 以及用于全局平移的 \\(\\boldsymbol{\\psi}\\in\\mathbb{R}^3\\)。这些参数可通过可微蒙皮函数 \\(M(\\cdot)\\) 映射到包含 6,890 个顶点的 3D 网格，形式化表示为 \\(\\mathcal{V}=M(\\boldsymbol{\\beta},\\boldsymbol \\theta,\\boldsymbol{\\psi})\\in\\mathbb{R}^{6890\\times3}\\)。我们采用人体动作恢复模型从视频中估计 SMPL 参数 \\((\\boldsymbol{\\beta},\\boldsymbol \\theta,\\boldsymbol{\\psi})\\)，随后进行进一步的动作处理。接着，通过逆运动学（IK）方法将生成的 SMPL 格式动作重定向到 G1，从而获得用于跟踪的参考动作。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p2-b6",
@@ -284,15 +286,24 @@
           "id": "p3-b0",
           "kind": "picture",
           "bbox": [
-            108,
-            72,
-            504,
-            289
+            106.0,
+            70.0,
+            506.0,
+            291.0
           ],
           "en": "(a) Multi-Steps Motion Processing (b) Adaptive Motion Tracking Human Video Reference Trajectory & Contact Mask ref ∥ q t − q ˆ t∥ 2 Update 𝜎 ∥ p t − p ˆ t∥ 2 r state ∥ v t − v ˆ t∥ 2 Optimize (c) RL Training Framework observation 1 1 0 1 0 1 1 1 Simulation Policy Motion action Estimation IK-based Retargeting & Contact Mask Extraction Physics Deploy Based Motion Filtering Feasible Motions ···",
           "reference": false,
           "image": "figs/p003-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            72.0,
+            504.0,
+            289.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1200,
+          "image_height": 663
         },
         {
           "id": "p3-b1",
@@ -359,26 +370,36 @@
             506,
             572
           ],
-          "en": "Physics-based Motion Filtering. Due to reconstruction inaccuracies and out-of-distribution issues in HMR models, motions extracted from videos may violate physical and biomechanical constraints. Thus, we try to filter out these motions via physics-based principles. Previous work [16] suggests that proximity between the center of mass (CoM) and center of pressure (CoP) indicates greater stability, and proposes a method to estimate CoM and CoP coordinates from SMPL data. Building on this, we calculate the projected distance of CoM and CoP on the ground for each frame and apply a threshold to assess stability. Specifically, let p ¯CoM t = ( pCoM t,x, pCoM t,y)andp¯ tCoP = ( pCoP t,x, pCoP t,y)denote the projected coordinates of CoM and CoP on the ground at frame t respectively, and ∆ dt represents the distance between these projections. We define the stability criterion of a frame as",
+          "en": "Physics-based Motion Filtering. Due to reconstruction inaccuracies and out-of-distribution issues in HMR models, motions extracted from videos may violate physical and biomechanical constraints. Thus, we try to filter out these motions via physics-based principles. Previous work [16] suggests that proximity between the center of mass (CoM) and center of pressure (CoP) indicates greater stability, and proposes a method to estimate CoM and CoP coordinates from SMPL data. Building on this, we calculate the projected distance of CoM and CoP on the ground for each frame and apply a threshold to assess stability. Specifically, let \\({\\bar{\\boldsymbol{p}}_{t}^\\mathrm{CoM}}=(p^\\mathrm{CoM}_{t,x},p^\\mathrm{CoM}_{t,y})\\) and \\({\\bar{\\boldsymbol{p}}_{t}^\\mathrm{CoP}}=(p^\\mathrm{CoP}_{t,x},p^\\mathrm{CoP}_{t,y})\\) denote the projected coordinates of CoM and CoP on the ground at frame \\(t\\) respectively, and \\(\\Delta d_t\\) represents the distance between these projections. We define the stability criterion of a frame as",
           "reference": false,
           "source_image": "figs/p003-005-source.png",
-          "zh": "基于物理的动作过滤。由于 HMR 模型中的重建不精确以及分布外问题，从视频中提取的动作可能会违反物理和生物力学约束。因此，我们尝试通过基于物理的原则来滤除这些动作。以往的工作 [16] 表明，质心（CoM）与压力中心（CoP）之间的接近程度意味着更高的稳定性，并提出了一种从 SMPL 数据中估计 CoM 和 CoP 坐标的方法。在此基础上，我们计算每帧中 CoM 和 CoP 在地面上的投影距离，并应用阈值来评估稳定性。具体而言，分别令 p ¯CoM t = ( pCoM t,x, pCoM t,y) 和 p¯ tCoP = ( pCoP t,x, pCoP t,y) 表示在帧 t 时 CoM 和 CoP 在地面上的投影坐标，∆ dt 表示这些投影之间的距离。我们将某一帧的稳定性准则定义为"
+          "zh": "基于物理的动作过滤。由于 HMR 模型中的重建不精确以及分布外问题，从视频中提取的动作可能会违反物理和生物力学约束。因此，我们尝试通过基于物理的原则来滤除这些动作。以往的工作 [16] 表明，质心（CoM）与压力中心（CoP）之间的接近程度意味着更高的稳定性，并提出了一种从 SMPL 数据中估计 CoM 和 CoP 坐标的方法。在此基础上，我们计算每帧中 CoM 和 CoP 在地面上的投影距离，并应用阈值来评估稳定性。具体而言，分别令 \\({\\bar{\\boldsymbol{p}}_{t}^\\mathrm{CoM}}=(p^\\mathrm{CoM}_{t,x},p^\\mathrm{CoM}_{t,y})\\) 和 \\({\\bar{\\boldsymbol{p}}_{t}^\\mathrm{CoP}}=(p^\\mathrm{CoP}_{t,x},p^\\mathrm{CoP}_{t,y})\\) 表示在帧 \\(t\\) 时 CoM 和 CoP 在地面上的投影坐标，\\(\\Delta d_t\\) 表示这些投影之间的距离。我们将某一帧的稳定性准则定义为",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b6",
           "kind": "formula",
           "bbox": [
-            237,
-            576,
-            505,
-            588
+            107.14099884033203,
+            573.5,
+            507.5,
+            623.9019165039062
           ],
           "en": "∆ dt = ∥ p ¯ CoM t − p ¯ CoP t ∥ 2 < ϵ stab , (1)",
           "reference": false,
           "image": "figs/p003-006.png",
           "labels": [
             "1"
-          ]
+          ],
+          "original_bbox": [
+            237.0,
+            576.0,
+            505.0,
+            588.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v2",
+          "image_width": 1202,
+          "image_height": 152
         },
         {
           "id": "p3-b7",
@@ -389,10 +410,11 @@
             506,
             657
           ],
-          "en": "where ϵ stab represents the stability threshold. Then, given an N -frame motion sequence, let B = [ t 0 , t 1 , . . . , tK ] be the increasingly sorted list of frame indices that satisfy Eq. (1), where tk ∈ [1 , N ]. The motion sequence is considered stable if it satisfies two conditions: (i) Boundary-frame stability: 1 ∈B and N ∈B . (ii) Maximum instability gap: the maximum length of consecutive unstable frames must be less than threshold ϵ N, i.e., max k tk +1 − tk < ϵ N. Based on this criterion, motions that are clearly unable to maintain dynamic stability can be excluded from the original dataset.",
+          "en": "where \\(\\epsilon_{\\mathrm{stab}}\\) represents the stability threshold. Then, given an \\(N\\)-frame motion sequence, let \\(\\mathcal{B}=[t_0, t_1, \\ldots, t_K]\\) be the increasingly sorted list of frame indices that satisfy Eq. (1), where \\(t_k \\in [1,N]\\). The motion sequence is considered stable if it satisfies two conditions: (i) Boundary-frame stability: \\(1\\in\\mathcal{B}\\) and \\(N\\in\\mathcal{B}\\). (ii) Maximum instability gap: the maximum length of consecutive unstable frames must be less than threshold \\(\\epsilon_{\\mathrm{N}}\\), i.e., \\(\\max_k t_{k+1}-t_k < \\epsilon_{\\mathrm{N}}\\). Based on this criterion, motions that are clearly unable to maintain dynamic stability can be excluded from the original dataset.",
           "reference": false,
           "source_image": "figs/p003-007-source.png",
-          "zh": "其中 ϵ stab 表示稳定性阈值。随后，给定一个 N 帧动作序列，令 B = [ t 0 , t 1 , . . . , tK ] 为满足式 (1) 的升序排列帧索引列表，其中 tk ∈ [1 , N ]。若动作序列满足以下两个条件，则被认为是稳定的：(i) 边界帧稳定性：1 ∈B 且 N ∈B。(ii) 最大不稳定间隙：连续不稳定帧的最大长度必须小于阈值 ϵ N，即 max k tk +1 − tk < ϵ N。根据这一准则，可以从原始数据集中排除明显无法保持动态稳定性的动作。"
+          "zh": "其中 \\(\\epsilon_{\\mathrm{stab}}\\) 表示稳定性阈值。随后，给定一个 \\(N\\) 帧动作序列，令 \\(\\mathcal{B}=[t_0, t_1, \\ldots, t_K]\\) 为满足式 (1) 的升序排列帧索引列表，其中 \\(t_k \\in [1,N]\\)。若动作序列满足以下两个条件，则被认为是稳定的：(i) 边界帧稳定性：\\(1\\in\\mathcal{B}\\) 且 \\(N\\in\\mathcal{B}\\)。(ii) 最大不稳定间隙：连续不稳定帧的最大长度必须小于阈值 \\(\\epsilon_{\\mathrm{N}}\\)，即 \\(\\max_k t_{k+1}-t_k < \\epsilon_{\\mathrm{N}}\\)。根据这一准则，可以从原始数据集中排除明显无法保持动态稳定性的动作。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b8",
@@ -403,26 +425,36 @@
             506,
             707
           ],
-          "en": "Motion Correction based on Contact Mask. To better capture foot-ground contact in motion data, we estimate contact masks by analyzing ankle displacement across consecutive frames, based on the zero-velocity assumption [17, 18]. Let pl t-ankle ∈ R3 denote the position of the left ankle joint at time t , and cleft t ∈{ 0 , 1 } the corresponding contact mask. The contact mask is estimated as",
+          "en": "Motion Correction based on Contact Mask. To better capture foot-ground contact in motion data, we estimate contact masks by analyzing ankle displacement across consecutive frames, based on the zero-velocity assumption [17, 18]. Let \\(\\boldsymbol{p}_t^\\mathrm{l\\text{-}ankle} \\in \\mathbb{R}^3\\) denote the position of the left ankle joint at time \\(t\\), and \\(c_t^\\mathrm{left} \\in \\{0,1\\}\\) the corresponding contact mask. The contact mask is estimated as",
           "reference": false,
           "source_image": "figs/p003-008-source.png",
-          "zh": "基于接触掩码的动作校正。为了在动作数据中更好地捕捉足部与地面的接触，我们基于零速度假设 [17, 18]，通过分析连续帧之间的脚踝位移来估计接触掩码。令 pl t-ankle ∈ R3 表示 t 时刻左踝关节的位置，cleft t ∈{ 0 , 1 } 表示对应的接触掩码。接触掩码估计为"
+          "zh": "基于接触掩码的动作校正。为了在动作数据中更好地捕捉足部与地面的接触，我们基于零速度假设 [17, 18]，通过分析连续帧之间的脚踝位移来估计接触掩码。令 \\(\\boldsymbol{p}_t^\\mathrm{l\\text{-}ankle} \\in \\mathbb{R}^3\\) 表示 \\(t\\) 时刻左踝关节的位置，\\(c_t^\\mathrm{left} \\in \\{0,1\\}\\) 表示对应的接触掩码。接触掩码估计为",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b9",
           "kind": "formula",
           "bbox": [
-            186,
-            710,
-            505,
-            724
+            107.14099884033203,
+            674.0203857421875,
+            507.5,
+            730.0640869140625
           ],
           "en": "c left t = I[ ∥ p l t - +1 ankle − p l t -ankle ∥ 2 2 < ϵ vel] · I[ p l t,z -ankle < ϵ height] , (2)",
           "reference": false,
           "image": "figs/p003-009.png",
           "labels": [
             "2"
-          ]
+          ],
+          "original_bbox": [
+            186.0,
+            710.0,
+            505.0,
+            724.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v2",
+          "image_width": 1202,
+          "image_height": 169
         }
       ]
     },
@@ -438,10 +470,11 @@
             445,
             85
           ],
-          "en": "where ϵ vel and ϵ height are empirically chosen thresholds. Similarly for the right foot.",
+          "en": "where \\(\\epsilon_\\mathrm{vel}\\) and \\(\\epsilon_\\mathrm{height}\\) are empirically chosen thresholds. Similarly for the right foot.",
           "reference": false,
           "source_image": "figs/p004-000-source.png",
-          "zh": "其中 ϵ vel 和 ϵ height 为经验选定的阈值。右脚同理。"
+          "zh": "其中 \\(\\epsilon_\\mathrm{vel}\\) 和 \\(\\epsilon_\\mathrm{height}\\) 为经验选定的阈值。右脚同理。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b1",
@@ -452,26 +485,36 @@
             506,
             134
           ],
-          "en": "To address minor floating artifacts not eliminated by threshold-based filtering, we apply a correction step based on the estimated contact mask. Specifically, if either foot is in contact at frame t , a vertical offset is applied to the global translation. Let ψ t denotes the global translation of the pose at time t , then the corrected vertical position is:",
+          "en": "To address minor floating artifacts not eliminated by threshold-based filtering, we apply a correction step based on the estimated contact mask. Specifically, if either foot is in contact at frame \\(t\\), a vertical offset is applied to the global translation. Let \\(\\boldsymbol \\psi_t\\) denotes the global translation of the pose at time \\(t\\), then the corrected vertical position is:",
           "reference": false,
           "source_image": "figs/p004-001-source.png",
-          "zh": "为了解决基于阈值的过滤未能消除的轻微悬空伪影，我们基于估计的接触掩码应用了一个校正步骤。具体而言，若在帧 t 时任一足部发生接触，则对全局平移施加一个垂直偏移。令 ψ t 表示姿态在时刻 t 的全局平移，则校正后的垂直位置为："
+          "zh": "为了解决基于阈值的过滤未能消除的轻微悬空伪影，我们基于估计的接触掩码应用了一个校正步骤。具体而言，若在帧 \\(t\\) 时任一足部发生接触，则对全局平移施加一个垂直偏移。令 \\(\\boldsymbol \\psi_t\\) 表示姿态在时刻 \\(t\\) 的全局平移，则校正后的垂直位置为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b2",
           "kind": "formula",
           "bbox": [
-            264,
-            142,
-            505,
-            154
+            262.0,
+            140.0,
+            507.0,
+            161.1400909423828
           ],
           "en": "ψt,z corr = ψt,z − ∆ ht, (3)",
           "reference": false,
           "image": "figs/p004-002.png",
           "labels": [
             "3"
-          ]
+          ],
+          "original_bbox": [
+            264.0,
+            142.0,
+            505.0,
+            154.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 735,
+          "image_height": 64
         },
         {
           "id": "p4-b3",
@@ -482,10 +525,11 @@
             506,
             194
           ],
-          "en": "where ∆ ht = min v∈Vt pv t,zis the lowestz-coordinate among the SMPL mesh verticesVtat framet. While the correction alleviates floating artifacts, it may cause frame-to-frame jitter. We address this by applying Exponential Moving Average (EMA) to smooth the motion.",
+          "en": "where \\(\\Delta h_t = \\min_{v \\in \\mathcal{V}_t} p_{t,z}^v\\) is the lowest \\(z\\)-coordinate among the SMPL mesh vertices \\(\\mathcal{V}_t\\) at frame \\(t\\). While the correction alleviates floating artifacts, it may cause frame-to-frame jitter. We address this by applying Exponential Moving Average (EMA) to smooth the motion.",
           "reference": false,
           "source_image": "figs/p004-003-source.png",
-          "zh": "其中 ∆ ht = min v∈Vt pv t,z 是帧 t 下 SMPL 网格顶点 Vt 中最小的 z 坐标。虽然该校正缓解了悬空伪影，但可能会引起帧间抖动。我们通过应用指数移动平均（EMA）平滑动作来解决这一问题。"
+          "zh": "其中 \\(\\Delta h_t = \\min_{v \\in \\mathcal{V}_t} p_{t,z}^v\\) 是帧 \\(t\\) 下 SMPL 网格顶点 \\(\\mathcal{V}_t\\) 中最小的 \\(z\\) 坐标。虽然该校正缓解了悬空伪影，但可能会引起帧间抖动。我们通过应用指数移动平均（EMA）平滑动作来解决这一问题。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b4",
@@ -575,17 +619,26 @@
           "id": "p4-b10",
           "kind": "formula",
           "bbox": [
-            265,
-            393,
-            505,
-            404
+            263.0,
+            391.0,
+            507.0,
+            410.330078125
           ],
           "en": "r ( x ) = exp( −x/σ ) , (4)",
           "reference": false,
           "image": "figs/p004-010.png",
           "labels": [
             "4"
-          ]
+          ],
+          "original_bbox": [
+            265.0,
+            393.0,
+            505.0,
+            404.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 732,
+          "image_height": 58
         },
         {
           "id": "p4-b11",
@@ -596,10 +649,11 @@
             506,
             455
           ],
-          "en": "where x represents the tracking error, typically measured as the mean squared error (MSE) of quantities such as joint angles, while σ controls the tolerance of the error, referred to as the tracking factor . This exponential form is preferred over the negative error form because it is bounded, helps stabilize the training process, and provides a more intuitive approach for reward weighting.",
+          "en": "where \\(x\\) represents the tracking error, typically measured as the mean squared error (MSE) of quantities such as joint angles, while \\(\\sigma\\) controls the tolerance of the error, referred to as the tracking factor . This exponential form is preferred over the negative error form because it is bounded, helps stabilize the training process, and provides a more intuitive approach for reward weighting.",
           "reference": false,
           "source_image": "figs/p004-011-source.png",
-          "zh": "其中 x 表示跟踪误差，通常衡量为诸如关节角等物理量的均方误差（MSE），而 σ 控制对误差的容差，被称为跟踪因子。这种指数形式相较于负误差形式更受青睐，因为它是有界的，有助于稳定训练过程，并为奖励加权提供了一种更直观的方法。"
+          "zh": "其中 \\(x\\) 表示跟踪误差，通常衡量为诸如关节角等物理量的均方误差（MSE），而 \\(\\sigma\\) 控制对误差的容差，被称为跟踪因子。这种指数形式相较于负误差形式更受青睐，因为它是有界的，有助于稳定训练过程，并为奖励加权提供了一种更直观的方法。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b12",
@@ -610,10 +664,11 @@
             338,
             538
           ],
-          "en": "Intuitively, when σ is much larger than the typical range of x , the reward remains close to 1 and becomes insensitive to changes in x , while an overly small σ causes the reward to approach 0 and also reduces its sensitivity, highlighting the importance of choosing σ appropriately to enhance responsiveness and hence tracking precision. This intuition is illustrated in Fig. 2.",
+          "en": "Intuitively, when \\(\\sigma\\) is much larger than the typical range of \\(x\\) , the reward remains close to 1 and becomes insensitive to changes in \\(x\\) , while an overly small \\(\\sigma\\) causes the reward to approach 0 and also reduces its sensitivity, highlighting the importance of choosing \\(\\sigma\\) appropriately to enhance responsiveness and hence tracking precision. This intuition is illustrated in Fig. 2.",
           "reference": false,
           "source_image": "figs/p004-012-source.png",
-          "zh": "直观地说，当 σ 远大于 x 的典型取值范围时，奖励保持接近 1 且对 x 的变化变得不敏感；而过小的 σ 则会导致奖励接近 0 并同样降低其灵敏度，这凸显了合理选择 σ 以增强响应性从而提升跟踪精度的重要性。这一直观机理如图 2 所示。"
+          "zh": "直观地说，当 \\(\\sigma\\) 远大于 \\(x\\) 的典型取值范围时，奖励保持接近 1 且对 \\(x\\) 的变化变得不敏感；而过小的 \\(\\sigma\\) 则会导致奖励接近 0 并同样降低其灵敏度，这凸显了合理选择 \\(\\sigma\\) 以增强响应性从而提升跟踪精度的重要性。这一直观机理如图 2 所示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b13",
@@ -633,15 +688,24 @@
           "id": "p4-b14",
           "kind": "picture",
           "bbox": [
-            345,
-            459,
-            505,
-            569
+            343.0,
+            457.0,
+            507.0,
+            571.0
           ],
           "en": "Effect of Tracking Factor σ on Reward 1.00 σ = 0.2 σ = 1.0 0.75 σ = 5.0 Error Range 0.50 Mean Error x¯ 0.25 0.00 0.0 0.5 1.0 1.5 2.0 2.5 Tracking Error x Figure 2: Illustration of the effect of tracking factor σ on the reward value. () = exp(x/σ)Reward rx−",
           "reference": false,
           "image": "figs/p004-014.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            345.0,
+            459.0,
+            505.0,
+            569.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 492,
+          "image_height": 342
         },
         {
           "id": "p4-b15",
@@ -652,10 +716,11 @@
             506,
             645
           ],
-          "en": "To determine the choice of the optimal tracking factor, we introduce a simplified model of motion tracking and formulate it as a bi-level optimization problem. The intuition behind this formulation is that the tracking factor σ should be chosen to minimize the accumulated tracking error of the converged policy over the reference trajectory . In manual tuning scenarios, this is typically achieved through an iterative process where an engineer selects a value for σ , trains a policy, observes the results, and repeats the process until satisfactory performance is attained.",
+          "en": "To determine the choice of the optimal tracking factor, we introduce a simplified model of motion tracking and formulate it as a bi-level optimization problem. The intuition behind this formulation is that the tracking factor \\(\\sigma\\) should be chosen to minimize the accumulated tracking error of the converged policy over the reference trajectory . In manual tuning scenarios, this is typically achieved through an iterative process where an engineer selects a value for \\(\\sigma\\) , trains a policy, observes the results, and repeats the process until satisfactory performance is attained.",
           "reference": false,
           "source_image": "figs/p004-015-source.png",
-          "zh": "为了确定最优跟踪因子的选择，我们引入了一个简化的动作跟踪模型，并将其形式化为一个双层优化问题。该形式化背后的直观思想是：应当选取跟踪因子 σ，以使收敛策略在参考轨迹上的累积跟踪误差最小化。在人工调参场景中，这通常通过一个迭代过程来实现：工程师选择一个 σ 值，训练一个策略，观察结果，并重复该过程直至达到令人满意的性能。"
+          "zh": "为了确定最优跟踪因子的选择，我们引入了一个简化的动作跟踪模型，并将其形式化为一个双层优化问题。该形式化背后的直观思想是：应当选取跟踪因子 \\(\\sigma\\)，以使收敛策略在参考轨迹上的累积跟踪误差最小化。在人工调参场景中，这通常通过一个迭代过程来实现：工程师选择一个 \\(\\sigma\\) 值，训练一个策略，观察结果，并重复该过程直至达到令人满意的性能。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b16",
@@ -666,26 +731,36 @@
             505,
             696
           ],
-          "en": "Given a policy π , there is a sequence of expected tracking error x ∈ RN +forNsteps,wherexi represents the expected tracking error at the i -th step of the rollout episodes. Rather than optimizing the policy directly, we treat the tracking error sequence x as decision variables. This allows us to reformulate the optimization problem of motion tracking as:",
+          "en": "Given a policy \\(\\pi\\) , there is a sequence of expected tracking error \\(\\boldsymbol{x} \\in \\mathbb{R}^N_+\\) for \\(N\\) steps, where \\(x_i\\) represents the expected tracking error at the \\(i\\)-th step of the rollout episodes. Rather than optimizing the policy directly, we treat the tracking error sequence \\(\\boldsymbol{x}\\) as decision variables. This allows us to reformulate the optimization problem of motion tracking as:",
           "reference": false,
           "source_image": "figs/p004-016-source.png",
-          "zh": "给定策略 π，存在一段对应 N 步的期望跟踪误差序列〔行内公式见原版〕，其中 xi 表示在 rollout episode 第 i 步的期望跟踪误差。我们并未直接优化策略，而是将跟踪误差序列 x 视为决策变量。这使我们能够将动作跟踪的优化问题重新表述为："
+          "zh": "给定策略 \\(\\pi\\)，存在一段对应 \\(N\\) 步的期望跟踪误差序列 \\(\\boldsymbol{x} \\in \\mathbb{R}^N_+\\)，其中 \\(x_i\\) 表示在 rollout episode 第 \\(i\\) 步的期望跟踪误差。我们并未直接优化策略，而是将跟踪误差序列 \\(\\boldsymbol{x}\\) 视为决策变量。这使我们能够将动作跟踪的优化问题重新表述为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b17",
           "kind": "formula",
           "bbox": [
-            256,
-            704,
-            505,
-            724
+            254.0,
+            702.0,
+            507.0,
+            726.0
           ],
           "en": "max J in ( x , σ ) + R ( x ) , (5) x ∈ R N +",
           "reference": false,
           "image": "figs/p004-017.png",
           "labels": [
             "5"
-          ]
+          ],
+          "original_bbox": [
+            256.0,
+            704.0,
+            505.0,
+            724.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 759,
+          "image_height": 72
         }
       ]
     },
@@ -701,26 +776,36 @@
             506,
             152
           ],
-          "en": "where the internal objective Jin ( x , σ ) =�N i =1exp(−xi/σ) is the simplified accumulated reward induced by the tracking reward in Eq. (4), and we introduce R ( x ) to capture all additional effects beyond Jin , including environment dynamics and other policy objectives such as extra rewards. The solution x∗ to Eq. (5) corresponds to the error sequence induced by the optimal policy π∗ . Subsequently, the optimization objective of σ is to maximize the obtained accumulated negative tracking error Jex ( x∗ ) =�N i =1−x i∗, theexternalobjective, formalized as the following bi-level optimization problem:",
+          "en": "where the internal objective \\(J^\\mathrm{in}(\\boldsymbol{x},\\sigma)=\\sum_{i=1}^N \\exp(-x_i/\\sigma)\\) is the simplified accumulated reward induced by the tracking reward in Eq. (4), and we introduce \\(R(\\boldsymbol{x})\\) to capture all additional effects beyond \\(J^\\mathrm{in}\\), including environment dynamics and other policy objectives such as extra rewards. The solution \\(\\boldsymbol{x}^*\\) to Eq. (5) corresponds to the error sequence induced by the optimal policy \\(\\pi^*\\). Subsequently, the optimization objective of \\(\\sigma\\) is to maximize the obtained accumulated negative tracking error \\(J^{\\mathrm{ex}}(\\boldsymbol{x}^*)=\\sum_{i=1}^N -x^*_i\\), theexternalobjective, formalized as the following bi-level optimization problem:",
           "reference": false,
           "source_image": "figs/p005-000-source.png",
-          "zh": "其中内部目标 Jin ( x , σ ) =〔行内公式见原版〕 是由 Eq. (4) 中的跟踪奖励所诱导的简化累积奖励，我们引入 R ( x ) 来捕捉 Jin 之外的所有附加效应，包括环境动力学以及诸如额外奖励等其他策略目标。Eq. (5) 的解 x∗ 对应于最优策略 π∗ 所诱导的误差序列。随后，σ 的优化目标是最大化所获得的累积负跟踪误差 Jex ( x∗ ) =〔行内公式见原版〕（即外部目标），形式化为如下的双层优化问题："
+          "zh": "其中内部目标 \\(J^\\mathrm{in}(\\boldsymbol{x},\\sigma)=\\sum_{i=1}^N \\exp(-x_i/\\sigma)\\) 是由 Eq. (4) 中的跟踪奖励所诱导的简化累积奖励，我们引入 \\(R(\\boldsymbol{x})\\) 来捕捉 \\(J^\\mathrm{in}\\) 之外的所有附加效应，包括环境动力学以及诸如额外奖励等其他策略目标。Eq. (5) 的解 \\(\\boldsymbol{x}^*\\) 对应于最优策略 \\(\\pi^*\\) 所诱导的误差序列。随后，\\(\\sigma\\) 的优化目标是最大化所获得的累积负跟踪误差 \\(J^{\\mathrm{ex}}(\\boldsymbol{x}^*)=\\sum_{i=1}^N -x^*_i\\)（即外部目标），形式化为如下的双层优化问题：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b1",
           "kind": "formula",
           "bbox": [
-            179,
-            158,
-            505,
-            179
+            177.0,
+            156.0,
+            507.0,
+            181.0
           ],
           "en": "max J ex ( x ∗ ) , s.t. x ∗ ∈ arg max J in ( x , σ ) + R ( x ) . σ∈ R+ x ∈ R N + (6)",
           "reference": false,
           "image": "figs/p005-001.png",
           "labels": [
             "6"
-          ]
+          ],
+          "original_bbox": [
+            179.0,
+            158.0,
+            505.0,
+            179.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 990,
+          "image_height": 75
         },
         {
           "id": "p5-b2",
@@ -754,45 +839,72 @@
           "id": "p5-b3-eq-7",
           "kind": "formula",
           "bbox": [
-            259.531982421875,
-            212.6785888671875,
-            504.6672668457031,
-            233.81768798828125
+            257.531982421875,
+            210.6785888671875,
+            506.6672668457031,
+            235.81768798828125
           ],
           "en": "(7)",
           "image": "figs/p5-b3-eq-7.png",
           "labels": [
             "7"
           ],
-          "recovered": true
+          "recovered": true,
+          "original_bbox": [
+            259.531982421875,
+            212.6785888671875,
+            504.6672668457031,
+            233.81768798828125
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 749,
+          "image_height": 76
         },
         {
           "id": "p5-b3",
           "kind": "picture",
           "bbox": [
-            259,
-            240.81768798828125,
-            505,
-            367
+            133.2953643798828,
+            238.81768798828125,
+            507.0,
+            369.0
           ],
           "en": "σ ∗ = i /N. (7) �� iN =1 x∗ � 1.2 5k steps (σ p os vr = 9.94e − 4) 10k steps (σposvr = 5.56e − 4) 50k steps (σposvr = 3.70e − 4) 1.1 150k steps (σ posvr = 3.18e − 4) Horse Stan ce Reference 1.0 0.9 0.8 0.7 Quick Punch 0.6 1.5 2.0 2.5 3.0 3.5 Time (s) Left Hand Y-Axis Position (m)",
           "reference": false,
           "image": "figs/p005-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            259.0,
+            240.81768798828125,
+            505.0,
+            367.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1122,
+          "image_height": 391
         },
         {
           "id": "p5-b5",
           "kind": "picture",
           "bbox": [
-            122,
-            262,
-            272,
-            358
+            120.0,
+            260.0,
+            274.0,
+            360.0
           ],
           "en": "Reward Tracking Factor Shaping Tightening Policy Tracking Error Optimization Reduction",
           "reference": false,
           "image": "figs/p005-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            122.0,
+            262.0,
+            272.0,
+            358.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 462,
+          "image_height": 300
         },
         {
           "id": "p5-b6",
@@ -817,10 +929,11 @@
             506,
             420
           ],
-          "en": "Figure 4: Example of the right hand y -position for ‘Horse-stance punch’. The adaptive σ can progressively improve the tracking precision. σ posvr is used for tracking the head and hands.",
+          "en": "Figure 4: Example of the right hand \\(y\\)-position for ‘Horse-stance punch’. The adaptive \\(\\sigma\\) can progressively improve the tracking precision. \\(\\sigma_\\mathrm{pos\\_vr}\\) is used for tracking the head and hands.",
           "reference": false,
           "source_image": "figs/p005-007-source.png",
-          "zh": "图 4：“马步冲拳”（Horse-stance punch）的右手 y 轴位置示例。自适应 σ 能够逐步提高跟踪精度。σ posvr 用于跟踪头部和双手。"
+          "zh": "图 4：“马步冲拳”（Horse-stance punch）的右手 \\(y\\) 轴位置示例。自适应 \\(\\sigma\\) 能够逐步提高跟踪精度。\\(\\sigma_\\mathrm{pos\\_vr}\\) 用于跟踪头部和双手。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b8",
@@ -831,10 +944,11 @@
             505,
             497
           ],
-          "en": "While Eq. (7) provides a theoretical guidance for determining the tracking factor, the coupling between σ∗ and x∗ creates a circular dependency that prevents direct computation. Additionally, due to the varying quality and complexity of reference motion data, selecting a single, fixed value for the tracking factor that works for all motion scenarios is impractical. To resolve this, we design an adaptive mechanism that dynamically adjusts σ during training through a feedback loop between error estimation and tracking factor adaptation.",
+          "en": "While Eq. (7) provides a theoretical guidance for determining the tracking factor, the coupling between \\(\\sigma^*\\) and \\(\\boldsymbol{x}^*\\) creates a circular dependency that prevents direct computation. Additionally, due to the varying quality and complexity of reference motion data, selecting a single, fixed value for the tracking factor that works for all motion scenarios is impractical. To resolve this, we design an adaptive mechanism that dynamically adjusts \\(\\sigma\\) during training through a feedback loop between error estimation and tracking factor adaptation.",
           "reference": false,
           "source_image": "figs/p005-008-source.png",
-          "zh": "尽管 Eq. (7) 为确定跟踪因子提供了理论指导，但 σ∗ 与 x∗ 之间的耦合造成了循环依赖，导致无法直接计算。此外，由于参考动作数据的质量和复杂度各异，为所有动作场景选定一个通用的单一固定跟踪因子是不切实际的。为了解决这一问题，我们设计了一种自适应机制，通过误差估计与跟踪因子调整之间的反馈循环，在训练过程中动态调节 σ。"
+          "zh": "尽管 Eq. (7) 为确定跟踪因子提供了理论指导，但 \\(\\sigma^*\\) 与 \\(\\boldsymbol{x}^*\\) 之间的耦合造成了循环依赖，导致无法直接计算。此外，由于参考动作数据的质量和复杂度各异，为所有动作场景选定一个通用的单一固定跟踪因子是不切实际的。为了解决这一问题，我们设计了一种自适应机制，通过误差估计与跟踪因子调整之间的反馈循环，在训练过程中动态调节 \\(\\sigma\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b9",
@@ -845,10 +959,11 @@
             506,
             586
           ],
-          "en": "In this mechanism, we maintain an Exponential Moving Average (EMA) x ˆ of the instantaneous tracking error over environment steps. This EMA serves as an online estimate of the expected tracking error under the current policy, and during training this value should approach the average optimal tracking error i =1x i∗ /N under the current factor σ . At each step, PBHC updates σ to the �� N � current value of x ˆ, creating a feedback loop where reductions in tracking error lead to tightening of σ . This closed-loop process drives further policy refinement, and as the tracking error decreases, the system converges to an optimal value of σ that asymptotically solves Eq. (9), as illustrated in Fig. 3.",
+          "en": "In this mechanism, we maintain an Exponential Moving Average (EMA) \\(\\hat{x}\\) of the instantaneous tracking error over environment steps. This EMA serves as an online estimate of the expected tracking error under the current policy, and during training this value should approach the average optimal tracking error \\(\\left(\\sum\\nolimits_{i=1}^Nx^*_i\\right) / N\\) under the current factor \\(\\sigma\\). At each step, PBHC updates \\(\\sigma\\) to the current value of \\(\\hat{x}\\), creating a feedback loop where reductions in tracking error lead to tightening of \\(\\sigma\\). This closed-loop process drives further policy refinement, and as the tracking error decreases, the system converges to an optimal value of \\(\\sigma\\) that asymptotically solves Eq. (9), as illustrated in Fig. 3.",
           "reference": false,
           "source_image": "figs/p005-009-source.png",
-          "zh": "在该机制中，我们维护环境步上瞬时跟踪误差的指数移动平均（EMA）x ˆ。该 EMA 作为当前策略下期望跟踪误差的在线估计；在训练过程中，该值应逼近当前因子 σ 下的平均最优跟踪误差〔行内公式见原版〕。在每一步中，PBHC 将 σ 更新为 x ˆ 的当前值，从而形成一个反馈循环，其中跟踪误差的减小会导致 σ 的收紧。这一闭环过程推动了策略的进一步优化，且随着跟踪误差的减小，系统会收敛到渐近求解 Eq. (9) 的最优 σ 值，如图 3 所示。"
+          "zh": "在该机制中，我们维护环境步上瞬时跟踪误差的指数移动平均（EMA）\\(\\hat{x}\\)。该 EMA 作为当前策略下期望跟踪误差的在线估计；在训练过程中，该值应逼近当前因子 \\(\\sigma\\) 下的平均最优跟踪误差 \\(\\left(\\sum\\nolimits_{i=1}^Nx^*_i\\right) / N\\)。在每一步中，PBHC 将 \\(\\sigma\\) 更新为 \\(\\hat{x}\\) 的当前值，从而形成一个反馈循环，其中跟踪误差的减小会导致 \\(\\sigma\\) 的收紧。这一闭环过程推动了策略的进一步优化，且随着跟踪误差的减小，系统会收敛到渐近求解 Eq. (9) 的最优 \\(\\sigma\\) 值，如图 3 所示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b10",
@@ -859,26 +974,36 @@
             505,
             625
           ],
-          "en": "To ensure stability during training, we constrain σ to be non-increasing and initialize it with a relatively large value, σinit . The update rule is given by Eq. (8). As shown in Fig. 4, this adaptive mechanism allows the policy to progressively improve its tracking precision during training.",
+          "en": "To ensure stability during training, we constrain \\(\\sigma\\) to be non-increasing and initialize it with a relatively large value, \\(\\sigma^\\mathrm{init}\\). The update rule is given by Eq. (8). As shown in Fig. 4, this adaptive mechanism allows the policy to progressively improve its tracking precision during training.",
           "reference": false,
           "source_image": "figs/p005-010-source.png",
-          "zh": "为了确保训练过程中的稳定性，我们约束 σ 为非递增，并使用一个相对较大的值 σinit 对其进行初始化。更新规则如 Eq. (8) 所示。如图 4 所示，该自适应机制使策略能够在训练过程中逐步提高其跟踪精度。"
+          "zh": "为了确保训练过程中的稳定性，我们约束 \\(\\sigma\\) 为非递增，并使用一个相对较大的值 \\(\\sigma^\\mathrm{init}\\) 对其进行初始化。更新规则如 Eq. (8) 所示。如图 4 所示，该自适应机制使策略能够在训练过程中逐步提高其跟踪精度。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b11",
           "kind": "formula",
           "bbox": [
-            273,
-            631,
-            505,
-            642
+            271.0,
+            629.0,
+            507.0,
+            648.4500732421875
           ],
           "en": "σ ← min( σ, ˆ x ) . (8)",
           "reference": false,
           "image": "figs/p005-011.png",
           "labels": [
             "8"
-          ]
+          ],
+          "original_bbox": [
+            273.0,
+            631.0,
+            505.0,
+            642.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 708,
+          "image_height": 59
         },
         {
           "id": "p5-b12",
@@ -903,10 +1028,11 @@
             505,
             723
           ],
-          "en": "Asymmetric Actor-Critic. Following previous works [6, 21], the time phase variable ϕt ∈ [0 , 1] is introduced to represent the current progress of the reference motion linearly, where ϕt = 0 denotes the start of a motion and ϕt = 1 denotes the end. The observation of the actor sactor t = includes the robot’s proprioception sprop t and the time phase variable ϕt . The proprioception sprop t [ q t− 4: t, q ˙ t− 4: t, ω troot − 4: t,g tproj − 4: t,at−5:t−1]includes5-stephistoryofjointpositionqt∈R23,joint",
+          "en": "Asymmetric Actor-Critic. Following previous works [6, 21], the time phase variable \\(\\phi_t\\in[0,1]\\) is introduced to represent the current progress of the reference motion linearly, where \\(\\phi_t=0\\) denotes the start of a motion and \\(\\phi_t=1\\) denotes the end. The observation of the actor \\(\\boldsymbol s_t^{\\rm actor}\\) includes the robot’s proprioception \\(\\boldsymbol s_t^{\\mathrm{prop}}\\) and the time phase variable \\(\\phi_t\\). The proprioception \\(\\boldsymbol s_t^{\\mathrm{prop}}=[\\boldsymbol q_{t-4:t},\\boldsymbol {\\dot q}_{t-4:t},\\boldsymbol \\omega^\\mathrm{root}_{t-4:t},\\boldsymbol g^\\mathrm{proj}_{t-4:t},\\boldsymbol a_{t-5:t-1}]\\) includes 5-step history of joint position \\(\\boldsymbol q_t\\in \\mathbb{R}^{23}\\), joint",
           "reference": false,
           "source_image": "figs/p005-013-source.png",
-          "zh": "非对称 Actor-Critic。遵循以往的研究 [6, 21]，我们引入时间相位变量 ϕt ∈ [0 , 1] 来线性表示参考动作的当前进度，其中 ϕt = 0 表示动作的开始，ϕt = 1 表示动作的结束。Actor 的观测〔行内公式见原版〕包含机器人的本体感觉 sprop t 与时间相位变量 ϕt 。本体感觉 sprop t [ q t− 4: t, q ˙ t− 4: t, ω troot − 4: t,g tproj − 4: t,at−5:t−1] 包含关节位置 qt ∈ R23 的 5 步历史、关节"
+          "zh": "非对称 Actor-Critic。遵循以往的研究 [6, 21]，我们引入时间相位变量 \\(\\phi_t\\in[0,1]\\) 来线性表示参考动作的当前进度，其中 \\(\\phi_t=0\\) 表示动作的开始，\\(\\phi_t=1\\) 表示动作的结束。Actor 的观测 \\(\\boldsymbol s_t^{\\rm actor}\\) 包含机器人的本体感觉 \\(\\boldsymbol s_t^{\\mathrm{prop}}\\) 与时间相位变量 \\(\\phi_t\\)。本体感觉 \\(\\boldsymbol s_t^{\\mathrm{prop}}=[\\boldsymbol q_{t-4:t},\\boldsymbol {\\dot q}_{t-4:t},\\boldsymbol \\omega^\\mathrm{root}_{t-4:t},\\boldsymbol g^\\mathrm{proj}_{t-4:t},\\boldsymbol a_{t-5:t-1}]\\) 包含关节位置 \\(\\boldsymbol q_t\\in \\mathbb{R}^{23}\\) 的 5 步历史、关节",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -922,10 +1048,11 @@
             506,
             106
           ],
-          "en": "velocity q ˙ t ∈ R23 , root angular velocity ω troot ∈ R3 , root projected gravity g tproj ∈ R3 and last-step action a t− 1 ∈ R23 . The critic receives an augmented observation scrtic t , including sprop t , time phase, reference motion positions, root linear velocity, and a set of randomized physical parameters.",
+          "en": "velocity \\(\\boldsymbol {\\dot q}_t\\in \\mathbb{R}^{23}\\), root angular velocity \\(\\boldsymbol \\omega^\\mathrm{root}_t\\in\\mathbb{R}^3\\), root projected gravity \\(\\boldsymbol g^\\mathrm{proj}_t\\in \\mathbb{R}^3\\) and last-step action \\(\\boldsymbol a_{t-1}\\in \\mathbb{R}^{23}\\). The critic receives an augmented observation \\(\\boldsymbol s_t^{\\rm crtic}\\), including \\(\\boldsymbol s_t^{\\rm prop}\\), time phase, reference motion positions, root linear velocity, and a set of randomized physical parameters.",
           "reference": false,
           "source_image": "figs/p006-000-source.png",
-          "zh": "速度 q ˙ t ∈ R23、根节点角速度 ω troot ∈ R3、根节点投影重力 g tproj ∈ R3 以及上一步动作 a t− 1 ∈ R23。Critic 接收一个增强观测 scrtic t，包括 sprop t、时间相位、参考动作位置、根节点线速度以及一组随机化的物理参数。"
+          "zh": "速度 \\(\\boldsymbol {\\dot q}_t\\in \\mathbb{R}^{23}\\)、根节点角速度 \\(\\boldsymbol \\omega^\\mathrm{root}_t\\in\\mathbb{R}^3\\)、根节点投影重力 \\(\\boldsymbol g^\\mathrm{proj}_t\\in \\mathbb{R}^3\\) 以及上一步动作 \\(\\boldsymbol a_{t-1}\\in \\mathbb{R}^{23}\\)。Critic 接收一个增强观测 \\(\\boldsymbol s_t^{\\rm crtic}\\)，包括 \\(\\boldsymbol s_t^{\\rm prop}\\)、时间相位、参考动作位置、根节点线速度以及一组随机化的物理参数。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b1",
@@ -936,10 +1063,11 @@
             505,
             177
           ],
-          "en": "Reward Vectorization. To facilitate the learning of value function with multiple rewards, we vectorize rewards and value functions as: r = [ r 1 , . . . , rn ] and V ( s ) = [ V 1( s ) , . . . , Vn ( s )] following Xie et al. [22]. Rather than aggregating all rewards into a single scalar, each reward component ri is assigned to a value function Vi ( s ) that independently estimates returns, implemented by a critic network with multiple output heads. All value functions are aggregated to compute the action advantage. This design enables precise value estimation and promotes stable policy optimization.",
+          "en": "Reward Vectorization. To facilitate the learning of value function with multiple rewards, we vectorize rewards and value functions as: \\(\\boldsymbol{r} = [r_1, \\ldots, r_n]\\) and \\(\\boldsymbol{V}(s) = [V_1(\\boldsymbol{s}), \\ldots, V_n(\\boldsymbol{s})]\\) following Xie et al. [22]. Rather than aggregating all rewards into a single scalar, each reward component \\(r_i\\) is assigned to a value function \\(V_i(\\boldsymbol{s})\\) that independently estimates returns, implemented by a critic network with multiple output heads. All value functions are aggregated to compute the action advantage. This design enables precise value estimation and promotes stable policy optimization.",
           "reference": false,
           "source_image": "figs/p006-001-source.png",
-          "zh": "奖励向量化。为了便于学习具有多项奖励的价值函数，我们遵循 Xie 等人 [22] 的方法，将奖励和价值函数向量化为：r = [ r 1 , . . . , rn ] 与 V ( s ) = [ V 1( s ) , . . . , Vn ( s )]。我们并未将所有奖励聚合为一个单一标量，而是为每个奖励分量 ri 分配一个独立估计回报的价值函数 Vi ( s )，并通过具有多个输出头的 Critic 网络来实现。所有价值函数被聚合以计算动作优势。该设计实现了精确的价值估计，并促进了稳定的策略优化。"
+          "zh": "奖励向量化。为了便于学习具有多项奖励的价值函数，我们遵循 Xie 等人 [22] 的方法，将奖励和价值函数向量化为：\\(\\boldsymbol{r} = [r_1, \\ldots, r_n]\\) 与 \\(\\boldsymbol{V}(s) = [V_1(\\boldsymbol{s}), \\ldots, V_n(\\boldsymbol{s})]\\)。我们并未将所有奖励聚合为一个单一标量，而是为每个奖励分量 \\(r_i\\) 分配一个独立估计回报的价值函数 \\(V_i(\\boldsymbol{s})\\)，并通过具有多个输出头的 Critic 网络来实现。所有价值函数被聚合以计算动作优势。该设计实现了精确的价值估计，并促进了稳定的策略优化。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b2",
@@ -1048,15 +1176,24 @@
           "id": "p7-b0",
           "kind": "picture",
           "bbox": [
-            107,
-            72,
-            505,
-            163
+            105.0,
+            70.0,
+            507.0,
+            165.0
           ],
           "en": "Horse-stance punch (Easy) Stretch leg (Medium) Jump kick (Medium) 360-degree spin (Hard)",
           "reference": false,
           "image": "figs/p007-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            107.0,
+            72.0,
+            505.0,
+            163.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1206,
+          "image_height": 285
         },
         {
           "id": "p7-b1",
@@ -1165,10 +1302,11 @@
             506,
             402
           ],
-          "en": "Metrics. The tracking performance of polices is quantified through the following metrics: Global Mean Per Body Position Error ( E g-mpbpe, mm), root-relative Mean Per Body Position Error ( E mpbpe, mm), Mean Per Joint Position Error ( E mpjpe, 10−3 rad), Mean Per Joint Velocity Error ( E mpjve, 10−3 rad/frame), Mean Per Body Velocity Error ( E mpbve, mm/frame), and Mean Per Body Acceleration Error ( E mpbae, mm/frame2 ). The definition of metrics is given in Appendix D.2.",
+          "en": "Metrics. The tracking performance of polices is quantified through the following metrics: Global Mean Per Body Position Error (\\(E_\\textrm{g-mpbpe}\\), mm), root-relative Mean Per Body Position Error (\\(E_\\textrm{mpbpe}\\), mm), Mean Per Joint Position Error (\\(E_\\textrm{mpjpe}\\), \\(10^{-3}\\) rad), Mean Per Joint Velocity Error (\\(E_\\textrm{mpjve}\\), \\(10^{-3}\\) rad/frame), Mean Per Body Velocity Error (\\(E_\\textrm{mpbve}\\), mm/frame), and Mean Per Body Acceleration Error (\\(E_\\textrm{mpbae}\\), mm/frame2 ). The definition of metrics is given in Appendix D.2.",
           "reference": false,
           "source_image": "figs/p007-008-source.png",
-          "zh": "评估指标。策略的跟踪性能通过以下指标进行量化：全局平均每刚体位置误差（E g-mpbpe, mm）、根节点相对平均每刚体位置误差（E mpbpe, mm）、平均每关节位置误差（E mpjpe, 10−3 rad）、平均每关节速度误差（E mpjve, 10−3 rad/frame）、平均每刚体速度误差（E mpbve, mm/frame）以及平均每刚体加速度误差（E mpbae, mm/frame2 ）。各指标的定义见附录 D.2。"
+          "zh": "评估指标。策略的跟踪性能通过以下指标进行量化：全局平均每刚体位置误差（\\(E_\\textrm{g-mpbpe}\\), mm）、根节点相对平均每刚体位置误差（\\(E_\\textrm{mpbpe}\\), mm）、平均每关节位置误差（\\(E_\\textrm{mpjpe}\\), \\(10^{-3}\\) rad）、平均每关节速度误差（\\(E_\\textrm{mpjve}\\), \\(10^{-3}\\) rad/frame）、平均每刚体速度误差（\\(E_\\textrm{mpbve}\\), mm/frame）以及平均每刚体加速度误差（\\(E_\\textrm{mpbae}\\), mm/frame2 ）。各指标的定义见附录 D.2。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b9",
@@ -1202,15 +1340,24 @@
           "id": "p7-b12",
           "kind": "picture",
           "bbox": [
-            395,
-            430,
-            475,
-            576
+            393.0,
+            428.0,
+            477.0,
+            578.0
           ],
           "en": "100% 54% 0 Accepted motion Rejected motion Episode Length Ratio (%)",
           "reference": false,
           "image": "figs/p007-012.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            395.0,
+            430.0,
+            475.0,
+            576.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 252,
+          "image_height": 450
         },
         {
           "id": "p7-b11",
@@ -1296,38 +1443,57 @@
             505,
             114
           ],
-          "en": "Table 1: Main results comparing different methods across difficulty levels. PBHC consistently outperforms deployable baselines and approaches oracle-level performance. Results are reported as mean ± one standard deviation. Bold indicates methods within one standard deviation of the best result, excluding MaskedMimic.",
+          "en": "Table 1: Main results comparing different methods across difficulty levels. PBHC consistently outperforms deployable baselines and approaches oracle-level performance. Results are reported as mean \\(\\pm\\) one standard deviation. Bold indicates methods within one standard deviation of the best result, excluding MaskedMimic.",
           "reference": false,
           "source_image": "figs/p008-000-source.png",
-          "zh": "表 1：跨不同难度等级对比不同方法的主要结果。PBHC 始终优于可部署的基线方法，并接近 oracle 级别的性能。结果以均值 ± 一个标准差的形式报告。粗体表示处于最佳结果一个标准差以内的方法（MaskedMimic 除外）。"
+          "zh": "表 1：跨不同难度等级对比不同方法的主要结果。PBHC 始终优于可部署的基线方法，并接近 oracle 级别的性能。结果以均值 \\(\\pm\\) 一个标准差的形式报告。粗体表示处于最佳结果一个标准差以内的方法（MaskedMimic 除外）。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p8-b1",
           "kind": "table",
           "bbox": [
-            114,
-            125,
-            499,
-            279
+            112.0,
+            123.0,
+            501.0,
+            281.0
           ],
           "en": "|Method|Eg-mpbpe ↓|Empbpe ↓|Empjpe ↓|Empbve ↓|Empbae ↓|Empjve ↓| |---|---|---|---|---|---|---| |Easy||||||| |OmniH2O|233.54±4.013|103.67±1.912|1805.10±12.33|8.54±0.125|8.46±0.081|224.70±2.043| |ExBody2|588.22±11.43|332.50±3.584|4014.40±21.50|14.29±0.172|9.80±0.157|206.01±1.346| |Ours|53.25±17.60|28.16±6.127|725.62±16.20|4.41±0.312|4.65±0.140|81.28±2.052| |MaskedMimic (Oracle)|41.79±1.715|21.86±2.030|739.96±19.94|5.20±0.245|7.40±0.333|132.01±8.941| |Medium||||||| |OmniH2O|433.64±16.22|151.42±7.340|2333.90±49.50|10.85±0.300|10.54±0.152|204.36±4.473| |ExBody2|619.84±26.16|261.01±1.592|3738.70±26.90|14.48±0.160|11.25±0.173|204.33±2.172| |Ours|126.48±27.01|48.87±7.550|1043.30±104.4|6.62±0.412|7.19±0.254|105.30±5.941| |MaskedMimic (Oracle)|150.92±133.4|61.69±46.01|934.25±155.0|8.16±1.974|10.01±0.883|176.84±26.14| |Hard||||||| |OmniH2O|446.17±12.84|147.88±4.142|1939.50±23.90|14.98±0.643|14.40±0.580|190.13±8.211| |ExBody2|689.68±11.80|246.40±1.252|4037.40±16.70|19.90±0.210|16.72±0.160|254.76±3.409| |Ours|290.36±139.1|124.61±53.54|1326.60±378.9|11.93±2.622|12.36±2.401|135.05±16.43| |MaskedMimic (Oracle)|47.74±2.762|27.25±1.615|829.02±15.41|8.33±0.194|10.60±0.420|146.90±13.32|",
           "reference": false,
           "image": "figs/p008-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            114.0,
+            125.0,
+            499.0,
+            279.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1167,
+          "image_height": 474
         },
         {
           "id": "p8-b2",
           "kind": "picture",
           "bbox": [
-            108,
-            304,
-            504,
-            407
+            106.0,
+            302.0,
+            506.0,
+            409.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            304.0,
+            504.0,
+            407.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1200,
+          "image_height": 321
         },
         {
           "id": "p8-b3",
@@ -1408,15 +1574,24 @@
           "id": "p9-b0",
           "kind": "picture",
           "bbox": [
-            107,
-            71,
-            505,
-            333
+            105.0,
+            69.0,
+            507.0,
+            335.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p009-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            107.0,
+            71.0,
+            505.0,
+            333.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1206,
+          "image_height": 798
         },
         {
           "id": "p9-b1",
@@ -1492,15 +1667,24 @@
           "id": "p9-b6",
           "kind": "table",
           "bbox": [
-            145,
-            577,
-            467,
-            614
+            143.0,
+            575.0,
+            469.0,
+            616.0
           ],
           "en": "|Platform|Empbpe ↓|Empjpe ↓|Empbve ↓|Empbae ↓|Empjve ↓| |---|---|---|---|---|---| |MuJoCo|33.18±2.720|1061.24±83.27|2.96±0.342|2.90±0.498|67.71±6.747| |Real|36.64±2.592|1130.05±9.478|3.01±0.126|3.12±0.056|65.68±1.972|",
           "reference": false,
           "image": "figs/p009-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            145.0,
+            577.0,
+            467.0,
+            614.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 978,
+          "image_height": 123
         },
         {
           "id": "p9-b7",
@@ -2469,33 +2653,51 @@
           "id": "p14-b2",
           "kind": "formula",
           "bbox": [
-            229,
-            111,
-            505,
-            127
+            227.0,
+            109.0,
+            507.0,
+            129.0
           ],
           "en": "max J ex ( x ∗ ) (9a) σ∈ R+",
           "reference": false,
           "image": "figs/p014-002.png",
           "labels": [
             "9a"
-          ]
+          ],
+          "original_bbox": [
+            229.0,
+            111.0,
+            505.0,
+            127.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 840,
+          "image_height": 60
         },
         {
           "id": "p14-b3",
           "kind": "formula",
           "bbox": [
-            238,
-            131,
-            505,
-            151
+            236.0,
+            129.0,
+            507.0,
+            153.0
           ],
           "en": "s.t. x ∗ ∈ arg max J in ( x , σ ) + R ( x ) (9b) x ∈ R N +",
           "reference": false,
           "image": "figs/p014-003.png",
           "labels": [
             "9b"
-          ]
+          ],
+          "original_bbox": [
+            238.0,
+            131.0,
+            505.0,
+            151.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 813,
+          "image_height": 72
         },
         {
           "id": "p14-b4",
@@ -2506,26 +2708,36 @@
             504,
             193
           ],
-          "en": "Assuming R ( x ) takes a linear form R ( x ) = Ax + b , Jex , and Jin are twice continuously differentiable and the lower-level problem Eq. (9b) has a unique solution x∗ ( σ ). Then we take an implicit gradient approach to solve it. The gradient of Jex w.r.t. σ is:",
+          "en": "Assuming \\(R(\\boldsymbol{x})\\) takes a linear form \\(R(\\boldsymbol{x}) = \\boldsymbol{A}\\boldsymbol{x} + \\boldsymbol{b}\\), \\(J^{\\mathrm{ex}}\\), and \\(J^{\\mathrm{in}}\\) are twice continuously differentiable and the lower-level problem Eq. (9b) has a unique solution \\(\\boldsymbol{x}^*(\\sigma)\\). Then we take an implicit gradient approach to solve it. The gradient of \\(J^{\\mathrm{ex}}\\) w.r.t. \\(\\sigma\\) is:",
           "reference": false,
           "source_image": "figs/p014-004-source.png",
-          "zh": "假设 R ( x ) 采用线性形式 R ( x ) = Ax + b ，Jex 与 Jin 二阶连续可微，且下层问题 Eq. (9b) 具有唯一解 x∗ ( σ )。随后我们采用隐式梯度法求解。Jex 关于 σ 的梯度为："
+          "zh": "假设 \\(R(\\boldsymbol{x})\\) 采用线性形式 \\(R(\\boldsymbol{x}) = \\boldsymbol{A}\\boldsymbol{x} + \\boldsymbol{b}\\)，\\(J^{\\mathrm{ex}}\\) 与 \\(J^{\\mathrm{in}}\\) 二阶连续可微，且下层问题 Eq. (9b) 具有唯一解 \\(\\boldsymbol{x}^*(\\sigma)\\)。随后我们采用隐式梯度法求解。\\(J^{\\mathrm{ex}}\\) 关于 \\(\\sigma\\) 的梯度为：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b5",
           "kind": "formula",
           "bbox": [
-            242,
-            207,
-            505,
-            228
+            240.0,
+            205.0,
+            507.0,
+            230.0
           ],
           "en": "dJ ex = d x ∗ ( σ ) ⊤∇ x J ex ( x ∗ ( σ )) . (10) dσ dσ",
           "reference": false,
           "image": "figs/p014-005.png",
           "labels": [
             "10"
-          ]
+          ],
+          "original_bbox": [
+            242.0,
+            207.0,
+            505.0,
+            228.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 801,
+          "image_height": 75
         },
         {
           "id": "p14-b6",
@@ -2536,26 +2748,36 @@
             349,
             250
           ],
-          "en": "To obtaindx dσ∗(σ) , since x∗ ( σ ) is a lower-level solution, it satisfies:",
+          "en": "To obtain \\(\\frac{d\\boldsymbol{x}^*(\\sigma)}{d\\sigma}\\), since \\(\\boldsymbol{x}^*(\\sigma)\\) is a lower-level solution, it satisfies:",
           "reference": false,
           "source_image": "figs/p014-006-source.png",
-          "zh": "为了求得〔行内公式见原版〕，由于 x∗ ( σ ) 是下层解，它满足："
+          "zh": "为了求得 \\(\\frac{d\\boldsymbol{x}^*(\\sigma)}{d\\sigma}\\)，由于 \\(\\boldsymbol{x}^*(\\sigma)\\) 是下层解，它满足：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b7",
           "kind": "formula",
           "bbox": [
-            244,
-            263,
-            505,
-            274
+            242.0,
+            261.0,
+            507.0,
+            276.0
           ],
           "en": "∇ x ( J in ( x ∗ ( σ ) , σ ) + R ( x )) = 0 . (11)",
           "reference": false,
           "image": "figs/p014-007.png",
           "labels": [
             "11"
-          ]
+          ],
+          "original_bbox": [
+            244.0,
+            263.0,
+            505.0,
+            274.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 795,
+          "image_height": 45
         },
         {
           "id": "p14-b8",
@@ -2566,19 +2788,20 @@
             337,
             292
           ],
-          "en": "Take the first-order derivative of Eq. (11) w.r.t. σ , then we have:",
+          "en": "Take the first-order derivative of Eq. (11) w.r.t. \\(\\sigma\\), then we have:",
           "reference": false,
           "source_image": "figs/p014-008-source.png",
-          "zh": "对 Eq. (11) 关于 σ 求一阶导数，可得："
+          "zh": "对 Eq. (11) 关于 \\(\\sigma\\) 求一阶导数，可得：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b9",
           "kind": "formula",
           "bbox": [
-            174,
-            306,
-            505,
-            360
+            172.0,
+            304.0,
+            507.0,
+            362.0
           ],
           "en": "d ⊤ dσ ( ∇ x ( J in( x ∗ ( σ ) , σ ) + R ( x )) = ∇ σ, 2 x J in + d x dσ ∗ ( σ ) ∇ 2 x , x J in = 0 , (12) d x ∗ ( σ ) ⊤ = −∇ 2 σ, x J in( x ∗ ( σ ) , σ ) ∇ 2 x , x J in( x ∗ ( σ ) , σ ) − 1 . (13) dσ",
           "reference": false,
@@ -2586,7 +2809,16 @@
           "labels": [
             "12",
             "13"
-          ]
+          ],
+          "original_bbox": [
+            174.0,
+            306.0,
+            505.0,
+            360.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1005,
+          "image_height": 174
         },
         {
           "id": "p14-b10",
@@ -2606,17 +2838,26 @@
           "id": "p14-b11",
           "kind": "formula",
           "bbox": [
-            179,
-            391,
-            505,
-            411
+            177.0,
+            389.0,
+            507.0,
+            413.0
           ],
           "en": "dJ ex = −∇ 2 σ, x J in( x ∗ ( σ ) , σ ) ∇ 2 x , x J in( x ∗ ( σ ) , σ ) − 1 ∇ x J ex( x ∗ ( σ )) , (14) dσ",
           "reference": false,
           "image": "figs/p014-011.png",
           "labels": [
             "14"
-          ]
+          ],
+          "original_bbox": [
+            179.0,
+            391.0,
+            505.0,
+            411.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 990,
+          "image_height": 72
         },
         {
           "id": "p14-b12",
@@ -2636,10 +2877,10 @@
           "id": "p14-b13",
           "kind": "formula",
           "bbox": [
-            249,
-            432,
-            505,
-            491
+            247.0,
+            430.0,
+            507.0,
+            493.0
           ],
           "en": "N J ex ( x ) = � −xi, (15a) i =1 N J in ( x , σ ) = � exp( −xi/σ ) . (15b) i =1",
           "reference": false,
@@ -2647,7 +2888,16 @@
           "labels": [
             "15a",
             "15b"
-          ]
+          ],
+          "original_bbox": [
+            249.0,
+            432.0,
+            505.0,
+            491.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 780,
+          "image_height": 189
         },
         {
           "id": "p14-b14",
@@ -2667,10 +2917,10 @@
           "id": "p14-b15",
           "kind": "formula",
           "bbox": [
-            236,
-            531,
-            505,
-            563
+            234.0,
+            529.0,
+            507.0,
+            565.0
           ],
           "en": "∇ x J in ( x , σ ) = exp( − x /σ )( − 1 (16a) σ ) , ∇ x J ex ( x ) = 1 , (16b)",
           "reference": false,
@@ -2678,16 +2928,25 @@
           "labels": [
             "16a",
             "16b"
-          ]
+          ],
+          "original_bbox": [
+            236.0,
+            531.0,
+            505.0,
+            563.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 819,
+          "image_height": 108
         },
         {
           "id": "p14-b16",
           "kind": "formula",
           "bbox": [
-            229,
-            568,
-            505,
-            600
+            227.0,
+            565.5502319335938,
+            507.0,
+            602.0
           ],
           "en": "∇ 2 σ, x J in( x , σ ) = σ − x ⊙ exp( − x /σ ) , (16c) σ 3 ∇ 2 x , x J in( x , σ ) = diag(exp( − x /σ )) /σ 2 , (16d)",
           "reference": false,
@@ -2695,7 +2954,16 @@
           "labels": [
             "16c",
             "16d"
-          ]
+          ],
+          "original_bbox": [
+            229.0,
+            568.0,
+            505.0,
+            600.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 840,
+          "image_height": 110
         },
         {
           "id": "p14-b17",
@@ -2706,26 +2974,36 @@
             505,
             632
           ],
-          "en": "where ⊙ means element-wise multiplication. Substituting (16) into (14) and let the gradient equals to zero dJdσex = 0, then we have",
+          "en": "where \\(\\odot\\) means element-wise multiplication. Substituting (16) into (14) and let the gradient equals to zero \\(\\frac{dJ^{\\mathrm{ex}}}{d\\sigma} = 0\\), then we have",
           "reference": false,
           "source_image": "figs/p014-017-source.png",
-          "zh": "其中 ⊙ 表示逐元素相乘。将 (16) 代入 (14) 并令梯度等于零〔行内公式见原版〕，则有"
+          "zh": "其中 \\(\\odot\\) 表示逐元素相乘。将 (16) 代入 (14) 并令梯度等于零 \\(\\frac{dJ^{\\mathrm{ex}}}{d\\sigma} = 0\\)，则有",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p14-b18",
           "kind": "formula",
           "bbox": [
-            271,
-            645,
-            505,
-            666
+            269.0,
+            643.0,
+            507.0,
+            668.0
           ],
           "en": "� Ni =1 x i ∗ ( σ ) σ = . (17) N",
           "reference": false,
           "image": "figs/p014-018.png",
           "labels": [
             "17"
-          ]
+          ],
+          "original_bbox": [
+            271.0,
+            645.0,
+            505.0,
+            666.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 714,
+          "image_height": 75
         },
         {
           "id": "p14-b19",
@@ -2792,15 +3070,24 @@
           "id": "p15-b2",
           "kind": "table",
           "bbox": [
-            264,
-            143,
-            347,
-            191
+            262.0,
+            141.0,
+            349.0,
+            193.0
           ],
           "en": "|Hyperparameter|Value| |---|---| |ϵstab|0.1| |ϵN|100| |ϵvel|0.002| |ϵheight|0.2|",
           "reference": false,
           "image": "figs/p015-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            264.0,
+            143.0,
+            347.0,
+            191.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 261,
+          "image_height": 156
         },
         {
           "id": "p15-b3",
@@ -2820,15 +3107,24 @@
           "id": "p15-b4",
           "kind": "table",
           "bbox": [
-            224,
-            231,
-            386,
-            393
+            222.0,
+            229.0,
+            388.0,
+            395.0
           ],
           "en": "|Motion name|Motion frames|Source| |---|---|---| |Easy||| |Jabs punch|285|video| |Hooks punch|175|video| | Horse-stance pose|210|LAFAN| |Horse-stance punch|200|video| |Medium||| |Stretch leg|320|video| |Tai Chi|500|video| |Jump kick|145|video| |Charleston dance|610|LAFAN| |Bruce Lee’s pose|330|AMASS| |Hard||| |Roundhouse kick|158|AMASS| |360-degree spin|180|video| | Front kick|155|video| |Side kick|179|AMASS|",
           "reference": false,
           "image": "figs/p015-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            224.0,
+            231.0,
+            386.0,
+            393.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 498,
+          "image_height": 498
         },
         {
           "id": "p15-b5",
@@ -2867,10 +3163,11 @@
             506,
             516
           ],
-          "en": "- Actor observation space: The actor’s observation s tactor includes 5-step history of the robot’s proprioceptive state sprop t and the time-phase variable ϕt . - • Critic observation space: The critic’s observation s tcrtic additionally includes the base linear velocity, the body position of the reference motion, the difference between the current and reference body positions, and a set of domain-randomized physical parameters. The details are given in Table 5.",
+          "en": "- Actor observation space: The actor’s observation \\(\\boldsymbol{s}_t^{\\mathrm{actor}}\\) includes 5-step history of the robot’s proprioceptive state \\(\\boldsymbol{s}_t^{\\mathrm{prop}}\\) and the time-phase variable \\(\\phi_t\\). - • Critic observation space: The critic’s observation \\(\\boldsymbol{s}_t^{\\mathrm{crtic}}\\) additionally includes the base linear velocity, the body position of the reference motion, the difference between the current and reference body positions, and a set of domain-randomized physical parameters. The details are given in Table 5.",
           "reference": false,
           "source_image": "figs/p015-007-source.png",
-          "zh": "- Actor 观测空间：Actor 的观测 s tactor 包含机器人本体感受状态 sprop t 的 5 步历史以及时间相位变量 ϕt 。 - • Critic 观测空间：Critic 的观测 s tcrtic 额外包含基体线速度、参考动作的刚体位置、当前刚体位置与参考刚体位置之间的差值，以及一组经过域随机化的物理参数。具体细节见表 5。"
+          "zh": "- Actor 观测空间：Actor 的观测 \\(\\boldsymbol{s}_t^{\\mathrm{actor}}\\) 包含机器人本体感受状态 \\(\\boldsymbol{s}_t^{\\mathrm{prop}}\\) 的 5 步历史以及时间相位变量 \\(\\phi_t\\)。 - • Critic 观测空间：Critic 的观测 \\(\\boldsymbol{s}_t^{\\mathrm{crtic}}\\) 额外包含基体线速度、参考动作的刚体位置、当前刚体位置与参考刚体位置之间的差值，以及一组经过域随机化的物理参数。具体细节见表 5。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p15-b8",
@@ -2890,15 +3187,24 @@
           "id": "p15-b9",
           "kind": "table",
           "bbox": [
-            206,
-            553,
-            404,
-            715
+            204.0,
+            551.0,
+            406.0,
+            717.0
           ],
           "en": "|State term|Actor Dim|Critic Dim| |---|---|---| |Joint position|23×5|23×5| |Joint velocity|23×5|23×5| |Root angular velocity|3×5|3×5| |Root projected gravity|3×5|3×5| |Reference motion phase|1×5|1×5| |Actions|23×5|23×5| |Root linear velocity|–|3×5| |Reference body position|–|81| |Body position difference|–|81| |Randomized base CoM offset*|–|3| |Randomized link mass*|–|22| |Randomized stiffness*|–|23| |Randomized damping*|–|23| |Randomized friction coefficient*|–|1| |Randomized control delay*|–|1| |Total dim|380|630|",
           "reference": false,
           "image": "figs/p015-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            206.0,
+            553.0,
+            404.0,
+            715.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 606,
+          "image_height": 498
         }
       ]
     },
@@ -2942,19 +3248,20 @@
             505,
             167
           ],
-          "en": "All reward functions are detailed in Table 6. Our reward design consists of two main parts: task rewards and regularization rewards. Specifically, we impose penalties when joint position exceeds the soft limits, which are symmetrically scaled from the hard limits by a fixed ratio ( α = 0 . 95):",
+          "en": "All reward functions are detailed in Table 6. Our reward design consists of two main parts: task rewards and regularization rewards. Specifically, we impose penalties when joint position exceeds the soft limits, which are symmetrically scaled from the hard limits by a fixed ratio (\\(\\alpha = 0.95\\)):",
           "reference": false,
           "source_image": "figs/p016-002-source.png",
-          "zh": "所有奖励函数详见表 6。我们的奖励设计由两大部分组成：任务奖励和正则化奖励。具体而言，当关节位置超出软限位时，我们将施加惩罚，软限位由硬限位按固定比例（α = 0.95）对称缩放得到："
+          "zh": "所有奖励函数详见表 6。我们的奖励设计由两大部分组成：任务奖励和正则化奖励。具体而言，当关节位置超出软限位时，我们将施加惩罚，软限位由硬限位按固定比例（\\(\\alpha = 0.95\\)）对称缩放得到：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p16-b3",
           "kind": "formula",
           "bbox": [
-            253,
-            194,
-            505,
-            242
+            251.0,
+            192.0,
+            507.0,
+            244.0
           ],
           "en": "m = ( q min + q max) / 2 , (18a) d = q max − q min , (18b) q soft-min = m − 0 . 5 · d · α, (18c) q soft-max = m + 0 . 5 · d · α, (18d)",
           "reference": false,
@@ -2964,7 +3271,16 @@
             "18b",
             "18c",
             "18d"
-          ]
+          ],
+          "original_bbox": [
+            253.0,
+            194.0,
+            505.0,
+            242.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 768,
+          "image_height": 156
         },
         {
           "id": "p16-b4",
@@ -2975,10 +3291,11 @@
             505,
             279
           ],
-          "en": "where q is the joint position. The same procedure is applied to compute the soft limits for joint velocity q ˙ and torque τ .",
+          "en": "where \\(\\boldsymbol{q}\\) is the joint position. The same procedure is applied to compute the soft limits for joint velocity \\(\\dot{\\boldsymbol{q}}\\) and torque \\(\\boldsymbol{\\tau}\\).",
           "reference": false,
           "source_image": "figs/p016-004-source.png",
-          "zh": "其中 q 为关节位置。相同的步骤也用于计算关节速度 q ˙ 和力矩 τ 的软限位。"
+          "zh": "其中 \\(\\boldsymbol{q}\\) 为关节位置。相同的步骤也用于计算关节速度 \\(\\dot{\\boldsymbol{q}}\\) 和力矩 \\(\\boldsymbol{\\tau}\\) 的软限位。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p16-b5",
@@ -2998,15 +3315,24 @@
           "id": "p16-b6",
           "kind": "table",
           "bbox": [
-            178,
-            321,
-            432,
-            597
+            176.0,
+            319.0,
+            434.0,
+            599.0
           ],
           "en": "|Term|Expression|Weight| |---|---|---| ||Task|| |Joint position|exp(−∥qt −ˆqt∥2 2/σjpos)|1.0| |Joint velocity|exp(−∥˙qt −ˆ˙qt∥2 2/σjvel)|1.0| |Body position|exp(−∥pt −ˆpt∥2 2/σpos) |1.0| |Body rotation|exp(−∥θt ⊖ˆθt∥2 2/σrot)|0.5| |Body velocity|exp(−∥vt −ˆvt∥2 2/σvel)|0.5| |Body angular velocity|exp(−∥ωt −ˆωt∥2 2/σang)|0.5| |Body position VR 3 points|exp(−∥pvr t −ˆpvr t ∥2 2/σposvr)|1.6| |Body position feet|exp � −∥pfeet t −ˆpfeet t ∥2 2/σposfeet �|1.0| |Max Joint position|exp � −∥qt −ˆqt∥∞/ σmaxjpos �|1.0| |Contact Mask|1−∥ct −ˆct∥1/2|0.5| ||Regularization|| |Joint position limits|I(q /∈[qsoft-min, qsoft-max])|-10.0| |Joint velocity limits|I( ˙q /∈[ ˙qsoft-min, ˙qsoft-max])|-5.0| |Joint torque limits|I(τ /∈[τsoft-min, τsoft-max])|-5.0| |Slippage|∥vfeet xy ∥2 2 · I[∥F feet∥2 ≥1]|-1.0| |Feet contact forces|min(∥F feet −400∥2 2, 0)|-0.01| |Feet air time[30]|I[Tair >0.3]|-1.0| |Stumble|I[ ��Ffeet xy ��>5· Ffeet z ]|-2.0| |Torque|∥τ∥2 2|-1e-6| |Action rate|∥at −at−1∥2 2|-0.02| |Collision|Icollision|-30| |Termination|Itermination|-200|",
           "reference": false,
           "image": "figs/p016-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            178.0,
+            321.0,
+            432.0,
+            597.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 774,
+          "image_height": 840
         },
         {
           "id": "p16-b7",
@@ -3087,15 +3413,24 @@
           "id": "p17-b2",
           "kind": "table",
           "bbox": [
-            113,
-            109,
-            286,
-            244
+            111.0,
+            107.0,
+            288.0,
+            246.0
           ],
           "en": "|Term|Value| |---|---| |Dynamics Rand|omization| |Friction|U(0.2, 1.2)| |PD gain|U(0.9, 1.1)| |Link mass(kg) |U(0.9, 1.1)×default| |Ankle inertia(kg·m2)|U(0.9, 1.1)×default| |Base CoM offset(m)|U(−0.05, 0.05)| |ERFI58|0.05×torque limit| |Control delay(ms)|U(0, 40)| |External Pert|urbation| |Random push interval(s)|[5, 10]| |Random push velocity(m/s)|0.1|",
           "reference": false,
           "image": "figs/p017-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            113.0,
+            109.0,
+            286.0,
+            244.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 531,
+          "image_height": 417
         },
         {
           "id": "p17-b4",
@@ -3129,15 +3464,24 @@
           "id": "p17-b3",
           "kind": "table",
           "bbox": [
-            345,
-            93,
-            483,
-            258
+            343.0,
+            91.0,
+            485.0,
+            260.0
           ],
           "en": "|Hyperparameter|Value| |---|---| |Optimizer|Adam| |Batch size|4096| |Mini Batches|4| |Learning epoches|5| |Entropy coefficient|0.01| |Value loss coefficient|1.0| |Clip param|0.2| |Max grad norm|1.0| |Init noise std|0.8| |Learning rate|1e-3| |Desired KL|0.01| |GAE decay factor(λ)|0.95| |GAE discount factor(γ)|0.99| |Actor MLP size|[512, 256, 128]| |Critic MLP size|[768, 512, 128]| |MLP Activation|ELU|",
           "reference": false,
           "image": "figs/p017-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            345.0,
+            93.0,
+            483.0,
+            258.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 426,
+          "image_height": 507
         },
         {
           "id": "p17-b5",
@@ -3162,26 +3506,36 @@
             505,
             382
           ],
-          "en": "- Termination Curriculum : The episode is terminated early when the humanoid’s motion deviates from the reference beyond a termination threshold θ . During training, this threshold is gradually decreased to increase the difficulty:",
+          "en": "- Termination Curriculum : The episode is terminated early when the humanoid’s motion deviates from the reference beyond a termination threshold \\(\\theta\\). During training, this threshold is gradually decreased to increase the difficulty:",
           "reference": false,
           "source_image": "figs/p017-006-source.png",
-          "zh": "- 终止课程：当人形机器人的运动偏离参考动作并超过终止阈值 θ 时，该回合（episode）会提前终止。在训练过程中，该阈值会逐步降低以增加难度："
+          "zh": "- 终止课程：当人形机器人的运动偏离参考动作并超过终止阈值 \\(\\theta\\) 时，该回合（episode）会提前终止。在训练过程中，该阈值会逐步降低以增加难度：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p17-b7",
           "kind": "formula",
           "bbox": [
-            257,
-            402,
-            505,
-            412
+            255.0,
+            400.0,
+            507.0,
+            414.0
           ],
           "en": "θ ← clip ( θ · (1 − δ ) , θ min , θ max) , (19)",
           "reference": false,
           "image": "figs/p017-007-source.png",
           "labels": [
             "19"
-          ]
+          ],
+          "original_bbox": [
+            257.0,
+            402.0,
+            505.0,
+            412.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 756,
+          "image_height": 42
         },
         {
           "id": "p17-b8",
@@ -3192,10 +3546,11 @@
             504,
             437
           ],
-          "en": "- where the initial threshold θ = 1 . 5, with bounds θ min = 0 . 3, θ max = 2 . 0, and decay rate δ = 2 . 5 × 10−5 .",
+          "en": "- where the initial threshold \\(\\theta = 1.5\\), with bounds \\(\\theta_{\\min} = 0.3\\), \\(\\theta_{\\max} = 2.0\\), and decay rate \\(\\delta = 2.5 \\times 10^{-5}\\).",
           "reference": false,
           "source_image": "figs/p017-008-source.png",
-          "zh": "- 其中初始阈值 θ = 1 . 5，边界为 θ min = 0 . 3、θ max = 2 . 0，衰减率 δ = 2 . 5 × 10−5。"
+          "zh": "- 其中初始阈值 \\(\\theta = 1.5\\)，边界为 \\(\\theta_{\\min} = 0.3\\)、\\(\\theta_{\\max} = 2.0\\)，衰减率 \\(\\delta = 2.5 \\times 10^{-5}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p17-b9",
@@ -3206,26 +3561,36 @@
             505,
             478
           ],
-          "en": "- Penalty Curriculum : To facilitate learning in the early training stages while gradually enforcing stronger regularization, we introduce a scaling factor α that increases progressively to modulate the influence of the penalty term:",
+          "en": "- Penalty Curriculum : To facilitate learning in the early training stages while gradually enforcing stronger regularization, we introduce a scaling factor \\(\\alpha\\) that increases progressively to modulate the influence of the penalty term:",
           "reference": false,
           "source_image": "figs/p017-009-source.png",
-          "zh": "- 惩罚课程：为了在训练早期促进学习，同时逐步施加更强的正则化，我们引入了一个逐渐增大的缩放因子 α，用以调节惩罚项的影响："
+          "zh": "- 惩罚课程：为了在训练早期促进学习，同时逐步施加更强的正则化，我们引入了一个逐渐增大的缩放因子 \\(\\alpha\\)，用以调节惩罚项的影响：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p17-b10",
           "kind": "formula",
           "bbox": [
-            206,
-            497,
-            505,
-            507
+            204.0,
+            495.0,
+            507.0,
+            509.0
           ],
           "en": "α ← clip ( α · (1 + δ ) , α min , α max) , r ˆpenalty ← α · r penalty , (20)",
           "reference": false,
           "image": "figs/p017-010.png",
           "labels": [
             "20"
-          ]
+          ],
+          "original_bbox": [
+            206.0,
+            497.0,
+            505.0,
+            507.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 909,
+          "image_height": 42
         },
         {
           "id": "p17-b11",
@@ -3236,10 +3601,11 @@
             505,
             537
           ],
-          "en": "where the initial penalty scale α = 0 . 1, with bounds α min = 0 . 0, α max = 1 . 0, and growth rate δ = 1 . 0 × 10−4 .",
+          "en": "where the initial penalty scale \\(\\alpha = 0.1\\), with bounds \\(\\alpha_{\\min} = 0.0\\), \\(\\alpha_{\\max} = 1.0\\), and growth rate \\(\\delta = 1.0 \\times 10^{-4}\\).",
           "reference": false,
           "source_image": "figs/p017-011-source.png",
-          "zh": "其中初始惩罚尺度 α = 0 . 1，边界为 α min = 0 . 0、α max = 1 . 0，增长率 δ = 1 . 0 × 10−4。"
+          "zh": "其中初始惩罚尺度 \\(\\alpha = 0.1\\)，边界为 \\(\\alpha_{\\min} = 0.0\\)、\\(\\alpha_{\\max} = 1.0\\)，增长率 \\(\\delta = 1.0 \\times 10^{-4}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p17-b12",
@@ -3264,10 +3630,11 @@
             504,
             598
           ],
-          "en": "The gains of the PD controller are listed in Table 9. To improve the numerical stability and fidelity of the simulator in training, we manually set the inertia of the ankle links to a fixed value of 5 × 10−3 .",
+          "en": "The gains of the PD controller are listed in Table 9. To improve the numerical stability and fidelity of the simulator in training, we manually set the inertia of the ankle links to a fixed value of \\(5 \\times 10^{-3}\\).",
           "reference": false,
           "source_image": "figs/p017-013-source.png",
-          "zh": "PD 控制器的增益列于表 9 中。为了提高训练中仿真器的数值稳定性和保真度，我们将踝部连杆的转动惯量手动设置为固定值 5 × 10−3。"
+          "zh": "PD 控制器的增益列于表 9 中。为了提高训练中仿真器的数值稳定性和保真度，我们将踝部连杆的转动惯量手动设置为固定值 \\(5 \\times 10^{-3}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p17-b14",
@@ -3287,15 +3654,24 @@
           "id": "p17-b15",
           "kind": "table",
           "bbox": [
-            195,
-            632,
-            417,
-            708
+            193.0,
+            630.0,
+            419.0,
+            710.0
           ],
           "en": "|Joint name|Stiffness(kp)|Damping (kd)| |---|---|---| |Left/right shoulder pitch/roll/yaw|100|2.0| |Left/right shoulder yaw|50|2.0| |Left/right elbow|50|2.0| |Waist pitch/roll/yaw|400|5.0| |Left/right hip pitch/roll/yaw|100|2.0| |Left/right knee|150|4.0| |Left/right anklepitch/roll|40|2.0|",
           "reference": false,
           "image": "figs/p017-015.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            195.0,
+            632.0,
+            417.0,
+            708.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 678,
+          "image_height": 240
         }
       ]
     },
@@ -3381,26 +3757,36 @@
             504,
             255
           ],
-          "en": "- Global Mean Per Body Position Error ( E g-mpbpe, mm): The average position error of body parts in global coordinates.",
+          "en": "- Global Mean Per Body Position Error (\\(E_{\\rm{g\\text{-}mpbpe}}\\), mm): The average position error of body parts in global coordinates.",
           "reference": false,
           "source_image": "figs/p018-005-source.png",
-          "zh": "- 全局平均单肢体位置误差（Global Mean Per Body Position Error，E g-mpbpe，mm）：全局坐标系下各身体部位的平均位置误差。"
+          "zh": "- 全局平均单肢体位置误差（Global Mean Per Body Position Error，\\(E_{\\rm{g\\text{-}mpbpe}}\\)，mm）：全局坐标系下各身体部位的平均位置误差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b6",
           "kind": "formula",
           "bbox": [
-            265,
-            266,
-            505,
-            284
+            263.0,
+            264.0,
+            507.0,
+            286.0
           ],
           "en": "E g-mpbpe = E t . (21) ���� p t − p ref ���2�",
           "reference": false,
           "image": "figs/p018-006.png",
           "labels": [
             "21"
-          ]
+          ],
+          "original_bbox": [
+            265.0,
+            266.0,
+            505.0,
+            284.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 732,
+          "image_height": 66
         },
         {
           "id": "p18-b7",
@@ -3411,26 +3797,36 @@
             504,
             309
           ],
-          "en": "- Root-Relative Mean Per Body Position Error ( E mpbpe, mm): The average position error of body parts relative to the root position.",
+          "en": "- Root-Relative Mean Per Body Position Error (\\(E_{\\rm{mpbpe}}\\), mm): The average position error of body parts relative to the root position.",
           "reference": false,
           "source_image": "figs/p018-007-source.png",
-          "zh": "- 相对根节点平均单肢体位置误差（Root-Relative Mean Per Body Position Error，E mpbpe，mm）：各身体部位相对于根节点位置的平均位置误差。"
+          "zh": "- 相对根节点平均单肢体位置误差（Root-Relative Mean Per Body Position Error，\\(E_{\\rm{mpbpe}}\\)，mm）：各身体部位相对于根节点位置的平均位置误差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b8",
           "kind": "formula",
           "bbox": [
-            225,
-            321,
-            505,
-            338
+            223.0,
+            319.0,
+            507.0,
+            340.0
           ],
           "en": "E mpbpe = E t − p ref root , t ) . (22) ����( p t − p root , t) − ( p ref ���2�",
           "reference": false,
           "image": "figs/p018-008.png",
           "labels": [
             "22"
-          ]
+          ],
+          "original_bbox": [
+            225.0,
+            321.0,
+            505.0,
+            338.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 852,
+          "image_height": 63
         },
         {
           "id": "p18-b9",
@@ -3441,19 +3837,20 @@
             487,
             356
           ],
-          "en": "- Mean Per Joint Position Error ( E mpjpe, 10−3 rad): The average angular error of joint rotations.",
+          "en": "- Mean Per Joint Position Error (\\(E_{\\rm{mpjpe}}\\), \\(10^{-3}\\) rad): The average angular error of joint rotations.",
           "reference": false,
           "source_image": "figs/p018-009-source.png",
-          "zh": "- 平均单关节位置误差（Mean Per Joint Position Error，E mpjpe，10−3 rad）：关节旋转的平均角度误差。"
+          "zh": "- 平均单关节位置误差（Mean Per Joint Position Error，\\(E_{\\rm{mpjpe}}\\)，\\(10^{-3}\\) rad）：关节旋转的平均角度误差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b10",
           "kind": "formula",
           "bbox": [
-            262,
-            367,
-            505,
-            431
+            135.74612426757812,
+            365.0,
+            507.0,
+            433.0
           ],
           "en": "E mpjpe = E t . (23) ���� q t − q ref ���2� mpjve, 10, 10 10 − 3 rad/frame): The average error of joint angular velocities. E mpjve = E t , (24) ����∆ q t − ∆ q ref ���2�",
           "reference": false,
@@ -3461,7 +3858,16 @@
           "labels": [
             "23",
             "24"
-          ]
+          ],
+          "original_bbox": [
+            262.0,
+            367.0,
+            505.0,
+            431.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1114,
+          "image_height": 204
         },
         {
           "id": "p18-b11",
@@ -3472,24 +3878,34 @@
             506,
             402
           ],
-          "en": "- Mean Per Joint Velocity Error ( E mpjve, 10, 10 10−3 rad/frame): The average error of joint angular velocities.",
+          "en": "- Mean Per Joint Velocity Error (\\(E_{\\rm{mpjve}}\\), \\(10^{-3}\\) rad/frame): The average error of joint angular velocities.",
           "reference": false,
           "source_image": "figs/p018-011-source.png",
-          "zh": "- 平均单关节速度误差（Mean Per Joint Velocity Error，E mpjve，10, 10 10−3 rad/frame）：关节角速度的平均误差。"
+          "zh": "- 平均单关节速度误差（Mean Per Joint Velocity Error，\\(E_{\\rm{mpjve}}\\)，\\(10^{-3}\\) rad/frame）：关节角速度的平均误差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b12",
           "kind": "formula",
           "bbox": [
-            143,
-            434,
-            236,
-            444
+            141.0,
+            432.0,
+            238.0,
+            446.0
           ],
           "en": "where ∆ q t = q t − q t− 1.",
           "reference": false,
           "image": "figs/p018-012.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            143.0,
+            434.0,
+            236.0,
+            444.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 291,
+          "image_height": 42
         },
         {
           "id": "p18-b13",
@@ -3500,40 +3916,59 @@
             506,
             459
           ],
-          "en": "- Mean Per Body Velocity Error ( E mpbve, mm/frame): The average error of body part linear velocities.",
+          "en": "- Mean Per Body Velocity Error (\\(E_{\\rm{mpbve}}\\), mm/frame): The average error of body part linear velocities.",
           "reference": false,
           "source_image": "figs/p018-013-source.png",
-          "zh": "- 平均单肢体速度误差（Mean Per Body Velocity Error，E mpbve，mm/frame）：各身体部位线速度的平均误差。"
+          "zh": "- 平均单肢体速度误差（Mean Per Body Velocity Error，\\(E_{\\rm{mpbve}}\\)，mm/frame）：各身体部位线速度的平均误差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b14",
           "kind": "formula",
           "bbox": [
-            261,
-            470,
-            505,
-            488
+            259.0,
+            468.0,
+            507.0,
+            490.0
           ],
           "en": "E mpbve = E t , (25) ����∆ p t − ∆ p ref ���2�",
           "reference": false,
           "image": "figs/p018-014.png",
           "labels": [
             "25"
-          ]
+          ],
+          "original_bbox": [
+            261.0,
+            470.0,
+            505.0,
+            488.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 744,
+          "image_height": 66
         },
         {
           "id": "p18-b15",
           "kind": "formula",
           "bbox": [
-            143,
-            491,
-            238,
-            501
+            141.0,
+            489.0,
+            240.0,
+            503.0
           ],
           "en": "where ∆ p t = p t − p t− 1.",
           "reference": false,
           "image": "figs/p018-015.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            143.0,
+            491.0,
+            238.0,
+            501.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 297,
+          "image_height": 42
         },
         {
           "id": "p18-b16",
@@ -3544,26 +3979,36 @@
             506,
             516
           ],
-          "en": "- Mean Per Body Acceleration Error ( E mpbae, mm/frame²): The average error of body part accelerations.",
+          "en": "- Mean Per Body Acceleration Error (\\(E_{\\rm{mpbae}}\\), mm/frame²): The average error of body part accelerations.",
           "reference": false,
           "source_image": "figs/p018-016-source.png",
-          "zh": "- 平均单肢体加速度误差（Mean Per Body Acceleration Error，E mpbae，mm/frame²）：各身体部位加速度的平均误差。"
+          "zh": "- 平均单肢体加速度误差（Mean Per Body Acceleration Error，\\(E_{\\rm{mpbae}}\\)，mm/frame²）：各身体部位加速度的平均误差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p18-b17",
           "kind": "formula",
           "bbox": [
-            256,
-            527,
-            505,
-            545
+            254.0,
+            525.0,
+            507.0,
+            547.0
           ],
           "en": "E mpbae = E t , (26) ����∆2 p t − ∆2 p ref ���2�",
           "reference": false,
           "image": "figs/p018-017.png",
           "labels": [
             "26"
-          ]
+          ],
+          "original_bbox": [
+            256.0,
+            527.0,
+            505.0,
+            545.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 759,
+          "image_height": 66
         },
         {
           "id": "p18-b18",
@@ -3574,10 +4019,11 @@
             257,
             559
           ],
-          "en": "where ∆2 p t = ∆ p t − ∆ p t− 1.",
+          "en": "where \\(\\Delta^2\\boldsymbol{p}_t=\\Delta\\boldsymbol{p}_t-\\Delta\\boldsymbol{p}_{t-1}\\).",
           "reference": false,
           "source_image": "figs/p018-018-source.png",
-          "zh": "其中 ∆2 p t = ∆ p t − ∆ p t− 1。"
+          "zh": "其中 \\(\\Delta^2\\boldsymbol{p}_t=\\Delta\\boldsymbol{p}_t-\\Delta\\boldsymbol{p}_{t-1}\\)。",
+          "math_repair": "exact-author-latex-fragment-recovery"
         },
         {
           "id": "p18-b19",
@@ -3700,15 +4146,24 @@
           "id": "p19-b3",
           "kind": "table",
           "bbox": [
-            156,
-            155,
-            456,
-            255
+            154.0,
+            153.0,
+            458.0,
+            257.0
           ],
           "en": "|Factor term|Ours(Init)|Coarse|Medium|Upperbound|Lowerbound| |---|---|---|---|---|---| |Joint position|0.3|0.3|0.1|0.08|0.02| |Joint velocity|30.0|30.0|10.0|5.0|2.5| |Body position|0.015|0.015|0.005|0.002|0.0003| |Body rotation|0.1|0.1|0.03|0.4|0.02| |Body velocity|1.0|1.0|0.3|0.12|0.03| |Body angular velocity|15.0|15.0|5.0|3.0|1.5| |Body position VRpoints|0.015|0.015|0.005|0.003|0.0003| |Body position feet|0.01|0.01|0.003|0.003|0.0002| |Max joint position|1.0|1.0|0.3|0.5|0.25|",
           "reference": false,
           "image": "figs/p019-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            156.0,
+            155.0,
+            456.0,
+            255.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 912,
+          "image_height": 312
         },
         {
           "id": "p19-b4",
@@ -3728,15 +4183,24 @@
           "id": "p19-b5",
           "kind": "table",
           "bbox": [
-            133,
-            310,
-            479,
-            410
+            131.0,
+            308.0,
+            481.0,
+            412.0
           ],
           "en": "|Factor term|Jabs punch|Charleston dance|Bruce Lee’s pose|Roundhouse kick| |---|---|---|---|---| |Joint position|0.0310±0.0002|0.0360±0.0016|0.0268±0.0009|0.0261±0.0005| |Joint velocity|2.8505±0.0419|5.5965±0.1797|3.6053±0.0323|4.3859±0.0537| |Body position|0.0007±0.0000|0.0023±0.0001|0.0025±0.0000|0.0010±0.0000| |Body rotation|0.0998±0.0000|0.0544±0.0016|0.0046±0.0001|0.0829±0.0176| |Body velocity|0.0554±0.0006|0.0941±0.0013|0.0768±0.0001|0.0929±0.0008| |Body angular velocity|1.8063±0.0076|2.8267±0.0841|2.1706±0.0050|3.0238±0.0303| |Body position VRpoints|0.0008±0.0000|0.0031±0.0002|0.0024±0.0000|0.0015±0.0000| |Body position feet|0.0006±0.0000|0.0031±0.0001|0.0028±0.0000|0.0011±0.0000| |Max joint position|0.3963±0.0003|0.4339±0.0124|0.3299±0.0064|0.3352±0.0010|",
           "reference": false,
           "image": "figs/p019-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            133.0,
+            310.0,
+            479.0,
+            410.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1050,
+          "image_height": 312
         },
         {
           "id": "p19-b6",
@@ -3770,15 +4234,24 @@
           "id": "p19-b8",
           "kind": "picture",
           "bbox": [
-            257,
-            490,
-            356,
-            624
+            255.0,
+            488.0,
+            358.0,
+            626.0
           ],
           "en": "100 91.4 84.2 85.6 80 60 40 20 0 Height Velocity Ours Accuracy (%)",
           "reference": false,
           "image": "figs/p019-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            257.0,
+            490.0,
+            356.0,
+            624.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 309,
+          "image_height": 414
         },
         {
           "id": "p19-b9",
@@ -3831,15 +4304,24 @@
           "id": "p20-b0",
           "kind": "picture",
           "bbox": [
-            127,
-            72,
-            485,
-            189
+            125.0,
+            70.0,
+            487.0,
+            191.0
           ],
           "en": "Before Correction After Correction Line aligned with ground level",
           "reference": false,
           "image": "figs/p020-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            127.0,
+            72.0,
+            485.0,
+            189.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1086,
+          "image_height": 363
         },
         {
           "id": "p20-b1",
@@ -3901,15 +4383,24 @@
           "id": "p20-b5",
           "kind": "table",
           "bbox": [
-            130,
-            304,
-            482,
-            524
+            128.0,
+            302.0,
+            484.0,
+            526.0
           ],
           "en": "|Method|Eg-mpbpe ↓|Empbpe ↓|Empjpe ↓|Empbve ↓|Empbae ↓|Empjve ↓| |---|---|---|---|---|---|---| |Jabs punch||||||| |Ours|44.38±7.118 |28.00±3.533|783.36±11.73 |5.52±0.156|6.23±0.063|88.01±2.465| |Coarse|63.95±6.680|36.76±2.743|921.50±16.70|6.16±0.011|6.46±0.042|91.46±0.465| |Medium|51.07±2.635|30.93±2.635|790.54±22.82|5.68±0.140|6.31±0.057|90.19±1.821| |Upperbound|45.74±1.702|28.72±1.702|793.52±8.888|5.43±0.066|6.29±0.085|88.68±0.727| |Lowerbound|48.66±0.488|28.97±0.487|781.73±16.72|5.61±0.079|6.31±0.026|88.44±1.397| |Charleston dan|ce|||||| |Ours|94.81±14.18|43.09±5.748|886.91±74.76|6.83±0.346|7.26±0.034|162.70±7.133| |Coarse|119.24±4.501|55.80±1.324|1288.02±3.807|7.54±0.180|7.28±0.021|178.61±3.304| |Medium|83.63±3.159|41.02±1.743|933.33±38.23|6.89±0.185|7.22±0.011|164.92±4.380| |Upperbound|86.90±8.651|41.92±2.632|917.64±14.85|7.02±0.103|7.22±0.041|167.64±1.089| |Lowerbound|358.82±10.35|145.42±1.109|1199.21±12.78|8.99±0.050|8.48±0.033|167.25±0.783| |Roundhouse ki|ck|||||| |Ours|52.53±2.106|28.39±1.400|708.55±16.04|6.85±0.196|7.13±0.046|106.22±0.715| |Coarse|76.81±2.863|38.98±2.230|1008.32±29.74|7.49±0.234|7.57±0.044|108.40±0.010| |Medium|63.12±5.178|33.74±2.336|806.84±66.23|7.03±0.125|7.32±0.046|104.77±1.319| |Upperbound|54.95±2.164|31.31±0.344|766.32±12.92|6.93±0.013|7.19±0.012|105.64±1.911| |Lowerbound|70.10±2.674|36.29±1.475|715.01±34.01|7.08±0.102|7.32±0.067|102.50±4.650| |Bruce Lee’s po|se|||||| | Ours| 196.22±17.03|69.12±2.392|972.04±49.27|7.57±0.214|8.54±0.198|94.36±3.750| |Coarse|239.06±51.74|80.78±15.81|1678.34±394.3|8.42±0.525|8.93±0.422|112.30±10.87| |Medium|470.24±249.2|206.92±116.1|4490.80±105.1|9.58±0.085|9.61±0.080|99.65±2.441| |Upperbound|250.64±178.6|93.70±65.09|1358.02±561.6|8.31±2.160|8.94±1.384|106.30±23.06| |Lowerbound|158.12±2.934|60.54±1.554|955.10±37.04|7.05±0.040|7.94±0.051|81.60±1.277|",
           "reference": false,
           "image": "figs/p020-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            130.0,
+            304.0,
+            482.0,
+            524.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1068,
+          "image_height": 672
         },
         {
           "id": "p20-b6",
@@ -3943,17 +4434,26 @@
           "id": "p20-b8",
           "kind": "formula",
           "bbox": [
-            246,
-            611,
-            505,
-            623
+            244.0,
+            609.0,
+            507.0,
+            625.0
           ],
           "en": "E contact-mask = E � ∥ct − c ˆ t∥ 1� . (27)",
           "reference": false,
           "image": "figs/p020-008.png",
           "labels": [
             "27"
-          ]
+          ],
+          "original_bbox": [
+            246.0,
+            611.0,
+            505.0,
+            623.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 789,
+          "image_height": 48
         },
         {
           "id": "p20-b9",
@@ -3964,10 +4464,11 @@
             504,
             659
           ],
-          "en": "The results, shown in Table 13, demonstrate that our method significantly reduces foot contact errors E contact-mask compared to the baseline without the contact mask. In addition, it also leads to noticeable improvements in other tracking metrics, validating the effectiveness of the proposed contact-aware design.",
+          "en": "The results, shown in Table 13, demonstrate that our method significantly reduces foot contact errors \\(E_{\\mathrm{contact\\text{-}mask}}\\) compared to the baseline without the contact mask. In addition, it also leads to noticeable improvements in other tracking metrics, validating the effectiveness of the proposed contact-aware design.",
           "reference": false,
           "source_image": "figs/p020-009-source.png",
-          "zh": "如表 13 所示的结果表明，与不包含接触掩码的基准相比，我们的方法显著降低了足部接触误差 E contact-mask。此外，它还显著改善了其他跟踪指标，验证了所提出的接触感知设计的有效性。"
+          "zh": "如表 13 所示的结果表明，与不包含接触掩码的基准相比，我们的方法显著降低了足部接触误差 \\(E_{\\mathrm{contact\\text{-}mask}}\\)。此外，它还显著改善了其他跟踪指标，验证了所提出的接触感知设计的有效性。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p20-b10",
@@ -4020,29 +4521,47 @@
           "id": "p21-b1",
           "kind": "table",
           "bbox": [
-            124,
-            90,
-            475,
-            186
+            122.0,
+            88.0,
+            477.0,
+            188.0
           ],
           "en": "|Method|Econtact-mask ↓|Empbpe ↓|Empjpe ↓|Empbve ↓|Empbae ↓| |---|---|---|---|---|---| |Charleston dance Ours Ours w/o contact mask|217.82±47.97 633.91±49.74|43.09±5.748 76.13±53.01|886.91±74.76 980.40±222.0|6.83±0.346 7.72±1.439|7.26±0.034 7.64±0.594| |Jump kick Ours Ours w/o contact mask|294.22±6.037 386.75±6.036|42.58±8.126 170.28±97.29|840.33±97.76 1259.21±423.9|9.48±0.717 16.92±0.012|10.21±10.21 16.57±5.810| |Roundhouse kick|||||| |Ours Ours w/o contact mask|243.16±1.778 250.10±6.123|28.39±1.400 36.76±2.743|708.55±16.04 921.52±16.70|6.85±0.196 6.16±0.012|7.33±0.046 6.46±0.042|",
           "reference": false,
           "image": "figs/p021-001.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            124.0,
+            90.0,
+            475.0,
+            186.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1065,
+          "image_height": 300
         },
         {
           "id": "p21-b2",
           "kind": "picture",
           "bbox": [
-            108,
-            200,
-            505,
-            450
+            106.0,
+            198.0,
+            507.0,
+            452.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p021-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            108.0,
+            200.0,
+            505.0,
+            450.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1203,
+          "image_height": 762
         },
         {
           "id": "p21-b3",

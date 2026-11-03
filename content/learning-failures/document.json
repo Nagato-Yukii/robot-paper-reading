@@ -106,15 +106,24 @@
           "id": "p1-b8",
           "kind": "picture",
           "bbox": [
-            339,
-            215,
-            534,
-            403
+            337.0,
+            213.0,
+            536.0,
+            405.0
           ],
           "en": "Robotic task Episodic memory 𝑠�,�, 𝑎�,�, 𝑠�,�, 𝑎�,� ⋯ Collision 𝑎�� 𝑠�,�, 𝑎�,�, 𝑠�,�, 𝑎�,� ⋯ 𝑎�� 𝑠�,�, 𝑎�,�, 𝑠�,�, 𝑎�,� Fall-over ⋯ 𝑎�� ⋯⋯ Rollover Long sequence Failure events Training Guidance Many failures Longer horizon Fall 𝑺𝟎 𝑺𝑻 𝑺𝟎 𝑺𝑻 Collision Trajectory Trajectory",
           "reference": false,
           "image": "figs/p001-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            339.0,
+            215.0,
+            534.0,
+            403.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 597,
+          "image_height": 576
         },
         {
           "id": "p1-b9",
@@ -429,10 +438,11 @@
             297,
             428
           ],
-          "en": "As shown in the lower part of Figure 2, the failure episodic memory construction module is responsible for collecting, processing hazardous experiences arising during training. In robot learning tasks, an episode is defined as a failure episode when the training rollout terminates accidentally due to unexpected situations such as collisions or falls. For each failure episode, we record and store the state transition tuples ( st, a, st +1 , r ) from the last K time steps of the trajectory, encapsulating them as failure events.",
+          "en": "As shown in the lower part of Figure 2, the failure episodic memory construction module is responsible for collecting, processing hazardous experiences arising during training. In robot learning tasks, an episode is defined as a failure episode when the training rollout terminates accidentally due to unexpected situations such as collisions or falls. For each failure episode, we record and store the state transition tuples \\((s_t,a,s_{t+1},r)\\) from the last \\(K\\) time steps of the trajectory, encapsulating them as failure events.",
           "reference": false,
           "source_image": "figs/p003-005-source.png",
-          "zh": "如图 2 下半部分所示，失败情景记忆构建模块负责收集和处理训练过程中产生的危险经验。在机器人学习任务中，当训练 rollout/轨迹展开 因碰撞或跌倒等意外情况发生意外终止时，该幕被定义为一个失败幕。对于每个失败幕，我们记录并存储轨迹最后 K 个时间步的状态转移元组 ( st, a, st +1 , r )，并将它们封装为失败事件。"
+          "zh": "如图 2 下半部分所示，失败情景记忆构建模块负责收集和处理训练过程中产生的危险经验。在机器人学习任务中，当训练 rollout/轨迹展开 因碰撞或跌倒等意外情况发生意外终止时，该幕被定义为一个失败幕。对于每个失败幕，我们记录并存储轨迹最后 \\(K\\) 个时间步的状态转移元组 \\((s_t,a,s_{t+1},r)\\)，并将它们封装为失败事件。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b6",
@@ -443,26 +453,36 @@
             297,
             461
           ],
-          "en": "We process each failure event by computing the MonteCarlo return H associated with the state component of each transition tuple:",
+          "en": "We process each failure event by computing the MonteCarlo return \\(H\\) associated with the state component of each transition tuple:",
           "reference": false,
           "source_image": "figs/p003-006-source.png",
-          "zh": "我们通过计算与每个状态转移元组的状态分量相关联的 MonteCarlo 回报 H 来处理每个失败事件："
+          "zh": "我们通过计算与每个状态转移元组的状态分量相关联的 MonteCarlo 回报 \\(H\\) 来处理每个失败事件：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b7",
           "kind": "formula",
           "bbox": [
-            133,
-            469,
-            298,
-            498
+            131.0,
+            467.0,
+            300.0,
+            500.0
           ],
           "en": "T − 1 Ht = � γ n−t rn, (1) n = t",
           "reference": false,
           "image": "figs/p003-007.png",
           "labels": [
             "1"
-          ]
+          ],
+          "original_bbox": [
+            133.0,
+            469.0,
+            298.0,
+            498.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 507,
+          "image_height": 99
         },
         {
           "id": "p3-b8",
@@ -473,10 +493,11 @@
             297,
             525
           ],
-          "en": "where T represents the actual termination time step of this failure event.",
+          "en": "where \\(T\\) represents the actual termination time step of this failure event.",
           "reference": false,
           "source_image": "figs/p003-008-source.png",
-          "zh": "其中 T 表示该失败事件的实际终止时间步。"
+          "zh": "其中 \\(T\\) 表示该失败事件的实际终止时间步。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b9",
@@ -487,26 +508,36 @@
             298,
             659
           ],
-          "en": "Inspired by the efficient memory embedding proposed in EMU [Na et al. , 2024], we propose a learning-based joint state-action embedding framework, trying to construct the semantic meaning of state-action pairs. In the FEMA framework diagram, we use φ ( s, a ) to denote the joint state–action embedding, and its detailed architecture is shown in Figure 3. To bridge the discrepancy between the high-dimensional state space and the continuous action space, we introduce a pair of encoders ( f, g ) to learn compact and structured representations. Specifically, the state encoder f ( s ) maps the raw state s into a latent state embedding zs , while the action encoder g ( a ) maps the action a into an action embedding za :",
+          "en": "Inspired by the efficient memory embedding proposed in EMU [Na et al. , 2024], we propose a learning-based joint state-action embedding framework, trying to construct the semantic meaning of state-action pairs. In the FEMA framework diagram, we use \\(\\varphi(s,a)\\) to denote the joint state–action embedding, and its detailed architecture is shown in Figure 3. To bridge the discrepancy between the high-dimensional state space and the continuous action space, we introduce a pair of encoders \\((f, g)\\) to learn compact and structured representations. Specifically, the state encoder \\(f(s)\\) maps the raw state \\(s\\) into a latent state embedding \\(z_s\\), while the action encoder \\(g(a)\\) maps the action \\(a\\) into an action embedding \\(z_a\\):",
           "reference": false,
           "source_image": "figs/p003-009-source.png",
-          "zh": "受 EMU [Na et al. , 2024] 中提出的高效记忆嵌入的启发，我们提出了一种基于学习的状态-动作联合嵌入框架，旨在构建状态-动作对的语义含义。在 FEMA 框架图中，我们使用 φ ( s, a ) 表示状态-动作联合嵌入，其详细架构如图 3 所示。为了弥合高维状态空间与连续动作空间之间的差异，我们引入了一对编码器 ( f, g ) 来学习紧凑且结构化的表征。具体而言，状态编码器 f ( s ) 将原始状态 s 映射为潜在状态嵌入 zs，而动作编码器 g ( a ) 将动作 a 映射为动作嵌入 za："
+          "zh": "受 EMU [Na et al. , 2024] 中提出的高效记忆嵌入的启发，我们提出了一种基于学习的状态-动作联合嵌入框架，旨在构建状态-动作对的语义含义。在 FEMA 框架图中，我们使用 \\(\\varphi(s,a)\\) 表示状态-动作联合嵌入，其详细架构如图 3 所示。为了弥合高维状态空间与连续动作空间之间的差异，我们引入了一对编码器 \\((f, g)\\) 来学习紧凑且结构化的表征。具体而言，状态编码器 \\(f(s)\\) 将原始状态 \\(s\\) 映射为潜在状态嵌入 \\(z_s\\)，而动作编码器 \\(g(a)\\) 将动作 \\(a\\) 映射为动作嵌入 \\(z_a\\)：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b10",
           "kind": "formula",
           "bbox": [
-            123,
-            665,
-            298,
-            676
+            121.0,
+            663.0,
+            300.0,
+            678.0
           ],
           "en": "zs := f ( s ) , za := g ( a ) . (2)",
           "reference": false,
           "image": "figs/p003-010.png",
           "labels": [
             "2"
-          ]
+          ],
+          "original_bbox": [
+            123.0,
+            665.0,
+            298.0,
+            676.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 537,
+          "image_height": 45
         },
         {
           "id": "p3-b11",
@@ -517,10 +548,11 @@
             298,
             705
           ],
-          "en": "The joint state–action embedding j ( zs, za ) takes the state embedding and the action embedding as inputs and encodes",
+          "en": "The joint state–action embedding \\(j(z_s, z_a)\\) takes the state embedding and the action embedding as inputs and encodes",
           "reference": false,
           "source_image": "figs/p003-011-source.png",
-          "zh": "状态-动作联合嵌入 j ( zs, za ) 以状态嵌入和动作嵌入作为输入，并将"
+          "zh": "状态-动作联合嵌入 \\(j(z_s, z_a)\\) 以状态嵌入和动作嵌入作为输入，并将",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b12",
@@ -531,10 +563,11 @@
             559,
             89
           ],
-          "en": "them into a unified representation. For notational simplicity, we denote the joint state–action embedding as φ ( s, a ) = j ( zs, za ).",
+          "en": "them into a unified representation. For notational simplicity, we denote the joint state–action embedding as \\(\\varphi(s,a) = j(z_s, z_a)\\).",
           "reference": false,
           "source_image": "figs/p003-012-source.png",
-          "zh": "它们编码为一个统一的表征。为简便起见，我们将状态-动作联合嵌入记为 φ ( s, a ) = j ( zs, za )。"
+          "zh": "它们编码为一个统一的表征。为简便起见，我们将状态-动作联合嵌入记为 \\(\\varphi(s,a) = j(z_s, z_a)\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b13",
@@ -545,26 +578,36 @@
             559,
             165
           ],
-          "en": "Leveraging the information captured by φ ( s, a ), we design an additional risk head h ( · ) to estimate the hazardousness of the current state–action pair. We use the negative Monte Carlo return −H as supervision, where lower returns indicate higher risk. To stabilize training and mitigate scale variations of returns across batches, we apply a z -score normalization to the Monte Carlo returns within each training batch:",
+          "en": "Leveraging the information captured by \\(\\varphi(s,a)\\), we design an additional risk head \\(h(\\cdot)\\) to estimate the hazardousness of the current state–action pair. We use the negative Monte Carlo return \\(-H\\) as supervision, where lower returns indicate higher risk. To stabilize training and mitigate scale variations of returns across batches, we apply a \\(z\\)-score normalization to the Monte Carlo returns within each training batch:",
           "reference": false,
           "source_image": "figs/p003-013-source.png",
-          "zh": "利用 φ ( s, a ) 捕获的信息，我们设计了一个额外的风险头 h ( · ) 来估计当前状态-动作对的危险程度。我们使用负 Monte Carlo 回报 −H 作为监督信号，其中较低的回报表示更高的风险。为了稳定训练并减小不同批次之间回报的尺度差异，我们在每个训练批次内对 Monte Carlo 回报应用 z-score 归一化："
+          "zh": "利用 \\(\\varphi(s,a)\\) 捕获的信息，我们设计了一个额外的风险头 \\(h(\\cdot)\\) 来估计当前状态-动作对的危险程度。我们使用负 Monte Carlo 回报 \\(-H\\) 作为监督信号，其中较低的回报表示更高的风险。为了稳定训练并减小不同批次之间回报的尺度差异，我们在每个训练批次内对 Monte Carlo 回报应用 \\(z\\)-score 归一化：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b14",
           "kind": "formula",
           "bbox": [
-            405,
-            172,
-            559,
-            195
+            403.0,
+            170.0,
+            561.0,
+            197.0
           ],
           "en": "H ˜ = H − µH (3) σH + ϵ ,",
           "reference": false,
           "image": "figs/p003-014.png",
           "labels": [
             "3"
-          ]
+          ],
+          "original_bbox": [
+            405.0,
+            172.0,
+            559.0,
+            195.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 474,
+          "image_height": 81
         },
         {
           "id": "p3-b15",
@@ -575,10 +618,11 @@
             559,
             246
           ],
-          "en": "where µH and σH are the mean and standard deviation of {H} in the batch, and ϵ is a small constant like 10−6 for numerical stability. The final training target is then defined as y = −H˜ .",
+          "en": "where \\(\\mu_H\\) and \\(\\sigma_H\\) are the mean and standard deviation of \\(\\{H\\}\\) in the batch, and \\(\\epsilon\\) is a small constant like \\(10^{-6}\\) for numerical stability. The final training target is then defined as \\(y = -\\tilde{H}\\).",
           "reference": false,
           "source_image": "figs/p003-015-source.png",
-          "zh": "其中 µH 和 σH 分别是批次中 {H} 的均值和标准差，ϵ 是为保持数值稳定性而设的较小常数（如 10−6）。最终的训练目标定义为 y = −H˜ 。"
+          "zh": "其中 \\(\\mu_H\\) 和 \\(\\sigma_H\\) 分别是批次中 \\(\\{H\\}\\) 的均值和标准差，\\(\\epsilon\\) 是为保持数值稳定性而设的较小常数（如 \\(10^{-6}\\)）。最终的训练目标定义为 \\(y = -\\tilde{H}\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b16",
@@ -589,26 +633,36 @@
             558,
             268
           ],
-          "en": "Specifically, we optimize the mean-squared error objective over batches sampled from the failure episodic memory D :",
+          "en": "Specifically, we optimize the mean-squared error objective over batches sampled from the failure episodic memory \\(\\mathcal{D}\\):",
           "reference": false,
           "source_image": "figs/p003-016-source.png",
-          "zh": "具体而言，我们在从失败情景记忆 D 中采样的批次上优化均方误差目标："
+          "zh": "具体而言，我们在从失败情景记忆 \\(\\mathcal{D}\\) 中采样的批次上优化均方误差目标：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b17",
           "kind": "formula",
           "bbox": [
-            339,
-            275,
-            558,
-            294
+            337.0,
+            273.0,
+            560.0,
+            296.0
           ],
           "en": "L = E( s,a ) ∼D �( h ( φ ( s, a )) − y ) 2� , y = −H. ˜ (4)",
           "reference": false,
           "image": "figs/p003-017.png",
           "labels": [
             "4"
-          ]
+          ],
+          "original_bbox": [
+            339.0,
+            275.0,
+            558.0,
+            294.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 669,
+          "image_height": 69
         },
         {
           "id": "p3-b18",
@@ -619,10 +673,11 @@
             559,
             423
           ],
-          "en": "By using the normalized Monte Carlo return −H˜ as the supervision target, we optimize the risk regression objective end-to-end. The loss is back-propagated not only to the risk head h ( · ) but also through the joint embedding φ ( s, a ). Consequently, hazardous state–action pairs yielding low returns are encoded into a coherent risk-aware latent space, while the risk head estimates the risk of the current state–action pair. Apart from that, the semantic state embeddings zs enable efficient retrieval from the failure episodic memory. The final failure episodic memory is organized as ( zsi, ai, φ ( si, ai ) , Hi ).",
+          "en": "By using the normalized Monte Carlo return \\(-\\tilde{H}\\) as the supervision target, we optimize the risk regression objective end-to-end. The loss is back-propagated not only to the risk head \\(h(\\cdot)\\) but also through the joint embedding \\(\\varphi(s,a)\\). Consequently, hazardous state–action pairs yielding low returns are encoded into a coherent risk-aware latent space, while the risk head estimates the risk of the current state–action pair. Apart from that, the semantic state embeddings \\(z_s\\) enable efficient retrieval from the failure episodic memory. The final failure episodic memory is organized as \\(\\left( z_{s_i},\\, a_i,\\, \\varphi(s_i,a_i),\\, H_i \\right)\\).",
           "reference": false,
           "source_image": "figs/p003-018-source.png",
-          "zh": "通过使用归一化的 Monte Carlo 回报 −H˜ 作为监督目标，我们端到端地优化风险回归目标。损失不仅反向传播至风险头 h ( · )，还通过联合嵌入 φ ( s, a ) 进行回传。因此，导致低回报的危险状态-动作对被编码到一个具有连贯风险感知能力的潜在空间中，同时风险头负责估计当前状态-动作对的风险。此外，语义状态嵌入 zs 实现了从失败情景记忆中的高效检索。最终的失败情景记忆组织为 ( zsi, ai, φ ( si, ai ) , Hi )。"
+          "zh": "通过使用归一化的 Monte Carlo 回报 \\(-\\tilde{H}\\) 作为监督目标，我们端到端地优化风险回归目标。损失不仅反向传播至风险头 \\(h(\\cdot)\\)，还通过联合嵌入 \\(\\varphi(s,a)\\) 进行回传。因此，导致低回报的危险状态-动作对被编码到一个具有连贯风险感知能力的潜在空间中，同时风险头负责估计当前状态-动作对的风险。此外，语义状态嵌入 \\(z_s\\) 实现了从失败情景记忆中的高效检索。最终的失败情景记忆组织为 \\(\\left( z_{s_i},\\, a_i,\\, \\varphi(s_i,a_i),\\, H_i \\right)\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b19",
@@ -633,10 +688,11 @@
             558,
             454
           ],
-          "en": "Instead of being updated at every step, the failure episodic memory is updated periodically by aggregating M newly collected failure events.",
+          "en": "Instead of being updated at every step, the failure episodic memory is updated periodically by aggregating \\(M\\) newly collected failure events.",
           "reference": false,
           "source_image": "figs/p003-019-source.png",
-          "zh": "失败情景记忆并非在每一步都进行更新，而是通过汇总 M 个新收集的失败事件来定期更新。"
+          "zh": "失败情景记忆并非在每一步都进行更新，而是通过汇总 \\(M\\) 个新收集的失败事件来定期更新。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b20",
@@ -661,26 +717,36 @@
             558,
             555
           ],
-          "en": "The risk-aware action selection mechanism is illustrated in the upper part of Fig. 2. Following the establishment of the failure episodic memory, we incorporate it into the learning loop through a risk-aware action selection mechanism. At each step, the agent acquires the current state and samples from a noisy distribution to generate a candidate action set comprising N actions:",
+          "en": "The risk-aware action selection mechanism is illustrated in the upper part of Fig. 2. Following the establishment of the failure episodic memory, we incorporate it into the learning loop through a risk-aware action selection mechanism. At each step, the agent acquires the current state and samples from a noisy distribution to generate a candidate action set comprising \\(N\\) actions:",
           "reference": false,
           "source_image": "figs/p003-021-source.png",
-          "zh": "图 2 的上半部分展示了风险感知动作选择机制。在建立失败情景记忆之后，我们通过风险感知动作选择机制将其融入学习循环中。在每一步，智能体获取当前状态，并从带噪声的分布中进行采样，以生成包含 N 个动作的候选动作集："
+          "zh": "图 2 的上半部分展示了风险感知动作选择机制。在建立失败情景记忆之后，我们通过风险感知动作选择机制将其融入学习循环中。在每一步，智能体获取当前状态，并从带噪声的分布中进行采样，以生成包含 \\(N\\) 个动作的候选动作集：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b22",
           "kind": "formula",
           "bbox": [
-            372,
-            563,
-            559,
-            574
+            370.0,
+            561.0,
+            561.0,
+            576.0
           ],
           "en": "ai ∼ πθ ( · | st ) , i = 1 , . . . , N, (5)",
           "reference": false,
           "image": "figs/p003-022.png",
           "labels": [
             "5"
-          ]
+          ],
+          "original_bbox": [
+            372.0,
+            563.0,
+            559.0,
+            574.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 573,
+          "image_height": 45
         },
         {
           "id": "p3-b23",
@@ -691,10 +757,11 @@
             559,
             602
           ],
-          "en": "where πθ ( · | st ) denotes a stochastic policy parameterized by θ , and N is the number of sampled candidate actions.",
+          "en": "where \\(\\pi_\\theta(\\cdot \\mid s_t)\\) denotes a stochastic policy parameterized by \\(\\theta\\), and \\(N\\) is the number of sampled candidate actions.",
           "reference": false,
           "source_image": "figs/p003-023-source.png",
-          "zh": "其中 πθ ( · | st ) 表示以 θ 为参数的随机策略，N 为采样的候选动作数量。"
+          "zh": "其中 \\(\\pi_\\theta(\\cdot \\mid s_t)\\) 表示以 \\(\\theta\\) 为参数的随机策略，\\(N\\) 为采样的候选动作数量。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b24",
@@ -714,17 +781,26 @@
           "id": "p3-b25",
           "kind": "formula",
           "bbox": [
-            362,
-            641,
-            559,
-            654
+            360.0,
+            639.0,
+            561.0,
+            656.0
           ],
           "en": "πθ ( a | s ) = N � µθ ( s ) , diag( σθ 2( s )) � , (6)",
           "reference": false,
           "image": "figs/p003-025.png",
           "labels": [
             "6"
-          ]
+          ],
+          "original_bbox": [
+            362.0,
+            641.0,
+            559.0,
+            654.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 603,
+          "image_height": 51
         },
         {
           "id": "p3-b26",
@@ -735,10 +811,11 @@
             559,
             683
           ],
-          "en": "where µθ ( s ) and σθ ( s ) denote the state-dependent mean and standard deviation, respectively.",
+          "en": "where \\(\\mu_\\theta(s)\\) and \\(\\sigma_\\theta(s)\\) denote the state-dependent mean and standard deviation, respectively.",
           "reference": false,
           "source_image": "figs/p003-026-source.png",
-          "zh": "其中 µθ ( s ) 和 σθ ( s ) 分别表示依赖于状态的均值和标准差。"
+          "zh": "其中 \\(\\mu_\\theta(s)\\) 和 \\(\\sigma_\\theta(s)\\) 分别表示依赖于状态的均值和标准差。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p3-b27",
@@ -749,10 +826,11 @@
             558,
             705
           ],
-          "en": "For efficient episodic memory retrieval, the current state st is first encoded into a latent state embedding zst . We then",
+          "en": "For efficient episodic memory retrieval, the current state \\(s_t\\) is first encoded into a latent state embedding \\(z_{s_t}\\) . We then",
           "reference": false,
           "source_image": "figs/p003-027-source.png",
-          "zh": "为了实现高效的情景记忆检索，当前状态 st 首先被编码为潜在状态嵌入 zst 。随后我们"
+          "zh": "为了实现高效的情景记忆检索，当前状态 \\(s_t\\) 首先被编码为潜在状态嵌入 \\(z_{s_t}\\) 。随后我们",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -763,15 +841,24 @@
           "id": "p4-b0",
           "kind": "picture",
           "bbox": [
-            63,
-            53,
-            550,
-            297
+            61.0,
+            51.0,
+            552.0,
+            299.0
           ],
           "en": "𝑠� Risk 𝑎�, 𝑎� ⋯𝑎� Head 𝜌� Policy( 𝝅 ) 𝑠� EncoderJoint 𝒉(𝝋(𝒔, 𝒂)) 𝐷� Scores Ranking 𝑆� = 𝐷� −𝜆risk 𝜌� 𝑎� (max score) Environment 𝝋(𝒔, 𝒂) ℓ� distance Similar Events Premature Module 2 termination Retrieve with 𝑧�� Failure 𝑠 Events Risk Joint Failure Head Encoder Episodic 𝒉(𝝋(𝒔, 𝒂)) 𝝋(𝒔, 𝒂) 𝑎 Processing Update every 𝑀 failure events Memory Compute MC-return: 𝑧�, 𝑎, 𝜑 𝑠, 𝑎, 𝐻 � 𝑠, 𝑎, 𝑠 � , 𝑟 𝑠, 𝑎, 𝐻 𝐿𝑜𝑠𝑠= ℎ 𝜑 𝑠, 𝑎 −𝑦 � Target 𝑦 = −𝐻 � Module 1",
           "reference": false,
           "image": "figs/p004-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            63.0,
+            53.0,
+            550.0,
+            297.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1473,
+          "image_height": 744
         },
         {
           "id": "p4-b1",
@@ -791,15 +878,24 @@
           "id": "p4-b2",
           "kind": "picture",
           "bbox": [
-            102,
-            334,
-            249,
-            445
+            100.0,
+            332.0,
+            251.0,
+            447.0
           ],
           "en": "State 𝑧� Encoder 𝑠 𝑓 𝑠 S-A Joint Encoder 𝑗 𝑧�, 𝑧� Action 𝑧� Encoder 𝑎 𝑔 𝑎",
           "reference": false,
           "image": "figs/p004-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            102.0,
+            334.0,
+            249.0,
+            445.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 453,
+          "image_height": 345
         },
         {
           "id": "p4-b3",
@@ -810,10 +906,11 @@
             254,
             464
           ],
-          "en": "Figure 3: Joint state-action encoder φ ( s, a )",
+          "en": "Figure 3: Joint state-action encoder \\(\\varphi(s,a)\\)",
           "reference": false,
           "source_image": "figs/p004-003-source.png",
-          "zh": "图 3：联合状态-动作编码器 φ ( s, a )"
+          "zh": "图 3：联合状态-动作编码器 \\(\\varphi(s,a)\\)",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b4",
@@ -824,10 +921,11 @@
             297,
             546
           ],
-          "en": "identify similar states in the failure episodic memory by measuring the ℓ 2 distance in the embedding space with the threshold ε . Among the retrieved candidates, we further select the top O state–action pairs associated with the lowest Monte Carlo returns, corresponding to the most hazardous past experiences.",
+          "en": "identify similar states in the failure episodic memory by measuring the \\(\\ell_2\\) distance in the embedding space with the threshold \\(\\varepsilon\\) . Among the retrieved candidates, we further select the top \\(O\\) state–action pairs associated with the lowest Monte Carlo returns, corresponding to the most hazardous past experiences.",
           "reference": false,
           "source_image": "figs/p004-004-source.png",
-          "zh": "通过设定阈值 ε 测量嵌入空间中的 ℓ 2 距离，在失败情景记忆中识别相似状态。在检索到的候选样本中，我们进一步挑选出与最低蒙特卡洛回报相关联的前 O 个状态-动作对，对应于过去最危险的经历。"
+          "zh": "通过设定阈值 \\(\\varepsilon\\) 测量嵌入空间中的 \\(\\ell_2\\) 距离，在失败情景记忆中识别相似状态。在检索到的候选样本中，我们进一步挑选出与最低蒙特卡洛回报相关联的前 \\(O\\) 个状态-动作对，对应于过去最危险的经历。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b5",
@@ -838,26 +936,36 @@
             298,
             612
           ],
-          "en": "A scoring mechanism is introduced to evaluate candidate actions. For each candidate action, the score is composed of two terms: (1) the aggregated ℓ 2 distance Di between its joint state–action embedding and the state–action embeddings retrieved from the memory; (2) the risk value ρi of the corresponding state–action pair estimated by the trained risk head.",
+          "en": "A scoring mechanism is introduced to evaluate candidate actions. For each candidate action, the score is composed of two terms: (1) the aggregated \\(\\ell_2\\) distance \\(D_i\\) between its joint state–action embedding and the state–action embeddings retrieved from the memory; (2) the risk value \\(\\rho_i\\) of the corresponding state–action pair estimated by the trained risk head.",
           "reference": false,
           "source_image": "figs/p004-005-source.png",
-          "zh": "引入了一种评分机制来评估候选动作。对于每个候选动作，其得分由两项组成：(1) 其联合状态-动作嵌入与从记忆中检索到的状态-动作嵌入之间的聚合 ℓ 2 距离 Di；(2) 由训练好的风险头所估计的对应状态-动作对的风险值 ρi。"
+          "zh": "引入了一种评分机制来评估候选动作。对于每个候选动作，其得分由两项组成：(1) 其联合状态-动作嵌入与从记忆中检索到的状态-动作嵌入之间的聚合 \\(\\ell_2\\) 距离 \\(D_i\\)；(2) 由训练好的风险头所估计的对应状态-动作对的风险值 \\(\\rho_i\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b6",
           "kind": "formula",
           "bbox": [
-            138,
-            618,
-            298,
-            629
+            136.0,
+            616.0,
+            300.0,
+            631.0
           ],
           "en": "Si = Di − λ risk ρi (7)",
           "reference": false,
           "image": "figs/p004-006.png",
           "labels": [
             "7"
-          ]
+          ],
+          "original_bbox": [
+            138.0,
+            618.0,
+            298.0,
+            629.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 492,
+          "image_height": 45
         },
         {
           "id": "p4-b7",
@@ -938,10 +1046,11 @@
             559,
             705
           ],
-          "en": "In the simulation experiments, we consider four tasks with explicit termination conditions from the MuJoCo benchmark, namely Humanoid, Walker2d, Hopper, and Ant, as shown in Figure 4. An episode is terminated immediately once the robot enters a hazardous state, such as an imminent fall or collision, which reflects safety constraints commonly encountered in real-world control scenarios. FEMA is combined with several representative model-free reinforcement learning algorithms, including PPO [Schulman et al. , 2017], SAC [Haarnoja et al. , 2018b], and CrossQ [Bhatt et al. , 2024], and is compared against the classical episodic control baseline EMAC [Kuznetsov and Filchenkov, 2021]. All the above algorithms adopt the best-performing hyperparameter configurations as reported in their respective papers. In the real-world experiments, we integrate the proposed FEMA technique into a widely used parallelized PPO training pipeline and validate it on a bipedal robot stair-climbing task. The FEMA module involves several specific hyperparameters. These include the number of candidate actions N , which is typically set to 5 or 10, the state-matching similarity threshold ε , usually ranging from 0.03 to 0.10, and the episodic memory update frequency M , commonly set between 100 and 300. The optimal hyperparameter configura-",
+          "en": "In the simulation experiments, we consider four tasks with explicit termination conditions from the MuJoCo benchmark, namely Humanoid, Walker2d, Hopper, and Ant, as shown in Figure 4. An episode is terminated immediately once the robot enters a hazardous state, such as an imminent fall or collision, which reflects safety constraints commonly encountered in real-world control scenarios. FEMA is combined with several representative model-free reinforcement learning algorithms, including PPO [Schulman et al. , 2017], SAC [Haarnoja et al. , 2018b], and CrossQ [Bhatt et al. , 2024], and is compared against the classical episodic control baseline EMAC [Kuznetsov and Filchenkov, 2021]. All the above algorithms adopt the best-performing hyperparameter configurations as reported in their respective papers. In the real-world experiments, we integrate the proposed FEMA technique into a widely used parallelized PPO training pipeline and validate it on a bipedal robot stair-climbing task. The FEMA module involves several specific hyperparameters. These include the number of candidate actions \\(N\\) , which is typically set to 5 or 10, the state-matching similarity threshold \\(\\varepsilon\\) , usually ranging from 0.03 to 0.10, and the episodic memory update frequency \\(M\\) , commonly set between 100 and 300. The optimal hyperparameter configura-",
           "reference": false,
           "source_image": "figs/p004-012-source.png",
-          "zh": "在仿真实验中，我们考虑了来自 MuJoCo 基准的四个具有明确终止条件的任务，即 Humanoid、Walker2d、Hopper 和 Ant，如图 4 所示。一旦机器人进入危险状态（例如即将跌倒或碰撞），该回合立即终止，这反映了真实世界控制场景中常见的安全约束。FEMA 与几种具有代表性的无模型强化学习算法相结合，包括 PPO [Schulman et al. , 2017]、SAC [Haarnoja et al. , 2018b] 和 CrossQ [Bhatt et al. , 2024]，并与经典情景控制基线 EMAC [Kuznetsov and Filchenkov, 2021] 进行对比。上述所有算法均采用其各自论文中报告的最佳性能超参数配置。在真实世界实验中，我们将所提出的 FEMA 技术集成到一个广泛使用的并行化 PPO 训练管线中，并在双足机器人爬楼梯任务上对其进行了验证。FEMA 模块涉及若干特定超参数。其中包括候选动作数量 N（通常设为 5 或 10）、状态匹配相似度阈值 ε（通常在 0.03 到 0.10 之间）以及情景记忆更新频率 M（通常设定在 100 到 300 之间）。最佳超参数配"
+          "zh": "在仿真实验中，我们考虑了来自 MuJoCo 基准的四个具有明确终止条件的任务，即 Humanoid、Walker2d、Hopper 和 Ant，如图 4 所示。一旦机器人进入危险状态（例如即将跌倒或碰撞），该回合立即终止，这反映了真实世界控制场景中常见的安全约束。FEMA 与几种具有代表性的无模型强化学习算法相结合，包括 PPO [Schulman et al. , 2017]、SAC [Haarnoja et al. , 2018b] 和 CrossQ [Bhatt et al. , 2024]，并与经典情景控制基线 EMAC [Kuznetsov and Filchenkov, 2021] 进行对比。上述所有算法均采用其各自论文中报告的最佳性能超参数配置。在真实世界实验中，我们将所提出的 FEMA 技术集成到一个广泛使用的并行化 PPO 训练管线中，并在双足机器人爬楼梯任务上对其进行了验证。FEMA 模块涉及若干特定超参数。其中包括候选动作数量 \\(N\\)（通常设为 5 或 10）、状态匹配相似度阈值 \\(\\varepsilon\\)（通常在 0.03 到 0.10 之间）以及情景记忆更新频率 \\(M\\)（通常设定在 100 到 300 之间）。最佳超参数配",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -952,15 +1061,24 @@
           "id": "p5-b0",
           "kind": "picture",
           "bbox": [
-            111,
-            54,
-            501,
-            165
+            109.0,
+            52.0,
+            503.0,
+            167.0
           ],
           "en": "(a) (b) (c) (d)",
           "reference": false,
           "image": "figs/p005-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            111.0,
+            54.0,
+            501.0,
+            165.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1182,
+          "image_height": 345
         },
         {
           "id": "p5-b1",
@@ -980,15 +1098,24 @@
           "id": "p5-b2",
           "kind": "picture",
           "bbox": [
-            62,
-            199,
-            550,
-            291
+            60.0,
+            197.0,
+            552.0,
+            293.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p005-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            62.0,
+            199.0,
+            550.0,
+            291.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1476,
+          "image_height": 288
         },
         {
           "id": "p5-b3",
@@ -1125,15 +1252,24 @@
           "id": "p6-b0",
           "kind": "picture",
           "bbox": [
-            63,
-            56,
-            550,
-            147
+            61.0,
+            54.0,
+            552.0,
+            149.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p006-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            63.0,
+            56.0,
+            550.0,
+            147.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1473,
+          "image_height": 285
         },
         {
           "id": "p6-b1",
@@ -1167,29 +1303,47 @@
           "id": "p6-b3",
           "kind": "table",
           "bbox": [
-            60,
-            202,
-            552,
-            245
+            58.0,
+            200.0,
+            554.0,
+            247.0
           ],
           "en": "|Task|SAC|EMAC|SAC+FEMA|PPO|PPO+FEMA|CrossQ|CrossQ+FEMA| |---|---|---|---|---|---|---|---| |Humanoid|5290.80±127.64|3808.84±1028.65|5429.08±90.24|902.71±190.19|1102.82±599.42|6267.30±251.07|6969.74±69.13| |Walker2d|4102.53±339.45|4538.35±283.47|4728.77±505.40|4004.54±217.06|4538.86±175.93|4580.71±514.70|5026.85±250.32| |Hopper|3277.54±110.63|2779.42±596.64|3404.39±102.20|2433.97±637.51|3239.78±22.33|3304.44±57.58|3475.69±52.06| |Ant|4174.66±519.78|832.98±20.04|4757.64±405.30|228.52±132.58|427.70±395.18|4875.93±732.88|5082.74±841.68|",
           "reference": false,
           "image": "figs/p006-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            60.0,
+            202.0,
+            552.0,
+            245.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1488,
+          "image_height": 141
         },
         {
           "id": "p6-b4",
           "kind": "picture",
           "bbox": [
-            78,
-            267,
-            273,
-            430
+            76.0,
+            265.0,
+            275.0,
+            432.0
           ],
           "en": "CrossQ 1000 CrossQ + FEMA 829 800 600 431 400 286 200 121 66 77 0 0 1 00k 100 k 2 00k 200 k 3 00k Training Steps Average Episode Length",
           "reference": false,
           "image": "figs/p006-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            78.0,
+            267.0,
+            273.0,
+            430.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 597,
+          "image_height": 501
         },
         {
           "id": "p6-b5",
@@ -1214,10 +1368,11 @@
             297,
             689
           ],
-          "en": "tive observations, including base angular velocity, projected gravity, joint positions, joint velocities, previous actions, and gait phase features (sine/cosine clock signals and gait parameters). The reward function combines velocity tracking and gait incentives (e.g., linear/angular velocity tracking and feet air-time) with strong stability and safety regularization. Detailed training settings are provided in the appendix of the supplementary materials. We adopt a widely used PPObased parallel training framework in conjunction with the Isaac Gym platform to enable large-scale parallel learning. Specifically, 4,096 parallel environments are employed. As all robotic agents share interaction data under the PPO parallel training framework, the hyperparameter configurations of FEMA differ from those adopted in the MuJoCo benchmark tasks. The episodic memory update interval M is set to 2,500, meaning that the failure episodic memory is updated after every 2,500 collected failure trajectories. Apart from that, we set the threshold ε to 0.20 and the number of candidate actions N to 5.",
+          "en": "tive observations, including base angular velocity, projected gravity, joint positions, joint velocities, previous actions, and gait phase features (sine/cosine clock signals and gait parameters). The reward function combines velocity tracking and gait incentives (e.g., linear/angular velocity tracking and feet air-time) with strong stability and safety regularization. Detailed training settings are provided in the appendix of the supplementary materials. We adopt a widely used PPObased parallel training framework in conjunction with the Isaac Gym platform to enable large-scale parallel learning. Specifically, 4,096 parallel environments are employed. As all robotic agents share interaction data under the PPO parallel training framework, the hyperparameter configurations of FEMA differ from those adopted in the MuJoCo benchmark tasks. The episodic memory update interval \\(M\\) is set to 2,500, meaning that the failure episodic memory is updated after every 2,500 collected failure trajectories. Apart from that, we set the threshold \\(\\varepsilon\\) to 0.20 and the number of candidate actions \\(N\\) to 5.",
           "reference": false,
           "source_image": "figs/p006-006-source.png",
-          "zh": "受观测，包括机体角速度、投影重力、关节位置、关节速度、上一时刻动作以及步态相位特征（正弦/余弦时钟信号及步态参数）。奖励函数将速度跟踪与步态激励（如线速度/角速度跟踪和足部腾空时间）与强稳定性和安全性正则化相结合。详细的训练设置在补充材料的附录中给出。我们结合 Isaac Gym 平台采用了一种广泛使用的基于 PPO 的并行训练框架，以实现大规模并行学习。具体而言，使用了 4,096 个并行环境。由于在 PPO 并行训练框架下所有机器人智能体共享交互数据，因此 FEMA 的超参数配置与 MuJoCo 基准任务中所采用的配置不同。情景记忆更新间隔 M 设为 2,500，这意味着每收集 2,500 条失败轨迹就会更新一次失败情景记忆。除此之外，我们将阈值 ε 设为 0.20，候选动作数量 N 设为 5。"
+          "zh": "受观测，包括机体角速度、投影重力、关节位置、关节速度、上一时刻动作以及步态相位特征（正弦/余弦时钟信号及步态参数）。奖励函数将速度跟踪与步态激励（如线速度/角速度跟踪和足部腾空时间）与强稳定性和安全性正则化相结合。详细的训练设置在补充材料的附录中给出。我们结合 Isaac Gym 平台采用了一种广泛使用的基于 PPO 的并行训练框架，以实现大规模并行学习。具体而言，使用了 4,096 个并行环境。由于在 PPO 并行训练框架下所有机器人智能体共享交互数据，因此 FEMA 的超参数配置与 MuJoCo 基准任务中所采用的配置不同。情景记忆更新间隔 \\(M\\) 设为 2,500，这意味着每收集 2,500 条失败轨迹就会更新一次失败情景记忆。除此之外，我们将阈值 \\(\\varepsilon\\) 设为 0.20，候选动作数量 \\(N\\) 设为 5。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b7",
@@ -1237,15 +1392,24 @@
           "id": "p6-b8",
           "kind": "picture",
           "bbox": [
-            339,
-            267,
-            534,
-            414
+            337.0,
+            265.0,
+            536.0,
+            416.0
           ],
           "en": "Stair-climbing task 0 -5 -10 Parallel PPO Parallel PPO with FEMA -15 0 1000 2000 3000 4000 5000 Iterations Reward",
           "reference": false,
           "image": "figs/p006-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            339.0,
+            267.0,
+            534.0,
+            414.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 597,
+          "image_height": 453
         },
         {
           "id": "p6-b9",
@@ -1312,15 +1476,24 @@
           "id": "p7-b0",
           "kind": "picture",
           "bbox": [
-            72,
-            53,
-            279,
-            171
+            70.0,
+            51.0,
+            281.0,
+            173.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            72.0,
+            53.0,
+            279.0,
+            171.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 633,
+          "image_height": 366
         },
         {
           "id": "p7-b1",
@@ -1340,15 +1513,24 @@
           "id": "p7-b2",
           "kind": "picture",
           "bbox": [
-            78,
-            202,
-            273,
-            349
+            76.0,
+            200.0,
+            275.0,
+            351.0
           ],
           "en": "Different threshold 3000 2000 1000 = 0.01 = 0.03 = 0.10 = 0.50 0 Vanilla SAC 0 100k 200k 300k Steps Average Return",
           "reference": false,
           "image": "figs/p007-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            78.0,
+            202.0,
+            273.0,
+            349.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 597,
+          "image_height": 453
         },
         {
           "id": "p7-b3",
@@ -1359,10 +1541,11 @@
             284,
             368
           ],
-          "en": "Figure 10: Learning curves of SAC+FEMA with different ε .",
+          "en": "Figure 10: Learning curves of SAC+FEMA with different \\(\\varepsilon\\) .",
           "reference": false,
           "source_image": "figs/p007-003-source.png",
-          "zh": "图 10：不同 ε 下 SAC+FEMA 的学习曲线。"
+          "zh": "图 10：不同 \\(\\varepsilon\\) 下 SAC+FEMA 的学习曲线。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b4",
@@ -1373,10 +1556,11 @@
             298,
             483
           ],
-          "en": "hyperparameters within the FEMA module: (1) the similarity threshold ε used to retrieve relevant failure events; (2) the number N of candidate actions sampled from the noisy policy distribution; (3) the memory update frequency M of the failure episodic memory. We conduct ablation experiments on the Hopper task. For this task, FEMA-augmented SAC uses a similarity threshold of ε = 0 . 03, the number of candidate actions N = 10, and the memory update frequency M = 100.",
+          "en": "hyperparameters within the FEMA module: (1) the similarity threshold \\({\\varepsilon}\\) used to retrieve relevant failure events; (2) the number \\(N\\) of candidate actions sampled from the noisy policy distribution; (3) the memory update frequency \\(M\\) of the failure episodic memory. We conduct ablation experiments on the Hopper task. For this task, FEMA-augmented SAC uses a similarity threshold of \\(\\varepsilon=0.03\\), the number of candidate actions \\(N=10\\), and the memory update frequency \\(M=100\\).",
           "reference": false,
           "source_image": "figs/p007-004-source.png",
-          "zh": "超参数的选取：(1) 用于检索相关失败事件的相似度阈值 ε；(2) 从带噪声的策略分布中采样的候选动作数量 N；(3) 失败情景记忆的更新频率 M。我们在 Hopper 任务上开展了消融实验。对于该任务，FEMA 增强的 SAC 采用的相似度阈值为 ε = 0 . 03，候选动作数量 N = 10，记忆更新频率 M = 100。"
+          "zh": "超参数的选取：(1) 用于检索相关失败事件的相似度阈值 \\(\\varepsilon\\)；(2) 从带噪声的策略分布中采样的候选动作数量 \\(N\\)；(3) 失败情景记忆的更新频率 \\(M\\)。我们在 Hopper 任务上开展了消融实验。对于该任务，FEMA 增强的 SAC 采用的相似度阈值为 \\(\\varepsilon=0.03\\)，候选动作数量 \\(N=10\\)，记忆更新频率 \\(M=100\\)。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b5",
@@ -1387,10 +1571,11 @@
             297,
             595
           ],
-          "en": "We first investigate the impact of different similarity thresholds ε on learning performance. As illustrated in Figure 10, an excessively small threshold ε = 0 . 01 leads to substantially slower convergence in the early training stage, as the guidance provided by the Failure Episodic Memory becomes limited under strict similarity constraints. In contrast, an overly large threshold ε = 0 . 50 causes FEMA to bias the policy toward conservative behaviors, leading to a substantially lower maximum return compared to the moderate setting of ε = 0 . 03.",
+          "en": "We first investigate the impact of different similarity thresholds \\(\\varepsilon\\) on learning performance. As illustrated in Figure 10, an excessively small threshold \\(\\varepsilon=0.01\\) leads to substantially slower convergence in the early training stage, as the guidance provided by the Failure Episodic Memory becomes limited under strict similarity constraints. In contrast, an overly large threshold \\(\\varepsilon=0.50\\) causes FEMA to bias the policy toward conservative behaviors, leading to a substantially lower maximum return compared to the moderate setting of \\(\\varepsilon=0.03\\).",
           "reference": false,
           "source_image": "figs/p007-005-source.png",
-          "zh": "我们首先探究不同相似度阈值 ε 对学习性能的影响。如图 10 所示，过小的阈值 ε = 0 . 01 会导致训练早期的收敛显著变慢，因为在严格的相似性约束下，失败情景记忆所提供的指导变得受限。相反，过大的阈值 ε = 0 . 50 会导致 FEMA 使策略偏向保守行为，从而相比于 ε = 0 . 03 这一适中设置，所获得的最高回报大幅降低。"
+          "zh": "我们首先探究不同相似度阈值 \\(\\varepsilon\\) 对学习性能的影响。如图 10 所示，过小的阈值 \\(\\varepsilon=0.01\\) 会导致训练早期的收敛显著变慢，因为在严格的相似性约束下，失败情景记忆所提供的指导变得受限。相反，过大的阈值 \\(\\varepsilon=0.50\\) 会导致 FEMA 使策略偏向保守行为，从而相比于 \\(\\varepsilon=0.03\\) 这一适中设置，所获得的最高回报大幅降低。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b6",
@@ -1401,24 +1586,34 @@
             298,
             705
           ],
-          "en": "We further analyze the impact of the number of candidate actions on FEMA. Candidate actions are drawn in varying quantities from a Gaussian policy with added noise. As shown in Figure 11, the learning curves suggest that simply increasing the number of candidate actions does not guarantee improved performance. We also examine the impact of the Failure Episodic Memory update frequency M , as illustrated in the left part of figure 12. For the Hopper task, using a lower update frequency M = 200 , 300 leads to degraded learning performance in the later training phase.",
+          "en": "We further analyze the impact of the number of candidate actions on FEMA. Candidate actions are drawn in varying quantities from a Gaussian policy with added noise. As shown in Figure 11, the learning curves suggest that simply increasing the number of candidate actions does not guarantee improved performance. We also examine the impact of the Failure Episodic Memory update frequency \\(M\\), as illustrated in the left part of figure 12. For the Hopper task, using a lower update frequency \\(M=200,300\\) leads to degraded learning performance in the later training phase.",
           "reference": false,
           "source_image": "figs/p007-006-source.png",
-          "zh": "我们进一步分析候选动作数量对 FEMA 的影响。候选动作以不同数量从添加了噪声的高斯策略中抽取。如图 11 所示，学习曲线表明，单纯增加候选动作数量并不能保证性能的提升。我们还考察了失败情景记忆更新频率 M 的影响，如图 12 左半部分所示。对于 Hopper 任务，采用较低的更新频率 M = 200 , 300 会导致训练后期的学习性能下降。"
+          "zh": "我们进一步分析候选动作数量对 FEMA 的影响。候选动作以不同数量从添加了噪声的高斯策略中抽取。如图 11 所示，学习曲线表明，单纯增加候选动作数量并不能保证性能的提升。我们还考察了失败情景记忆更新频率 \\(M\\) 的影响，如图 12 左半部分所示。对于 Hopper 任务，采用较低的更新频率 \\(M=200,300\\) 会导致训练后期的学习性能下降。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b7",
           "kind": "picture",
           "bbox": [
-            339,
-            53,
-            534,
-            200
+            337.0,
+            51.0,
+            536.0,
+            202.0
           ],
           "en": "Number N of action candidates 3000 2000 1000 N = 5 N = 10 N = 20 0 Va nill a S A C 0 100k 200k 300k Steps Average Return",
           "reference": false,
           "image": "figs/p007-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            339.0,
+            53.0,
+            534.0,
+            200.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 597,
+          "image_height": 453
         },
         {
           "id": "p7-b8",
@@ -1429,24 +1624,34 @@
             558,
             227
           ],
-          "en": "Figure 11: Learning curves of SAC+FEMA with different candidate actions N .",
+          "en": "Figure 11: Learning curves of SAC+FEMA with different candidate actions \\(N\\).",
           "reference": false,
           "source_image": "figs/p007-008-source.png",
-          "zh": "图 11：不同候选动作数量 N 下 SAC+FEMA 的学习曲线。"
+          "zh": "图 11：不同候选动作数量 \\(N\\) 下 SAC+FEMA 的学习曲线。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b9",
           "kind": "picture",
           "bbox": [
-            315,
-            247,
-            559,
-            335
+            313.0,
+            245.0,
+            561.0,
+            337.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p007-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            315.0,
+            247.0,
+            559.0,
+            335.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 744,
+          "image_height": 276
         },
         {
           "id": "p7-b10",
@@ -1457,10 +1662,11 @@
             558,
             372
           ],
-          "en": "Figure 12: Learning curves of SAC+FEMA under different episodic memory update frequency M and ablation results of the Top- O mechanism.",
+          "en": "Figure 12: Learning curves of SAC+FEMA under different episodic memory update frequency \\(M\\) and ablation results of the Top-\\(O\\) mechanism.",
           "reference": false,
           "source_image": "figs/p007-010-source.png",
-          "zh": "图 12：不同情景记忆更新频率 M 下 SAC+FEMA 的学习曲线，以及 Top-O 机制的消融实验结果。"
+          "zh": "图 12：不同情景记忆更新频率 \\(M\\) 下 SAC+FEMA 的学习曲线，以及 Top-\\(O\\) 机制的消融实验结果。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b11",
@@ -1471,10 +1677,11 @@
             558,
             493
           ],
-          "en": "As described in Section 3.3, we introduce a strategy that incorporates only the top- O matched events with the lowest Monte Carlo returns into candidate action scores ranking phase. We perform an ablation study on the Hopper task to assess this mechanism, as illustrated in the right part of Figure 12. The results suggest that the Top- O strategy mitigates overly conservative behavior by focusing the guidance on the most critical failure experiences rather than aggregating all retrieved events.",
+          "en": "As described in Section 3.3, we introduce a strategy that incorporates only the top-\\(O\\) matched events with the lowest Monte Carlo returns into candidate action scores ranking phase. We perform an ablation study on the Hopper task to assess this mechanism, as illustrated in the right part of Figure 12. The results suggest that the Top-\\(O\\) strategy mitigates overly conservative behavior by focusing the guidance on the most critical failure experiences rather than aggregating all retrieved events.",
           "reference": false,
           "source_image": "figs/p007-011-source.png",
-          "zh": "如第 3.3 节所述，我们引入了一种在候选动作评分排序阶段仅纳入蒙特卡洛回报最低的前 O 个匹配事件的策略。我们在 Hopper 任务上进行了消融实验以评估该机制，如图 12 右侧所示。结果表明，Top-O 策略通过将引导重点放在最关键的失败经验上，而不是聚合所有检索到的事件，从而缓解了过度保守的行为。"
+          "zh": "如第 3.3 节所述，我们引入了一种在候选动作评分排序阶段仅纳入蒙特卡洛回报最低的前 \\(O\\) 个匹配事件的策略。我们在 Hopper 任务上进行了消融实验以评估该机制，如图 12 右侧所示。结果表明，Top-\\(O\\) 策略通过将引导重点放在最关键的失败经验上，而不是聚合所有检索到的事件，从而缓解了过度保守的行为。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b12",

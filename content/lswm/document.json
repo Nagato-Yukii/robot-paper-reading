@@ -8,15 +8,24 @@
           "id": "p1-b0",
           "kind": "picture",
           "bbox": [
-            35,
-            33,
-            163,
-            68
+            33.0,
+            31.0,
+            165.0,
+            70.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-000.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            35.0,
+            33.0,
+            163.0,
+            68.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 396,
+          "image_height": 117
         },
         {
           "id": "p1-b1",
@@ -190,15 +199,24 @@
           "id": "p1-b13",
           "kind": "picture",
           "bbox": [
-            35,
-            619,
-            124,
-            636
+            33.0,
+            617.0,
+            126.0,
+            638.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p001-013.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            35.0,
+            619.0,
+            124.0,
+            636.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 279,
+          "image_height": 63
         },
         {
           "id": "p1-b14",
@@ -527,15 +545,24 @@
           "id": "p4-b5",
           "kind": "picture",
           "bbox": [
-            166,
-            306,
-            560,
-            579
+            164.0,
+            304.0,
+            562.0,
+            581.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p004-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            166.0,
+            306.0,
+            560.0,
+            579.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1194,
+          "image_height": 831
         },
         {
           "id": "p4-b6",
@@ -574,26 +601,36 @@
             560,
             686
           ],
-          "en": "In this study, we model the task of bipedal locomotion over complex terrains as a POMDP with discrete time steps t ∈ N, defined as",
+          "en": "In this study, we model the task of bipedal locomotion over complex terrains as a POMDP with discrete time steps \\(t\\in \\mathbb{N}\\), defined as",
           "reference": false,
           "source_image": "figs/p004-008-source.png",
-          "zh": "在本研究中，我们将复杂地形上的双足运动任务建模为具有离散时间步 t ∈ N 的 POMDP，其定义为"
+          "zh": "在本研究中，我们将复杂地形上的双足运动任务建模为具有离散时间步 \\(t\\in \\mathbb{N}\\) 的 POMDP，其定义为",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b9",
           "kind": "formula",
           "bbox": [
-            301,
-            700,
-            561,
-            711
+            299.0,
+            698.0,
+            563.0,
+            713.0
           ],
           "en": "M = {S , O , A , T , Z , R , γ} , (1)",
           "reference": false,
           "image": "figs/p004-009.png",
           "labels": [
             "1"
-          ]
+          ],
+          "original_bbox": [
+            301.0,
+            700.0,
+            561.0,
+            711.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 792,
+          "image_height": 45
         },
         {
           "id": "p4-b10",
@@ -604,10 +641,11 @@
             521,
             737
           ],
-          "en": "where S , O , and A denote the state, observation, and action spaces, respectively.",
+          "en": "where \\(S\\) , \\(O\\) , and \\(A\\) denote the state, observation, and action spaces, respectively.",
           "reference": false,
           "source_image": "figs/p004-010-source.png",
-          "zh": "其中 S、O 和 A 分别表示状态空间、观测空间和动作空间。"
+          "zh": "其中 \\(S\\)、\\(O\\) 和 \\(A\\) 分别表示状态空间、观测空间和动作空间。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p4-b11",
@@ -618,10 +656,11 @@
             560,
             779
           ],
-          "en": "The state transition probability T ( s , a , s′ ) represents the likelihood of reaching a new state s′ after executing action a in state s ; the observation probability Z ( s′ , a , o ) represents the probability of observing o after executing action a and transitioning to state s′ ; the",
+          "en": "The state transition probability \\(T(s,a,{s}^{′})\\) represents the likelihood of reaching a new state \\({s}^{′}\\) after executing action a in state s ; the observation probability \\(Z({s}^{′},a,o)\\) represents the probability of observing o after executing action a and transitioning to state \\({s}^{′}\\) ; the",
           "reference": false,
           "source_image": "figs/p004-011-source.png",
-          "zh": "状态转移概率 T ( s , a , s′ ) 表示在状态 s 下执行动作 a 后到达新状态 s′ 的概率；观测概率 Z ( s′ , a , o ) 表示在执行动作 a 并转移至状态 s′ 后观测到 o 的概率；"
+          "zh": "状态转移概率 \\(T(s,a,{s}^{′})\\) 表示在状态 s 下执行动作 a 后到达新状态 \\({s}^{′}\\) 的概率；观测概率 \\(Z({s}^{′},a,o)\\) 表示在执行动作 a 并转移至状态 \\({s}^{′}\\) 后观测到 o 的概率；",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -637,10 +676,11 @@
             560,
             113
           ],
-          "en": "reward function R ( s , a , s′ ) denotes the immediate reward obtained after taking action a in state s and arriving at state s′ ; and the discount factor γ ∈ [0, 1] balances the relative importance of immediate and future rewards.",
+          "en": "reward function \\(R(s,a,{s}^{′})\\) denotes the immediate reward obtained after taking action a in state s and arriving at state \\({s}^{′}\\) ; and the discount factor \\(\\gamma \\in [0,1]\\) balances the relative importance of immediate and future rewards.",
           "reference": false,
           "source_image": "figs/p005-002-source.png",
-          "zh": "奖励函数 R ( s , a , s′ ) 表示在状态 s 下采取动作 a 并到达状态 s′ 后所获得的即时奖励；折扣因子 γ ∈ [0, 1] 用于平衡即时奖励与未来奖励的相对重要性。"
+          "zh": "奖励函数 \\(R(s,a,{s}^{′})\\) 表示在状态 s 下采取动作 a 并到达状态 \\({s}^{′}\\) 后所获得的即时奖励；折扣因子 \\(\\gamma \\in [0,1]\\) 用于平衡即时奖励与未来奖励的相对重要性。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b3",
@@ -651,26 +691,36 @@
             560,
             138
           ],
-          "en": "The objective of RL is to find a policy π ( at|ot ) that maximizes the expected discounted cumulative reward:",
+          "en": "The objective of RL is to find a policy \\(\\pi ({a}_{t}|{o}_{t})\\) that maximizes the expected discounted cumulative reward:",
           "reference": false,
           "source_image": "figs/p005-003-source.png",
-          "zh": "强化学习（RL）的目标是寻找一个策略 π ( at|ot )，以最大化期望折扣累计奖励："
+          "zh": "强化学习（RL）的目标是寻找一个策略 \\(\\pi ({a}_{t}|{o}_{t})\\)，以最大化期望折扣累计奖励：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b4",
           "kind": "formula",
           "bbox": [
-            316,
-            139,
-            561,
-            170
+            314.0,
+            137.0,
+            563.0,
+            172.0
           ],
           "en": "∞ J ( π ) = E π ∑ γ t rt , (2) � t =0 �",
           "reference": false,
           "image": "figs/p005-004.png",
           "labels": [
             "2"
-          ]
+          ],
+          "original_bbox": [
+            316.0,
+            139.0,
+            561.0,
+            170.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 747,
+          "image_height": 105
         },
         {
           "id": "p5-b5",
@@ -681,10 +731,11 @@
             448,
             189
           ],
-          "en": "where rt = R ( st , at , st +1) is the immediate reward at time step t .",
+          "en": "where \\({r}_{t}=R({s}_{t},{a}_{t},{s}_{t+1})\\) is the immediate reward at time step t .",
           "reference": false,
           "source_image": "figs/p005-005-source.png",
-          "zh": "其中 rt = R ( st , at , st +1) 为时间步 t 的即时奖励。"
+          "zh": "其中 \\({r}_{t}=R({s}_{t},{a}_{t},{s}_{t+1})\\) 为时间步 t 的即时奖励。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b6",
@@ -709,26 +760,36 @@
             561,
             494
           ],
-          "en": "State Reconstruction Module: The SRM is a component within a larger system. Given the partial observability of the environment, robots cannot access complete state information during decision-making. The partial observations relied upon by the system often reflect only local environmental features, failing to capture overall dynamic changes. This limits the system’s ability to perform precise perception and effective decision-making in complex environments. Therefore, this module’s responsibility is to reconstruct short-term privileged history information from noisy long-term history observations. Noise in longterm history observations is illustrated in Table 1. Such privileged information contains no redundant content and includes state information unobtainable in the real world. This approach mitigates the impact of noise on the policy and enhances the observability of policy inputs. Research indicates that short-term history data can coordinate with the adaptability generated by long-term history data, thereby promoting improvements in real-time control performance. Furthermore, explicit estimation of linear velocity has been demonstrated to enhance the tracking accuracy of robotic velocity commands. SRM consists of an encoder-decoder structure, as shown in Figure 1. The encoder ESRM ( ˜ vt , zt|oH 1 ) takes long-term history observations oH 1 as input and outputs the estimated linear velocity v ˜ t and implicit features zt . SRM estimates the linear velocity vt , effectively enhancing the robustness of the strategy, with its key advantage being improved tracking accuracy of the velocity command. The decoder DSRM ( s ˜ r|zt , vt ) takes vt and zt as input and outputs the reconstructed short-term history privileged information s ˜ r . ot is defined as",
+          "en": "State Reconstruction Module: The SRM is a component within a larger system. Given the partial observability of the environment, robots cannot access complete state information during decision-making. The partial observations relied upon by the system often reflect only local environmental features, failing to capture overall dynamic changes. This limits the system’s ability to perform precise perception and effective decision-making in complex environments. Therefore, this module’s responsibility is to reconstruct short-term privileged history information from noisy long-term history observations. Noise in longterm history observations is illustrated in Table 1. Such privileged information contains no redundant content and includes state information unobtainable in the real world. This approach mitigates the impact of noise on the policy and enhances the observability of policy inputs. Research indicates that short-term history data can coordinate with the adaptability generated by long-term history data, thereby promoting improvements in real-time control performance. Furthermore, explicit estimation of linear velocity has been demonstrated to enhance the tracking accuracy of robotic velocity commands. SRM consists of an encoder-decoder structure, as shown in Figure 1. The encoder \\({E}_{SRM}({\\overset{˜}{v}}_{t},{z}_{t}|{o}_{{H}_{1}})\\) takes long-term history observations \\({o}_{{H}_{1}}\\) as input and outputs the estimated linear velocity \\({\\overset{˜}{v}}_{t}\\) and implicit features \\({z}_{t}\\) . SRM estimates the linear velocity \\({v}_{t}\\) , effectively enhancing the robustness of the strategy, with its key advantage being improved tracking accuracy of the velocity command. The decoder \\({D}_{SRM}({\\overset{˜}{s}}_{r}|{z}_{t},{v}_{t})\\) takes \\({v}_{t}\\) and \\({z}_{t}\\) as input and outputs the reconstructed short-term history privileged information \\({\\overset{˜}{s}}_{r}\\) . \\({o}_{t}\\) is defined as",
           "reference": false,
           "source_image": "figs/p005-007-source.png",
-          "zh": "状态重建模块：SRM 是更大系统中的一个组成部分。鉴于环境的部分可观测性，机器人在决策过程中无法获取完整的状态信息。系统所依赖的部分观测往往只反映局部环境特征，无法捕捉整体的动态变化。这限制了系统在复杂环境中进行精确感知和有效决策的能力。因此，该模块的作用是从含噪的长期历史观测中重构短期特权历史信息。长期历史观测中的噪声如表 1 所示。此类特权信息不包含冗余内容，并包含了真实世界中无法获取的状态信息。该方法减轻了噪声对策略的影响，并提升了策略输入的可观测性。研究表明，短期历史数据可以与长期历史数据所带来的适应能力协同配合，从而促进实时控制性能的提升。此外，显式估计线速度已被证明能提高机器人速度指令的跟踪精度。SRM 包含编码器-解码器结构，如图 1 所示。编码器 ESRM ( ˜ vt , zt|oH 1 ) 以长期历史观测 oH 1 作为输入，并输出估计的线速度 v ˜ t 和隐式特征 zt。SRM 估计线速度 vt，有效增强了策略的鲁棒性，其关键优势在于提高了速度指令的跟踪精度。解码器 DSRM ( s ˜ r|zt , vt ) 以 vt 和 zt 作为输入，并输出重构的短期历史特权信息 s ˜ r。ot 的定义为"
+          "zh": "状态重建模块：SRM 是更大系统中的一个组成部分。鉴于环境的部分可观测性，机器人在决策过程中无法获取完整的状态信息。系统所依赖的部分观测往往只反映局部环境特征，无法捕捉整体的动态变化。这限制了系统在复杂环境中进行精确感知和有效决策的能力。因此，该模块的作用是从含噪的长期历史观测中重构短期特权历史信息。长期历史观测中的噪声如表 1 所示。此类特权信息不包含冗余内容，并包含了真实世界中无法获取的状态信息。该方法减轻了噪声对策略的影响，并提升了策略输入的可观测性。研究表明，短期历史数据可以与长期历史数据所带来的适应能力协同配合，从而促进实时控制性能的提升。此外，显式估计线速度已被证明能提高机器人速度指令的跟踪精度。SRM 包含编码器-解码器结构，如图 1 所示。编码器 \\({E}_{SRM}({\\overset{˜}{v}}_{t},{z}_{t}|{o}_{{H}_{1}})\\) 以长期历史观测 \\({o}_{{H}_{1}}\\) 作为输入，并输出估计的线速度 \\({\\overset{˜}{v}}_{t}\\) 和隐式特征 \\({z}_{t}\\)。SRM 估计线速度 \\({v}_{t}\\)，有效增强了策略的鲁棒性，其关键优势在于提高了速度指令的跟踪精度。解码器 \\({D}_{SRM}({\\overset{˜}{s}}_{r}|{z}_{t},{v}_{t})\\) 以 \\({v}_{t}\\) 和 \\({z}_{t}\\) 作为输入，并输出重构的短期历史特权信息 \\({\\overset{˜}{s}}_{r}\\)。\\({o}_{t}\\) 的定义为",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b8",
           "kind": "formula",
           "bbox": [
-            281,
-            506,
-            561,
-            527
+            279.0,
+            504.0,
+            563.0,
+            529.0
           ],
           "en": "ot = phase cmd qt q ˙ t Φ ω , (3) � � T",
           "reference": false,
           "image": "figs/p005-008.png",
           "labels": [
             "3"
-          ]
+          ],
+          "original_bbox": [
+            281.0,
+            506.0,
+            561.0,
+            527.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 852,
+          "image_height": 75
         },
         {
           "id": "p5-b9",
@@ -739,26 +800,36 @@
             560,
             577
           ],
-          "en": "where, phase , cmd , qt , q ˙ t , Φ, and ω are the phase information, velocity commands, joint positions, joint velocities, body Euler angles, and body angular velocities, respectively. st is defined as",
+          "en": "where, \\(phase\\), \\(cmd\\), \\(q_{t}\\), \\(\\dot{q}_{t}\\), \\(\\Phi\\), and \\(\\omega\\) are the phase information, velocity commands, joint positions, joint velocities, body Euler angles, and body angular velocities, respectively. \\(s_{t}\\) is defined as",
           "reference": false,
           "source_image": "figs/p005-009-source.png",
-          "zh": "其中，phase、cmd、qt、q ˙ t、Φ 和 ω 分别表示相位信息、速度指令、关节位置、关节速度、机身欧拉角和机身角速度。st 的定义为"
+          "zh": "其中，\\(phase\\)、\\(cmd\\)、\\(q_{t}\\)、\\(\\dot{q}_{t}\\)、\\(\\Phi\\) 和 \\(\\omega\\) 分别表示相位信息、速度指令、关节位置、关节速度、机身欧拉角和机身角速度。\\(s_{t}\\) 的定义为",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b10",
           "kind": "formula",
           "bbox": [
-            321,
-            575,
-            561,
-            597
+            319.0,
+            573.0,
+            563.0,
+            599.0
           ],
           "en": "st = ot vt ht , (4) � � T",
           "reference": false,
           "image": "figs/p005-010.png",
           "labels": [
             "4"
-          ]
+          ],
+          "original_bbox": [
+            321.0,
+            575.0,
+            561.0,
+            597.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 732,
+          "image_height": 78
         },
         {
           "id": "p5-b11",
@@ -769,10 +840,11 @@
             560,
             628
           ],
-          "en": "where, vt is linear velocity. ht represents privileged information such as elevation maps and friction coefficients.",
+          "en": "where, \\(v_{t}\\) is linear velocity. \\(h_{t}\\) represents privileged information such as elevation maps and friction coefficients.",
           "reference": false,
           "source_image": "figs/p005-011-source.png",
-          "zh": "其中，vt 为线速度。ht 表示高程图和摩擦系数等特权信息。"
+          "zh": "其中，\\(v_{t}\\) 为线速度。\\(h_{t}\\) 表示高程图和摩擦系数等特权信息。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b12",
@@ -783,26 +855,36 @@
             560,
             656
           ],
-          "en": "zt represents the feature extraction from the long-term history oH 1. The loss function of the SRM is defined as",
+          "en": "\\(z_{t}\\) represents the feature extraction from the long-term history \\(o_{H_{1}}\\). The loss function of the SRM is defined as",
           "reference": false,
           "source_image": "figs/p005-012-source.png",
-          "zh": "zt 表示从长期历史 oH 1 中提取的特征。SRM 的损失函数定义为"
+          "zh": "\\(z_{t}\\) 表示从长期历史 \\(o_{H_{1}}\\) 中提取的特征。SRM 的损失函数定义为",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p5-b13",
           "kind": "formula",
           "bbox": [
-            283,
-            670,
-            561,
-            681
+            281.0,
+            668.0,
+            563.0,
+            683.0
           ],
           "en": "L SRM = MSE ( ˜ vt , vt ) + MSE ( s ˜ r , sH ), (5)",
           "reference": false,
           "image": "figs/p005-013.png",
           "labels": [
             "5"
-          ]
+          ],
+          "original_bbox": [
+            283.0,
+            670.0,
+            561.0,
+            681.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 846,
+          "image_height": 45
         },
         {
           "id": "p5-b14",
@@ -813,10 +895,11 @@
             560,
             721
           ],
-          "en": "where, v ˜ t is the reconstructed linear velocity. s ˜ r is the reconstructed short-term history privileged information.",
+          "en": "where, \\(\\tilde{v}_{t}\\) is the reconstructed linear velocity. \\(\\tilde{s}_{r}\\) is the reconstructed short-term history privileged information.",
           "reference": false,
           "source_image": "figs/p005-014-source.png",
-          "zh": "其中，v ˜ t 为重构的线速度。s ˜ r 为重构的短期历史特权信息。"
+          "zh": "其中，\\(\\tilde{v}_{t}\\) 为重构的线速度。\\(\\tilde{s}_{r}\\) 为重构的短期历史特权信息。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -841,15 +924,24 @@
           "id": "p6-b3",
           "kind": "table",
           "bbox": [
-            173,
-            95,
-            531,
-            219
+            171.0,
+            93.0,
+            533.0,
+            221.0
           ],
           "en": "|Parameter|Unit|Range|Operator| |---|---|---|---| |Joint pos noise|rad|[−0.05 , 0.05]|additive| |Joint velocity noise|rad/s|[−2, 2]|additive| |Euler noise|rad|[−0.05, 0.05]|additive| |Angular velocity noise|rad/s|[−0.5, 0.5]|additive| |COM|cm|[−0.075, 0.075]|-| |Payload mass|kg|[−5, 5]|additive| |Friction|-|[0.1, 2]|-| |Kp, Kd noise|-|[0.85, 1.15]|additive|",
           "reference": false,
           "image": "figs/p006-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            173.0,
+            95.0,
+            531.0,
+            219.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1086,
+          "image_height": 384
         },
         {
           "id": "p6-b4",
@@ -874,10 +966,11 @@
             561,
             712
           ],
-          "en": "In highly dynamic tasks such as bipedal walking, robots need to achieve stable and flexible movement in rapidly changing environments, which imposes high demands on the foresight and decision-making capabilities of their strategies. To address this challenge, the SPM models the potential state transitions of the robot during action execution, enabling the prediction of the possible physical states and their evolution under different action choices. The key advantage of SPM lies in its foresight modeling capability, which allows the robot to proactively assess the potential consequences of different behaviors before making decisions, thus enabling value-driven decision-making rather than relying solely on immediate rewards for policy optimization. The core idea of SPM is to use history observation data to reconstruct short-term future states. The goal is not to precisely estimate every detail of future states but to predict future trends, helping the robot make adaptive adjustments to environmental changes during action execution. Through this predictive ability, the robot can plan for upcoming state changes in advance, thereby improving overall motion performance and task execution stability. Specifically, the encoder ESPM ( ztp|oH 3) takes a sequence of history observationsoH 3as input and maps it to compact latent features ztp.These latent features not only reduce the dimensionality of the original history information but also preserve dynamic information closely related to future state evolution. Subsequently, the decoder DSPM ( s ˜ p|ztp) transforms the latent featuresz tpinto reconstructed short-term privileged history information s ˜ p , thereby simulating the robot’s state evolution over the next several time steps. The significance of this reconstruction process lies in its ability to provide predictions about future states, thereby enabling the policy network to consider potential state evolutions during decision-making. For instance, the robot can anticipate risk events such as joint hyperextension, foot tip slippage, or height instability during specific gaits, enabling preventive adjustments in action selection. By integrating the predicted latent features with current short-term history information, the robot obtains a comprehensive representation encompassing both recent dynamic trends and potential future state information, thereby achieving safer, more informed, and robust decision-making. Furthermore, SPM can be jointly trained with policy networks within reinforcement learning frameworks. During training, by minimizing the error between predicted features and actual short-term privileged information, robots learn compact yet information-rich dynamic latent space representations. This not only enhances state estimation accuracy but also significantly improves policy adaptability in complex terrains, nonlinear dynamics, and under external disturbances.",
+          "en": "In highly dynamic tasks such as bipedal walking, robots need to achieve stable and flexible movement in rapidly changing environments, which imposes high demands on the foresight and decision-making capabilities of their strategies. To address this challenge, the SPM models the potential state transitions of the robot during action execution, enabling the prediction of the possible physical states and their evolution under different action choices. The key advantage of SPM lies in its foresight modeling capability, which allows the robot to proactively assess the potential consequences of different behaviors before making decisions, thus enabling value-driven decision-making rather than relying solely on immediate rewards for policy optimization. The core idea of SPM is to use history observation data to reconstruct short-term future states. The goal is not to precisely estimate every detail of future states but to predict future trends, helping the robot make adaptive adjustments to environmental changes during action execution. Through this predictive ability, the robot can plan for upcoming state changes in advance, thereby improving overall motion performance and task execution stability. Specifically, the encoder \\(E_{SPM}(z_{t}^{p}|o_{H_{3}})\\) takes a sequence of history observations \\(o_{H_{3}}\\) as input and maps it to compact latent features \\(z_{t}^{p}\\). These latent features not only reduce the dimensionality of the original history information but also preserve dynamic information closely related to future state evolution. Subsequently, the decoder \\(D_{SPM}(\\tilde{s}_{p}|z_{t}^{p})\\) transforms the latent features \\(z_{t}^{p}\\) into reconstructed short-term privileged history information \\(\\tilde{s}_{p}\\), thereby simulating the robot’s state evolution over the next several time steps. The significance of this reconstruction process lies in its ability to provide predictions about future states, thereby enabling the policy network to consider potential state evolutions during decision-making. For instance, the robot can anticipate risk events such as joint hyperextension, foot tip slippage, or height instability during specific gaits, enabling preventive adjustments in action selection. By integrating the predicted latent features with current short-term history information, the robot obtains a comprehensive representation encompassing both recent dynamic trends and potential future state information, thereby achieving safer, more informed, and robust decision-making. Furthermore, SPM can be jointly trained with policy networks within reinforcement learning frameworks. During training, by minimizing the error between predicted features and actual short-term privileged information, robots learn compact yet information-rich dynamic latent space representations. This not only enhances state estimation accuracy but also significantly improves policy adaptability in complex terrains, nonlinear dynamics, and under external disturbances.",
           "reference": false,
           "source_image": "figs/p006-005-source.png",
-          "zh": "在双足行走等高动态任务中，机器人需要在快速变化的环境中实现稳定灵活的运动，这对策略的前瞻性与决策能力提出了极高要求。为应对这一挑战，SPM 建模了机器人在动作执行过程中的潜在状态转移，从而能够在不同动作选择下预测可能的物理状态及其演化趋势。SPM 的关键优势在于其前瞻建模能力，使机器人能够在决策前主动评估不同行为的潜在后果，进而实现价值驱动的决策，而非仅仅依赖即时奖励进行策略优化。SPM 的核心思想是利用历史观测数据来重构短期未来状态。其目标并非精确估计未来状态的每一个细节，而是预测未来发展趋势，从而帮助机器人在动作执行过程中针对环境变化做出自适应调整。借助这种预测能力，机器人能够提前规划即将发生的状态变化，从而提升整体运动性能和任务执行的稳定性。具体而言，编码器 ESPM ( ztp|oH 3) 以历史观测序列 oH 3 作为输入，并将其映射为紧凑的潜在特征 ztp。这些潜在特征不仅降低了原始历史信息的维度，还保留了与未来状态演化密切相关的动态信息。随后，解码器 DSPM ( s ˜ p|ztp) 将潜在特征 ztp 转化为重构的短期特权历史信息 s ˜ p，从而模拟机器人接下来若干时间步的状态演化。该重构过程的重要意义在于其能够提供对未来状态的预测，进而使策略网络在决策时能够兼顾潜在的状态演化。例如，机器人在特定步态下可预见关节过伸、足尖打滑或高度不稳定等风险事件，从而在动作选择中进行预防性调整。通过将预测的潜在特征与当前短期历史信息相结合，机器人获得了同时包含近期动态趋势与潜在未来状态信息的全面表征，进而实现更安全、依据更充分且更鲁棒的决策。此外，在强化学习框架下，SPM 可以与策略网络进行联合训练。在训练过程中，通过最小化预测特征与实际短期特权信息之间的误差，机器人学习到了紧凑且信息丰富的动态潜在空间表征。这不仅提高了状态估计的精度，还显著提升了策略在复杂地形、非线性动力学以及外部扰动下的适应能力。"
+          "zh": "在双足行走等高动态任务中，机器人需要在快速变化的环境中实现稳定灵活的运动，这对策略的前瞻性与决策能力提出了极高要求。为应对这一挑战，SPM 建模了机器人在动作执行过程中的潜在状态转移，从而能够在不同动作选择下预测可能的物理状态及其演化趋势。SPM 的关键优势在于其前瞻建模能力，使机器人能够在决策前主动评估不同行为的潜在后果，进而实现价值驱动的决策，而非仅仅依赖即时奖励进行策略优化。SPM 的核心思想是利用历史观测数据来重构短期未来状态。其目标并非精确估计未来状态的每一个细节，而是预测未来发展趋势，从而帮助机器人在动作执行过程中针对环境变化做出自适应调整。借助这种预测能力，机器人能够提前规划即将发生的状态变化，从而提升整体运动性能和任务执行的稳定性。具体而言，编码器 \\(E_{SPM}(z_{t}^{p}|o_{H_{3}})\\) 以历史观测序列 \\(o_{H_{3}}\\) 作为输入，并将其映射为紧凑的潜在特征 \\(z_{t}^{p}\\)。这些潜在特征不仅降低了原始历史信息的维度，还保留了与未来状态演化密切相关的动态信息。随后，解码器 \\(D_{SPM}(\\tilde{s}_{p}|z_{t}^{p})\\) 将潜在特征 \\(z_{t}^{p}\\) 转化为重构的短期特权历史信息 \\(\\tilde{s}_{p}\\)，从而模拟机器人接下来若干时间步的状态演化。该重构过程的重要意义在于其能够提供对未来状态的预测，进而使策略网络在决策时能够兼顾潜在的状态演化。例如，机器人在特定步态下可预见关节过伸、足尖打滑或高度不稳定等风险事件，从而在动作选择中进行预防性调整。通过将预测的潜在特征与当前短期历史信息相结合，机器人获得了同时包含近期动态趋势与潜在未来状态信息的全面表征，进而实现更安全、依据更充分且更鲁棒的决策。此外，在强化学习框架下，SPM 可以与策略网络进行联合训练。在训练过程中，通过最小化预测特征与实际短期特权信息之间的误差，机器人学习到了紧凑且信息丰富的动态潜在空间表征。这不仅提高了状态估计的精度，还显著提升了策略在复杂地形、非线性动力学以及外部扰动下的适应能力。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p6-b6",
@@ -897,17 +990,26 @@
           "id": "p6-b7",
           "kind": "formula",
           "bbox": [
-            315,
-            740,
-            561,
-            752
+            313.0,
+            738.0,
+            563.0,
+            754.0
           ],
           "en": "L SPM = MSE ( s ˜ p , sH ), (6)",
           "reference": false,
           "image": "figs/p006-007.png",
           "labels": [
             "6"
-          ]
+          ],
+          "original_bbox": [
+            315.0,
+            740.0,
+            561.0,
+            752.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 750,
+          "image_height": 48
         },
         {
           "id": "p6-b8",
@@ -918,10 +1020,11 @@
             505,
             778
           ],
-          "en": "where, s ˜ p represents the predicted short-term history privileged information.",
+          "en": "where, \\(\\tilde{s}_{p}\\) represents the predicted short-term history privileged information.",
           "reference": false,
           "source_image": "figs/p006-008-source.png",
-          "zh": "其中，s ˜ p 表示预测的短期历史特权信息。"
+          "zh": "其中，\\(\\tilde{s}_{p}\\) 表示预测的短期历史特权信息。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         }
       ]
     },
@@ -932,17 +1035,26 @@
           "id": "p7-b2",
           "kind": "formula",
           "bbox": [
-            166,
-            74,
-            561,
-            261
+            164.0,
+            72.0,
+            563.0,
+            263.0
           ],
           "en": "Policy Learning: We adopt an asymmetric actor-critic framework. Specifically, the critic can directly access privileged information s ˜ H from the simulation environment, while the policy network takes as input the implicit information zt , z ˜ t p , and v ˜ t output by the SRM and SPM modules, and learns the corresponding action policy π ( at|zt , zt p , v ˜ t ). z ˜ t p is a copy of the encoder’s ESPM parameters. The generation process is ESPM ( z ˜ t p|oH 2 ). During training, Proximal Policy Optimization (PPO) is used, maximizing the expected cumulative return via multi-step stochastic gradient descent. The optimization objective of the policy can be expressed as the following loss function: πθ ( a|zt , zt p , v ˜ t ) Lπ = min A πθb , � πθb ( a|zt , zt p , v ˜ t ) πθ ( a|zt , zt p , v ˜ t ) clip , 1 − ϵ , 1 + ϵ A πθb , (7) � πθb ( a|zt , zt p , v ˜ t ) � �",
           "reference": false,
           "image": "figs/p007-002.png",
           "labels": [
             "7"
-          ]
+          ],
+          "original_bbox": [
+            166.0,
+            74.0,
+            561.0,
+            261.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1197,
+          "image_height": 573
         },
         {
           "id": "p7-b3",
@@ -953,26 +1065,36 @@
             561,
             368
           ],
-          "en": "where, a represents the action generated by the policy. π denotes the current optimized policy, while πb is the policy used in the previous iteration. ϵ is a hyperparameter that controls the range of divergence between the new and old policies, thereby limiting the magnitude of policy updates and preventing overfitting. The advantage function Aπθb represents the advantage output by the policy network during the previous training round, whose computation relies on the value function Vϕ ( s ). When updating the value function, the following optimization objective is followed:",
+          "en": "where, a represents the action generated by the policy. \\(\\pi\\) denotes the current optimized policy, while \\(\\pi_{b}\\) is the policy used in the previous iteration. \\(\\epsilon\\) is a hyperparameter that controls the range of divergence between the new and old policies, thereby limiting the magnitude of policy updates and preventing overfitting. The advantage function \\(A^{\\pi_{\\theta_{b}}}\\) represents the advantage output by the policy network during the previous training round, whose computation relies on the value function \\(V_{\\phi}(s)\\). When updating the value function, the following optimization objective is followed:",
           "reference": false,
           "source_image": "figs/p007-003-source.png",
-          "zh": "其中，a 表示策略生成的动作。π 表示当前优化的策略，而 πb 为上一轮迭代中所使用的策略。ϵ 是控制新旧策略之间差异范围的超参数，从而限制策略更新幅度并防止过拟合。优势函数 Aπθb 表示策略网络在上一轮训练中输出的优势，其计算依赖于价值函数 Vϕ ( s )。在更新价值函数时，遵循以下优化目标："
+          "zh": "其中，a 表示策略生成的动作。\\(\\pi\\) 表示当前优化的策略，而 \\(\\pi_{b}\\) 为上一轮迭代中所使用的策略。\\(\\epsilon\\) 是控制新旧策略之间差异范围的超参数，从而限制策略更新幅度并防止过拟合。优势函数 \\(A^{\\pi_{\\theta_{b}}}\\) 表示策略网络在上一轮训练中输出的优势，其计算依赖于价值函数 \\(V_{\\phi}(s)\\)。在更新价值函数时，遵循以下优化目标：",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b4",
           "kind": "formula",
           "bbox": [
-            317,
-            379,
-            561,
-            395
+            315.0,
+            377.0,
+            563.0,
+            397.0
           ],
           "en": "Lv = � Vϕ ( st ) − R ˆ t �2. (8)",
           "reference": false,
           "image": "figs/p007-004.png",
           "labels": [
             "8"
-          ]
+          ],
+          "original_bbox": [
+            317.0,
+            379.0,
+            561.0,
+            395.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 744,
+          "image_height": 60
         },
         {
           "id": "p7-b5",
@@ -983,10 +1105,11 @@
             561,
             434
           ],
-          "en": "At time t , Rt denotes the cumulative return obtained by the agent, while V ( st ) represents the value predicted by the critic for the current state st .",
+          "en": "At time t , \\(R_{t}\\) denotes the cumulative return obtained by the agent, while \\(V(s_{t})\\) represents the value predicted by the critic for the current state \\(s_{t}\\) .",
           "reference": false,
           "source_image": "figs/p007-005-source.png",
-          "zh": "在时间 t，Rt 表示智能体获得的累计回报，而 V ( st ) 表示 Critic 对当前状态 st 预测的价值。"
+          "zh": "在时间 t，\\(R_{t}\\) 表示智能体获得的累计回报，而 \\(V(s_{t})\\) 表示 Critic 对当前状态 \\(s_{t}\\) 预测的价值。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b6",
@@ -1006,17 +1129,26 @@
           "id": "p7-b7",
           "kind": "formula",
           "bbox": [
-            284,
-            462,
-            561,
-            473
+            282.0,
+            460.0,
+            563.0,
+            475.0
           ],
           "en": "L LSWM = L SRM + L SPM + Lπ + Lv , (9)",
           "reference": false,
           "image": "figs/p007-007.png",
           "labels": [
             "9"
-          ]
+          ],
+          "original_bbox": [
+            284.0,
+            462.0,
+            561.0,
+            473.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 843,
+          "image_height": 45
         },
         {
           "id": "p7-b8",
@@ -1027,10 +1159,11 @@
             562,
             511
           ],
-          "en": "where, L SRM is the reconstruction loss. L SPM is the prediction loss. Lπ is the policy loss. Lv is the value loss.",
+          "en": "where, \\(L_{SRM}\\) is the reconstruction loss. \\(L_{SPM}\\) is the prediction loss. \\(L_{\\pi}\\) is the policy loss. \\(L_{v}\\) is the value loss.",
           "reference": false,
           "source_image": "figs/p007-008-source.png",
-          "zh": "其中，L SRM 为重构损失。L SPM 为预测损失。Lπ 为策略损失。Lv 为价值损失。"
+          "zh": "其中，\\(L_{SRM}\\) 为重构损失。\\(L_{SPM}\\) 为预测损失。\\(L_{\\pi}\\) 为策略损失。\\(L_{v}\\) 为价值损失。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b9",
@@ -1055,10 +1188,11 @@
             562,
             620
           ],
-          "en": "In this paper, the bipedal robot operates in a continuous action space, where the action vector at consists of incremental target positions for each joint, totaling 10 dimensions (corresponding to 10 controllable joints). The reward function is designed to guide the robot toward stable and efficient walking while avoiding dangerous or unnatural movements. The foot swing and stance penalties originate from Reference [12]. The overall reward is shown in Table 2.",
+          "en": "In this paper, the bipedal robot operates in a continuous action space, where the action vector \\(a_{t}\\) consists of incremental target positions for each joint, totaling 10 dimensions (corresponding to 10 controllable joints). The reward function is designed to guide the robot toward stable and efficient walking while avoiding dangerous or unnatural movements. The foot swing and stance penalties originate from Reference [12]. The overall reward is shown in Table 2.",
           "reference": false,
           "source_image": "figs/p007-010-source.png",
-          "zh": "在本文中，双足机器人在连续动作空间中运行，其中动作向量 at 由每个关节的增量目标位置组成，共 10 维（对应 10 个可控关节）。奖励函数旨在引导机器人实现稳定高效的行走，同时避免危险或不自然的动作。足部摆动与支撑惩罚源自参考文献 [12]。总奖励如表 2 所示。"
+          "zh": "在本文中，双足机器人在连续动作空间中运行，其中动作向量 \\(a_{t}\\) 由每个关节的增量目标位置组成，共 10 维（对应 10 个可控关节）。奖励函数旨在引导机器人实现稳定高效的行走，同时避免危险或不自然的动作。足部摆动与支撑惩罚源自参考文献 [12]。总奖励如表 2 所示。",
+          "math_repair": "author-source-gemini-3.8-flash-medium"
         },
         {
           "id": "p7-b11",
@@ -1078,15 +1212,24 @@
           "id": "p7-b12",
           "kind": "table",
           "bbox": [
-            172,
-            656,
-            480,
-            764
+            170.0,
+            654.0,
+            482.0,
+            766.0
           ],
           "en": "|Reward Term|Equation|Weight| |---|---|---| |Lin. velocity tracking|exp � −4∥vcmd xy −vxy∥2 2 �|1.5| |Ang. velocity tracking|exp �−4(ωcmd z −ωz)2� |1| |Lin. velocityz|v2 z|−0.5| |Ang. velocity (xy) |∥ωxy∥2 2 |−0.3| |Orientation (xy)|∥gxy∥2 |−5| |Base height|(hdes−h)2|−20| |Joint Torque|∥τ∥2 2|−1×10−5|",
           "reference": false,
           "image": "figs/p007-012.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            172.0,
+            656.0,
+            480.0,
+            764.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 936,
+          "image_height": 336
         }
       ]
     },
@@ -1111,15 +1254,24 @@
           "id": "p8-b3",
           "kind": "table",
           "bbox": [
-            172,
-            95,
-            488,
-            246
+            170.0,
+            93.0,
+            490.0,
+            248.0
           ],
           "en": "|Reward Term|Equation|Weight| |---|---|---| |Joint acceleration|¨q2|−2.5×10−7| |Joint power||τ˙q||−2×10−5| |Action rate|∥at −at−1∥2 2 |−0.01| |Feet distance|max � 0, 0.2− ���pl y −pr y ��� 2 � |−10| |Hip joint deviation|∑i∈hip ���θi −θdefault i ��� 2|−5| |Feet stance|rcontact|−2| |Feet swing|rswing|−2| |Feet contact force|CLIP(FL,R −180, 0)|−0.01| |Joint limit|nlimitation|−5| |Collision|ncollision|−10|",
           "reference": false,
           "image": "figs/p008-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            172.0,
+            95.0,
+            488.0,
+            246.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 960,
+          "image_height": 465
         },
         {
           "id": "p8-b4",
@@ -1153,15 +1305,24 @@
           "id": "p8-b6",
           "kind": "picture",
           "bbox": [
-            166,
-            375,
-            363,
-            562
+            164.0,
+            373.0,
+            365.0,
+            564.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p008-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            166.0,
+            375.0,
+            363.0,
+            562.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 603,
+          "image_height": 573
         },
         {
           "id": "p8-b7",
@@ -1195,15 +1356,24 @@
           "id": "p8-b9",
           "kind": "table",
           "bbox": [
-            200,
-            610,
-            524,
-            744
+            198.0,
+            608.0,
+            526.0,
+            746.0
           ],
           "en": "|Joint Number|Joint Name|Limit (rad)| |---|---|---| |0|LLEGHIPYAW|−2.758~2.758| |1|LLEGHIPROLL|−0.524~2.967| |2|LLEGHIPPITCH|−2.531~2.880| |3|LLEGKNEE|−0.087~2.880| |4|LLEGANKLEROLL|−0.262~0.262| |5|RLEGHIPYAW|−2.758~2.758| |6|RLEGHIPROLL|−2.967~0.524| |7|RLEGHIPPITCH|−2.531~2.880| |8|RLEGKNEE|−0.087~2.880| |9|RLEGANKLEROLL|−0.262~0.262|",
           "reference": false,
           "image": "figs/p008-009.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            200.0,
+            610.0,
+            524.0,
+            744.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 984,
+          "image_height": 414
         }
       ]
     },
@@ -1242,15 +1412,24 @@
           "id": "p9-b4",
           "kind": "picture",
           "bbox": [
-            166,
-            373,
-            481,
-            517
+            164.0,
+            371.0,
+            483.0,
+            519.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p009-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            166.0,
+            373.0,
+            481.0,
+            517.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 957,
+          "image_height": 444
         },
         {
           "id": "p9-b5",
@@ -1284,15 +1463,24 @@
           "id": "p9-b7",
           "kind": "table",
           "bbox": [
-            208,
-            591,
-            492,
-            749
+            206.0,
+            589.0,
+            494.0,
+            751.0
           ],
           "en": "|Parameter|Value| |---|---| |Number of environments|4096| |Learning rate|adaptive| |Discount factor (γ)|0.996| |GAE factor (λ)|0.95| |Number of batches|4| |gradient clipping|1| |Clip range|0.2| |Actor hidden layers|[512, 256, 128]| |Critic hidden layers|[512, 256, 128]| |SRM network|[512, 256, 128]| |SPM network|[512, 256, 128]| |h1,h2|59, 4|",
           "reference": false,
           "image": "figs/p009-007.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            208.0,
+            591.0,
+            492.0,
+            749.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 864,
+          "image_height": 486
         }
       ]
     },
@@ -1415,15 +1603,24 @@
           "id": "p10-b10",
           "kind": "picture",
           "bbox": [
-            166,
-            371,
-            422,
-            655
+            164.0,
+            369.0,
+            424.0,
+            657.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p010-010.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            166.0,
+            371.0,
+            422.0,
+            655.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 780,
+          "image_height": 864
         },
         {
           "id": "p10-b11",
@@ -1476,15 +1673,24 @@
           "id": "p11-b3",
           "kind": "picture",
           "bbox": [
-            163,
-            209,
-            459,
-            357
+            161.0,
+            207.0,
+            461.0,
+            359.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p011-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            163.0,
+            209.0,
+            459.0,
+            357.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 900,
+          "image_height": 456
         },
         {
           "id": "p11-b4",
@@ -1504,15 +1710,24 @@
           "id": "p11-b5",
           "kind": "picture",
           "bbox": [
-            163,
-            382,
-            459,
-            530
+            161.0,
+            380.0,
+            461.0,
+            532.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p011-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            163.0,
+            382.0,
+            459.0,
+            530.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 900,
+          "image_height": 456
         },
         {
           "id": "p11-b6",
@@ -1551,15 +1766,24 @@
           "id": "p12-b2",
           "kind": "picture",
           "bbox": [
-            163,
-            71,
-            459,
-            220
+            161.0,
+            69.0,
+            461.0,
+            222.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p012-002.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            163.0,
+            71.0,
+            459.0,
+            220.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 900,
+          "image_height": 459
         },
         {
           "id": "p12-b3",
@@ -1607,15 +1831,24 @@
           "id": "p12-b6",
           "kind": "picture",
           "bbox": [
-            163,
-            426,
-            459,
-            575
+            161.0,
+            424.0,
+            461.0,
+            577.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p012-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            163.0,
+            426.0,
+            459.0,
+            575.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 900,
+          "image_height": 459
         },
         {
           "id": "p12-b7",
@@ -1635,15 +1868,24 @@
           "id": "p12-b8",
           "kind": "picture",
           "bbox": [
-            163,
-            599,
-            459,
-            748
+            161.0,
+            597.0,
+            461.0,
+            750.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p012-008.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            163.0,
+            599.0,
+            459.0,
+            748.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 900,
+          "image_height": 459
         },
         {
           "id": "p12-b9",
@@ -1682,15 +1924,24 @@
           "id": "p13-b3",
           "kind": "picture",
           "bbox": [
-            166,
-            459,
-            481,
-            560
+            164.0,
+            457.0,
+            483.0,
+            562.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p013-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            166.0,
+            459.0,
+            481.0,
+            560.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 957,
+          "image_height": 315
         },
         {
           "id": "p13-b4",
@@ -1724,15 +1975,24 @@
           "id": "p13-b6",
           "kind": "table",
           "bbox": [
-            172,
-            652,
-            553,
-            725
+            170.0,
+            650.0,
+            555.0,
+            727.5934448242188
           ],
           "en": "|Method|Falls|Slips|Up-Failures|Success Rate (%)| |---|---|---|---|---| |LSWM|0|2|1|94.0| |SRPM|2|5|2|82.0| |SRM|1|7|4|76.0| |DreamWaq|5|8|7|60.0| |DWL|5|10|6|58.0|",
           "reference": false,
           "image": "figs/p013-006.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            172.0,
+            652.0,
+            553.0,
+            725.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 1155,
+          "image_height": 233
         },
         {
           "id": "p13-b7",
@@ -1771,15 +2031,24 @@
           "id": "p14-b3",
           "kind": "picture",
           "bbox": [
-            166,
-            264,
-            442,
-            360
+            164.0,
+            262.0,
+            444.0,
+            362.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p014-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            166.0,
+            264.0,
+            442.0,
+            360.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 840,
+          "image_height": 300
         },
         {
           "id": "p14-b4",
@@ -1799,15 +2068,24 @@
           "id": "p14-b5",
           "kind": "picture",
           "bbox": [
-            166,
-            385,
-            442,
-            482
+            164.0,
+            383.0,
+            444.0,
+            484.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p014-005.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            166.0,
+            385.0,
+            442.0,
+            482.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 840,
+          "image_height": 303
         },
         {
           "id": "p14-b6",
@@ -1874,29 +2152,47 @@
           "id": "p15-b3",
           "kind": "picture",
           "bbox": [
-            166,
-            150,
-            422,
-            240
+            164.0,
+            148.0,
+            424.0,
+            242.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p015-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            166.0,
+            150.0,
+            422.0,
+            240.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 780,
+          "image_height": 282
         },
         {
           "id": "p15-b4",
           "kind": "picture",
           "bbox": [
-            166,
-            246,
-            422,
-            604
+            164.0,
+            244.0,
+            424.0,
+            606.0
           ],
           "en": "( a ) ( b ) ( c ) ( d )",
           "reference": false,
           "image": "figs/p015-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            166.0,
+            246.0,
+            422.0,
+            604.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 780,
+          "image_height": 1086
         },
         {
           "id": "p15-b5",
@@ -1949,29 +2245,47 @@
           "id": "p16-b3",
           "kind": "picture",
           "bbox": [
-            166,
-            136,
-            403,
-            218
+            164.0,
+            134.0,
+            405.0,
+            220.0
           ],
           "en": "",
           "reference": false,
           "image": "figs/p016-003.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            166.0,
+            136.0,
+            403.0,
+            218.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 723,
+          "image_height": 258
         },
         {
           "id": "p16-b4",
           "kind": "picture",
           "bbox": [
-            166,
-            224,
-            403,
-            669
+            164.0,
+            222.0,
+            405.0,
+            671.0
           ],
           "en": "( a ) ( b ) ( c ) ( d ) ( e )",
           "reference": false,
           "image": "figs/p016-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            166.0,
+            224.0,
+            403.0,
+            669.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 723,
+          "image_height": 1347
         },
         {
           "id": "p16-b5",
@@ -2038,15 +2352,24 @@
           "id": "p17-b4",
           "kind": "table",
           "bbox": [
-            172,
-            204,
-            492,
-            277
+            170.0,
+            202.0,
+            494.0,
+            279.4935302734375
           ],
           "en": "|Method|COT (J/kg/m)| |---|---| |DWL|0.89| |SRM|0.85| |DreamWaq|0.87| |SRPM|0.82| |LSWM|0.78|",
           "reference": false,
           "image": "figs/p017-004.png",
-          "labels": []
+          "labels": [],
+          "original_bbox": [
+            172.0,
+            204.0,
+            492.0,
+            277.0
+          ],
+          "crop_repair": "complete-glyph-boundaries-v1",
+          "image_width": 972,
+          "image_height": 233
         },
         {
           "id": "p17-b5",

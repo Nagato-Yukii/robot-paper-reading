@@ -1,0 +1,35 @@
+{
+  "id": "supermimic",
+  "sha256": "fe213017ab062f4acc3965da89abd3c29969163e144a2628a662b8ce46691009",
+  "brand": "SuperMimic",
+  "zh_title": "SuperMimic：用单一可微分世界模型规模化学习人形全身控制",
+  "category": "世界模型 · 人形全身控制",
+  "pdf": "sources/supermimic.pdf",
+  "title": "SuperMimic：用单一可微分世界模型规模化学习人形全身控制 · 中英对照",
+  "brand_sub": "SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model",
+  "out": "site/supermimic",
+  "imported": true,
+  "source_language": "en",
+  "math": true,
+  "source_url": "https://arxiv.org/abs/2610.28480",
+  "source_aliases": [
+    "https://arxiv.org/pdf/2610.28480"
+  ],
+  "translation": "Gemini 3.8 Flash (Medium), translated against author LaTeX via local Antigravity CLI",
+  "translation_engine": "antigravity",
+  "translation_model": "gemini-3.8-flash-medium",
+  "translation_effort": "medium",
+  "translation_review": "gemini-polished-awaiting-human-review",
+  "polished_paragraphs": 136,
+  "polished_at": "2026-10-23T06:51:51.779309+00:00",
+  "validation": {
+    "equations": {
+      "1": "p5-b6",
+      "2": "p5-b11",
+      "3": "p5-b15",
+      "A.1": "p14-b5"
+    },
+    "equation_references": 8,
+    "paragraphs": 165
+  }
+}

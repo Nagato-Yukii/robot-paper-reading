@@ -186,17 +186,20 @@ h2 .en-h{font-family:var(--en);font-size:.7em;font-weight:400;color:var(--faint)
 .eq-ref{font-weight:600;text-decoration:underline;text-underline-offset:3px;border-radius:3px}
 .eq-backlinks{display:flex;gap:8px 16px;flex-wrap:wrap;margin-top:10px;font:12px/1.8 var(--sans)}
 .eq-backref{padding:2px 8px;border:1px solid var(--line);border-radius:12px}
+.pair .en,.pair .zh{min-width:0;overflow-wrap:anywhere}
+.pair .katex{font-size:1em}
+.pair .katex-display{overflow-x:auto;overflow-y:hidden;padding:3px 0}
 .imported-formula img{width:auto;max-width:100%;max-height:none}
-.source-check,.source-page{font:12px/1.7 var(--sans);color:var(--faint);margin:12px 0}
-.source-check summary,.source-page summary{cursor:pointer}
-.source-check img,.source-page img{display:block;width:100%;height:auto;margin:12px 0;background:white;border:1px solid var(--line)}
+.source-page{font:12px/1.7 var(--sans);color:var(--faint);margin:12px 0}
+.source-page summary{cursor:pointer}
+.source-page img{display:block;width:100%;height:auto;margin:12px 0;background:white;border:1px solid var(--line)}
 .source-page img{max-width:900px;margin-inline:auto}
 .bibliography-pair{font-size:12px}
 [id^="ref-"],.pair[id],figure[id]{scroll-margin-top:90px}
 :target{outline:2px solid var(--accent);outline-offset:5px}
 .eq-anchor:target{outline:0}
 figure:has(.eq-anchor:target){outline:2px solid var(--accent);outline-offset:8px}
-@media print{.source-check,.source-page,.eq-backlinks{display:none!important}.brand{min-width:0;overflow:hidden;text-overflow:ellipsis}
+@media print{.source-page,.eq-backlinks{display:none!important}.brand{min-width:0;overflow:hidden;text-overflow:ellipsis}
 .pair>.en,.pair>.zh{min-width:0;overflow-wrap:anywhere}
 h2 .en-h{font-family:var(--en);font-size:.7em;font-weight:400;color:var(--faint);margin-left:12px}
 .translation-notice{font-size:10px}.imported-heading{break-after:avoid}}
@@ -293,5 +296,6 @@ h2 .en-h{font-family:var(--en);font-size:.7em;font-weight:400;color:var(--faint)
   addEventListener('keydown',function(e){if(e.key==='Escape')zoom.classList.remove('on')});
 })();
 </script>
+<script defer src="../highlights.js"></script>
 </body>
 </html>

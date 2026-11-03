@@ -209,7 +209,7 @@
       "52": "p23-b24",
       "53": "p23-b26"
     },
-    "equation_references": 13,
+    "equation_references": 14,
     "paragraphs": 351
   },
   {
@@ -250,7 +250,7 @@
       "8": "p4-b1"
     },
     "equation_references": 0,
-    "paragraphs": 132
+    "paragraphs": 133
   },
   {
     "id": "exbody",
@@ -283,7 +283,7 @@
       "6": "p5-b11",
       "7": "p5-b11"
     },
-    "equation_references": 2,
+    "equation_references": 3,
     "paragraphs": 134
   },
   {
@@ -350,7 +350,7 @@
       "2": "p5-b10"
     },
     "equation_references": 0,
-    "paragraphs": 168
+    "paragraphs": 167
   },
   {
     "id": "kungfubot",
@@ -398,7 +398,7 @@
       "26": "p18-b17",
       "27": "p20-b8"
     },
-    "equation_references": 25,
+    "equation_references": 26,
     "paragraphs": 227
   },
   {
@@ -590,5 +590,315 @@
     },
     "equation_references": 4,
     "paragraphs": 278
+  },
+  {
+    "id": "blind-precise-assembly",
+    "pages": 21,
+    "sha256": "5bc66905c70d821a0d70a728e66ba80acb2269f6b4231f2e57de0b3470f122fb",
+    "equations": {},
+    "equation_references": 0,
+    "paragraphs": 161
+  },
+  {
+    "id": "blind-dexterity",
+    "pages": 9,
+    "sha256": "d5e81f2676bf452bce756832f6a066671346596633c5e8c898362fd62986c612",
+    "equations": {
+      "1": "p3-b5",
+      "2": "p3-b20"
+    },
+    "equation_references": 0,
+    "paragraphs": 116
+  },
+  {
+    "id": "energy-gaits",
+    "pages": 10,
+    "sha256": "35e20083fbcc9bcc12b8020a715f471663e880ae94d4615b673a08c9f380ddd7",
+    "equations": {
+      "1": "p3-b11",
+      "2": "p3-b13",
+      "3": "p4-b7",
+      "4": "p4-b8",
+      "5": "p4-b9"
+    },
+    "equation_references": 2,
+    "paragraphs": 126
+  },
+  {
+    "id": "adaptive-energy",
+    "pages": 7,
+    "sha256": "abddefe8b11e9b4f50f8210e40a7a3926a7900831d8589cd67026ae6edba6079",
+    "equations": {
+      "1": "p3-b6",
+      "2": "p3-b10",
+      "3": "p3-b13",
+      "4": "p3-b16"
+    },
+    "equation_references": 14,
+    "paragraphs": 112
+  },
+  {
+    "id": "duke-humanoid",
+    "pages": 8,
+    "sha256": "42cc624f6b01d2c3f5434d94f49a2ff4cdc48365c527f9cec0eb52b81d4c0228",
+    "equations": {},
+    "equation_references": 0,
+    "paragraphs": 135
+  },
+  {
+    "id": "eco",
+    "pages": 16,
+    "sha256": "8584f22e9b56c8ac315b4747ee8fd152d3d34c9dfab54258c3b91e4fdbca45fc",
+    "equations": {
+      "1": "p3-b8",
+      "2": "p3-b11",
+      "3": "p3-b13",
+      "4": "p3-b18",
+      "5": "p3-b21",
+      "6": "p3-b24",
+      "7": "p3-equation7",
+      "8": "p3-b29",
+      "9": "p4-b5",
+      "10": "p4-b7",
+      "11": "p4-b10",
+      "12": "p4-b12",
+      "13": "p5-b5",
+      "14": "p5-b11",
+      "15": "p5-b13",
+      "16": "p5-b16",
+      "17": "p5-b19-eq-17",
+      "18": "p5-b22",
+      "19": "p5-b26",
+      "20": "p5-b28",
+      "21": "p6-b3",
+      "22": "p6-b5",
+      "23": "p6-b7",
+      "24": "p6-b9",
+      "25": "p6-b12",
+      "26": "p7-b12",
+      "27": "p7-b12",
+      "28": "p7-b13",
+      "29": "p7-b14"
+    },
+    "equation_references": 20,
+    "paragraphs": 225
+  },
+  {
+    "id": "supermimic",
+    "title": "SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model",
+    "pages": 19,
+    "sha256": "fe213017ab062f4acc3965da89abd3c29969163e144a2628a662b8ce46691009",
+    "source_aliases": [
+      "https://arxiv.org/pdf/2610.28480"
+    ],
+    "translation_review": "gemini-polished-awaiting-human-review",
+    "equations": {
+      "1": "p5-b6",
+      "2": "p5-b11",
+      "3": "p5-b15",
+      "A.1": "p14-b5"
+    },
+    "equation_references": 8,
+    "paragraphs": 165
+  },
+  {
+    "id": "gae",
+    "title": "High-Dimensional Continuous Control Using Generalized Advantage Estimation",
+    "pages": 14,
+    "sha256": "5aa736ccf3517a1f36d0ca8146982e69beaf9a2bdccac2ae324f780743bc045e",
+    "source_aliases": [
+      "https://arxiv.org/pdf/1506.02438"
+    ],
+    "translation_review": "astra-translated-awaiting-human-review",
+    "equations": {
+      "1": "p2-b10",
+      "2": "p2-b18",
+      "3": "p2-b18",
+      "4": "p3-b4",
+      "5": "p3-b5",
+      "6": "p3-b7",
+      "7": "p3-b11",
+      "8": "p3-b13",
+      "9": "p4-b5",
+      "10": "p4-b8",
+      "11": "p4-b11",
+      "12": "p4-b11",
+      "13": "p4-b11",
+      "14": "p4-b12",
+      "15": "p4-b14",
+      "16": "p5-b2",
+      "17": "p5-b5",
+      "18": "p5-b6",
+      "19": "p5-b10",
+      "20": "p5-b15",
+      "21": "p6-b2",
+      "22": "p6-b4",
+      "23": "p6-b5",
+      "24": "p6-b6",
+      "25": "p6-b10",
+      "26": "p6-b13",
+      "27": "p6-b16",
+      "28": "p7-b3",
+      "29": "p7-b6",
+      "30": "p7-b9",
+      "31": "p8-b3",
+      "32": "p12-b6",
+      "33": "p12-b12"
+    },
+    "equation_references": 20,
+    "paragraphs": 156
+  },
+  {
+    "id": "ppo",
+    "title": "Proximal Policy Optimization Algorithms",
+    "pages": 12,
+    "sha256": "e78feadadbdbb0b601b3c2bcc81404722cd431a489b307545f9b7bea1e8c4f5b",
+    "source_aliases": [
+      "https://arxiv.org/pdf/1707.06347"
+    ],
+    "translation_review": "astra-translated-awaiting-human-review",
+    "equations": {
+      "1": "p2-b3",
+      "2": "p2-b5",
+      "3": "p2-b9",
+      "4": "p2-b9",
+      "5": "p2-b12",
+      "6": "p3-b2",
+      "7": "p3-b5",
+      "8": "p4-b6",
+      "9": "p5-b1",
+      "10": "p5-b3",
+      "11": "p5-b5",
+      "12": "p5-b6"
+    },
+    "equation_references": 4,
+    "paragraphs": 86
+  },
+  {
+    "id": "controlvae",
+    "title": "ControlVAE: Model-Based Learning of Generative Controllers for Physics-Based Characters",
+    "pages": 16,
+    "sha256": "e25f4cbf4d4106c981ae37443ea5bfada403dcd06bf5dd9ac909409700587b96",
+    "source_aliases": [
+      "https://arxiv.org/html/2210.06063",
+      "https://arxiv.org/pdf/2210.06063"
+    ],
+    "translation_review": "astra-translated-awaiting-human-review",
+    "equations": {
+      "1": "p3-b10",
+      "2": "p3-b12",
+      "3": "p4-b8",
+      "4": "p4-b11",
+      "5": "p4-b13",
+      "6": "p4-b15",
+      "7": "p4-b19",
+      "8": "p4-b21",
+      "9": "p5-b2",
+      "10": "p5-b8",
+      "11": "p5-b9",
+      "12": "p5-b12",
+      "13": "p5-b14",
+      "14": "p5-b18",
+      "15": "p6-b9",
+      "16": "p6-b12",
+      "17": "p6-b19",
+      "18": "p7-b5",
+      "19": "p7-b6",
+      "20": "p7-b8",
+      "21": "p7-b20",
+      "22": "p8-b3",
+      "23": "p8-b5",
+      "24": "p8-b8",
+      "25": "p8-b11",
+      "26": "p8-b14",
+      "27": "p9-b6",
+      "28": "p9-b9",
+      "29": "p9-b12",
+      "30": "p9-b14",
+      "31": "p9-b16",
+      "32": "p9-b21"
+    },
+    "equation_references": 34,
+    "paragraphs": 254
+  },
+  {
+    "id": "supertrack",
+    "title": "SuperTrack: Motion Tracking for Physically Simulated Characters using Supervised Learning",
+    "pages": 13,
+    "sha256": "91276c0027b2c299303a466357526a365eb7806c9bea3de2d33f6e5d6de9083d",
+    "source_aliases": [
+      "https://theorangeduck.com/media/uploads/other_stuff/SuperTrack.pdf"
+    ],
+    "translation_review": "astra-translated-awaiting-human-review",
+    "equations": {
+      "1": "p4-b11",
+      "2": "p4-b12",
+      "3": "p4-b13",
+      "4": "p4-b14",
+      "5": "p4-b3",
+      "6": "p4-b4",
+      "7": "p4-b5",
+      "8": "p5-b4",
+      "9": "p5-b4",
+      "10": "p5-b5",
+      "11": "p5-b6",
+      "12": "p5-b7"
+    },
+    "equation_references": 0,
+    "paragraphs": 186
+  },
+  {
+    "id": "dreamer",
+    "title": "Dream to Control: Learning Behaviors by Latent Imagination",
+    "pages": 20,
+    "sha256": "318891d59ba0065f57eb0e735735700e5eb528f53bf08b81c773437385586c64",
+    "source_aliases": [
+      "https://arxiv.org/pdf/1912.01603"
+    ],
+    "translation_review": "astra-translated-awaiting-human-review",
+    "equations": {
+      "1": "p2-b17",
+      "2": "p4-b4",
+      "3": "p4-b7",
+      "4": "p4-b9",
+      "5": "p4-b9",
+      "6": "p4-b9",
+      "7": "p5-b4",
+      "8": "p5-b4",
+      "9": "p6-b4",
+      "10": "p6-b6",
+      "11": "p6-b9",
+      "12": "p6-b11",
+      "13": "p15-b3",
+      "14": "p15-b7",
+      "15": "p15-b10",
+      "16": "p15-b12"
+    },
+    "equation_references": 6,
+    "paragraphs": 168
+  },
+  {
+    "id": "active-inference-process-theory",
+    "title": "Active Inference: A Process Theory",
+    "pages": 56,
+    "sha256": "09f8d5c71d88054a2fdbaa60ebf43b7cf19b5e925e593671b9fed1868c98e92e",
+    "source_aliases": [
+      "/home/suzumiyaharuhi/Desktop/process_theory.pdf",
+      "https://activeinference.github.io/papers/process_theory.pdf"
+    ],
+    "translation_review": "gemini-translated-awaiting-human-review",
+    "equations": {
+      "2.1": "p7-b4",
+      "2.2": "p7-b8",
+      "2.3": "p8-b8",
+      "2.4": "p9-b7",
+      "2.5": "p10-b5",
+      "2.6": "p13-b2",
+      "2.7": "p14-b2",
+      "2.8": "p14-b5",
+      "3.1": "p31-b2"
+    },
+    "equation_references": 42,
+    "paragraphs": 384
   }
 ]

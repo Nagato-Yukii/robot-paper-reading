@@ -1,0 +1,61 @@
+{
+  "model": "gemini-3.8-flash-medium",
+  "effort": "medium",
+  "via": "local Antigravity CLI",
+  "operation": "direct-translation",
+  "layout_fixes": [
+    "Discarded list item (3) incorrectly detected as a numbered equation"
+  ],
+  "completed_at": "2026-10-20T11:38:32.893304+00:00",
+  "paragraphs": 116,
+  "status": "all-batches-successfully-validated",
+  "human_reviewed": false,
+  "batches": [
+    {
+      "job_id": "blind-dexterity-001",
+      "conversation_id": "1685e510-39a1-412f-9c30-26b414387760",
+      "receipt_sha256": "23ad2b25aaa1b2ebf9463575245d0e609054079650e1883cdc61204e5959d50d",
+      "usage": {
+        "input_tokens": 42836,
+        "output_tokens": 19179,
+        "thinking_tokens": 12108,
+        "cache_read_tokens": 0,
+        "total_tokens": 62015
+      },
+      "elapsed_seconds": 117.96
+    },
+    {
+      "job_id": "blind-dexterity-002",
+      "conversation_id": "a0210134-6ad5-4361-80f0-4aeca8f3891c",
+      "receipt_sha256": "cbd9d73e7cc58e329827ec832c234bddfd2cc388cec90ee6189b349b20bbe2b7",
+      "usage": {
+        "input_tokens": 54579,
+        "output_tokens": 28512,
+        "thinking_tokens": 20702,
+        "cache_read_tokens": 0,
+        "total_tokens": 83091
+      },
+      "elapsed_seconds": 199.96
+    },
+    {
+      "job_id": "blind-dexterity-003",
+      "conversation_id": "27011ec6-3497-49d0-aec4-40dc8463c097",
+      "receipt_sha256": "8f7cdd13fe46a209e54517fc2a6217de1b2b93823a1e5593c2bacf052ac2d142",
+      "usage": {
+        "input_tokens": 11965,
+        "output_tokens": 15951,
+        "thinking_tokens": 12519,
+        "cache_read_tokens": 0,
+        "total_tokens": 27916
+      },
+      "elapsed_seconds": 112.79
+    }
+  ],
+  "usage": {
+    "input_tokens": 109380,
+    "output_tokens": 63642,
+    "thinking_tokens": 45329,
+    "cache_read_tokens": 0,
+    "total_tokens": 173022
+  }
+}
